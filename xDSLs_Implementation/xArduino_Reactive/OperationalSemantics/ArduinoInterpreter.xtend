@@ -1,4 +1,4 @@
-package org.imt.arduino.reactive.interpreter
+package arduino.reactive.interpreter
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
 import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel

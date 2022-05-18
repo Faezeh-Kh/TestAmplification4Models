@@ -1,4 +1,4 @@
-package org.imt.pssm.reactive.interpreter
+package pssm.reactive.interpreter
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
