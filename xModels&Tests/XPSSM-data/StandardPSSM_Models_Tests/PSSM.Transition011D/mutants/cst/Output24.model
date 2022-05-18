@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<statemachines:CustomSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
+  <statemachine name="Transition011_Test_D$behavior$1">
+    <regions name="Region1">
+      <vertice xsi:type="statemachines:Pseudostate" name="Initial1" outgoingTransitions="//@statemachine/@regions.0/@transitions.0"/>
+      <vertice xsi:type="statemachines:State" name="wait" outgoingTransitions="//@statemachine/@regions.0/@transitions.2" incomingTransitions="//@statemachine/@regions.0/@transitions.0"/>
+      <vertice xsi:type="statemachines:State" name="S1" outgoingTransitions="//@statemachine/@regions.0/@transitions.1 //@statemachine/@regions.0/@transitions.3" incomingTransitions="//@statemachine/@regions.0/@transitions.2">
+        <regions name="Region1">
+          <vertice xsi:type="statemachines:Pseudostate" name="Initial1" outgoingTransitions="//@statemachine/@regions.0/@vertice.2/@regions.0/@transitions.0"/>
+          <vertice xsi:type="statemachines:State" name="S1.1" outgoingTransitions="//@statemachine/@regions.0/@vertice.2/@regions.0/@transitions.1" incomingTransitions="//@statemachine/@regions.0/@vertice.2/@regions.0/@transitions.0">
+            <entry name="S1.1(entry)"/>
+            <exit name="S1.1(exit)"/>
+          </vertice>
+          <vertice xsi:type="statemachines:FinalState" name="FinalState1" incomingTransitions="//@statemachine/@regions.0/@vertice.2/@regions.0/@transitions.1"/>
+          <transitions name="T1.1" source="//@statemachine/@regions.0/@vertice.2/@regions.0/@vertice.0" target="//@statemachine/@regions.0/@vertice.2/@regions.0/@vertice.1" kind="external"/>
+          <transitions name="T1.2" source="//@statemachine/@regions.0/@vertice.2/@regions.0/@vertice.1" target="//@statemachine/@regions.0/@vertice.2/@regions.0/@vertice.2" kind="external">
+            <triggers name="PendingTrigger">
+              <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.2"/>
+            </triggers>
+          </transitions>
+        </regions>
+        <regions name="Region2">
+          <vertice xsi:type="statemachines:Pseudostate" name="Initial1" outgoingTransitions="//@statemachine/@regions.0/@vertice.2/@regions.1/@transitions.0"/>
+          <vertice xsi:type="statemachines:State" name="S2.1" outgoingTransitions="//@statemachine/@regions.0/@vertice.2/@regions.1/@transitions.1" incomingTransitions="//@statemachine/@regions.0/@vertice.2/@regions.1/@transitions.0">
+            <entry name="S2.1(entry)"/>
+            <exit name="S2.1(exit)"/>
+          </vertice>
+          <vertice xsi:type="statemachines:FinalState" name="FinalState1" incomingTransitions="//@statemachine/@regions.0/@vertice.2/@regions.1/@transitions.1"/>
+          <transitions name="T2.1" source="//@statemachine/@regions.0/@vertice.2/@regions.1/@vertice.0" target="//@statemachine/@regions.0/@vertice.2/@regions.1/@vertice.1" kind="external"/>
+          <transitions name="T2.2" source="//@statemachine/@regions.0/@vertice.2/@regions.1/@vertice.1" target="//@statemachine/@regions.0/@vertice.2/@regions.1/@vertice.2" kind="external">
+            <triggers name="PendingTrigger">
+              <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.2"/>
+            </triggers>
+          </transitions>
+        </regions>
+        <exit name="S1(exit)"/>
+        <connectionPoint name="ExitPoint1" incomingTransitions="//@statemachine/@regions.0/@transitions.1" kind="exitpoint"/>
+      </vertice>
+      <vertice xsi:type="statemachines:FinalState" name="FinalState1" incomingTransitions="//@statemachine/@regions.0/@transitions.3"/>
+      <transitions name="T1" source="//@statemachine/@regions.0/@vertice.0" target="//@statemachine/@regions.0/@vertice.1" kind="external"/>
+      <transitions name="T3" source="//@statemachine/@regions.0/@vertice.2" target="//@statemachine/@regions.0/@vertice.2/@connectionPoint.0" kind="local">
+        <triggers name="ContinueTrigger">
+          <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.0"/>
+        </triggers>
+        <effect name="T3(effect)"/>
+      </transitions>
+      <transitions name="T2" source="//@statemachine/@regions.0/@vertice.1" target="//@statemachine/@regions.0/@vertice.2" kind="external">
+        <triggers name="StartTrigger">
+          <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.1"/>
+        </triggers>
+      </transitions>
+      <transitions name="T4" source="//@statemachine/@regions.0/@vertice.2" target="//@statemachine/@regions.0/@vertice.3" kind="external">
+        <effect name="T4(testEnd)"/>
+      </transitions>
+    </regions>
+  </statemachine>
+  <signals name="Continue"/>
+  <signals name="Start"/>
+  <signals name="Pending"/>
+</statemachines:CustomSystem>

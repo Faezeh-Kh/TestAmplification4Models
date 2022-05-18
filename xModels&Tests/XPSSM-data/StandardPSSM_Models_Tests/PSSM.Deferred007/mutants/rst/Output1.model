@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ASCII"?>
+<statemachines:CustomSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
+  <statemachine name="Deferred007_Test$behavior$1">
+    <regions name="Region1">
+      <vertice xsi:type="statemachines:Pseudostate" name="Initial1" outgoingTransitions="//@statemachine/@regions.0/@transitions.0"/>
+      <vertice xsi:type="statemachines:State" name="wait" incomingTransitions="//@statemachine/@regions.0/@transitions.0"/>
+      <vertice xsi:type="statemachines:State" name="S2" outgoingTransitions="//@statemachine/@regions.0/@transitions.1 //@statemachine/@regions.0/@transitions.2">
+        <exit name="S2(exit)"/>
+      </vertice>
+      <vertice xsi:type="statemachines:State" name="S3" outgoingTransitions="//@statemachine/@regions.0/@transitions.3" incomingTransitions="//@statemachine/@regions.0/@transitions.1 //@statemachine/@regions.0/@transitions.2"/>
+      <vertice xsi:type="statemachines:FinalState" name="FinalState1" incomingTransitions="//@statemachine/@regions.0/@transitions.3"/>
+      <transitions name="T1" source="//@statemachine/@regions.0/@vertice.0" target="//@statemachine/@regions.0/@vertice.1" kind="external"/>
+      <transitions name="T5" source="//@statemachine/@regions.0/@vertice.2" target="//@statemachine/@regions.0/@vertice.3" kind="external">
+        <triggers name="ContinueSignalEventTrigger">
+          <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.1"/>
+        </triggers>
+      </transitions>
+      <transitions name="T6" source="//@statemachine/@regions.0/@vertice.2" target="//@statemachine/@regions.0/@vertice.3" kind="external">
+        <triggers name="op">
+          <eventType xsi:type="statemachines:CallEventType" operation="//@operations.0"/>
+        </triggers>
+        <effect name="T6(effect)"/>
+      </transitions>
+      <transitions name="T7" source="//@statemachine/@regions.0/@vertice.3" target="//@statemachine/@regions.0/@vertice.4" kind="external">
+        <effect name="T7(testEnd)"/>
+      </transitions>
+    </regions>
+  </statemachine>
+  <signals name="Start"/>
+  <signals name="Continue"/>
+  <operations name="op">
+    <inParameters xsi:type="statemachines:BooleanAttribute" name="p1"/>
+  </operations>
+</statemachines:CustomSystem>

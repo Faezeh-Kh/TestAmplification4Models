@@ -1,0 +1,25 @@
+Number of generated mutants: 19
+Number of killed mutants: 15
+--------------------------------------------------
+Original test case: Behavior001_Test
+Killed mutant 1: \PSSM.Behavior001\mutants\ctt\Output0.model
+Killed mutant 2: \PSSM.Behavior001\mutants\sdt\Output0.model
+Killed mutant 3: \PSSM.Behavior001\mutants\rac\Output1.model
+Killed mutant 4: \PSSM.Behavior001\mutants\cac\Output1.model
+Killed mutant 5: \PSSM.Behavior001\mutants\rac\Output0.model
+Killed mutant 6: \PSSM.Behavior001\mutants\cas\Output0.model
+Killed mutant 7: \PSSM.Behavior001\mutants\cac\Output0.model
+Killed mutant 8: \PSSM.Behavior001\mutants\cat\Output0.model
+Killed mutant 9: \PSSM.Behavior001\mutants\cst\Output0.model
+Killed mutant 10: \PSSM.Behavior001\mutants\rtr\Output1.model
+Killed mutant 11: \PSSM.Behavior001\mutants\dtr\Output0.model
+Killed mutant 12: \PSSM.Behavior001\mutants\rst\Output0.model
+Killed mutant 13: \PSSM.Behavior001\mutants\ctt\Output1.model
+Killed mutant 14: \PSSM.Behavior001\mutants\sdt\Output1.model
+Killed mutant 15: \PSSM.Behavior001\mutants\rtr\Output0.model
+--------------------------------------------------
+Number of alive mutants: 4
+Alive mutant 1: \PSSM.Behavior001\mutants\rev\Output0.model
+Alive mutant 2: \PSSM.Behavior001\mutants\csev\Output0.model
+Alive mutant 3: \PSSM.Behavior001\mutants\cet\Output0.model
+Alive mutant 4: \PSSM.Behavior001\mutants\csev\Output1.model

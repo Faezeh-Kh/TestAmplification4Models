@@ -1,0 +1,62 @@
+Total number of mutants: 44
+- initial number of killed mutants: 6
+- initial mutation score : 13.636363636363635%
+Total number of test cases improving mutation score: 2
+- number of mutants killed by improved test cases: 15
+- total number of killed mutants: 21
+- final mutation score : 47.72727272727273%
+=> improvement in the mutation score : 34.09090909090909%
+--------------------------------------------------
+iteration 1: 2 generated test cases
+Amplified Test Case: test1_2_EventCreation
+Killed mutant 1: \Arduino.triggerFan\mutants\cmir\Output11.model
+Killed mutant 2: \Arduino.triggerFan\mutants\cmir\Output16.model
+Killed mutant 3: \Arduino.triggerFan\mutants\cmar\Output13.model
+
+Amplified Test Case: test1_3_EventCreation
+Killed mutant 1: \Arduino.triggerFan\mutants\cmir\Output14.model
+Killed mutant 2: \Arduino.triggerFan\mutants\cic\Output5.model
+Killed mutant 3: \Arduino.triggerFan\mutants\cmar\Output14.model
+Killed mutant 4: \Arduino.triggerFan\mutants\cmir\Output5.model
+Killed mutant 5: \Arduino.triggerFan\mutants\cmar\Output17.model
+Killed mutant 6: \Arduino.triggerFan\mutants\cic\Output4.model
+Killed mutant 7: \Arduino.triggerFan\mutants\cmir\Output10.model
+Killed mutant 8: \Arduino.triggerFan\mutants\cmar\Output8.model
+Killed mutant 9: \Arduino.triggerFan\mutants\cmir\Output15.model
+Killed mutant 10: \Arduino.triggerFan\mutants\cmar\Output4.model
+Killed mutant 11: \Arduino.triggerFan\mutants\cmar\Output11.model
+Killed mutant 12: \Arduino.triggerFan\mutants\cmir\Output4.model
+
+--------------------------------------------------
+Original test case: test1
+Killed mutant 1: \Arduino.triggerFan\mutants\cbbo_inf\Output0.model
+Killed mutant 2: \Arduino.triggerFan\mutants\cmir\Output13.model
+Killed mutant 3: \Arduino.triggerFan\mutants\cmar\Output10.model
+Killed mutant 4: \Arduino.triggerFan\mutants\cmar\Output15.model
+Killed mutant 5: \Arduino.triggerFan\mutants\cic\Output3.model
+Killed mutant 6: \Arduino.triggerFan\mutants\cbbo_infe\Output0.model
+--------------------------------------------------
+List of Alive mutants:
+Alive mutant 1: \Arduino.triggerFan\mutants\cmar\Output6.model
+Alive mutant 2: \Arduino.triggerFan\mutants\cmir\Output8.model
+Alive mutant 3: \Arduino.triggerFan\mutants\cmir\Output7.model
+Alive mutant 4: \Arduino.triggerFan\mutants\cimgr\Output0.model
+Alive mutant 5: \Arduino.triggerFan\mutants\cbbo_different\Output0.model
+Alive mutant 6: \Arduino.triggerFan\mutants\cmir\Output3.model
+Alive mutant 7: \Arduino.triggerFan\mutants\cmar\Output7.model
+Alive mutant 8: \Arduino.triggerFan\mutants\cmir\Output6.model
+Alive mutant 9: \Arduino.triggerFan\mutants\cbbo_equal\Output0.model
+Alive mutant 10: \Arduino.triggerFan\mutants\cmar\Output3.model
+Alive mutant 11: \Arduino.triggerFan\mutants\cmar\Output9.model
+Alive mutant 12: \Arduino.triggerFan\mutants\cbbo_supe\Output0.model
+Alive mutant 13: \Arduino.triggerFan\mutants\cmar\Output12.model
+Alive mutant 14: \Arduino.triggerFan\mutants\cri\Output0.model
+Alive mutant 15: \Arduino.triggerFan\mutants\cbbo_or\Output0.model
+Alive mutant 16: \Arduino.triggerFan\mutants\cbbo_and\Output0.model
+Alive mutant 17: \Arduino.triggerFan\mutants\cimgr\Output2.model
+Alive mutant 18: \Arduino.triggerFan\mutants\cmir\Output9.model
+Alive mutant 19: \Arduino.triggerFan\mutants\cmir\Output12.model
+Alive mutant 20: \Arduino.triggerFan\mutants\cmar\Output5.model
+Alive mutant 21: \Arduino.triggerFan\mutants\cmar\Output16.model
+Alive mutant 22: \Arduino.triggerFan\mutants\cimgr\Output1.model
+Alive mutant 23: \Arduino.triggerFan\mutants\cmir\Output17.model

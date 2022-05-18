@@ -1,0 +1,158 @@
+generate exhaustive mutants
+in "data/out/"
+from "data/model/"
+metamodel "/XPSSMMutation/data/model/statemachines.ecore"
+
+with blocks {
+	//addition mutation operators
+	// dtr mutants can be killed if the duplicated transition is from an initial Pseudostate
+	dtr "Duplicates a transition if its source is initial Pseudostate"{
+		deep clone one Transition where {^source is typed Pseudostate and ^source.kind is "initial"}
+	}
+	cac "Creates an action and set it to a transition"{
+		action = create Behavior with {name = random-string(1, 4)}
+		modify one Transition with {effect = action}
+	}
+	cas "Creates an action and set it to a state"{
+		action = create Behavior with {name = random-string(1, 4)}
+		modify one State where {self not typed FinalState} with {entry = action}
+	}
+	csev "Creates a signalEventType and set it to a transition"{	
+		signalEventType = create SignalEventType with {signal = one Signal}
+		event = create Trigger with {name = random-string(1, 4), eventType = signalEventType}
+		modify one Transition with {triggers = event}
+	}
+	ccev "Creates a callEventType and set it to a transition"{	
+		callEventType = create CallEventType with {operation = one Operation}
+		event = create Trigger with {name = random-string(1, 4), eventType = callEventType}
+		modify one Transition with {triggers = event}
+	}
+	//deletion mutation operators
+	rtr "Removes a transition"{
+		remove one Transition
+	}
+	rst "Removes a state and adjacent transitions"{
+		remove one Vertex
+		remove all Transition where {^source = null}
+		remove all Transition where {^target = null}
+	}
+	rev "Removes an event"{
+		remove one Trigger
+	}
+	rac "Removes an action"{
+		remove one Behavior
+	}
+	rco "Removes a constraint"{
+		remove one Constraint
+	}
+	
+	//modification mutation operators
+	sdt "Swaps the direction of a transition"{
+		modify one Transition with {swapref(^source, ^target)}
+	}
+	cis "Changes the initial state to a different one" {
+		initial1 = select one Pseudostate where {kind = {initial}}
+		initial2 = select one Pseudostate where {kind = {initial} and self <> initial1}
+		transition = select one Transition where {^source = initial1}
+		modify transition with {^source = initial2}
+	}
+	cfs "Changes the final state to a different one"{
+		final = select one FinalState
+		transition = select one Transition where {^target is typed FinalState and ^target<>final}
+		modify transition with {^target = final}
+	}
+	cst "Changes the source state of a transition"{
+		transition = select one Transition
+		state = select one State where {self not typed FinalState and self <> transition->^source}
+		modify transition with {^source = state}
+	}
+	ctt "Changes the target state of a transition"{
+		transition = select one Transition
+		state = select one State where {self <> transition->^target}
+		modify transition with {^target = state}
+	}
+	cet "Changes the event of a transition"{
+		event = select one Trigger
+		transition = select one Transition where {triggers <> event}
+		modify transition with {triggers = event}
+	}
+	cat "Changes the action of a transition"{
+		transition = select one Transition where {effect <> null}
+		action = select one Behavior where {self <> transition->effect}
+		modify transition with {effect = action} 
+	}
+	cios "Changes the operator of Integer comparison: smaller" {
+		modify one IntegerComparisonExpression where {
+			operator in ['<=' , '==', '!=', '>=', '>'] and 
+			operand1 <> null and operand2 <> null
+		}
+		with {operator = '<'}
+	}
+	ciose "Changes the operator of Integer comparison: smaller-equal" {
+		modify one IntegerComparisonExpression where {
+			operator in ['<' , '==', '!=', '>=', '>'] and 
+			operand1 <> null and operand2 <> null
+		}
+		with {operator = '<='}
+	}
+	cioe "Changes the operator of Integer comparison: equal" {
+		modify one IntegerComparisonExpression where {
+			operator in ['<' , '<=', '!=', '>=', '>'] and 
+			operand1 <> null and operand2 <> null
+		}
+		with {operator = '=='}
+	}
+	cione "Changes the operator of Integer comparison: not-equal" {
+		modify one IntegerComparisonExpression where {
+			operator in ['<' , '<=', '==', '>=', '>'] and 
+			operand1 <> null and operand2 <> null
+		}
+		with {operator = '!='}
+	}
+	cioge "Changes the operator of Integer comparison: greater-equal" {
+		modify one IntegerComparisonExpression where {
+			operator in ['<' , '<=', '==', '!=', '>'] and 
+			operand1 <> null and operand2 <> null
+		}
+		with {operator = '>='}
+	}
+	ciog "Changes the operator of Integer comparison: greater" {
+		modify one IntegerComparisonExpression where {
+			operator in ['<' , '<=', '==', '!=', '>='] and 
+			operand1 <> null and operand2 <> null
+		}
+		with {operator = '>'}
+	}
+	cboa "Changes the operator of Boolean Binary comparison: and" {
+		modify one BooleanBinaryExpression where {
+			operator = '||' and operand1 <> null and operand2 <> null
+		}
+		with {operator = '&&'}
+	}
+	cboo "Changes the operator of Boolean Binary comparison: or" {
+		modify one BooleanBinaryExpression where {
+			operator = '&&' and operand1 <> null and operand2 <> null
+		}
+		with {operator = '||'}
+	}
+	cbot "Changes the operator of Boolean Unary comparison: true" {
+		modify one BooleanUnaryExpression where {operator = 'True' and operand <> null }
+		with {operator = 'False'}
+	}
+	cbof "Changes the operator of Boolean Unary comparison: false" {
+		modify one BooleanUnaryExpression where {operator = 'False' and operand <> null }
+		with {operator = 'True'}
+	}
+	csoe "Changes the operator of String comparison: equals" {
+		modify one StringComparisonExpression where {
+			operator = '!=' and operand1 <> null and operand2 <> null
+		}
+		with {operator = '=='}
+	}
+	csone "Changes the operator of String comparison: not-equals" {
+		modify one StringComparisonExpression where {
+			operator = '==' and operand1 <> null and operand2 <> null
+		}
+		with {operator = '!='}
+	}
+}

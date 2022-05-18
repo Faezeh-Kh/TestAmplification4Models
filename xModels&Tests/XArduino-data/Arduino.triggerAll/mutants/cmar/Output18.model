@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="ASCII"?>
+<arduino:Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduino="http://www.obeo.fr/arduino" xsi:schemaLocation="http://www.obeo.fr/arduino ../../../model/arduino.ecore">
+  <boards xsi:type="arduino:ArduinoBoard" name="board">
+    <digitalPins name="redLed">
+      <module xsi:type="arduino:LED" name="redLed" color="red"/>
+    </digitalPins>
+    <digitalPins name="blueLed">
+      <module xsi:type="arduino:LED" name="blueLed"/>
+    </digitalPins>
+    <digitalPins name="whiteLed">
+      <module xsi:type="arduino:LED" name="whiteLed" color="white"/>
+    </digitalPins>
+    <digitalPins name="servo1">
+      <module xsi:type="arduino:MicroServo" name="servo1"/>
+    </digitalPins>
+    <digitalPins name="servo2">
+      <module xsi:type="arduino:MicroServo" name="servo2"/>
+    </digitalPins>
+    <digitalPins name="irSensor">
+      <module xsi:type="arduino:InfraRedSensor" name="irSensor"/>
+    </digitalPins>
+    <digitalPins name="button">
+      <module xsi:type="arduino:PushButton" name="button"/>
+    </digitalPins>
+    <digitalPins name="fan">
+      <module xsi:type="arduino:Fan" name="fan"/>
+    </digitalPins>
+    <analogPins name="soundSensor">
+      <module xsi:type="arduino:SoundSensor" name="soundSensor"/>
+    </analogPins>
+  </boards>
+  <sketches name="sketch" board="//@boards.0">
+    <block>
+      <instructions xsi:type="arduino:If">
+        <block>
+          <instructions xsi:type="arduino:Repeat" iteration="2">
+            <block>
+              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.1/@module">
+                <operand xsi:type="arduino:IntegerConstant" value="1"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.1/@module">
+                <operand xsi:type="arduino:IntegerConstant"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
+                <operand xsi:type="arduino:IntegerConstant" value="1"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
+                <operand xsi:type="arduino:IntegerConstant"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
+                <operand xsi:type="arduino:IntegerConstant" value="1"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
+                <operand xsi:type="arduino:IntegerConstant"/>
+              </instructions>
+            </block>
+          </instructions>
+        </block>
+        <condition xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.6/@module"/>
+      </instructions>
+      <instructions xsi:type="arduino:If">
+        <block>
+          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.3/@module">
+            <operand xsi:type="arduino:IntegerConstant" value="90"/>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.1/@module">
+            <operand xsi:type="arduino:IntegerConstant"/>
+          </instructions>
+        </block>
+        <condition xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.5/@module"/>
+      </instructions>
+      <instructions xsi:type="arduino:If">
+        <block>
+          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.4/@module">
+            <operand xsi:type="arduino:IntegerConstant"/>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.7/@module">
+            <operand xsi:type="arduino:IntegerConstant" value="1"/>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.7/@module">
+            <operand xsi:type="arduino:IntegerConstant"/>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.4/@module">
+            <operand xsi:type="arduino:IntegerConstant" value="60"/>
+          </instructions>
+        </block>
+        <condition xsi:type="arduino:BinaryBooleanExpression" operator="sup">
+          <left xsi:type="arduino:IntegerModuleGet" module="//@boards.0/@analogPins.0/@module"/>
+          <right xsi:type="arduino:IntegerConstant" value="128"/>
+        </condition>
+      </instructions>
+    </block>
+  </sketches>
+</arduino:Project>

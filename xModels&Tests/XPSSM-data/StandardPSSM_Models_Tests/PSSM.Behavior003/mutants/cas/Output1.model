@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ASCII"?>
+<statemachines:CustomSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
+  <statemachine name="Behavior_003_Tester_B$behavior$1">
+    <regions name="Region1">
+      <vertice xsi:type="statemachines:Pseudostate" name="Initial1" outgoingTransitions="//@statemachine/@regions.0/@transitions.0"/>
+      <vertice xsi:type="statemachines:State" name="wait" outgoingTransitions="//@statemachine/@regions.0/@transitions.1" incomingTransitions="//@statemachine/@regions.0/@transitions.0">
+        <entry name="J"/>
+      </vertice>
+      <vertice xsi:type="statemachines:State" name="S1" outgoingTransitions="//@statemachine/@regions.0/@transitions.2" incomingTransitions="//@statemachine/@regions.0/@transitions.1">
+        <entry name="S1(entry)"/>
+        <doActivity name="S1(doActivity)"/>
+      </vertice>
+      <vertice xsi:type="statemachines:FinalState" name="FinalState1" incomingTransitions="//@statemachine/@regions.0/@transitions.2"/>
+      <transitions name="T1" source="//@statemachine/@regions.0/@vertice.0" target="//@statemachine/@regions.0/@vertice.1" kind="external"/>
+      <transitions name="T2" source="//@statemachine/@regions.0/@vertice.1" target="//@statemachine/@regions.0/@vertice.2" kind="external">
+        <triggers name="StartTrigger">
+          <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.0"/>
+        </triggers>
+      </transitions>
+      <transitions name="T3" source="//@statemachine/@regions.0/@vertice.2" target="//@statemachine/@regions.0/@vertice.3" kind="external">
+        <effect name="T3(testEnd)"/>
+      </transitions>
+    </regions>
+  </statemachine>
+  <signals name="Start"/>
+</statemachines:CustomSystem>
