@@ -3,7 +3,7 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/">
+    xmlns:statemachines="http://.pssm.reactive/statemachines/">
   <statemachine
       name="UserAccount">
     <regions

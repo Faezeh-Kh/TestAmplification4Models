@@ -283,7 +283,7 @@ Package testSuite {
 	Annotation DSLName ;
 	Test Configuration JavaEJBConfiguration {
 		create Tester tester of type TestSystem ;
-		create SUT statemachine of type MUT with { MUTPath : '/PSSM.JavaEJB_Mutants/JavaEJB.model' ; DSLName : 'org.imt.pssm.reactive.ReactivePSSM' ; } ;
+		create SUT statemachine of type MUT with { MUTPath : '/PSSM.JavaEJB_Mutants/JavaEJB.model' ; DSLName : '.pssm.reactive.ReactivePSSM' ; } ;
 		connect tester.reactiveGate to statemachine.reactiveGate ;
 	}
 	StateMachine JavaEJB ( _name = "JavaEJB" ) ;

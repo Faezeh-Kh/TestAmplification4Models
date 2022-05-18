@@ -1408,7 +1408,7 @@ Package testSuite {
 		create Tester tester of type TestSystem ;
 		create SUT statemachine of type MUT with { 
 			MUTPath : '/PSSM.JavaThread_Mutants/JavaThreadLifeCycle.model' ; 
-			DSLName : 'org.imt.pssm.reactive.ReactivePSSM' ;
+			DSLName : '.pssm.reactive.ReactivePSSM' ;
 		} ;
 		//connect tester.genericGate to statemachine.genericGate;
 		connect tester.oclGate to statemachine.oclGate ;

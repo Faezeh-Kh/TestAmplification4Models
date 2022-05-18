@@ -243,7 +243,7 @@ Package TestSuite {
 	Annotation DSLName ;
 	Test Configuration sensorLedConfiguration {
 		create Tester tester of type TestSystem ;
-		create SUT arduino of type MUT with { MUTPath : '/Arduino.SensorAlarm/sensorAlarm.model' ; DSLName : 'org.imt.arduino.reactiveArduino' ; } ;
+		create SUT arduino of type MUT with { MUTPath : '/Arduino.SensorAlarm/sensorAlarm.model' ; DSLName : 'arduino.reactiveArduino' ; } ;
 		connect tester.reactiveGate to arduino.reactiveGate ;
 		connect tester.oclGate to arduino.oclGate ;
 	}

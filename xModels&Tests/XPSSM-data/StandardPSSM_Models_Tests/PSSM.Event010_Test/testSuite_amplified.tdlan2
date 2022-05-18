@@ -1,7 +1,7 @@
 Package testSuite {
 	Test Configuration configuration4Event010_Test {
 		create Tester tester of type TestSystem ;
-		create SUT PSSM of type MUT with { MUTPath : '/PSSM.Event010/Event010_Test$behavior$1.model' ; DSLName : 'org.imt.pssm.reactive.ReactivePSSM' ; } ;
+		create SUT PSSM of type MUT with { MUTPath : '/PSSM.Event010/Event010_Test$behavior$1.model' ; DSLName : '.pssm.reactive.ReactivePSSM' ; } ;
 		connect tester.reactiveGate to PSSM.reactiveGate ;
 	}
 	StateMachine Event010_Test ( _name = 'Event010_Test$behavior$1' ) ;

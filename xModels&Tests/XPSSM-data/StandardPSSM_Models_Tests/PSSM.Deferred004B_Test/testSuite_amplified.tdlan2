@@ -1,7 +1,7 @@
 Package testSuite {
 	Test Configuration configuration4Deferred004_Test_B {
 		create Tester tester of type TestSystem ;
-		create SUT PSSM of type MUT with { MUTPath : '/PSSM.Deferred004B/Deferred004_Test_B$behavior$1.model' ; DSLName : 'org.imt.pssm.reactive.ReactivePSSM' ; } ;
+		create SUT PSSM of type MUT with { MUTPath : '/PSSM.Deferred004B/Deferred004_Test_B$behavior$1.model' ; DSLName : '.pssm.reactive.ReactivePSSM' ; } ;
 		connect tester.reactiveGate to PSSM.reactiveGate ;
 	}
 	StateMachine Deferred004_Test_B ( _name = 'Deferred004_Test_B$behavior$1' ) ;

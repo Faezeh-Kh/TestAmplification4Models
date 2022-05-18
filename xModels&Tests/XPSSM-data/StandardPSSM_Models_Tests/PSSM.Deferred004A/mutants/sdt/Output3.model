@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<statemachines:CustomSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
+<statemachines:CustomSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://.pssm.reactive/statemachines/" xsi:schemaLocation="http://.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
   <statemachine name="Deferred004_Test_A$behavior$1">
     <regions name="Region1">
       <vertice xsi:type="statemachines:Pseudostate" name="Initial1" incomingTransitions="//@statemachine/@regions.0/@vertice.2/@regions.1/@transitions.1"/>

@@ -530,7 +530,7 @@ Package testSuite {
 	Annotation DSLName ;
 	Test Configuration OnlineShoppingConfiguration {
 		create Tester tester of type TestSystem ;
-		create SUT statemachine of type MUT with { MUTPath : '/PSSM.OnlineShopping_Mutants/OnlineShopping.model' ; DSLName : 'org.imt.pssm.reactive.ReactivePSSM' ; } ;
+		create SUT statemachine of type MUT with { MUTPath : '/PSSM.OnlineShopping_Mutants/OnlineShopping.model' ; DSLName : '.pssm.reactive.ReactivePSSM' ; } ;
 		connect tester.oclGate to statemachine.oclGate ;
 		connect tester.reactiveGate to statemachine.reactiveGate ;
 	}

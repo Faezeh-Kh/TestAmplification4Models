@@ -284,7 +284,7 @@ Package triggerFan_TestSuite {
 		create Tester tester of type TestSystem ;
 		create SUT arduino of type MUT with { 
 			MUTPath : '/Arduino.triggerFan/triggerFan.model' ; 
-			DSLName : 'org.imt.arduino.reactiveArduino' ;
+			DSLName : 'arduino.reactiveArduino' ;
 		} ;
 		//connect tester.genericGate to arduino.genericGate ;
 		connect tester.reactiveGate to arduino.reactiveGate ;
