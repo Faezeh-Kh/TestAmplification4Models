@@ -1,9 +1,11 @@
 Package TestSuite {
+	
 	//test data
 	InfraRedSensor IRSensor(_name = "IR_sensor");
 	DigitalPin whiteLedPin (_name = "whiteLedPin", level =?);
 	PushButton button1 (_name = "button1");
 	DigitalPin buzzerPin (_name = "buzzerPin", level =?);
+	
 	//test cases
 	Test Description test1 uses configuration testConfiguration{
 		tester.reactiveGate sends button_pressed (button = button1) to arduino.reactiveGate;
@@ -253,7 +255,7 @@ Package TestSuite {
 		create Tester tester of type TestSystem ;
 		create SUT arduino of type MUT with { 
 			MUTPath : '/Arduino.RunningExample/runningExample.model' ; 
-			DSLName : 'arduino.reactiveArduino' ;
+			DSLName : 'org.imt.arduino.reactiveArduino' ;
 		} ;
 		connect tester.reactiveGate to arduino.reactiveGate ;
 		connect tester.oclGate to arduino.oclGate ;
