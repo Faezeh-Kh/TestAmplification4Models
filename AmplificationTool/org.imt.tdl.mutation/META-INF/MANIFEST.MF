@@ -12,7 +12,7 @@ Require-Bundle: org.etsi.mts.tdl.model;bundle-version="1.4.0",
  org.eclipse.core.resources,
  com.google.inject;bundle-version="3.0.0",
  org.etsi.mts.tdl.TDLan2;bundle-version="1.0.0",
- org.eclipse.xtext;bundle-version="2.26.0",
+ org.eclipse.xtext;bundle-version="2.25.0",
  org.eclipse.core.runtime;bundle-version="3.24.0",
  org.imt.k3tdl.tdlInterpreter;bundle-version="1.0.0",
  org.imt.tdl.configuration
