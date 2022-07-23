@@ -1,5 +1,4 @@
 Package TestSuite {
-	
 	//test data
 	InfraRedSensor IRSensor(_name = "IR_sensor");
 	DigitalPin whiteLedPin (_name = "whiteLedPin", level =?);
@@ -16,7 +15,17 @@ Package TestSuite {
 		arduino.reactiveGate sends Pin_level_changed (pin = buzzerPin (level = '1')) to tester.reactiveGate;
 		arduino.reactiveGate sends Pin_level_changed (pin = buzzerPin (level = '0')) to tester.reactiveGate;
 	}
-
+	//test configuration
+	Test Configuration testConfiguration {
+		create Tester tester of type TestSystem ;
+		create SUT arduino of type MUT with { 
+			MUTPath : '/Arduino.RunningExample/runningExample.model' ; 
+			DSLName : 'org.imt.arduino.reactiveArduino' ;
+		} ;
+		connect tester.reactiveGate to arduino.reactiveGate ;
+		connect tester.oclGate to arduino.oclGate ;
+	}
+	
 	//data types
 	Type Board extends NamedElement ( project of type Project ) with {
 		abstract ;

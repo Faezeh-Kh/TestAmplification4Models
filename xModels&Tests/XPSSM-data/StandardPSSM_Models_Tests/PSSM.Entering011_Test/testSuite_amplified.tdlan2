@@ -1,7 +1,7 @@
 Package testSuite {
 	Test Configuration configuration4Entering011_Test {
 		create Tester tester of type TestSystem ;
-		create SUT PSSM of type MUT with { MUTPath : '/PSSM.Entering011/Entering011_Test$behavior$1.model' ; DSLName : '.pssm.reactive.ReactivePSSM' ; } ;
+		create SUT PSSM of type MUT with { MUTPath : '/PSSM.Entering011/Entering011_Test$behavior$1.model' ; DSLName : 'org.imt.pssm.reactive.ReactivePSSM' ; } ;
 		connect tester.reactiveGate to PSSM.reactiveGate ;
 	}
 	StateMachine Entering011_Test ( _name = 'Entering011_Test$behavior$1' ) ;

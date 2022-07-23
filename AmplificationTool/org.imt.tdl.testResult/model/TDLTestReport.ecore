@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="TDLTestReport" nsURI="https://org.imt.tdl.testResult/TDLTestReport"
+    nsPrefix="TDLTestReport">
+  <eClassifiers xsi:type="ecore:EClass" name="TestSuiteResult">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="testSuite" lowerBound="1"
+        eType="ecore:EClass ../../org.etsi.mts.tdl.model/model/tdl.ecore#//Package"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="testCaseResults" lowerBound="1"
+        upperBound="-1" eType="#//TestCaseResult" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestCaseResult">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="testCase" lowerBound="1"
+        eType="ecore:EClass ../../org.etsi.mts.tdl.model/model/tdl.ecore#//TestDescription"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="testMessageResults" lowerBound="1"
+        upperBound="-1" eType="#//TestMessageResult" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="#//Verdicts"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestMessageResult">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="message" lowerBound="1"
+        eType="ecore:EClass ../../org.etsi.mts.tdl.model/model/tdl.ecore#//Message"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tdlMessageId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="#//Verdicts"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Verdicts">
+    <eLiterals name="PASS"/>
+    <eLiterals name="FAIL" value="1"/>
+    <eLiterals name="INCONCLUSIVE" value="2"/>
+  </eClassifiers>
+</ecore:EPackage>

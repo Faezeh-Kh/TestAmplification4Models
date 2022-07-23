@@ -26,6 +26,12 @@ Package TestSuite {
 			pin = buzzerPin ( level = '0' )
 		) to tester.reactiveGate ;
 	}
+	Test Configuration testConfiguration {
+		create Tester tester of type TestSystem ;
+		create SUT arduino of type MUT with { MUTPath : '/Arduino.RunningExample/runningExample.model' ; DSLName : 'org.imt.arduino.reactiveArduino' ; } ;
+		connect tester.reactiveGate to arduino.reactiveGate ;
+		connect tester.oclGate to arduino.oclGate ;
+	}
 	Type Board extends NamedElement ( project of type Project ) with {
 		abstract ;
 	} ;
@@ -261,21 +267,15 @@ Package TestSuite {
 	}
 	Project project_0 ( ) ;
 	Sketch sketch ( _name = "sketch" , project = project_0 ) ;
-	Test Description test1_5_EventCreation uses configuration testConfiguration {
+	Test Description test1_3_EventCreation uses configuration testConfiguration {
 		tester.reactiveGate sends button_pressed (
 			button = button1
 		) to arduino.reactiveGate ;
 		tester.reactiveGate sends IRSensor_detected (
 			sensor = IRSensor
 		) to arduino.reactiveGate ;
-		tester.reactiveGate sends _run (
-			sketch = sketch
-		) to arduino.reactiveGate ;
 		tester.reactiveGate sends button_released (
 			button = button1
-		) to arduino.reactiveGate ;
-		tester.reactiveGate sends IRSensor_notDetected (
-			sensor = IRSensor
 		) to arduino.reactiveGate ;
 		arduino.reactiveGate sends Pin_level_changed (
 			pin = whiteLedPin ( level = "1" )

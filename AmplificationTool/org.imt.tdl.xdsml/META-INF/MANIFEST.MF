@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.imt.tdl.xdsml
+Bundle-SymbolicName: org.imt.tdl.xdsml; singleton:=true
+Automatic-Module-Name: org.imt.tdl.xdsml
+Bundle-Version: 1.0.0
+Bundle-ClassPath: .
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.xtend.lib;bundle-version="2.21.0";visibility:="private",
+ org.eclipse.xtext.xbase.lib;bundle-version="2.21.0";visibility:="private",
+ com.google.guava;bundle-version="0.0.0";visibility:="private",
+ org.eclipse.emf.ecore.xmi;bundle-version="2.8.0";visibility:="reexport",
+ org.eclipse.emf.ecore;bundle-version="2.8.0";visibility:="reexport",
+ org.eclipse.emf.common;bundle-version="2.8.0";visibility:="reexport",
+ fr.inria.diverse.k3.al.annotationprocessor.plugin;bundle-version="0.0.0";visibility:="reexport",
+ org.eclipse.gemoc.xdsmlframework.api;bundle-version="4.0.0";visibility:="reexport",
+ org.eclipse.gemoc.executionframework.engine;bundle-version="4.0.0";visibility:="reexport",
+ org.eclipse.gemoc.executionframework.extensions.sirius;bundle-version="0.0.0";visibility:=reexport,
+ org.etsi.mts.tdl.model;bundle-version="1.4.0",
+ org.imt.k3tdl.tdlInterpreter;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy

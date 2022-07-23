@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Relationships
+Bundle-SymbolicName: org.imt.pssm.reactive.behavioralInterface;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Automatic-Module-Name: org.imt.pssm.relationships
+Export-Package: org.imt.pssm.reactive.relationships
+Require-Bundle: org.eclipse.gemoc.executionframework.event.manager;bundle-version="4.0.0",
+ org.eclipse.gemoc.executionframework.behavioralinterface,
+ com.google.guava,
+ org.eclipse.gemoc.executionframework.event.model

@@ -248,7 +248,7 @@ Package TestSuite {
 	Test Configuration activeWaitConfiguration {
 		create Tester tester of type TestSystem ;
 		create SUT arduino of type MUT with { MUTPath : '/Arduino.ActiveWait/activeWait.model' ; 
-		DSLName : 'arduino.reactiveArduino' ; } ;
+		DSLName : 'org.imt.arduino.reactiveArduino' ; } ;
 		connect tester.reactiveGate to arduino.reactiveGate ;
 		connect tester.oclGate to arduino.oclGate ;
 	}

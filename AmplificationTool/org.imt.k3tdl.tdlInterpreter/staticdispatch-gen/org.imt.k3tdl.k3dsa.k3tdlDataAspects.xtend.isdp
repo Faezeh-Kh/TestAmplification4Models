@@ -1,0 +1,90 @@
+	// BeginInjectInto org.imt.k3tdl.k3dsa.DataInstanceAspect#EObject getMatchedMUTElement(ArrayList<EObject>,Resource,boolean,String) from org.imt.k3tdl.k3dsa.StructuredDataInstanceAspect
+		if (_self instanceof org.etsi.mts.tdl.StructuredDataInstance){
+			result = org.imt.k3tdl.k3dsa.StructuredDataInstanceAspect.getMatchedMUTElement((org.etsi.mts.tdl.StructuredDataInstance)_self,rootElement,MUTResource,isAssertion,DSLPath);
+		} else
+		// EndInjectInto org.imt.k3tdl.k3dsa.DataInstanceAspect#EObject getMatchedMUTElement(ArrayList<EObject>,Resource,boolean,String) from org.imt.k3tdl.k3dsa.StructuredDataInstanceAspect
+	// BeginInjectInto org.imt.k3tdl.k3dsa.DataUseAspect#String updateData(EObject,EStructuralFeature) from org.imt.k3tdl.k3dsa.SpecialValueUseAspect
+		if (_self instanceof org.etsi.mts.tdl.SpecialValueUse){
+			result = org.imt.k3tdl.k3dsa.SpecialValueUseAspect.updateData((org.etsi.mts.tdl.SpecialValueUse)_self,object,matchedFeature);
+		} else
+		// EndInjectInto org.imt.k3tdl.k3dsa.DataUseAspect#String updateData(EObject,EStructuralFeature) from org.imt.k3tdl.k3dsa.SpecialValueUseAspect
+	// BeginInjectInto org.imt.k3tdl.k3dsa.DataInstanceAspect#EObject getMatchedMUTElement(ArrayList<EObject>,Resource,boolean,String) from org.imt.k3tdl.k3dsa.SimpleDataInstanceAspect
+		if (_self instanceof org.etsi.mts.tdl.SimpleDataInstance){
+			result = org.imt.k3tdl.k3dsa.SimpleDataInstanceAspect.getMatchedMUTElement((org.etsi.mts.tdl.SimpleDataInstance)_self,rootElement,MUTResource,isAssertion,DSLPath);
+		} else
+		// EndInjectInto org.imt.k3tdl.k3dsa.DataInstanceAspect#EObject getMatchedMUTElement(ArrayList<EObject>,Resource,boolean,String) from org.imt.k3tdl.k3dsa.SimpleDataInstanceAspect
+	// BeginInjectInto org.imt.k3tdl.k3dsa.DataUseAspect#String assertEquals(Resource,Object,Boolean,String) from org.imt.k3tdl.k3dsa.StaticDataUseAspect
+		if (_self instanceof org.etsi.mts.tdl.StaticDataUse){
+			result = org.imt.k3tdl.k3dsa.StaticDataUseAspect.assertEquals((org.etsi.mts.tdl.StaticDataUse)_self,MUTResource,featureValue,isAssertion,DSLPath);
+		} else
+		// EndInjectInto org.imt.k3tdl.k3dsa.DataUseAspect#String assertEquals(Resource,Object,Boolean,String) from org.imt.k3tdl.k3dsa.StaticDataUseAspect
+	// BeginInjectInto org.imt.k3tdl.k3dsa.StaticDataUseAspect#String updateData(Resource,EObject,EStructuralFeature,String) from org.imt.k3tdl.k3dsa.DataInstanceUseAspect
+		if (_self instanceof org.etsi.mts.tdl.DataInstanceUse){
+			result = org.imt.k3tdl.k3dsa.DataInstanceUseAspect.updateData((org.etsi.mts.tdl.DataInstanceUse)_self,MUTResource,object,matchedFeature,DSLPath);
+		} else
+		// EndInjectInto org.imt.k3tdl.k3dsa.StaticDataUseAspect#String updateData(Resource,EObject,EStructuralFeature,String) from org.imt.k3tdl.k3dsa.DataInstanceUseAspect
+	// BeginInjectInto org.imt.k3tdl.k3dsa.DataUseAspect#String updateData(EObject,EStructuralFeature) from org.imt.k3tdl.k3dsa.StaticDataUseAspect
+		if (_self instanceof org.etsi.mts.tdl.StaticDataUse){
+			result = org.imt.k3tdl.k3dsa.StaticDataUseAspect.updateData((org.etsi.mts.tdl.StaticDataUse)_self,object,matchedFeature);
+		} else
+		// EndInjectInto org.imt.k3tdl.k3dsa.DataUseAspect#String updateData(EObject,EStructuralFeature) from org.imt.k3tdl.k3dsa.StaticDataUseAspect
+	// BeginInjectInto org.imt.k3tdl.k3dsa.StaticDataUseAspect#String assertEquals(Object) from org.imt.k3tdl.k3dsa.LiteralValueUseAspect
+		if (_self instanceof org.etsi.mts.tdl.LiteralValueUse){
+			result = org.imt.k3tdl.k3dsa.LiteralValueUseAspect.assertEquals((org.etsi.mts.tdl.LiteralValueUse)_self,featureValue);
+		} else
+		// EndInjectInto org.imt.k3tdl.k3dsa.StaticDataUseAspect#String assertEquals(Object) from org.imt.k3tdl.k3dsa.LiteralValueUseAspect
+	// BeginInjectInto org.imt.k3tdl.k3dsa.StaticDataUseAspect#String updateData(EObject,EStructuralFeature) from org.imt.k3tdl.k3dsa.SpecialValueUseAspect
+		if (_self instanceof org.etsi.mts.tdl.SpecialValueUse){
+			result = org.imt.k3tdl.k3dsa.SpecialValueUseAspect.updateData((org.etsi.mts.tdl.SpecialValueUse)_self,object,matchedFeature);
+		} else
+		// EndInjectInto org.imt.k3tdl.k3dsa.StaticDataUseAspect#String updateData(EObject,EStructuralFeature) from org.imt.k3tdl.k3dsa.SpecialValueUseAspect
+	// BeginInjectInto org.imt.k3tdl.k3dsa.StaticDataUseAspect#String updateData(EObject,EStructuralFeature) from org.imt.k3tdl.k3dsa.LiteralValueUseAspect
+		if (_self instanceof org.etsi.mts.tdl.LiteralValueUse){
+			result = org.imt.k3tdl.k3dsa.LiteralValueUseAspect.updateData((org.etsi.mts.tdl.LiteralValueUse)_self,object,matchedFeature);
+		} else
+		// EndInjectInto org.imt.k3tdl.k3dsa.StaticDataUseAspect#String updateData(EObject,EStructuralFeature) from org.imt.k3tdl.k3dsa.LiteralValueUseAspect
+	// BeginInjectInto org.imt.k3tdl.k3dsa.StaticDataUseAspect#String assertEquals(Object) from org.imt.k3tdl.k3dsa.SpecialValueUseAspect
+		if (_self instanceof org.etsi.mts.tdl.SpecialValueUse){
+			result = org.imt.k3tdl.k3dsa.SpecialValueUseAspect.assertEquals((org.etsi.mts.tdl.SpecialValueUse)_self,featureValue);
+		} else
+		// EndInjectInto org.imt.k3tdl.k3dsa.StaticDataUseAspect#String assertEquals(Object) from org.imt.k3tdl.k3dsa.SpecialValueUseAspect
+	// BeginInjectInto org.imt.k3tdl.k3dsa.DataUseAspect#String assertEquals(Object) from org.imt.k3tdl.k3dsa.StaticDataUseAspect
+		if (_self instanceof org.etsi.mts.tdl.StaticDataUse){
+			result = org.imt.k3tdl.k3dsa.StaticDataUseAspect.assertEquals((org.etsi.mts.tdl.StaticDataUse)_self,featureValue);
+		} else
+		// EndInjectInto org.imt.k3tdl.k3dsa.DataUseAspect#String assertEquals(Object) from org.imt.k3tdl.k3dsa.StaticDataUseAspect
+	// BeginInjectInto org.imt.k3tdl.k3dsa.StaticDataUseAspect#String assertEquals(Resource,Object,Boolean,String) from org.imt.k3tdl.k3dsa.DataInstanceUseAspect
+		if (_self instanceof org.etsi.mts.tdl.DataInstanceUse){
+			result = org.imt.k3tdl.k3dsa.DataInstanceUseAspect.assertEquals((org.etsi.mts.tdl.DataInstanceUse)_self,MUTResource,featureValue,isAssertion,DSLPath);
+		} else
+		// EndInjectInto org.imt.k3tdl.k3dsa.StaticDataUseAspect#String assertEquals(Resource,Object,Boolean,String) from org.imt.k3tdl.k3dsa.DataInstanceUseAspect
+	// BeginInjectInto org.imt.k3tdl.k3dsa.DataUseAspect#String assertEquals(Object) from org.imt.k3tdl.k3dsa.LiteralValueUseAspect
+		if (_self instanceof org.etsi.mts.tdl.LiteralValueUse){
+			result = org.imt.k3tdl.k3dsa.LiteralValueUseAspect.assertEquals((org.etsi.mts.tdl.LiteralValueUse)_self,featureValue);
+		} else
+		// EndInjectInto org.imt.k3tdl.k3dsa.DataUseAspect#String assertEquals(Object) from org.imt.k3tdl.k3dsa.LiteralValueUseAspect
+	// BeginInjectInto org.imt.k3tdl.k3dsa.DataUseAspect#String updateData(Resource,EObject,EStructuralFeature,String) from org.imt.k3tdl.k3dsa.DataInstanceUseAspect
+		if (_self instanceof org.etsi.mts.tdl.DataInstanceUse){
+			result = org.imt.k3tdl.k3dsa.DataInstanceUseAspect.updateData((org.etsi.mts.tdl.DataInstanceUse)_self,MUTResource,object,matchedFeature,DSLPath);
+		} else
+		// EndInjectInto org.imt.k3tdl.k3dsa.DataUseAspect#String updateData(Resource,EObject,EStructuralFeature,String) from org.imt.k3tdl.k3dsa.DataInstanceUseAspect
+	// BeginInjectInto org.imt.k3tdl.k3dsa.DataUseAspect#String assertEquals(Object) from org.imt.k3tdl.k3dsa.SpecialValueUseAspect
+		if (_self instanceof org.etsi.mts.tdl.SpecialValueUse){
+			result = org.imt.k3tdl.k3dsa.SpecialValueUseAspect.assertEquals((org.etsi.mts.tdl.SpecialValueUse)_self,featureValue);
+		} else
+		// EndInjectInto org.imt.k3tdl.k3dsa.DataUseAspect#String assertEquals(Object) from org.imt.k3tdl.k3dsa.SpecialValueUseAspect
+	// BeginInjectInto org.imt.k3tdl.k3dsa.DataUseAspect#String assertEquals(Resource,Object,Boolean,String) from org.imt.k3tdl.k3dsa.DataInstanceUseAspect
+		if (_self instanceof org.etsi.mts.tdl.DataInstanceUse){
+			result = org.imt.k3tdl.k3dsa.DataInstanceUseAspect.assertEquals((org.etsi.mts.tdl.DataInstanceUse)_self,MUTResource,featureValue,isAssertion,DSLPath);
+		} else
+		// EndInjectInto org.imt.k3tdl.k3dsa.DataUseAspect#String assertEquals(Resource,Object,Boolean,String) from org.imt.k3tdl.k3dsa.DataInstanceUseAspect
+	// BeginInjectInto org.imt.k3tdl.k3dsa.DataUseAspect#String updateData(EObject,EStructuralFeature) from org.imt.k3tdl.k3dsa.LiteralValueUseAspect
+		if (_self instanceof org.etsi.mts.tdl.LiteralValueUse){
+			result = org.imt.k3tdl.k3dsa.LiteralValueUseAspect.updateData((org.etsi.mts.tdl.LiteralValueUse)_self,object,matchedFeature);
+		} else
+		// EndInjectInto org.imt.k3tdl.k3dsa.DataUseAspect#String updateData(EObject,EStructuralFeature) from org.imt.k3tdl.k3dsa.LiteralValueUseAspect
+	// BeginInjectInto org.imt.k3tdl.k3dsa.DataUseAspect#String updateData(Resource,EObject,EStructuralFeature,String) from org.imt.k3tdl.k3dsa.StaticDataUseAspect
+		if (_self instanceof org.etsi.mts.tdl.StaticDataUse){
+			result = org.imt.k3tdl.k3dsa.StaticDataUseAspect.updateData((org.etsi.mts.tdl.StaticDataUse)_self,MUTResource,object,matchedFeature,DSLPath);
+		} else
+		// EndInjectInto org.imt.k3tdl.k3dsa.DataUseAspect#String updateData(Resource,EObject,EStructuralFeature,String) from org.imt.k3tdl.k3dsa.StaticDataUseAspect

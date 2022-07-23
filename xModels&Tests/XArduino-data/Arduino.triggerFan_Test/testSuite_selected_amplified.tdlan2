@@ -245,7 +245,7 @@ Package triggerFan_TestSuite {
 	Annotation DSLName ;
 	Test Configuration triggerFanConfiguration {
 		create Tester tester of type TestSystem ;
-		create SUT arduino of type MUT with { MUTPath : '/Arduino.triggerFan/triggerFan.model' ; DSLName : 'arduino.reactiveArduino' ; } ;
+		create SUT arduino of type MUT with { MUTPath : '/Arduino.triggerFan/triggerFan.model' ; DSLName : 'org.imt.arduino.reactiveArduino' ; } ;
 		connect tester.reactiveGate to arduino.reactiveGate ;
 		connect tester.oclGate to arduino.oclGate ;
 	}

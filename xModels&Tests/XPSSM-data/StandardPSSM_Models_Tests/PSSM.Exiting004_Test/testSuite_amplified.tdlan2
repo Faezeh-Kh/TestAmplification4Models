@@ -1,7 +1,7 @@
 Package testSuite {
 	Test Configuration configuration4Exiting004 {
 		create Tester tester of type TestSystem ;
-		create SUT PSSM of type MUT with { MUTPath : '/PSSM.Exiting004/Exiting004$behavior$1.model' ; DSLName : '.pssm.reactive.ReactivePSSM' ; } ;
+		create SUT PSSM of type MUT with { MUTPath : '/PSSM.Exiting004/Exiting004$behavior$1.model' ; DSLName : 'org.imt.pssm.reactive.ReactivePSSM' ; } ;
 		connect tester.reactiveGate to PSSM.reactiveGate ;
 	}
 	StateMachine Exiting004 ( _name = 'Exiting004$behavior$1' ) ;

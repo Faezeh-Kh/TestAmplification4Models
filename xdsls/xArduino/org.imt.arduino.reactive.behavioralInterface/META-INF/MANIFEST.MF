@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Relationships
+Bundle-SymbolicName: org.imt.arduino.reactive.behavioralInterface;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Automatic-Module-Name: org.imt.arduino.relationships
+Export-Package: org.imt.arduino.reactive.relationships
+Require-Bundle: org.eclipse.gemoc.executionframework.event.manager;bundle-version="4.0.0",
+ org.eclipse.gemoc.executionframework.behavioralinterface;bundle-version="1.0.0",
+ org.eclipse.gemoc.executionframework.event.model

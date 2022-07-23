@@ -5,7 +5,7 @@ Package testSuite {
 		create Tester tester of type TestSystem ;
 		create SUT PSSM of type MUT with { 
 			MUTPath : '/PSSM.Transition011A/Transition011_Test_A$behavior$1.model' ; 
-			DSLName : '.pssm.reactive.ReactivePSSM' ;
+			DSLName : 'org.imt.pssm.reactive.ReactivePSSM' ;
 		} ;
 		connect tester.reactiveGate to PSSM.reactiveGate ;
 	}

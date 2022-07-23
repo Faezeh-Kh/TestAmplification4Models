@@ -209,19 +209,19 @@ Package ATMWithdrawCash_TestSuite {
 	Annotation DSLName ;
 	Test Configuration genericConfiguration {
 		create Tester tester of type TestSystem ;
-		create SUT reactivepssm of type MUT with { MUTPath : 'TODO: Put the address of the Model-Under Test here' ; DSLName : 'pssm.reactive.ReactivePSSM' ; } ;
+		create SUT reactivepssm of type MUT with { MUTPath : 'TODO: Put the address of the Model-Under Test here' ; DSLName : 'org.imt.pssm.reactive.ReactivePSSM' ; } ;
 		connect tester.genericGate to reactivepssm.genericGate ;
 		connect tester.oclGate to reactivepssm.oclGate ;
 	}
 	Test Configuration reactiveConfiguration {
 		create Tester tester of type TestSystem ;
-		create SUT reactivepssm of type MUT with { MUTPath : 'TODO: Put the address of the Model-Under Test here' ; DSLName : 'pssm.reactive.ReactivePSSM' ; } ;
+		create SUT reactivepssm of type MUT with { MUTPath : 'TODO: Put the address of the Model-Under Test here' ; DSLName : 'org.imt.pssm.reactive.ReactivePSSM' ; } ;
 		connect tester.reactiveGate to reactivepssm.reactiveGate ;
 		connect tester.oclGate to reactivepssm.oclGate ;
 	}
 	Test Configuration xPSSMConfiguration {
 		create Tester tester of type TestSystem ;
-		create SUT reactivepssm of type MUT with { MUTPath : '/ATMWithdrawCash/ATM.withdraw.model' ; DSLName : 'pssm.reactive.ReactivePSSM' ; } ;
+		create SUT reactivepssm of type MUT with { MUTPath : '/ATMWithdrawCash/ATM.withdraw.model' ; DSLName : 'org.imt.pssm.reactive.ReactivePSSM' ; } ;
 		connect tester.reactiveGate to reactivepssm.reactiveGate ;
 	}
 	StateMachine ATM ( _name = "withdrawCash" ) ;

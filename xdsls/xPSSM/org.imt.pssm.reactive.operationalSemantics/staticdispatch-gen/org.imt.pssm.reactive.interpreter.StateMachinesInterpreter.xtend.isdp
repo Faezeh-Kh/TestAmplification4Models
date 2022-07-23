@@ -1,0 +1,155 @@
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.VertexAspect#boolean contains(Vertex) from org.imt.pssm.reactive.interpreter.StateAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.State){
+			result = org.imt.pssm.reactive.interpreter.StateAspect.contains((org.imt.pssm.reactive.model.statemachines.State)_self,vertex);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.VertexAspect#boolean contains(Vertex) from org.imt.pssm.reactive.interpreter.StateAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.AttributeValueAspect#Attribute get_attribute() from org.imt.pssm.reactive.interpreter.StringAttributeValueAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.StringAttributeValue){
+			result = org.imt.pssm.reactive.interpreter.StringAttributeValueAspect.get_attribute((org.imt.pssm.reactive.model.statemachines.StringAttributeValue)_self);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.AttributeValueAspect#Attribute get_attribute() from org.imt.pssm.reactive.interpreter.StringAttributeValueAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.VertexAspect#void enter(Transition,EventOccurrence,Region) from org.imt.pssm.reactive.interpreter.StateAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.State){
+			org.imt.pssm.reactive.interpreter.StateAspect.enter((org.imt.pssm.reactive.model.statemachines.State)_self,enteringTransition,eventOccurrence,leastCommonAncestor);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.VertexAspect#void enter(Transition,EventOccurrence,Region) from org.imt.pssm.reactive.interpreter.StateAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.VertexAspect#void terminate() from org.imt.pssm.reactive.interpreter.StateAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.State){
+			org.imt.pssm.reactive.interpreter.StateAspect.terminate((org.imt.pssm.reactive.model.statemachines.State)_self);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.VertexAspect#void terminate() from org.imt.pssm.reactive.interpreter.StateAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.VertexAspect#boolean isEnterable(Transition) from org.imt.pssm.reactive.interpreter.PseudostateAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.Pseudostate){
+			result = org.imt.pssm.reactive.interpreter.PseudostateAspect.isEnterable((org.imt.pssm.reactive.model.statemachines.Pseudostate)_self,enteringTransition);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.VertexAspect#boolean isEnterable(Transition) from org.imt.pssm.reactive.interpreter.PseudostateAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.VertexAspect#void exit(Transition,EventOccurrence,Region) from org.imt.pssm.reactive.interpreter.PseudostateAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.Pseudostate){
+			org.imt.pssm.reactive.interpreter.PseudostateAspect.exit((org.imt.pssm.reactive.model.statemachines.Pseudostate)_self,exitingTransition,eventOccurrence,leastCommonAncestor);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.VertexAspect#void exit(Transition,EventOccurrence,Region) from org.imt.pssm.reactive.interpreter.PseudostateAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.VertexAspect#Region getContainingRegion() from org.imt.pssm.reactive.interpreter.PseudostateAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.Pseudostate){
+			result = org.imt.pssm.reactive.interpreter.PseudostateAspect.getContainingRegion((org.imt.pssm.reactive.model.statemachines.Pseudostate)_self);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.VertexAspect#Region getContainingRegion() from org.imt.pssm.reactive.interpreter.PseudostateAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.BehaviorAspect#void execute(EventOccurrence) from org.imt.pssm.reactive.interpreter.OperationBehaviorAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.OperationBehavior){
+			org.imt.pssm.reactive.interpreter.OperationBehaviorAspect.execute((org.imt.pssm.reactive.model.statemachines.OperationBehavior)_self,eventOccurrence);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.BehaviorAspect#void execute(EventOccurrence) from org.imt.pssm.reactive.interpreter.OperationBehaviorAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.AttributeValueAspect#String getString() from org.imt.pssm.reactive.interpreter.StringAttributeValueAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.StringAttributeValue){
+			result = org.imt.pssm.reactive.interpreter.StringAttributeValueAspect.getString((org.imt.pssm.reactive.model.statemachines.StringAttributeValue)_self);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.AttributeValueAspect#String getString() from org.imt.pssm.reactive.interpreter.StringAttributeValueAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.AttributeValueAspect#int get_value() from org.imt.pssm.reactive.interpreter.IntegerAttributeValueAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.IntegerAttributeValue){
+			result = org.imt.pssm.reactive.interpreter.IntegerAttributeValueAspect.get_value((org.imt.pssm.reactive.model.statemachines.IntegerAttributeValue)_self);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.AttributeValueAspect#int get_value() from org.imt.pssm.reactive.interpreter.IntegerAttributeValueAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.StateAspect#void enter(Transition,EventOccurrence,Region) from org.imt.pssm.reactive.interpreter.FinalStateAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.FinalState){
+			org.imt.pssm.reactive.interpreter.FinalStateAspect.enter((org.imt.pssm.reactive.model.statemachines.FinalState)_self,enteringTransition,eventOccurrence,leastCommonAncestor);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.StateAspect#void enter(Transition,EventOccurrence,Region) from org.imt.pssm.reactive.interpreter.FinalStateAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.VertexAspect#boolean isEnterable(Transition) from org.imt.pssm.reactive.interpreter.StateAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.State){
+			result = org.imt.pssm.reactive.interpreter.StateAspect.isEnterable((org.imt.pssm.reactive.model.statemachines.State)_self,enteringTransition);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.VertexAspect#boolean isEnterable(Transition) from org.imt.pssm.reactive.interpreter.StateAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.VertexAspect#void enter(Transition,EventOccurrence,Region) from org.imt.pssm.reactive.interpreter.FinalStateAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.FinalState){
+			org.imt.pssm.reactive.interpreter.FinalStateAspect.enter((org.imt.pssm.reactive.model.statemachines.FinalState)_self,enteringTransition,eventOccurrence,leastCommonAncestor);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.VertexAspect#void enter(Transition,EventOccurrence,Region) from org.imt.pssm.reactive.interpreter.FinalStateAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.ConstraintAspect#boolean evaluate(EventOccurrence) from org.imt.pssm.reactive.interpreter.BooleanConstraintAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.BooleanConstraint){
+			result = org.imt.pssm.reactive.interpreter.BooleanConstraintAspect.evaluate((org.imt.pssm.reactive.model.statemachines.BooleanConstraint)_self,eventOccurrence);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.ConstraintAspect#boolean evaluate(EventOccurrence) from org.imt.pssm.reactive.interpreter.BooleanConstraintAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.AttributeValueAspect#String getString() from org.imt.pssm.reactive.interpreter.BooleanAttributeValueAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.BooleanAttributeValue){
+			result = org.imt.pssm.reactive.interpreter.BooleanAttributeValueAspect.getString((org.imt.pssm.reactive.model.statemachines.BooleanAttributeValue)_self);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.AttributeValueAspect#String getString() from org.imt.pssm.reactive.interpreter.BooleanAttributeValueAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.VertexAspect#boolean isExitable(Transition) from org.imt.pssm.reactive.interpreter.PseudostateAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.Pseudostate){
+			result = org.imt.pssm.reactive.interpreter.PseudostateAspect.isExitable((org.imt.pssm.reactive.model.statemachines.Pseudostate)_self,exitingTransition);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.VertexAspect#boolean isExitable(Transition) from org.imt.pssm.reactive.interpreter.PseudostateAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.VertexAspect#State getParentState() from org.imt.pssm.reactive.interpreter.PseudostateAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.Pseudostate){
+			result = org.imt.pssm.reactive.interpreter.PseudostateAspect.getParentState((org.imt.pssm.reactive.model.statemachines.Pseudostate)_self);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.VertexAspect#State getParentState() from org.imt.pssm.reactive.interpreter.PseudostateAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.AttributeValueAspect#void set_value(int) from org.imt.pssm.reactive.interpreter.BooleanAttributeValueAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.BooleanAttributeValue){
+			org.imt.pssm.reactive.interpreter.BooleanAttributeValueAspect.set_value((org.imt.pssm.reactive.model.statemachines.BooleanAttributeValue)_self,value);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.AttributeValueAspect#void set_value(int) from org.imt.pssm.reactive.interpreter.BooleanAttributeValueAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.EventOccurrenceAspect#String getParameters() from org.imt.pssm.reactive.interpreter.SignalEventOccurrenceAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.SignalEventOccurrence){
+			result = org.imt.pssm.reactive.interpreter.SignalEventOccurrenceAspect.getParameters((org.imt.pssm.reactive.model.statemachines.SignalEventOccurrence)_self);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.EventOccurrenceAspect#String getParameters() from org.imt.pssm.reactive.interpreter.SignalEventOccurrenceAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.AttributeValueAspect#Attribute get_attribute() from org.imt.pssm.reactive.interpreter.BooleanAttributeValueAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.BooleanAttributeValue){
+			result = org.imt.pssm.reactive.interpreter.BooleanAttributeValueAspect.get_attribute((org.imt.pssm.reactive.model.statemachines.BooleanAttributeValue)_self);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.AttributeValueAspect#Attribute get_attribute() from org.imt.pssm.reactive.interpreter.BooleanAttributeValueAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.AttributeValueAspect#void set_value(int) from org.imt.pssm.reactive.interpreter.IntegerAttributeValueAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.IntegerAttributeValue){
+			org.imt.pssm.reactive.interpreter.IntegerAttributeValueAspect.set_value((org.imt.pssm.reactive.model.statemachines.IntegerAttributeValue)_self,value);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.AttributeValueAspect#void set_value(int) from org.imt.pssm.reactive.interpreter.IntegerAttributeValueAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.AttributeValueAspect#Attribute get_attribute() from org.imt.pssm.reactive.interpreter.IntegerAttributeValueAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.IntegerAttributeValue){
+			result = org.imt.pssm.reactive.interpreter.IntegerAttributeValueAspect.get_attribute((org.imt.pssm.reactive.model.statemachines.IntegerAttributeValue)_self);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.AttributeValueAspect#Attribute get_attribute() from org.imt.pssm.reactive.interpreter.IntegerAttributeValueAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.VertexAspect#boolean isActive() from org.imt.pssm.reactive.interpreter.PseudostateAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.Pseudostate){
+			result = org.imt.pssm.reactive.interpreter.PseudostateAspect.isActive((org.imt.pssm.reactive.model.statemachines.Pseudostate)_self);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.VertexAspect#boolean isActive() from org.imt.pssm.reactive.interpreter.PseudostateAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.EventOccurrenceAspect#String getParameters() from org.imt.pssm.reactive.interpreter.CallEventOccurrenceAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.CallEventOccurrence){
+			result = org.imt.pssm.reactive.interpreter.CallEventOccurrenceAspect.getParameters((org.imt.pssm.reactive.model.statemachines.CallEventOccurrence)_self);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.EventOccurrenceAspect#String getParameters() from org.imt.pssm.reactive.interpreter.CallEventOccurrenceAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.VertexAspect#boolean isExitable(Transition) from org.imt.pssm.reactive.interpreter.StateAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.State){
+			result = org.imt.pssm.reactive.interpreter.StateAspect.isExitable((org.imt.pssm.reactive.model.statemachines.State)_self,exitingTransition);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.VertexAspect#boolean isExitable(Transition) from org.imt.pssm.reactive.interpreter.StateAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.AttributeValueAspect#String getString() from org.imt.pssm.reactive.interpreter.IntegerAttributeValueAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.IntegerAttributeValue){
+			result = org.imt.pssm.reactive.interpreter.IntegerAttributeValueAspect.getString((org.imt.pssm.reactive.model.statemachines.IntegerAttributeValue)_self);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.AttributeValueAspect#String getString() from org.imt.pssm.reactive.interpreter.IntegerAttributeValueAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.ConstraintAspect#boolean evaluate(EventOccurrence) from org.imt.pssm.reactive.interpreter.StringConstraintAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.StringConstraint){
+			result = org.imt.pssm.reactive.interpreter.StringConstraintAspect.evaluate((org.imt.pssm.reactive.model.statemachines.StringConstraint)_self,eventOccurrence);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.ConstraintAspect#boolean evaluate(EventOccurrence) from org.imt.pssm.reactive.interpreter.StringConstraintAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.ConstraintAspect#boolean evaluate(EventOccurrence) from org.imt.pssm.reactive.interpreter.IntegerConstraintAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.IntegerConstraint){
+			result = org.imt.pssm.reactive.interpreter.IntegerConstraintAspect.evaluate((org.imt.pssm.reactive.model.statemachines.IntegerConstraint)_self,eventOccurrence);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.ConstraintAspect#boolean evaluate(EventOccurrence) from org.imt.pssm.reactive.interpreter.IntegerConstraintAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.VertexAspect#void exit(Transition,EventOccurrence,Region) from org.imt.pssm.reactive.interpreter.StateAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.State){
+			org.imt.pssm.reactive.interpreter.StateAspect.exit((org.imt.pssm.reactive.model.statemachines.State)_self,exitingTransition,eventOccurrence,leastCommonAncestor);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.VertexAspect#void exit(Transition,EventOccurrence,Region) from org.imt.pssm.reactive.interpreter.StateAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.AttributeValueAspect#int get_value() from org.imt.pssm.reactive.interpreter.BooleanAttributeValueAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.BooleanAttributeValue){
+			result = org.imt.pssm.reactive.interpreter.BooleanAttributeValueAspect.get_value((org.imt.pssm.reactive.model.statemachines.BooleanAttributeValue)_self);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.AttributeValueAspect#int get_value() from org.imt.pssm.reactive.interpreter.BooleanAttributeValueAspect
+	// BeginInjectInto org.imt.pssm.reactive.interpreter.VertexAspect#void enter(Transition,EventOccurrence,Region) from org.imt.pssm.reactive.interpreter.PseudostateAspect
+		if (_self instanceof org.imt.pssm.reactive.model.statemachines.Pseudostate){
+			org.imt.pssm.reactive.interpreter.PseudostateAspect.enter((org.imt.pssm.reactive.model.statemachines.Pseudostate)_self,enteringTransition,eventOccurrence,leastCommonAncestor);
+		} else
+		// EndInjectInto org.imt.pssm.reactive.interpreter.VertexAspect#void enter(Transition,EventOccurrence,Region) from org.imt.pssm.reactive.interpreter.PseudostateAspect

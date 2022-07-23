@@ -698,7 +698,7 @@ Package testSuite {
 	Annotation DSLName ;
 	Test Configuration BankATMConfiguration {
 		create Tester tester of type TestSystem ;
-		create SUT statemachine of type MUT with { MUTPath : '/PSSM.BankATM_Mutants2/BankATM.model' ; DSLName : 'pssm.reactive.ReactivePSSM' ; } ;
+		create SUT statemachine of type MUT with { MUTPath : '/PSSM.BankATM_Mutants2/BankATM.model' ; DSLName : 'org.imt.pssm.reactive.ReactivePSSM' ; } ;
 		connect tester.oclGate to statemachine.oclGate ;
 		connect tester.reactiveGate to statemachine.reactiveGate ;
 	}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated TDLTestReport -->
+      <package
+            uri="https://org.imt.tdl.testResult/TDLTestReport"
+            class="org.imt.tdl.TDLTestReport.TDLTestReportPackage"
+            genModel="model/TDLTestReport.genmodel"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">   
+      <category
+            id="tdl.views"
+            name="TDL">
+      </category>   
+      <view
+            category="tdl.views"
+            class="org.imt.tdl.testResult.ui.TDLTestResultsView"
+            icon="icons/tdl.png"
+            id="test.views.TDLTestResultsTestViewPart"
+            name="Test Results"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.gemoc.gemoc_language_workbench.engine_addon">
+      <addon
+            class="org.imt.tdl.testResult.persistence.TestReportPersistence"
+            id="org.imt.tdl.testResult.reportAddon"
+            name="TDL Test Report"
+            shortDescription="Save the result of TDL test execution">
+      </addon>
+   </extension>
+
+</plugin>

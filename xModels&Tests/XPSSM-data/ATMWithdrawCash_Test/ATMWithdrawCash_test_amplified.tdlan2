@@ -263,19 +263,19 @@ Package ATMWithdrawCash_TestSuite {
 	Annotation DSLName ;
 	Test Configuration genericConfiguration {
 		create Tester tester of type TestSystem ;
-		create SUT reactivepssm of type MUT with { MUTPath : 'TODO: Put the address of the Model-Under Test here' ; DSLName : 'pssm.reactive.ReactivePSSM' ; } ;
+		create SUT reactivepssm of type MUT with { MUTPath : 'TODO: Put the address of the Model-Under Test here' ; DSLName : 'org.imt.pssm.reactive.ReactivePSSM' ; } ;
 		connect tester.genericGate to reactivepssm.genericGate ;
 		connect tester.oclGate to reactivepssm.oclGate ;
 	}
 	Test Configuration reactiveConfiguration {
 		create Tester tester of type TestSystem ;
-		create SUT reactivepssm of type MUT with { MUTPath : 'TODO: Put the address of the Model-Under Test here' ; DSLName : 'pssm.reactive.ReactivePSSM' ; } ;
+		create SUT reactivepssm of type MUT with { MUTPath : 'TODO: Put the address of the Model-Under Test here' ; DSLName : 'org.imt.pssm.reactive.ReactivePSSM' ; } ;
 		connect tester.reactiveGate to reactivepssm.reactiveGate ;
 		connect tester.oclGate to reactivepssm.oclGate ;
 	}
 	Test Configuration xPSSMConfiguration {
 		create Tester tester of type TestSystem ;
-		create SUT reactivepssm of type MUT with { MUTPath : '/ATMWithdrawCash/ATM.withdraw.model' ; DSLName : 'pssm.reactive.ReactivePSSM' ; } ;
+		create SUT reactivepssm of type MUT with { MUTPath : '/ATMWithdrawCash/ATM.withdraw.model' ; DSLName : 'org.imt.pssm.reactive.ReactivePSSM' ; } ;
 		connect tester.reactiveGate to reactivepssm.reactiveGate ;
 	}
 	StateMachine ATM ( _name = "withdrawCash" ) ;
@@ -382,39 +382,6 @@ Package ATMWithdrawCash_TestSuite {
 		) to tester.reactiveGate ;
 		reactivepssm.reactiveGate sends behavior_executed (
 			behavior = deliverCash
-		) to tester.reactiveGate ;
-	}
-	Test Description test_wrongAmount_46_EventDuplication uses configuration xPSSMConfiguration {
-		tester.reactiveGate sends _run (
-			state_machine = ATM
-		) to reactivepssm.reactiveGate ;
-		tester.reactiveGate sends signal_received (
-			state_machine = ATM ,
-			signal_occurrence = signal_occurrence ( signal = Card , attributeValues = { cardPinValue ( value = "1234" ) , cardBalanceValue ( value = "1000" ) } )
-		) to reactivepssm.reactiveGate ;
-		tester.reactiveGate sends signal_received (
-			state_machine = ATM ,
-			signal_occurrence = signal_occurrence ( signal = Pin , attributeValues = { enteredPinValue ( value = "1234" ) } )
-		) to reactivepssm.reactiveGate ;
-		tester.reactiveGate sends signal_received (
-			state_machine = ATM ,
-			signal_occurrence = signal_occurrence ( signal = Amount , attributeValues = { enteredAmountValue ( value = "1500" ) } )
-		) to reactivepssm.reactiveGate ;
-		tester.reactiveGate sends signal_received (
-			state_machine = ATM ,
-			signal_occurrence = signal_occurrence ( signal = Pin , attributeValues = { enteredPinValue ( value = "1234" ) } )
-		) to reactivepssm.reactiveGate ;
-		reactivepssm.reactiveGate sends behavior_executed (
-			behavior = insertCardMsg
-		) to tester.reactiveGate ;
-		reactivepssm.reactiveGate sends behavior_executed (
-			behavior = enterPinMsg
-		) to tester.reactiveGate ;
-		reactivepssm.reactiveGate sends behavior_executed (
-			behavior = enterAmountMsg
-		) to tester.reactiveGate ;
-		reactivepssm.reactiveGate sends behavior_executed (
-			behavior = notEnoughMoneyMsg
 		) to tester.reactiveGate ;
 	}
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<statemachines:CustomSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://.pssm.reactive/statemachines/" xmi:id="_i33GsLsmEeyrPdT0pCfx6w">
+<statemachines:CustomSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xmi:id="_i33GsLsmEeyrPdT0pCfx6w">
   <statemachine xmi:id="_i33GsbsmEeyrPdT0pCfx6w" name="Event019_Test_C$behavior$1">
     <regions xmi:id="_i33GsrsmEeyrPdT0pCfx6w" name="Region1">
       <vertice xsi:type="statemachines:Pseudostate" xmi:id="_i33Gs7smEeyrPdT0pCfx6w" name="Initial1" outgoingTransitions="_i33ty7smEeyrPdT0pCfx6w"/>

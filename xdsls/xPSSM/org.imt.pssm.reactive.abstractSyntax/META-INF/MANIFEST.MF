@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.imt.pssm.reactive.abstractSyntax;singleton:=true
+Automatic-Module-Name: org.imt.pssm.reactive.model
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: org.imt.pssm.reactive.model.statemachines,
+ org.imt.pssm.reactive.model.statemachines.impl,
+ org.imt.pssm.reactive.model.statemachines.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport
+Bundle-ActivationPolicy: lazy

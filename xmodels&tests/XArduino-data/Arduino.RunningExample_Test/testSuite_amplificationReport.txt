@@ -1,0 +1,15 @@
+Total number of mutants: 1
+- initial number of killed mutants: 0
+- initial mutation score : 0.0%
+Total number of test cases improving mutation score: 1
+- number of mutants killed by improved test cases: 1
+- total number of killed mutants: 1
+- final mutation score : 100.0%
+=> improvement in the mutation score : 100.0%
+--------------------------------------------------
+iteration 1: 1 generated test cases
+Amplified Test Case: test1_3_EventCreation
+Killed mutant 1: \Arduino.RunningExample\mutants\cic.output0.model
+
+--------------------------------------------------
+--------------------------------------------------
