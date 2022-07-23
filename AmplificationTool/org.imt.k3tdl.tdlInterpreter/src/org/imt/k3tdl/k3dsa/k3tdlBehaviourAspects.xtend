@@ -176,7 +176,7 @@ class AssertionAspect extends ActionBehaviourAspect{
 	}
 }
 @Aspect (className = Assignment)
-class AssignmentAspect extends ActionBehaviourAspect{
+class AssignmentAspect extends AtomicBehaviourAspect{
 	@Step
 	@OverrideAspectMethod
 	def boolean performBehavior(){
