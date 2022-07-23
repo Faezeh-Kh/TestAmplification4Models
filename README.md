@@ -22,7 +22,7 @@ In this work, we propose an automated and generic approach for amplifying the te
 This repository contains our test amplification tool built atop the Eclipse GEMOC Studio.
 We also performed an empirical study of the tool and all the materials are provided in this repository. In the experiment, we applied the approach to 71 test suites written for models conforming to two different DSLs, and for 67 of the 71 cases, it successfully improved the mutation score between 3.17% and 54.11% depending on the initial setup.
 
-## Overview of the contents of the archive
+## Overview
 1.	*AmplificationTool*: 
 - the eclipse plugins of our test amplification tool: `org.imt.tdl.amplificaiton`, `org.imt.tdl.mutation`
 - the plugins of our testing framework that are required for the amplification tool (To access the latest version of them, use the [main repository](https://gitlab.univ-nantes.fr/naomod/faezeh-public/xtdl)).
