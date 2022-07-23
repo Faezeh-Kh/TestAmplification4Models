@@ -17,7 +17,9 @@ In this work, we propose an automated and generic approach for amplifying the te
 (ii) running the model under test with new inputs and generating assertions from the execution traces; and 
 (iii) selecting the new test cases that increase the mutation score. 
 
-![](/Screenshots/Overview.jpg)
+<div style="text-align: center;">
+    <img src="Screenshots/Overview.jpg"  width="280" height="300">
+</div>
 
 This repository contains our test amplification tool built atop the Eclipse GEMOC Studio.
 We also performed an empirical study of the tool and all the materials are provided in this repository. In the experiment, we applied the approach to 71 test suites written for models conforming to two different DSLs, and for 67 of the 71 cases, it successfully improved the mutation score between 3.17% and 54.11% depending on the initial setup.
@@ -48,44 +50,63 @@ After downloading GEMOC Studio, unzip the folder and run it:
 1.	Run `GemocStudio` application
 ![](/Screenshots/runGemoc.png)
 2.	It asks for a workspace, either select an existing workspace or a new folder, then select `Launch`
-![](/Screenshots/selectWorkspace.png)
+<div style="text-align: center;">
+    <img src="Screenshots/selectWorkspace.png"  width="350" height="200">
+</div>
 3.	You need to install TDL using the provided update site. To do this, go to the `Help` menu and select `Install new Software`. Add the TDL update site and click on `Next`. Accept the license and follow the steps. At the end, it asks to restart the workspace.
  ![](/Screenshots/installTDL.png)
 4.	An empty workspace will be shown. Import the projects from the AmplificationTool directory using `Import projects` option shown in the Project Explorer or by following: File -> Import -> Existing Projects into Workspace -> Select Root Directory (browse to the *AmplificationTool* directory) -> Select Folder -> Finish
-  ![](/Screenshots/importProjects.png)
+<div style="text-align: center;">
+    <img src="Screenshots/importProjects.png"  width="100%" height="100%">
+</div>
   
 **NOTE**: In our case study, we experimented our tool on two xDSLs. In this document, we will show how to run the experiment for xArduino as it was also the running example of the paper. Nevertheless, you can follow the same steps for the xPSSM.
 
-5.	Import the xArduino implementation from the `xdsls/xArduino` directory in the same way described in the previous step. At the end, your project explorer should be as following picture:
-![](/Screenshots/projectExplorer.png)
-6.	To deploy the tool and the xArduino DSL, we should run this workspace using `Eclipse Application` run configuration. To do this, follow: Run -> Run Configurations, then choose `Eclipse Application` from the list of available configurations and double click to create an instance of it. You can optionally change the default name of the configuration. Finally, press `Run` to open a new Eclipse instance.
-![](/Screenshots/runConfiguration.png)
-
 ## Usage
-1. In the new Eclipse instance, import the projects from the `xmodels&tests` directory. Here, we imported the projects related to the running example of the paper:
+1.	Import the xArduino implementation from the `xdsls/xArduino` directory in the same way described in the previous step. At the end, your project explorer should be as following picture:
+<div style="text-align: center;">
+    <img src="Screenshots/projectExplorer.png"  width="40%" height="50%">
+</div>
+
+2. To deploy the tool and the xArduino DSL, we should run this workspace using `Eclipse Application` run configuration. To do this, follow: Run -> Run Configurations, then choose `Eclipse Application` from the list of available configurations and double click to create an instance of it. You can optionally change the default name of the configuration. Finally, press `Run` to open a new Eclipse instance.
+<div style="text-align: center;">
+    <img src="Screenshots/runConfiguration.png"  width="80%" height="60%">
+</div>
+
+3. In the new Eclipse instance, import the projects from the `xmodels&tests` directory. Here, we imported the projects related to the running example of the paper:
 - `Arduino.RunningExample` project containing:
 
     a) `runningExample.model`: a sample Arduino model 
-![](Screenshots/xArduino-model.jpg)
+<div style="text-align: center;">
+    <img src="Screenshots/xArduino-model.jpg"  width="60%" height="50%">
+</div>
     b) `mutants/cic.output0.model`: a mutant generated for the Arduino model
-![](Screenshots/xArduino-mutant.jpg)
+<div style="text-align: center;">
+    <img src="Screenshots/xArduino-mutant.jpg"  width="60%" height="50%">
+</div>)
 
 - `Arduino.RunningExample_Test` project containing:
 
-    a)	`testSuite.tdlan2`: a test suite for the model that indeed has one test case briefly drawn in the following Figure and completely shown in the next tool screenshot using TDL textual syntax ![](Screenshots/initialTestCase.jpg)
+    a)	`testSuite.tdlan2`: a test suite for the model that indeed has one test case briefly drawn in the following Figure and completely shown in the next tool screenshot using TDL textual syntax 
+    <div style="text-align: center;">
+        <img src="Screenshots/initialTestCase.jpg"  width="50%" height="50%">
+    </div>
 
     b)	`testSuite_mutationReport.txt`: the result of performing mutation analysis on the provided test suite
     
-    c)	`testSuite_amplified.tdlan2`: the amplified test suite generated by the tool which contains two test cases, the given test case (a) and one generated test case that improves the mutation score of the given test suite ![](Screenshots/amplifiedTestCase.jpg)
+    c)	`testSuite_amplified.tdlan2`: the amplified test suite generated by the tool which contains two test cases, the given test case (a) and one generated test case that improves the mutation score of the given test suite
+    <div style="text-align: center;">
+        <img src="Screenshots/amplifiedTestCase.jpg"  width="50%" height="40%">
+    </div>
 
-    d)	`testSuite_amplificationReport.txt`: the test amplification result ![](/Screenshots/importModel%26tests.png)
+    d) `testSuite_amplificationReport.txt`: the test amplification result ![](/Screenshots/importModel%26tests.png)
 
-**NOTE**: The three files explained in (b), (c), and (d) are indeed the output of our amplification tool. We provided them in the archive to be used during the evaluation of the tool, to check if the tool provides what is expected. In the following, we remove them and show how to run the tool.
+**NOTE**: The three files explained in (b), (c), and (d) are indeed the output of our amplification tool. We provided them here to be used during the evaluation of the tool, to check if the tool provides what is expected. In the following, we remove them and show how to run the tool.
 
-2. Run the test amplification tool by right click on the input test suite, here `testSuite.tdlan2` file, and selecting `Amplify TDL Test Suite`
+4. Run the test amplification tool by right click on the input test suite, here `testSuite.tdlan2` file, and selecting `Amplify TDL Test Suite`
 ![](/Screenshots/runAmplification.png)
 
-3.	When the execution finishes, a message as *“Test Amplification has been performed successfully”* must be shown in the console with a couple of information about the execution result. If the tool were able to generate any new test case, the last message you should see in the console must be *“Phase (4): Saving new test cases”*. By refreshing the test suite project (i.e., right-click on the `Arduino.RunningExample_Test` project and select `Refresh`), the files described above must appear under the project.
+5.	When the execution finishes, a message as *“Test Amplification has been performed successfully”* must be shown in the console with a couple of information about the execution result. If the tool were able to generate any new test case, the last message you should see in the console must be *“Phase (4): Saving new test cases”*. By refreshing the test suite project (i.e., right-click on the `Arduino.RunningExample_Test` project and select `Refresh`), the files described above must appear under the project.
 ![](/Screenshots/amplificationResult.png)
 
 ## Acknowledgment
