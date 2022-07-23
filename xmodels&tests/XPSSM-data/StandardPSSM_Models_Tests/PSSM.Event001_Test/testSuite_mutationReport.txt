@@ -1,0 +1,25 @@
+Number of generated mutants: 19
+Number of killed mutants: 14
+--------------------------------------------------
+Original test case: Event001_Test
+Killed mutant 1: \PSSM.Event001\mutants\cas\Output0.model
+Killed mutant 2: \PSSM.Event001\mutants\rac\Output0.model
+Killed mutant 3: \PSSM.Event001\mutants\ctt\Output0.model
+Killed mutant 4: \PSSM.Event001\mutants\sdt\Output0.model
+Killed mutant 5: \PSSM.Event001\mutants\cac\Output0.model
+Killed mutant 6: \PSSM.Event001\mutants\rst\Output0.model
+Killed mutant 7: \PSSM.Event001\mutants\dtr\Output0.model
+Killed mutant 8: \PSSM.Event001\mutants\rtr\Output0.model
+Killed mutant 9: \PSSM.Event001\mutants\rtr\Output1.model
+Killed mutant 10: \PSSM.Event001\mutants\cst\Output0.model
+Killed mutant 11: \PSSM.Event001\mutants\cat\Output0.model
+Killed mutant 12: \PSSM.Event001\mutants\cac\Output1.model
+Killed mutant 13: \PSSM.Event001\mutants\rac\Output1.model
+Killed mutant 14: \PSSM.Event001\mutants\sdt\Output1.model
+--------------------------------------------------
+Number of alive mutants: 5
+Alive mutant 1: \PSSM.Event001\mutants\cet\Output0.model
+Alive mutant 2: \PSSM.Event001\mutants\rev\Output0.model
+Alive mutant 3: \PSSM.Event001\mutants\csev\Output0.model
+Alive mutant 4: \PSSM.Event001\mutants\csev\Output1.model
+Alive mutant 5: \PSSM.Event001\mutants\ctt\Output1.model

@@ -1,0 +1,387 @@
+Package ATMWithdrawCash_TestSuite {
+	Test Description test_wrongPin uses configuration xPSSMConfiguration {
+		tester.reactiveGate sends _run (
+			state_machine = ATM
+		) to reactivepssm.reactiveGate ;
+		reactivepssm.reactiveGate sends behavior_executed (
+			behavior = insertCardMsg
+		) to tester.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = ATM ,
+			signal_occurrence = card_occurrence ( signal = Card , attributeValues = { cardPinValue ( value = "1234" ) , cardBalanceValue ( value = "1000" ) } )
+		) to reactivepssm.reactiveGate ;
+		reactivepssm.reactiveGate sends behavior_executed (
+			behavior = enterPinMsg
+		) to tester.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = ATM ,
+			signal_occurrence = pin_occurrence ( signal = Pin , attributeValues = enteredPinValue ( value = "2222" ) )
+		) to reactivepssm.reactiveGate ;
+		reactivepssm.reactiveGate sends behavior_executed (
+			behavior = wrongPinMsg
+		) to tester.reactiveGate ;
+	}
+	Test Description test_successfulWithdraw uses configuration xPSSMConfiguration {
+		tester.reactiveGate sends _run (
+			state_machine = ATM
+		) to reactivepssm.reactiveGate ;
+		reactivepssm.reactiveGate sends behavior_executed (
+			behavior = insertCardMsg
+		) to tester.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = ATM ,
+			signal_occurrence = signal_occurrence ( signal = Card , attributeValues = { cardPinValue ( value = "1234" ) , cardBalanceValue ( value = "1000" ) } )
+		) to reactivepssm.reactiveGate ;
+		reactivepssm.reactiveGate sends behavior_executed (
+			behavior = enterPinMsg
+		) to tester.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = ATM ,
+			signal_occurrence = signal_occurrence ( signal = Pin , attributeValues = { enteredPinValue ( value = "1234" ) } )
+		) to reactivepssm.reactiveGate ;
+		reactivepssm.reactiveGate sends behavior_executed (
+			behavior = enterAmountMsg
+		) to tester.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = ATM ,
+			signal_occurrence = signal_occurrence ( signal = Amount , attributeValues = { enteredAmountValue ( value = "500" ) } )
+		) to reactivepssm.reactiveGate ;
+		reactivepssm.reactiveGate sends behavior_executed (
+			behavior = updateCardBalance
+		) to tester.reactiveGate ;
+		reactivepssm.reactiveGate sends behavior_executed (
+			behavior = deliverCash
+		) to tester.reactiveGate ;
+	}
+	Test Description test_wrongAmount uses configuration xPSSMConfiguration {
+		tester.reactiveGate sends _run (
+			state_machine = ATM
+		) to reactivepssm.reactiveGate ;
+		reactivepssm.reactiveGate sends behavior_executed (
+			behavior = insertCardMsg
+		) to tester.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = ATM ,
+			signal_occurrence = signal_occurrence ( signal = Card , attributeValues = { cardPinValue ( value = "1234" ) , cardBalanceValue ( value = "1000" ) } )
+		) to reactivepssm.reactiveGate ;
+		reactivepssm.reactiveGate sends behavior_executed (
+			behavior = enterPinMsg
+		) to tester.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = ATM ,
+			signal_occurrence = signal_occurrence ( signal = Pin , attributeValues = { enteredPinValue ( value = "1234" ) } )
+		) to reactivepssm.reactiveGate ;
+		reactivepssm.reactiveGate sends behavior_executed (
+			behavior = enterAmountMsg
+		) to tester.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = ATM ,
+			signal_occurrence = signal_occurrence ( signal = Amount , attributeValues = { enteredAmountValue ( value = "1500" ) } )
+		) to reactivepssm.reactiveGate ;
+		reactivepssm.reactiveGate sends behavior_executed (
+			behavior = notEnoughMoneyMsg
+		) to tester.reactiveGate ;
+	}
+	Type CustomSystem ( statemachine of type StateMachine , signals of type Signal , operations of type Operation ) ;
+	Type Signal extends NamedElement ( attributes of type Attribute ) ;
+	Type Operation extends NamedElement ( inParameters of type Attribute , outParameters of type Attribute , return of type Attribute ) ;
+	Type EventType ( ) with {
+		abstract ;
+	} ;
+	Type SignalEventType extends EventType ( signal of type Signal ) ;
+	Type CallEventType extends EventType ( operation of type Operation ) ;
+	Type Attribute extends NamedElement ( ) with {
+		abstract ;
+	} ;
+	Type BooleanAttribute extends Attribute ( ) ;
+	Type IntegerAttribute extends Attribute ( ) ;
+	Type StringAttribute extends Attribute ( ) ;
+	Type Constraint ( ) with {
+		abstract ;
+	} ;
+	Type BooleanConstraint extends Constraint ( expression of type BooleanExpression ) ;
+	Type IntegerConstraint extends Constraint ( expression of type IntegerComparisonExpression ) ;
+	Type StringConstraint extends Constraint ( expression of type StringComparisonExpression ) ;
+	Type NamedElement ( _name of type EString ) with {
+		abstract ;
+	} ;
+	Type StateMachine extends NamedElement ( regions of type Region ) ;
+	Type Region extends NamedElement ( vertice of type Vertex , transitions of type Transition , stateMachine of type StateMachine , state of type State , currentVertex of type Vertex with { dynamic ;
+	} ) ;
+	Type Vertex extends NamedElement ( container of type Region , outgoingTransitions of type Transition , incomingTransitions of type Transition ) with {
+		abstract ;
+	} ;
+	Type Pseudostate extends Vertex ( kind of type PseudostateKind , state of type State ) ;
+	Type State extends Vertex ( regions of type Region , entry of type Behavior , doActivity of type Behavior , exit of type Behavior , deferrableTriggers of type Trigger , connectionPoint of type Pseudostate ) ;
+	Type FinalState extends State ( ) ;
+	Type Transition extends NamedElement ( source of type Vertex , target of type Vertex , _triggers of type Trigger , container of type Region , kind of type TransitionKind , effect of type Behavior , constraint of type Constraint ) ;
+	Type Trigger extends NamedElement ( eventType of type EventType ) ;
+	Type Behavior extends NamedElement ( emittedSignals of type SignalEventOccurrence ) ;
+	Type OperationBehavior extends Behavior ( attributeValues of type AttributeValue ) ;
+	Type AttributeValue ( ) with {
+		abstract ;
+		dynamic ;
+	} ;
+	Type BooleanAttributeValue extends AttributeValue ( attribute of type BooleanAttribute , value of type EBooleanObject ) with {
+		dynamic ;
+	} ;
+	Type IntegerAttributeValue extends AttributeValue ( attribute of type IntegerAttribute , value of type EIntegerObject ) with {
+		dynamic ;
+	} ;
+	Type StringAttributeValue extends AttributeValue ( attribute of type StringAttribute , value of type EString ) with {
+		dynamic ;
+	} ;
+	Type Expression ( ) with {
+		abstract ;
+	} ;
+	Type IntegerComparisonExpression extends Expression ( operator of type IntegerComparisonOperator , operand1 of type IntegerAttribute , operand2 of type IntegerAttribute ) ;
+	Type StringComparisonExpression extends Expression ( operator of type StringComparisonOperator , operand1 of type StringAttribute , operand2 of type StringAttribute ) ;
+	Type BooleanExpression ( ) with {
+		abstract ;
+	} ;
+	Type BooleanBinaryExpression extends BooleanExpression ( operator of type BooleanBinaryOperator , operand1 of type BooleanAttribute , operand2 of type BooleanAttribute ) ;
+	Type BooleanUnaryExpression extends BooleanExpression ( operator of type BooleanUnaryOperator , operand of type BooleanAttribute ) ;
+	Type BooleanBinaryOperator ;
+	Type BooleanUnaryOperator ;
+	Type IntegerComparisonOperator ;
+	Type StringComparisonOperator ;
+	Type EventOccurrence ( ) with {
+		abstract ;
+		dynamic ;
+	} ;
+	Type CompletionEventOccurrence ( state of type State ) with {
+		dynamic ;
+	} ;
+	Type SignalEventOccurrence extends EventOccurrence ( signal of type Signal , attributeValues of type AttributeValue with { dynamic ;
+	} ) with {
+		dynamic ;
+	} ;
+	Type CallEventOccurrence extends EventOccurrence ( operation of type Operation , inParameterValues of type AttributeValue with { dynamic ;
+	} , outParameterValues of type AttributeValue with { dynamic ; } , returnValue of type AttributeValue with { dynamic ; } ) with {
+		dynamic ;
+	} ;
+	Type PseudostateKind ;
+	Type TransitionKind ;
+	IntegerComparisonOperator SMALLER ;
+	IntegerComparisonOperator SMALLER_EQUALS ;
+	IntegerComparisonOperator EQUALS ;
+	IntegerComparisonOperator NOT_EQUALS ;
+	IntegerComparisonOperator GREATER_EQUALS ;
+	IntegerComparisonOperator GREATER ;
+	BooleanBinaryOperator AND ;
+	BooleanBinaryOperator OR ;
+	BooleanUnaryOperator TRUE ;
+	BooleanUnaryOperator FALSE ;
+	StringComparisonOperator _EQUALS ;
+	StringComparisonOperator _NOT_EQUALS ;
+	PseudostateKind initial ;
+	PseudostateKind join ;
+	PseudostateKind fork ;
+	PseudostateKind _terminate ;
+	PseudostateKind entrypoint ;
+	PseudostateKind exitpoint ;
+	TransitionKind internal ;
+	TransitionKind local ;
+	TransitionKind external ;
+	Annotation dynamic ;
+	Annotation abstract ;
+	Type EBoolean ;
+	Type EDiagnosticChain ;
+	Type ETreeIterator ;
+	Type EDoubleObject ;
+	Type EDate ;
+	Type EFloat ;
+	Type EJavaObject ;
+	Type EInt ;
+	Type EShortObject ;
+	Type ELong ;
+	Type EDouble ;
+	Type EShort ;
+	Type EBigInteger ;
+	Type EMap ;
+	Type ELongObject ;
+	Type EBigDecimal ;
+	Type ECharacterObject ;
+	Type EString ;
+	Type EEList ;
+	Type EResourceSet ;
+	Type EByteArray ;
+	Type EJavaClass ;
+	Type EFeatureMap ;
+	Type EByteObject ;
+	Type EFeatureMapEntry ;
+	Type EIntegerObject ;
+	Type EBooleanObject ;
+	Type EInvocationTargetException ;
+	Type EByte ;
+	Type EEnumerator ;
+	Type EChar ;
+	Type EFloatObject ;
+	Type EResource ;
+	Annotation AcceptedEvent ;
+	Annotation ExposedEvent ;
+	Type _run ( state_machine of type StateMachine ) with {
+		AcceptedEvent ;
+	} ;
+	_run _run ( state_machine = ? ) ;
+	Type signal_received ( state_machine of type StateMachine , signal_occurrence of type SignalEventOccurrence ) with {
+		AcceptedEvent ;
+	} ;
+	signal_received signal_received ( state_machine = ? , signal_occurrence = ? ) ;
+	Type callOperation_received ( state_machine of type StateMachine , call_occurrence of type CallEventOccurrence ) with {
+		AcceptedEvent ;
+	} ;
+	callOperation_received callOperation_received ( state_machine = ? , call_occurrence = ? ) ;
+	Type behavior_executed ( behavior of type Behavior ) with {
+		ExposedEvent ;
+	} ;
+	behavior_executed behavior_executed ( behavior = ? ) ;
+	Type OCL ( query of type EString ) ;
+	OCL oclQuery ( query = ? ) ;
+	Type Verdict ;
+	Verdict PASS ;
+	Verdict FAIL ;
+	Verdict INCONCLUSINVE ;
+	Type modelExecutionCommand ;
+	modelExecutionCommand runModel ;
+	modelExecutionCommand runModelAsynchronous ;
+	modelExecutionCommand stopModelExecution ;
+	modelExecutionCommand resetModel ;
+	modelExecutionCommand getModelState ;
+	Gate Type genericGateType accepts modelExecutionCommand ;
+	Gate Type reactiveGateType accepts _run , signal_received , callOperation_received , behavior_executed ;
+	Gate Type oclGateType accepts OCL ;
+	Component Type TestSystem having {
+		gate genericGate of type genericGateType ;
+		gate reactiveGate of type reactiveGateType ; gate oclGate of type oclGateType ;
+	}
+	Component Type MUT having {
+		gate genericGate of type genericGateType ;
+		gate reactiveGate of type reactiveGateType ; gate oclGate of type oclGateType ;
+	}
+	Annotation MUTPath ;
+	Annotation DSLName ;
+	Test Configuration genericConfiguration {
+		create Tester tester of type TestSystem ;
+		create SUT reactivepssm of type MUT with { MUTPath : 'TODO: Put the address of the Model-Under Test here' ; DSLName : 'org.imt.pssm.reactive.ReactivePSSM' ; } ;
+		connect tester.genericGate to reactivepssm.genericGate ;
+		connect tester.oclGate to reactivepssm.oclGate ;
+	}
+	Test Configuration reactiveConfiguration {
+		create Tester tester of type TestSystem ;
+		create SUT reactivepssm of type MUT with { MUTPath : 'TODO: Put the address of the Model-Under Test here' ; DSLName : 'org.imt.pssm.reactive.ReactivePSSM' ; } ;
+		connect tester.reactiveGate to reactivepssm.reactiveGate ;
+		connect tester.oclGate to reactivepssm.oclGate ;
+	}
+	Test Configuration xPSSMConfiguration {
+		create Tester tester of type TestSystem ;
+		create SUT reactivepssm of type MUT with { MUTPath : '/ATMWithdrawCash/ATM.withdraw.model' ; DSLName : 'org.imt.pssm.reactive.ReactivePSSM' ; } ;
+		connect tester.reactiveGate to reactivepssm.reactiveGate ;
+	}
+	StateMachine ATM ( _name = "withdrawCash" ) ;
+	State getPinState ( _name = "getPin" ) ;
+	FinalState finalState ( _name = "FinalState" ) ;
+	Signal Card ( _name = "Card" , attributes = { cardPin , cardBalance } ) ;
+	IntegerAttribute cardPin ( _name = "cardPin" ) ;
+	IntegerAttribute cardBalance ( _name = "cardBalance" ) ;
+	Signal Pin ( _name = "Pin" , attributes = enteredPin ) ;
+	IntegerAttribute enteredPin ( _name = "enteredPin" ) ;
+	Signal Amount ( _name = "Amount" , attributes = enteredAmount ) ;
+	IntegerAttribute enteredAmount ( _name = "enteredAmount" ) ;
+	SignalEventOccurrence signal_occurrence ( ) ;
+	SignalEventOccurrence card_occurrence ( ) ;
+	SignalEventOccurrence pin_occurrence ( ) ;
+	IntegerAttributeValue cardPinValue ( attribute = cardPin ) ;
+	IntegerAttributeValue cardBalanceValue ( attribute = cardBalance ) ;
+	IntegerAttributeValue enteredPinValue ( attribute = enteredPin ) ;
+	IntegerAttributeValue enteredAmountValue ( attribute = enteredAmount ) ;
+	Behavior insertCardMsg ( _name = "insertCardMsg" ) ;
+	Behavior enterPinMsg ( _name = "enterPinMsg" ) ;
+	Behavior wrongPinMsg ( _name = "wrongPinMsg" ) ;
+	Behavior enterAmountMsg ( _name = "enterAmountMsg" ) ;
+	Behavior updateCardBalance ( _name = "updateCardBalance" ) ;
+	Behavior notEnoughMoneyMsg ( _name = "notEnoughMoneyMsg" ) ;
+	Behavior deliverCash ( _name = "deliverCash" ) ;
+	Test Description test_wrongPin_6_IntegerModification uses configuration xPSSMConfiguration {
+		tester.reactiveGate sends _run (
+			state_machine = ATM
+		) to reactivepssm.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = ATM ,
+			signal_occurrence = card_occurrence ( signal = Card , attributeValues = { cardPinValue ( value = "2468" ) , cardBalanceValue ( value = "1000" ) } )
+		) to reactivepssm.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = ATM ,
+			signal_occurrence = pin_occurrence ( signal = Pin , attributeValues = enteredPinValue ( value = "2222" ) )
+		) to reactivepssm.reactiveGate ;
+		reactivepssm.reactiveGate sends behavior_executed (
+			behavior = insertCardMsg
+		) to tester.reactiveGate ;
+		reactivepssm.reactiveGate sends behavior_executed (
+			behavior = enterPinMsg
+		) to tester.reactiveGate ;
+		reactivepssm.reactiveGate sends behavior_executed (
+			behavior = wrongPinMsg
+		) to tester.reactiveGate ;
+	}
+	Test Description test_wrongPin_54_EventDuplication uses configuration xPSSMConfiguration {
+		tester.reactiveGate sends _run (
+			state_machine = ATM
+		) to reactivepssm.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = ATM ,
+			signal_occurrence = card_occurrence ( signal = Card , attributeValues = { cardPinValue ( value = "1234" ) , cardBalanceValue ( value = "1000" ) } )
+		) to reactivepssm.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = ATM ,
+			signal_occurrence = pin_occurrence ( signal = Pin , attributeValues = enteredPinValue ( value = "2222" ) )
+		) to reactivepssm.reactiveGate ;
+		tester.reactiveGate sends _run (
+			state_machine = ATM
+		) to reactivepssm.reactiveGate ;
+		reactivepssm.reactiveGate sends behavior_executed (
+			behavior = insertCardMsg
+		) to tester.reactiveGate ;
+		reactivepssm.reactiveGate sends behavior_executed (
+			behavior = enterPinMsg
+		) to tester.reactiveGate ;
+		reactivepssm.reactiveGate sends behavior_executed (
+			behavior = wrongPinMsg
+		) to tester.reactiveGate ;
+		reactivepssm.reactiveGate sends behavior_executed (
+			behavior = insertCardMsg
+		) to tester.reactiveGate ;
+	}
+	Test Description test_successfulWithdraw_18_IntegerModification uses configuration xPSSMConfiguration {
+		tester.reactiveGate sends _run (
+			state_machine = ATM
+		) to reactivepssm.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = ATM ,
+			signal_occurrence = signal_occurrence ( signal = Card , attributeValues = { cardPinValue ( value = "1234" ) , cardBalanceValue ( value = "500" ) } )
+		) to reactivepssm.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = ATM ,
+			signal_occurrence = signal_occurrence ( signal = Pin , attributeValues = { enteredPinValue ( value = "1234" ) } )
+		) to reactivepssm.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = ATM ,
+			signal_occurrence = signal_occurrence ( signal = Amount , attributeValues = { enteredAmountValue ( value = "500" ) } )
+		) to reactivepssm.reactiveGate ;
+		reactivepssm.reactiveGate sends behavior_executed (
+			behavior = insertCardMsg
+		) to tester.reactiveGate ;
+		reactivepssm.reactiveGate sends behavior_executed (
+			behavior = enterPinMsg
+		) to tester.reactiveGate ;
+		reactivepssm.reactiveGate sends behavior_executed (
+			behavior = enterAmountMsg
+		) to tester.reactiveGate ;
+		reactivepssm.reactiveGate sends behavior_executed (
+			behavior = updateCardBalance
+		) to tester.reactiveGate ;
+		reactivepssm.reactiveGate sends behavior_executed (
+			behavior = deliverCash
+		) to tester.reactiveGate ;
+	}
+}

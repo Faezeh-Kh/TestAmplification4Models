@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ASCII"?>
+<arduino:Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduino="http://www.obeo.fr/arduino" xsi:schemaLocation="http://www.obeo.fr/arduino ../../../model/arduino.ecore">
+  <boards xsi:type="arduino:ArduinoBoard" name="board">
+    <digitalPins name="blueLed">
+      <module xsi:type="arduino:LED" name="blueLed"/>
+    </digitalPins>
+    <digitalPins name="IR_sensor">
+      <module xsi:type="arduino:InfraRedSensor" name="IR_sensor"/>
+    </digitalPins>
+  </boards>
+  <sketches name="sketch" board="//@boards.0">
+    <block>
+      <instructions xsi:type="arduino:If">
+        <block>
+          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
+            <operand xsi:type="arduino:IntegerConstant" value="1"/>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
+            <operand xsi:type="arduino:IntegerConstant"/>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
+            <operand xsi:type="arduino:IntegerConstant" value="1"/>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
+            <operand xsi:type="arduino:IntegerConstant"/>
+          </instructions>
+        </block>
+        <condition xsi:type="arduino:BinaryBooleanExpression" operator="Different">
+          <left xsi:type="arduino:IntegerModuleGet" module="//@boards.0/@digitalPins.1/@module"/>
+          <right xsi:type="arduino:IntegerConstant"/>
+        </condition>
+        <elseBlock>
+          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
+            <operand xsi:type="arduino:IntegerConstant" value="1"/>
+          </instructions>
+        </elseBlock>
+      </instructions>
+    </block>
+  </sketches>
+</arduino:Project>

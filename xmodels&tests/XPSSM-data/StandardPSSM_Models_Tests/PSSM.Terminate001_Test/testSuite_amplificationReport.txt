@@ -1,0 +1,133 @@
+Total number of mutants: 114
+- initial number of killed mutants: 82
+- initial mutation score : 71.9298245614035%
+Total number of test cases improving mutation score: 2
+- number of mutants killed by improved test cases: 3
+- total number of killed mutants: 85
+- final mutation score : 74.56140350877193%
+=> improvement in the mutation score : 2.631578947368418%
+--------------------------------------------------
+iteration 1: 1 generated test cases
+Amplified Test Case: Terminate001_Test_0_EventDuplication
+Killed mutant 1: \PSSM.Terminate001\mutants\cst\Output7.model
+Killed mutant 2: \PSSM.Terminate001\mutants\ctt\Output17.model
+
+iteration 2: 1 generated test cases
+Amplified Test Case: Terminate001_Test_0_EventDuplication_1_EventDuplication
+Killed mutant 1: \PSSM.Terminate001\mutants\ctt\Output21.model
+
+--------------------------------------------------
+Original test case: Terminate001_Test
+Killed mutant 1: \PSSM.Terminate001\mutants\cat\Output3.model
+Killed mutant 2: \PSSM.Terminate001\mutants\rtr\Output0.model
+Killed mutant 3: \PSSM.Terminate001\mutants\sdt\Output2.model
+Killed mutant 4: \PSSM.Terminate001\mutants\sdt\Output5.model
+Killed mutant 5: \PSSM.Terminate001\mutants\ctt\Output10.model
+Killed mutant 6: \PSSM.Terminate001\mutants\ctt\Output16.model
+Killed mutant 7: \PSSM.Terminate001\mutants\ctt\Output20.model
+Killed mutant 8: \PSSM.Terminate001\mutants\cst\Output11.model
+Killed mutant 9: \PSSM.Terminate001\mutants\ctt\Output1.model
+Killed mutant 10: \PSSM.Terminate001\mutants\cst\Output14.model
+Killed mutant 11: \PSSM.Terminate001\mutants\cst\Output2.model
+Killed mutant 12: \PSSM.Terminate001\mutants\rev\Output0.model
+Killed mutant 13: \PSSM.Terminate001\mutants\cat\Output0.model
+Killed mutant 14: \PSSM.Terminate001\mutants\ctt\Output13.model
+Killed mutant 15: \PSSM.Terminate001\mutants\ctt\Output23.model
+Killed mutant 16: \PSSM.Terminate001\mutants\cas\Output1.model
+Killed mutant 17: \PSSM.Terminate001\mutants\cet\Output2.model
+Killed mutant 18: \PSSM.Terminate001\mutants\cat\Output12.model
+Killed mutant 19: \PSSM.Terminate001\mutants\cst\Output8.model
+Killed mutant 20: \PSSM.Terminate001\mutants\rst\Output1.model
+Killed mutant 21: \PSSM.Terminate001\mutants\cac\Output0.model
+Killed mutant 22: \PSSM.Terminate001\mutants\dtr\Output2.model
+Killed mutant 23: \PSSM.Terminate001\mutants\rtr\Output3.model
+Killed mutant 24: \PSSM.Terminate001\mutants\cac\Output3.model
+Killed mutant 25: \PSSM.Terminate001\mutants\cas\Output2.model
+Killed mutant 26: \PSSM.Terminate001\mutants\rst\Output2.model
+Killed mutant 27: \PSSM.Terminate001\mutants\csev\Output3.model
+Killed mutant 28: \PSSM.Terminate001\mutants\cat\Output8.model
+Killed mutant 29: \PSSM.Terminate001\mutants\rtr\Output2.model
+Killed mutant 30: \PSSM.Terminate001\mutants\cet\Output3.model
+Killed mutant 31: \PSSM.Terminate001\mutants\cst\Output19.model
+Killed mutant 32: \PSSM.Terminate001\mutants\sdt\Output3.model
+Killed mutant 33: \PSSM.Terminate001\mutants\cas\Output3.model
+Killed mutant 34: \PSSM.Terminate001\mutants\cat\Output2.model
+Killed mutant 35: \PSSM.Terminate001\mutants\cac\Output2.model
+Killed mutant 36: \PSSM.Terminate001\mutants\cst\Output9.model
+Killed mutant 37: \PSSM.Terminate001\mutants\cst\Output3.model
+Killed mutant 38: \PSSM.Terminate001\mutants\cst\Output13.model
+Killed mutant 39: \PSSM.Terminate001\mutants\cat\Output9.model
+Killed mutant 40: \PSSM.Terminate001\mutants\cet\Output4.model
+Killed mutant 41: \PSSM.Terminate001\mutants\ctt\Output0.model
+Killed mutant 42: \PSSM.Terminate001\mutants\cat\Output10.model
+Killed mutant 43: \PSSM.Terminate001\mutants\cet\Output1.model
+Killed mutant 44: \PSSM.Terminate001\mutants\ctt\Output8.model
+Killed mutant 45: \PSSM.Terminate001\mutants\cat\Output13.model
+Killed mutant 46: \PSSM.Terminate001\mutants\rst\Output0.model
+Killed mutant 47: \PSSM.Terminate001\mutants\rac\Output6.model
+Killed mutant 48: \PSSM.Terminate001\mutants\rtr\Output4.model
+Killed mutant 49: \PSSM.Terminate001\mutants\cac\Output4.model
+Killed mutant 50: \PSSM.Terminate001\mutants\rac\Output3.model
+Killed mutant 51: \PSSM.Terminate001\mutants\cat\Output4.model
+Killed mutant 52: \PSSM.Terminate001\mutants\cst\Output15.model
+Killed mutant 53: \PSSM.Terminate001\mutants\cst\Output12.model
+Killed mutant 54: \PSSM.Terminate001\mutants\ctt\Output2.model
+Killed mutant 55: \PSSM.Terminate001\mutants\rac\Output0.model
+Killed mutant 56: \PSSM.Terminate001\mutants\cat\Output7.model
+Killed mutant 57: \PSSM.Terminate001\mutants\cst\Output18.model
+Killed mutant 58: \PSSM.Terminate001\mutants\cat\Output1.model
+Killed mutant 59: \PSSM.Terminate001\mutants\ctt\Output22.model
+Killed mutant 60: \PSSM.Terminate001\mutants\sdt\Output1.model
+Killed mutant 61: \PSSM.Terminate001\mutants\sdt\Output4.model
+Killed mutant 62: \PSSM.Terminate001\mutants\cst\Output20.model
+Killed mutant 63: \PSSM.Terminate001\mutants\cst\Output16.model
+Killed mutant 64: \PSSM.Terminate001\mutants\cst\Output1.model
+Killed mutant 65: \PSSM.Terminate001\mutants\ctt\Output3.model
+Killed mutant 66: \PSSM.Terminate001\mutants\cet\Output6.model
+Killed mutant 67: \PSSM.Terminate001\mutants\dtr\Output0.model
+Killed mutant 68: \PSSM.Terminate001\mutants\rtr\Output5.model
+Killed mutant 69: \PSSM.Terminate001\mutants\ctt\Output11.model
+Killed mutant 70: \PSSM.Terminate001\mutants\cat\Output11.model
+Killed mutant 71: \PSSM.Terminate001\mutants\cet\Output0.model
+Killed mutant 72: \PSSM.Terminate001\mutants\rac\Output4.model
+Killed mutant 73: \PSSM.Terminate001\mutants\ctt\Output9.model
+Killed mutant 74: \PSSM.Terminate001\mutants\sdt\Output0.model
+Killed mutant 75: \PSSM.Terminate001\mutants\cst\Output0.model
+Killed mutant 76: \PSSM.Terminate001\mutants\ctt\Output24.model
+Killed mutant 77: \PSSM.Terminate001\mutants\cst\Output17.model
+Killed mutant 78: \PSSM.Terminate001\mutants\ctt\Output19.model
+Killed mutant 79: \PSSM.Terminate001\mutants\cas\Output0.model
+Killed mutant 80: \PSSM.Terminate001\mutants\rac\Output5.model
+Killed mutant 81: \PSSM.Terminate001\mutants\cac\Output5.model
+Killed mutant 82: \PSSM.Terminate001\mutants\cst\Output10.model
+--------------------------------------------------
+List of Alive mutants:
+Alive mutant 1: \PSSM.Terminate001\mutants\cst\Output6.model
+Alive mutant 2: \PSSM.Terminate001\mutants\cet\Output8.model
+Alive mutant 3: \PSSM.Terminate001\mutants\csev\Output1.model
+Alive mutant 4: \PSSM.Terminate001\mutants\cst\Output4.model
+Alive mutant 5: \PSSM.Terminate001\mutants\rac\Output2.model
+Alive mutant 6: \PSSM.Terminate001\mutants\ctt\Output15.model
+Alive mutant 7: \PSSM.Terminate001\mutants\rac\Output7.model
+Alive mutant 8: \PSSM.Terminate001\mutants\ctt\Output6.model
+Alive mutant 9: \PSSM.Terminate001\mutants\cac\Output1.model
+Alive mutant 10: \PSSM.Terminate001\mutants\dtr\Output1.model
+Alive mutant 11: \PSSM.Terminate001\mutants\cet\Output5.model
+Alive mutant 12: \PSSM.Terminate001\mutants\rac\Output1.model
+Alive mutant 13: \PSSM.Terminate001\mutants\ctt\Output4.model
+Alive mutant 14: \PSSM.Terminate001\mutants\cat\Output5.model
+Alive mutant 15: \PSSM.Terminate001\mutants\ctt\Output18.model
+Alive mutant 16: \PSSM.Terminate001\mutants\ctt\Output14.model
+Alive mutant 17: \PSSM.Terminate001\mutants\cet\Output7.model
+Alive mutant 18: \PSSM.Terminate001\mutants\ctt\Output7.model
+Alive mutant 19: \PSSM.Terminate001\mutants\rtr\Output1.model
+Alive mutant 20: \PSSM.Terminate001\mutants\cst\Output5.model
+Alive mutant 21: \PSSM.Terminate001\mutants\csev\Output5.model
+Alive mutant 22: \PSSM.Terminate001\mutants\csev\Output0.model
+Alive mutant 23: \PSSM.Terminate001\mutants\csev\Output4.model
+Alive mutant 24: \PSSM.Terminate001\mutants\ctt\Output5.model
+Alive mutant 25: \PSSM.Terminate001\mutants\cat\Output6.model
+Alive mutant 26: \PSSM.Terminate001\mutants\ctt\Output12.model
+Alive mutant 27: \PSSM.Terminate001\mutants\rev\Output1.model
+Alive mutant 28: \PSSM.Terminate001\mutants\cet\Output9.model
+Alive mutant 29: \PSSM.Terminate001\mutants\csev\Output2.model

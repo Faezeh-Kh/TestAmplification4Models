@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" uid="_UpS5QGljEeymCpqPpiNlzQ" version="14.5.1.202106111100">
+  <semanticResources>testSuite.tdlan2</semanticResources>
+  <semanticResources>testSuite_amplified.tdlan2</semanticResources>
+  <semanticResources>splittedResults/testSuite_amplified_ccfs_ccs.tdlan2</semanticResources>
+  <semanticResources>splittedResults/testSuite_amplified_cev2cis.tdlan2</semanticResources>
+  <semanticResources>splittedResults/testSuite_amplified_cst.tdlan2</semanticResources>
+  <semanticResources>splittedResults/testSuite_amplified_ctr_ctr2.tdlan2</semanticResources>
+  <semanticResources>splittedResults/testSuite_amplified_ctt.tdlan2</semanticResources>
+  <semanticResources>splittedResults/testSuite_amplified_dtr2sdt.tdlan2</semanticResources>
+</viewpoint:DAnalysis>

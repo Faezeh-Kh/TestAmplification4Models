@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ASCII"?>
+<arduino:Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduino="http://www.obeo.fr/arduino" xsi:schemaLocation="http://www.obeo.fr/arduino ../../../model/arduino.ecore">
+  <boards xsi:type="arduino:ArduinoBoard" name="board">
+    <digitalPins name="pushButton">
+      <module xsi:type="arduino:PushButton" name="button"/>
+    </digitalPins>
+    <digitalPins name="IRSensor">
+      <module xsi:type="arduino:InfraRedSensor" name="IRSensor"/>
+    </digitalPins>
+    <digitalPins name="blueLED">
+      <module xsi:type="arduino:LED" name="blueLED"/>
+    </digitalPins>
+    <digitalPins name="Servo">
+      <module xsi:type="arduino:MicroServo" name="Servo"/>
+    </digitalPins>
+  </boards>
+  <sketches name="sketch" board="//@boards.0">
+    <block>
+      <instructions xsi:type="arduino:VariableDeclaration">
+        <variable xsi:type="arduino:IntegerVariable" name="i"/>
+      </instructions>
+      <instructions xsi:type="arduino:If">
+        <block>
+          <instructions xsi:type="arduino:While">
+            <block>
+              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.3/@module">
+                <operand xsi:type="arduino:IntegerVariableRef" variable="//@sketches.0/@block/@instructions.0/@variable"/>
+              </instructions>
+              <instructions xsi:type="arduino:VariableAssignment" variable="//@sketches.0/@block/@instructions.0/@variable">
+                <operand xsi:type="arduino:BinaryIntegerExpression" operator="plus">
+                  <left xsi:type="arduino:IntegerVariableRef" variable="//@sketches.0/@block/@instructions.0/@variable"/>
+                  <right xsi:type="arduino:IntegerConstant" value="6"/>
+                </operand>
+              </instructions>
+            </block>
+            <condition xsi:type="arduino:BinaryBooleanExpression" operator="AND">
+              <left xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.1/@module"/>
+              <right xsi:type="arduino:BinaryBooleanExpression" operator="sup">
+                <left xsi:type="arduino:IntegerVariableRef" variable="//@sketches.0/@block/@instructions.0/@variable"/>
+                <right xsi:type="arduino:IntegerConstant" value="18"/>
+              </right>
+            </condition>
+          </instructions>
+          <instructions xsi:type="arduino:If">
+            <block>
+              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
+                <operand xsi:type="arduino:IntegerConstant" value="1"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
+                <operand xsi:type="arduino:IntegerConstant"/>
+              </instructions>
+            </block>
+            <condition xsi:type="arduino:UnaryBooleanExpression">
+              <operand xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.1/@module"/>
+            </condition>
+          </instructions>
+        </block>
+        <condition xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.0/@module"/>
+      </instructions>
+    </block>
+  </sketches>
+</arduino:Project>

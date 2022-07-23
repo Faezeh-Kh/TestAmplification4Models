@@ -1,0 +1,77 @@
+Total number of mutants: 61
+- initial number of killed mutants: 43
+- initial mutation score : 70.49180327868852%
+Total number of test cases improving mutation score: 1
+- number of mutants killed by improved test cases: 2
+- total number of killed mutants: 45
+- final mutation score : 73.77049180327869%
+=> improvement in the mutation score : 3.2786885245901676%
+--------------------------------------------------
+iteration 1: 1 generated test cases
+Amplified Test Case: Event017_Test_A_5_EventDuplication
+Killed mutant 1: \PSSM.Event017A\mutants\ctt\Output13.model
+Killed mutant 2: \PSSM.Event017A\mutants\sdt\Output3.model
+
+--------------------------------------------------
+Original test case: Event017_Test_A
+Killed mutant 1: \PSSM.Event017A\mutants\cst\Output3.model
+Killed mutant 2: \PSSM.Event017A\mutants\cet\Output5.model
+Killed mutant 3: \PSSM.Event017A\mutants\cat\Output0.model
+Killed mutant 4: \PSSM.Event017A\mutants\ctt\Output5.model
+Killed mutant 5: \PSSM.Event017A\mutants\cet\Output1.model
+Killed mutant 6: \PSSM.Event017A\mutants\cac\Output2.model
+Killed mutant 7: \PSSM.Event017A\mutants\cst\Output0.model
+Killed mutant 8: \PSSM.Event017A\mutants\cat\Output3.model
+Killed mutant 9: \PSSM.Event017A\mutants\ctt\Output4.model
+Killed mutant 10: \PSSM.Event017A\mutants\cat\Output4.model
+Killed mutant 11: \PSSM.Event017A\mutants\sdt\Output0.model
+Killed mutant 12: \PSSM.Event017A\mutants\cat\Output1.model
+Killed mutant 13: \PSSM.Event017A\mutants\ctt\Output1.model
+Killed mutant 14: \PSSM.Event017A\mutants\cst\Output4.model
+Killed mutant 15: \PSSM.Event017A\mutants\ctt\Output8.model
+Killed mutant 16: \PSSM.Event017A\mutants\cas\Output1.model
+Killed mutant 17: \PSSM.Event017A\mutants\sdt\Output4.model
+Killed mutant 18: \PSSM.Event017A\mutants\cst\Output1.model
+Killed mutant 19: \PSSM.Event017A\mutants\cac\Output0.model
+Killed mutant 20: \PSSM.Event017A\mutants\ctt\Output0.model
+Killed mutant 21: \PSSM.Event017A\mutants\ctt\Output12.model
+Killed mutant 22: \PSSM.Event017A\mutants\cat\Output5.model
+Killed mutant 23: \PSSM.Event017A\mutants\cet\Output6.model
+Killed mutant 24: \PSSM.Event017A\mutants\sdt\Output1.model
+Killed mutant 25: \PSSM.Event017A\mutants\cst\Output10.model
+Killed mutant 26: \PSSM.Event017A\mutants\cac\Output4.model
+Killed mutant 27: \PSSM.Event017A\mutants\cas\Output2.model
+Killed mutant 28: \PSSM.Event017A\mutants\cbot\Output0.model
+Killed mutant 29: \PSSM.Event017A\mutants\cst\Output5.model
+Killed mutant 30: \PSSM.Event017A\mutants\ctt\Output7.model
+Killed mutant 31: \PSSM.Event017A\mutants\csev\Output4.model
+Killed mutant 32: \PSSM.Event017A\mutants\cst\Output2.model
+Killed mutant 33: \PSSM.Event017A\mutants\cac\Output1.model
+Killed mutant 34: \PSSM.Event017A\mutants\cet\Output4.model
+Killed mutant 35: \PSSM.Event017A\mutants\cas\Output0.model
+Killed mutant 36: \PSSM.Event017A\mutants\cat\Output2.model
+Killed mutant 37: \PSSM.Event017A\mutants\ctt\Output6.model
+Killed mutant 38: \PSSM.Event017A\mutants\cst\Output6.model
+Killed mutant 39: \PSSM.Event017A\mutants\cst\Output9.model
+Killed mutant 40: \PSSM.Event017A\mutants\ctt\Output3.model
+Killed mutant 41: \PSSM.Event017A\mutants\sdt\Output2.model
+Killed mutant 42: \PSSM.Event017A\mutants\cet\Output7.model
+Killed mutant 43: \PSSM.Event017A\mutants\dtr\Output0.model
+--------------------------------------------------
+List of Alive mutants:
+Alive mutant 1: \PSSM.Event017A\mutants\ctt\Output11.model
+Alive mutant 2: \PSSM.Event017A\mutants\cet\Output3.model
+Alive mutant 3: \PSSM.Event017A\mutants\cst\Output8.model
+Alive mutant 4: \PSSM.Event017A\mutants\ctt\Output9.model
+Alive mutant 5: \PSSM.Event017A\mutants\cbof\Output0.model
+Alive mutant 6: \PSSM.Event017A\mutants\cst\Output7.model
+Alive mutant 7: \PSSM.Event017A\mutants\cet\Output0.model
+Alive mutant 8: \PSSM.Event017A\mutants\csev\Output1.model
+Alive mutant 9: \PSSM.Event017A\mutants\csev\Output0.model
+Alive mutant 10: \PSSM.Event017A\mutants\csev\Output2.model
+Alive mutant 11: \PSSM.Event017A\mutants\ctt\Output10.model
+Alive mutant 12: \PSSM.Event017A\mutants\ctt\Output2.model
+Alive mutant 13: \PSSM.Event017A\mutants\cac\Output3.model
+Alive mutant 14: \PSSM.Event017A\mutants\cet\Output2.model
+Alive mutant 15: \PSSM.Event017A\mutants\ctt\Output14.model
+Alive mutant 16: \PSSM.Event017A\mutants\csev\Output3.model

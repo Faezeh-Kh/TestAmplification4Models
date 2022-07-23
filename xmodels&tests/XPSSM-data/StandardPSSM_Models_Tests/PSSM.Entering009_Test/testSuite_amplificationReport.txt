@@ -1,0 +1,84 @@
+Total number of mutants: 66
+- initial number of killed mutants: 56
+- initial mutation score : 84.84848484848484%
+Total number of test cases improving mutation score: 2
+- number of mutants killed by improved test cases: 5
+- total number of killed mutants: 61
+- final mutation score : 92.42424242424242%
+=> improvement in the mutation score : 7.575757575757569%
+--------------------------------------------------
+iteration 1: 2 generated test cases
+Amplified Test Case: Entering009_Test_0_EventDuplication
+Killed mutant 1: \PSSM.Entering009\mutants\cet\Output2.model
+Killed mutant 2: \PSSM.Entering009\mutants\cet\Output0.model
+Killed mutant 3: \PSSM.Entering009\mutants\cet\Output1.model
+Killed mutant 4: \PSSM.Entering009\mutants\rev\Output0.model
+
+Amplified Test Case: Entering009_Test_1_EventDuplication
+Killed mutant 1: \PSSM.Entering009\mutants\ctt\Output4.model
+
+--------------------------------------------------
+Original test case: Entering009_Test
+Killed mutant 1: \PSSM.Entering009\mutants\cat\Output8.model
+Killed mutant 2: \PSSM.Entering009\mutants\ctt\Output10.model
+Killed mutant 3: \PSSM.Entering009\mutants\sdt\Output0.model
+Killed mutant 4: \PSSM.Entering009\mutants\cat\Output1.model
+Killed mutant 5: \PSSM.Entering009\mutants\cac\Output3.model
+Killed mutant 6: \PSSM.Entering009\mutants\cat\Output10.model
+Killed mutant 7: \PSSM.Entering009\mutants\rac\Output0.model
+Killed mutant 8: \PSSM.Entering009\mutants\rst\Output1.model
+Killed mutant 9: \PSSM.Entering009\mutants\rac\Output4.model
+Killed mutant 10: \PSSM.Entering009\mutants\cst\Output1.model
+Killed mutant 11: \PSSM.Entering009\mutants\cst\Output7.model
+Killed mutant 12: \PSSM.Entering009\mutants\rtr\Output1.model
+Killed mutant 13: \PSSM.Entering009\mutants\ctt\Output9.model
+Killed mutant 14: \PSSM.Entering009\mutants\rac\Output3.model
+Killed mutant 15: \PSSM.Entering009\mutants\cat\Output5.model
+Killed mutant 16: \PSSM.Entering009\mutants\csev\Output1.model
+Killed mutant 17: \PSSM.Entering009\mutants\ctt\Output6.model
+Killed mutant 18: \PSSM.Entering009\mutants\cst\Output4.model
+Killed mutant 19: \PSSM.Entering009\mutants\cac\Output2.model
+Killed mutant 20: \PSSM.Entering009\mutants\cas\Output1.model
+Killed mutant 21: \PSSM.Entering009\mutants\cat\Output2.model
+Killed mutant 22: \PSSM.Entering009\mutants\ctt\Output0.model
+Killed mutant 23: \PSSM.Entering009\mutants\cst\Output3.model
+Killed mutant 24: \PSSM.Entering009\mutants\ctt\Output7.model
+Killed mutant 25: \PSSM.Entering009\mutants\rtr\Output2.model
+Killed mutant 26: \PSSM.Entering009\mutants\cat\Output9.model
+Killed mutant 27: \PSSM.Entering009\mutants\cat\Output0.model
+Killed mutant 28: \PSSM.Entering009\mutants\rst\Output0.model
+Killed mutant 29: \PSSM.Entering009\mutants\ctt\Output12.model
+Killed mutant 30: \PSSM.Entering009\mutants\cst\Output0.model
+Killed mutant 31: \PSSM.Entering009\mutants\rac\Output2.model
+Killed mutant 32: \PSSM.Entering009\mutants\cat\Output6.model
+Killed mutant 33: \PSSM.Entering009\mutants\ctt\Output1.model
+Killed mutant 34: \PSSM.Entering009\mutants\rtr\Output3.model
+Killed mutant 35: \PSSM.Entering009\mutants\cas\Output0.model
+Killed mutant 36: \PSSM.Entering009\mutants\cat\Output3.model
+Killed mutant 37: \PSSM.Entering009\mutants\cac\Output1.model
+Killed mutant 38: \PSSM.Entering009\mutants\cst\Output6.model
+Killed mutant 39: \PSSM.Entering009\mutants\ctt\Output8.model
+Killed mutant 40: \PSSM.Entering009\mutants\cst\Output2.model
+Killed mutant 41: \PSSM.Entering009\mutants\ctt\Output11.model
+Killed mutant 42: \PSSM.Entering009\mutants\sdt\Output2.model
+Killed mutant 43: \PSSM.Entering009\mutants\cst\Output9.model
+Killed mutant 44: \PSSM.Entering009\mutants\rac\Output1.model
+Killed mutant 45: \PSSM.Entering009\mutants\sdt\Output1.model
+Killed mutant 46: \PSSM.Entering009\mutants\cst\Output5.model
+Killed mutant 47: \PSSM.Entering009\mutants\cat\Output7.model
+Killed mutant 48: \PSSM.Entering009\mutants\rst\Output2.model
+Killed mutant 49: \PSSM.Entering009\mutants\cat\Output11.model
+Killed mutant 50: \PSSM.Entering009\mutants\cac\Output0.model
+Killed mutant 51: \PSSM.Entering009\mutants\cat\Output4.model
+Killed mutant 52: \PSSM.Entering009\mutants\ctt\Output5.model
+Killed mutant 53: \PSSM.Entering009\mutants\cas\Output2.model
+Killed mutant 54: \PSSM.Entering009\mutants\ctt\Output2.model
+Killed mutant 55: \PSSM.Entering009\mutants\cst\Output8.model
+Killed mutant 56: \PSSM.Entering009\mutants\rtr\Output0.model
+--------------------------------------------------
+List of Alive mutants:
+Alive mutant 1: \PSSM.Entering009\mutants\dtr\Output0.model
+Alive mutant 2: \PSSM.Entering009\mutants\csev\Output3.model
+Alive mutant 3: \PSSM.Entering009\mutants\csev\Output0.model
+Alive mutant 4: \PSSM.Entering009\mutants\csev\Output2.model
+Alive mutant 5: \PSSM.Entering009\mutants\ctt\Output3.model

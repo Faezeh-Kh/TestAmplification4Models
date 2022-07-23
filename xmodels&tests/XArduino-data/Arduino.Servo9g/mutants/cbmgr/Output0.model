@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ASCII"?>
+<arduino:Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduino="http://www.obeo.fr/arduino" xsi:schemaLocation="http://www.obeo.fr/arduino ../../../model/arduino.ecore">
+  <boards xsi:type="arduino:ArduinoBoard" name="board">
+    <digitalPins name="servo">
+      <module xsi:type="arduino:MicroServo" name="servo"/>
+    </digitalPins>
+    <digitalPins name="button_pin">
+      <module xsi:type="arduino:PushButton" name="turnOffButton"/>
+    </digitalPins>
+  </boards>
+  <sketches name="mainSketch">
+    <block>
+      <instructions xsi:type="arduino:If">
+        <block>
+          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
+            <operand xsi:type="arduino:IntegerConstant"/>
+          </instructions>
+        </block>
+        <condition xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.0/@module"/>
+        <elseBlock>
+          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
+            <operand xsi:type="arduino:IntegerConstant" value="90"/>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
+            <operand xsi:type="arduino:IntegerConstant" value="180"/>
+          </instructions>
+        </elseBlock>
+      </instructions>
+    </block>
+  </sketches>
+</arduino:Project>
