@@ -1,6 +1,0 @@
-Number of generated mutants: 1
-Number of killed mutants: 0
---------------------------------------------------
---------------------------------------------------
-Number of alive mutants: 1
-Alive mutant 1: \Arduino.RunningExample\mutants\cic.output0.model
