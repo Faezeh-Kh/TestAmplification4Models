@@ -3,7 +3,7 @@ This repository contains the tool and the evaluation data of the following paper
 
 Faezeh Khorram, Erwan Bousse, Jean-Marie Mottu, Gerson Sunyé, Pablo Gómez-Abajo, Pablo C.Cañizares, Esther Guerra, and Juan de Lara. 2022. Automatic Test Amplification for Executable Models. In *ACM/IEEE 25th International Conference on Model Driven Engineering Languages and Systems*, October 23–28, 2022, Montreal, Canada.
 
-The paper is recently accepted and a link to it will be provided soon.
+The paper is recently accepted and [this is the link](https://hal.archives-ouvertes.fr/hal-03745034) to its preprint.
 
 ## Introduction
 Behavioral models are important assets that must be thoroughly verified early in the design process. This can be achieved with manually-written test cases that embed carefully hand-picked domain-specific input data. 
@@ -36,12 +36,15 @@ We also performed an empirical study of the tool and all the materials are provi
 - <u>Executable DSL</u>: containing a `.dsl` file which specifies the name of the xdsl, the path to the `.ecore` file, the list of execution rules of the interpreter, and the id of the behavioral interface project
 - <u>Mutation Operators</u>: containing a `.mutator` file which includes the mutation operators defined for the xDSL using [WODEL language](https://gomezabajo.github.io/Wodel/)
 
+ **NOTE**: Currently, we do not provide any graphical syntax for the xDSLs.
+
 3.	*xmodels&tests*: the executable models conforming to each xDSL, a set of mutants generated for each of them (by applying the provided mutation operators using WODEL mutant generator), and a test project containing a manually-written test suite and the test amplification result including the mutation analysis report, the amplified test suite, and the test amplification report.
 
 4.	Two Excel files containing detailed data of the paper’s evaluation
 
 ## Setup
 **Requirements**: 
+- Operating System: Windows 10
 - Java 16
 - GEMOC Studio Version 3.5.0: https://gemoc.org/download.html
 - TDL: https://tdl.etsi.org/eclipse/latest/
@@ -52,6 +55,14 @@ After downloading GEMOC Studio, unzip the folder and run it:
 <p align="center">
     <img src="Screenshots/runGemoc.png"  width="60%" height="50%">
 </p>
+
+If it shows an error related to the incompatible java versions, you need to edit the `.ini` file (the `GemocSudio configuration settings` file as shown in the above picture under the `GemocStudio application`) and add the path of your installed java using -vm key right before the -vmargs key. For example,
+    
+    -vm
+    C:/Program Files/Java/jdk-16.0.2/bin/javaw.exe
+    -vmargs
+    ...
+
 
 2.	It asks for a workspace, either select an existing workspace or a new folder, then select `Launch`
 
@@ -65,6 +76,8 @@ After downloading GEMOC Studio, unzip the folder and run it:
     <img src="Screenshots/installTDL.png"  width="60%" height="50%">
 </p>
  
+You may receive an error as "Cannot perform the operation" for two plugins `the converters to/from TDL` and the `TDL graphical editor`. In this case, Eclipse will suggest skipping their installation and installing everything else. You can continue with this option as these two plugins are not necessary for our test amplification tool.
+
 4.	An empty workspace will be shown. Import the projects from the AmplificationTool directory using `Import projects` option shown in the Project Explorer or by following: File -> Import -> Existing Projects into Workspace -> Select Root Directory (browse to the *AmplificationTool* directory) -> Select Folder -> Finish
 
 <p align="center">
@@ -80,26 +93,31 @@ After downloading GEMOC Studio, unzip the folder and run it:
     <img src="Screenshots/projectExplorer.png"  width="40%" height="50%">
 </p>
 
-2. To deploy the tool and the xArduino DSL, we should run this workspace using `Eclipse Application` run configuration. To do this, follow: Run -> Run Configurations, then choose `Eclipse Application` from the list of available configurations and double click to create an instance of it. You can optionally change the default name of the configuration. Finally, press `Run` to open a new Eclipse instance.
+2. To deploy the tool and the xArduino DSL, we should run this workspace using `Eclipse Application` run configuration. To do this, follow: Run -> Run Configurations, then choose `Eclipse Application` from the list of available configurations and double click to create an instance of it. You can optionally change the default name and the `workspace data location` of this configuration instance. Finally, press `Run` to open a new Eclipse instance.
 
-<p align="center">
-    <img src="Screenshots/runConfiguration.png"  width="70%" height="60%">
-</p>
+    <p align="center">
+        <img src="Screenshots/runConfiguration.png"  width="70%" height="60%">
+    </p>
 
-3. In the new Eclipse instance, import the projects from the `xmodels&tests` directory. Here, we imported the projects related to the running example of the paper:
+    **Note**: The `workspace data location` defines the path to the workspace of the newly opened Eclipse instance.  
+
+3. In the new Eclipse instance, import those projects from the `xmodels&tests` directory that you would like to try the tool for them. Here, we imported the projects related to the running example of the paper from the `XArduino-data` directory as follows:
 - `Arduino.RunningExample` project containing:
 
-    a) `runningExample.model`: a sample Arduino model 
+    a) `runningExample.model`: a sample Arduino model
     
-<p align="center">
-    <img src="Screenshots/xArduino-model.jpg"  width="40%" height="40%">
-</p>
+    <p align="center">
+        <img src="Screenshots/xArduino-model.jpg"  width="40%" height="40%">
+    </p>
+
+    **NOTE**: Please note that `runningExample.model` is an XMI file and there is no graphical model in the `Arduino.RunningExample` project such as the one shown in the above figure. We use the above figure just to make it more understandable for this tutorial. 
+    To open the model using Tree editor, right click on the `runningExample.model` file, Open with -> Other -> Sample Reflective Ecore Model Editor -> OK
 
     b) `mutants/cic.output0.model`: a mutant generated for the Arduino model
     
-<p align="center">
-    <img src="Screenshots/xArduino-mutant.jpg"  width="40%" height="40%">
-</p>
+    <p align="center">
+        <img src="Screenshots/xArduino-mutant.jpg"  width="50%" height="50%">
+    </p>
 
 - `Arduino.RunningExample_Test` project containing:
 
@@ -118,9 +136,11 @@ After downloading GEMOC Studio, unzip the folder and run it:
     </p>
 
     d) `testSuite_amplificationReport.txt`: the test amplification result 
-    ![](/Screenshots/importModel%26tests.png)
+    <p align="center">
+        <img src="Screenshots/importModel%26tests.png">
+    </p>
 
-**NOTE**: The three files explained in (b), (c), and (d) are indeed the output of our amplification tool. We provided them here to be used during the evaluation of the tool, to check if the tool provides what is expected. In the following, we remove them and show how to run the tool.
+    **NOTE**: The three files explained in (b), (c), and (d) are indeed the output of our amplification tool. We provided them here to be used during the evaluation of the tool, to check if the tool provides what is expected. In the following, we remove them and show how to run the tool.
 
 4. Run the test amplification tool by right click on the input test suite, here `testSuite.tdlan2` file, and selecting `Amplify TDL Test Suite`
 
@@ -129,8 +149,9 @@ After downloading GEMOC Studio, unzip the folder and run it:
 </p>
 
 5.	When the execution finishes, a message as *“Test Amplification has been performed successfully”* must be shown in the console with a couple of information about the execution result. If the tool were able to generate any new test case, the last message you should see in the console must be *“Phase (4): Saving new test cases”*. By refreshing the test suite project (i.e., right-click on the `Arduino.RunningExample_Test` project and select `Refresh`), the files described above must appear under the project.
-
-![](/Screenshots/amplificationResult.png)
+<p align="center">
+    <img src="Screenshots/amplificationResult.png">
+</p>
 
 ## Acknowledgment
 This project is funded by the [EU H2020 research project Lowcomote](https://www.lowcomote.eu/).
