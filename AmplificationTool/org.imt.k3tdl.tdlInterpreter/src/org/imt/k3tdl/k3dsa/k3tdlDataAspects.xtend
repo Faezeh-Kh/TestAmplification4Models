@@ -606,7 +606,9 @@ class StaticDataUseAspect extends DataUseAspect{
 class LiteralValueUseAspect extends StaticDataUseAspect{
 	def Object getPrimitiveValue(String primitiveTypeName){
 		var String parameterValue = _self.value
-		parameterValue = parameterValue.substring(1, parameterValue.length-1)//remove quotation marks
+		if (parameterValue.startsWith("\"") || parameterValue.startsWith("'")){
+	        parameterValue = parameterValue.substring(1, parameterValue.length-1)//remove quotation marks
+	    }
 		if (primitiveTypeName.equals("EInt") || primitiveTypeName.equals("EIntegerObject")){
 			return Integer.parseInt(parameterValue)
 		}
@@ -621,7 +623,9 @@ class LiteralValueUseAspect extends StaticDataUseAspect{
 	@OverrideAspectMethod
 	def String assertEquals(Object featureValue){
 		var String parameterValue = _self.value
-		parameterValue = parameterValue.substring(1, parameterValue.length-1)//remove quotation marks
+		if (parameterValue.startsWith("\"") || parameterValue.startsWith("'")){
+	        parameterValue = parameterValue.substring(1, parameterValue.length-1)//remove quotation marks
+	    }
 		if (featureValue === null && (parameterValue == "null" || parameterValue.isNullOrEmpty)){
 			return TDLTestResultUtil.PASS + ": The expected data is equal to the current data"
 		}
