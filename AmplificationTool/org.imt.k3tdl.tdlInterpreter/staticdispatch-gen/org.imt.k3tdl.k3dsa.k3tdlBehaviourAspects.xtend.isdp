@@ -253,11 +253,6 @@
 			result = org.imt.k3tdl.k3dsa.ParallelBehaviourAspect.performBehavior((org.etsi.mts.tdl.ParallelBehaviour)_self);
 		} else
 		// EndInjectInto org.imt.k3tdl.k3dsa.CombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.k3dsa.ParallelBehaviourAspect
-	// BeginInjectInto org.imt.k3tdl.k3dsa.ActionBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.k3dsa.AssignmentAspect
-		if (_self instanceof org.etsi.mts.tdl.Assignment){
-			result = org.imt.k3tdl.k3dsa.AssignmentAspect.performBehavior((org.etsi.mts.tdl.Assignment)_self);
-		} else
-		// EndInjectInto org.imt.k3tdl.k3dsa.ActionBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.k3dsa.AssignmentAspect
 	// BeginInjectInto org.imt.k3tdl.k3dsa.MultipleCombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.k3dsa.ParallelBehaviourAspect
 		if (_self instanceof org.etsi.mts.tdl.ParallelBehaviour){
 			result = org.imt.k3tdl.k3dsa.ParallelBehaviourAspect.performBehavior((org.etsi.mts.tdl.ParallelBehaviour)_self);
