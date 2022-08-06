@@ -159,22 +159,24 @@ public class TDLTestAmplifier {
 
 	private void saveAmplifiedTestCases() {
 		String sourcePath = testSuiteRes.getURI().toString();
-		String extension = ".tdlan2";
-		if (sourcePath.endsWith(".xmi")) {
-			extension = ".xmi";
-		}
-		
-		String outputPath = sourcePath.substring(0, sourcePath.lastIndexOf("/")+1) + PathHelper.getInstance().getTestSuiteFileName() + "_amplified" + extension;
-		Resource newTestSuiteRes = (new ResourceSetImpl()).createResource(URI.createURI(outputPath));
+		String tdlan2OutputPath = sourcePath.substring(0, sourcePath.lastIndexOf("/")+1) + PathHelper.getInstance().getTestSuiteFileName() + "_amplified.tdlan2";
+		Resource tdlan2TestSuiteRes = (new ResourceSetImpl()).createResource(URI.createURI(tdlan2OutputPath));
 		//all the new elements are in the testSuiteRes
-		newTestSuiteRes.getContents().addAll(EcoreUtil.copyAll(testSuiteRes.getContents()));
+		tdlan2TestSuiteRes.getContents().addAll(EcoreUtil.copyAll(testSuiteRes.getContents()));
+		String xmiOutputPath = sourcePath.substring(0, sourcePath.lastIndexOf("/")+1) + PathHelper.getInstance().getTestSuiteFileName() + "_amplified.xmi";
+		Resource xmiTestSuiteRes = (new ResourceSetImpl()).createResource(URI.createURI(xmiOutputPath));
+		//all the new elements are in the testSuiteRes
+		xmiTestSuiteRes.getContents().addAll(EcoreUtil.copyAll(testSuiteRes.getContents()));
+		
 		try {
-			newTestSuiteRes.save(null);
+			tdlan2TestSuiteRes.save(null);
+			xmiTestSuiteRes.save(null);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		testSuiteRes.unload();
-		newTestSuiteRes.unload();
+		tdlan2TestSuiteRes.unload();
+		xmiTestSuiteRes.unload();
 	}
 
 	private void printAmplificationResult(String outputFilePath) {
