@@ -52,11 +52,11 @@ We also performed an empirical study of the tool and all the materials are provi
 After downloading GEMOC Studio, unzip the folder and run it:
 1.	Run `GemocStudio` application
 
-<p align="center">
-    <img src="Screenshots/runGemoc.png"  width="60%" height="50%">
-</p>
+    <p align="center">
+        <img src="Screenshots/runGemoc.png"  width="80%" height="60%">
+    </p>
 
-If it shows an error related to the incompatible java versions, you need to edit the `.ini` file (the `GemocSudio configuration settings` file as shown in the above picture under the `GemocStudio application`) and add the path of your installed java using -vm key right before the -vmargs key. For example,
+    If it shows an error related to the incompatible java versions, you need to edit the `.ini` file (the `GemocSudio configuration settings` file as shown in the above picture under the `GemocStudio application`) and add the path of your installed java using -vm key right before the -vmargs key. For example,
     
     -vm
     C:/Program Files/Java/jdk-16.0.2/bin/javaw.exe
@@ -72,11 +72,11 @@ If it shows an error related to the incompatible java versions, you need to edit
 
 3.	You need to install TDL using the provided update site. To do this, go to the `Help` menu and select `Install new Software`. Add the TDL update site and click on `Next`. Accept the license and follow the steps. At the end, it asks to restart the workspace.
 
-<p align="center">
-    <img src="Screenshots/installTDL.png"  width="60%" height="50%">
-</p>
- 
-You may receive an error as "Cannot perform the operation" for two plugins `the converters to/from TDL` and the `TDL graphical editor`. In this case, Eclipse will suggest skipping their installation and installing everything else. You can continue with this option as these two plugins are not necessary for our test amplification tool.
+    <p align="center">
+        <img src="Screenshots/installTDL.png"  width="70%" height="50%">
+    </p>
+    
+    You may receive an error as "Cannot perform the operation" for two plugins: `converters to/from TDL` and `TDL graphical editor`. In this case, Eclipse will suggest skipping their installation and installing everything else. You can continue with this option as these two plugins are not necessary for our test amplification tool.
 
 4.	An empty workspace will be shown. Import the projects from the AmplificationTool directory using `Import projects` option shown in the Project Explorer or by following: File -> Import -> Existing Projects into Workspace -> Select Root Directory (browse to the *AmplificationTool* directory) -> Select Folder -> Finish
 
