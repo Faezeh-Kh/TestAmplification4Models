@@ -3,11 +3,11 @@ This repository contains the tool and the evaluation data of the following paper
 
 Faezeh Khorram, Erwan Bousse, Jean-Marie Mottu, Gerson Sunyé, Pablo Gómez-Abajo, Pablo C.Cañizares, Esther Guerra, and Juan de Lara. 2022. Automatic Test Amplification for Executable Models. In *ACM/IEEE 25th International Conference on Model Driven Engineering Languages and Systems*, October 23–28, 2022, Montreal, Canada.
 
-The paper is recently accepted and [this is the link](https://hal.archives-ouvertes.fr/hal-03745034) to its preprint.
+The paper is recently accepted and you can find its preprint from [this link](https://hal.archives-ouvertes.fr/hal-03745034).
 
 ## Introduction
 Behavioral models are important assets that must be thoroughly verified early in the design process. This can be achieved with manually-written test cases that embed carefully hand-picked domain-specific input data. 
-In our previous work, we proposed a testing framework providing facilities to write, execute, debug, and analyze test cases for behavioral models [[1]](https://hal.archives-ouvertes.fr/hal-03723920) ([Link to the tool](https://gitlab.univ-nantes.fr/naomod/faezeh-public/xtdl))
+In our previous work, we proposed a testing framework providing facilities to write, execute, debug, and analyze test cases for behavioral models [[1]](https://hal.archives-ouvertes.fr/hal-03723920) ([Link to the tool](https://gitlab.univ-nantes.fr/naomod/faezeh-public/xtdl)).
 
 Manually-written test cases may not always reach the desired level of quality, such as high coverage or being able to localize faults efficiently. *Test amplification* is an interesting emergent approach to improve a test suite by automatically generating new test cases out of existing manually-written ones. 
 There are ad-hoc test amplification solutions for a few programming languages, such as DSpot for Java [[2]](https://github.com/STAMP-project/dspot/).
@@ -56,12 +56,12 @@ After downloading GEMOC Studio, unzip the folder and run it:
         <img src="Screenshots/runGemoc.png"  width="80%" height="60%">
     </p>
 
-    If it shows an error related to the incompatible java versions, you need to edit the `.ini` file (the `GemocSudio configuration settings` file as shown in the above picture under the `GemocStudio application`) and add the path of your installed java using -vm key right before the -vmargs key. For example,
+    If it shows an error related to the incompatible java versions, you need to edit the `.ini` file (the `GemocSudio configuration settings` file as shown in the above picture under the `GemocStudio application`) and add the path of your installed java using `-vm` key right before the `-vmargs` key. For example,
     
-    -vm
-    C:/Program Files/Java/jdk-16.0.2/bin/javaw.exe
-    -vmargs
-    ...
+        -vm
+        C:/Program Files/Java/jdk-16.0.2/bin/javaw.exe
+        -vmargs
+        ...
 
 
 2.	It asks for a workspace, either select an existing workspace or a new folder, then select `Launch`
@@ -151,6 +151,12 @@ After downloading GEMOC Studio, unzip the folder and run it:
 5.	When the execution finishes, a message as *“Test Amplification has been performed successfully”* must be shown in the console with a couple of information about the execution result. If the tool were able to generate any new test case, the last message you should see in the console must be *“Phase (4): Saving new test cases”*. By refreshing the test suite project (i.e., right-click on the `Arduino.RunningExample_Test` project and select `Refresh`), the files described above must appear under the project.
 <p align="center">
     <img src="Screenshots/amplificationResult.png">
+</p>
+
+**NOTE**: We just figured out that there is a small issue in the latest version of TDL textual syntax which causes some syntactical errors in the generated amplified test suites (all the errors can be resolved by surrounding the related fields with quotation marks). We reported this issue to the TDL developers ([link to the reported issue](https://labs.etsi.org/rep/top/ide/-/issues/17)). For now, the tool saves the amplified test suite as an XMI file too which has no error.
+
+<p align="center">
+    <img src="Screenshots/error_xmi.png">
 </p>
 
 ## Acknowledgment
