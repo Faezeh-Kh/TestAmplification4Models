@@ -1,4 +1,4 @@
-# Automatic Test Amplification for Executable Models
+# TAMO: Automatic Test Amplification for Executable Models
 This repository contains the tool and the evaluation data of the following paper:
 
 Faezeh Khorram, Erwan Bousse, Jean-Marie Mottu, Gerson Sunyé, Pablo Gómez-Abajo, Pablo C.Cañizares, Esther Guerra, and Juan de Lara. 2022. Automatic Test Amplification for Executable Models. In *ACM/IEEE 25th International Conference on Model Driven Engineering Languages and Systems*, October 23–28, 2022, Montreal, Canada.
