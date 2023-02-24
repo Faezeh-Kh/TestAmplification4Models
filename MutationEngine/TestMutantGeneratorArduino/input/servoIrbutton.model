@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<arduino:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduino="http://www.obeo.fr/arduino" xmi:id="_WDu3YLvrEey6kqvve9HPhQ">
+  <boards xsi:type="arduino:ArduinoBoard" xmi:id="_WDu3YbvrEey6kqvve9HPhQ" name="board">
+    <digitalPins xmi:id="_WDu3YrvrEey6kqvve9HPhQ" name="pushButton">
+      <module xsi:type="arduino:PushButton" xmi:id="_WDu3Y7vrEey6kqvve9HPhQ" name="button"/>
+    </digitalPins>
+    <digitalPins xmi:id="_WDu3ZLvrEey6kqvve9HPhQ" name="IRSensor">
+      <module xsi:type="arduino:InfraRedSensor" xmi:id="_WDu3ZbvrEey6kqvve9HPhQ" name="IRSensor"/>
+    </digitalPins>
+    <digitalPins xmi:id="_WDu3ZrvrEey6kqvve9HPhQ" name="blueLED">
+      <module xsi:type="arduino:LED" xmi:id="_WDu3Z7vrEey6kqvve9HPhQ" name="blueLED"/>
+    </digitalPins>
+    <digitalPins xmi:id="_WDu3aLvrEey6kqvve9HPhQ" name="Servo">
+      <module xsi:type="arduino:MicroServo" xmi:id="_WDu3abvrEey6kqvve9HPhQ" name="Servo"/>
+    </digitalPins>
+  </boards>
+  <sketches xmi:id="_WDu3arvrEey6kqvve9HPhQ" name="sketch" board="_WDu3YbvrEey6kqvve9HPhQ">
+    <block xmi:id="_WDu3a7vrEey6kqvve9HPhQ">
+      <instructions xsi:type="arduino:VariableDeclaration" xmi:id="_WDu3bLvrEey6kqvve9HPhQ">
+        <variable xsi:type="arduino:IntegerVariable" xmi:id="_WDwFgLvrEey6kqvve9HPhQ" name="i"/>
+      </instructions>
+      <instructions xsi:type="arduino:If" xmi:id="_WDwFgbvrEey6kqvve9HPhQ">
+        <block xmi:id="_WDwFgrvrEey6kqvve9HPhQ">
+          <instructions xsi:type="arduino:While" xmi:id="_WDwFg7vrEey6kqvve9HPhQ">
+            <block xmi:id="_WDwFhLvrEey6kqvve9HPhQ">
+              <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_WDwFhbvrEey6kqvve9HPhQ" module="_WDu3abvrEey6kqvve9HPhQ">
+                <operand xsi:type="arduino:IntegerVariableRef" xmi:id="_WDwFhrvrEey6kqvve9HPhQ" variable="_WDwFgLvrEey6kqvve9HPhQ"/>
+              </instructions>
+              <instructions xsi:type="arduino:VariableAssignment" xmi:id="_WDwFiLvrEey6kqvve9HPhQ" variable="_WDwFgLvrEey6kqvve9HPhQ">
+                <operand xsi:type="arduino:BinaryIntegerExpression" xmi:id="_WDwFibvrEey6kqvve9HPhQ" operator="plus">
+                  <left xsi:type="arduino:IntegerVariableRef" xmi:id="_WDwFirvrEey6kqvve9HPhQ" variable="_WDwFgLvrEey6kqvve9HPhQ"/>
+                  <right xsi:type="arduino:IntegerConstant" xmi:id="_WDwFi7vrEey6kqvve9HPhQ" value="6"/>
+                </operand>
+              </instructions>
+            </block>
+            <condition xsi:type="arduino:BinaryBooleanExpression" xmi:id="_WDwFjLvrEey6kqvve9HPhQ" operator="AND">
+              <left xsi:type="arduino:BooleanModuleGet" xmi:id="_WDwFjbvrEey6kqvve9HPhQ" module="_WDu3ZbvrEey6kqvve9HPhQ"/>
+              <right xsi:type="arduino:BinaryBooleanExpression" xmi:id="_WDwFjrvrEey6kqvve9HPhQ" operator="infOrEqual">
+                <left xsi:type="arduino:IntegerVariableRef" xmi:id="_WDwFj7vrEey6kqvve9HPhQ" variable="_WDwFgLvrEey6kqvve9HPhQ"/>
+                <right xsi:type="arduino:IntegerConstant" xmi:id="_WDwFkLvrEey6kqvve9HPhQ" value="18"/>
+              </right>
+            </condition>
+          </instructions>
+          <instructions xsi:type="arduino:If" xmi:id="_WDwFkbvrEey6kqvve9HPhQ">
+            <block xmi:id="_WDwFkrvrEey6kqvve9HPhQ">
+              <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_WDwFk7vrEey6kqvve9HPhQ" module="_WDu3Z7vrEey6kqvve9HPhQ">
+                <operand xsi:type="arduino:IntegerConstant" xmi:id="_WDwskLvrEey6kqvve9HPhQ" value="1"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_WDwskrvrEey6kqvve9HPhQ" module="_WDu3Z7vrEey6kqvve9HPhQ">
+                <operand xsi:type="arduino:IntegerConstant" xmi:id="_WDwsk7vrEey6kqvve9HPhQ"/>
+              </instructions>
+            </block>
+            <condition xsi:type="arduino:UnaryBooleanExpression" xmi:id="_WDwslbvrEey6kqvve9HPhQ">
+              <operand xsi:type="arduino:BooleanModuleGet" xmi:id="_WDwslrvrEey6kqvve9HPhQ" module="_WDu3ZbvrEey6kqvve9HPhQ"/>
+            </condition>
+          </instructions>
+        </block>
+        <condition xsi:type="arduino:BooleanModuleGet" xmi:id="_WDwsl7vrEey6kqvve9HPhQ" module="_WDu3Y7vrEey6kqvve9HPhQ"/>
+      </instructions>
+    </block>
+  </sketches>
+</arduino:Project>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<arduino:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduino="http://www.obeo.fr/arduino" xmi:id="_Uck-QLvpEey6kqvve9HPhQ">
+  <boards xsi:type="arduino:ArduinoBoard" xmi:id="_Uck-QbvpEey6kqvve9HPhQ" name="board">
+    <digitalPins xmi:id="_DErf8MovEeyrEsguAqucdw" name="blueLed">
+      <module xsi:type="arduino:LED" xmi:id="_DErf8covEeyrEsguAqucdw" name="blueLed"/>
+    </digitalPins>
+    <digitalPins xmi:id="_KowVYMovEeyrEsguAqucdw" name="servo2">
+      <module xsi:type="arduino:MicroServo" xmi:id="_KowVYcovEeyrEsguAqucdw" name="servo2"/>
+    </digitalPins>
+    <digitalPins xmi:id="_R9yCMMovEeyrEsguAqucdw" name="fan">
+      <module xsi:type="arduino:Fan" xmi:id="_TJEJkMovEeyrEsguAqucdw" name="fan"/>
+    </digitalPins>
+    <digitalPins xmi:id="_oKk-sMxXEeyMmOihs3jxMw" name="boardOnButtonPin">
+      <module xsi:type="arduino:PushButton" xmi:id="_pbE9QMxXEeyMmOihs3jxMw" name="boardOnButton"/>
+    </digitalPins>
+    <digitalPins xmi:id="_FekdMMxYEeyMmOihs3jxMw" name="IRSensorPin">
+      <module xsi:type="arduino:InfraRedSensor" xmi:id="_O4upcM-YEeyj4OK2t3h2Ug" name="IRSensor"/>
+    </digitalPins>
+    <digitalPins xmi:id="_Z_DdoM-YEeyj4OK2t3h2Ug" name="alarmPin">
+      <module xsi:type="arduino:Buzzer" xmi:id="_bNFXAM-YEeyj4OK2t3h2Ug" name="alarm"/>
+    </digitalPins>
+    <analogPins xmi:id="_MhMBMMowEeyrEsguAqucdw" name="soundSensor">
+      <module xsi:type="arduino:SoundSensor" xmi:id="_NGu-QMowEeyrEsguAqucdw" name="soundSensor"/>
+    </analogPins>
+  </boards>
+  <sketches xmi:id="_Uck-RrvpEey6kqvve9HPhQ" name="sketch" board="_Uck-QbvpEey6kqvve9HPhQ">
+    <block xmi:id="_Uck-R7vpEey6kqvve9HPhQ">
+      <instructions xsi:type="arduino:If" xmi:id="_r3xpMMxXEeyMmOihs3jxMw">
+        <block xmi:id="_siUbAMxXEeyMmOihs3jxMw">
+          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_2NhVAMxXEeyMmOihs3jxMw" module="_DErf8covEeyrEsguAqucdw">
+            <operand xsi:type="arduino:IntegerConstant" xmi:id="_2NhVAcxXEeyMmOihs3jxMw" value="1"/>
+          </instructions>
+          <instructions xsi:type="arduino:If" xmi:id="_APUKEMxYEeyMmOihs3jxMw">
+            <block xmi:id="_APUKEcxYEeyMmOihs3jxMw">
+              <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_APUKEsxYEeyMmOihs3jxMw" module="_bNFXAM-YEeyj4OK2t3h2Ug">
+                <operand xsi:type="arduino:IntegerConstant" xmi:id="_APUKE8xYEeyMmOihs3jxMw" value="1"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_da8VsM-YEeyj4OK2t3h2Ug" module="_bNFXAM-YEeyj4OK2t3h2Ug">
+                <operand xsi:type="arduino:IntegerConstant" xmi:id="_da8Vsc-YEeyj4OK2t3h2Ug"/>
+              </instructions>
+            </block>
+            <condition xsi:type="arduino:BooleanModuleGet" xmi:id="_VbiroM-XEeyj4OK2t3h2Ug" module="_O4upcM-YEeyj4OK2t3h2Ug"/>
+          </instructions>
+          <instructions xsi:type="arduino:If" xmi:id="_SFXloMxYEeyMmOihs3jxMw">
+            <block xmi:id="_SFXlocxYEeyMmOihs3jxMw">
+              <instructions xsi:type="arduino:Repeat" xmi:id="_VbYfMMxYEeyMmOihs3jxMw" iteration="3">
+                <block xmi:id="_VbYfMcxYEeyMmOihs3jxMw">
+                  <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_VbYfNMxYEeyMmOihs3jxMw" module="_KowVYcovEeyrEsguAqucdw">
+                    <operand xsi:type="arduino:IntegerConstant" xmi:id="_VbYfNcxYEeyMmOihs3jxMw"/>
+                  </instructions>
+                  <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_VbYfNsxYEeyMmOihs3jxMw" module="_TJEJkMovEeyrEsguAqucdw">
+                    <operand xsi:type="arduino:IntegerConstant" xmi:id="_VbYfN8xYEeyMmOihs3jxMw" value="1"/>
+                  </instructions>
+                  <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_VbYfOMxYEeyMmOihs3jxMw" module="_TJEJkMovEeyrEsguAqucdw">
+                    <operand xsi:type="arduino:IntegerConstant" xmi:id="_VbYfOcxYEeyMmOihs3jxMw"/>
+                  </instructions>
+                  <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_VbYfMsxYEeyMmOihs3jxMw" module="_KowVYcovEeyrEsguAqucdw">
+                    <operand xsi:type="arduino:IntegerConstant" xmi:id="_VbYfM8xYEeyMmOihs3jxMw" value="60"/>
+                  </instructions>
+                </block>
+              </instructions>
+            </block>
+            <condition xsi:type="arduino:BinaryBooleanExpression" xmi:id="_SFXlpMxYEeyMmOihs3jxMw" operator="sup">
+              <left xsi:type="arduino:IntegerModuleGet" xmi:id="_pWkaMM-YEeyj4OK2t3h2Ug" module="_NGu-QMowEeyrEsguAqucdw"/>
+              <right xsi:type="arduino:IntegerConstant" xmi:id="_mKijEM-YEeyj4OK2t3h2Ug" value="128"/>
+            </condition>
+          </instructions>
+        </block>
+        <condition xsi:type="arduino:BooleanModuleGet" xmi:id="_-TEUMM-WEeyj4OK2t3h2Ug" module="_pbE9QMxXEeyMmOihs3jxMw"/>
+        <elseBlock xmi:id="_Rvs2kM-YEeyj4OK2t3h2Ug">
+          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_SYps8M-YEeyj4OK2t3h2Ug" module="_DErf8covEeyrEsguAqucdw">
+            <operand xsi:type="arduino:IntegerConstant" xmi:id="_UQNrgM-YEeyj4OK2t3h2Ug"/>
+          </instructions>
+        </elseBlock>
+      </instructions>
+    </block>
+  </sketches>
+</arduino:Project>

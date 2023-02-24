@@ -11,7 +11,7 @@ public class TestMutantGenerator {
 	public static void main(String[] args) {
 		
 		MutatorenvironmentPackage.eINSTANCE.getClass();
-
+		/*
 		try {
 			WodelUtils.generateMutationOperators(new String[] {"c:/GemocStudio/workspace2/wodelarduino/data/model/arduino.ecore", "d:/arduino/models", "c:/GemocStudio/workspace2/wodelarduino"});
 		} catch (MetaModelNotFoundException e) {
@@ -23,9 +23,9 @@ public class TestMutantGenerator {
 			e.printStackTrace();
 			return;
 		}
-
+		 */
 		//WodelUtils.compileWodelProject(new String[] {"c:/GemocStudio/workspace2/wodelarduino", "c:/GemocStudio", "GemocStudioc"});
 		
-		//WodelUtils.generateMutants(new String[]{"d:/arduino/models", "d:/arduino/mutants", "c:/GemocStudio/workspace2/wodelarduino", "c:/GemocStudio"});
+		WodelUtils.generateMutants(new String[]{"d:/arduino/models", "d:/arduino/mutants", "c:/GemocStudio/workspace2/wodelarduino", "c:/GemocStudio"});
 	}
 }
