@@ -1,0 +1,665 @@
+generate exhaustive mutants 
+in "data/out/" 
+from "data/model/" 
+metamodel "c:/GemocStudio/workspace2/wodelarduino/data/model/arduino.ecore" 
+
+with blocks {
+	b0  {
+		create DigitalPin
+	}
+	b1  {
+		p = deep clone one DigitalPin
+	}
+	b2  {
+		p = modify one DigitalPin with { name = random-string ( 2 , 4 ) , level = random-int ( 2 , 10 ) , module = one ArduinoDigitalModule }
+	}
+	b3  {
+		remove one DigitalPin
+	}
+	b4  {
+		p = select one DigitalPin
+	}
+	b5  {
+		p = retype one DigitalPin as [ AnalogPin ]
+	}
+	b6  {
+		create AnalogPin
+	}
+	b7  {
+		p = deep clone one AnalogPin
+	}
+	b8  {
+		p = modify one AnalogPin with { name = random-string ( 2 , 4 ) , level = random-int ( 2 , 10 ) , module = one ArduinoAnalogModule }
+	}
+	b9  {
+		remove one AnalogPin
+	}
+	b10  {
+		p = select one AnalogPin
+	}
+	b11  {
+		p = retype one AnalogPin as [ DigitalPin ]
+	}
+	b12  {
+		create Sketch
+	}
+	b13  {
+		p = deep clone one Sketch
+	}
+	b14  {
+		p = modify one Sketch with { name = random-string ( 2 , 4 ) , project = one Project , block = one Block , board = one Board }
+	}
+	b15  {
+		remove one Sketch
+	}
+	b16  {
+		p = select one Sketch
+	}
+	b17  {
+		p = retype one Sketch as [ ArduinoBoard , LED , PushButton , Buzzer , MicroServo , InfraRedSensor , Fan , RotationSensor , AmbientLightSensor , SoundSensor , MusicPlayer , BluetoothTransceiver , DigitalPin , AnalogPin , IntegerVariable , BooleanVariable ]
+	}
+	b18  {
+		create Project
+	}
+	b19  {
+		p = deep clone one Project
+	}
+	b20  {
+		p = modify one Project with { boards = one Board , sketches = one Sketch }
+	}
+	b21  {
+		remove one Project
+	}
+	b22  {
+		p = select one Project
+	}
+	b23  {
+		create Delay
+	}
+	b24  {
+		p = deep clone one Delay
+	}
+	b25  {
+		p = modify one Delay with { value = random-int ( 2 , 10 ) }
+	}
+	b26  {
+		remove one Delay
+	}
+	b27  {
+		p = select one Delay
+	}
+	b28  {
+		p = retype one Delay as [ WaitFor ]
+	}
+	b29  {
+		create ModuleAssignment
+	}
+	b30  {
+		p = deep clone one ModuleAssignment
+	}
+	b31  {
+		p = modify one ModuleAssignment with { module = one Module , operand = one Expression }
+	}
+	b32  {
+		remove one ModuleAssignment
+	}
+	b33  {
+		p = select one ModuleAssignment
+	}
+	b34  {
+		p = retype one ModuleAssignment as [ VariableAssignment ]
+	}
+	b35  {
+		create Repeat
+	}
+	b36  {
+		p = deep clone one Repeat
+	}
+	b37  {
+		p = modify one Repeat with { iteration = random-int ( 2 , 10 ) , block = one Block }
+	}
+	b38  {
+		remove one Repeat
+	}
+	b39  {
+		p = select one Repeat
+	}
+	b40  {
+		p = retype one Repeat as [ If , While ]
+	}
+	b41  {
+		create If
+	}
+	b42  {
+		p = deep clone one If
+	}
+	b43  {
+		p = modify one If with { block = one Block , condition = one BooleanExpression , elseBlock = one Block }
+	}
+	b44  {
+		remove one If
+	}
+	b45  {
+		p = select one If
+	}
+	b46  {
+		p = retype one If as [ Repeat , While ]
+	}
+	b47  {
+		create While
+	}
+	b48  {
+		p = deep clone one While
+	}
+	b49  {
+		p = modify one While with { block = one Block , condition = one BooleanExpression }
+	}
+	b50  {
+		remove one While
+	}
+	b51  {
+		p = select one While
+	}
+	b52  {
+		p = retype one While as [ Repeat , If ]
+	}
+	b53  {
+		create VariableAssignment
+	}
+	b54  {
+		p = deep clone one VariableAssignment
+	}
+	b55  {
+		p = modify one VariableAssignment with { operand = one Expression , variable = one Variable }
+	}
+	b56  {
+		remove one VariableAssignment
+	}
+	b57  {
+		p = select one VariableAssignment
+	}
+	b58  {
+		p = retype one VariableAssignment as [ ModuleAssignment , Repeat , If , While , Delay , WaitFor , VariableDeclaration ]
+	}
+	b59  {
+		create BinaryIntegerExpression
+	}
+	b60  {
+		p = deep clone one BinaryIntegerExpression
+	}
+	b61  {
+		p = modify one BinaryIntegerExpression with { left = one Expression , right = one Expression }
+	}
+	b62  {
+		remove one BinaryIntegerExpression
+	}
+	b63  {
+		p = select one BinaryIntegerExpression
+	}
+	b64  {
+		p = retype one BinaryIntegerExpression as [ BinaryBooleanExpression , IntegerConstant , IntegerModuleGet , UnaryIntegerExpression , IntegerVariableRef ]
+	}
+	b65  {
+		create BinaryBooleanExpression
+	}
+	b66  {
+		p = deep clone one BinaryBooleanExpression
+	}
+	b67  {
+		p = modify one BinaryBooleanExpression with { left = one Expression , right = one Expression }
+	}
+	b68  {
+		remove one BinaryBooleanExpression
+	}
+	b69  {
+		p = select one BinaryBooleanExpression
+	}
+	b70  {
+		p = retype one BinaryBooleanExpression as [ BinaryIntegerExpression , BooleanConstant , BooleanModuleGet , UnaryBooleanExpression , BooleanVariableRef ]
+	}
+	b71  {
+		create IntegerConstant
+	}
+	b72  {
+		p = deep clone one IntegerConstant
+	}
+	b73  {
+		p = modify one IntegerConstant with { value = random-int ( 2 , 10 ) }
+	}
+	b74  {
+		remove one IntegerConstant
+	}
+	b75  {
+		p = select one IntegerConstant
+	}
+	b76  {
+		p = retype one IntegerConstant as [ BooleanConstant , BinaryIntegerExpression , IntegerModuleGet , UnaryIntegerExpression , IntegerVariableRef ]
+	}
+	b77  {
+		create BooleanConstant
+	}
+	b78  {
+		p = deep clone one BooleanConstant
+	}
+	b79  {
+		p = modify one BooleanConstant with { value = random-boolean }
+	}
+	b80  {
+		remove one BooleanConstant
+	}
+	b81  {
+		p = select one BooleanConstant
+	}
+	b82  {
+		p = retype one BooleanConstant as [ IntegerConstant , BinaryBooleanExpression , BooleanModuleGet , UnaryBooleanExpression , BooleanVariableRef ]
+	}
+	b83  {
+		create IntegerVariable
+	}
+	b84  {
+		p = deep clone one IntegerVariable
+	}
+	b85  {
+		p = modify one IntegerVariable with { name = random-string ( 2 , 4 ) , initialValue = random-int ( 2 , 10 ) }
+	}
+	b86  {
+		remove one IntegerVariable
+	}
+	b87  {
+		p = select one IntegerVariable
+	}
+	b88  {
+		p = retype one IntegerVariable as [ BooleanVariable ]
+	}
+	b89  {
+		create BooleanVariable
+	}
+	b90  {
+		p = deep clone one BooleanVariable
+	}
+	b91  {
+		p = modify one BooleanVariable with { name = random-string ( 2 , 4 ) , initialValue = random-boolean }
+	}
+	b92  {
+		remove one BooleanVariable
+	}
+	b93  {
+		p = select one BooleanVariable
+	}
+	b94  {
+		p = retype one BooleanVariable as [ IntegerVariable ]
+	}
+	b95  {
+		create BooleanModuleGet
+	}
+	b96  {
+		p = deep clone one BooleanModuleGet
+	}
+	b97  {
+		p = modify one BooleanModuleGet with { module = one Module }
+	}
+	b98  {
+		remove one BooleanModuleGet
+	}
+	b99  {
+		p = select one BooleanModuleGet
+	}
+	b100  {
+		p = retype one BooleanModuleGet as [ IntegerModuleGet , BinaryBooleanExpression , BooleanConstant , UnaryBooleanExpression , BooleanVariableRef ]
+	}
+	b101  {
+		create IntegerModuleGet
+	}
+	b102  {
+		p = deep clone one IntegerModuleGet
+	}
+	b103  {
+		p = modify one IntegerModuleGet with { module = one Module }
+	}
+	b104  {
+		remove one IntegerModuleGet
+	}
+	b105  {
+		p = select one IntegerModuleGet
+	}
+	b106  {
+		p = retype one IntegerModuleGet as [ BooleanModuleGet , BinaryIntegerExpression , IntegerConstant , UnaryIntegerExpression , IntegerVariableRef ]
+	}
+	b107  {
+		create UnaryBooleanExpression
+	}
+	b108  {
+		p = deep clone one UnaryBooleanExpression
+	}
+	b109  {
+		p = modify one UnaryBooleanExpression with { operand = one Expression }
+	}
+	b110  {
+		remove one UnaryBooleanExpression
+	}
+	b111  {
+		p = select one UnaryBooleanExpression
+	}
+	b112  {
+		p = retype one UnaryBooleanExpression as [ UnaryIntegerExpression , BinaryBooleanExpression , BooleanConstant , BooleanModuleGet , BooleanVariableRef ]
+	}
+	b113  {
+		create UnaryIntegerExpression
+	}
+	b114  {
+		p = deep clone one UnaryIntegerExpression
+	}
+	b115  {
+		p = modify one UnaryIntegerExpression with { operand = one Expression }
+	}
+	b116  {
+		remove one UnaryIntegerExpression
+	}
+	b117  {
+		p = select one UnaryIntegerExpression
+	}
+	b118  {
+		p = retype one UnaryIntegerExpression as [ UnaryBooleanExpression , BinaryIntegerExpression , IntegerConstant , IntegerModuleGet , IntegerVariableRef ]
+	}
+	b119  {
+		create VariableDeclaration
+	}
+	b120  {
+		p = deep clone one VariableDeclaration
+	}
+	b121  {
+		p = modify one VariableDeclaration with { variable = one Variable }
+	}
+	b122  {
+		remove one VariableDeclaration
+	}
+	b123  {
+		p = select one VariableDeclaration
+	}
+	b124  {
+		p = retype one VariableDeclaration as [ ModuleAssignment , Repeat , If , While , Delay , WaitFor , VariableAssignment ]
+	}
+	b125  {
+		create IntegerVariableRef
+	}
+	b126  {
+		p = deep clone one IntegerVariableRef
+	}
+	b127  {
+		p = modify one IntegerVariableRef with { variable = one IntegerVariable }
+	}
+	b128  {
+		remove one IntegerVariableRef
+	}
+	b129  {
+		p = select one IntegerVariableRef
+	}
+	b130  {
+		p = retype one IntegerVariableRef as [ BooleanVariableRef , BinaryIntegerExpression , IntegerConstant , IntegerModuleGet , UnaryIntegerExpression ]
+	}
+	b131  {
+		create LED
+	}
+	b132  {
+		p = deep clone one LED
+	}
+	b133  {
+		p = modify one LED with { name = random-string ( 2 , 4 ) }
+	}
+	b134  {
+		remove one LED
+	}
+	b135  {
+		p = select one LED
+	}
+	b136  {
+		p = retype one LED as [ PushButton , Buzzer , MicroServo , InfraRedSensor , Fan ]
+	}
+	b137  {
+		create PushButton
+	}
+	b138  {
+		p = deep clone one PushButton
+	}
+	b139  {
+		p = modify one PushButton with { name = random-string ( 2 , 4 ) }
+	}
+	b140  {
+		remove one PushButton
+	}
+	b141  {
+		p = select one PushButton
+	}
+	b142  {
+		p = retype one PushButton as [ LED , Buzzer , MicroServo , InfraRedSensor , Fan ]
+	}
+	b143  {
+		create Buzzer
+	}
+	b144  {
+		p = deep clone one Buzzer
+	}
+	b145  {
+		p = modify one Buzzer with { name = random-string ( 2 , 4 ) }
+	}
+	b146  {
+		remove one Buzzer
+	}
+	b147  {
+		p = select one Buzzer
+	}
+	b148  {
+		p = retype one Buzzer as [ LED , PushButton , MicroServo , InfraRedSensor , Fan ]
+	}
+	b149  {
+		create MicroServo
+	}
+	b150  {
+		p = deep clone one MicroServo
+	}
+	b151  {
+		p = modify one MicroServo with { name = random-string ( 2 , 4 ) }
+	}
+	b152  {
+		remove one MicroServo
+	}
+	b153  {
+		p = select one MicroServo
+	}
+	b154  {
+		p = retype one MicroServo as [ LED , PushButton , Buzzer , InfraRedSensor , Fan ]
+	}
+	b155  {
+		create InfraRedSensor
+	}
+	b156  {
+		p = deep clone one InfraRedSensor
+	}
+	b157  {
+		p = modify one InfraRedSensor with { name = random-string ( 2 , 4 ) }
+	}
+	b158  {
+		remove one InfraRedSensor
+	}
+	b159  {
+		p = select one InfraRedSensor
+	}
+	b160  {
+		p = retype one InfraRedSensor as [ LED , PushButton , Buzzer , MicroServo , Fan ]
+	}
+	b161  {
+		create Fan
+	}
+	b162  {
+		p = deep clone one Fan
+	}
+	b163  {
+		p = modify one Fan with { name = random-string ( 2 , 4 ) }
+	}
+	b164  {
+		remove one Fan
+	}
+	b165  {
+		p = select one Fan
+	}
+	b166  {
+		p = retype one Fan as [ LED , PushButton , Buzzer , MicroServo , InfraRedSensor ]
+	}
+	b167  {
+		create RotationSensor
+	}
+	b168  {
+		p = deep clone one RotationSensor
+	}
+	b169  {
+		p = modify one RotationSensor with { name = random-string ( 2 , 4 ) }
+	}
+	b170  {
+		remove one RotationSensor
+	}
+	b171  {
+		p = select one RotationSensor
+	}
+	b172  {
+		p = retype one RotationSensor as [ AmbientLightSensor , SoundSensor , MusicPlayer , BluetoothTransceiver ]
+	}
+	b173  {
+		create AmbientLightSensor
+	}
+	b174  {
+		p = deep clone one AmbientLightSensor
+	}
+	b175  {
+		p = modify one AmbientLightSensor with { name = random-string ( 2 , 4 ) }
+	}
+	b176  {
+		remove one AmbientLightSensor
+	}
+	b177  {
+		p = select one AmbientLightSensor
+	}
+	b178  {
+		p = retype one AmbientLightSensor as [ RotationSensor , SoundSensor , MusicPlayer , BluetoothTransceiver ]
+	}
+	b179  {
+		create SoundSensor
+	}
+	b180  {
+		p = deep clone one SoundSensor
+	}
+	b181  {
+		p = modify one SoundSensor with { name = random-string ( 2 , 4 ) }
+	}
+	b182  {
+		remove one SoundSensor
+	}
+	b183  {
+		p = select one SoundSensor
+	}
+	b184  {
+		p = retype one SoundSensor as [ RotationSensor , AmbientLightSensor , MusicPlayer , BluetoothTransceiver ]
+	}
+	b185  {
+		create MusicPlayer
+	}
+	b186  {
+		p = deep clone one MusicPlayer
+	}
+	b187  {
+		p = modify one MusicPlayer with { name = random-string ( 2 , 4 ) }
+	}
+	b188  {
+		remove one MusicPlayer
+	}
+	b189  {
+		p = select one MusicPlayer
+	}
+	b190  {
+		p = retype one MusicPlayer as [ RotationSensor , AmbientLightSensor , SoundSensor , BluetoothTransceiver ]
+	}
+	b191  {
+		create BluetoothTransceiver
+	}
+	b192  {
+		p = deep clone one BluetoothTransceiver
+	}
+	b193  {
+		p = modify one BluetoothTransceiver with { name = random-string ( 2 , 4 ) , connectedTransceiver = one BluetoothTransceiver }
+	}
+	b194  {
+		remove one BluetoothTransceiver
+	}
+	b195  {
+		p = select one BluetoothTransceiver
+	}
+	b196  {
+		p = retype one BluetoothTransceiver as [ RotationSensor , AmbientLightSensor , SoundSensor , MusicPlayer ]
+	}
+	b197  {
+		create WaitFor
+	}
+	b198  {
+		p = deep clone one WaitFor
+	}
+	b199  {
+		p = modify one WaitFor with { pin = one Pin }
+	}
+	b200  {
+		remove one WaitFor
+	}
+	b201  {
+		p = select one WaitFor
+	}
+	b202  {
+		p = retype one WaitFor as [ Delay ]
+	}
+	b203  {
+		create Block
+	}
+	b204  {
+		p = deep clone one Block
+	}
+	b205  {
+		p = modify one Block with { instructions = one Instruction }
+	}
+	b206  {
+		remove one Block
+	}
+	b207  {
+		p = select one Block
+	}
+	b208  {
+		create ArduinoBoard
+	}
+	b209  {
+		p = deep clone one ArduinoBoard
+	}
+	b210  {
+		p = modify one ArduinoBoard with { name = random-string ( 2 , 4 ) , project = one Project , digitalPins = one DigitalPin , analogPins = one AnalogPin }
+	}
+	b211  {
+		remove one ArduinoBoard
+	}
+	b212  {
+		p = select one ArduinoBoard
+	}
+	b213  {
+		create BooleanVariableRef
+	}
+	b214  {
+		p = deep clone one BooleanVariableRef
+	}
+	b215  {
+		p = modify one BooleanVariableRef with { variable = one BooleanVariable }
+	}
+	b216  {
+		remove one BooleanVariableRef
+	}
+	b217  {
+		p = select one BooleanVariableRef
+	}
+	b218  {
+		p = retype one BooleanVariableRef as [ IntegerVariableRef , BinaryBooleanExpression , BooleanConstant , BooleanModuleGet , UnaryBooleanExpression ]
+	}
+	
+}

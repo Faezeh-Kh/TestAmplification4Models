@@ -1,0 +1,68 @@
+generate exhaustive mutants 
+in "data/out/" 
+from "data/model/" 
+metamodel "c:/GemocStudio/workspace2/wodeleduapp/data/model/DFAAutomaton.ecore" 
+
+with blocks {
+	b0  {
+		create Automaton with { name = "7" , name = "8" , name = "Exercise 1" , name = "Exercise 10" , name = "Exercise 2" , name = "Exercise 3" , name = "Exercise 4" , name = "Exercise 5" , name = "Exercise 6" , name = "Exercise 9" }
+	}
+	b1  {
+		p = deep clone one Automaton where { name = "7" or name = "8" or name = "Exercise 1" or name = "Exercise 10" or name = "Exercise 2" or name = "Exercise 3" or name = "Exercise 4" or name = "Exercise 5" or name = "Exercise 6" or name = "Exercise 9" } with { name = "7" , name = "8" , name = "Exercise 1" , name = "Exercise 10" , name = "Exercise 2" , name = "Exercise 3" , name = "Exercise 4" , name = "Exercise 5" , name = "Exercise 6" , name = "Exercise 9" }
+	}
+	b2  {
+		p = modify one Automaton where { name = "7" or name = "8" or name = "Exercise 1" or name = "Exercise 10" or name = "Exercise 2" or name = "Exercise 3" or name = "Exercise 4" or name = "Exercise 5" or name = "Exercise 6" or name = "Exercise 9" } with { name = "7" , name = "8" , name = "Exercise 1" , name = "Exercise 10" , name = "Exercise 2" , name = "Exercise 3" , name = "Exercise 4" , name = "Exercise 5" , name = "Exercise 6" , name = "Exercise 9" , states = one State , transitions = one Transition , alphabet = one Symbol }
+	}
+	b3  {
+		remove one Automaton where { name = "7" or name = "8" or name = "Exercise 1" or name = "Exercise 10" or name = "Exercise 2" or name = "Exercise 3" or name = "Exercise 4" or name = "Exercise 5" or name = "Exercise 6" or name = "Exercise 9" }
+	}
+	b4  {
+		p = select one Automaton where { name = "7" or name = "8" or name = "Exercise 1" or name = "Exercise 10" or name = "Exercise 2" or name = "Exercise 3" or name = "Exercise 4" or name = "Exercise 5" or name = "Exercise 6" or name = "Exercise 9" }
+	}
+	b5  {
+		create Symbol with { symbol = "0" , symbol = "1" , symbol = "a" , symbol = "b" }
+	}
+	b6  {
+		p = deep clone one Symbol where { symbol = "0" or symbol = "1" or symbol = "a" or symbol = "b" } with { symbol = "0" , symbol = "1" , symbol = "a" , symbol = "b" }
+	}
+	b7  {
+		p = modify one Symbol where { symbol = "0" or symbol = "1" or symbol = "a" or symbol = "b" } with { symbol = "0" , symbol = "1" , symbol = "a" , symbol = "b" }
+	}
+	b8  {
+		remove one Symbol where { symbol = "0" or symbol = "1" or symbol = "a" or symbol = "b" }
+	}
+	b9  {
+		p = select one Symbol where { symbol = "0" or symbol = "1" or symbol = "a" or symbol = "b" }
+	}
+	b10  {
+		create State with { name = "even" , name = "odd" , name = "q0" , name = "q1" , name = "q2" , name = "q3" , name = "q4" , name = "q5" , isInitial = false , isInitial = true , isFinal = false , isFinal = true }
+	}
+	b11  {
+		p = deep clone one State where { name = "even" or name = "odd" or name = "q0" or name = "q1" or name = "q2" or name = "q3" or name = "q4" or name = "q5" or isInitial = false or isInitial = true or isFinal = false or isFinal = true } with { name = "even" , name = "odd" , name = "q0" , name = "q1" , name = "q2" , name = "q3" , name = "q4" , name = "q5" , isInitial = false , isInitial = true , isFinal = false , isFinal = true }
+	}
+	b12  {
+		p = modify one State where { name = "even" or name = "odd" or name = "q0" or name = "q1" or name = "q2" or name = "q3" or name = "q4" or name = "q5" or isInitial = false or isInitial = true or isFinal = false or isFinal = true } with { name = "even" , name = "odd" , name = "q0" , name = "q1" , name = "q2" , name = "q3" , name = "q4" , name = "q5" , isInitial = false , isInitial = true , isFinal = false , isFinal = true }
+	}
+	b13  {
+		remove one State where { name = "even" or name = "odd" or name = "q0" or name = "q1" or name = "q2" or name = "q3" or name = "q4" or name = "q5" or isInitial = false or isInitial = true or isFinal = false or isFinal = true }
+	}
+	b14  {
+		p = select one State where { name = "even" or name = "odd" or name = "q0" or name = "q1" or name = "q2" or name = "q3" or name = "q4" or name = "q5" or isInitial = false or isInitial = true or isFinal = false or isFinal = true }
+	}
+	b15  {
+		create Transition
+	}
+	b16  {
+		p = deep clone one Transition
+	}
+	b17  {
+		p = modify one Transition with { src = one State , tar = one State , symbol = one Symbol }
+	}
+	b18  {
+		remove one Transition
+	}
+	b19  {
+		p = select one Transition
+	}
+	
+}
