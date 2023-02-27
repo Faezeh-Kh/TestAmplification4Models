@@ -19,12 +19,8 @@
             <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_TeGOvbvnEey7OoLBzoKkPA" module="_TeGOs7vnEey7OoLBzoKkPA">
               <operand xsi:type="arduino:IntegerConstant" xmi:id="_TeGOvrvnEey7OoLBzoKkPA"/>
             </instructions>
-            <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_vWSdkLvnEey7OoLBzoKkPA" module="_TeGOs7vnEey7OoLBzoKkPA">
-              <operand xsi:type="arduino:IntegerConstant" xmi:id="_vWSdkbvnEey7OoLBzoKkPA" value="1"/>
-            </instructions>
-            <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_vWSdkrvnEey7OoLBzoKkPA" module="_TeGOs7vnEey7OoLBzoKkPA">
-              <operand xsi:type="arduino:IntegerConstant" xmi:id="_vWSdk7vnEey7OoLBzoKkPA"/>
-            </instructions>
+            <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_vWSdkLvnEey7OoLBzoKkPA" module="_TeGOs7vnEey7OoLBzoKkPA"/>
+            <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_vWSdkrvnEey7OoLBzoKkPA" module="_TeGOs7vnEey7OoLBzoKkPA"/>
           </block>
           <condition xsi:type="arduino:BinaryBooleanExpression" xmi:id="_TeGOwLvnEey7OoLBzoKkPA" operator="equal">
             <left xsi:type="arduino:IntegerModuleGet" xmi:id="_ubWisM-YEeyj4OK2t3h2Ug" module="_TeGOtbvnEey7OoLBzoKkPA"/>
@@ -39,5 +35,8 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:BinaryBooleanExpression/>
+  <arduino:BinaryBooleanExpression>
+    <left xsi:type="arduino:IntegerConstant" value="1"/>
+    <right xsi:type="arduino:IntegerConstant"/>
+  </arduino:BinaryBooleanExpression>
 </xmi:XMI>

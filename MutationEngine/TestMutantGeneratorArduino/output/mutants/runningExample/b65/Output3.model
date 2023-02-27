@@ -24,9 +24,7 @@
             </instructions>
             <instructions xsi:type="arduino:If" xmi:id="_kSBuENFgEey60oAITKsoDQ">
               <block xmi:id="_m6xR8NFgEey60oAITKsoDQ">
-                <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_ndN3sNFgEey60oAITKsoDQ" module="_H0GU4NFgEey60oAITKsoDQ">
-                  <operand xsi:type="arduino:IntegerConstant" xmi:id="_ndN3sdFgEey60oAITKsoDQ" value="1"/>
-                </instructions>
+                <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_ndN3sNFgEey60oAITKsoDQ" module="_H0GU4NFgEey60oAITKsoDQ"/>
                 <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_oqHIoNFgEey60oAITKsoDQ" module="_H0GU4NFgEey60oAITKsoDQ">
                   <operand xsi:type="arduino:IntegerConstant" xmi:id="_oqHIodFgEey60oAITKsoDQ"/>
                 </instructions>
@@ -44,7 +42,6 @@
             </instructions>
           </block>
           <condition xsi:type="arduino:BinaryBooleanExpression" xmi:id="_TeGOwLvnEey7OoLBzoKkPA" operator="equal">
-            <left xsi:type="arduino:IntegerModuleGet" xmi:id="_ubWisM-YEeyj4OK2t3h2Ug" module="_L26qENFgEey60oAITKsoDQ"/>
             <right xsi:type="arduino:IntegerConstant" xmi:id="_wA6LQM-YEeyj4OK2t3h2Ug" value="1"/>
           </condition>
           <elseBlock xmi:id="_gw7l4NFgEey60oAITKsoDQ">
@@ -56,5 +53,8 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:BinaryBooleanExpression/>
+  <arduino:BinaryBooleanExpression>
+    <left xsi:type="arduino:IntegerModuleGet" module="_L26qENFgEey60oAITKsoDQ"/>
+    <right xsi:type="arduino:IntegerConstant" value="1"/>
+  </arduino:BinaryBooleanExpression>
 </xmi:XMI>

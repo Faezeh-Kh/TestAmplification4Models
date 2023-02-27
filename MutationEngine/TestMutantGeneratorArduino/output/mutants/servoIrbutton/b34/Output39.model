@@ -23,13 +23,15 @@
         <block>
           <instructions xsi:type="arduino:While">
             <block>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.3/@module">
-                <operand xsi:type="arduino:IntegerVariableRef" variable="//@sketches.0/@block/@instructions.0/@variable"/>
-              </instructions>
               <instructions xsi:type="arduino:VariableAssignment" variable="//@sketches.0/@block/@instructions.0/@variable">
                 <operand xsi:type="arduino:BinaryIntegerExpression" operator="plus">
                   <left xsi:type="arduino:IntegerVariableRef" variable="//@sketches.0/@block/@instructions.0/@variable"/>
                   <right xsi:type="arduino:IntegerConstant" value="6"/>
+                </operand>
+              </instructions>
+              <instructions xsi:type="arduino:VariableAssignment">
+                <operand xsi:type="arduino:IntegerVariableRef">
+                  <variable href="../../../model/servoIrbutton.model#_WDwFgLvrEey6kqvve9HPhQ"/>
                 </operand>
               </instructions>
             </block>
@@ -47,7 +49,9 @@
                 <operand xsi:type="arduino:IntegerConstant"/>
               </instructions>
               <instructions xsi:type="arduino:VariableAssignment">
-                <operand xsi:type="arduino:IntegerConstant" value="1"/>
+                <operand xsi:type="arduino:BooleanModuleGet">
+                  <module xsi:type="arduino:InfraRedSensor" href="../../../model/servoIrbutton.model#_WDu3ZbvrEey6kqvve9HPhQ"/>
+                </operand>
               </instructions>
             </block>
             <condition xsi:type="arduino:UnaryBooleanExpression">

@@ -83,13 +83,13 @@
           <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_dFs8YMowEeyrEsguAqucdw" module="_KowVYcovEeyrEsguAqucdw">
             <operand xsi:type="arduino:IntegerConstant" xmi:id="_dFs8YcowEeyrEsguAqucdw" value="60"/>
           </instructions>
-          <instructions xsi:type="arduino:Delay"/>
         </block>
         <condition xsi:type="arduino:BinaryBooleanExpression" xmi:id="_DNUCEMowEeyrEsguAqucdw" operator="sup">
           <left xsi:type="arduino:IntegerModuleGet" xmi:id="_Faj8wMowEeyrEsguAqucdw" module="_NGu-QMowEeyrEsguAqucdw"/>
           <right xsi:type="arduino:IntegerConstant" xmi:id="_R1dXMMowEeyrEsguAqucdw" value="128"/>
         </condition>
       </instructions>
+      <instructions xsi:type="arduino:Delay" value="3"/>
     </block>
   </sketches>
 </arduino:Project>

@@ -33,7 +33,7 @@
             <condition xsi:type="arduino:BinaryBooleanExpression" operator="AND">
               <left xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.1/@module"/>
               <right xsi:type="arduino:BinaryBooleanExpression" operator="infOrEqual">
-                <left xsi:type="arduino:BooleanVariableRef"/>
+                <left xsi:type="arduino:BinaryIntegerExpression"/>
                 <right xsi:type="arduino:IntegerConstant" value="18"/>
               </right>
             </condition>

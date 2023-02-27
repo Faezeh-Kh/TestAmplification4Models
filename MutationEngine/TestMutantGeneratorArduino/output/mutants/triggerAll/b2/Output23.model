@@ -7,7 +7,7 @@
     <digitalPins name="blueLed">
       <module xsi:type="arduino:LED" name="blueLed"/>
     </digitalPins>
-    <digitalPins name="whiteLedPin">
+    <digitalPins name="whiteLed">
       <module xsi:type="arduino:LED" name="whiteLed" color="white"/>
     </digitalPins>
     <digitalPins name="servo1">
@@ -19,7 +19,7 @@
     <digitalPins name="irSensor">
       <module xsi:type="arduino:InfraRedSensor" name="irSensor"/>
     </digitalPins>
-    <digitalPins name="button">
+    <digitalPins name="pushButton">
       <module xsi:type="arduino:PushButton" name="button"/>
     </digitalPins>
     <digitalPins name="fan">

@@ -49,9 +49,7 @@
                     <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_VbYfNMxYEeyMmOihs3jxMw" module="_KowVYcovEeyrEsguAqucdw">
                       <operand xsi:type="arduino:IntegerConstant" xmi:id="_VbYfNcxYEeyMmOihs3jxMw"/>
                     </instructions>
-                    <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_VbYfNsxYEeyMmOihs3jxMw" module="_TJEJkMovEeyrEsguAqucdw">
-                      <operand xsi:type="arduino:IntegerConstant" xmi:id="_VbYfN8xYEeyMmOihs3jxMw" value="1"/>
-                    </instructions>
+                    <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_VbYfNsxYEeyMmOihs3jxMw" module="_TJEJkMovEeyrEsguAqucdw"/>
                     <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_VbYfOMxYEeyMmOihs3jxMw" module="_TJEJkMovEeyrEsguAqucdw">
                       <operand xsi:type="arduino:IntegerConstant" xmi:id="_VbYfOcxYEeyMmOihs3jxMw"/>
                     </instructions>
@@ -77,5 +75,7 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:UnaryBooleanExpression/>
+  <arduino:UnaryBooleanExpression>
+    <operand xsi:type="arduino:IntegerConstant" value="1"/>
+  </arduino:UnaryBooleanExpression>
 </xmi:XMI>

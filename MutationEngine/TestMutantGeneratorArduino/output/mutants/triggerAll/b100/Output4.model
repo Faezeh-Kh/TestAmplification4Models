@@ -56,7 +56,7 @@
             </block>
           </instructions>
         </block>
-        <condition xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.6/@module"/>
+        <condition xsi:type="arduino:BooleanVariableRef"/>
       </instructions>
       <instructions xsi:type="arduino:If">
         <block>
@@ -67,7 +67,7 @@
             <operand xsi:type="arduino:IntegerConstant"/>
           </instructions>
         </block>
-        <condition xsi:type="arduino:UnaryBooleanExpression"/>
+        <condition xsi:type="arduino:BinaryBooleanExpression"/>
       </instructions>
       <instructions xsi:type="arduino:If">
         <block>

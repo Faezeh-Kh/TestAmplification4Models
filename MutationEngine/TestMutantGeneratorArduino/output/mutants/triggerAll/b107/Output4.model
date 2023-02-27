@@ -36,9 +36,7 @@
           <block xmi:id="_aAi-wMovEeyrEsguAqucdw">
             <instructions xsi:type="arduino:Repeat" xmi:id="_asDZ4MovEeyrEsguAqucdw" iteration="2">
               <block xmi:id="_bgBNcMovEeyrEsguAqucdw">
-                <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_cLbh8MovEeyrEsguAqucdw" module="_DErf8covEeyrEsguAqucdw">
-                  <operand xsi:type="arduino:IntegerConstant" xmi:id="_gI8gYMovEeyrEsguAqucdw" value="1"/>
-                </instructions>
+                <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_cLbh8MovEeyrEsguAqucdw" module="_DErf8covEeyrEsguAqucdw"/>
                 <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_lbexAMovEeyrEsguAqucdw" module="_DErf8covEeyrEsguAqucdw">
                   <operand xsi:type="arduino:IntegerConstant" xmi:id="_lbexAcovEeyrEsguAqucdw"/>
                 </instructions>
@@ -93,5 +91,7 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:UnaryBooleanExpression/>
+  <arduino:UnaryBooleanExpression>
+    <operand xsi:type="arduino:IntegerConstant" value="1"/>
+  </arduino:UnaryBooleanExpression>
 </xmi:XMI>

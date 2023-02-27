@@ -46,9 +46,7 @@
               <block xmi:id="_SFXlocxYEeyMmOihs3jxMw">
                 <instructions xsi:type="arduino:Repeat" xmi:id="_VbYfMMxYEeyMmOihs3jxMw" iteration="3">
                   <block xmi:id="_VbYfMcxYEeyMmOihs3jxMw">
-                    <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_VbYfNMxYEeyMmOihs3jxMw" module="_KowVYcovEeyrEsguAqucdw">
-                      <operand xsi:type="arduino:IntegerConstant" xmi:id="_VbYfNcxYEeyMmOihs3jxMw"/>
-                    </instructions>
+                    <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_VbYfNMxYEeyMmOihs3jxMw" module="_KowVYcovEeyrEsguAqucdw"/>
                     <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_VbYfNsxYEeyMmOihs3jxMw" module="_TJEJkMovEeyrEsguAqucdw">
                       <operand xsi:type="arduino:IntegerConstant" xmi:id="_VbYfN8xYEeyMmOihs3jxMw" value="1"/>
                     </instructions>
@@ -77,5 +75,7 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:UnaryIntegerExpression/>
+  <arduino:UnaryIntegerExpression>
+    <operand xsi:type="arduino:IntegerConstant"/>
+  </arduino:UnaryIntegerExpression>
 </xmi:XMI>

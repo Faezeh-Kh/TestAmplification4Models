@@ -63,7 +63,7 @@
             </condition>
           </instructions>
           <instructions xsi:type="arduino:VariableAssignment">
-            <operand xsi:type="arduino:IntegerConstant" value="1"/>
+            <operand xsi:type="arduino:IntegerConstant" value="128"/>
           </instructions>
         </block>
         <condition xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.3/@module"/>

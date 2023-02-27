@@ -20,7 +20,7 @@
       <module xsi:type="arduino:InfraRedSensor" name="irSensor"/>
     </digitalPins>
     <digitalPins name="button">
-      <module xsi:type="arduino:Buzzer" name="turnOffButton"/>
+      <module xsi:type="arduino:Fan" name="button1"/>
     </digitalPins>
     <digitalPins name="fan">
       <module xsi:type="arduino:Fan" name="fan"/>

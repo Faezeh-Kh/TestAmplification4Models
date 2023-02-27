@@ -12,22 +12,18 @@
     <block>
       <instructions xsi:type="arduino:If">
         <block>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
-            <operand xsi:type="arduino:IntegerConstant" value="1"/>
-          </instructions>
           <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module"/>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
-            <operand xsi:type="arduino:IntegerConstant" value="1"/>
-          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module"/>
+          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module"/>
           <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module"/>
         </block>
         <condition xsi:type="arduino:BinaryBooleanExpression" operator="equal">
           <left xsi:type="arduino:IntegerModuleGet" module="//@boards.0/@digitalPins.1/@module"/>
-          <right xsi:type="arduino:BooleanConstant"/>
+          <right xsi:type="arduino:IntegerModuleGet"/>
         </condition>
         <elseBlock>
           <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
-            <operand xsi:type="arduino:IntegerConstant" value="1"/>
+            <operand xsi:type="arduino:BooleanConstant"/>
           </instructions>
         </elseBlock>
       </instructions>

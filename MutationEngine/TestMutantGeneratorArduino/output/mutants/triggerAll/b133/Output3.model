@@ -8,7 +8,7 @@
       <module xsi:type="arduino:LED" name="blueLed"/>
     </digitalPins>
     <digitalPins name="whiteLed">
-      <module xsi:type="arduino:LED" name="whiteLed" color="white"/>
+      <module xsi:type="arduino:LED" name="LED1" color="white"/>
     </digitalPins>
     <digitalPins name="servo1">
       <module xsi:type="arduino:MicroServo" name="servo1"/>

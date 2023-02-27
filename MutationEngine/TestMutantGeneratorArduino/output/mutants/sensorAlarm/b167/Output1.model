@@ -48,5 +48,5 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:RotationSensor/>
+  <arduino:RotationSensor name="uw"/>
 </xmi:XMI>

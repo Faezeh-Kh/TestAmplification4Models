@@ -10,7 +10,7 @@
     <digitalPins name="buzzerPin">
       <module xsi:type="arduino:Buzzer" name="buzzer"/>
     </digitalPins>
-    <digitalPins name="whiteLedPin">
+    <digitalPins name="IRSensorPin">
       <module xsi:type="arduino:PushButton" name="button1"/>
     </digitalPins>
   </boards>

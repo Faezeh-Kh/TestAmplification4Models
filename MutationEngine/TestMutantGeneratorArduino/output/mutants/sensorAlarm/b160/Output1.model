@@ -5,7 +5,7 @@
       <module xsi:type="arduino:LED" name="LED1"/>
     </digitalPins>
     <digitalPins name="sensor_pin">
-      <module xsi:type="arduino:MicroServo" name="irSensor"/>
+      <module xsi:type="arduino:LED" name="IRSensor"/>
     </digitalPins>
     <digitalPins name="buzzer_pin">
       <module xsi:type="arduino:Buzzer" name="Alarm1"/>

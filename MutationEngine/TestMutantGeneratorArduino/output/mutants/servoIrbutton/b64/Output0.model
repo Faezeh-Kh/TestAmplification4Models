@@ -27,7 +27,9 @@
                 <operand xsi:type="arduino:IntegerVariableRef" variable="//@sketches.0/@block/@instructions.0/@variable"/>
               </instructions>
               <instructions xsi:type="arduino:VariableAssignment" variable="//@sketches.0/@block/@instructions.0/@variable">
-                <operand xsi:type="arduino:IntegerConstant"/>
+                <operand xsi:type="arduino:UnaryIntegerExpression">
+                  <operand xsi:type="arduino:IntegerConstant" value="6"/>
+                </operand>
               </instructions>
             </block>
             <condition xsi:type="arduino:BinaryBooleanExpression" operator="AND">

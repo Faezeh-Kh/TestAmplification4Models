@@ -26,7 +26,7 @@
           </instructions>
         </elseBlock>
       </instructions>
-      <instructions xsi:type="arduino:Delay"/>
+      <instructions xsi:type="arduino:Delay" value="7"/>
     </block>
   </sketches>
 </arduino:Project>

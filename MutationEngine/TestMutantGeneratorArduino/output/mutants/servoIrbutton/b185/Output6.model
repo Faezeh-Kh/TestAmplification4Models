@@ -61,5 +61,5 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:MusicPlayer/>
+  <arduino:MusicPlayer name="HN"/>
 </xmi:XMI>

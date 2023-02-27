@@ -45,9 +45,7 @@
                 <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_m9TwIMovEeyrEsguAqucdw" module="_DLddYcovEeyrEsguAqucdw">
                   <operand xsi:type="arduino:IntegerConstant" xmi:id="_m9TwIcovEeyrEsguAqucdw" value="1"/>
                 </instructions>
-                <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_oXtRkMovEeyrEsguAqucdw" module="_DLddYcovEeyrEsguAqucdw">
-                  <operand xsi:type="arduino:IntegerConstant" xmi:id="_oXtRkcovEeyrEsguAqucdw"/>
-                </instructions>
+                <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_oXtRkMovEeyrEsguAqucdw" module="_DLddYcovEeyrEsguAqucdw"/>
                 <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_p7q-sMovEeyrEsguAqucdw" module="_Uck-RbvpEey6kqvve9HPhQ">
                   <operand xsi:type="arduino:IntegerConstant" xmi:id="_p7q-scovEeyrEsguAqucdw" value="1"/>
                 </instructions>
@@ -57,7 +55,6 @@
               </block>
             </instructions>
           </block>
-          <condition xsi:type="arduino:BooleanModuleGet" xmi:id="_Yn-pUMovEeyrEsguAqucdw" module="_Qf35wMovEeyrEsguAqucdw"/>
         </instructions>
         <instructions xsi:type="arduino:If" xmi:id="_4rMuMMovEeyrEsguAqucdw">
           <block xmi:id="_6QlXoMovEeyrEsguAqucdw">
@@ -93,5 +90,8 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:BinaryBooleanExpression/>
+  <arduino:BinaryBooleanExpression>
+    <left xsi:type="arduino:IntegerConstant"/>
+    <right xsi:type="arduino:BooleanModuleGet" module="_Qf35wMovEeyrEsguAqucdw"/>
+  </arduino:BinaryBooleanExpression>
 </xmi:XMI>

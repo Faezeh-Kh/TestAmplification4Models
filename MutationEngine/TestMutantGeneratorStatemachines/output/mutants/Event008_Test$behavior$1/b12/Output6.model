@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
+  <statemachines:CustomSystem>
+    <statemachine name="Event008_Test$behavior$1">
+      <regions name="Region1">
+        <vertice xsi:type="statemachines:Pseudostate" name="Initial1" outgoingTransitions="/0/@statemachine/@regions.0/@transitions.0"/>
+        <vertice xsi:type="statemachines:State" name="waiting" outgoingTransitions="/0/@statemachine/@regions.0/@transitions.1" incomingTransitions="/0/@statemachine/@regions.0/@transitions.0"/>
+        <vertice xsi:type="statemachines:State" name="S1" outgoingTransitions="/0/@statemachine/@regions.0/@transitions.2" incomingTransitions="/0/@statemachine/@regions.0/@transitions.1"/>
+        <vertice xsi:type="statemachines:State" name="S2" outgoingTransitions="/0/@statemachine/@regions.0/@transitions.3" incomingTransitions="/0/@statemachine/@regions.0/@transitions.2"/>
+        <vertice xsi:type="statemachines:FinalState" name="FinalState1" incomingTransitions="/0/@statemachine/@regions.0/@transitions.3"/>
+        <transitions name="T1" source="/0/@statemachine/@regions.0/@vertice.0" target="/0/@statemachine/@regions.0/@vertice.1" kind="external"/>
+        <transitions name="T2" source="/0/@statemachine/@regions.0/@vertice.1" target="/0/@statemachine/@regions.0/@vertice.2" kind="external">
+          <triggers>
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.0"/>
+          </triggers>
+          <effect name="T2(effect)"/>
+        </transitions>
+        <transitions name="T3" source="/0/@statemachine/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.3" kind="external">
+          <effect name="T3(effect)"/>
+        </transitions>
+        <transitions name="T4" source="/0/@statemachine/@regions.0/@vertice.3" target="/0/@statemachine/@regions.0/@vertice.4" kind="external">
+          <triggers name="ContinueTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.1"/>
+          </triggers>
+          <effect name="T4(testEnd)"/>
+        </transitions>
+      </regions>
+    </statemachine>
+    <signals name="Start"/>
+    <signals name="Continue"/>
+  </statemachines:CustomSystem>
+  <statemachines:SignalEventType signal="/0/@signals.1"/>
+</xmi:XMI>

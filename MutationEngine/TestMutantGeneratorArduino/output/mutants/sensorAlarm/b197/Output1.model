@@ -24,6 +24,7 @@
           <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_bfSdA7suEeyYPqXDdDsRMg" module="_bfGPxbsuEeyYPqXDdDsRMg">
             <operand xsi:type="arduino:IntegerConstant" xmi:id="_bfSdBLsuEeyYPqXDdDsRMg"/>
           </instructions>
+          <instructions xsi:type="arduino:WaitFor" pin="_bfGPwLsuEeyYPqXDdDsRMg"/>
         </block>
         <condition xsi:type="arduino:BinaryBooleanExpression" xmi:id="_bfSdBrsuEeyYPqXDdDsRMg" operator="equal">
           <left xsi:type="arduino:IntegerModuleGet" xmi:id="_Z8SoEM-ZEeyj4OK2t3h2Ug" module="_bfGPx7suEeyYPqXDdDsRMg"/>
@@ -44,7 +45,6 @@
           <right xsi:type="arduino:IntegerConstant" xmi:id="_hXq0gM-ZEeyj4OK2t3h2Ug" value="1"/>
         </condition>
       </instructions>
-      <instructions xsi:type="arduino:WaitFor"/>
     </block>
   </sketches>
 </arduino:Project>

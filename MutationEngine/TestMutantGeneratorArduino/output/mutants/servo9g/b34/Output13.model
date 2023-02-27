@@ -12,7 +12,7 @@
     <block>
       <instructions xsi:type="arduino:If">
         <block>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
+          <instructions xsi:type="arduino:VariableAssignment">
             <operand xsi:type="arduino:IntegerConstant"/>
           </instructions>
         </block>
@@ -22,7 +22,7 @@
             <operand xsi:type="arduino:IntegerConstant" value="180"/>
           </instructions>
           <instructions xsi:type="arduino:VariableAssignment">
-            <operand xsi:type="arduino:IntegerConstant" value="90"/>
+            <operand xsi:type="arduino:IntegerConstant" value="180"/>
           </instructions>
         </elseBlock>
       </instructions>

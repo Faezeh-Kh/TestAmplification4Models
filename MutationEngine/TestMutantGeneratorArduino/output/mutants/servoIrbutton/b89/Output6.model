@@ -61,5 +61,5 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:BooleanVariable/>
+  <arduino:BooleanVariable name="Lk" initialValue="true"/>
 </xmi:XMI>

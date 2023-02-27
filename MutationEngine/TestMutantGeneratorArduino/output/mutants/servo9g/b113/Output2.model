@@ -22,13 +22,13 @@
             <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_B80o87vqEey6kqvve9HPhQ" module="_B80o8LvqEey6kqvve9HPhQ">
               <operand xsi:type="arduino:IntegerConstant" xmi:id="_B80o9LvqEey6kqvve9HPhQ" value="90"/>
             </instructions>
-            <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_B80o9rvqEey6kqvve9HPhQ" module="_B80o8LvqEey6kqvve9HPhQ">
-              <operand xsi:type="arduino:IntegerConstant" xmi:id="_B80o97vqEey6kqvve9HPhQ" value="180"/>
-            </instructions>
+            <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_B80o9rvqEey6kqvve9HPhQ" module="_B80o8LvqEey6kqvve9HPhQ"/>
           </elseBlock>
         </instructions>
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:UnaryIntegerExpression/>
+  <arduino:UnaryIntegerExpression>
+    <operand xsi:type="arduino:IntegerConstant" value="180"/>
+  </arduino:UnaryIntegerExpression>
 </xmi:XMI>

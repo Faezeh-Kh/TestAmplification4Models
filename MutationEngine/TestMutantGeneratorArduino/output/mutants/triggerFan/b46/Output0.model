@@ -25,12 +25,30 @@
   </boards>
   <sketches name="sketch" board="//@boards.0">
     <block>
-      <instructions xsi:type="arduino:Repeat">
+      <instructions xsi:type="arduino:While">
         <block>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
-            <operand xsi:type="arduino:IntegerConstant"/>
+          <instructions xsi:type="arduino:Repeat" iteration="3">
+            <block>
+              <instructions xsi:type="arduino:ModuleAssignment">
+                <module xsi:type="arduino:MicroServo" href="../../../model/triggerFan.model#_KowVYcovEeyrEsguAqucdw"/>
+                <operand xsi:type="arduino:IntegerConstant"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment">
+                <module xsi:type="arduino:Fan" href="../../../model/triggerFan.model#_TJEJkMovEeyrEsguAqucdw"/>
+                <operand xsi:type="arduino:IntegerConstant" value="1"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment">
+                <module xsi:type="arduino:Fan" href="../../../model/triggerFan.model#_TJEJkMovEeyrEsguAqucdw"/>
+                <operand xsi:type="arduino:IntegerConstant"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment">
+                <module xsi:type="arduino:MicroServo" href="../../../model/triggerFan.model#_KowVYcovEeyrEsguAqucdw"/>
+                <operand xsi:type="arduino:IntegerConstant" value="60"/>
+              </instructions>
+            </block>
           </instructions>
         </block>
+        <condition xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.3/@module"/>
       </instructions>
     </block>
   </sketches>

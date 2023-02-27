@@ -29,13 +29,7 @@
           <left xsi:type="arduino:IntegerModuleGet" xmi:id="_ubWisM-YEeyj4OK2t3h2Ug" module="_TeGOtbvnEey7OoLBzoKkPA"/>
           <right xsi:type="arduino:IntegerConstant" xmi:id="_wA6LQM-YEeyj4OK2t3h2Ug"/>
         </condition>
-        <elseBlock xmi:id="_TeGOw7vnEey7OoLBzoKkPA">
-          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_TeGOxLvnEey7OoLBzoKkPA" module="_TeGOs7vnEey7OoLBzoKkPA">
-            <operand xsi:type="arduino:IntegerConstant" xmi:id="_TeGOxbvnEey7OoLBzoKkPA" value="1"/>
-          </instructions>
-        </elseBlock>
       </instructions>
-      <instructions xsi:type="arduino:Repeat" iteration="3"/>
     </block>
   </sketches>
 </arduino:Project>

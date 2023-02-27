@@ -7,7 +7,7 @@
     <digitalPins name="servo2">
       <module xsi:type="arduino:MicroServo" name="servo2"/>
     </digitalPins>
-    <digitalPins name="whiteLedPin">
+    <digitalPins name="servo1">
       <module xsi:type="arduino:Fan" name="fan"/>
     </digitalPins>
     <digitalPins name="boardOnButtonPin">

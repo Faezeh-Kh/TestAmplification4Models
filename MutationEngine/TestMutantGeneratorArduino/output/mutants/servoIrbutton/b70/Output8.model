@@ -33,9 +33,7 @@
                 </operand>
               </instructions>
             </block>
-            <condition xsi:type="arduino:BinaryBooleanExpression" operator="AND">
-              <right xsi:type="arduino:BooleanModuleGet"/>
-            </condition>
+            <condition xsi:type="arduino:BooleanVariableRef"/>
           </instructions>
           <instructions xsi:type="arduino:If">
             <block>

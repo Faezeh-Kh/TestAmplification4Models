@@ -57,6 +57,7 @@
                   <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_VbYfMsxYEeyMmOihs3jxMw" module="_KowVYcovEeyrEsguAqucdw">
                     <operand xsi:type="arduino:IntegerConstant" xmi:id="_VbYfM8xYEeyMmOihs3jxMw" value="60"/>
                   </instructions>
+                  <instructions xsi:type="arduino:WaitFor" pin="_FekdMMxYEeyMmOihs3jxMw"/>
                 </block>
               </instructions>
             </block>
@@ -73,7 +74,6 @@
           </instructions>
         </elseBlock>
       </instructions>
-      <instructions xsi:type="arduino:WaitFor"/>
     </block>
   </sketches>
 </arduino:Project>

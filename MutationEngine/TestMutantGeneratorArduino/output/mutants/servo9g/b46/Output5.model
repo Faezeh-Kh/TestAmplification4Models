@@ -12,10 +12,12 @@
     <block>
       <instructions xsi:type="arduino:While">
         <block>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:MicroServo" href="../../../model/servo9g.model#_B80o8LvqEey6kqvve9HPhQ"/>
             <operand xsi:type="arduino:IntegerConstant" value="90"/>
           </instructions>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:MicroServo" href="../../../model/servo9g.model#_B80o8LvqEey6kqvve9HPhQ"/>
             <operand xsi:type="arduino:IntegerConstant" value="180"/>
           </instructions>
         </block>

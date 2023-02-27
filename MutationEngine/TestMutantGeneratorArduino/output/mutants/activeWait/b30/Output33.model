@@ -24,7 +24,8 @@
           <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
             <operand xsi:type="arduino:IntegerConstant"/>
           </instructions>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:InfraRedSensor" href="../../../model/activeWait.model#_TeGOtbvnEey7OoLBzoKkPA"/>
             <operand xsi:type="arduino:IntegerConstant" value="1"/>
           </instructions>
         </block>

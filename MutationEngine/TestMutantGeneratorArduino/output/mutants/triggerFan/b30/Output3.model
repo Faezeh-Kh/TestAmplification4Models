@@ -38,6 +38,14 @@
               <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.5/@module">
                 <operand xsi:type="arduino:IntegerConstant"/>
               </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment">
+                <module xsi:type="arduino:PushButton" href="../../../model/triggerFan.model#_pbE9QMxXEeyMmOihs3jxMw"/>
+                <operand xsi:type="arduino:IntegerConstant"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment">
+                <module xsi:type="arduino:SoundSensor" href="../../../model/triggerFan.model#_NGu-QMowEeyrEsguAqucdw"/>
+                <operand xsi:type="arduino:IntegerConstant" value="128"/>
+              </instructions>
             </block>
             <condition xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.4/@module"/>
           </instructions>
@@ -57,8 +65,9 @@
                   <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.1/@module">
                     <operand xsi:type="arduino:IntegerConstant" value="60"/>
                   </instructions>
-                  <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.1/@module">
-                    <operand xsi:type="arduino:IntegerConstant"/>
+                  <instructions xsi:type="arduino:ModuleAssignment">
+                    <module xsi:type="arduino:LED" href="../../../model/triggerFan.model#_DErf8covEeyrEsguAqucdw"/>
+                    <operand xsi:type="arduino:IntegerConstant" value="60"/>
                   </instructions>
                 </block>
               </instructions>
@@ -67,6 +76,12 @@
               <left xsi:type="arduino:IntegerModuleGet" module="//@boards.0/@analogPins.0/@module"/>
               <right xsi:type="arduino:IntegerConstant" value="128"/>
             </condition>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:Buzzer" href="../../../model/triggerFan.model#_bNFXAM-YEeyj4OK2t3h2Ug"/>
+            <operand xsi:type="arduino:BooleanModuleGet">
+              <module xsi:type="arduino:InfraRedSensor" href="../../../model/triggerFan.model#_O4upcM-YEeyj4OK2t3h2Ug"/>
+            </operand>
           </instructions>
         </block>
         <condition xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.3/@module"/>

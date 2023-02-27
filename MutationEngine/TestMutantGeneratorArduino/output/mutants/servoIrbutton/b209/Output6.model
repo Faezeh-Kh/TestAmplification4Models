@@ -14,7 +14,7 @@
       <module xsi:type="arduino:MicroServo" name="Servo"/>
     </digitalPins>
   </boards>
-  <boards xsi:type="arduino:ArduinoBoard" name="board">
+  <boards xsi:type="arduino:ArduinoBoard" name="">
     <digitalPins name="pushButton">
       <module xsi:type="arduino:PushButton" name="button"/>
     </digitalPins>
@@ -26,6 +26,9 @@
     </digitalPins>
     <digitalPins name="Servo">
       <module xsi:type="arduino:MicroServo" name="Servo"/>
+    </digitalPins>
+    <digitalPins name="blueLED">
+      <module xsi:type="arduino:LED" name="blueLED"/>
     </digitalPins>
   </boards>
   <sketches name="sketch" board="//@boards.0">

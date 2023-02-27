@@ -14,7 +14,7 @@
       <module xsi:type="arduino:PushButton" name="boardOnButton"/>
     </digitalPins>
     <digitalPins name="IRSensorPin">
-      <module xsi:type="arduino:InfraRedSensor" name="irSensor"/>
+      <module xsi:type="arduino:InfraRedSensor" name="IRSensor1"/>
     </digitalPins>
     <digitalPins name="alarmPin">
       <module xsi:type="arduino:Buzzer" name="alarm"/>

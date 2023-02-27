@@ -4,11 +4,12 @@
     <digitalPins xmi:id="_B80B4rvqEey6kqvve9HPhQ" name="servo">
       <module xsi:type="arduino:MicroServo" xmi:id="_B80o8LvqEey6kqvve9HPhQ" name="servo"/>
     </digitalPins>
+  </boards>
+  <boards xsi:type="arduino:ArduinoBoard" name="board">
     <digitalPins xmi:id="_OYCMcLvqEey6kqvve9HPhQ" name="button_pin">
       <module xsi:type="arduino:PushButton" xmi:id="_PsA80LvqEey6kqvve9HPhQ" name="turnOffButton"/>
     </digitalPins>
   </boards>
-  <boards xsi:type="arduino:ArduinoBoard" name="board"/>
   <sketches xmi:id="_B80o8bvqEey6kqvve9HPhQ" name="mainSketch">
     <block xmi:id="_B80o8rvqEey6kqvve9HPhQ">
       <instructions xsi:type="arduino:If" xmi:id="_aa13ALvqEey6kqvve9HPhQ">

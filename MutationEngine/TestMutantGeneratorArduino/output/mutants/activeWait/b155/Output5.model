@@ -39,5 +39,5 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:InfraRedSensor name="irSensor"/>
+  <arduino:InfraRedSensor name="IRSensor"/>
 </xmi:XMI>

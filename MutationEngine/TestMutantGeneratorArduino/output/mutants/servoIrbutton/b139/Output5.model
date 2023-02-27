@@ -2,7 +2,7 @@
 <arduino:Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduino="http://www.obeo.fr/arduino" xsi:schemaLocation="http://www.obeo.fr/arduino ../../../model/arduino.ecore">
   <boards xsi:type="arduino:ArduinoBoard" name="board">
     <digitalPins name="pushButton">
-      <module xsi:type="arduino:PushButton" name="turnOffButton"/>
+      <module xsi:type="arduino:PushButton" name="boardOnButton"/>
     </digitalPins>
     <digitalPins name="IRSensor">
       <module xsi:type="arduino:InfraRedSensor" name="IRSensor"/>

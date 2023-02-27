@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ASCII"?>
+<statemachines:CustomSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore" xmi:id="_nIH3cLslEeyrPdT0pCfx6w">
+  <statemachine xmi:id="_nIH3cbslEeyrPdT0pCfx6w" name="Event019_Test_B$behavior$1">
+    <regions xmi:id="_nIH3crslEeyrPdT0pCfx6w" name="Region1">
+      <vertice xsi:type="statemachines:Pseudostate" xmi:id="_nIH3c7slEeyrPdT0pCfx6w" name="Initial1" outgoingTransitions="_nIH3ebslEeyrPdT0pCfx6w"/>
+      <vertice xsi:type="statemachines:State" xmi:id="_nIH3dLslEeyrPdT0pCfx6w" name="S1" outgoingTransitions="_nIH3erslEeyrPdT0pCfx6w" incomingTransitions="_nIH3ebslEeyrPdT0pCfx6w">
+        <exit xmi:id="_nIH3dbslEeyrPdT0pCfx6w" name="S1(exit)"/>
+      </vertice>
+      <vertice xsi:type="statemachines:State" xmi:id="_nIH3drslEeyrPdT0pCfx6w" name="S2" outgoingTransitions="_nIH3frslEeyrPdT0pCfx6w" incomingTransitions="_nIH3erslEeyrPdT0pCfx6w">
+        <entry xmi:id="_nIH3d7slEeyrPdT0pCfx6w" name="S2(entry)"/>
+      </vertice>
+      <vertice xsi:type="statemachines:FinalState" xmi:id="_nIH3eLslEeyrPdT0pCfx6w" name="FinalState1" incomingTransitions="_nIH3frslEeyrPdT0pCfx6w"/>
+      <transitions xmi:id="_nIH3ebslEeyrPdT0pCfx6w" name="T1" source="_nIH3c7slEeyrPdT0pCfx6w" target="_nIH3dLslEeyrPdT0pCfx6w" kind="external"/>
+      <transitions xmi:id="_nIH3erslEeyrPdT0pCfx6w" name="T2" source="_nIH3dLslEeyrPdT0pCfx6w" target="_nIH3drslEeyrPdT0pCfx6w" kind="external">
+        <triggers xmi:id="_nIH3e7slEeyrPdT0pCfx6w" name="CallEventOpTrigger">
+          <eventType xsi:type="statemachines:CallEventType" xmi:id="_nIH3fLslEeyrPdT0pCfx6w" operation="_nIH3gLslEeyrPdT0pCfx6w"/>
+        </triggers>
+        <effect xmi:id="_nIH3fbslEeyrPdT0pCfx6w" name="T2(effect)"/>
+        <constraint xsi:type="statemachines:BooleanConstraint" xmi:id="_t4VnALslEeyrPdT0pCfx6w">
+          <expression xsi:type="statemachines:BooleanUnaryExpression" xmi:id="_vCH5kLslEeyrPdT0pCfx6w" operand="//@operations.1/@outParameters.0"/>
+        </constraint>
+      </transitions>
+      <transitions xmi:id="_nIH3frslEeyrPdT0pCfx6w" name="T3" source="_nIH3drslEeyrPdT0pCfx6w" target="_nIH3eLslEeyrPdT0pCfx6w" kind="external">
+        <effect xmi:id="_nIH3f7slEeyrPdT0pCfx6w" name="T3(testEnd)"/>
+      </transitions>
+    </regions>
+  </statemachine>
+  <operations xmi:id="_nIH3gLslEeyrPdT0pCfx6w" name="op"/>
+  <operations name="Biv">
+    <inParameters xsi:type="statemachines:IntegerAttribute" name="p1"/>
+    <outParameters xsi:type="statemachines:BooleanAttribute" name="p2"/>
+  </operations>
+</statemachines:CustomSystem>

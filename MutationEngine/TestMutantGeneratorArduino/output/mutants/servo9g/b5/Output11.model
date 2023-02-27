@@ -7,7 +7,8 @@
     <digitalPins name="button_pin">
       <module xsi:type="arduino:PushButton" name="turnOffButton"/>
     </digitalPins>
-    <analogPins name="whiteLedPin"/>
+    <analogPins name="IRSensorPin"/>
+    <analogPins name="boardOnButtonPin"/>
   </boards>
   <sketches name="mainSketch">
     <block>

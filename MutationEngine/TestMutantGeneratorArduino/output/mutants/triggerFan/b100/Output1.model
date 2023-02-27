@@ -39,7 +39,7 @@
                 <operand xsi:type="arduino:IntegerConstant"/>
               </instructions>
             </block>
-            <condition xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.4/@module"/>
+            <condition xsi:type="arduino:BinaryBooleanExpression"/>
           </instructions>
           <instructions xsi:type="arduino:If">
             <block>

@@ -44,9 +44,7 @@
             </instructions>
             <instructions xsi:type="arduino:If" xmi:id="_WDwFkbvrEey6kqvve9HPhQ">
               <block xmi:id="_WDwFkrvrEey6kqvve9HPhQ">
-                <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_WDwFk7vrEey6kqvve9HPhQ" module="_WDu3Z7vrEey6kqvve9HPhQ">
-                  <operand xsi:type="arduino:IntegerConstant" xmi:id="_WDwskLvrEey6kqvve9HPhQ" value="1"/>
-                </instructions>
+                <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_WDwFk7vrEey6kqvve9HPhQ" module="_WDu3Z7vrEey6kqvve9HPhQ"/>
                 <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_WDwskrvrEey6kqvve9HPhQ" module="_WDu3Z7vrEey6kqvve9HPhQ">
                   <operand xsi:type="arduino:IntegerConstant" xmi:id="_WDwsk7vrEey6kqvve9HPhQ"/>
                 </instructions>
@@ -61,5 +59,7 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:UnaryIntegerExpression/>
+  <arduino:UnaryIntegerExpression>
+    <operand xsi:type="arduino:IntegerConstant" value="1"/>
+  </arduino:UnaryIntegerExpression>
 </xmi:XMI>

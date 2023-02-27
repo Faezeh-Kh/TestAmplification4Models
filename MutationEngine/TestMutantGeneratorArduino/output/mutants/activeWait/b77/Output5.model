@@ -39,5 +39,5 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:BooleanConstant/>
+  <arduino:BooleanConstant value="true"/>
 </xmi:XMI>

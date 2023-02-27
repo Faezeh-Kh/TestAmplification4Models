@@ -33,9 +33,9 @@
           <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_TeGOxLvnEey7OoLBzoKkPA" module="_TeGOs7vnEey7OoLBzoKkPA">
             <operand xsi:type="arduino:IntegerConstant" xmi:id="_TeGOxbvnEey7OoLBzoKkPA" value="1"/>
           </instructions>
-          <instructions xsi:type="arduino:Delay"/>
         </elseBlock>
       </instructions>
+      <instructions xsi:type="arduino:Delay" value="8"/>
     </block>
   </sketches>
 </arduino:Project>

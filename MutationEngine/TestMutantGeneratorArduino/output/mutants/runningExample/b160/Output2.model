@@ -5,7 +5,7 @@
       <module xsi:type="arduino:LED" name="whiteLed" color="white"/>
     </digitalPins>
     <digitalPins name="IR_sensorPin">
-      <module xsi:type="arduino:Buzzer" name="irSensor"/>
+      <module xsi:type="arduino:Buzzer" name="IR_sensor"/>
     </digitalPins>
     <digitalPins name="buzzerPin">
       <module xsi:type="arduino:Buzzer" name="buzzer"/>

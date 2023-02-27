@@ -29,7 +29,7 @@
       <module xsi:type="arduino:SoundSensor" name="soundSensor"/>
     </analogPins>
   </boards>
-  <boards xsi:type="arduino:ArduinoBoard" name="board">
+  <boards xsi:type="arduino:ArduinoBoard" name="">
     <digitalPins name="redLed">
       <module xsi:type="arduino:LED" name="redLed" color="red"/>
     </digitalPins>
@@ -54,6 +54,12 @@
     <digitalPins name="fan">
       <module xsi:type="arduino:Fan" name="fan"/>
     </digitalPins>
+    <digitalPins name="button">
+      <module xsi:type="arduino:PushButton" name="button"/>
+    </digitalPins>
+    <analogPins name="soundSensor">
+      <module xsi:type="arduino:SoundSensor" name="soundSensor"/>
+    </analogPins>
     <analogPins name="soundSensor">
       <module xsi:type="arduino:SoundSensor" name="soundSensor"/>
     </analogPins>

@@ -60,20 +60,21 @@
                 </block>
               </instructions>
             </block>
-            <condition xsi:type="arduino:BinaryBooleanExpression" xmi:id="_SFXlpMxYEeyMmOihs3jxMw" operator="sup">
-              <left xsi:type="arduino:IntegerModuleGet" xmi:id="_pWkaMM-YEeyj4OK2t3h2Ug" module="_NGu-QMowEeyrEsguAqucdw"/>
-              <right xsi:type="arduino:IntegerConstant" xmi:id="_mKijEM-YEeyj4OK2t3h2Ug" value="128"/>
-            </condition>
           </instructions>
         </block>
         <condition xsi:type="arduino:BooleanModuleGet" xmi:id="_-TEUMM-WEeyj4OK2t3h2Ug" module="_pbE9QMxXEeyMmOihs3jxMw"/>
-        <elseBlock xmi:id="_Rvs2kM-YEeyj4OK2t3h2Ug">
-          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_SYps8M-YEeyj4OK2t3h2Ug" module="_DErf8covEeyrEsguAqucdw">
-            <operand xsi:type="arduino:IntegerConstant" xmi:id="_UQNrgM-YEeyj4OK2t3h2Ug"/>
-          </instructions>
-        </elseBlock>
       </instructions>
-      <instructions xsi:type="arduino:While"/>
+      <instructions xsi:type="arduino:While">
+        <block>
+          <instructions xsi:type="arduino:ModuleAssignment" module="_DErf8covEeyrEsguAqucdw">
+            <operand xsi:type="arduino:IntegerConstant"/>
+          </instructions>
+        </block>
+        <condition xsi:type="arduino:BinaryBooleanExpression" operator="sup">
+          <left xsi:type="arduino:IntegerModuleGet" module="_NGu-QMowEeyrEsguAqucdw"/>
+          <right xsi:type="arduino:IntegerConstant" value="128"/>
+        </condition>
+      </instructions>
     </block>
   </sketches>
 </arduino:Project>

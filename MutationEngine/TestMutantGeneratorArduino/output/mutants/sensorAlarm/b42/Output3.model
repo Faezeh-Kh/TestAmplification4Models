@@ -46,17 +46,31 @@
       </instructions>
       <instructions xsi:type="arduino:If">
         <block>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:Buzzer" href="../../../model/sensorAlarm.model#_bfGPxbsuEeyYPqXDdDsRMg"/>
             <operand xsi:type="arduino:IntegerConstant" value="1"/>
           </instructions>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:Buzzer" href="../../../model/sensorAlarm.model#_bfGPxbsuEeyYPqXDdDsRMg"/>
             <operand xsi:type="arduino:IntegerConstant"/>
           </instructions>
         </block>
         <condition xsi:type="arduino:BinaryBooleanExpression" operator="equal">
-          <left xsi:type="arduino:IntegerModuleGet" module="//@boards.0/@digitalPins.3/@module"/>
+          <left xsi:type="arduino:IntegerModuleGet">
+            <module xsi:type="arduino:InfraRedSensor" href="../../../model/sensorAlarm.model#_bfGPw7suEeyYPqXDdDsRMg"/>
+          </left>
           <right xsi:type="arduino:IntegerConstant" value="1"/>
         </condition>
+        <elseBlock>
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:LED" href="../../../model/sensorAlarm.model#_bfGPwbsuEeyYPqXDdDsRMg"/>
+            <operand xsi:type="arduino:IntegerConstant" value="1"/>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:LED" href="../../../model/sensorAlarm.model#_bfGPwbsuEeyYPqXDdDsRMg"/>
+            <operand xsi:type="arduino:IntegerConstant"/>
+          </instructions>
+        </elseBlock>
       </instructions>
     </block>
   </sketches>

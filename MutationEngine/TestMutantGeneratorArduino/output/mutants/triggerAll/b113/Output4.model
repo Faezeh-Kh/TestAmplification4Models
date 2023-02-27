@@ -64,9 +64,7 @@
             <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_9NZuEMovEeyrEsguAqucdw" module="_IxQoQMovEeyrEsguAqucdw">
               <operand xsi:type="arduino:IntegerConstant" xmi:id="_-VLOcMovEeyrEsguAqucdw" value="90"/>
             </instructions>
-            <instructions xsi:type="arduino:ModuleAssignment" xmi:id="__OqbMMovEeyrEsguAqucdw" module="_IxQoQMovEeyrEsguAqucdw">
-              <operand xsi:type="arduino:IntegerConstant" xmi:id="__OqbMcovEeyrEsguAqucdw"/>
-            </instructions>
+            <instructions xsi:type="arduino:ModuleAssignment" xmi:id="__OqbMMovEeyrEsguAqucdw" module="_IxQoQMovEeyrEsguAqucdw"/>
           </block>
           <condition xsi:type="arduino:BooleanModuleGet" xmi:id="_5RsGcMovEeyrEsguAqucdw" module="_Omt_wMovEeyrEsguAqucdw"/>
         </instructions>
@@ -93,5 +91,7 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:UnaryIntegerExpression/>
+  <arduino:UnaryIntegerExpression>
+    <operand xsi:type="arduino:IntegerConstant"/>
+  </arduino:UnaryIntegerExpression>
 </xmi:XMI>

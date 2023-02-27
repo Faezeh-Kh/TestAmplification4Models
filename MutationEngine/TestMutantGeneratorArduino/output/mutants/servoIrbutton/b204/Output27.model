@@ -14,7 +14,7 @@
       <module xsi:type="arduino:MicroServo" name="Servo"/>
     </digitalPins>
   </boards>
-  <sketches name="sketch" board="//@boards.0">
+  <sketches name="sketch" board="/0/@boards.0">
     <block>
       <instructions xsi:type="arduino:VariableDeclaration">
         <variable xsi:type="arduino:IntegerVariable" name="i"/>
@@ -23,47 +23,104 @@
         <block>
           <instructions xsi:type="arduino:While">
             <block>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.3/@module">
-                <operand xsi:type="arduino:IntegerVariableRef" variable="//@sketches.0/@block/@instructions.0/@variable"/>
+              <instructions xsi:type="arduino:ModuleAssignment" module="/0/@boards.0/@digitalPins.3/@module">
+                <operand xsi:type="arduino:IntegerVariableRef" variable="/0/@sketches.0/@block/@instructions.0/@variable"/>
               </instructions>
-              <instructions xsi:type="arduino:VariableAssignment" variable="//@sketches.0/@block/@instructions.0/@variable">
+              <instructions xsi:type="arduino:VariableAssignment" variable="/0/@sketches.0/@block/@instructions.0/@variable">
                 <operand xsi:type="arduino:BinaryIntegerExpression" operator="plus">
-                  <left xsi:type="arduino:IntegerVariableRef" variable="//@sketches.0/@block/@instructions.0/@variable"/>
+                  <left xsi:type="arduino:IntegerVariableRef" variable="/0/@sketches.0/@block/@instructions.0/@variable"/>
                   <right xsi:type="arduino:IntegerConstant" value="6"/>
                 </operand>
               </instructions>
             </block>
             <condition xsi:type="arduino:BinaryBooleanExpression" operator="AND">
-              <left xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.1/@module"/>
+              <left xsi:type="arduino:BooleanModuleGet" module="/0/@boards.0/@digitalPins.1/@module"/>
               <right xsi:type="arduino:BinaryBooleanExpression" operator="infOrEqual">
-                <left xsi:type="arduino:IntegerVariableRef" variable="//@sketches.0/@block/@instructions.0/@variable"/>
+                <left xsi:type="arduino:IntegerVariableRef" variable="/0/@sketches.0/@block/@instructions.0/@variable"/>
                 <right xsi:type="arduino:IntegerConstant" value="18"/>
               </right>
             </condition>
           </instructions>
           <instructions xsi:type="arduino:If">
             <block>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
+              <instructions xsi:type="arduino:ModuleAssignment" module="/0/@boards.0/@digitalPins.2/@module">
                 <operand xsi:type="arduino:IntegerConstant" value="1"/>
               </instructions>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
+              <instructions xsi:type="arduino:ModuleAssignment" module="/0/@boards.0/@digitalPins.2/@module">
                 <operand xsi:type="arduino:IntegerConstant"/>
               </instructions>
             </block>
             <condition xsi:type="arduino:UnaryBooleanExpression">
-              <operand xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.1/@module"/>
+              <operand xsi:type="arduino:BooleanModuleGet" module="/0/@boards.0/@digitalPins.1/@module"/>
             </condition>
             <elseBlock>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
+              <instructions xsi:type="arduino:ModuleAssignment" module="/0/@boards.0/@digitalPins.2/@module">
                 <operand xsi:type="arduino:IntegerConstant" value="1"/>
               </instructions>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
+              <instructions xsi:type="arduino:ModuleAssignment" module="/0/@boards.0/@digitalPins.2/@module">
                 <operand xsi:type="arduino:IntegerConstant"/>
+              </instructions>
+              <instructions xsi:type="arduino:VariableDeclaration">
+                <variable xsi:type="arduino:IntegerVariable" name="i"/>
               </instructions>
             </elseBlock>
           </instructions>
         </block>
-        <condition xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.0/@module"/>
+        <condition xsi:type="arduino:BooleanModuleGet" module="/0/@boards.0/@digitalPins.0/@module"/>
+        <elseBlock>
+          <instructions xsi:type="arduino:While">
+            <block>
+              <instructions xsi:type="arduino:ModuleAssignment" module="/0/@boards.0/@digitalPins.3/@module">
+                <operand xsi:type="arduino:IntegerVariableRef" variable="/0/@sketches.0/@block/@instructions.0/@variable"/>
+              </instructions>
+              <instructions xsi:type="arduino:VariableAssignment" variable="/0/@sketches.0/@block/@instructions.0/@variable">
+                <operand xsi:type="arduino:BinaryIntegerExpression" operator="plus">
+                  <left xsi:type="arduino:IntegerVariableRef" variable="/0/@sketches.0/@block/@instructions.0/@variable"/>
+                  <right xsi:type="arduino:IntegerConstant" value="6"/>
+                </operand>
+              </instructions>
+            </block>
+            <condition xsi:type="arduino:BinaryBooleanExpression" operator="AND">
+              <left xsi:type="arduino:BooleanModuleGet" module="/0/@boards.0/@digitalPins.1/@module"/>
+              <right xsi:type="arduino:BinaryBooleanExpression" operator="infOrEqual">
+                <left xsi:type="arduino:IntegerVariableRef" variable="/0/@sketches.0/@block/@instructions.0/@variable"/>
+                <right xsi:type="arduino:IntegerConstant" value="18"/>
+              </right>
+            </condition>
+          </instructions>
+          <instructions xsi:type="arduino:If">
+            <block>
+              <instructions xsi:type="arduino:ModuleAssignment" module="/0/@boards.0/@digitalPins.2/@module">
+                <operand xsi:type="arduino:IntegerConstant" value="1"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment" module="/0/@boards.0/@digitalPins.2/@module">
+                <operand xsi:type="arduino:IntegerConstant"/>
+              </instructions>
+            </block>
+            <condition xsi:type="arduino:UnaryBooleanExpression">
+              <operand xsi:type="arduino:BooleanModuleGet" module="/0/@boards.0/@digitalPins.1/@module"/>
+            </condition>
+          </instructions>
+          <instructions xsi:type="arduino:While">
+            <block>
+              <instructions xsi:type="arduino:VariableAssignment" variable="/0/@sketches.0/@block/@instructions.1/@block/@instructions.1/@elseBlock/@instructions.2/@variable">
+                <operand xsi:type="arduino:BinaryIntegerExpression" operator="plus">
+                  <left xsi:type="arduino:IntegerVariableRef" variable="/0/@sketches.0/@block/@instructions.1/@block/@instructions.1/@elseBlock/@instructions.2/@variable"/>
+                  <right xsi:type="arduino:IntegerConstant" value="6"/>
+                </operand>
+              </instructions>
+            </block>
+            <condition xsi:type="arduino:BinaryBooleanExpression" operator="AND">
+              <left xsi:type="arduino:BooleanModuleGet">
+                <module xsi:type="arduino:InfraRedSensor" href="../../../model/servoIrbutton.model#_WDu3ZbvrEey6kqvve9HPhQ"/>
+              </left>
+              <right xsi:type="arduino:BinaryBooleanExpression" operator="infOrEqual">
+                <left xsi:type="arduino:IntegerVariableRef" variable="/0/@sketches.0/@block/@instructions.1/@block/@instructions.1/@elseBlock/@instructions.2/@variable"/>
+                <right xsi:type="arduino:IntegerConstant" value="18"/>
+              </right>
+            </condition>
+          </instructions>
+        </elseBlock>
       </instructions>
     </block>
   </sketches>

@@ -49,6 +49,7 @@
               <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_WDwskrvrEey6kqvve9HPhQ" module="_WDu3Z7vrEey6kqvve9HPhQ">
                 <operand xsi:type="arduino:IntegerConstant" xmi:id="_WDwsk7vrEey6kqvve9HPhQ"/>
               </instructions>
+              <instructions xsi:type="arduino:WaitFor" pin="_WDu3aLvrEey6kqvve9HPhQ"/>
             </block>
             <condition xsi:type="arduino:UnaryBooleanExpression" xmi:id="_WDwslbvrEey6kqvve9HPhQ">
               <operand xsi:type="arduino:BooleanModuleGet" xmi:id="_WDwslrvrEey6kqvve9HPhQ" module="_WDu3ZbvrEey6kqvve9HPhQ"/>
@@ -57,7 +58,6 @@
         </block>
         <condition xsi:type="arduino:BooleanModuleGet" xmi:id="_WDwsl7vrEey6kqvve9HPhQ" module="_WDu3Y7vrEey6kqvve9HPhQ"/>
       </instructions>
-      <instructions xsi:type="arduino:WaitFor"/>
     </block>
   </sketches>
 </arduino:Project>

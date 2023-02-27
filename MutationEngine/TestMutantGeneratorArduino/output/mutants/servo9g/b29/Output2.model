@@ -15,8 +15,10 @@
           <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_B80o-bvqEey6kqvve9HPhQ" module="_B80o8LvqEey6kqvve9HPhQ">
             <operand xsi:type="arduino:IntegerConstant" xmi:id="_B80o-rvqEey6kqvve9HPhQ"/>
           </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment" module="_PsA80LvqEey6kqvve9HPhQ">
+            <operand xsi:type="arduino:BooleanModuleGet" module="_PsA80LvqEey6kqvve9HPhQ"/>
+          </instructions>
         </block>
-        <condition xsi:type="arduino:BooleanModuleGet" xmi:id="_bzfE8LvqEey6kqvve9HPhQ" module="_PsA80LvqEey6kqvve9HPhQ"/>
         <elseBlock xmi:id="_D223QLvrEey6kqvve9HPhQ">
           <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_B80o87vqEey6kqvve9HPhQ" module="_B80o8LvqEey6kqvve9HPhQ">
             <operand xsi:type="arduino:IntegerConstant" xmi:id="_B80o9LvqEey6kqvve9HPhQ" value="90"/>
@@ -26,7 +28,6 @@
           </instructions>
         </elseBlock>
       </instructions>
-      <instructions xsi:type="arduino:ModuleAssignment"/>
     </block>
   </sketches>
 </arduino:Project>

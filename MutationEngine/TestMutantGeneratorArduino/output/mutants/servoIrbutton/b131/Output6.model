@@ -61,5 +61,5 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:LED name="whiteLed"/>
+  <arduino:LED name="redLed"/>
 </xmi:XMI>

@@ -55,7 +55,7 @@
               </instructions>
             </block>
           </instructions>
-          <instructions xsi:type="arduino:WaitFor"/>
+          <instructions xsi:type="arduino:WaitFor" pin="_Nv8IwMovEeyrEsguAqucdw"/>
         </block>
         <condition xsi:type="arduino:BooleanModuleGet" xmi:id="_Yn-pUMovEeyrEsguAqucdw" module="_Qf35wMovEeyrEsguAqucdw"/>
       </instructions>

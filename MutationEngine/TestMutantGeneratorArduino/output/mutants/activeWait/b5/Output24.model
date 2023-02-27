@@ -7,7 +7,7 @@
     <digitalPins name="IR_sensor">
       <module xsi:type="arduino:InfraRedSensor" name="IR_sensor"/>
     </digitalPins>
-    <analogPins name="whiteLedPin"/>
+    <analogPins name="IRSensorPin"/>
   </boards>
   <sketches name="sketch" board="//@boards.0">
     <block>

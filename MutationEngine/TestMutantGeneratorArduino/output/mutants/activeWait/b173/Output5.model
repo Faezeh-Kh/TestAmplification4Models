@@ -39,5 +39,5 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:AmbientLightSensor/>
+  <arduino:AmbientLightSensor name="HMT"/>
 </xmi:XMI>

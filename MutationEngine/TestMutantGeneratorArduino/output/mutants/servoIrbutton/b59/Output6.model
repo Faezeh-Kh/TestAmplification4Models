@@ -38,7 +38,6 @@
                 <left xsi:type="arduino:BooleanModuleGet" xmi:id="_WDwFjbvrEey6kqvve9HPhQ" module="_WDu3ZbvrEey6kqvve9HPhQ"/>
                 <right xsi:type="arduino:BinaryBooleanExpression" xmi:id="_WDwFjrvrEey6kqvve9HPhQ" operator="infOrEqual">
                   <left xsi:type="arduino:IntegerVariableRef" xmi:id="_WDwFj7vrEey6kqvve9HPhQ" variable="_WDwFgLvrEey6kqvve9HPhQ"/>
-                  <right xsi:type="arduino:IntegerConstant" xmi:id="_WDwFkLvrEey6kqvve9HPhQ" value="18"/>
                 </right>
               </condition>
             </instructions>
@@ -51,9 +50,6 @@
                   <operand xsi:type="arduino:IntegerConstant" xmi:id="_WDwsk7vrEey6kqvve9HPhQ"/>
                 </instructions>
               </block>
-              <condition xsi:type="arduino:UnaryBooleanExpression" xmi:id="_WDwslbvrEey6kqvve9HPhQ">
-                <operand xsi:type="arduino:BooleanModuleGet" xmi:id="_WDwslrvrEey6kqvve9HPhQ" module="_WDu3ZbvrEey6kqvve9HPhQ"/>
-              </condition>
             </instructions>
           </block>
           <condition xsi:type="arduino:BooleanModuleGet" xmi:id="_WDwsl7vrEey6kqvve9HPhQ" module="_WDu3Y7vrEey6kqvve9HPhQ"/>
@@ -61,5 +57,10 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:BinaryIntegerExpression/>
+  <arduino:BinaryIntegerExpression>
+    <left xsi:type="arduino:IntegerConstant" value="18"/>
+    <right xsi:type="arduino:UnaryBooleanExpression">
+      <operand xsi:type="arduino:BooleanModuleGet" module="_WDu3ZbvrEey6kqvve9HPhQ"/>
+    </right>
+  </arduino:BinaryIntegerExpression>
 </xmi:XMI>

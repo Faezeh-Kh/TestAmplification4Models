@@ -28,7 +28,7 @@
               </instructions>
               <instructions xsi:type="arduino:VariableAssignment" variable="//@sketches.0/@block/@instructions.0/@variable">
                 <operand xsi:type="arduino:BinaryIntegerExpression" operator="plus">
-                  <right xsi:type="arduino:IntegerVariableRef"/>
+                  <right xsi:type="arduino:BinaryIntegerExpression"/>
                 </operand>
               </instructions>
             </block>

@@ -33,9 +33,9 @@
           <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_TeGOxLvnEey7OoLBzoKkPA" module="_TeGOs7vnEey7OoLBzoKkPA">
             <operand xsi:type="arduino:IntegerConstant" xmi:id="_TeGOxbvnEey7OoLBzoKkPA" value="1"/>
           </instructions>
-          <instructions xsi:type="arduino:VariableDeclaration"/>
         </elseBlock>
       </instructions>
+      <instructions xsi:type="arduino:VariableDeclaration"/>
     </block>
   </sketches>
 </arduino:Project>

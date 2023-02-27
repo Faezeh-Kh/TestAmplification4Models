@@ -65,8 +65,11 @@
               <right xsi:type="arduino:IntegerConstant" value="128"/>
             </condition>
           </instructions>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
-            <operand xsi:type="arduino:IntegerConstant" value="1"/>
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:Buzzer" href="../../../model/triggerFan.model#_bNFXAM-YEeyj4OK2t3h2Ug"/>
+            <operand xsi:type="arduino:BooleanModuleGet">
+              <module xsi:type="arduino:InfraRedSensor" href="../../../model/triggerFan.model#_O4upcM-YEeyj4OK2t3h2Ug"/>
+            </operand>
           </instructions>
         </block>
         <condition xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.3/@module"/>

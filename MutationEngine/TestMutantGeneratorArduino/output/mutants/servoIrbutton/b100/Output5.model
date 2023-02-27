@@ -50,7 +50,7 @@
               </instructions>
             </block>
             <condition xsi:type="arduino:UnaryBooleanExpression">
-              <operand xsi:type="arduino:UnaryBooleanExpression"/>
+              <operand xsi:type="arduino:BooleanVariableRef"/>
             </condition>
           </instructions>
         </block>

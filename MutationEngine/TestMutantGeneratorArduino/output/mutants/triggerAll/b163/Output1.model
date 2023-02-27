@@ -23,7 +23,7 @@
       <module xsi:type="arduino:PushButton" name="button"/>
     </digitalPins>
     <digitalPins name="fan">
-      <module xsi:type="arduino:Fan" name="fan"/>
+      <module xsi:type="arduino:Fan" name=""/>
     </digitalPins>
     <analogPins name="soundSensor">
       <module xsi:type="arduino:SoundSensor" name="soundSensor"/>

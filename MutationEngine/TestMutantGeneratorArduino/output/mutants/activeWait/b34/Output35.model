@@ -13,16 +13,16 @@
       <instructions xsi:type="arduino:If">
         <block>
           <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
-            <operand xsi:type="arduino:IntegerConstant" value="1"/>
-          </instructions>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
-            <operand xsi:type="arduino:IntegerConstant"/>
-          </instructions>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
             <operand xsi:type="arduino:IntegerConstant"/>
           </instructions>
           <instructions xsi:type="arduino:VariableAssignment">
-            <operand xsi:type="arduino:IntegerConstant" value="1"/>
+            <operand xsi:type="arduino:IntegerConstant"/>
+          </instructions>
+          <instructions xsi:type="arduino:VariableAssignment">
+            <operand xsi:type="arduino:IntegerConstant"/>
+          </instructions>
+          <instructions xsi:type="arduino:VariableAssignment">
+            <operand xsi:type="arduino:IntegerConstant"/>
           </instructions>
         </block>
         <condition xsi:type="arduino:BinaryBooleanExpression" operator="equal">

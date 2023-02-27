@@ -19,7 +19,7 @@
     <digitalPins name="alarmPin">
       <module xsi:type="arduino:Buzzer" name="alarm"/>
     </digitalPins>
-    <analogPins name="soundSensor">
+    <analogPins name="">
       <module xsi:type="arduino:SoundSensor" name="soundSensor"/>
     </analogPins>
   </boards>

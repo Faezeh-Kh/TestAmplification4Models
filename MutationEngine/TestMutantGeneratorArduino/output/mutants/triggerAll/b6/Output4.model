@@ -25,10 +25,10 @@
     <digitalPins xmi:id="_R9yCMMovEeyrEsguAqucdw" name="fan">
       <module xsi:type="arduino:Fan" xmi:id="_TJEJkMovEeyrEsguAqucdw" name="fan"/>
     </digitalPins>
-    <analogPins xmi:id="_MhMBMMowEeyrEsguAqucdw" name="soundSensor">
-      <module xsi:type="arduino:SoundSensor" xmi:id="_NGu-QMowEeyrEsguAqucdw" name="soundSensor"/>
+    <analogPins xmi:id="_MhMBMMowEeyrEsguAqucdw" name="soundSensor"/>
+    <analogPins name="soundSensor">
+      <module xsi:type="arduino:SoundSensor" name="soundSensor"/>
     </analogPins>
-    <analogPins name="soundSensor"/>
   </boards>
   <sketches xmi:id="_Uck-RrvpEey6kqvve9HPhQ" name="sketch" board="_Uck-QbvpEey6kqvve9HPhQ">
     <block xmi:id="_Uck-R7vpEey6kqvve9HPhQ">
@@ -86,7 +86,7 @@
           </instructions>
         </block>
         <condition xsi:type="arduino:BinaryBooleanExpression" xmi:id="_DNUCEMowEeyrEsguAqucdw" operator="sup">
-          <left xsi:type="arduino:IntegerModuleGet" xmi:id="_Faj8wMowEeyrEsguAqucdw" module="_NGu-QMowEeyrEsguAqucdw"/>
+          <left xsi:type="arduino:IntegerModuleGet" xmi:id="_Faj8wMowEeyrEsguAqucdw" module="//@boards.0/@analogPins.1/@module"/>
           <right xsi:type="arduino:IntegerConstant" xmi:id="_R1dXMMowEeyrEsguAqucdw" value="128"/>
         </condition>
       </instructions>

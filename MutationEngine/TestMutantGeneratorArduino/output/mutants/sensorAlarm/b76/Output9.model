@@ -36,7 +36,7 @@
         </block>
         <condition xsi:type="arduino:BinaryBooleanExpression" operator="equal">
           <left xsi:type="arduino:IntegerModuleGet" module="//@boards.0/@digitalPins.1/@module"/>
-          <right xsi:type="arduino:IntegerVariableRef"/>
+          <right xsi:type="arduino:BooleanConstant"/>
         </condition>
       </instructions>
     </block>

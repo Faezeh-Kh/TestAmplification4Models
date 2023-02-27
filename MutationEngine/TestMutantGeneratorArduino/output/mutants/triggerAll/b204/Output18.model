@@ -57,6 +57,34 @@
           </instructions>
         </block>
         <condition xsi:type="arduino:BooleanModuleGet" module="/0/@boards.0/@digitalPins.6/@module"/>
+        <elseBlock>
+          <instructions xsi:type="arduino:Repeat" iteration="2">
+            <block>
+              <instructions xsi:type="arduino:ModuleAssignment" module="/0/@boards.0/@digitalPins.1/@module">
+                <operand xsi:type="arduino:IntegerConstant" value="1"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment" module="/0/@boards.0/@digitalPins.1/@module">
+                <operand xsi:type="arduino:IntegerConstant"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment" module="/0/@boards.0/@digitalPins.2/@module">
+                <operand xsi:type="arduino:IntegerConstant" value="1"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment" module="/0/@boards.0/@digitalPins.2/@module">
+                <operand xsi:type="arduino:IntegerConstant"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment" module="/0/@boards.0/@digitalPins.0/@module">
+                <operand xsi:type="arduino:IntegerConstant" value="1"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment" module="/0/@boards.0/@digitalPins.0/@module">
+                <operand xsi:type="arduino:IntegerConstant"/>
+              </instructions>
+            </block>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:LED" href="../../../model/triggerAll.model#_DErf8covEeyrEsguAqucdw"/>
+            <operand xsi:type="arduino:IntegerConstant" value="1"/>
+          </instructions>
+        </elseBlock>
       </instructions>
       <instructions xsi:type="arduino:If">
         <block>

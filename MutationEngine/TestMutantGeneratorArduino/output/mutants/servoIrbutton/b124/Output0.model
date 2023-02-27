@@ -54,7 +54,7 @@
         </block>
         <condition xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.0/@module"/>
       </instructions>
-      <instructions xsi:type="arduino:Repeat"/>
+      <instructions xsi:type="arduino:VariableAssignment"/>
     </block>
   </sketches>
 </arduino:Project>

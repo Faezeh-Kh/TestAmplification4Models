@@ -56,5 +56,5 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:BluetoothTransceiver/>
+  <arduino:BluetoothTransceiver name="nRQ"/>
 </xmi:XMI>

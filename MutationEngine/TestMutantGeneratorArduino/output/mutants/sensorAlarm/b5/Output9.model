@@ -13,7 +13,10 @@
     <digitalPins name="button_pin">
       <module xsi:type="arduino:PushButton" name="Button1"/>
     </digitalPins>
-    <analogPins name="whiteLedPin"/>
+    <analogPins name="pushButton"/>
+    <analogPins name="whiteLed"/>
+    <analogPins name="buttonPin"/>
+    <analogPins name="blueLED"/>
   </boards>
   <sketches name="sketch" board="//@boards.0">
     <block>

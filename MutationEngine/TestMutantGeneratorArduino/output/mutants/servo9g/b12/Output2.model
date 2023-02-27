@@ -8,7 +8,8 @@
       <module xsi:type="arduino:PushButton" xmi:id="_PsA80LvqEey6kqvve9HPhQ" name="turnOffButton"/>
     </digitalPins>
   </boards>
-  <sketches xmi:id="_B80o8bvqEey6kqvve9HPhQ" name="mainSketch">
+  <sketches xmi:id="_B80o8bvqEey6kqvve9HPhQ" name="mainSketch"/>
+  <sketches name="mainSketch" board="_B80B4bvqEey6kqvve9HPhQ">
     <block xmi:id="_B80o8rvqEey6kqvve9HPhQ">
       <instructions xsi:type="arduino:If" xmi:id="_aa13ALvqEey6kqvve9HPhQ">
         <block xmi:id="_cixM0LvqEey6kqvve9HPhQ">
@@ -28,5 +29,4 @@
       </instructions>
     </block>
   </sketches>
-  <sketches name="sketch"/>
 </arduino:Project>

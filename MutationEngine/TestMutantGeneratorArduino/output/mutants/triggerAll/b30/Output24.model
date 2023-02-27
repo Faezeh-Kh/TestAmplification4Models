@@ -53,8 +53,23 @@
               <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
                 <operand xsi:type="arduino:IntegerConstant"/>
               </instructions>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
+              <instructions xsi:type="arduino:ModuleAssignment">
+                <module xsi:type="arduino:LED" href="../../../model/triggerAll.model#_DErf8covEeyrEsguAqucdw"/>
+                <operand xsi:type="arduino:IntegerModuleGet">
+                  <module xsi:type="arduino:SoundSensor" href="../../../model/triggerAll.model#_NGu-QMowEeyrEsguAqucdw"/>
+                </operand>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment">
+                <module xsi:type="arduino:PushButton" href="../../../model/triggerAll.model#_Qf35wMovEeyrEsguAqucdw"/>
                 <operand xsi:type="arduino:IntegerConstant"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment">
+                <module xsi:type="arduino:SoundSensor" href="../../../model/triggerAll.model#_NGu-QMowEeyrEsguAqucdw"/>
+                <operand xsi:type="arduino:IntegerConstant"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment">
+                <module xsi:type="arduino:PushButton" href="../../../model/triggerAll.model#_Qf35wMovEeyrEsguAqucdw"/>
+                <operand xsi:type="arduino:IntegerConstant" value="1"/>
               </instructions>
             </block>
           </instructions>

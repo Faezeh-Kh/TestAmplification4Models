@@ -10,11 +10,12 @@
     <digitalPins xmi:id="_bfGPxLsuEeyYPqXDdDsRMg" name="buzzer_pin">
       <module xsi:type="arduino:Buzzer" xmi:id="_bfGPxbsuEeyYPqXDdDsRMg" name="Alarm1"/>
     </digitalPins>
+  </boards>
+  <boards xsi:type="arduino:ArduinoBoard" name="board">
     <digitalPins xmi:id="_bfGPxrsuEeyYPqXDdDsRMg" name="button_pin">
       <module xsi:type="arduino:PushButton" xmi:id="_bfGPx7suEeyYPqXDdDsRMg" name="Button1"/>
     </digitalPins>
   </boards>
-  <boards xsi:type="arduino:ArduinoBoard" name="board"/>
   <sketches xmi:id="_bfMWYLsuEeyYPqXDdDsRMg" name="sketch" board="_bfAwMbsuEeyYPqXDdDsRMg">
     <block xmi:id="_bfMWYbsuEeyYPqXDdDsRMg">
       <instructions xsi:type="arduino:If" xmi:id="_bfMWYrsuEeyYPqXDdDsRMg">

@@ -22,7 +22,7 @@
     <analogPins name="soundSensor">
       <module xsi:type="arduino:SoundSensor" name="soundSensor"/>
     </analogPins>
-    <analogPins name="soundSensor">
+    <analogPins name="">
       <module xsi:type="arduino:SoundSensor" name="soundSensor"/>
     </analogPins>
   </boards>

@@ -54,44 +54,39 @@
       </instructions>
     </block>
   </sketches>
-  <sketches name="sketch" board="//@boards.0">
+  <sketches name="mainSketch">
     <block>
+      <instructions xsi:type="arduino:ModuleAssignment">
+        <module xsi:type="arduino:LED" href="../../../model/runningExample.model#_TeGOs7vnEey7OoLBzoKkPA"/>
+        <operand xsi:type="arduino:IntegerConstant" value="1"/>
+      </instructions>
       <instructions xsi:type="arduino:If">
         <block>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:Buzzer" href="../../../model/runningExample.model#_H0GU4NFgEey60oAITKsoDQ"/>
             <operand xsi:type="arduino:IntegerConstant" value="1"/>
           </instructions>
-          <instructions xsi:type="arduino:If">
-            <block>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
-                <operand xsi:type="arduino:IntegerConstant" value="1"/>
-              </instructions>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
-                <operand xsi:type="arduino:IntegerConstant"/>
-              </instructions>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
-                <operand xsi:type="arduino:IntegerConstant" value="1"/>
-              </instructions>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
-                <operand xsi:type="arduino:IntegerConstant"/>
-              </instructions>
-            </block>
-            <condition xsi:type="arduino:BinaryBooleanExpression" operator="equal">
-              <left xsi:type="arduino:IntegerModuleGet" module="//@boards.0/@digitalPins.1/@module"/>
-              <right xsi:type="arduino:IntegerConstant" value="1"/>
-            </condition>
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:Buzzer" href="../../../model/runningExample.model#_H0GU4NFgEey60oAITKsoDQ"/>
+            <operand xsi:type="arduino:IntegerConstant"/>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:Buzzer" href="../../../model/runningExample.model#_H0GU4NFgEey60oAITKsoDQ"/>
+            <operand xsi:type="arduino:IntegerConstant" value="1"/>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:Buzzer" href="../../../model/runningExample.model#_H0GU4NFgEey60oAITKsoDQ"/>
+            <operand xsi:type="arduino:IntegerConstant"/>
           </instructions>
         </block>
         <condition xsi:type="arduino:BinaryBooleanExpression" operator="equal">
-          <left xsi:type="arduino:IntegerModuleGet" module="//@boards.0/@digitalPins.3/@module"/>
+          <left xsi:type="arduino:IntegerModuleGet">
+            <module xsi:type="arduino:InfraRedSensor" href="../../../model/runningExample.model#_TeGOtbvnEey7OoLBzoKkPA"/>
+          </left>
           <right xsi:type="arduino:IntegerConstant" value="1"/>
         </condition>
-        <elseBlock>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
-            <operand xsi:type="arduino:IntegerConstant"/>
-          </instructions>
-        </elseBlock>
       </instructions>
     </block>
+    <board xsi:type="arduino:ArduinoBoard" href="../../../model/runningExample.model#_TeGOsbvnEey7OoLBzoKkPA"/>
   </sketches>
 </arduino:Project>

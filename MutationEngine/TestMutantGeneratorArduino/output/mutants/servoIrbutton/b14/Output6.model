@@ -14,7 +14,7 @@
       <module xsi:type="arduino:MicroServo" name="Servo"/>
     </digitalPins>
   </boards>
-  <sketches name="sketch" board="//@boards.0">
+  <sketches name="mainSketch" board="//@boards.0">
     <block>
       <instructions xsi:type="arduino:VariableDeclaration">
         <variable xsi:type="arduino:IntegerVariable" name="i"/>

@@ -17,7 +17,7 @@
       <module xsi:type="arduino:MicroServo" name="servo2"/>
     </digitalPins>
     <digitalPins name="irSensor">
-      <module xsi:type="arduino:InfraRedSensor" name="irSensor"/>
+      <module xsi:type="arduino:InfraRedSensor" name="IRSensor1"/>
     </digitalPins>
     <digitalPins name="button">
       <module xsi:type="arduino:PushButton" name="button"/>

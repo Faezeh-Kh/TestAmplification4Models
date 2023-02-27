@@ -55,7 +55,6 @@
               </instructions>
             </block>
           </instructions>
-          <instructions xsi:type="arduino:VariableDeclaration"/>
         </block>
         <condition xsi:type="arduino:BooleanModuleGet" xmi:id="_Yn-pUMovEeyrEsguAqucdw" module="_Qf35wMovEeyrEsguAqucdw"/>
       </instructions>
@@ -84,6 +83,7 @@
           <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_dFs8YMowEeyrEsguAqucdw" module="_KowVYcovEeyrEsguAqucdw">
             <operand xsi:type="arduino:IntegerConstant" xmi:id="_dFs8YcowEeyrEsguAqucdw" value="60"/>
           </instructions>
+          <instructions xsi:type="arduino:VariableDeclaration"/>
         </block>
         <condition xsi:type="arduino:BinaryBooleanExpression" xmi:id="_DNUCEMowEeyrEsguAqucdw" operator="sup">
           <left xsi:type="arduino:IntegerModuleGet" xmi:id="_Faj8wMowEeyrEsguAqucdw" module="_NGu-QMowEeyrEsguAqucdw"/>

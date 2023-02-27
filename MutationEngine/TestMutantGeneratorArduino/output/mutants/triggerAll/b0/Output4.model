@@ -16,16 +16,16 @@
     <digitalPins xmi:id="_KowVYMovEeyrEsguAqucdw" name="servo2">
       <module xsi:type="arduino:MicroServo" xmi:id="_KowVYcovEeyrEsguAqucdw" name="servo2"/>
     </digitalPins>
-    <digitalPins xmi:id="_Nv8IwMovEeyrEsguAqucdw" name="irSensor">
-      <module xsi:type="arduino:InfraRedSensor" xmi:id="_Omt_wMovEeyrEsguAqucdw" name="irSensor"/>
-    </digitalPins>
+    <digitalPins xmi:id="_Nv8IwMovEeyrEsguAqucdw" name="irSensor"/>
     <digitalPins xmi:id="_PicoMMovEeyrEsguAqucdw" name="button">
       <module xsi:type="arduino:PushButton" xmi:id="_Qf35wMovEeyrEsguAqucdw" name="button"/>
     </digitalPins>
     <digitalPins xmi:id="_R9yCMMovEeyrEsguAqucdw" name="fan">
       <module xsi:type="arduino:Fan" xmi:id="_TJEJkMovEeyrEsguAqucdw" name="fan"/>
     </digitalPins>
-    <digitalPins name="whiteLedPin"/>
+    <digitalPins name="Servo">
+      <module xsi:type="arduino:InfraRedSensor" name="irSensor"/>
+    </digitalPins>
     <analogPins xmi:id="_MhMBMMowEeyrEsguAqucdw" name="soundSensor">
       <module xsi:type="arduino:SoundSensor" xmi:id="_NGu-QMowEeyrEsguAqucdw" name="soundSensor"/>
     </analogPins>
@@ -68,7 +68,7 @@
             <operand xsi:type="arduino:IntegerConstant" xmi:id="__OqbMcovEeyrEsguAqucdw"/>
           </instructions>
         </block>
-        <condition xsi:type="arduino:BooleanModuleGet" xmi:id="_5RsGcMovEeyrEsguAqucdw" module="_Omt_wMovEeyrEsguAqucdw"/>
+        <condition xsi:type="arduino:BooleanModuleGet" xmi:id="_5RsGcMovEeyrEsguAqucdw" module="//@boards.0/@digitalPins.8/@module"/>
       </instructions>
       <instructions xsi:type="arduino:If" xmi:id="_BoicoMowEeyrEsguAqucdw">
         <block xmi:id="_Uwou4MowEeyrEsguAqucdw">

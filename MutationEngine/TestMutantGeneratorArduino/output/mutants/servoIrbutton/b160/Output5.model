@@ -5,7 +5,7 @@
       <module xsi:type="arduino:PushButton" name="button"/>
     </digitalPins>
     <digitalPins name="IRSensor">
-      <module xsi:type="arduino:LED" name="irSensor"/>
+      <module xsi:type="arduino:PushButton" name="IRSensor1"/>
     </digitalPins>
     <digitalPins name="blueLED">
       <module xsi:type="arduino:LED" name="blueLED"/>

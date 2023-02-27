@@ -70,20 +70,6 @@
         <condition xsi:type="arduino:BooleanModuleGet" xmi:id="_5RsGcMovEeyrEsguAqucdw" module="_Omt_wMovEeyrEsguAqucdw"/>
       </instructions>
       <instructions xsi:type="arduino:If" xmi:id="_BoicoMowEeyrEsguAqucdw">
-        <block xmi:id="_Uwou4MowEeyrEsguAqucdw">
-          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_V3lI0MowEeyrEsguAqucdw" module="_KowVYcovEeyrEsguAqucdw">
-            <operand xsi:type="arduino:IntegerConstant" xmi:id="_W7YvMMowEeyrEsguAqucdw"/>
-          </instructions>
-          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_ZGsJIMowEeyrEsguAqucdw" module="_TJEJkMovEeyrEsguAqucdw">
-            <operand xsi:type="arduino:IntegerConstant" xmi:id="_aJ1oMMowEeyrEsguAqucdw" value="1"/>
-          </instructions>
-          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_bTL14MowEeyrEsguAqucdw" module="_TJEJkMovEeyrEsguAqucdw">
-            <operand xsi:type="arduino:IntegerConstant" xmi:id="_bTL14cowEeyrEsguAqucdw"/>
-          </instructions>
-          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_dFs8YMowEeyrEsguAqucdw" module="_KowVYcovEeyrEsguAqucdw">
-            <operand xsi:type="arduino:IntegerConstant" xmi:id="_dFs8YcowEeyrEsguAqucdw" value="60"/>
-          </instructions>
-        </block>
         <condition xsi:type="arduino:BinaryBooleanExpression" xmi:id="_DNUCEMowEeyrEsguAqucdw" operator="sup">
           <left xsi:type="arduino:IntegerModuleGet" xmi:id="_Faj8wMowEeyrEsguAqucdw" module="_NGu-QMowEeyrEsguAqucdw"/>
           <right xsi:type="arduino:IntegerConstant" xmi:id="_R1dXMMowEeyrEsguAqucdw" value="128"/>
@@ -91,5 +77,20 @@
       </instructions>
     </block>
   </sketches>
-  <sketches name="sketch"/>
+  <sketches name="mainSketch" board="_Uck-QbvpEey6kqvve9HPhQ">
+    <block xmi:id="_Uwou4MowEeyrEsguAqucdw">
+      <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_V3lI0MowEeyrEsguAqucdw" module="_KowVYcovEeyrEsguAqucdw">
+        <operand xsi:type="arduino:IntegerConstant" xmi:id="_W7YvMMowEeyrEsguAqucdw"/>
+      </instructions>
+      <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_ZGsJIMowEeyrEsguAqucdw" module="_TJEJkMovEeyrEsguAqucdw">
+        <operand xsi:type="arduino:IntegerConstant" xmi:id="_aJ1oMMowEeyrEsguAqucdw" value="1"/>
+      </instructions>
+      <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_bTL14MowEeyrEsguAqucdw" module="_TJEJkMovEeyrEsguAqucdw">
+        <operand xsi:type="arduino:IntegerConstant" xmi:id="_bTL14cowEeyrEsguAqucdw"/>
+      </instructions>
+      <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_dFs8YMowEeyrEsguAqucdw" module="_KowVYcovEeyrEsguAqucdw">
+        <operand xsi:type="arduino:IntegerConstant" xmi:id="_dFs8YcowEeyrEsguAqucdw" value="60"/>
+      </instructions>
+    </block>
+  </sketches>
 </arduino:Project>

@@ -24,9 +24,7 @@
           <block xmi:id="_WDwFgrvrEey6kqvve9HPhQ">
             <instructions xsi:type="arduino:While" xmi:id="_WDwFg7vrEey6kqvve9HPhQ">
               <block xmi:id="_WDwFhLvrEey6kqvve9HPhQ">
-                <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_WDwFhbvrEey6kqvve9HPhQ" module="_WDu3abvrEey6kqvve9HPhQ">
-                  <operand xsi:type="arduino:IntegerVariableRef" xmi:id="_WDwFhrvrEey6kqvve9HPhQ" variable="_WDwFgLvrEey6kqvve9HPhQ"/>
-                </instructions>
+                <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_WDwFhbvrEey6kqvve9HPhQ" module="_WDu3abvrEey6kqvve9HPhQ"/>
                 <instructions xsi:type="arduino:VariableAssignment" xmi:id="_WDwFiLvrEey6kqvve9HPhQ" variable="_WDwFgLvrEey6kqvve9HPhQ">
                   <operand xsi:type="arduino:BinaryIntegerExpression" xmi:id="_WDwFibvrEey6kqvve9HPhQ" operator="plus">
                     <left xsi:type="arduino:IntegerVariableRef" xmi:id="_WDwFirvrEey6kqvve9HPhQ" variable="_WDwFgLvrEey6kqvve9HPhQ"/>
@@ -61,5 +59,7 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:UnaryBooleanExpression/>
+  <arduino:UnaryBooleanExpression>
+    <operand xsi:type="arduino:IntegerVariableRef" variable="_WDwFgLvrEey6kqvve9HPhQ"/>
+  </arduino:UnaryBooleanExpression>
 </xmi:XMI>

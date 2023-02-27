@@ -14,7 +14,7 @@
       <module xsi:type="arduino:PushButton" name="Button1"/>
     </digitalPins>
   </boards>
-  <boards xsi:type="arduino:ArduinoBoard" name="board">
+  <boards xsi:type="arduino:ArduinoBoard" name="">
     <digitalPins name="led_pin">
       <module xsi:type="arduino:LED" name="LED1"/>
     </digitalPins>
@@ -26,6 +26,9 @@
     </digitalPins>
     <digitalPins name="button_pin">
       <module xsi:type="arduino:PushButton" name="Button1"/>
+    </digitalPins>
+    <digitalPins name="sensor_pin">
+      <module xsi:type="arduino:InfraRedSensor" name="IRSensor1"/>
     </digitalPins>
   </boards>
   <sketches name="sketch" board="//@boards.0">

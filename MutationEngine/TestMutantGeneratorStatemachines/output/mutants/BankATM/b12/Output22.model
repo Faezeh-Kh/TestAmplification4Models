@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
+  <statemachines:CustomSystem>
+    <statemachine name="BankATM">
+      <regions name="mainRegion">
+        <vertice xsi:type="statemachines:Pseudostate" name="initial1" outgoingTransitions="/0/@statemachine/@regions.0/@transitions.0"/>
+        <vertice xsi:type="statemachines:State" name="Off" outgoingTransitions="/0/@statemachine/@regions.0/@transitions.1" incomingTransitions="/0/@statemachine/@regions.0/@transitions.0 /0/@statemachine/@regions.0/@transitions.4 /0/@statemachine/@regions.0/@transitions.8">
+          <entry name="ATMIsOff"/>
+        </vertice>
+        <vertice xsi:type="statemachines:State" name="SelfTest" outgoingTransitions="/0/@statemachine/@regions.0/@transitions.2 /0/@statemachine/@regions.0/@transitions.3" incomingTransitions="/0/@statemachine/@regions.0/@transitions.1 /0/@statemachine/@regions.0/@transitions.7">
+          <entry name="underTesting"/>
+        </vertice>
+        <vertice xsi:type="statemachines:State" name="Idle" outgoingTransitions="/0/@statemachine/@regions.0/@transitions.10 /0/@statemachine/@regions.0/@transitions.9 /0/@statemachine/@regions.0/@transitions.8" incomingTransitions="/0/@statemachine/@regions.0/@transitions.2 /0/@statemachine/@regions.0/@transitions.11 /0/@statemachine/@regions.0/@transitions.12">
+          <entry name="waitingForCard"/>
+        </vertice>
+        <vertice xsi:type="statemachines:State" name="OutOfService" outgoingTransitions="/0/@statemachine/@regions.0/@transitions.4 /0/@statemachine/@regions.0/@transitions.5" incomingTransitions="/0/@statemachine/@regions.0/@transitions.3 /0/@statemachine/@regions.0/@transitions.13 /0/@statemachine/@regions.0/@transitions.6">
+          <entry name="outOfService"/>
+        </vertice>
+        <vertice xsi:type="statemachines:State" name="Maintenance" outgoingTransitions="/0/@statemachine/@regions.0/@transitions.7 /0/@statemachine/@regions.0/@transitions.6" incomingTransitions="/0/@statemachine/@regions.0/@transitions.5 /0/@statemachine/@regions.0/@transitions.9">
+          <entry name="underMaintenance"/>
+        </vertice>
+        <vertice xsi:type="statemachines:State" name="ServiceCustomer" outgoingTransitions="/0/@statemachine/@regions.0/@transitions.11 /0/@statemachine/@regions.0/@transitions.13 /0/@statemachine/@regions.0/@transitions.12" incomingTransitions="/0/@statemachine/@regions.0/@transitions.10">
+          <regions name="serviceCustomerRegion">
+            <vertice xsi:type="statemachines:Pseudostate" name="initial2" outgoingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@transitions.0"/>
+            <vertice xsi:type="statemachines:State" name="CustomerAuthentication" outgoingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@transitions.5" incomingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@transitions.0">
+              <regions name="authenticationRegion">
+                <vertice xsi:type="statemachines:Pseudostate" name="initial3" outgoingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.1/@regions.0/@transitions.0"/>
+                <vertice xsi:type="statemachines:State" name="getPin" outgoingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.1/@regions.0/@transitions.1" incomingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.1/@regions.0/@transitions.0">
+                  <entry name="enterPinMsg"/>
+                </vertice>
+                <vertice xsi:type="statemachines:State" name="validatePin" outgoingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.1/@regions.0/@transitions.2 /0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.1/@regions.0/@transitions.3" incomingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.1/@regions.0/@transitions.1"/>
+                <vertice xsi:type="statemachines:FinalState" name="final3" incomingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.1/@regions.0/@transitions.3"/>
+                <transitions name="initial3_2_getPin" source="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.1/@regions.0/@vertice.0" target="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.1/@regions.0/@vertice.1" kind="external"/>
+                <transitions name="getPin2validatePin" source="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.1/@regions.0/@vertice.1" target="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.1/@regions.0/@vertice.2" kind="external">
+                  <triggers name="pinEnteredTrigger">
+                    <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.7"/>
+                  </triggers>
+                </transitions>
+                <transitions name="validatePin2SelectingTransaction" source="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.1/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.2" kind="external">
+                  <constraint xsi:type="statemachines:IntegerConstraint">
+                    <expression operator="==" operand1="/0/@signals.7/@attributes.0" operand2="/0/@signals.6/@attributes.0"/>
+                  </constraint>
+                </transitions>
+                <transitions name="validatePin2final3" source="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.1/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.1/@regions.0/@vertice.3" kind="external">
+                  <effect name="wrongPinMsg"/>
+                  <constraint xsi:type="statemachines:IntegerConstraint">
+                    <expression operator="!=" operand1="/0/@signals.7/@attributes.0" operand2="/0/@signals.6/@attributes.0"/>
+                  </constraint>
+                </transitions>
+              </regions>
+              <entry name="customerAuthentication"/>
+            </vertice>
+            <vertice xsi:type="statemachines:State" name="SelectingTransaction" outgoingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@transitions.1 /0/@statemachine/@regions.0/@vertice.6/@regions.0/@transitions.2" incomingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.1/@regions.0/@transitions.2">
+              <entry name="selectTransaction"/>
+            </vertice>
+            <vertice xsi:type="statemachines:State" name="WithdrawMoney" outgoingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@transitions.3" incomingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@transitions.1">
+              <regions name="withdrawRegion">
+                <vertice xsi:type="statemachines:Pseudostate" name="initial4" outgoingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.3/@regions.0/@transitions.0"/>
+                <vertice xsi:type="statemachines:State" name="GetAmount" outgoingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.3/@regions.0/@transitions.1" incomingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.3/@regions.0/@transitions.0">
+                  <entry name="enterAmountMsg"/>
+                </vertice>
+                <vertice xsi:type="statemachines:State" name="CheckBalance" outgoingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.3/@regions.0/@transitions.2 /0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.3/@regions.0/@transitions.3" incomingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.3/@regions.0/@transitions.1"/>
+                <vertice xsi:type="statemachines:State" name="MakeWithdrawal" outgoingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.3/@regions.0/@transitions.4" incomingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.3/@regions.0/@transitions.2">
+                  <doActivity name="updateCardBalance"/>
+                </vertice>
+                <vertice xsi:type="statemachines:FinalState" name="final4" incomingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.3/@regions.0/@transitions.3 /0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.3/@regions.0/@transitions.4"/>
+                <transitions name="initial4_2_getAmount" source="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.3/@regions.0/@vertice.0" target="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.3/@regions.0/@vertice.1" kind="external"/>
+                <transitions name="getAmount2checkBalance" source="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.3/@regions.0/@vertice.1" target="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.3/@regions.0/@vertice.2" kind="external">
+                  <triggers name="amountEnteredTrigger">
+                    <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.10"/>
+                  </triggers>
+                </transitions>
+                <transitions name="checkBalance2makeWithdrawal" source="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.3/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.3/@regions.0/@vertice.3" kind="external">
+                  <constraint xsi:type="statemachines:IntegerConstraint">
+                    <expression operator="&lt;=" operand1="/0/@signals.10/@attributes.0" operand2="/0/@signals.6/@attributes.1"/>
+                  </constraint>
+                </transitions>
+                <transitions name="checkBalance2final4" source="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.3/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.3/@regions.0/@vertice.4" kind="external">
+                  <effect name="notEnoughMoneyMsg"/>
+                  <constraint xsi:type="statemachines:IntegerConstraint">
+                    <expression operator=">" operand1="/0/@signals.10/@attributes.0" operand2="/0/@signals.6/@attributes.1"/>
+                  </constraint>
+                </transitions>
+                <transitions name="makeWithdrawal2final4" source="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.3/@regions.0/@vertice.3" target="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.3/@regions.0/@vertice.4" kind="external">
+                  <effect name="deliverCash"/>
+                </transitions>
+              </regions>
+            </vertice>
+            <vertice xsi:type="statemachines:State" name="TransferMoney" outgoingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@transitions.4" incomingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@transitions.2">
+              <regions name="transferRegion">
+                <vertice xsi:type="statemachines:Pseudostate" name="initial5" outgoingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@transitions.0"/>
+                <vertice xsi:type="statemachines:State" name="ValidateCard" outgoingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@transitions.1" incomingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@transitions.0"/>
+                <vertice xsi:type="statemachines:State" name="GetAmount" outgoingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@transitions.2" incomingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@transitions.1">
+                  <entry name="enterAmountMsg"/>
+                </vertice>
+                <vertice xsi:type="statemachines:State" name="CheckBalance" outgoingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@transitions.3 /0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@transitions.4" incomingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@transitions.2"/>
+                <vertice xsi:type="statemachines:State" name="TransferMoney" outgoingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@transitions.5" incomingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@transitions.3">
+                  <doActivity name="updateCardBalance"/>
+                </vertice>
+                <vertice xsi:type="statemachines:FinalState" name="final5" incomingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@transitions.4 /0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@transitions.5"/>
+                <transitions name="initial5_2_validateCard" source="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@vertice.0" target="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@vertice.1" kind="external"/>
+                <transitions name="validateCard2getAmount" source="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@vertice.1" target="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@vertice.2" kind="external">
+                  <effect name="cardNumberIsValid"/>
+                </transitions>
+                <transitions name="getAmount2checkBalance" source="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@vertice.3" kind="external">
+                  <triggers name="amountEnteredTrigger">
+                    <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.10"/>
+                  </triggers>
+                </transitions>
+                <transitions name="checkBalance2transferMoney" source="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@vertice.3" target="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@vertice.4" kind="external">
+                  <constraint xsi:type="statemachines:IntegerConstraint">
+                    <expression operator="&lt;=" operand1="/0/@signals.10/@attributes.0" operand2="/0/@signals.6/@attributes.1"/>
+                  </constraint>
+                </transitions>
+                <transitions name="checkBalance2final5" source="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@vertice.3" target="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@vertice.5" kind="external">
+                  <effect name="notEnoughMoneyMsg"/>
+                  <constraint xsi:type="statemachines:IntegerConstraint">
+                    <expression operator=">" operand1="/0/@signals.10/@attributes.0" operand2="/0/@signals.6/@attributes.1"/>
+                  </constraint>
+                </transitions>
+                <transitions name="transferMoney2final5" source="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@vertice.4" target="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@vertice.5" kind="external">
+                  <effect name="successfullyTransferred"/>
+                </transitions>
+              </regions>
+            </vertice>
+            <vertice xsi:type="statemachines:FinalState" name="final2" incomingTransitions="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@transitions.3 /0/@statemachine/@regions.0/@vertice.6/@regions.0/@transitions.4 /0/@statemachine/@regions.0/@vertice.6/@regions.0/@transitions.5"/>
+            <transitions name="initial2authentication" source="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.0" target="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.1" kind="external"/>
+            <transitions name="selectingTransaction2withdraw" source="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.3" kind="external">
+              <triggers name="withdrawTrigger">
+                <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.8"/>
+              </triggers>
+            </transitions>
+            <transitions name="selectingTransaction2transfer" source="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4" kind="external">
+              <triggers name="transferTrigger">
+                <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.9"/>
+              </triggers>
+            </transitions>
+            <transitions name="withdraw2final2" source="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.3" target="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.5" kind="external"/>
+            <transitions name="transfer2final2" source="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4" target="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.5" kind="external"/>
+            <transitions name="authentication2final2" source="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.1" target="/0/@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.5" kind="external"/>
+          </regions>
+          <entry name="readCard"/>
+          <exit name="ejectCard"/>
+        </vertice>
+        <transitions name="initial2off" source="/0/@statemachine/@regions.0/@vertice.0" target="/0/@statemachine/@regions.0/@vertice.1" kind="external"/>
+        <transitions name="off2selfTest" source="/0/@statemachine/@regions.0/@vertice.1" target="/0/@statemachine/@regions.0/@vertice.2" kind="external">
+          <triggers name="turnOnTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.0"/>
+          </triggers>
+          <effect name="startup"/>
+        </transitions>
+        <transitions name="selfTest2idle" source="/0/@statemachine/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.3" kind="external">
+          <triggers name="sucessTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.2"/>
+          </triggers>
+        </transitions>
+        <transitions name="selfTest2outOfService" source="/0/@statemachine/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.4" kind="external">
+          <triggers name="failureTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.1"/>
+          </triggers>
+        </transitions>
+        <transitions name="outOfService2Off" source="/0/@statemachine/@regions.0/@vertice.4" target="/0/@statemachine/@regions.0/@vertice.1" kind="external">
+          <triggers name="turnOffTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.3"/>
+          </triggers>
+          <effect name="shutDown"/>
+        </transitions>
+        <transitions name="outOfService2maintenance" source="/0/@statemachine/@regions.0/@vertice.4" target="/0/@statemachine/@regions.0/@vertice.5" kind="external">
+          <triggers name="serviceTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.4"/>
+          </triggers>
+        </transitions>
+        <transitions name="maintenance2outOfService" source="/0/@statemachine/@regions.0/@vertice.5" target="/0/@statemachine/@regions.0/@vertice.4" kind="external">
+          <triggers name="failureTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.1"/>
+          </triggers>
+        </transitions>
+        <transitions name="maintenance2selfTest" source="/0/@statemachine/@regions.0/@vertice.5" target="/0/@statemachine/@regions.0/@vertice.2" kind="external">
+          <triggers name="sucessTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.2"/>
+          </triggers>
+        </transitions>
+        <transitions name="Idle2off" source="/0/@statemachine/@regions.0/@vertice.3" target="/0/@statemachine/@regions.0/@vertice.1" kind="external">
+          <triggers name="turnOffTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.3"/>
+          </triggers>
+          <effect name="shutDown"/>
+        </transitions>
+        <transitions name="Idle2maintenance" source="/0/@statemachine/@regions.0/@vertice.3" target="/0/@statemachine/@regions.0/@vertice.5" kind="external">
+          <triggers name="serviceTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.4"/>
+          </triggers>
+        </transitions>
+        <transitions name="Idle2serviceCustomer" source="/0/@statemachine/@regions.0/@vertice.3" target="/0/@statemachine/@regions.0/@vertice.6" kind="external">
+          <triggers name="cardInsertedTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.6"/>
+          </triggers>
+        </transitions>
+        <transitions name="serviceCustomer2idle" source="/0/@statemachine/@regions.0/@vertice.6" target="/0/@statemachine/@regions.0/@vertice.3" kind="external">
+          <triggers name="cancelTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.5"/>
+          </triggers>
+        </transitions>
+        <transitions name="serviceCustomer2idle" source="/0/@statemachine/@regions.0/@vertice.6" target="/0/@statemachine/@regions.0/@vertice.3" kind="external"/>
+        <transitions name="serviceCustomer2outOfService" source="/0/@statemachine/@regions.0/@vertice.6" target="/0/@statemachine/@regions.0/@vertice.4" kind="external">
+          <triggers name="failureTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.1"/>
+          </triggers>
+        </transitions>
+      </regions>
+    </statemachine>
+    <signals name="turnOn"/>
+    <signals name="failure"/>
+    <signals name="success"/>
+    <signals name="turnOff"/>
+    <signals name="service"/>
+    <signals name="cancel"/>
+    <signals name="Card">
+      <attributes xsi:type="statemachines:IntegerAttribute" name="cardPin"/>
+      <attributes xsi:type="statemachines:IntegerAttribute" name="cardBalance"/>
+    </signals>
+    <signals name="Pin">
+      <attributes xsi:type="statemachines:IntegerAttribute" name="pin"/>
+    </signals>
+    <signals name="WithdrawTransaction"/>
+    <signals name="TransferTransaction"/>
+    <signals name="Amount">
+      <attributes xsi:type="statemachines:IntegerAttribute" name="enteredAmount"/>
+    </signals>
+  </statemachines:CustomSystem>
+  <statemachines:SignalEventType signal="/0/@signals.3"/>
+</xmi:XMI>

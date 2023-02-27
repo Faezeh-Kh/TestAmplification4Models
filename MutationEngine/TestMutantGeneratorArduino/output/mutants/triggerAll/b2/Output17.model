@@ -13,7 +13,7 @@
     <digitalPins name="servo1">
       <module xsi:type="arduino:MicroServo" name="servo1"/>
     </digitalPins>
-    <digitalPins name="servo2">
+    <digitalPins name="boardOnButtonPin">
       <module xsi:type="arduino:MicroServo" name="servo2"/>
     </digitalPins>
     <digitalPins name="irSensor">
@@ -22,7 +22,7 @@
     <digitalPins name="button">
       <module xsi:type="arduino:PushButton" name="button"/>
     </digitalPins>
-    <digitalPins name="whiteLedPin">
+    <digitalPins name="fan">
       <module xsi:type="arduino:Fan" name="fan"/>
     </digitalPins>
     <analogPins name="soundSensor">

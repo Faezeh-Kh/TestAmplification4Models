@@ -23,7 +23,7 @@
       <module xsi:type="arduino:SoundSensor" name="soundSensor"/>
     </analogPins>
   </boards>
-  <boards xsi:type="arduino:ArduinoBoard" name="board">
+  <boards xsi:type="arduino:ArduinoBoard" name="">
     <digitalPins name="blueLed">
       <module xsi:type="arduino:LED" name="blueLed"/>
     </digitalPins>
@@ -42,6 +42,12 @@
     <digitalPins name="alarmPin">
       <module xsi:type="arduino:Buzzer" name="alarm"/>
     </digitalPins>
+    <digitalPins name="blueLed">
+      <module xsi:type="arduino:LED" name="blueLed"/>
+    </digitalPins>
+    <analogPins name="soundSensor">
+      <module xsi:type="arduino:SoundSensor" name="soundSensor"/>
+    </analogPins>
     <analogPins name="soundSensor">
       <module xsi:type="arduino:SoundSensor" name="soundSensor"/>
     </analogPins>

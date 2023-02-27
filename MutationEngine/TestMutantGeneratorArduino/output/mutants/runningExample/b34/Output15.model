@@ -39,7 +39,9 @@
             </condition>
           </instructions>
           <instructions xsi:type="arduino:VariableAssignment">
-            <operand xsi:type="arduino:IntegerConstant" value="1"/>
+            <operand xsi:type="arduino:IntegerModuleGet">
+              <module xsi:type="arduino:InfraRedSensor" href="../../../model/runningExample.model#_TeGOtbvnEey7OoLBzoKkPA"/>
+            </operand>
           </instructions>
         </block>
         <condition xsi:type="arduino:BinaryBooleanExpression" operator="equal">

@@ -8,12 +8,15 @@
       <module xsi:type="arduino:PushButton" name="turnOffButton"/>
     </digitalPins>
   </boards>
-  <boards xsi:type="arduino:ArduinoBoard" name="board">
+  <boards xsi:type="arduino:ArduinoBoard" name="">
     <digitalPins name="servo">
       <module xsi:type="arduino:MicroServo" name="servo"/>
     </digitalPins>
     <digitalPins name="button_pin">
       <module xsi:type="arduino:PushButton" name="turnOffButton"/>
+    </digitalPins>
+    <digitalPins name="servo">
+      <module xsi:type="arduino:MicroServo" name="servo"/>
     </digitalPins>
   </boards>
   <sketches name="mainSketch">

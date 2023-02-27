@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <arduino:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduino="http://www.obeo.fr/arduino" xsi:schemaLocation="http://www.obeo.fr/arduino ../../../model/arduino.ecore" xmi:id="_TeGOsLvnEey7OoLBzoKkPA">
   <boards xsi:type="arduino:ArduinoBoard" xmi:id="_TeGOsbvnEey7OoLBzoKkPA" name="board">
-    <digitalPins xmi:id="_TeGOsrvnEey7OoLBzoKkPA" name="blueLed">
-      <module xsi:type="arduino:LED" xmi:id="_TeGOs7vnEey7OoLBzoKkPA" name="blueLed"/>
-    </digitalPins>
     <digitalPins xmi:id="_TeGOtLvnEey7OoLBzoKkPA" name="IR_sensor">
       <module xsi:type="arduino:InfraRedSensor" xmi:id="_TeGOtbvnEey7OoLBzoKkPA" name="IR_sensor"/>
     </digitalPins>
   </boards>
-  <boards xsi:type="arduino:ArduinoBoard" name="board"/>
+  <boards xsi:type="arduino:ArduinoBoard" name="board">
+    <digitalPins xmi:id="_TeGOsrvnEey7OoLBzoKkPA" name="blueLed">
+      <module xsi:type="arduino:LED" xmi:id="_TeGOs7vnEey7OoLBzoKkPA" name="blueLed"/>
+    </digitalPins>
+  </boards>
   <sketches xmi:id="_TeGOtrvnEey7OoLBzoKkPA" name="sketch" board="_TeGOsbvnEey7OoLBzoKkPA">
     <block xmi:id="_TeGOt7vnEey7OoLBzoKkPA">
       <instructions xsi:type="arduino:If" xmi:id="_TeGOuLvnEey7OoLBzoKkPA">

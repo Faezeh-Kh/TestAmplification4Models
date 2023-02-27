@@ -24,6 +24,14 @@
           <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
             <operand xsi:type="arduino:IntegerConstant"/>
           </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:LED" href="../../../model/sensorAlarm.model#_bfGPwbsuEeyYPqXDdDsRMg"/>
+            <operand xsi:type="arduino:IntegerConstant" value="1"/>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:InfraRedSensor" href="../../../model/sensorAlarm.model#_bfGPw7suEeyYPqXDdDsRMg"/>
+            <operand xsi:type="arduino:IntegerConstant"/>
+          </instructions>
         </block>
         <condition xsi:type="arduino:BinaryBooleanExpression" operator="equal">
           <left xsi:type="arduino:IntegerModuleGet" module="//@boards.0/@digitalPins.3/@module"/>
@@ -38,8 +46,19 @@
           <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
             <operand xsi:type="arduino:IntegerConstant"/>
           </instructions>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
-            <operand xsi:type="arduino:IntegerConstant"/>
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:InfraRedSensor" href="../../../model/sensorAlarm.model#_bfGPw7suEeyYPqXDdDsRMg"/>
+            <operand xsi:type="arduino:IntegerModuleGet">
+              <module xsi:type="arduino:InfraRedSensor" href="../../../model/sensorAlarm.model#_bfGPw7suEeyYPqXDdDsRMg"/>
+            </operand>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:Buzzer" href="../../../model/sensorAlarm.model#_bfGPxbsuEeyYPqXDdDsRMg"/>
+            <operand xsi:type="arduino:BinaryBooleanExpression" operator="equal">
+              <left xsi:type="arduino:IntegerModuleGet">
+                <module xsi:type="arduino:PushButton" href="../../../model/sensorAlarm.model#_bfGPx7suEeyYPqXDdDsRMg"/>
+              </left>
+            </operand>
           </instructions>
         </block>
         <condition xsi:type="arduino:BinaryBooleanExpression" operator="equal">

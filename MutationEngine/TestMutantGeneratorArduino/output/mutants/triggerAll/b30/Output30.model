@@ -53,6 +53,32 @@
               <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
                 <operand xsi:type="arduino:IntegerConstant"/>
               </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment">
+                <module xsi:type="arduino:LED" href="../../../model/triggerAll.model#_DErf8covEeyrEsguAqucdw"/>
+                <operand xsi:type="arduino:IntegerModuleGet">
+                  <module xsi:type="arduino:SoundSensor" href="../../../model/triggerAll.model#_NGu-QMowEeyrEsguAqucdw"/>
+                </operand>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment">
+                <module xsi:type="arduino:PushButton" href="../../../model/triggerAll.model#_Qf35wMovEeyrEsguAqucdw"/>
+                <operand xsi:type="arduino:IntegerConstant"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment">
+                <module xsi:type="arduino:SoundSensor" href="../../../model/triggerAll.model#_NGu-QMowEeyrEsguAqucdw"/>
+                <operand xsi:type="arduino:IntegerConstant"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment">
+                <module xsi:type="arduino:PushButton" href="../../../model/triggerAll.model#_Qf35wMovEeyrEsguAqucdw"/>
+                <operand xsi:type="arduino:IntegerConstant" value="1"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment">
+                <module xsi:type="arduino:LED" href="../../../model/triggerAll.model#_Uck-RbvpEey6kqvve9HPhQ"/>
+                <operand xsi:type="arduino:IntegerConstant"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment">
+                <module xsi:type="arduino:LED" href="../../../model/triggerAll.model#_Uck-RbvpEey6kqvve9HPhQ"/>
+                <operand xsi:type="arduino:IntegerConstant" value="128"/>
+              </instructions>
             </block>
           </instructions>
         </block>
@@ -65,6 +91,16 @@
           </instructions>
           <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.3/@module">
             <operand xsi:type="arduino:IntegerConstant"/>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:LED" href="../../../model/triggerAll.model#_DErf8covEeyrEsguAqucdw"/>
+            <operand xsi:type="arduino:BooleanModuleGet">
+              <module xsi:type="arduino:InfraRedSensor" href="../../../model/triggerAll.model#_Omt_wMovEeyrEsguAqucdw"/>
+            </operand>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:LED" href="../../../model/triggerAll.model#_DErf8covEeyrEsguAqucdw"/>
+            <operand xsi:type="arduino:IntegerConstant" value="90"/>
           </instructions>
         </block>
         <condition xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.5/@module"/>
@@ -83,8 +119,13 @@
           <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.4/@module">
             <operand xsi:type="arduino:IntegerConstant" value="60"/>
           </instructions>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.7/@module">
-            <operand xsi:type="arduino:IntegerConstant" value="1"/>
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:MicroServo" href="../../../model/triggerAll.model#_IxQoQMovEeyrEsguAqucdw"/>
+            <operand xsi:type="arduino:IntegerConstant"/>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:PushButton" href="../../../model/triggerAll.model#_Qf35wMovEeyrEsguAqucdw"/>
+            <operand xsi:type="arduino:IntegerConstant" value="60"/>
           </instructions>
         </block>
         <condition xsi:type="arduino:BinaryBooleanExpression" operator="sup">

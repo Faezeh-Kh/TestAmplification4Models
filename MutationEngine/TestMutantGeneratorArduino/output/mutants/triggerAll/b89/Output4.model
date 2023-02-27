@@ -93,5 +93,5 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:BooleanVariable/>
+  <arduino:BooleanVariable name="ySt" initialValue="true"/>
 </xmi:XMI>

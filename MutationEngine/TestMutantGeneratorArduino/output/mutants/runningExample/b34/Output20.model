@@ -18,28 +18,32 @@
     <block>
       <instructions xsi:type="arduino:If">
         <block>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
-            <operand xsi:type="arduino:IntegerConstant" value="1"/>
-          </instructions>
           <instructions xsi:type="arduino:If">
             <block>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
-                <operand xsi:type="arduino:IntegerConstant" value="1"/>
-              </instructions>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
+              <instructions xsi:type="arduino:VariableAssignment">
                 <operand xsi:type="arduino:IntegerConstant"/>
               </instructions>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
-                <operand xsi:type="arduino:IntegerConstant" value="1"/>
-              </instructions>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
+              <instructions xsi:type="arduino:VariableAssignment">
                 <operand xsi:type="arduino:IntegerConstant"/>
+              </instructions>
+              <instructions xsi:type="arduino:VariableAssignment">
+                <operand xsi:type="arduino:IntegerConstant"/>
+              </instructions>
+              <instructions xsi:type="arduino:VariableAssignment">
+                <operand xsi:type="arduino:BinaryBooleanExpression" operator="equal">
+                  <right xsi:type="arduino:IntegerConstant" value="1"/>
+                </operand>
               </instructions>
             </block>
             <condition xsi:type="arduino:BinaryBooleanExpression" operator="equal">
               <left xsi:type="arduino:IntegerModuleGet" module="//@boards.0/@digitalPins.1/@module"/>
               <right xsi:type="arduino:IntegerConstant" value="1"/>
             </condition>
+          </instructions>
+          <instructions xsi:type="arduino:VariableAssignment">
+            <operand xsi:type="arduino:IntegerModuleGet">
+              <module xsi:type="arduino:InfraRedSensor" href="../../../model/runningExample.model#_TeGOtbvnEey7OoLBzoKkPA"/>
+            </operand>
           </instructions>
         </block>
         <condition xsi:type="arduino:BinaryBooleanExpression" operator="equal">
@@ -48,7 +52,7 @@
         </condition>
         <elseBlock>
           <instructions xsi:type="arduino:VariableAssignment">
-            <operand xsi:type="arduino:IntegerConstant"/>
+            <operand xsi:type="arduino:IntegerConstant" value="1"/>
           </instructions>
         </elseBlock>
       </instructions>

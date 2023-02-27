@@ -30,5 +30,5 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:AmbientLightSensor/>
+  <arduino:AmbientLightSensor name="oup"/>
 </xmi:XMI>

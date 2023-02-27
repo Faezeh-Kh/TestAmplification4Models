@@ -56,5 +56,5 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:MusicPlayer/>
+  <arduino:MusicPlayer name="qQb"/>
 </xmi:XMI>

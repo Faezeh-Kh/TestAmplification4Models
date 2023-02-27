@@ -54,10 +54,10 @@
               <operand xsi:type="arduino:BooleanModuleGet" xmi:id="_WDwslrvrEey6kqvve9HPhQ" module="_WDu3ZbvrEey6kqvve9HPhQ"/>
             </condition>
           </instructions>
+          <instructions xsi:type="arduino:Delay" value="4"/>
         </block>
         <condition xsi:type="arduino:BooleanModuleGet" xmi:id="_WDwsl7vrEey6kqvve9HPhQ" module="_WDu3Y7vrEey6kqvve9HPhQ"/>
       </instructions>
-      <instructions xsi:type="arduino:Delay"/>
     </block>
   </sketches>
 </arduino:Project>

@@ -71,9 +71,9 @@
           <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_SYps8M-YEeyj4OK2t3h2Ug" module="_DErf8covEeyrEsguAqucdw">
             <operand xsi:type="arduino:IntegerConstant" xmi:id="_UQNrgM-YEeyj4OK2t3h2Ug"/>
           </instructions>
-          <instructions xsi:type="arduino:VariableDeclaration"/>
         </elseBlock>
       </instructions>
+      <instructions xsi:type="arduino:VariableDeclaration"/>
     </block>
   </sketches>
 </arduino:Project>

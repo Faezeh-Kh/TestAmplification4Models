@@ -16,7 +16,7 @@
     <digitalPins name="IRSensorPin">
       <module xsi:type="arduino:InfraRedSensor" name="IRSensor"/>
     </digitalPins>
-    <digitalPins name="whiteLedPin">
+    <digitalPins name="IR_sensorPin">
       <module xsi:type="arduino:Buzzer" name="alarm"/>
     </digitalPins>
     <analogPins name="soundSensor">

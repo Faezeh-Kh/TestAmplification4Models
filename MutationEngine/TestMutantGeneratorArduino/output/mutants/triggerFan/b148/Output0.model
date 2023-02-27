@@ -17,7 +17,7 @@
       <module xsi:type="arduino:InfraRedSensor" name="IRSensor"/>
     </digitalPins>
     <digitalPins name="alarmPin">
-      <module xsi:type="arduino:MicroServo" name="buzzer"/>
+      <module xsi:type="arduino:MicroServo" name="Alarm1"/>
     </digitalPins>
     <analogPins name="soundSensor">
       <module xsi:type="arduino:SoundSensor" name="soundSensor"/>

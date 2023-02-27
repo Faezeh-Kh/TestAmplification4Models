@@ -38,6 +38,9 @@
               <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_da8VsM-YEeyj4OK2t3h2Ug" module="_bNFXAM-YEeyj4OK2t3h2Ug">
                 <operand xsi:type="arduino:IntegerConstant" xmi:id="_da8Vsc-YEeyj4OK2t3h2Ug"/>
               </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment" module="_NGu-QMowEeyrEsguAqucdw">
+                <operand xsi:type="arduino:IntegerModuleGet" module="_NGu-QMowEeyrEsguAqucdw"/>
+              </instructions>
             </block>
             <condition xsi:type="arduino:BooleanModuleGet" xmi:id="_VbiroM-XEeyj4OK2t3h2Ug" module="_O4upcM-YEeyj4OK2t3h2Ug"/>
           </instructions>
@@ -59,10 +62,8 @@
                   </instructions>
                 </block>
               </instructions>
-              <instructions xsi:type="arduino:ModuleAssignment"/>
             </block>
             <condition xsi:type="arduino:BinaryBooleanExpression" xmi:id="_SFXlpMxYEeyMmOihs3jxMw" operator="sup">
-              <left xsi:type="arduino:IntegerModuleGet" xmi:id="_pWkaMM-YEeyj4OK2t3h2Ug" module="_NGu-QMowEeyrEsguAqucdw"/>
               <right xsi:type="arduino:IntegerConstant" xmi:id="_mKijEM-YEeyj4OK2t3h2Ug" value="128"/>
             </condition>
           </instructions>

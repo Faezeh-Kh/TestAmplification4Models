@@ -48,5 +48,5 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:AmbientLightSensor/>
+  <arduino:AmbientLightSensor name="Lfy"/>
 </xmi:XMI>

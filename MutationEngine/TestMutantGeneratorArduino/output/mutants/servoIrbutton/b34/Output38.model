@@ -30,7 +30,9 @@
                 </operand>
               </instructions>
               <instructions xsi:type="arduino:VariableAssignment">
-                <operand xsi:type="arduino:IntegerVariableRef" variable="//@sketches.0/@block/@instructions.0/@variable"/>
+                <operand xsi:type="arduino:IntegerVariableRef">
+                  <variable href="../../../model/servoIrbutton.model#_WDwFgLvrEey6kqvve9HPhQ"/>
+                </operand>
               </instructions>
             </block>
             <condition xsi:type="arduino:BinaryBooleanExpression" operator="AND">

@@ -41,20 +41,20 @@
               </right>
             </condition>
           </instructions>
-          <instructions xsi:type="arduino:If" xmi:id="_WDwFkbvrEey6kqvve9HPhQ">
-            <block xmi:id="_WDwFkrvrEey6kqvve9HPhQ">
-              <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_WDwFk7vrEey6kqvve9HPhQ" module="_WDu3Z7vrEey6kqvve9HPhQ">
-                <operand xsi:type="arduino:IntegerConstant" xmi:id="_WDwskLvrEey6kqvve9HPhQ" value="1"/>
+          <instructions xsi:type="arduino:If" xmi:id="_WDwFkbvrEey6kqvve9HPhQ"/>
+          <instructions xsi:type="arduino:If">
+            <block>
+              <instructions xsi:type="arduino:ModuleAssignment" module="_WDu3Z7vrEey6kqvve9HPhQ">
+                <operand xsi:type="arduino:IntegerConstant" value="1"/>
               </instructions>
-              <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_WDwskrvrEey6kqvve9HPhQ" module="_WDu3Z7vrEey6kqvve9HPhQ">
-                <operand xsi:type="arduino:IntegerConstant" xmi:id="_WDwsk7vrEey6kqvve9HPhQ"/>
+              <instructions xsi:type="arduino:ModuleAssignment" module="_WDu3Z7vrEey6kqvve9HPhQ">
+                <operand xsi:type="arduino:IntegerConstant"/>
               </instructions>
             </block>
-            <condition xsi:type="arduino:UnaryBooleanExpression" xmi:id="_WDwslbvrEey6kqvve9HPhQ">
-              <operand xsi:type="arduino:BooleanModuleGet" xmi:id="_WDwslrvrEey6kqvve9HPhQ" module="_WDu3ZbvrEey6kqvve9HPhQ"/>
+            <condition xsi:type="arduino:UnaryBooleanExpression">
+              <operand xsi:type="arduino:BooleanModuleGet" module="_WDu3ZbvrEey6kqvve9HPhQ"/>
             </condition>
           </instructions>
-          <instructions xsi:type="arduino:If"/>
         </block>
         <condition xsi:type="arduino:BooleanModuleGet" xmi:id="_WDwsl7vrEey6kqvve9HPhQ" module="_WDu3Y7vrEey6kqvve9HPhQ"/>
       </instructions>

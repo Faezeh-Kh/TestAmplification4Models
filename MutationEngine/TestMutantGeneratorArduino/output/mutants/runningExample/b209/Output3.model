@@ -14,7 +14,7 @@
       <module xsi:type="arduino:PushButton" name="button1"/>
     </digitalPins>
   </boards>
-  <boards xsi:type="arduino:ArduinoBoard" name="board">
+  <boards xsi:type="arduino:ArduinoBoard" name="">
     <digitalPins name="whiteLedPin">
       <module xsi:type="arduino:LED" name="whiteLed" color="white"/>
     </digitalPins>
@@ -26,6 +26,9 @@
     </digitalPins>
     <digitalPins name="buttonPin">
       <module xsi:type="arduino:PushButton" name="button1"/>
+    </digitalPins>
+    <digitalPins name="buzzerPin">
+      <module xsi:type="arduino:Buzzer" name="buzzer"/>
     </digitalPins>
   </boards>
   <sketches name="sketch" board="//@boards.0">

@@ -8,7 +8,7 @@
       <module xsi:type="arduino:InfraRedSensor" name="IR_sensor"/>
     </digitalPins>
   </boards>
-  <sketches name="sketch" board="//@boards.0">
+  <sketches name="mainSketch" board="//@boards.0">
     <block>
       <instructions xsi:type="arduino:If">
         <block>

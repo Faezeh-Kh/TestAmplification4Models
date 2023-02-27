@@ -15,8 +15,9 @@
           <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
             <operand xsi:type="arduino:IntegerConstant"/>
           </instructions>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
-            <operand xsi:type="arduino:IntegerConstant"/>
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:MicroServo" href="../../../model/servo9g.model#_B80o8LvqEey6kqvve9HPhQ"/>
+            <operand xsi:type="arduino:IntegerConstant" value="180"/>
           </instructions>
         </block>
         <condition xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.1/@module"/>

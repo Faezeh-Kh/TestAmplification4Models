@@ -28,23 +28,21 @@
               </instructions>
               <instructions xsi:type="arduino:VariableAssignment" variable="//@sketches.0/@block/@instructions.0/@variable">
                 <operand xsi:type="arduino:BinaryIntegerExpression" operator="plus">
-                  <left xsi:type="arduino:IntegerVariableRef" variable="//@sketches.0/@block/@instructions.0/@variable"/>
-                  <right xsi:type="arduino:IntegerConstant" value="6"/>
+                  <right xsi:type="arduino:BinaryIntegerExpression"/>
                 </operand>
               </instructions>
             </block>
             <condition xsi:type="arduino:BinaryBooleanExpression" operator="AND">
               <left xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.1/@module"/>
               <right xsi:type="arduino:BinaryBooleanExpression" operator="infOrEqual">
-                <left xsi:type="arduino:IntegerVariableRef" variable="//@sketches.0/@block/@instructions.0/@variable"/>
-                <right xsi:type="arduino:IntegerConstant" value="18"/>
+                <right xsi:type="arduino:IntegerModuleGet"/>
               </right>
             </condition>
           </instructions>
           <instructions xsi:type="arduino:If">
             <block>
               <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
-                <operand xsi:type="arduino:IntegerConstant" value="1"/>
+                <operand xsi:type="arduino:BinaryIntegerExpression"/>
               </instructions>
               <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
                 <operand xsi:type="arduino:UnaryIntegerExpression"/>

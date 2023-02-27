@@ -5,7 +5,7 @@
       <module xsi:type="arduino:LED" name="blueLed"/>
     </digitalPins>
     <digitalPins name="servo2">
-      <module xsi:type="arduino:InfraRedSensor" name="servo2"/>
+      <module xsi:type="arduino:Buzzer" name="Servo"/>
     </digitalPins>
     <digitalPins name="fan">
       <module xsi:type="arduino:Fan" name="fan"/>

@@ -32,6 +32,12 @@
                   <right xsi:type="arduino:IntegerConstant" value="6"/>
                 </operand>
               </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment">
+                <module xsi:type="arduino:InfraRedSensor" href="../../../model/servoIrbutton.model#_WDu3ZbvrEey6kqvve9HPhQ"/>
+                <operand xsi:type="arduino:BooleanModuleGet">
+                  <module xsi:type="arduino:PushButton" href="../../../model/servoIrbutton.model#_WDu3Y7vrEey6kqvve9HPhQ"/>
+                </operand>
+              </instructions>
             </block>
             <condition xsi:type="arduino:BinaryBooleanExpression" operator="AND">
               <left xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.1/@module"/>
@@ -49,8 +55,14 @@
               <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
                 <operand xsi:type="arduino:IntegerConstant"/>
               </instructions>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
-                <operand xsi:type="arduino:IntegerConstant" value="1"/>
+              <instructions xsi:type="arduino:ModuleAssignment">
+                <module xsi:type="arduino:MicroServo" href="../../../model/servoIrbutton.model#_WDu3abvrEey6kqvve9HPhQ"/>
+                <operand xsi:type="arduino:BinaryIntegerExpression" operator="plus">
+                  <left xsi:type="arduino:IntegerVariableRef">
+                    <variable href="../../../model/servoIrbutton.model#_WDwFgLvrEey6kqvve9HPhQ"/>
+                  </left>
+                  <right xsi:type="arduino:IntegerConstant" value="6"/>
+                </operand>
               </instructions>
             </block>
             <condition xsi:type="arduino:UnaryBooleanExpression">

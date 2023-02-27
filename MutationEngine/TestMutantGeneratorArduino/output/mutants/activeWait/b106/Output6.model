@@ -26,7 +26,7 @@
           </instructions>
         </block>
         <condition xsi:type="arduino:BinaryBooleanExpression" operator="equal">
-          <left xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.1/@module"/>
+          <left xsi:type="arduino:UnaryIntegerExpression"/>
           <right xsi:type="arduino:IntegerConstant"/>
         </condition>
         <elseBlock>

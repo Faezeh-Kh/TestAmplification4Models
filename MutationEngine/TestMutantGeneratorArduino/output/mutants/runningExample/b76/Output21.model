@@ -22,13 +22,9 @@
           <instructions xsi:type="arduino:If">
             <block>
               <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module"/>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
-                <operand xsi:type="arduino:IntegerConstant"/>
-              </instructions>
               <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module"/>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
-                <operand xsi:type="arduino:IntegerConstant"/>
-              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module"/>
+              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module"/>
             </block>
             <condition xsi:type="arduino:BinaryBooleanExpression" operator="equal">
               <left xsi:type="arduino:IntegerModuleGet" module="//@boards.0/@digitalPins.1/@module"/>
@@ -41,7 +37,7 @@
         </condition>
         <elseBlock>
           <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
-            <operand xsi:type="arduino:IntegerConstant"/>
+            <operand xsi:type="arduino:BinaryIntegerExpression"/>
           </instructions>
         </elseBlock>
       </instructions>

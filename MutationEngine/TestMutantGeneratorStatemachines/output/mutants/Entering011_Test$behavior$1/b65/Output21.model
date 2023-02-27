@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<statemachines:CustomSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
+  <statemachine name="Entering011_Test$behavior$1"/>
+  <signals name="Start"/>
+  <signals name="Continue"/>
+</statemachines:CustomSystem>

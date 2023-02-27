@@ -61,5 +61,5 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:AmbientLightSensor/>
+  <arduino:AmbientLightSensor name="Dsr"/>
 </xmi:XMI>

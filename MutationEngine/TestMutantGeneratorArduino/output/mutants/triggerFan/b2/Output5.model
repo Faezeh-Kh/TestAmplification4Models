@@ -13,7 +13,7 @@
     <digitalPins name="boardOnButtonPin">
       <module xsi:type="arduino:PushButton" name="boardOnButton"/>
     </digitalPins>
-    <digitalPins name="whiteLedPin">
+    <digitalPins name="button">
       <module xsi:type="arduino:InfraRedSensor" name="IRSensor"/>
     </digitalPins>
     <digitalPins name="alarmPin">

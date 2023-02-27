@@ -29,7 +29,6 @@
       <module xsi:type="arduino:SoundSensor" name="soundSensor"/>
     </analogPins>
   </boards>
-  <boards xsi:type="arduino:ArduinoBoard" name="sketch"/>
   <sketches name="sketch" board="//@boards.0">
     <block>
       <instructions xsi:type="arduino:If">

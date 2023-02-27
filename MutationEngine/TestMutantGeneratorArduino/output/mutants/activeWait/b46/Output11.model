@@ -12,8 +12,37 @@
     <block>
       <instructions xsi:type="arduino:Repeat">
         <block>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
-            <operand xsi:type="arduino:IntegerConstant" value="1"/>
+          <instructions xsi:type="arduino:If">
+            <block>
+              <instructions xsi:type="arduino:ModuleAssignment">
+                <module xsi:type="arduino:LED" href="../../../model/activeWait.model#_TeGOs7vnEey7OoLBzoKkPA"/>
+                <operand xsi:type="arduino:IntegerConstant" value="1"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment">
+                <module xsi:type="arduino:LED" href="../../../model/activeWait.model#_TeGOs7vnEey7OoLBzoKkPA"/>
+                <operand xsi:type="arduino:IntegerConstant"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment">
+                <module xsi:type="arduino:LED" href="../../../model/activeWait.model#_TeGOs7vnEey7OoLBzoKkPA"/>
+                <operand xsi:type="arduino:IntegerConstant" value="1"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment">
+                <module xsi:type="arduino:LED" href="../../../model/activeWait.model#_TeGOs7vnEey7OoLBzoKkPA"/>
+                <operand xsi:type="arduino:IntegerConstant"/>
+              </instructions>
+            </block>
+            <condition xsi:type="arduino:BinaryBooleanExpression" operator="equal">
+              <left xsi:type="arduino:IntegerModuleGet">
+                <module xsi:type="arduino:InfraRedSensor" href="../../../model/activeWait.model#_TeGOtbvnEey7OoLBzoKkPA"/>
+              </left>
+              <right xsi:type="arduino:IntegerConstant"/>
+            </condition>
+            <elseBlock>
+              <instructions xsi:type="arduino:ModuleAssignment">
+                <module xsi:type="arduino:LED" href="../../../model/activeWait.model#_TeGOs7vnEey7OoLBzoKkPA"/>
+                <operand xsi:type="arduino:IntegerConstant" value="1"/>
+              </instructions>
+            </elseBlock>
           </instructions>
         </block>
       </instructions>

@@ -33,7 +33,7 @@
                 </operand>
               </instructions>
             </block>
-            <condition xsi:type="arduino:BooleanModuleGet"/>
+            <condition xsi:type="arduino:BooleanVariableRef"/>
           </instructions>
           <instructions xsi:type="arduino:If">
             <block>

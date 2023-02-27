@@ -57,23 +57,33 @@
           </instructions>
           <instructions xsi:type="arduino:Repeat" iteration="3">
             <block>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.1/@module">
-                <operand xsi:type="arduino:IntegerConstant" value="1"/>
-              </instructions>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.1/@module">
-                <operand xsi:type="arduino:IntegerConstant"/>
-              </instructions>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
-                <operand xsi:type="arduino:IntegerConstant" value="1"/>
-              </instructions>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
-                <operand xsi:type="arduino:IntegerConstant"/>
-              </instructions>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
-                <operand xsi:type="arduino:IntegerConstant" value="1"/>
-              </instructions>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
-                <operand xsi:type="arduino:IntegerConstant"/>
+              <instructions xsi:type="arduino:Repeat" iteration="2">
+                <block>
+                  <instructions xsi:type="arduino:ModuleAssignment">
+                    <module xsi:type="arduino:LED" href="../../../model/triggerAll.model#_DErf8covEeyrEsguAqucdw"/>
+                    <operand xsi:type="arduino:IntegerConstant" value="1"/>
+                  </instructions>
+                  <instructions xsi:type="arduino:ModuleAssignment">
+                    <module xsi:type="arduino:LED" href="../../../model/triggerAll.model#_DErf8covEeyrEsguAqucdw"/>
+                    <operand xsi:type="arduino:IntegerConstant"/>
+                  </instructions>
+                  <instructions xsi:type="arduino:ModuleAssignment">
+                    <module xsi:type="arduino:LED" href="../../../model/triggerAll.model#_DLddYcovEeyrEsguAqucdw"/>
+                    <operand xsi:type="arduino:IntegerConstant" value="1"/>
+                  </instructions>
+                  <instructions xsi:type="arduino:ModuleAssignment">
+                    <module xsi:type="arduino:LED" href="../../../model/triggerAll.model#_DLddYcovEeyrEsguAqucdw"/>
+                    <operand xsi:type="arduino:IntegerConstant"/>
+                  </instructions>
+                  <instructions xsi:type="arduino:ModuleAssignment">
+                    <module xsi:type="arduino:LED" href="../../../model/triggerAll.model#_Uck-RbvpEey6kqvve9HPhQ"/>
+                    <operand xsi:type="arduino:IntegerConstant" value="1"/>
+                  </instructions>
+                  <instructions xsi:type="arduino:ModuleAssignment">
+                    <module xsi:type="arduino:LED" href="../../../model/triggerAll.model#_Uck-RbvpEey6kqvve9HPhQ"/>
+                    <operand xsi:type="arduino:IntegerConstant"/>
+                  </instructions>
+                </block>
               </instructions>
             </block>
           </instructions>

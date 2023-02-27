@@ -56,5 +56,5 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:BooleanVariable/>
+  <arduino:BooleanVariable name="dKX" initialValue="true"/>
 </xmi:XMI>

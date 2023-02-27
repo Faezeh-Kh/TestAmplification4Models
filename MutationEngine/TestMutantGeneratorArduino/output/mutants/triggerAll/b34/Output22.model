@@ -35,9 +35,6 @@
         <block>
           <instructions xsi:type="arduino:Repeat" iteration="2">
             <block>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.1/@module">
-                <operand xsi:type="arduino:IntegerConstant" value="1"/>
-              </instructions>
               <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
                 <operand xsi:type="arduino:IntegerConstant" value="1"/>
               </instructions>
@@ -52,6 +49,9 @@
               </instructions>
               <instructions xsi:type="arduino:VariableAssignment">
                 <operand xsi:type="arduino:IntegerConstant"/>
+              </instructions>
+              <instructions xsi:type="arduino:VariableAssignment">
+                <operand xsi:type="arduino:IntegerConstant" value="128"/>
               </instructions>
             </block>
           </instructions>

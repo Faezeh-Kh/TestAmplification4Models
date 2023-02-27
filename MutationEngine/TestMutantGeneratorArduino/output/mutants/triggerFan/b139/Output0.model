@@ -11,7 +11,7 @@
       <module xsi:type="arduino:Fan" name="fan"/>
     </digitalPins>
     <digitalPins name="boardOnButtonPin">
-      <module xsi:type="arduino:PushButton" name="turnOffButton"/>
+      <module xsi:type="arduino:PushButton" name="boardOnButton"/>
     </digitalPins>
     <digitalPins name="IRSensorPin">
       <module xsi:type="arduino:InfraRedSensor" name="IRSensor"/>

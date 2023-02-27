@@ -28,7 +28,12 @@
     <analogPins name="soundSensor">
       <module xsi:type="arduino:SoundSensor" name="soundSensor"/>
     </analogPins>
-    <analogPins name="whiteLedPin"/>
+    <analogPins name="buttonPin"/>
+    <analogPins name="pushButton"/>
+    <analogPins name="fan"/>
+    <analogPins name="IRSensor"/>
+    <analogPins name="whiteLed"/>
+    <analogPins name="fan"/>
   </boards>
   <sketches name="sketch" board="//@boards.0">
     <block>

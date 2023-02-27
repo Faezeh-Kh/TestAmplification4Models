@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<statemachines:CustomSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
+  <statemachine name="KUg">
+    <regions name="gLv"/>
+  </statemachine>
+  <signals name="turnOn"/>
+  <signals name="failure"/>
+  <signals name="success"/>
+  <signals name="turnOff"/>
+  <signals name="service"/>
+  <signals name="cancel"/>
+  <signals name="Card">
+    <attributes xsi:type="statemachines:IntegerAttribute" name="cardPin"/>
+    <attributes xsi:type="statemachines:IntegerAttribute" name="cardBalance"/>
+    <attributes xsi:type="statemachines:BooleanAttribute" name="Uh"/>
+  </signals>
+  <signals name="Pin">
+    <attributes xsi:type="statemachines:IntegerAttribute" name="pin"/>
+  </signals>
+  <signals name="WithdrawTransaction">
+    <attributes xsi:type="statemachines:BooleanAttribute" name="zym"/>
+  </signals>
+  <signals name="TransferTransaction"/>
+  <signals name="Amount">
+    <attributes xsi:type="statemachines:IntegerAttribute" name="enteredAmount"/>
+  </signals>
+  <operations name="yy"/>
+</statemachines:CustomSystem>

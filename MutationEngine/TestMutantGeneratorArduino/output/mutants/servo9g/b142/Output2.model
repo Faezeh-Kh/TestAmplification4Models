@@ -5,7 +5,7 @@
       <module xsi:type="arduino:MicroServo" name="servo"/>
     </digitalPins>
     <digitalPins name="button_pin">
-      <module xsi:type="arduino:MicroServo" name="turnOffButton"/>
+      <module xsi:type="arduino:LED" name="button"/>
     </digitalPins>
   </boards>
   <sketches name="mainSketch">

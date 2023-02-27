@@ -7,9 +7,7 @@
     <digitalPins xmi:id="_KowVYMovEeyrEsguAqucdw" name="servo2">
       <module xsi:type="arduino:MicroServo" xmi:id="_KowVYcovEeyrEsguAqucdw" name="servo2"/>
     </digitalPins>
-    <digitalPins xmi:id="_R9yCMMovEeyrEsguAqucdw" name="fan">
-      <module xsi:type="arduino:Fan" xmi:id="_TJEJkMovEeyrEsguAqucdw" name="fan"/>
-    </digitalPins>
+    <digitalPins xmi:id="_R9yCMMovEeyrEsguAqucdw" name="fan"/>
     <digitalPins xmi:id="_oKk-sMxXEeyMmOihs3jxMw" name="boardOnButtonPin">
       <module xsi:type="arduino:PushButton" xmi:id="_pbE9QMxXEeyMmOihs3jxMw" name="boardOnButton"/>
     </digitalPins>
@@ -19,7 +17,9 @@
     <digitalPins xmi:id="_Z_DdoM-YEeyj4OK2t3h2Ug" name="alarmPin">
       <module xsi:type="arduino:Buzzer" xmi:id="_bNFXAM-YEeyj4OK2t3h2Ug" name="alarm"/>
     </digitalPins>
-    <digitalPins name="whiteLedPin"/>
+    <digitalPins name="servo">
+      <module xsi:type="arduino:Fan" name="fan"/>
+    </digitalPins>
     <analogPins xmi:id="_MhMBMMowEeyrEsguAqucdw" name="soundSensor">
       <module xsi:type="arduino:SoundSensor" xmi:id="_NGu-QMowEeyrEsguAqucdw" name="soundSensor"/>
     </analogPins>
@@ -49,10 +49,10 @@
                   <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_VbYfNMxYEeyMmOihs3jxMw" module="_KowVYcovEeyrEsguAqucdw">
                     <operand xsi:type="arduino:IntegerConstant" xmi:id="_VbYfNcxYEeyMmOihs3jxMw"/>
                   </instructions>
-                  <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_VbYfNsxYEeyMmOihs3jxMw" module="_TJEJkMovEeyrEsguAqucdw">
+                  <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_VbYfNsxYEeyMmOihs3jxMw" module="//@boards.0/@digitalPins.6/@module">
                     <operand xsi:type="arduino:IntegerConstant" xmi:id="_VbYfN8xYEeyMmOihs3jxMw" value="1"/>
                   </instructions>
-                  <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_VbYfOMxYEeyMmOihs3jxMw" module="_TJEJkMovEeyrEsguAqucdw">
+                  <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_VbYfOMxYEeyMmOihs3jxMw" module="//@boards.0/@digitalPins.6/@module">
                     <operand xsi:type="arduino:IntegerConstant" xmi:id="_VbYfOcxYEeyMmOihs3jxMw"/>
                   </instructions>
                   <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_VbYfMsxYEeyMmOihs3jxMw" module="_KowVYcovEeyrEsguAqucdw">

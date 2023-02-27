@@ -13,7 +13,7 @@
     <digitalPins name="Servo">
       <module xsi:type="arduino:MicroServo" name="Servo"/>
     </digitalPins>
-    <digitalPins name="whiteLedPin">
+    <digitalPins name="buttonPin">
       <module xsi:type="arduino:PushButton" name="button"/>
     </digitalPins>
   </boards>

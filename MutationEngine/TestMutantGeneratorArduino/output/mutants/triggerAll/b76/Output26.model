@@ -69,7 +69,7 @@
             <operand xsi:type="arduino:IntegerConstant"/>
           </instructions>
           <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.7/@module">
-            <operand xsi:type="arduino:BinaryIntegerExpression"/>
+            <operand xsi:type="arduino:IntegerVariableRef"/>
           </instructions>
           <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.7/@module">
             <operand xsi:type="arduino:IntegerConstant"/>

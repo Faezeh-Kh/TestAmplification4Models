@@ -93,5 +93,5 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:RotationSensor/>
+  <arduino:RotationSensor name="qk"/>
 </xmi:XMI>

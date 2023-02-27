@@ -45,7 +45,7 @@
                     <operand xsi:type="arduino:IntegerConstant"/>
                   </instructions>
                   <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
-                    <operand xsi:type="arduino:BooleanConstant"/>
+                    <operand xsi:type="arduino:IntegerVariableRef"/>
                   </instructions>
                   <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
                     <operand xsi:type="arduino:IntegerConstant"/>

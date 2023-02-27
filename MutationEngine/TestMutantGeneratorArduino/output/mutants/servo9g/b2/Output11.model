@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="ASCII"?>
 <arduino:Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduino="http://www.obeo.fr/arduino" xsi:schemaLocation="http://www.obeo.fr/arduino ../../../model/arduino.ecore">
   <boards xsi:type="arduino:ArduinoBoard" name="board">
-    <digitalPins name="servo">
+    <digitalPins name="fan">
       <module xsi:type="arduino:MicroServo" name="servo"/>
     </digitalPins>
-    <digitalPins name="whiteLedPin">
+    <digitalPins name="button_pin">
       <module xsi:type="arduino:PushButton" name="turnOffButton"/>
     </digitalPins>
   </boards>

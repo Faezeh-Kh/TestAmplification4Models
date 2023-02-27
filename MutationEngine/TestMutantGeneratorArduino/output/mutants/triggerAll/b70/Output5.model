@@ -39,10 +39,7 @@
                 <operand xsi:type="arduino:IntegerConstant" value="1"/>
               </instructions>
               <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.1/@module">
-                <operand xsi:type="arduino:BinaryIntegerExpression">
-                  <left xsi:type="arduino:IntegerModuleGet" module="//@boards.0/@analogPins.0/@module"/>
-                  <right xsi:type="arduino:IntegerConstant" value="128"/>
-                </operand>
+                <operand xsi:type="arduino:IntegerConstant"/>
               </instructions>
               <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
                 <operand xsi:type="arduino:IntegerConstant" value="1"/>
@@ -87,7 +84,7 @@
             <operand xsi:type="arduino:IntegerConstant" value="60"/>
           </instructions>
         </block>
-        <condition xsi:type="arduino:BinaryBooleanExpression" operator="sup"/>
+        <condition xsi:type="arduino:BooleanVariableRef"/>
       </instructions>
     </block>
   </sketches>

@@ -31,14 +31,6 @@
             <operand xsi:type="arduino:IntegerConstant" xmi:id="_2NhVAcxXEeyMmOihs3jxMw" value="1"/>
           </instructions>
           <instructions xsi:type="arduino:If" xmi:id="_APUKEMxYEeyMmOihs3jxMw">
-            <block xmi:id="_APUKEcxYEeyMmOihs3jxMw">
-              <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_APUKEsxYEeyMmOihs3jxMw" module="_bNFXAM-YEeyj4OK2t3h2Ug">
-                <operand xsi:type="arduino:IntegerConstant" xmi:id="_APUKE8xYEeyMmOihs3jxMw" value="1"/>
-              </instructions>
-              <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_da8VsM-YEeyj4OK2t3h2Ug" module="_bNFXAM-YEeyj4OK2t3h2Ug">
-                <operand xsi:type="arduino:IntegerConstant" xmi:id="_da8Vsc-YEeyj4OK2t3h2Ug"/>
-              </instructions>
-            </block>
             <condition xsi:type="arduino:BooleanModuleGet" xmi:id="_VbiroM-XEeyj4OK2t3h2Ug" module="_O4upcM-YEeyj4OK2t3h2Ug"/>
           </instructions>
           <instructions xsi:type="arduino:If" xmi:id="_SFXloMxYEeyMmOihs3jxMw">
@@ -75,5 +67,14 @@
       </instructions>
     </block>
   </sketches>
-  <sketches name="sketch"/>
+  <sketches name="mainSketch" board="_Uck-QbvpEey6kqvve9HPhQ">
+    <block xmi:id="_APUKEcxYEeyMmOihs3jxMw">
+      <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_APUKEsxYEeyMmOihs3jxMw" module="_bNFXAM-YEeyj4OK2t3h2Ug">
+        <operand xsi:type="arduino:IntegerConstant" xmi:id="_APUKE8xYEeyMmOihs3jxMw" value="1"/>
+      </instructions>
+      <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_da8VsM-YEeyj4OK2t3h2Ug" module="_bNFXAM-YEeyj4OK2t3h2Ug">
+        <operand xsi:type="arduino:IntegerConstant" xmi:id="_da8Vsc-YEeyj4OK2t3h2Ug"/>
+      </instructions>
+    </block>
+  </sketches>
 </arduino:Project>

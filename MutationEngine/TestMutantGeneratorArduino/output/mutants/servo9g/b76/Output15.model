@@ -13,7 +13,7 @@
       <instructions xsi:type="arduino:If">
         <block>
           <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
-            <operand xsi:type="arduino:UnaryIntegerExpression"/>
+            <operand xsi:type="arduino:IntegerModuleGet"/>
           </instructions>
         </block>
         <condition xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.1/@module"/>

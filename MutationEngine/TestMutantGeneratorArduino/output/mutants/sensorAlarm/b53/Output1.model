@@ -38,12 +38,13 @@
           <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_bfYjprsuEeyYPqXDdDsRMg" module="_bfGPwbsuEeyYPqXDdDsRMg">
             <operand xsi:type="arduino:IntegerConstant" xmi:id="_bfYjp7suEeyYPqXDdDsRMg"/>
           </instructions>
-          <instructions xsi:type="arduino:VariableAssignment"/>
         </block>
-        <condition xsi:type="arduino:BinaryBooleanExpression" xmi:id="_bfYjqbsuEeyYPqXDdDsRMg" operator="equal">
-          <left xsi:type="arduino:IntegerModuleGet" xmi:id="_gaFK4M-ZEeyj4OK2t3h2Ug" module="_bfGPw7suEeyYPqXDdDsRMg"/>
-          <right xsi:type="arduino:IntegerConstant" xmi:id="_hXq0gM-ZEeyj4OK2t3h2Ug" value="1"/>
-        </condition>
+      </instructions>
+      <instructions xsi:type="arduino:VariableAssignment">
+        <operand xsi:type="arduino:BinaryBooleanExpression" operator="equal">
+          <left xsi:type="arduino:IntegerModuleGet" module="_bfGPw7suEeyYPqXDdDsRMg"/>
+          <right xsi:type="arduino:IntegerConstant" value="1"/>
+        </operand>
       </instructions>
     </block>
   </sketches>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ASCII"?>
+<statemachines:CustomSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore" xmi:id="_Oip-kLsaEey7I_R-wPwR8g">
+  <statemachine xmi:id="_OirzwLsaEey7I_R-wPwR8g" name="Event017_Test_A$behavior$1">
+    <regions xmi:id="_Oisa0LsaEey7I_R-wPwR8g" name="Region1">
+      <vertice xsi:type="statemachines:Pseudostate" xmi:id="_Oito8LsaEey7I_R-wPwR8g" name="Initial1" outgoingTransitions="_OiwFMLsaEey7I_R-wPwR8g"/>
+      <vertice xsi:type="statemachines:State" xmi:id="_Oiu3ELsaEey7I_R-wPwR8g" name="wait" outgoingTransitions="_OiwFMbsaEey7I_R-wPwR8g" incomingTransitions="_OiwFMLsaEey7I_R-wPwR8g"/>
+      <vertice xsi:type="statemachines:State" xmi:id="_Oiu3EbsaEey7I_R-wPwR8g" name="S1" outgoingTransitions="_OixTUbsaEey7I_R-wPwR8g _Oix6YbsaEey7I_R-wPwR8g" incomingTransitions="_OiwFMbsaEey7I_R-wPwR8g"/>
+      <vertice xsi:type="statemachines:FinalState" xmi:id="_OiveILsaEey7I_R-wPwR8g" name="FinalState1" incomingTransitions="_Oix6ZbsaEey7I_R-wPwR8g"/>
+      <vertice xsi:type="statemachines:State" xmi:id="_OiveIbsaEey7I_R-wPwR8g" name="S2" outgoingTransitions="_Oix6ZbsaEey7I_R-wPwR8g" incomingTransitions="_OixTUbsaEey7I_R-wPwR8g _Oix6YbsaEey7I_R-wPwR8g"/>
+      <transitions xmi:id="_OiwFMLsaEey7I_R-wPwR8g" name="T1" source="_Oito8LsaEey7I_R-wPwR8g" target="_Oiu3ELsaEey7I_R-wPwR8g" kind="external"/>
+      <transitions xmi:id="_OiwFMbsaEey7I_R-wPwR8g" name="T2" source="_Oiu3ELsaEey7I_R-wPwR8g" target="_Oiu3EbsaEey7I_R-wPwR8g" kind="external">
+        <triggers xmi:id="_OiwsQLsaEey7I_R-wPwR8g" name="StartSignalEventtrigger">
+          <eventType xsi:type="statemachines:SignalEventType" xmi:id="_OixTULsaEey7I_R-wPwR8g" signal="_OiyhcLsaEey7I_R-wPwR8g"/>
+        </triggers>
+      </transitions>
+      <transitions xmi:id="_OixTUbsaEey7I_R-wPwR8g" name="T3" source="_Oiu3EbsaEey7I_R-wPwR8g" target="_OiveIbsaEey7I_R-wPwR8g" kind="external">
+        <triggers xmi:id="_OixTUrsaEey7I_R-wPwR8g" name="DataSignalEventTrigger">
+          <eventType xsi:type="statemachines:SignalEventType" xmi:id="_OixTU7saEey7I_R-wPwR8g" signal="_OiyhcbsaEey7I_R-wPwR8g"/>
+        </triggers>
+        <effect xmi:id="_Oix6YLsaEey7I_R-wPwR8g" name="T3(effect)"/>
+        <constraint xsi:type="statemachines:BooleanConstraint" xmi:id="_pP-80LsaEey7I_R-wPwR8g">
+          <expression xsi:type="statemachines:BooleanUnaryExpression" xmi:id="_p6WvgLsaEey7I_R-wPwR8g" operand="_OizIgLsaEey7I_R-wPwR8g"/>
+        </constraint>
+      </transitions>
+      <transitions xmi:id="_Oix6YbsaEey7I_R-wPwR8g" name="T4" source="_Oiu3EbsaEey7I_R-wPwR8g" target="_OiveIbsaEey7I_R-wPwR8g" kind="external">
+        <triggers xmi:id="_Oix6YrsaEey7I_R-wPwR8g" name="DataSignalEventTrigger">
+          <eventType xsi:type="statemachines:SignalEventType" xmi:id="_Oix6Y7saEey7I_R-wPwR8g" signal="_OiyhcbsaEey7I_R-wPwR8g"/>
+        </triggers>
+        <effect xmi:id="_Oix6ZLsaEey7I_R-wPwR8g" name="T4(effect)"/>
+        <constraint xsi:type="statemachines:BooleanConstraint" xmi:id="_r3z6sLsaEey7I_R-wPwR8g">
+          <expression xsi:type="statemachines:BooleanUnaryExpression" xmi:id="_r3z6sbsaEey7I_R-wPwR8g" operator="False" operand="_OizIgLsaEey7I_R-wPwR8g"/>
+        </constraint>
+      </transitions>
+      <transitions xmi:id="_Oix6ZbsaEey7I_R-wPwR8g" name="T5" source="_OiveIbsaEey7I_R-wPwR8g" target="_OiveILsaEey7I_R-wPwR8g" kind="external">
+        <effect xmi:id="_Oix6ZrsaEey7I_R-wPwR8g" name="T5(testEnd)"/>
+      </transitions>
+    </regions>
+  </statemachine>
+  <signals xmi:id="_OiyhcLsaEey7I_R-wPwR8g" name="Start"/>
+  <signals xmi:id="_OiyhcbsaEey7I_R-wPwR8g" name="Data">
+    <attributes xsi:type="statemachines:BooleanAttribute" xmi:id="_OizIgLsaEey7I_R-wPwR8g" name="value"/>
+    <attributes xsi:type="statemachines:StringAttribute" name="Ij"/>
+  </signals>
+</statemachines:CustomSystem>

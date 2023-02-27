@@ -14,7 +14,8 @@
       <module xsi:type="arduino:PushButton" xmi:id="_L26qENFgEey60oAITKsoDQ" name="button1"/>
     </digitalPins>
   </boards>
-  <sketches xmi:id="_TeGOtrvnEey7OoLBzoKkPA" name="sketch" board="_TeGOsbvnEey7OoLBzoKkPA">
+  <sketches xmi:id="_TeGOtrvnEey7OoLBzoKkPA" name="sketch" board="_TeGOsbvnEey7OoLBzoKkPA"/>
+  <sketches name="mainSketch" board="_TeGOsbvnEey7OoLBzoKkPA">
     <block xmi:id="_TeGOt7vnEey7OoLBzoKkPA">
       <instructions xsi:type="arduino:If" xmi:id="_TeGOuLvnEey7OoLBzoKkPA">
         <block xmi:id="_TeGOubvnEey7OoLBzoKkPA">
@@ -54,5 +55,4 @@
       </instructions>
     </block>
   </sketches>
-  <sketches name="sketch"/>
 </arduino:Project>

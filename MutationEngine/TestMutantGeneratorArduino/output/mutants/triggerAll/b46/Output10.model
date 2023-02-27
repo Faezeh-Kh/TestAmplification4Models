@@ -31,60 +31,90 @@
   </boards>
   <sketches name="sketch" board="//@boards.0">
     <block>
-      <instructions xsi:type="arduino:If">
+      <instructions xsi:type="arduino:While">
         <block>
-          <instructions xsi:type="arduino:Repeat" iteration="2">
-            <block>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.1/@module">
-                <operand xsi:type="arduino:IntegerConstant" value="1"/>
-              </instructions>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.1/@module">
-                <operand xsi:type="arduino:IntegerConstant"/>
-              </instructions>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
-                <operand xsi:type="arduino:IntegerConstant" value="1"/>
-              </instructions>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
-                <operand xsi:type="arduino:IntegerConstant"/>
-              </instructions>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
-                <operand xsi:type="arduino:IntegerConstant" value="1"/>
-              </instructions>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
-                <operand xsi:type="arduino:IntegerConstant"/>
-              </instructions>
-            </block>
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:MicroServo" href="../../../model/triggerAll.model#_KowVYcovEeyrEsguAqucdw"/>
+            <operand xsi:type="arduino:IntegerConstant"/>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:Fan" href="../../../model/triggerAll.model#_TJEJkMovEeyrEsguAqucdw"/>
+            <operand xsi:type="arduino:IntegerConstant" value="1"/>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:Fan" href="../../../model/triggerAll.model#_TJEJkMovEeyrEsguAqucdw"/>
+            <operand xsi:type="arduino:IntegerConstant"/>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:MicroServo" href="../../../model/triggerAll.model#_KowVYcovEeyrEsguAqucdw"/>
+            <operand xsi:type="arduino:IntegerConstant" value="60"/>
           </instructions>
         </block>
         <condition xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.6/@module"/>
       </instructions>
-      <instructions xsi:type="arduino:If">
-        <block>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.3/@module">
-            <operand xsi:type="arduino:IntegerConstant" value="90"/>
-          </instructions>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.3/@module">
-            <operand xsi:type="arduino:IntegerConstant"/>
-          </instructions>
-        </block>
-        <condition xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.5/@module"/>
-      </instructions>
       <instructions xsi:type="arduino:Repeat">
         <block>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.4/@module">
-            <operand xsi:type="arduino:IntegerConstant"/>
+          <instructions xsi:type="arduino:If">
+            <block>
+              <instructions xsi:type="arduino:Repeat" iteration="2">
+                <block>
+                  <instructions xsi:type="arduino:ModuleAssignment">
+                    <module xsi:type="arduino:LED" href="../../../model/triggerAll.model#_DErf8covEeyrEsguAqucdw"/>
+                    <operand xsi:type="arduino:IntegerConstant" value="1"/>
+                  </instructions>
+                  <instructions xsi:type="arduino:ModuleAssignment">
+                    <module xsi:type="arduino:LED" href="../../../model/triggerAll.model#_DErf8covEeyrEsguAqucdw"/>
+                    <operand xsi:type="arduino:IntegerConstant"/>
+                  </instructions>
+                  <instructions xsi:type="arduino:ModuleAssignment">
+                    <module xsi:type="arduino:LED" href="../../../model/triggerAll.model#_DLddYcovEeyrEsguAqucdw"/>
+                    <operand xsi:type="arduino:IntegerConstant" value="1"/>
+                  </instructions>
+                  <instructions xsi:type="arduino:ModuleAssignment">
+                    <module xsi:type="arduino:LED" href="../../../model/triggerAll.model#_DLddYcovEeyrEsguAqucdw"/>
+                    <operand xsi:type="arduino:IntegerConstant"/>
+                  </instructions>
+                  <instructions xsi:type="arduino:ModuleAssignment">
+                    <module xsi:type="arduino:LED" href="../../../model/triggerAll.model#_Uck-RbvpEey6kqvve9HPhQ"/>
+                    <operand xsi:type="arduino:IntegerConstant" value="1"/>
+                  </instructions>
+                  <instructions xsi:type="arduino:ModuleAssignment">
+                    <module xsi:type="arduino:LED" href="../../../model/triggerAll.model#_Uck-RbvpEey6kqvve9HPhQ"/>
+                    <operand xsi:type="arduino:IntegerConstant"/>
+                  </instructions>
+                </block>
+              </instructions>
+            </block>
+            <condition xsi:type="arduino:BooleanModuleGet">
+              <module xsi:type="arduino:PushButton" href="../../../model/triggerAll.model#_Qf35wMovEeyrEsguAqucdw"/>
+            </condition>
           </instructions>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.7/@module">
-            <operand xsi:type="arduino:IntegerConstant" value="1"/>
+          <instructions xsi:type="arduino:If">
+            <block>
+              <instructions xsi:type="arduino:ModuleAssignment">
+                <module xsi:type="arduino:MicroServo" href="../../../model/triggerAll.model#_IxQoQMovEeyrEsguAqucdw"/>
+                <operand xsi:type="arduino:IntegerConstant" value="90"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment">
+                <module xsi:type="arduino:MicroServo" href="../../../model/triggerAll.model#_IxQoQMovEeyrEsguAqucdw"/>
+                <operand xsi:type="arduino:IntegerConstant"/>
+              </instructions>
+            </block>
+            <condition xsi:type="arduino:BooleanModuleGet">
+              <module xsi:type="arduino:InfraRedSensor" href="../../../model/triggerAll.model#_Omt_wMovEeyrEsguAqucdw"/>
+            </condition>
           </instructions>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.7/@module">
-            <operand xsi:type="arduino:IntegerConstant"/>
-          </instructions>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.4/@module">
-            <operand xsi:type="arduino:IntegerConstant" value="60"/>
+          <instructions xsi:type="arduino:If">
+            <condition xsi:type="arduino:BinaryBooleanExpression" operator="sup">
+              <left xsi:type="arduino:IntegerModuleGet">
+                <module xsi:type="arduino:SoundSensor" href="../../../model/triggerAll.model#_NGu-QMowEeyrEsguAqucdw"/>
+              </left>
+              <right xsi:type="arduino:IntegerConstant" value="128"/>
+            </condition>
           </instructions>
         </block>
       </instructions>
+      <instructions xsi:type="arduino:Repeat"/>
     </block>
   </sketches>
 </arduino:Project>

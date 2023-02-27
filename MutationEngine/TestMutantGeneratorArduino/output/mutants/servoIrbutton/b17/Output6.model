@@ -5,10 +5,10 @@
       <module xsi:type="arduino:PushButton" name="button"/>
     </digitalPins>
     <digitalPins name="IRSensor">
-      <module xsi:type="arduino:InfraRedSensor" name="IRSensor"/>
+      <module xsi:type="arduino:Buzzer" name="mainSketch"/>
     </digitalPins>
     <digitalPins name="blueLED">
-      <module xsi:type="arduino:Buzzer" name="sketch"/>
+      <module xsi:type="arduino:LED" name="blueLED"/>
     </digitalPins>
     <digitalPins name="Servo">
       <module xsi:type="arduino:MicroServo" name="Servo"/>
@@ -34,7 +34,7 @@
               </instructions>
             </block>
             <condition xsi:type="arduino:BinaryBooleanExpression" operator="AND">
-              <left xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.1/@module"/>
+              <left xsi:type="arduino:BooleanModuleGet"/>
               <right xsi:type="arduino:BinaryBooleanExpression" operator="infOrEqual">
                 <left xsi:type="arduino:IntegerVariableRef" variable="//@sketches.0/@block/@instructions.0/@variable"/>
                 <right xsi:type="arduino:IntegerConstant" value="18"/>
@@ -43,15 +43,15 @@
           </instructions>
           <instructions xsi:type="arduino:If">
             <block>
-              <instructions xsi:type="arduino:ModuleAssignment">
+              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
                 <operand xsi:type="arduino:IntegerConstant" value="1"/>
               </instructions>
-              <instructions xsi:type="arduino:ModuleAssignment">
+              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
                 <operand xsi:type="arduino:IntegerConstant"/>
               </instructions>
             </block>
             <condition xsi:type="arduino:UnaryBooleanExpression">
-              <operand xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.1/@module"/>
+              <operand xsi:type="arduino:BooleanModuleGet"/>
             </condition>
           </instructions>
         </block>

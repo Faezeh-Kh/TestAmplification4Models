@@ -13,7 +13,10 @@
     <digitalPins name="Servo">
       <module xsi:type="arduino:MicroServo" name="Servo"/>
     </digitalPins>
-    <analogPins name="whiteLedPin"/>
+    <analogPins name="buzzer_pin"/>
+    <analogPins name="button"/>
+    <analogPins name="IR_sensor"/>
+    <analogPins name="fan"/>
   </boards>
   <sketches name="sketch" board="//@boards.0">
     <block>

@@ -14,7 +14,7 @@
       <module xsi:type="arduino:PushButton" name="button1"/>
     </digitalPins>
   </boards>
-  <boards xsi:type="arduino:ArduinoBoard" name="sketch"/>
+  <boards xsi:type="arduino:ArduinoBoard" name="mainSketch"/>
   <sketches name="sketch" board="//@boards.0">
     <block>
       <instructions xsi:type="arduino:If">

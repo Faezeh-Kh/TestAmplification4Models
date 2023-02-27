@@ -17,7 +17,7 @@
   <sketches name="sketch" board="//@boards.0">
     <block>
       <instructions xsi:type="arduino:VariableDeclaration">
-        <variable xsi:type="arduino:BooleanVariable" name="i"/>
+        <variable xsi:type="arduino:BooleanVariable" name=""/>
       </instructions>
       <instructions xsi:type="arduino:If">
         <block>

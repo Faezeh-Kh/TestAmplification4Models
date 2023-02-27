@@ -16,16 +16,25 @@
   </boards>
   <sketches name="sketch" board="//@boards.0">
     <block>
-      <instructions xsi:type="arduino:While">
+      <instructions xsi:type="arduino:Repeat">
         <block>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:Buzzer" href="../../../model/runningExample.model#_H0GU4NFgEey60oAITKsoDQ"/>
+            <operand xsi:type="arduino:IntegerConstant" value="1"/>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:Buzzer" href="../../../model/runningExample.model#_H0GU4NFgEey60oAITKsoDQ"/>
+            <operand xsi:type="arduino:IntegerConstant"/>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:Buzzer" href="../../../model/runningExample.model#_H0GU4NFgEey60oAITKsoDQ"/>
+            <operand xsi:type="arduino:IntegerConstant" value="1"/>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:Buzzer" href="../../../model/runningExample.model#_H0GU4NFgEey60oAITKsoDQ"/>
             <operand xsi:type="arduino:IntegerConstant"/>
           </instructions>
         </block>
-        <condition xsi:type="arduino:BinaryBooleanExpression" operator="equal">
-          <left xsi:type="arduino:IntegerModuleGet" module="//@boards.0/@digitalPins.3/@module"/>
-          <right xsi:type="arduino:IntegerConstant" value="1"/>
-        </condition>
       </instructions>
     </block>
   </sketches>

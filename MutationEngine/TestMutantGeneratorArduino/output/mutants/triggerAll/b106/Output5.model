@@ -85,7 +85,7 @@
           </instructions>
         </block>
         <condition xsi:type="arduino:BinaryBooleanExpression" operator="sup">
-          <left xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@analogPins.0/@module"/>
+          <left xsi:type="arduino:UnaryIntegerExpression"/>
           <right xsi:type="arduino:IntegerConstant" value="128"/>
         </condition>
       </instructions>

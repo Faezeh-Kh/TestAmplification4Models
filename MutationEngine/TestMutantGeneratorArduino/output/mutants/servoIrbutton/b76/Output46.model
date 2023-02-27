@@ -28,15 +28,14 @@
               </instructions>
               <instructions xsi:type="arduino:VariableAssignment" variable="//@sketches.0/@block/@instructions.0/@variable">
                 <operand xsi:type="arduino:BinaryIntegerExpression" operator="plus">
-                  <left xsi:type="arduino:IntegerVariableRef" variable="//@sketches.0/@block/@instructions.0/@variable"/>
-                  <right xsi:type="arduino:IntegerConstant" value="6"/>
+                  <right xsi:type="arduino:BinaryIntegerExpression"/>
                 </operand>
               </instructions>
             </block>
             <condition xsi:type="arduino:BinaryBooleanExpression" operator="AND">
               <left xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.1/@module"/>
               <right xsi:type="arduino:BinaryBooleanExpression" operator="infOrEqual">
-                <right xsi:type="arduino:BinaryIntegerExpression"/>
+                <right xsi:type="arduino:IntegerModuleGet"/>
               </right>
             </condition>
           </instructions>

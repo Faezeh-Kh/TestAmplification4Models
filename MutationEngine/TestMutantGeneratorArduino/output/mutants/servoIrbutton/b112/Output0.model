@@ -50,7 +50,7 @@
                 <operand xsi:type="arduino:IntegerConstant"/>
               </instructions>
             </block>
-            <condition xsi:type="arduino:BooleanModuleGet"/>
+            <condition xsi:type="arduino:BooleanVariableRef"/>
           </instructions>
         </block>
         <condition xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.0/@module"/>

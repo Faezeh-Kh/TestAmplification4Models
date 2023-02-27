@@ -25,8 +25,11 @@
     <digitalPins name="fan">
       <module xsi:type="arduino:Fan" name="fan"/>
     </digitalPins>
-    <digitalPins name="whiteLedPin">
-      <module xsi:type="arduino:LED" name="blueLed"/>
+    <digitalPins name="servo1">
+      <module xsi:type="arduino:PushButton" name="button"/>
+    </digitalPins>
+    <digitalPins name="buzzer_pin">
+      <module xsi:type="arduino:InfraRedSensor" name="irSensor"/>
     </digitalPins>
     <analogPins name="soundSensor">
       <module xsi:type="arduino:SoundSensor" name="soundSensor"/>

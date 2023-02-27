@@ -27,14 +27,10 @@
     <block>
       <instructions xsi:type="arduino:If">
         <block>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
-            <operand xsi:type="arduino:IntegerConstant" value="1"/>
-          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module"/>
           <instructions xsi:type="arduino:If">
             <block>
-              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.5/@module">
-                <operand xsi:type="arduino:IntegerConstant" value="1"/>
-              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.5/@module"/>
               <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.5/@module"/>
             </block>
             <condition xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.4/@module"/>
@@ -45,26 +41,25 @@
                 <block>
                   <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.1/@module"/>
                   <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
-                    <operand xsi:type="arduino:IntegerConstant" value="1"/>
+                    <operand xsi:type="arduino:IntegerVariableRef"/>
                   </instructions>
-                  <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
-                    <operand xsi:type="arduino:UnaryIntegerExpression"/>
-                  </instructions>
+                  <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module"/>
                   <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.1/@module">
-                    <operand xsi:type="arduino:IntegerConstant" value="60"/>
+                    <operand xsi:type="arduino:IntegerModuleGet"/>
                   </instructions>
                 </block>
               </instructions>
             </block>
             <condition xsi:type="arduino:BinaryBooleanExpression" operator="sup">
-              <left xsi:type="arduino:IntegerModuleGet" module="//@boards.0/@analogPins.0/@module"/>
-              <right xsi:type="arduino:IntegerConstant" value="128"/>
+              <right xsi:type="arduino:IntegerVariableRef"/>
             </condition>
           </instructions>
         </block>
         <condition xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.3/@module"/>
         <elseBlock>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module"/>
+          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
+            <operand xsi:type="arduino:UnaryIntegerExpression"/>
+          </instructions>
         </elseBlock>
       </instructions>
     </block>

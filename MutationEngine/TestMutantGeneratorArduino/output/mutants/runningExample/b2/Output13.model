@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="ASCII"?>
 <arduino:Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduino="http://www.obeo.fr/arduino" xsi:schemaLocation="http://www.obeo.fr/arduino ../../../model/arduino.ecore">
   <boards xsi:type="arduino:ArduinoBoard" name="board">
-    <digitalPins name="whiteLedPin">
+    <digitalPins name="button">
       <module xsi:type="arduino:LED" name="whiteLed" color="white"/>
     </digitalPins>
     <digitalPins name="IR_sensorPin">
       <module xsi:type="arduino:InfraRedSensor" name="IR_sensor"/>
     </digitalPins>
-    <digitalPins name="whiteLedPin">
+    <digitalPins name="buzzerPin">
       <module xsi:type="arduino:Buzzer" name="buzzer"/>
     </digitalPins>
     <digitalPins name="buttonPin">

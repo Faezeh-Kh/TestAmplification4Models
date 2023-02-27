@@ -51,9 +51,7 @@
                   <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_VbYfNsxYEeyMmOihs3jxMw" module="_TJEJkMovEeyrEsguAqucdw">
                     <operand xsi:type="arduino:IntegerConstant" xmi:id="_VbYfN8xYEeyMmOihs3jxMw" value="1"/>
                   </instructions>
-                  <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_VbYfOMxYEeyMmOihs3jxMw" module="_TJEJkMovEeyrEsguAqucdw">
-                    <operand xsi:type="arduino:IntegerConstant" xmi:id="_VbYfOcxYEeyMmOihs3jxMw"/>
-                  </instructions>
+                  <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_VbYfOMxYEeyMmOihs3jxMw" module="_TJEJkMovEeyrEsguAqucdw"/>
                   <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_VbYfMsxYEeyMmOihs3jxMw" module="_KowVYcovEeyrEsguAqucdw">
                     <operand xsi:type="arduino:IntegerConstant" xmi:id="_VbYfM8xYEeyMmOihs3jxMw" value="60"/>
                   </instructions>
@@ -71,8 +69,10 @@
           <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_SYps8M-YEeyj4OK2t3h2Ug" module="_DErf8covEeyrEsguAqucdw">
             <operand xsi:type="arduino:IntegerConstant" xmi:id="_UQNrgM-YEeyj4OK2t3h2Ug"/>
           </instructions>
-          <instructions xsi:type="arduino:VariableAssignment"/>
         </elseBlock>
+      </instructions>
+      <instructions xsi:type="arduino:VariableAssignment">
+        <operand xsi:type="arduino:IntegerConstant"/>
       </instructions>
     </block>
   </sketches>

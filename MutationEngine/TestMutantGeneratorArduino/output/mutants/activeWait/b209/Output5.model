@@ -8,9 +8,12 @@
       <module xsi:type="arduino:InfraRedSensor" name="IR_sensor"/>
     </digitalPins>
   </boards>
-  <boards xsi:type="arduino:ArduinoBoard" name="board">
+  <boards xsi:type="arduino:ArduinoBoard" name="">
     <digitalPins name="blueLed">
       <module xsi:type="arduino:LED" name="blueLed"/>
+    </digitalPins>
+    <digitalPins name="IR_sensor">
+      <module xsi:type="arduino:InfraRedSensor" name="IR_sensor"/>
     </digitalPins>
     <digitalPins name="IR_sensor">
       <module xsi:type="arduino:InfraRedSensor" name="IR_sensor"/>

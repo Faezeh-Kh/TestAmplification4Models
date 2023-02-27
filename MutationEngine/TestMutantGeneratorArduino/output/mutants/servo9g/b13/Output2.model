@@ -32,20 +32,26 @@
     <block>
       <instructions xsi:type="arduino:If">
         <block>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:MicroServo" href="../../../model/servo9g.model#_B80o8LvqEey6kqvve9HPhQ"/>
             <operand xsi:type="arduino:IntegerConstant"/>
           </instructions>
         </block>
-        <condition xsi:type="arduino:BooleanModuleGet" module="//@boards.0/@digitalPins.1/@module"/>
+        <condition xsi:type="arduino:BooleanModuleGet">
+          <module xsi:type="arduino:PushButton" href="../../../model/servo9g.model#_PsA80LvqEey6kqvve9HPhQ"/>
+        </condition>
         <elseBlock>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:MicroServo" href="../../../model/servo9g.model#_B80o8LvqEey6kqvve9HPhQ"/>
             <operand xsi:type="arduino:IntegerConstant" value="90"/>
           </instructions>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:MicroServo" href="../../../model/servo9g.model#_B80o8LvqEey6kqvve9HPhQ"/>
             <operand xsi:type="arduino:IntegerConstant" value="180"/>
           </instructions>
         </elseBlock>
       </instructions>
     </block>
+    <board xsi:type="arduino:ArduinoBoard" href="../../../model/servo9g.model#_B80B4bvqEey6kqvve9HPhQ"/>
   </sketches>
 </arduino:Project>

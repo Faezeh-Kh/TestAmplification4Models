@@ -56,5 +56,5 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:Buzzer name="buzzer"/>
+  <arduino:Buzzer name="Alarm1"/>
 </xmi:XMI>

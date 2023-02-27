@@ -8,7 +8,7 @@
       <module xsi:type="arduino:InfraRedSensor" name="IRSensor"/>
     </digitalPins>
     <digitalPins name="blueLED">
-      <module xsi:type="arduino:Fan" name="whiteLed"/>
+      <module xsi:type="arduino:InfraRedSensor" name="LED1"/>
     </digitalPins>
     <digitalPins name="Servo">
       <module xsi:type="arduino:MicroServo" name="Servo"/>

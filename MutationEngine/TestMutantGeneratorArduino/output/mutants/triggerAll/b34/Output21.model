@@ -51,7 +51,7 @@
                 <operand xsi:type="arduino:IntegerConstant"/>
               </instructions>
               <instructions xsi:type="arduino:VariableAssignment">
-                <operand xsi:type="arduino:IntegerConstant" value="1"/>
+                <operand xsi:type="arduino:IntegerConstant"/>
               </instructions>
             </block>
           </instructions>

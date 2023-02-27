@@ -5,7 +5,7 @@
       <module xsi:type="arduino:LED" name="blueLed"/>
     </digitalPins>
     <digitalPins name="servo2">
-      <module xsi:type="arduino:InfraRedSensor" name="sketch"/>
+      <module xsi:type="arduino:MicroServo" name="servo2"/>
     </digitalPins>
     <digitalPins name="fan">
       <module xsi:type="arduino:Fan" name="fan"/>
@@ -45,7 +45,7 @@
             <block>
               <instructions xsi:type="arduino:Repeat" iteration="3">
                 <block>
-                  <instructions xsi:type="arduino:ModuleAssignment">
+                  <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.1/@module">
                     <operand xsi:type="arduino:IntegerConstant"/>
                   </instructions>
                   <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
@@ -54,7 +54,7 @@
                   <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
                     <operand xsi:type="arduino:IntegerConstant"/>
                   </instructions>
-                  <instructions xsi:type="arduino:ModuleAssignment">
+                  <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.1/@module">
                     <operand xsi:type="arduino:IntegerConstant" value="60"/>
                   </instructions>
                 </block>

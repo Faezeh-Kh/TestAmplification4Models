@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
+  <statemachines:CustomSystem xmi:id="_Oip-kLsaEey7I_R-wPwR8g">
+    <statemachine xmi:id="_OirzwLsaEey7I_R-wPwR8g" name="Event017_Test_A$behavior$1"/>
+    <signals xmi:id="_OiyhcLsaEey7I_R-wPwR8g" name="Start"/>
+    <signals xmi:id="_OiyhcbsaEey7I_R-wPwR8g" name="Data">
+      <attributes xsi:type="statemachines:BooleanAttribute" xmi:id="_OizIgLsaEey7I_R-wPwR8g" name="value"/>
+    </signals>
+  </statemachines:CustomSystem>
+  <statemachines:StateMachine name="Id">
+    <regions name="Region1">
+      <vertice xsi:type="statemachines:Pseudostate" name="Initial1" outgoingTransitions="/1/@regions.0/@transitions.0"/>
+      <vertice xsi:type="statemachines:State" name="wait" outgoingTransitions="/1/@regions.0/@transitions.1" incomingTransitions="/1/@regions.0/@transitions.0"/>
+      <vertice xsi:type="statemachines:State" name="S1" outgoingTransitions="/1/@regions.0/@transitions.2 /1/@regions.0/@transitions.3" incomingTransitions="/1/@regions.0/@transitions.1"/>
+      <vertice xsi:type="statemachines:FinalState" name="FinalState1" incomingTransitions="/1/@regions.0/@transitions.4"/>
+      <vertice xsi:type="statemachines:State" name="S2" outgoingTransitions="/1/@regions.0/@transitions.4" incomingTransitions="/1/@regions.0/@transitions.2 /1/@regions.0/@transitions.3"/>
+      <transitions name="T1" source="/1/@regions.0/@vertice.0" target="/1/@regions.0/@vertice.1" kind="external"/>
+      <transitions name="T2" source="/1/@regions.0/@vertice.1" target="/1/@regions.0/@vertice.2" kind="external">
+        <triggers name="StartSignalEventtrigger">
+          <eventType xsi:type="statemachines:SignalEventType" signal="_OiyhcLsaEey7I_R-wPwR8g"/>
+        </triggers>
+      </transitions>
+      <transitions name="T3" source="/1/@regions.0/@vertice.2" target="/1/@regions.0/@vertice.4" kind="external">
+        <triggers name="DataSignalEventTrigger">
+          <eventType xsi:type="statemachines:SignalEventType" signal="_OiyhcbsaEey7I_R-wPwR8g"/>
+        </triggers>
+        <effect name="T3(effect)"/>
+        <constraint xsi:type="statemachines:BooleanConstraint">
+          <expression xsi:type="statemachines:BooleanUnaryExpression" operand="_OizIgLsaEey7I_R-wPwR8g"/>
+        </constraint>
+      </transitions>
+      <transitions name="T4" source="/1/@regions.0/@vertice.2" target="/1/@regions.0/@vertice.4" kind="external">
+        <triggers name="DataSignalEventTrigger">
+          <eventType xsi:type="statemachines:SignalEventType" signal="_OiyhcbsaEey7I_R-wPwR8g"/>
+        </triggers>
+        <effect name="T4(effect)"/>
+        <constraint xsi:type="statemachines:BooleanConstraint">
+          <expression xsi:type="statemachines:BooleanUnaryExpression" operator="False" operand="_OizIgLsaEey7I_R-wPwR8g"/>
+        </constraint>
+      </transitions>
+      <transitions name="T5" source="/1/@regions.0/@vertice.4" target="/1/@regions.0/@vertice.3" kind="external">
+        <effect name="T5(testEnd)"/>
+      </transitions>
+    </regions>
+  </statemachines:StateMachine>
+</xmi:XMI>

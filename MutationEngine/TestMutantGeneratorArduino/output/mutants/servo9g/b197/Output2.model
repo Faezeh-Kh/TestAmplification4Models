@@ -24,9 +24,9 @@
           <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_B80o9rvqEey6kqvve9HPhQ" module="_B80o8LvqEey6kqvve9HPhQ">
             <operand xsi:type="arduino:IntegerConstant" xmi:id="_B80o97vqEey6kqvve9HPhQ" value="180"/>
           </instructions>
-          <instructions xsi:type="arduino:WaitFor"/>
         </elseBlock>
       </instructions>
+      <instructions xsi:type="arduino:WaitFor" pin="_B80B4rvqEey6kqvve9HPhQ"/>
     </block>
   </sketches>
 </arduino:Project>

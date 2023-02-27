@@ -8,7 +8,7 @@
       <module xsi:type="arduino:InfraRedSensor" name="IRSensor1"/>
     </digitalPins>
     <digitalPins name="buzzer_pin">
-      <module xsi:type="arduino:MicroServo" name="buzzer"/>
+      <module xsi:type="arduino:InfraRedSensor" name="alarm"/>
     </digitalPins>
     <digitalPins name="button_pin">
       <module xsi:type="arduino:PushButton" name="Button1"/>

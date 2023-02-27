@@ -37,13 +37,13 @@
               </instructions>
             </block>
             <condition xsi:type="arduino:BinaryBooleanExpression" operator="equal">
-              <left xsi:type="arduino:IntegerModuleGet" module="//@boards.0/@digitalPins.1/@module"/>
+              <left xsi:type="arduino:IntegerConstant"/>
               <right xsi:type="arduino:IntegerConstant" value="1"/>
             </condition>
           </instructions>
         </block>
         <condition xsi:type="arduino:BinaryBooleanExpression" operator="equal">
-          <left xsi:type="arduino:IntegerVariableRef"/>
+          <left xsi:type="arduino:BinaryIntegerExpression"/>
           <right xsi:type="arduino:IntegerConstant" value="1"/>
         </condition>
         <elseBlock>

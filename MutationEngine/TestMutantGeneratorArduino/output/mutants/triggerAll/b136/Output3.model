@@ -2,7 +2,7 @@
 <arduino:Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduino="http://www.obeo.fr/arduino" xsi:schemaLocation="http://www.obeo.fr/arduino ../../../model/arduino.ecore">
   <boards xsi:type="arduino:ArduinoBoard" name="board">
     <digitalPins name="redLed">
-      <module xsi:type="arduino:Fan" name="whiteLed"/>
+      <module xsi:type="arduino:Buzzer" name="blueLED"/>
     </digitalPins>
     <digitalPins name="blueLed">
       <module xsi:type="arduino:LED" name="blueLed"/>

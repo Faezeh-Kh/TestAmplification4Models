@@ -20,7 +20,7 @@
       <module xsi:type="arduino:Buzzer" name="alarm"/>
     </digitalPins>
     <analogPins name="soundSensor">
-      <module xsi:type="arduino:MusicPlayer" name="soundSensor"/>
+      <module xsi:type="arduino:BluetoothTransceiver" name=""/>
     </analogPins>
   </boards>
   <sketches name="sketch" board="//@boards.0">

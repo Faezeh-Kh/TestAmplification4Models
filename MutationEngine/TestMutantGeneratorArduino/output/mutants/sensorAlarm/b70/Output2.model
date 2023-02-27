@@ -22,13 +22,13 @@
             <operand xsi:type="arduino:IntegerConstant" value="1"/>
           </instructions>
           <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
-            <operand xsi:type="arduino:IntegerConstant"/>
+            <operand xsi:type="arduino:BinaryIntegerExpression">
+              <left xsi:type="arduino:IntegerModuleGet" module="//@boards.0/@digitalPins.3/@module"/>
+              <right xsi:type="arduino:IntegerConstant" value="1"/>
+            </operand>
           </instructions>
         </block>
-        <condition xsi:type="arduino:BinaryBooleanExpression" operator="equal">
-          <left xsi:type="arduino:IntegerModuleGet" module="//@boards.0/@digitalPins.3/@module"/>
-          <right xsi:type="arduino:IntegerConstant" value="1"/>
-        </condition>
+        <condition xsi:type="arduino:BinaryBooleanExpression" operator="equal"/>
       </instructions>
       <instructions xsi:type="arduino:If">
         <block>
@@ -39,7 +39,7 @@
             <operand xsi:type="arduino:IntegerConstant"/>
           </instructions>
         </block>
-        <condition xsi:type="arduino:BooleanVariableRef"/>
+        <condition xsi:type="arduino:BooleanConstant"/>
       </instructions>
     </block>
   </sketches>

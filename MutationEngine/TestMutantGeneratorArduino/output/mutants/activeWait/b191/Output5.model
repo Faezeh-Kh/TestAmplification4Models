@@ -39,5 +39,5 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:BluetoothTransceiver/>
+  <arduino:BluetoothTransceiver name="YS"/>
 </xmi:XMI>

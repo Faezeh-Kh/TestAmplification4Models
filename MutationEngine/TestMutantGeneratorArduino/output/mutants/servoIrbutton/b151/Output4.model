@@ -11,7 +11,7 @@
       <module xsi:type="arduino:LED" name="blueLED"/>
     </digitalPins>
     <digitalPins name="Servo">
-      <module xsi:type="arduino:MicroServo" name="servo2"/>
+      <module xsi:type="arduino:MicroServo" name="servo1"/>
     </digitalPins>
   </boards>
   <sketches name="sketch" board="//@boards.0">

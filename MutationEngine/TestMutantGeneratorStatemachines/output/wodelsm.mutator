@@ -5,621 +5,516 @@ metamodel "c:/GemocStudio/workspace2/wodelsm/data/model/statemachines.ecore"
 
 with blocks {
 	b0  {
-		create CustomSystem
+		create Signal with { name = random-string ( 2 , 4 ) , attributes = one Attribute }
 	}
 	b1  {
-		p = deep clone one CustomSystem
+		p = deep clone one Signal where { attributes = one Attribute } with { name = random-string ( 2 , 4 ) , attributes = one Attribute }
 	}
 	b2  {
-		p = modify one CustomSystem with { statemachine = one StateMachine , signals = one Signal , operations = one Operation }
+		p = modify one Signal where { attributes = one Attribute } with { name = random-string ( 2 , 4 ) , attributes = one Attribute }
 	}
 	b3  {
-		remove one CustomSystem
+		remove one Signal where { attributes = one Attribute }
 	}
 	b4  {
-		p = select one CustomSystem
+		p = select one Signal where { attributes = one Attribute }
 	}
 	b5  {
-		create Signal with { name = "Amount" , name = "AnotherSignal" , name = "Card" , name = "Continue" , name = "Data" , name = "IntegerData" , name = "LockSupport.park" , name = "LockSupport.parkNanos()" , name = "LockSupport.parkUntil()" , name = "Pending" , name = "Pin" , name = "Start" , name = "Thread.yield" , name = "ThreadTerminated" , name = "TransferTransaction" , name = "WithdrawTransaction" , name = "beanTimout" , name = "businessMethod()" , name = "cancel" , name = "containerCrash" , name = "failure" , name = "finishRunnable" , name = "handle.getEJBObject()" , name = "home.
-		create<method>()" , name = "home.
-		remove()" , name = "monitorLockAcquired" , name = "o.notify" , name = "o.notifyAll" , name = "o.wait" , name = "object.
-		remove()" , name = "releaseReference" , name = "service" , name = "sleepTimeElapsed" , name = "success" , name = "systemException" , name = "t.join" , name = "t.start" , name = "threadSelected2Run" , name = "threadSuspended" , name = "turnOff" , name = "turnOn" , name = "waitForLockToEnterSynchroBlock" , name = "waitForLockToReenterSynchroBlock" }
+		p = retype one Signal as [ Operation , BooleanAttribute , IntegerAttribute , StringAttribute , StateMachine , Region , Pseudostate , State , FinalState , Transition , Trigger , Behavior , OperationBehavior ] with { name = random-string ( 2 , 4 ) }
 	}
 	b6  {
-		p = deep clone one Signal where { name = "Amount" or name = "AnotherSignal" or name = "Card" or name = "Continue" or name = "Data" or name = "IntegerData" or name = "LockSupport.park" or name = "LockSupport.parkNanos()" or name = "LockSupport.parkUntil()" or name = "Pending" or name = "Pin" or name = "Start" or name = "Thread.yield" or name = "ThreadTerminated" or name = "TransferTransaction" or name = "WithdrawTransaction" or name = "beanTimout" or name = "businessMethod()" or name = "cancel" or name = "containerCrash" or name = "failure" or name = "finishRunnable" or name = "handle.getEJBObject()" or name = "home.
-		create<method>()" or name = "home.
-		remove()" or name = "monitorLockAcquired" or name = "o.notify" or name = "o.notifyAll" or name = "o.wait" or name = "object.
-		remove()" or name = "releaseReference" or name = "service" or name = "sleepTimeElapsed" or name = "success" or name = "systemException" or name = "t.join" or name = "t.start" or name = "threadSelected2Run" or name = "threadSuspended" or name = "turnOff" or name = "turnOn" or name = "waitForLockToEnterSynchroBlock" or name = "waitForLockToReenterSynchroBlock" } with { name = "Amount" , name = "AnotherSignal" , name = "Card" , name = "Continue" , name = "Data" , name = "IntegerData" , name = "LockSupport.park" , name = "LockSupport.parkNanos()" , name = "LockSupport.parkUntil()" , name = "Pending" , name = "Pin" , name = "Start" , name = "Thread.yield" , name = "ThreadTerminated" , name = "TransferTransaction" , name = "WithdrawTransaction" , name = "beanTimout" , name = "businessMethod()" , name = "cancel" , name = "containerCrash" , name = "failure" , name = "finishRunnable" , name = "handle.getEJBObject()" , name = "home.
-		create<method>()" , name = "home.
-		remove()" , name = "monitorLockAcquired" , name = "o.notify" , name = "o.notifyAll" , name = "o.wait" , name = "object.
-		remove()" , name = "releaseReference" , name = "service" , name = "sleepTimeElapsed" , name = "success" , name = "systemException" , name = "t.join" , name = "t.start" , name = "threadSelected2Run" , name = "threadSuspended" , name = "turnOff" , name = "turnOn" , name = "waitForLockToEnterSynchroBlock" , name = "waitForLockToReenterSynchroBlock" }
+		create Operation with { name = random-string ( 2 , 4 ) , inParameters = one Attribute , outParameters = one Attribute , return = one Attribute }
 	}
 	b7  {
-		p = modify one Signal where { name = "Amount" or name = "AnotherSignal" or name = "Card" or name = "Continue" or name = "Data" or name = "IntegerData" or name = "LockSupport.park" or name = "LockSupport.parkNanos()" or name = "LockSupport.parkUntil()" or name = "Pending" or name = "Pin" or name = "Start" or name = "Thread.yield" or name = "ThreadTerminated" or name = "TransferTransaction" or name = "WithdrawTransaction" or name = "beanTimout" or name = "businessMethod()" or name = "cancel" or name = "containerCrash" or name = "failure" or name = "finishRunnable" or name = "handle.getEJBObject()" or name = "home.
-		create<method>()" or name = "home.
-		remove()" or name = "monitorLockAcquired" or name = "o.notify" or name = "o.notifyAll" or name = "o.wait" or name = "object.
-		remove()" or name = "releaseReference" or name = "service" or name = "sleepTimeElapsed" or name = "success" or name = "systemException" or name = "t.join" or name = "t.start" or name = "threadSelected2Run" or name = "threadSuspended" or name = "turnOff" or name = "turnOn" or name = "waitForLockToEnterSynchroBlock" or name = "waitForLockToReenterSynchroBlock" } with { name = "Amount" , name = "AnotherSignal" , name = "Card" , name = "Continue" , name = "Data" , name = "IntegerData" , name = "LockSupport.park" , name = "LockSupport.parkNanos()" , name = "LockSupport.parkUntil()" , name = "Pending" , name = "Pin" , name = "Start" , name = "Thread.yield" , name = "ThreadTerminated" , name = "TransferTransaction" , name = "WithdrawTransaction" , name = "beanTimout" , name = "businessMethod()" , name = "cancel" , name = "containerCrash" , name = "failure" , name = "finishRunnable" , name = "handle.getEJBObject()" , name = "home.
-		create<method>()" , name = "home.
-		remove()" , name = "monitorLockAcquired" , name = "o.notify" , name = "o.notifyAll" , name = "o.wait" , name = "object.
-		remove()" , name = "releaseReference" , name = "service" , name = "sleepTimeElapsed" , name = "success" , name = "systemException" , name = "t.join" , name = "t.start" , name = "threadSelected2Run" , name = "threadSuspended" , name = "turnOff" , name = "turnOn" , name = "waitForLockToEnterSynchroBlock" , name = "waitForLockToReenterSynchroBlock" , attributes = one Attribute }
+		p = deep clone one Operation where { inParameters = one Attribute or outParameters = one Attribute or return = one Attribute } with { name = random-string ( 2 , 4 ) , inParameters = one Attribute , outParameters = one Attribute , return = one Attribute }
 	}
 	b8  {
-		remove one Signal where { name = "Amount" or name = "AnotherSignal" or name = "Card" or name = "Continue" or name = "Data" or name = "IntegerData" or name = "LockSupport.park" or name = "LockSupport.parkNanos()" or name = "LockSupport.parkUntil()" or name = "Pending" or name = "Pin" or name = "Start" or name = "Thread.yield" or name = "ThreadTerminated" or name = "TransferTransaction" or name = "WithdrawTransaction" or name = "beanTimout" or name = "businessMethod()" or name = "cancel" or name = "containerCrash" or name = "failure" or name = "finishRunnable" or name = "handle.getEJBObject()" or name = "home.
-		create<method>()" or name = "home.
-		remove()" or name = "monitorLockAcquired" or name = "o.notify" or name = "o.notifyAll" or name = "o.wait" or name = "object.
-		remove()" or name = "releaseReference" or name = "service" or name = "sleepTimeElapsed" or name = "success" or name = "systemException" or name = "t.join" or name = "t.start" or name = "threadSelected2Run" or name = "threadSuspended" or name = "turnOff" or name = "turnOn" or name = "waitForLockToEnterSynchroBlock" or name = "waitForLockToReenterSynchroBlock" }
+		p = modify one Operation where { inParameters = one Attribute or outParameters = one Attribute or return = one Attribute } with { name = random-string ( 2 , 4 ) , inParameters = one Attribute , outParameters = one Attribute , return = one Attribute }
 	}
 	b9  {
-		p = select one Signal where { name = "Amount" or name = "AnotherSignal" or name = "Card" or name = "Continue" or name = "Data" or name = "IntegerData" or name = "LockSupport.park" or name = "LockSupport.parkNanos()" or name = "LockSupport.parkUntil()" or name = "Pending" or name = "Pin" or name = "Start" or name = "Thread.yield" or name = "ThreadTerminated" or name = "TransferTransaction" or name = "WithdrawTransaction" or name = "beanTimout" or name = "businessMethod()" or name = "cancel" or name = "containerCrash" or name = "failure" or name = "finishRunnable" or name = "handle.getEJBObject()" or name = "home.
-		create<method>()" or name = "home.
-		remove()" or name = "monitorLockAcquired" or name = "o.notify" or name = "o.notifyAll" or name = "o.wait" or name = "object.
-		remove()" or name = "releaseReference" or name = "service" or name = "sleepTimeElapsed" or name = "success" or name = "systemException" or name = "t.join" or name = "t.start" or name = "threadSelected2Run" or name = "threadSuspended" or name = "turnOff" or name = "turnOn" or name = "waitForLockToEnterSynchroBlock" or name = "waitForLockToReenterSynchroBlock" }
+		remove one Operation where { inParameters = one Attribute or outParameters = one Attribute or return = one Attribute }
 	}
 	b10  {
-		p = retype one Signal where { name = "Amount" or name = "AnotherSignal" or name = "Card" or name = "Continue" or name = "Data" or name = "IntegerData" or name = "LockSupport.park" or name = "LockSupport.parkNanos()" or name = "LockSupport.parkUntil()" or name = "Pending" or name = "Pin" or name = "Start" or name = "Thread.yield" or name = "ThreadTerminated" or name = "TransferTransaction" or name = "WithdrawTransaction" or name = "beanTimout" or name = "businessMethod()" or name = "cancel" or name = "containerCrash" or name = "failure" or name = "finishRunnable" or name = "handle.getEJBObject()" or name = "home.
-		create<method>()" or name = "home.
-		remove()" or name = "monitorLockAcquired" or name = "o.notify" or name = "o.notifyAll" or name = "o.wait" or name = "object.
-		remove()" or name = "releaseReference" or name = "service" or name = "sleepTimeElapsed" or name = "success" or name = "systemException" or name = "t.join" or name = "t.start" or name = "threadSelected2Run" or name = "threadSuspended" or name = "turnOff" or name = "turnOn" or name = "waitForLockToEnterSynchroBlock" or name = "waitForLockToReenterSynchroBlock" } as [ Operation , BooleanAttribute , IntegerAttribute , StringAttribute , StateMachine , Region , Pseudostate , State , FinalState , Transition , Trigger , Behavior , OperationBehavior ] with { name = "Amount" , name = "AnotherSignal" , name = "Card" , name = "Continue" , name = "Data" , name = "IntegerData" , name = "LockSupport.park" , name = "LockSupport.parkNanos()" , name = "LockSupport.parkUntil()" , name = "Pending" , name = "Pin" , name = "Start" , name = "Thread.yield" , name = "ThreadTerminated" , name = "TransferTransaction" , name = "WithdrawTransaction" , name = "beanTimout" , name = "businessMethod()" , name = "cancel" , name = "containerCrash" , name = "failure" , name = "finishRunnable" , name = "handle.getEJBObject()" , name = "home.
-		create<method>()" , name = "home.
-		remove()" , name = "monitorLockAcquired" , name = "o.notify" , name = "o.notifyAll" , name = "o.wait" , name = "object.
-		remove()" , name = "releaseReference" , name = "service" , name = "sleepTimeElapsed" , name = "success" , name = "systemException" , name = "t.join" , name = "t.start" , name = "threadSelected2Run" , name = "threadSuspended" , name = "turnOff" , name = "turnOn" , name = "waitForLockToEnterSynchroBlock" , name = "waitForLockToReenterSynchroBlock" }
+		p = select one Operation where { inParameters = one Attribute or outParameters = one Attribute or return = one Attribute }
 	}
 	b11  {
-		create Operation with { name = "Thread.sleep()" , name = "isAccountDormant()" , name = "isCancelRequested()" , name = "isLockExpired()" , name = "isPasswordAlert()" , name = "isPolicyVoilated()" , name = "isResumeRequested()" , name = "isSuspendRequested()" , name = "isUniqueId()" , name = "isVerified()" , name = "o.wait()" , name = "op" , name = "op1" , name = "op2" , name = "t.join()" }
+		p = retype one Operation as [ Signal , BooleanAttribute , IntegerAttribute , StringAttribute , StateMachine , Region , Pseudostate , State , FinalState , Transition , Trigger , Behavior , OperationBehavior ] with { name = random-string ( 2 , 4 ) }
 	}
 	b12  {
-		p = deep clone one Operation where { name = "Thread.sleep()" or name = "isAccountDormant()" or name = "isCancelRequested()" or name = "isLockExpired()" or name = "isPasswordAlert()" or name = "isPolicyVoilated()" or name = "isResumeRequested()" or name = "isSuspendRequested()" or name = "isUniqueId()" or name = "isVerified()" or name = "o.wait()" or name = "op" or name = "op1" or name = "op2" or name = "t.join()" } with { name = "Thread.sleep()" , name = "isAccountDormant()" , name = "isCancelRequested()" , name = "isLockExpired()" , name = "isPasswordAlert()" , name = "isPolicyVoilated()" , name = "isResumeRequested()" , name = "isSuspendRequested()" , name = "isUniqueId()" , name = "isVerified()" , name = "o.wait()" , name = "op" , name = "op1" , name = "op2" , name = "t.join()" }
+		create SignalEventType with { signal = one Signal }
 	}
 	b13  {
-		p = modify one Operation where { name = "Thread.sleep()" or name = "isAccountDormant()" or name = "isCancelRequested()" or name = "isLockExpired()" or name = "isPasswordAlert()" or name = "isPolicyVoilated()" or name = "isResumeRequested()" or name = "isSuspendRequested()" or name = "isUniqueId()" or name = "isVerified()" or name = "o.wait()" or name = "op" or name = "op1" or name = "op2" or name = "t.join()" } with { name = "Thread.sleep()" , name = "isAccountDormant()" , name = "isCancelRequested()" , name = "isLockExpired()" , name = "isPasswordAlert()" , name = "isPolicyVoilated()" , name = "isResumeRequested()" , name = "isSuspendRequested()" , name = "isUniqueId()" , name = "isVerified()" , name = "o.wait()" , name = "op" , name = "op1" , name = "op2" , name = "t.join()" , inParameters = one Attribute , outParameters = one Attribute , return = one Attribute }
+		p = deep clone one SignalEventType where { signal = one Signal } with { signal = one Signal }
 	}
 	b14  {
-		remove one Operation where { name = "Thread.sleep()" or name = "isAccountDormant()" or name = "isCancelRequested()" or name = "isLockExpired()" or name = "isPasswordAlert()" or name = "isPolicyVoilated()" or name = "isResumeRequested()" or name = "isSuspendRequested()" or name = "isUniqueId()" or name = "isVerified()" or name = "o.wait()" or name = "op" or name = "op1" or name = "op2" or name = "t.join()" }
+		p = modify one SignalEventType where { signal = one Signal } with { signal = one Signal }
 	}
 	b15  {
-		p = select one Operation where { name = "Thread.sleep()" or name = "isAccountDormant()" or name = "isCancelRequested()" or name = "isLockExpired()" or name = "isPasswordAlert()" or name = "isPolicyVoilated()" or name = "isResumeRequested()" or name = "isSuspendRequested()" or name = "isUniqueId()" or name = "isVerified()" or name = "o.wait()" or name = "op" or name = "op1" or name = "op2" or name = "t.join()" }
+		remove one SignalEventType where { signal = one Signal }
 	}
 	b16  {
-		p = retype one Operation where { name = "Thread.sleep()" or name = "isAccountDormant()" or name = "isCancelRequested()" or name = "isLockExpired()" or name = "isPasswordAlert()" or name = "isPolicyVoilated()" or name = "isResumeRequested()" or name = "isSuspendRequested()" or name = "isUniqueId()" or name = "isVerified()" or name = "o.wait()" or name = "op" or name = "op1" or name = "op2" or name = "t.join()" } as [ Signal , BooleanAttribute , IntegerAttribute , StringAttribute , StateMachine , Region , Pseudostate , State , FinalState , Transition , Trigger , Behavior , OperationBehavior ] with { name = "Thread.sleep()" , name = "isAccountDormant()" , name = "isCancelRequested()" , name = "isLockExpired()" , name = "isPasswordAlert()" , name = "isPolicyVoilated()" , name = "isResumeRequested()" , name = "isSuspendRequested()" , name = "isUniqueId()" , name = "isVerified()" , name = "o.wait()" , name = "op" , name = "op1" , name = "op2" , name = "t.join()" }
+		p = select one SignalEventType where { signal = one Signal }
 	}
 	b17  {
-		create SignalEventType
-	}
-	b18  {
-		p = deep clone one SignalEventType
-	}
-	b19  {
-		p = modify one SignalEventType with { signal = one Signal }
-	}
-	b20  {
-		remove one SignalEventType
-	}
-	b21  {
-		p = select one SignalEventType
-	}
-	b22  {
 		p = retype one SignalEventType as [ CallEventType ]
 	}
+	b18  {
+		create CallEventType with { operation = one Operation }
+	}
+	b19  {
+		p = deep clone one CallEventType where { operation = one Operation } with { operation = one Operation }
+	}
+	b20  {
+		p = modify one CallEventType where { operation = one Operation } with { operation = one Operation }
+	}
+	b21  {
+		remove one CallEventType where { operation = one Operation }
+	}
+	b22  {
+		p = select one CallEventType where { operation = one Operation }
+	}
 	b23  {
-		create CallEventType
-	}
-	b24  {
-		p = deep clone one CallEventType
-	}
-	b25  {
-		p = modify one CallEventType with { operation = one Operation }
-	}
-	b26  {
-		remove one CallEventType
-	}
-	b27  {
-		p = select one CallEventType
-	}
-	b28  {
 		p = retype one CallEventType as [ SignalEventType ]
 	}
+	b24  {
+		create BooleanAttribute with { name = random-string ( 2 , 4 ) }
+	}
+	b25  {
+		p = deep clone one BooleanAttribute with { name = random-string ( 2 , 4 ) }
+	}
+	b26  {
+		p = modify one BooleanAttribute with { name = random-string ( 2 , 4 ) }
+	}
+	b27  {
+		remove one BooleanAttribute
+	}
+	b28  {
+		p = select one BooleanAttribute
+	}
 	b29  {
-		create BooleanAttribute with { name = "isAccountDormant" , name = "isCancelRequested" , name = "isLockExpired" , name = "isPasswordAlert" , name = "isPolicyVoilated" , name = "isResumeRequested" , name = "isSuspendRequested" , name = "isUniqueId" , name = "isVerified" , name = "p1" , name = "p1.2" , name = "p2" , name = "p2.1" , name = "value" }
+		p = retype one BooleanAttribute as [ IntegerAttribute , StringAttribute ] with { name = random-string ( 2 , 4 ) }
 	}
 	b30  {
-		p = deep clone one BooleanAttribute where { name = "isAccountDormant" or name = "isCancelRequested" or name = "isLockExpired" or name = "isPasswordAlert" or name = "isPolicyVoilated" or name = "isResumeRequested" or name = "isSuspendRequested" or name = "isUniqueId" or name = "isVerified" or name = "p1" or name = "p1.2" or name = "p2" or name = "p2.1" or name = "value" } with { name = "isAccountDormant" , name = "isCancelRequested" , name = "isLockExpired" , name = "isPasswordAlert" , name = "isPolicyVoilated" , name = "isResumeRequested" , name = "isSuspendRequested" , name = "isUniqueId" , name = "isVerified" , name = "p1" , name = "p1.2" , name = "p2" , name = "p2.1" , name = "value" }
+		create IntegerAttribute with { name = random-string ( 2 , 4 ) }
 	}
 	b31  {
-		p = modify one BooleanAttribute where { name = "isAccountDormant" or name = "isCancelRequested" or name = "isLockExpired" or name = "isPasswordAlert" or name = "isPolicyVoilated" or name = "isResumeRequested" or name = "isSuspendRequested" or name = "isUniqueId" or name = "isVerified" or name = "p1" or name = "p1.2" or name = "p2" or name = "p2.1" or name = "value" } with { name = "isAccountDormant" , name = "isCancelRequested" , name = "isLockExpired" , name = "isPasswordAlert" , name = "isPolicyVoilated" , name = "isResumeRequested" , name = "isSuspendRequested" , name = "isUniqueId" , name = "isVerified" , name = "p1" , name = "p1.2" , name = "p2" , name = "p2.1" , name = "value" }
+		p = deep clone one IntegerAttribute with { name = random-string ( 2 , 4 ) }
 	}
 	b32  {
-		remove one BooleanAttribute where { name = "isAccountDormant" or name = "isCancelRequested" or name = "isLockExpired" or name = "isPasswordAlert" or name = "isPolicyVoilated" or name = "isResumeRequested" or name = "isSuspendRequested" or name = "isUniqueId" or name = "isVerified" or name = "p1" or name = "p1.2" or name = "p2" or name = "p2.1" or name = "value" }
+		p = modify one IntegerAttribute with { name = random-string ( 2 , 4 ) }
 	}
 	b33  {
-		p = select one BooleanAttribute where { name = "isAccountDormant" or name = "isCancelRequested" or name = "isLockExpired" or name = "isPasswordAlert" or name = "isPolicyVoilated" or name = "isResumeRequested" or name = "isSuspendRequested" or name = "isUniqueId" or name = "isVerified" or name = "p1" or name = "p1.2" or name = "p2" or name = "p2.1" or name = "value" }
+		remove one IntegerAttribute
 	}
 	b34  {
-		p = retype one BooleanAttribute where { name = "isAccountDormant" or name = "isCancelRequested" or name = "isLockExpired" or name = "isPasswordAlert" or name = "isPolicyVoilated" or name = "isResumeRequested" or name = "isSuspendRequested" or name = "isUniqueId" or name = "isVerified" or name = "p1" or name = "p1.2" or name = "p2" or name = "p2.1" or name = "value" } as [ IntegerAttribute , StringAttribute ] with { name = "isAccountDormant" , name = "isCancelRequested" , name = "isLockExpired" , name = "isPasswordAlert" , name = "isPolicyVoilated" , name = "isResumeRequested" , name = "isSuspendRequested" , name = "isUniqueId" , name = "isVerified" , name = "p1" , name = "p1.2" , name = "p2" , name = "p2.1" , name = "value" }
+		p = select one IntegerAttribute
 	}
 	b35  {
-		create IntegerAttribute with { name = "cardBalance" , name = "cardPin" , name = "enteredAmount" , name = "enteredPin" , name = "joinTimeout" , name = "p1" , name = "p1.1" , name = "pin" , name = "sleeptime" , name = "value" , name = "waitTimeout" }
+		p = retype one IntegerAttribute as [ BooleanAttribute , StringAttribute ] with { name = random-string ( 2 , 4 ) }
 	}
 	b36  {
-		p = deep clone one IntegerAttribute where { name = "cardBalance" or name = "cardPin" or name = "enteredAmount" or name = "enteredPin" or name = "joinTimeout" or name = "p1" or name = "p1.1" or name = "pin" or name = "sleeptime" or name = "value" or name = "waitTimeout" } with { name = "cardBalance" , name = "cardPin" , name = "enteredAmount" , name = "enteredPin" , name = "joinTimeout" , name = "p1" , name = "p1.1" , name = "pin" , name = "sleeptime" , name = "value" , name = "waitTimeout" }
+		create StringAttribute with { name = random-string ( 2 , 4 ) }
 	}
 	b37  {
-		p = modify one IntegerAttribute where { name = "cardBalance" or name = "cardPin" or name = "enteredAmount" or name = "enteredPin" or name = "joinTimeout" or name = "p1" or name = "p1.1" or name = "pin" or name = "sleeptime" or name = "value" or name = "waitTimeout" } with { name = "cardBalance" , name = "cardPin" , name = "enteredAmount" , name = "enteredPin" , name = "joinTimeout" , name = "p1" , name = "p1.1" , name = "pin" , name = "sleeptime" , name = "value" , name = "waitTimeout" }
+		p = deep clone one StringAttribute with { name = random-string ( 2 , 4 ) }
 	}
 	b38  {
-		remove one IntegerAttribute where { name = "cardBalance" or name = "cardPin" or name = "enteredAmount" or name = "enteredPin" or name = "joinTimeout" or name = "p1" or name = "p1.1" or name = "pin" or name = "sleeptime" or name = "value" or name = "waitTimeout" }
-	}
-	b39  {
-		p = select one IntegerAttribute where { name = "cardBalance" or name = "cardPin" or name = "enteredAmount" or name = "enteredPin" or name = "joinTimeout" or name = "p1" or name = "p1.1" or name = "pin" or name = "sleeptime" or name = "value" or name = "waitTimeout" }
-	}
-	b40  {
-		p = retype one IntegerAttribute where { name = "cardBalance" or name = "cardPin" or name = "enteredAmount" or name = "enteredPin" or name = "joinTimeout" or name = "p1" or name = "p1.1" or name = "pin" or name = "sleeptime" or name = "value" or name = "waitTimeout" } as [ BooleanAttribute , StringAttribute ] with { name = "cardBalance" , name = "cardPin" , name = "enteredAmount" , name = "enteredPin" , name = "joinTimeout" , name = "p1" , name = "p1.1" , name = "pin" , name = "sleeptime" , name = "value" , name = "waitTimeout" }
-	}
-	b41  {
-		create StringAttribute
-	}
-	b42  {
-		p = deep clone one StringAttribute
-	}
-	b43  {
 		p = modify one StringAttribute with { name = random-string ( 2 , 4 ) }
 	}
-	b44  {
+	b39  {
 		remove one StringAttribute
 	}
-	b45  {
+	b40  {
 		p = select one StringAttribute
 	}
+	b41  {
+		p = retype one StringAttribute as [ BooleanAttribute , IntegerAttribute ] with { name = random-string ( 2 , 4 ) }
+	}
+	b42  {
+		create BooleanConstraint with { expression = one BooleanExpression }
+	}
+	b43  {
+		p = deep clone one BooleanConstraint where { expression = one BooleanExpression } with { expression = one BooleanExpression }
+	}
+	b44  {
+		p = modify one BooleanConstraint where { expression = one BooleanExpression } with { expression = one BooleanExpression }
+	}
+	b45  {
+		remove one BooleanConstraint where { expression = one BooleanExpression }
+	}
 	b46  {
-		p = retype one StringAttribute as [ BooleanAttribute , IntegerAttribute ]
+		p = select one BooleanConstraint where { expression = one BooleanExpression }
 	}
 	b47  {
-		create BooleanConstraint
-	}
-	b48  {
-		p = deep clone one BooleanConstraint
-	}
-	b49  {
-		p = modify one BooleanConstraint with { expression = one BooleanExpression }
-	}
-	b50  {
-		remove one BooleanConstraint
-	}
-	b51  {
-		p = select one BooleanConstraint
-	}
-	b52  {
 		p = retype one BooleanConstraint as [ IntegerConstraint , StringConstraint ]
 	}
+	b48  {
+		create IntegerConstraint with { expression = one IntegerComparisonExpression }
+	}
+	b49  {
+		p = deep clone one IntegerConstraint where { expression = one IntegerComparisonExpression } with { expression = one IntegerComparisonExpression }
+	}
+	b50  {
+		p = modify one IntegerConstraint where { expression = one IntegerComparisonExpression } with { expression = one IntegerComparisonExpression }
+	}
+	b51  {
+		remove one IntegerConstraint where { expression = one IntegerComparisonExpression }
+	}
+	b52  {
+		p = select one IntegerConstraint where { expression = one IntegerComparisonExpression }
+	}
 	b53  {
-		create IntegerConstraint
-	}
-	b54  {
-		p = deep clone one IntegerConstraint
-	}
-	b55  {
-		p = modify one IntegerConstraint with { expression = one IntegerComparisonExpression }
-	}
-	b56  {
-		remove one IntegerConstraint
-	}
-	b57  {
-		p = select one IntegerConstraint
-	}
-	b58  {
 		p = retype one IntegerConstraint as [ BooleanConstraint , StringConstraint ]
 	}
+	b54  {
+		create StringConstraint with { expression = one StringComparisonExpression }
+	}
+	b55  {
+		p = deep clone one StringConstraint where { expression = one StringComparisonExpression } with { expression = one StringComparisonExpression }
+	}
+	b56  {
+		p = modify one StringConstraint where { expression = one StringComparisonExpression } with { expression = one StringComparisonExpression }
+	}
+	b57  {
+		remove one StringConstraint where { expression = one StringComparisonExpression }
+	}
+	b58  {
+		p = select one StringConstraint where { expression = one StringComparisonExpression }
+	}
 	b59  {
-		create StringConstraint
-	}
-	b60  {
-		p = deep clone one StringConstraint
-	}
-	b61  {
-		p = modify one StringConstraint with { expression = one StringComparisonExpression }
-	}
-	b62  {
-		remove one StringConstraint
-	}
-	b63  {
-		p = select one StringConstraint
-	}
-	b64  {
 		p = retype one StringConstraint as [ BooleanConstraint , IntegerConstraint ]
 	}
+	b60  {
+		create StateMachine with { name = random-string ( 2 , 4 ) , regions = one Region }
+	}
+	b61  {
+		p = deep clone one StateMachine where { regions = one Region } with { name = random-string ( 2 , 4 ) , regions = one Region }
+	}
+	b62  {
+		p = modify one StateMachine where { regions = one Region } with { name = random-string ( 2 , 4 ) , regions = one Region }
+	}
+	b63  {
+		remove one StateMachine where { regions = one Region }
+	}
+	b64  {
+		p = select one StateMachine where { regions = one Region }
+	}
 	b65  {
-		create StateMachine with { name = "BankATM" , name = "Behavior001_Test$behavior$1" , name = "Behavior002_Test$behavior$1" , name = "Behavior_003_Tester_B$behavior$1" , name = "Deferred001_Test$behavior$1" , name = "Deferred002_Test$behavior$1" , name = "Deferred003_Test$behavior$1" , name = "Deferred004_Test_A$behavior$1" , name = "Deferred004_Test_B$behavior$1" , name = "Deferred007_Test$behavior$1" , name = "Entering004_Test$behavior$1" , name = "Entering005_Test$behavior$1" , name = "Entering009_Test$behavior$1" , name = "Entering010_Test$behavior$1" , name = "Entering011_Test$behavior$1" , name = "Entry002_Test_A$behavior$1" , name = "Entry002_Test_B$behavior$1" , name = "Entry002_Test_C$behavior$1" , name = "Entry002_Test_D$behavior$1" , name = "Event001_Test$behavior$1" , name = "Event002$behavior$1" , name = "Event008_Test$behavior$1" , name = "Event009_Test$behavior$1" , name = "Event010_Test$behavior$1" , name = "Event015_Test$behavior$1" , name = "Event016_Test_A$behavior$1" , name = "Event016_Test_B$behavior$1" , name = "Event017_Test_A$behavior$1" , name = "Event017_Test_B$behavior$1" , name = "Event018_Test$behavior$1" , name = "Event019_Test_A$behavior$1" , name = "Event019_Test_B$behavior$1" , name = "Event019_Test_C$behavior$1" , name = "Exit001_Test$behavior$1" , name = "Exit002_Test$behavior$1" , name = "Exit003_Test$behavior$1" , name = "Exiting001_Test$behavior$1" , name = "Exiting003_Test$behavior$1" , name = "Exiting004$behavior$1" , name = "Exiting005_Test$behavior$1" , name = "Final001_Test$behavior$1" , name = "Fork001_Test$behavior$1" , name = "Fork002_Test$behavior$1" , name = "JavaEJB" , name = "JaveThreadStates" , name = "Join001_Test$behavior$1" , name = "Join002_Test$behavior$1" , name = "Join003_Test$behavior$1" , name = "Terminate001_Test$behavior$1" , name = "Terminate003_Test$behavior$1" , name = "Transition001_Test$behavior$1" , name = "Transition007_Test$behavior$1" , name = "Transition010$behavior$1" , name = "Transition011_Test_A$behavior$1" , name = "Transition011_Test_B$behavior$1" , name = "Transition011_Test_D$behavior$1" , name = "Transition011_Test_E$behavior$1" , name = "Transition015_Test$behavior$1" , name = "Transition016_Test$behavior$1" , name = "Transition017_Test$behavior$1" , name = "Transition019_Test$behavior$1" , name = "Transition020_Test$behavior$1" , name = "TransitionExecutionAlgorithm_Test$behavior$1" , name = "UserAccount" , name = "withdrawCash" }
+		p = retype one StateMachine as [ Signal , Operation , BooleanAttribute , IntegerAttribute , StringAttribute , Region , Pseudostate , State , FinalState , Transition , Trigger , Behavior , OperationBehavior ] with { name = random-string ( 2 , 4 ) }
 	}
 	b66  {
-		p = deep clone one StateMachine where { name = "BankATM" or name = "Behavior001_Test$behavior$1" or name = "Behavior002_Test$behavior$1" or name = "Behavior_003_Tester_B$behavior$1" or name = "Deferred001_Test$behavior$1" or name = "Deferred002_Test$behavior$1" or name = "Deferred003_Test$behavior$1" or name = "Deferred004_Test_A$behavior$1" or name = "Deferred004_Test_B$behavior$1" or name = "Deferred007_Test$behavior$1" or name = "Entering004_Test$behavior$1" or name = "Entering005_Test$behavior$1" or name = "Entering009_Test$behavior$1" or name = "Entering010_Test$behavior$1" or name = "Entering011_Test$behavior$1" or name = "Entry002_Test_A$behavior$1" or name = "Entry002_Test_B$behavior$1" or name = "Entry002_Test_C$behavior$1" or name = "Entry002_Test_D$behavior$1" or name = "Event001_Test$behavior$1" or name = "Event002$behavior$1" or name = "Event008_Test$behavior$1" or name = "Event009_Test$behavior$1" or name = "Event010_Test$behavior$1" or name = "Event015_Test$behavior$1" or name = "Event016_Test_A$behavior$1" or name = "Event016_Test_B$behavior$1" or name = "Event017_Test_A$behavior$1" or name = "Event017_Test_B$behavior$1" or name = "Event018_Test$behavior$1" or name = "Event019_Test_A$behavior$1" or name = "Event019_Test_B$behavior$1" or name = "Event019_Test_C$behavior$1" or name = "Exit001_Test$behavior$1" or name = "Exit002_Test$behavior$1" or name = "Exit003_Test$behavior$1" or name = "Exiting001_Test$behavior$1" or name = "Exiting003_Test$behavior$1" or name = "Exiting004$behavior$1" or name = "Exiting005_Test$behavior$1" or name = "Final001_Test$behavior$1" or name = "Fork001_Test$behavior$1" or name = "Fork002_Test$behavior$1" or name = "JavaEJB" or name = "JaveThreadStates" or name = "Join001_Test$behavior$1" or name = "Join002_Test$behavior$1" or name = "Join003_Test$behavior$1" or name = "Terminate001_Test$behavior$1" or name = "Terminate003_Test$behavior$1" or name = "Transition001_Test$behavior$1" or name = "Transition007_Test$behavior$1" or name = "Transition010$behavior$1" or name = "Transition011_Test_A$behavior$1" or name = "Transition011_Test_B$behavior$1" or name = "Transition011_Test_D$behavior$1" or name = "Transition011_Test_E$behavior$1" or name = "Transition015_Test$behavior$1" or name = "Transition016_Test$behavior$1" or name = "Transition017_Test$behavior$1" or name = "Transition019_Test$behavior$1" or name = "Transition020_Test$behavior$1" or name = "TransitionExecutionAlgorithm_Test$behavior$1" or name = "UserAccount" or name = "withdrawCash" } with { name = "BankATM" , name = "Behavior001_Test$behavior$1" , name = "Behavior002_Test$behavior$1" , name = "Behavior_003_Tester_B$behavior$1" , name = "Deferred001_Test$behavior$1" , name = "Deferred002_Test$behavior$1" , name = "Deferred003_Test$behavior$1" , name = "Deferred004_Test_A$behavior$1" , name = "Deferred004_Test_B$behavior$1" , name = "Deferred007_Test$behavior$1" , name = "Entering004_Test$behavior$1" , name = "Entering005_Test$behavior$1" , name = "Entering009_Test$behavior$1" , name = "Entering010_Test$behavior$1" , name = "Entering011_Test$behavior$1" , name = "Entry002_Test_A$behavior$1" , name = "Entry002_Test_B$behavior$1" , name = "Entry002_Test_C$behavior$1" , name = "Entry002_Test_D$behavior$1" , name = "Event001_Test$behavior$1" , name = "Event002$behavior$1" , name = "Event008_Test$behavior$1" , name = "Event009_Test$behavior$1" , name = "Event010_Test$behavior$1" , name = "Event015_Test$behavior$1" , name = "Event016_Test_A$behavior$1" , name = "Event016_Test_B$behavior$1" , name = "Event017_Test_A$behavior$1" , name = "Event017_Test_B$behavior$1" , name = "Event018_Test$behavior$1" , name = "Event019_Test_A$behavior$1" , name = "Event019_Test_B$behavior$1" , name = "Event019_Test_C$behavior$1" , name = "Exit001_Test$behavior$1" , name = "Exit002_Test$behavior$1" , name = "Exit003_Test$behavior$1" , name = "Exiting001_Test$behavior$1" , name = "Exiting003_Test$behavior$1" , name = "Exiting004$behavior$1" , name = "Exiting005_Test$behavior$1" , name = "Final001_Test$behavior$1" , name = "Fork001_Test$behavior$1" , name = "Fork002_Test$behavior$1" , name = "JavaEJB" , name = "JaveThreadStates" , name = "Join001_Test$behavior$1" , name = "Join002_Test$behavior$1" , name = "Join003_Test$behavior$1" , name = "Terminate001_Test$behavior$1" , name = "Terminate003_Test$behavior$1" , name = "Transition001_Test$behavior$1" , name = "Transition007_Test$behavior$1" , name = "Transition010$behavior$1" , name = "Transition011_Test_A$behavior$1" , name = "Transition011_Test_B$behavior$1" , name = "Transition011_Test_D$behavior$1" , name = "Transition011_Test_E$behavior$1" , name = "Transition015_Test$behavior$1" , name = "Transition016_Test$behavior$1" , name = "Transition017_Test$behavior$1" , name = "Transition019_Test$behavior$1" , name = "Transition020_Test$behavior$1" , name = "TransitionExecutionAlgorithm_Test$behavior$1" , name = "UserAccount" , name = "withdrawCash" }
+		create Region with { name = random-string ( 2 , 4 ) , vertice = one Vertex , transitions = one Transition , stateMachine = one StateMachine , state = one State , currentVertex = one Vertex }
 	}
 	b67  {
-		p = modify one StateMachine where { name = "BankATM" or name = "Behavior001_Test$behavior$1" or name = "Behavior002_Test$behavior$1" or name = "Behavior_003_Tester_B$behavior$1" or name = "Deferred001_Test$behavior$1" or name = "Deferred002_Test$behavior$1" or name = "Deferred003_Test$behavior$1" or name = "Deferred004_Test_A$behavior$1" or name = "Deferred004_Test_B$behavior$1" or name = "Deferred007_Test$behavior$1" or name = "Entering004_Test$behavior$1" or name = "Entering005_Test$behavior$1" or name = "Entering009_Test$behavior$1" or name = "Entering010_Test$behavior$1" or name = "Entering011_Test$behavior$1" or name = "Entry002_Test_A$behavior$1" or name = "Entry002_Test_B$behavior$1" or name = "Entry002_Test_C$behavior$1" or name = "Entry002_Test_D$behavior$1" or name = "Event001_Test$behavior$1" or name = "Event002$behavior$1" or name = "Event008_Test$behavior$1" or name = "Event009_Test$behavior$1" or name = "Event010_Test$behavior$1" or name = "Event015_Test$behavior$1" or name = "Event016_Test_A$behavior$1" or name = "Event016_Test_B$behavior$1" or name = "Event017_Test_A$behavior$1" or name = "Event017_Test_B$behavior$1" or name = "Event018_Test$behavior$1" or name = "Event019_Test_A$behavior$1" or name = "Event019_Test_B$behavior$1" or name = "Event019_Test_C$behavior$1" or name = "Exit001_Test$behavior$1" or name = "Exit002_Test$behavior$1" or name = "Exit003_Test$behavior$1" or name = "Exiting001_Test$behavior$1" or name = "Exiting003_Test$behavior$1" or name = "Exiting004$behavior$1" or name = "Exiting005_Test$behavior$1" or name = "Final001_Test$behavior$1" or name = "Fork001_Test$behavior$1" or name = "Fork002_Test$behavior$1" or name = "JavaEJB" or name = "JaveThreadStates" or name = "Join001_Test$behavior$1" or name = "Join002_Test$behavior$1" or name = "Join003_Test$behavior$1" or name = "Terminate001_Test$behavior$1" or name = "Terminate003_Test$behavior$1" or name = "Transition001_Test$behavior$1" or name = "Transition007_Test$behavior$1" or name = "Transition010$behavior$1" or name = "Transition011_Test_A$behavior$1" or name = "Transition011_Test_B$behavior$1" or name = "Transition011_Test_D$behavior$1" or name = "Transition011_Test_E$behavior$1" or name = "Transition015_Test$behavior$1" or name = "Transition016_Test$behavior$1" or name = "Transition017_Test$behavior$1" or name = "Transition019_Test$behavior$1" or name = "Transition020_Test$behavior$1" or name = "TransitionExecutionAlgorithm_Test$behavior$1" or name = "UserAccount" or name = "withdrawCash" } with { name = "BankATM" , name = "Behavior001_Test$behavior$1" , name = "Behavior002_Test$behavior$1" , name = "Behavior_003_Tester_B$behavior$1" , name = "Deferred001_Test$behavior$1" , name = "Deferred002_Test$behavior$1" , name = "Deferred003_Test$behavior$1" , name = "Deferred004_Test_A$behavior$1" , name = "Deferred004_Test_B$behavior$1" , name = "Deferred007_Test$behavior$1" , name = "Entering004_Test$behavior$1" , name = "Entering005_Test$behavior$1" , name = "Entering009_Test$behavior$1" , name = "Entering010_Test$behavior$1" , name = "Entering011_Test$behavior$1" , name = "Entry002_Test_A$behavior$1" , name = "Entry002_Test_B$behavior$1" , name = "Entry002_Test_C$behavior$1" , name = "Entry002_Test_D$behavior$1" , name = "Event001_Test$behavior$1" , name = "Event002$behavior$1" , name = "Event008_Test$behavior$1" , name = "Event009_Test$behavior$1" , name = "Event010_Test$behavior$1" , name = "Event015_Test$behavior$1" , name = "Event016_Test_A$behavior$1" , name = "Event016_Test_B$behavior$1" , name = "Event017_Test_A$behavior$1" , name = "Event017_Test_B$behavior$1" , name = "Event018_Test$behavior$1" , name = "Event019_Test_A$behavior$1" , name = "Event019_Test_B$behavior$1" , name = "Event019_Test_C$behavior$1" , name = "Exit001_Test$behavior$1" , name = "Exit002_Test$behavior$1" , name = "Exit003_Test$behavior$1" , name = "Exiting001_Test$behavior$1" , name = "Exiting003_Test$behavior$1" , name = "Exiting004$behavior$1" , name = "Exiting005_Test$behavior$1" , name = "Final001_Test$behavior$1" , name = "Fork001_Test$behavior$1" , name = "Fork002_Test$behavior$1" , name = "JavaEJB" , name = "JaveThreadStates" , name = "Join001_Test$behavior$1" , name = "Join002_Test$behavior$1" , name = "Join003_Test$behavior$1" , name = "Terminate001_Test$behavior$1" , name = "Terminate003_Test$behavior$1" , name = "Transition001_Test$behavior$1" , name = "Transition007_Test$behavior$1" , name = "Transition010$behavior$1" , name = "Transition011_Test_A$behavior$1" , name = "Transition011_Test_B$behavior$1" , name = "Transition011_Test_D$behavior$1" , name = "Transition011_Test_E$behavior$1" , name = "Transition015_Test$behavior$1" , name = "Transition016_Test$behavior$1" , name = "Transition017_Test$behavior$1" , name = "Transition019_Test$behavior$1" , name = "Transition020_Test$behavior$1" , name = "TransitionExecutionAlgorithm_Test$behavior$1" , name = "UserAccount" , name = "withdrawCash" , regions = one Region }
+		p = deep clone one Region where { vertice = one Vertex or transitions = one Transition or stateMachine = one StateMachine or state = one State or currentVertex = one Vertex } with { name = random-string ( 2 , 4 ) , vertice = one Vertex , transitions = one Transition , stateMachine = one StateMachine , state = one State , currentVertex = one Vertex }
 	}
 	b68  {
-		remove one StateMachine where { name = "BankATM" or name = "Behavior001_Test$behavior$1" or name = "Behavior002_Test$behavior$1" or name = "Behavior_003_Tester_B$behavior$1" or name = "Deferred001_Test$behavior$1" or name = "Deferred002_Test$behavior$1" or name = "Deferred003_Test$behavior$1" or name = "Deferred004_Test_A$behavior$1" or name = "Deferred004_Test_B$behavior$1" or name = "Deferred007_Test$behavior$1" or name = "Entering004_Test$behavior$1" or name = "Entering005_Test$behavior$1" or name = "Entering009_Test$behavior$1" or name = "Entering010_Test$behavior$1" or name = "Entering011_Test$behavior$1" or name = "Entry002_Test_A$behavior$1" or name = "Entry002_Test_B$behavior$1" or name = "Entry002_Test_C$behavior$1" or name = "Entry002_Test_D$behavior$1" or name = "Event001_Test$behavior$1" or name = "Event002$behavior$1" or name = "Event008_Test$behavior$1" or name = "Event009_Test$behavior$1" or name = "Event010_Test$behavior$1" or name = "Event015_Test$behavior$1" or name = "Event016_Test_A$behavior$1" or name = "Event016_Test_B$behavior$1" or name = "Event017_Test_A$behavior$1" or name = "Event017_Test_B$behavior$1" or name = "Event018_Test$behavior$1" or name = "Event019_Test_A$behavior$1" or name = "Event019_Test_B$behavior$1" or name = "Event019_Test_C$behavior$1" or name = "Exit001_Test$behavior$1" or name = "Exit002_Test$behavior$1" or name = "Exit003_Test$behavior$1" or name = "Exiting001_Test$behavior$1" or name = "Exiting003_Test$behavior$1" or name = "Exiting004$behavior$1" or name = "Exiting005_Test$behavior$1" or name = "Final001_Test$behavior$1" or name = "Fork001_Test$behavior$1" or name = "Fork002_Test$behavior$1" or name = "JavaEJB" or name = "JaveThreadStates" or name = "Join001_Test$behavior$1" or name = "Join002_Test$behavior$1" or name = "Join003_Test$behavior$1" or name = "Terminate001_Test$behavior$1" or name = "Terminate003_Test$behavior$1" or name = "Transition001_Test$behavior$1" or name = "Transition007_Test$behavior$1" or name = "Transition010$behavior$1" or name = "Transition011_Test_A$behavior$1" or name = "Transition011_Test_B$behavior$1" or name = "Transition011_Test_D$behavior$1" or name = "Transition011_Test_E$behavior$1" or name = "Transition015_Test$behavior$1" or name = "Transition016_Test$behavior$1" or name = "Transition017_Test$behavior$1" or name = "Transition019_Test$behavior$1" or name = "Transition020_Test$behavior$1" or name = "TransitionExecutionAlgorithm_Test$behavior$1" or name = "UserAccount" or name = "withdrawCash" }
+		p = modify one Region where { vertice = one Vertex or transitions = one Transition or stateMachine = one StateMachine or state = one State or currentVertex = one Vertex } with { name = random-string ( 2 , 4 ) , vertice = one Vertex , transitions = one Transition , stateMachine = one StateMachine , state = one State , currentVertex = one Vertex }
 	}
 	b69  {
-		p = select one StateMachine where { name = "BankATM" or name = "Behavior001_Test$behavior$1" or name = "Behavior002_Test$behavior$1" or name = "Behavior_003_Tester_B$behavior$1" or name = "Deferred001_Test$behavior$1" or name = "Deferred002_Test$behavior$1" or name = "Deferred003_Test$behavior$1" or name = "Deferred004_Test_A$behavior$1" or name = "Deferred004_Test_B$behavior$1" or name = "Deferred007_Test$behavior$1" or name = "Entering004_Test$behavior$1" or name = "Entering005_Test$behavior$1" or name = "Entering009_Test$behavior$1" or name = "Entering010_Test$behavior$1" or name = "Entering011_Test$behavior$1" or name = "Entry002_Test_A$behavior$1" or name = "Entry002_Test_B$behavior$1" or name = "Entry002_Test_C$behavior$1" or name = "Entry002_Test_D$behavior$1" or name = "Event001_Test$behavior$1" or name = "Event002$behavior$1" or name = "Event008_Test$behavior$1" or name = "Event009_Test$behavior$1" or name = "Event010_Test$behavior$1" or name = "Event015_Test$behavior$1" or name = "Event016_Test_A$behavior$1" or name = "Event016_Test_B$behavior$1" or name = "Event017_Test_A$behavior$1" or name = "Event017_Test_B$behavior$1" or name = "Event018_Test$behavior$1" or name = "Event019_Test_A$behavior$1" or name = "Event019_Test_B$behavior$1" or name = "Event019_Test_C$behavior$1" or name = "Exit001_Test$behavior$1" or name = "Exit002_Test$behavior$1" or name = "Exit003_Test$behavior$1" or name = "Exiting001_Test$behavior$1" or name = "Exiting003_Test$behavior$1" or name = "Exiting004$behavior$1" or name = "Exiting005_Test$behavior$1" or name = "Final001_Test$behavior$1" or name = "Fork001_Test$behavior$1" or name = "Fork002_Test$behavior$1" or name = "JavaEJB" or name = "JaveThreadStates" or name = "Join001_Test$behavior$1" or name = "Join002_Test$behavior$1" or name = "Join003_Test$behavior$1" or name = "Terminate001_Test$behavior$1" or name = "Terminate003_Test$behavior$1" or name = "Transition001_Test$behavior$1" or name = "Transition007_Test$behavior$1" or name = "Transition010$behavior$1" or name = "Transition011_Test_A$behavior$1" or name = "Transition011_Test_B$behavior$1" or name = "Transition011_Test_D$behavior$1" or name = "Transition011_Test_E$behavior$1" or name = "Transition015_Test$behavior$1" or name = "Transition016_Test$behavior$1" or name = "Transition017_Test$behavior$1" or name = "Transition019_Test$behavior$1" or name = "Transition020_Test$behavior$1" or name = "TransitionExecutionAlgorithm_Test$behavior$1" or name = "UserAccount" or name = "withdrawCash" }
+		remove one Region where { vertice = one Vertex or transitions = one Transition or stateMachine = one StateMachine or state = one State or currentVertex = one Vertex }
 	}
 	b70  {
-		p = retype one StateMachine where { name = "BankATM" or name = "Behavior001_Test$behavior$1" or name = "Behavior002_Test$behavior$1" or name = "Behavior_003_Tester_B$behavior$1" or name = "Deferred001_Test$behavior$1" or name = "Deferred002_Test$behavior$1" or name = "Deferred003_Test$behavior$1" or name = "Deferred004_Test_A$behavior$1" or name = "Deferred004_Test_B$behavior$1" or name = "Deferred007_Test$behavior$1" or name = "Entering004_Test$behavior$1" or name = "Entering005_Test$behavior$1" or name = "Entering009_Test$behavior$1" or name = "Entering010_Test$behavior$1" or name = "Entering011_Test$behavior$1" or name = "Entry002_Test_A$behavior$1" or name = "Entry002_Test_B$behavior$1" or name = "Entry002_Test_C$behavior$1" or name = "Entry002_Test_D$behavior$1" or name = "Event001_Test$behavior$1" or name = "Event002$behavior$1" or name = "Event008_Test$behavior$1" or name = "Event009_Test$behavior$1" or name = "Event010_Test$behavior$1" or name = "Event015_Test$behavior$1" or name = "Event016_Test_A$behavior$1" or name = "Event016_Test_B$behavior$1" or name = "Event017_Test_A$behavior$1" or name = "Event017_Test_B$behavior$1" or name = "Event018_Test$behavior$1" or name = "Event019_Test_A$behavior$1" or name = "Event019_Test_B$behavior$1" or name = "Event019_Test_C$behavior$1" or name = "Exit001_Test$behavior$1" or name = "Exit002_Test$behavior$1" or name = "Exit003_Test$behavior$1" or name = "Exiting001_Test$behavior$1" or name = "Exiting003_Test$behavior$1" or name = "Exiting004$behavior$1" or name = "Exiting005_Test$behavior$1" or name = "Final001_Test$behavior$1" or name = "Fork001_Test$behavior$1" or name = "Fork002_Test$behavior$1" or name = "JavaEJB" or name = "JaveThreadStates" or name = "Join001_Test$behavior$1" or name = "Join002_Test$behavior$1" or name = "Join003_Test$behavior$1" or name = "Terminate001_Test$behavior$1" or name = "Terminate003_Test$behavior$1" or name = "Transition001_Test$behavior$1" or name = "Transition007_Test$behavior$1" or name = "Transition010$behavior$1" or name = "Transition011_Test_A$behavior$1" or name = "Transition011_Test_B$behavior$1" or name = "Transition011_Test_D$behavior$1" or name = "Transition011_Test_E$behavior$1" or name = "Transition015_Test$behavior$1" or name = "Transition016_Test$behavior$1" or name = "Transition017_Test$behavior$1" or name = "Transition019_Test$behavior$1" or name = "Transition020_Test$behavior$1" or name = "TransitionExecutionAlgorithm_Test$behavior$1" or name = "UserAccount" or name = "withdrawCash" } as [ Signal , Operation , BooleanAttribute , IntegerAttribute , StringAttribute , Region , Pseudostate , State , FinalState , Transition , Trigger , Behavior , OperationBehavior ] with { name = "BankATM" , name = "Behavior001_Test$behavior$1" , name = "Behavior002_Test$behavior$1" , name = "Behavior_003_Tester_B$behavior$1" , name = "Deferred001_Test$behavior$1" , name = "Deferred002_Test$behavior$1" , name = "Deferred003_Test$behavior$1" , name = "Deferred004_Test_A$behavior$1" , name = "Deferred004_Test_B$behavior$1" , name = "Deferred007_Test$behavior$1" , name = "Entering004_Test$behavior$1" , name = "Entering005_Test$behavior$1" , name = "Entering009_Test$behavior$1" , name = "Entering010_Test$behavior$1" , name = "Entering011_Test$behavior$1" , name = "Entry002_Test_A$behavior$1" , name = "Entry002_Test_B$behavior$1" , name = "Entry002_Test_C$behavior$1" , name = "Entry002_Test_D$behavior$1" , name = "Event001_Test$behavior$1" , name = "Event002$behavior$1" , name = "Event008_Test$behavior$1" , name = "Event009_Test$behavior$1" , name = "Event010_Test$behavior$1" , name = "Event015_Test$behavior$1" , name = "Event016_Test_A$behavior$1" , name = "Event016_Test_B$behavior$1" , name = "Event017_Test_A$behavior$1" , name = "Event017_Test_B$behavior$1" , name = "Event018_Test$behavior$1" , name = "Event019_Test_A$behavior$1" , name = "Event019_Test_B$behavior$1" , name = "Event019_Test_C$behavior$1" , name = "Exit001_Test$behavior$1" , name = "Exit002_Test$behavior$1" , name = "Exit003_Test$behavior$1" , name = "Exiting001_Test$behavior$1" , name = "Exiting003_Test$behavior$1" , name = "Exiting004$behavior$1" , name = "Exiting005_Test$behavior$1" , name = "Final001_Test$behavior$1" , name = "Fork001_Test$behavior$1" , name = "Fork002_Test$behavior$1" , name = "JavaEJB" , name = "JaveThreadStates" , name = "Join001_Test$behavior$1" , name = "Join002_Test$behavior$1" , name = "Join003_Test$behavior$1" , name = "Terminate001_Test$behavior$1" , name = "Terminate003_Test$behavior$1" , name = "Transition001_Test$behavior$1" , name = "Transition007_Test$behavior$1" , name = "Transition010$behavior$1" , name = "Transition011_Test_A$behavior$1" , name = "Transition011_Test_B$behavior$1" , name = "Transition011_Test_D$behavior$1" , name = "Transition011_Test_E$behavior$1" , name = "Transition015_Test$behavior$1" , name = "Transition016_Test$behavior$1" , name = "Transition017_Test$behavior$1" , name = "Transition019_Test$behavior$1" , name = "Transition020_Test$behavior$1" , name = "TransitionExecutionAlgorithm_Test$behavior$1" , name = "UserAccount" , name = "withdrawCash" }
+		p = select one Region where { vertice = one Vertex or transitions = one Transition or stateMachine = one StateMachine or state = one State or currentVertex = one Vertex }
 	}
 	b71  {
-		create Region with { name = "Region1" , name = "Region2" , name = "Region3" , name = "T1.1" , name = "authenticationRegion" , name = "mainRegion" , name = "region" , name = "runnableRegion" , name = "serviceCustomerRegion" , name = "transferRegion" , name = "withdrawRegion" }
+		p = retype one Region as [ Signal , Operation , BooleanAttribute , IntegerAttribute , StringAttribute , StateMachine , Pseudostate , State , FinalState , Transition , Trigger , Behavior , OperationBehavior ] with { name = random-string ( 2 , 4 ) }
 	}
 	b72  {
-		p = deep clone one Region where { name = "Region1" or name = "Region2" or name = "Region3" or name = "T1.1" or name = "authenticationRegion" or name = "mainRegion" or name = "region" or name = "runnableRegion" or name = "serviceCustomerRegion" or name = "transferRegion" or name = "withdrawRegion" } with { name = "Region1" , name = "Region2" , name = "Region3" , name = "T1.1" , name = "authenticationRegion" , name = "mainRegion" , name = "region" , name = "runnableRegion" , name = "serviceCustomerRegion" , name = "transferRegion" , name = "withdrawRegion" }
+		create Pseudostate with { name = random-string ( 2 , 4 ) , ^container = one Region , outgoingTransitions = one Transition , incomingTransitions = one Transition , state = one State }
 	}
 	b73  {
-		p = modify one Region where { name = "Region1" or name = "Region2" or name = "Region3" or name = "T1.1" or name = "authenticationRegion" or name = "mainRegion" or name = "region" or name = "runnableRegion" or name = "serviceCustomerRegion" or name = "transferRegion" or name = "withdrawRegion" } with { name = "Region1" , name = "Region2" , name = "Region3" , name = "T1.1" , name = "authenticationRegion" , name = "mainRegion" , name = "region" , name = "runnableRegion" , name = "serviceCustomerRegion" , name = "transferRegion" , name = "withdrawRegion" , vertice = one Vertex , transitions = one Transition , stateMachine = one StateMachine , state = one State , currentVertex = one Vertex }
+		p = deep clone one Pseudostate where { ^container = one Region or outgoingTransitions = one Transition or incomingTransitions = one Transition or state = one State } with { name = random-string ( 2 , 4 ) , ^container = one Region , outgoingTransitions = one Transition , incomingTransitions = one Transition , state = one State }
 	}
 	b74  {
-		remove one Region where { name = "Region1" or name = "Region2" or name = "Region3" or name = "T1.1" or name = "authenticationRegion" or name = "mainRegion" or name = "region" or name = "runnableRegion" or name = "serviceCustomerRegion" or name = "transferRegion" or name = "withdrawRegion" }
+		p = modify one Pseudostate where { ^container = one Region or outgoingTransitions = one Transition or incomingTransitions = one Transition or state = one State } with { name = random-string ( 2 , 4 ) , ^container = one Region , outgoingTransitions = one Transition , incomingTransitions = one Transition , state = one State }
 	}
 	b75  {
-		p = select one Region where { name = "Region1" or name = "Region2" or name = "Region3" or name = "T1.1" or name = "authenticationRegion" or name = "mainRegion" or name = "region" or name = "runnableRegion" or name = "serviceCustomerRegion" or name = "transferRegion" or name = "withdrawRegion" }
+		remove one Pseudostate where { ^container = one Region or outgoingTransitions = one Transition or incomingTransitions = one Transition or state = one State }
 	}
 	b76  {
-		p = retype one Region where { name = "Region1" or name = "Region2" or name = "Region3" or name = "T1.1" or name = "authenticationRegion" or name = "mainRegion" or name = "region" or name = "runnableRegion" or name = "serviceCustomerRegion" or name = "transferRegion" or name = "withdrawRegion" } as [ Signal , Operation , BooleanAttribute , IntegerAttribute , StringAttribute , StateMachine , Pseudostate , State , FinalState , Transition , Trigger , Behavior , OperationBehavior ] with { name = "Region1" , name = "Region2" , name = "Region3" , name = "T1.1" , name = "authenticationRegion" , name = "mainRegion" , name = "region" , name = "runnableRegion" , name = "serviceCustomerRegion" , name = "transferRegion" , name = "withdrawRegion" }
+		p = select one Pseudostate where { ^container = one Region or outgoingTransitions = one Transition or incomingTransitions = one Transition or state = one State }
 	}
 	b77  {
-		create Pseudostate with { name = "EntryPoint1" , name = "ExitPoint1" , name = "Fork1" , name = "Initial" , name = "Initial1" , name = "Join1" , name = "Terminate1" , name = "initial" , name = "initial1" , name = "initial2" , name = "initial3" , name = "initial4" , name = "initial5" }
+		p = retype one Pseudostate where { ^container = one Region or outgoingTransitions = one Transition or incomingTransitions = one Transition } as [ State , FinalState ] with { name = random-string ( 2 , 4 ) , ^container = one Region , outgoingTransitions = one Transition , incomingTransitions = one Transition }
 	}
 	b78  {
-		p = deep clone one Pseudostate where { name = "EntryPoint1" or name = "ExitPoint1" or name = "Fork1" or name = "Initial" or name = "Initial1" or name = "Join1" or name = "Terminate1" or name = "initial" or name = "initial1" or name = "initial2" or name = "initial3" or name = "initial4" or name = "initial5" } with { name = "EntryPoint1" , name = "ExitPoint1" , name = "Fork1" , name = "Initial" , name = "Initial1" , name = "Join1" , name = "Terminate1" , name = "initial" , name = "initial1" , name = "initial2" , name = "initial3" , name = "initial4" , name = "initial5" }
+		create State with { name = random-string ( 2 , 4 ) , ^container = one Region , outgoingTransitions = one Transition , incomingTransitions = one Transition , regions = one Region , entry = one Behavior , doActivity = one Behavior , exit = one Behavior , deferrableTriggers = one Trigger , connectionPoint = one Pseudostate }
 	}
 	b79  {
-		p = modify one Pseudostate where { name = "EntryPoint1" or name = "ExitPoint1" or name = "Fork1" or name = "Initial" or name = "Initial1" or name = "Join1" or name = "Terminate1" or name = "initial" or name = "initial1" or name = "initial2" or name = "initial3" or name = "initial4" or name = "initial5" } with { name = "EntryPoint1" , name = "ExitPoint1" , name = "Fork1" , name = "Initial" , name = "Initial1" , name = "Join1" , name = "Terminate1" , name = "initial" , name = "initial1" , name = "initial2" , name = "initial3" , name = "initial4" , name = "initial5" , ^container = one Region , outgoingTransitions = one Transition , incomingTransitions = one Transition , state = one State }
+		p = deep clone one State where { ^container = one Region or outgoingTransitions = one Transition or incomingTransitions = one Transition or regions = one Region or entry = one Behavior or doActivity = one Behavior or exit = one Behavior or deferrableTriggers = one Trigger or connectionPoint = one Pseudostate } with { name = random-string ( 2 , 4 ) , ^container = one Region , outgoingTransitions = one Transition , incomingTransitions = one Transition , regions = one Region , entry = one Behavior , doActivity = one Behavior , exit = one Behavior , deferrableTriggers = one Trigger , connectionPoint = one Pseudostate }
 	}
 	b80  {
-		remove one Pseudostate where { name = "EntryPoint1" or name = "ExitPoint1" or name = "Fork1" or name = "Initial" or name = "Initial1" or name = "Join1" or name = "Terminate1" or name = "initial" or name = "initial1" or name = "initial2" or name = "initial3" or name = "initial4" or name = "initial5" }
+		p = modify one State where { ^container = one Region or outgoingTransitions = one Transition or incomingTransitions = one Transition or regions = one Region or entry = one Behavior or doActivity = one Behavior or exit = one Behavior or deferrableTriggers = one Trigger or connectionPoint = one Pseudostate } with { name = random-string ( 2 , 4 ) , ^container = one Region , outgoingTransitions = one Transition , incomingTransitions = one Transition , regions = one Region , entry = one Behavior , doActivity = one Behavior , exit = one Behavior , deferrableTriggers = one Trigger , connectionPoint = one Pseudostate }
 	}
 	b81  {
-		p = select one Pseudostate where { name = "EntryPoint1" or name = "ExitPoint1" or name = "Fork1" or name = "Initial" or name = "Initial1" or name = "Join1" or name = "Terminate1" or name = "initial" or name = "initial1" or name = "initial2" or name = "initial3" or name = "initial4" or name = "initial5" }
+		remove one State where { ^container = one Region or outgoingTransitions = one Transition or incomingTransitions = one Transition or regions = one Region or entry = one Behavior or doActivity = one Behavior or exit = one Behavior or deferrableTriggers = one Trigger or connectionPoint = one Pseudostate }
 	}
 	b82  {
-		p = retype one Pseudostate where { name = "EntryPoint1" or name = "ExitPoint1" or name = "Fork1" or name = "Initial" or name = "Initial1" or name = "Join1" or name = "Terminate1" or name = "initial" or name = "initial1" or name = "initial2" or name = "initial3" or name = "initial4" or name = "initial5" } as [ State , FinalState ] with { name = "EntryPoint1" , name = "ExitPoint1" , name = "Fork1" , name = "Initial" , name = "Initial1" , name = "Join1" , name = "Terminate1" , name = "initial" , name = "initial1" , name = "initial2" , name = "initial3" , name = "initial4" , name = "initial5" }
+		p = select one State where { ^container = one Region or outgoingTransitions = one Transition or incomingTransitions = one Transition or regions = one Region or entry = one Behavior or doActivity = one Behavior or exit = one Behavior or deferrableTriggers = one Trigger or connectionPoint = one Pseudostate }
 	}
 	b83  {
-		create State with { name = "Active" , name = "Blocked" , name = "CheckBalance" , name = "Closed" , name = "CustomerAuthentication" , name = "Exists&NotReferenced" , name = "Exists&Referenced" , name = "FS1" , name = "FS1.1" , name = "FS1.1.1" , name = "FS1.2" , name = "FSR1" , name = "FSR2" , name = "FinalState" , name = "FinalState1" , name = "GetAmount" , name = "Idle" , name = "Maintenance" , name = "MakeWithdrawal" , name = "New" , name = "NotExisted&NotReferenced" , name = "NotExisted&Referenced" , name = "Off" , name = "OutOfService" , name = "Ready" , name = "Runnable" , name = "Running" , name = "S1" , name = "S1.1" , name = "S1.1.1" , name = "S1.2" , name = "S1.2.1" , name = "S1.3" , name = "S2" , name = "S2.1" , name = "S2.1.1" , name = "S2.2" , name = "S2.2.1" , name = "S3" , name = "S3.1" , name = "S3.1.1" , name = "SelectingTransaction" , name = "SelfTest" , name = "ServiceCustomer" , name = "Suspended" , name = "Terminated" , name = "TimedWaiting" , name = "TransferMoney" , name = "ValidateCard" , name = "Waiting" , name = "WithdrawMoney" , name = "checkBalance" , name = "end" , name = "final" , name = "final1" , name = "final2" , name = "final3" , name = "final4" , name = "final5" , name = "getAmount" , name = "getPin" , name = "invalid" , name = "makeWithdrawal" , name = "validatePin" , name = "wait" , name = "waiting" }
+		p = retype one State where { ^container = one Region or outgoingTransitions = one Transition or incomingTransitions = one Transition } as [ FinalState , Pseudostate ] with { name = random-string ( 2 , 4 ) , ^container = one Region , outgoingTransitions = one Transition , incomingTransitions = one Transition }
 	}
 	b84  {
-		p = deep clone one State where { name = "Active" or name = "Blocked" or name = "CheckBalance" or name = "Closed" or name = "CustomerAuthentication" or name = "Exists&NotReferenced" or name = "Exists&Referenced" or name = "FS1" or name = "FS1.1" or name = "FS1.1.1" or name = "FS1.2" or name = "FSR1" or name = "FSR2" or name = "FinalState" or name = "FinalState1" or name = "GetAmount" or name = "Idle" or name = "Maintenance" or name = "MakeWithdrawal" or name = "New" or name = "NotExisted&NotReferenced" or name = "NotExisted&Referenced" or name = "Off" or name = "OutOfService" or name = "Ready" or name = "Runnable" or name = "Running" or name = "S1" or name = "S1.1" or name = "S1.1.1" or name = "S1.2" or name = "S1.2.1" or name = "S1.3" or name = "S2" or name = "S2.1" or name = "S2.1.1" or name = "S2.2" or name = "S2.2.1" or name = "S3" or name = "S3.1" or name = "S3.1.1" or name = "SelectingTransaction" or name = "SelfTest" or name = "ServiceCustomer" or name = "Suspended" or name = "Terminated" or name = "TimedWaiting" or name = "TransferMoney" or name = "ValidateCard" or name = "Waiting" or name = "WithdrawMoney" or name = "checkBalance" or name = "end" or name = "final" or name = "final1" or name = "final2" or name = "final3" or name = "final4" or name = "final5" or name = "getAmount" or name = "getPin" or name = "invalid" or name = "makeWithdrawal" or name = "validatePin" or name = "wait" or name = "waiting" } with { name = "Active" , name = "Blocked" , name = "CheckBalance" , name = "Closed" , name = "CustomerAuthentication" , name = "Exists&NotReferenced" , name = "Exists&Referenced" , name = "FS1" , name = "FS1.1" , name = "FS1.1.1" , name = "FS1.2" , name = "FSR1" , name = "FSR2" , name = "FinalState" , name = "FinalState1" , name = "GetAmount" , name = "Idle" , name = "Maintenance" , name = "MakeWithdrawal" , name = "New" , name = "NotExisted&NotReferenced" , name = "NotExisted&Referenced" , name = "Off" , name = "OutOfService" , name = "Ready" , name = "Runnable" , name = "Running" , name = "S1" , name = "S1.1" , name = "S1.1.1" , name = "S1.2" , name = "S1.2.1" , name = "S1.3" , name = "S2" , name = "S2.1" , name = "S2.1.1" , name = "S2.2" , name = "S2.2.1" , name = "S3" , name = "S3.1" , name = "S3.1.1" , name = "SelectingTransaction" , name = "SelfTest" , name = "ServiceCustomer" , name = "Suspended" , name = "Terminated" , name = "TimedWaiting" , name = "TransferMoney" , name = "ValidateCard" , name = "Waiting" , name = "WithdrawMoney" , name = "checkBalance" , name = "end" , name = "final" , name = "final1" , name = "final2" , name = "final3" , name = "final4" , name = "final5" , name = "getAmount" , name = "getPin" , name = "invalid" , name = "makeWithdrawal" , name = "validatePin" , name = "wait" , name = "waiting" }
+		create FinalState with { name = random-string ( 2 , 4 ) , ^container = one Region , outgoingTransitions = one Transition , incomingTransitions = one Transition , regions = one Region , entry = one Behavior , doActivity = one Behavior , exit = one Behavior , deferrableTriggers = one Trigger , connectionPoint = one Pseudostate }
 	}
 	b85  {
-		p = modify one State where { name = "Active" or name = "Blocked" or name = "CheckBalance" or name = "Closed" or name = "CustomerAuthentication" or name = "Exists&NotReferenced" or name = "Exists&Referenced" or name = "FS1" or name = "FS1.1" or name = "FS1.1.1" or name = "FS1.2" or name = "FSR1" or name = "FSR2" or name = "FinalState" or name = "FinalState1" or name = "GetAmount" or name = "Idle" or name = "Maintenance" or name = "MakeWithdrawal" or name = "New" or name = "NotExisted&NotReferenced" or name = "NotExisted&Referenced" or name = "Off" or name = "OutOfService" or name = "Ready" or name = "Runnable" or name = "Running" or name = "S1" or name = "S1.1" or name = "S1.1.1" or name = "S1.2" or name = "S1.2.1" or name = "S1.3" or name = "S2" or name = "S2.1" or name = "S2.1.1" or name = "S2.2" or name = "S2.2.1" or name = "S3" or name = "S3.1" or name = "S3.1.1" or name = "SelectingTransaction" or name = "SelfTest" or name = "ServiceCustomer" or name = "Suspended" or name = "Terminated" or name = "TimedWaiting" or name = "TransferMoney" or name = "ValidateCard" or name = "Waiting" or name = "WithdrawMoney" or name = "checkBalance" or name = "end" or name = "final" or name = "final1" or name = "final2" or name = "final3" or name = "final4" or name = "final5" or name = "getAmount" or name = "getPin" or name = "invalid" or name = "makeWithdrawal" or name = "validatePin" or name = "wait" or name = "waiting" } with { name = "Active" , name = "Blocked" , name = "CheckBalance" , name = "Closed" , name = "CustomerAuthentication" , name = "Exists&NotReferenced" , name = "Exists&Referenced" , name = "FS1" , name = "FS1.1" , name = "FS1.1.1" , name = "FS1.2" , name = "FSR1" , name = "FSR2" , name = "FinalState" , name = "FinalState1" , name = "GetAmount" , name = "Idle" , name = "Maintenance" , name = "MakeWithdrawal" , name = "New" , name = "NotExisted&NotReferenced" , name = "NotExisted&Referenced" , name = "Off" , name = "OutOfService" , name = "Ready" , name = "Runnable" , name = "Running" , name = "S1" , name = "S1.1" , name = "S1.1.1" , name = "S1.2" , name = "S1.2.1" , name = "S1.3" , name = "S2" , name = "S2.1" , name = "S2.1.1" , name = "S2.2" , name = "S2.2.1" , name = "S3" , name = "S3.1" , name = "S3.1.1" , name = "SelectingTransaction" , name = "SelfTest" , name = "ServiceCustomer" , name = "Suspended" , name = "Terminated" , name = "TimedWaiting" , name = "TransferMoney" , name = "ValidateCard" , name = "Waiting" , name = "WithdrawMoney" , name = "checkBalance" , name = "end" , name = "final" , name = "final1" , name = "final2" , name = "final3" , name = "final4" , name = "final5" , name = "getAmount" , name = "getPin" , name = "invalid" , name = "makeWithdrawal" , name = "validatePin" , name = "wait" , name = "waiting" , ^container = one Region , outgoingTransitions = one Transition , incomingTransitions = one Transition , regions = one Region , entry = one Behavior , doActivity = one Behavior , exit = one Behavior , deferrableTriggers = one Trigger , connectionPoint = one Pseudostate }
+		p = deep clone one FinalState where { ^container = one Region or outgoingTransitions = one Transition or incomingTransitions = one Transition or regions = one Region or entry = one Behavior or doActivity = one Behavior or exit = one Behavior or deferrableTriggers = one Trigger or connectionPoint = one Pseudostate } with { name = random-string ( 2 , 4 ) , ^container = one Region , outgoingTransitions = one Transition , incomingTransitions = one Transition , regions = one Region , entry = one Behavior , doActivity = one Behavior , exit = one Behavior , deferrableTriggers = one Trigger , connectionPoint = one Pseudostate }
 	}
 	b86  {
-		remove one State where { name = "Active" or name = "Blocked" or name = "CheckBalance" or name = "Closed" or name = "CustomerAuthentication" or name = "Exists&NotReferenced" or name = "Exists&Referenced" or name = "FS1" or name = "FS1.1" or name = "FS1.1.1" or name = "FS1.2" or name = "FSR1" or name = "FSR2" or name = "FinalState" or name = "FinalState1" or name = "GetAmount" or name = "Idle" or name = "Maintenance" or name = "MakeWithdrawal" or name = "New" or name = "NotExisted&NotReferenced" or name = "NotExisted&Referenced" or name = "Off" or name = "OutOfService" or name = "Ready" or name = "Runnable" or name = "Running" or name = "S1" or name = "S1.1" or name = "S1.1.1" or name = "S1.2" or name = "S1.2.1" or name = "S1.3" or name = "S2" or name = "S2.1" or name = "S2.1.1" or name = "S2.2" or name = "S2.2.1" or name = "S3" or name = "S3.1" or name = "S3.1.1" or name = "SelectingTransaction" or name = "SelfTest" or name = "ServiceCustomer" or name = "Suspended" or name = "Terminated" or name = "TimedWaiting" or name = "TransferMoney" or name = "ValidateCard" or name = "Waiting" or name = "WithdrawMoney" or name = "checkBalance" or name = "end" or name = "final" or name = "final1" or name = "final2" or name = "final3" or name = "final4" or name = "final5" or name = "getAmount" or name = "getPin" or name = "invalid" or name = "makeWithdrawal" or name = "validatePin" or name = "wait" or name = "waiting" }
+		p = modify one FinalState where { ^container = one Region or outgoingTransitions = one Transition or incomingTransitions = one Transition or regions = one Region or entry = one Behavior or doActivity = one Behavior or exit = one Behavior or deferrableTriggers = one Trigger or connectionPoint = one Pseudostate } with { name = random-string ( 2 , 4 ) , ^container = one Region , outgoingTransitions = one Transition , incomingTransitions = one Transition , regions = one Region , entry = one Behavior , doActivity = one Behavior , exit = one Behavior , deferrableTriggers = one Trigger , connectionPoint = one Pseudostate }
 	}
 	b87  {
-		p = select one State where { name = "Active" or name = "Blocked" or name = "CheckBalance" or name = "Closed" or name = "CustomerAuthentication" or name = "Exists&NotReferenced" or name = "Exists&Referenced" or name = "FS1" or name = "FS1.1" or name = "FS1.1.1" or name = "FS1.2" or name = "FSR1" or name = "FSR2" or name = "FinalState" or name = "FinalState1" or name = "GetAmount" or name = "Idle" or name = "Maintenance" or name = "MakeWithdrawal" or name = "New" or name = "NotExisted&NotReferenced" or name = "NotExisted&Referenced" or name = "Off" or name = "OutOfService" or name = "Ready" or name = "Runnable" or name = "Running" or name = "S1" or name = "S1.1" or name = "S1.1.1" or name = "S1.2" or name = "S1.2.1" or name = "S1.3" or name = "S2" or name = "S2.1" or name = "S2.1.1" or name = "S2.2" or name = "S2.2.1" or name = "S3" or name = "S3.1" or name = "S3.1.1" or name = "SelectingTransaction" or name = "SelfTest" or name = "ServiceCustomer" or name = "Suspended" or name = "Terminated" or name = "TimedWaiting" or name = "TransferMoney" or name = "ValidateCard" or name = "Waiting" or name = "WithdrawMoney" or name = "checkBalance" or name = "end" or name = "final" or name = "final1" or name = "final2" or name = "final3" or name = "final4" or name = "final5" or name = "getAmount" or name = "getPin" or name = "invalid" or name = "makeWithdrawal" or name = "validatePin" or name = "wait" or name = "waiting" }
+		remove one FinalState where { ^container = one Region or outgoingTransitions = one Transition or incomingTransitions = one Transition or regions = one Region or entry = one Behavior or doActivity = one Behavior or exit = one Behavior or deferrableTriggers = one Trigger or connectionPoint = one Pseudostate }
 	}
 	b88  {
-		p = retype one State where { name = "Active" or name = "Blocked" or name = "CheckBalance" or name = "Closed" or name = "CustomerAuthentication" or name = "Exists&NotReferenced" or name = "Exists&Referenced" or name = "FS1" or name = "FS1.1" or name = "FS1.1.1" or name = "FS1.2" or name = "FSR1" or name = "FSR2" or name = "FinalState" or name = "FinalState1" or name = "GetAmount" or name = "Idle" or name = "Maintenance" or name = "MakeWithdrawal" or name = "New" or name = "NotExisted&NotReferenced" or name = "NotExisted&Referenced" or name = "Off" or name = "OutOfService" or name = "Ready" or name = "Runnable" or name = "Running" or name = "S1" or name = "S1.1" or name = "S1.1.1" or name = "S1.2" or name = "S1.2.1" or name = "S1.3" or name = "S2" or name = "S2.1" or name = "S2.1.1" or name = "S2.2" or name = "S2.2.1" or name = "S3" or name = "S3.1" or name = "S3.1.1" or name = "SelectingTransaction" or name = "SelfTest" or name = "ServiceCustomer" or name = "Suspended" or name = "Terminated" or name = "TimedWaiting" or name = "TransferMoney" or name = "ValidateCard" or name = "Waiting" or name = "WithdrawMoney" or name = "checkBalance" or name = "end" or name = "final" or name = "final1" or name = "final2" or name = "final3" or name = "final4" or name = "final5" or name = "getAmount" or name = "getPin" or name = "invalid" or name = "makeWithdrawal" or name = "validatePin" or name = "wait" or name = "waiting" } as [ FinalState , Pseudostate ] with { name = "Active" , name = "Blocked" , name = "CheckBalance" , name = "Closed" , name = "CustomerAuthentication" , name = "Exists&NotReferenced" , name = "Exists&Referenced" , name = "FS1" , name = "FS1.1" , name = "FS1.1.1" , name = "FS1.2" , name = "FSR1" , name = "FSR2" , name = "FinalState" , name = "FinalState1" , name = "GetAmount" , name = "Idle" , name = "Maintenance" , name = "MakeWithdrawal" , name = "New" , name = "NotExisted&NotReferenced" , name = "NotExisted&Referenced" , name = "Off" , name = "OutOfService" , name = "Ready" , name = "Runnable" , name = "Running" , name = "S1" , name = "S1.1" , name = "S1.1.1" , name = "S1.2" , name = "S1.2.1" , name = "S1.3" , name = "S2" , name = "S2.1" , name = "S2.1.1" , name = "S2.2" , name = "S2.2.1" , name = "S3" , name = "S3.1" , name = "S3.1.1" , name = "SelectingTransaction" , name = "SelfTest" , name = "ServiceCustomer" , name = "Suspended" , name = "Terminated" , name = "TimedWaiting" , name = "TransferMoney" , name = "ValidateCard" , name = "Waiting" , name = "WithdrawMoney" , name = "checkBalance" , name = "end" , name = "final" , name = "final1" , name = "final2" , name = "final3" , name = "final4" , name = "final5" , name = "getAmount" , name = "getPin" , name = "invalid" , name = "makeWithdrawal" , name = "validatePin" , name = "wait" , name = "waiting" }
+		p = select one FinalState where { ^container = one Region or outgoingTransitions = one Transition or incomingTransitions = one Transition or regions = one Region or entry = one Behavior or doActivity = one Behavior or exit = one Behavior or deferrableTriggers = one Trigger or connectionPoint = one Pseudostate }
 	}
 	b89  {
-		create FinalState with { name = "FS1" , name = "FS1.1" , name = "FS1.1.1" , name = "FS1.2" , name = "FSR1" , name = "FSR2" , name = "FinalState" , name = "FinalState1" , name = "final" , name = "final1" , name = "final2" , name = "final3" , name = "final4" , name = "final5" }
+		create Transition with { name = random-string ( 2 , 4 ) , ^source = one Vertex , ^target = one Vertex , triggers = one Trigger , ^container = one Region , effect = one Behavior , constraint = one Constraint }
 	}
 	b90  {
-		p = deep clone one FinalState where { name = "FS1" or name = "FS1.1" or name = "FS1.1.1" or name = "FS1.2" or name = "FSR1" or name = "FSR2" or name = "FinalState" or name = "FinalState1" or name = "final" or name = "final1" or name = "final2" or name = "final3" or name = "final4" or name = "final5" } with { name = "FS1" , name = "FS1.1" , name = "FS1.1.1" , name = "FS1.2" , name = "FSR1" , name = "FSR2" , name = "FinalState" , name = "FinalState1" , name = "final" , name = "final1" , name = "final2" , name = "final3" , name = "final4" , name = "final5" }
+		p = deep clone one Transition where { ^source = one Vertex or ^target = one Vertex or triggers = one Trigger or ^container = one Region or effect = one Behavior or constraint = one Constraint } with { name = random-string ( 2 , 4 ) , ^source = one Vertex , ^target = one Vertex , triggers = one Trigger , ^container = one Region , effect = one Behavior , constraint = one Constraint }
 	}
 	b91  {
-		p = modify one FinalState where { name = "FS1" or name = "FS1.1" or name = "FS1.1.1" or name = "FS1.2" or name = "FSR1" or name = "FSR2" or name = "FinalState" or name = "FinalState1" or name = "final" or name = "final1" or name = "final2" or name = "final3" or name = "final4" or name = "final5" } with { name = "FS1" , name = "FS1.1" , name = "FS1.1.1" , name = "FS1.2" , name = "FSR1" , name = "FSR2" , name = "FinalState" , name = "FinalState1" , name = "final" , name = "final1" , name = "final2" , name = "final3" , name = "final4" , name = "final5" , ^container = one Region , outgoingTransitions = one Transition , incomingTransitions = one Transition , regions = one Region , entry = one Behavior , doActivity = one Behavior , exit = one Behavior , deferrableTriggers = one Trigger , connectionPoint = one Pseudostate }
+		p = modify one Transition where { ^source = one Vertex or ^target = one Vertex or triggers = one Trigger or ^container = one Region or effect = one Behavior or constraint = one Constraint } with { name = random-string ( 2 , 4 ) , ^source = one Vertex , ^target = one Vertex , triggers = one Trigger , ^container = one Region , effect = one Behavior , constraint = one Constraint }
 	}
 	b92  {
-		remove one FinalState where { name = "FS1" or name = "FS1.1" or name = "FS1.1.1" or name = "FS1.2" or name = "FSR1" or name = "FSR2" or name = "FinalState" or name = "FinalState1" or name = "final" or name = "final1" or name = "final2" or name = "final3" or name = "final4" or name = "final5" }
+		remove one Transition where { ^source = one Vertex or ^target = one Vertex or triggers = one Trigger or ^container = one Region or effect = one Behavior or constraint = one Constraint }
 	}
 	b93  {
-		p = select one FinalState where { name = "FS1" or name = "FS1.1" or name = "FS1.1.1" or name = "FS1.2" or name = "FSR1" or name = "FSR2" or name = "FinalState" or name = "FinalState1" or name = "final" or name = "final1" or name = "final2" or name = "final3" or name = "final4" or name = "final5" }
+		p = select one Transition where { ^source = one Vertex or ^target = one Vertex or triggers = one Trigger or ^container = one Region or effect = one Behavior or constraint = one Constraint }
 	}
 	b94  {
-		create Transition with { name = "ENR2ER" , name = "ENR2NENR" , name = "ER2ENR" , name = "ER2ER" , name = "ER2NER" , name = "IT" , name = "Idle2maintenance" , name = "Idle2off" , name = "Idle2serviceCustomer" , name = "Initial_S1" , name = "NENR2ER" , name = "NER2NENR" , name = "NER2NER" , name = "T1" , name = "T1.1" , name = "T1.1.1" , name = "T1.1.2" , name = "T1.2" , name = "T1.2.1" , name = "T1.2.2" , name = "T1.3" , name = "T1.4" , name = "T1.5" , name = "T2" , name = "T2.1" , name = "T2.1.1" , name = "T2.1.2" , name = "T2.2" , name = "T2.2.1" , name = "T2.2.2" , name = "T2.3" , name = "T2.4" , name = "T2.5" , name = "T3" , name = "T3.1" , name = "T3.1.1" , name = "T3.1.2" , name = "T3.2" , name = "T4" , name = "T5" , name = "T6" , name = "T7" , name = "active2closed" , name = "active2suspended" , name = "authentication2final2" , name = "blocked2runnable" , name = "blocked2terminated" , name = "checkBalance2final4" , name = "checkBalance2final5" , name = "checkBalance2makeWithdrawal" , name = "checkBalance2transferMoney" , name = "checkBalance_final" , name = "checkBalance_withdraw" , name = "closed2final" , name = "getAmount2checkBalance" , name = "getAmount_checkBalance" , name = "getPin2validatePin" , name = "getPin_validatePin" , name = "initial1_2_new" , name = "initial2NENR" , name = "initial2_2_ready" , name = "initial2authentication" , name = "initial2new" , name = "initial2off" , name = "initial3_2_getPin" , name = "initial4_2_getAmount" , name = "initial5_2_validateCard" , name = "initial_wait" , name = "maintenance2outOfService" , name = "maintenance2selfTest" , name = "makeWithdrawal2final4" , name = "new2active" , name = "new2closed" , name = "new2runnable" , name = "new2suspended" , name = "off2selfTest" , name = "outOfService2Off" , name = "outOfService2maintenance" , name = "ready2running" , name = "runnable2blocked" , name = "runnable2terminated" , name = "runnable2timedWaiting" , name = "runnable2waiting" , name = "running2final2" , name = "running2ready" ,
-		name = "selectingTransaction2transfer" ,
-		name = "selectingTransaction2withdraw" , name = "selfTest2idle" , name = "selfTest2outOfService" , name = "serviceCustomer2idle" , name = "serviceCustomer2outOfService" , name = "suspended2active" , name = "suspended2closed" , name = "terminated2final" , name = "timedWaiting2blocked" , name = "timedWaiting2runnable" , name = "timedWaiting2terminated" , name = "transfer2final2" , name = "transferMoney2final5" , name = "validateCard2getAmount" , name = "validatePin2SelectingTransaction" , name = "validatePin2final3" , name = "validatePin_final" , name = "validatePin_getAmount" , name = "wait_getPin" , name = "waiting2blocked" , name = "waiting2terminated" , name = "withdraw2final2" , name = "withdraw_final" }
+		p = retype one Transition as [ Signal , Operation , BooleanAttribute , IntegerAttribute , StringAttribute , StateMachine , Region , Pseudostate , State , FinalState , Trigger , Behavior , OperationBehavior ] with { name = random-string ( 2 , 4 ) }
 	}
 	b95  {
-		p = deep clone one Transition where { name = "ENR2ER" or name = "ENR2NENR" or name = "ER2ENR" or name = "ER2ER" or name = "ER2NER" or name = "IT" or name = "Idle2maintenance" or name = "Idle2off" or name = "Idle2serviceCustomer" or name = "Initial_S1" or name = "NENR2ER" or name = "NER2NENR" or name = "NER2NER" or name = "T1" or name = "T1.1" or name = "T1.1.1" or name = "T1.1.2" or name = "T1.2" or name = "T1.2.1" or name = "T1.2.2" or name = "T1.3" or name = "T1.4" or name = "T1.5" or name = "T2" or name = "T2.1" or name = "T2.1.1" or name = "T2.1.2" or name = "T2.2" or name = "T2.2.1" or name = "T2.2.2" or name = "T2.3" or name = "T2.4" or name = "T2.5" or name = "T3" or name = "T3.1" or name = "T3.1.1" or name = "T3.1.2" or name = "T3.2" or name = "T4" or name = "T5" or name = "T6" or name = "T7" or name = "active2closed" or name = "active2suspended" or name = "authentication2final2" or name = "blocked2runnable" or name = "blocked2terminated" or name = "checkBalance2final4" or name = "checkBalance2final5" or name = "checkBalance2makeWithdrawal" or name = "checkBalance2transferMoney" or name = "checkBalance_final" or name = "checkBalance_withdraw" or name = "closed2final" or name = "getAmount2checkBalance" or name = "getAmount_checkBalance" or name = "getPin2validatePin" or name = "getPin_validatePin" or name = "initial1_2_new" or name = "initial2NENR" or name = "initial2_2_ready" or name = "initial2authentication" or name = "initial2new" or name = "initial2off" or name = "initial3_2_getPin" or name = "initial4_2_getAmount" or name = "initial5_2_validateCard" or name = "initial_wait" or name = "maintenance2outOfService" or name = "maintenance2selfTest" or name = "makeWithdrawal2final4" or name = "new2active" or name = "new2closed" or name = "new2runnable" or name = "new2suspended" or name = "off2selfTest" or name = "outOfService2Off" or name = "outOfService2maintenance" or name = "ready2running" or name = "runnable2blocked" or name = "runnable2terminated" or name = "runnable2timedWaiting" or name = "runnable2waiting" or name = "running2final2" or name = "running2ready" or
-		name = "selectingTransaction2transfer" or
-		name = "selectingTransaction2withdraw" or name = "selfTest2idle" or name = "selfTest2outOfService" or name = "serviceCustomer2idle" or name = "serviceCustomer2outOfService" or name = "suspended2active" or name = "suspended2closed" or name = "terminated2final" or name = "timedWaiting2blocked" or name = "timedWaiting2runnable" or name = "timedWaiting2terminated" or name = "transfer2final2" or name = "transferMoney2final5" or name = "validateCard2getAmount" or name = "validatePin2SelectingTransaction" or name = "validatePin2final3" or name = "validatePin_final" or name = "validatePin_getAmount" or name = "wait_getPin" or name = "waiting2blocked" or name = "waiting2terminated" or name = "withdraw2final2" or name = "withdraw_final" } with { name = "ENR2ER" , name = "ENR2NENR" , name = "ER2ENR" , name = "ER2ER" , name = "ER2NER" , name = "IT" , name = "Idle2maintenance" , name = "Idle2off" , name = "Idle2serviceCustomer" , name = "Initial_S1" , name = "NENR2ER" , name = "NER2NENR" , name = "NER2NER" , name = "T1" , name = "T1.1" , name = "T1.1.1" , name = "T1.1.2" , name = "T1.2" , name = "T1.2.1" , name = "T1.2.2" , name = "T1.3" , name = "T1.4" , name = "T1.5" , name = "T2" , name = "T2.1" , name = "T2.1.1" , name = "T2.1.2" , name = "T2.2" , name = "T2.2.1" , name = "T2.2.2" , name = "T2.3" , name = "T2.4" , name = "T2.5" , name = "T3" , name = "T3.1" , name = "T3.1.1" , name = "T3.1.2" , name = "T3.2" , name = "T4" , name = "T5" , name = "T6" , name = "T7" , name = "active2closed" , name = "active2suspended" , name = "authentication2final2" , name = "blocked2runnable" , name = "blocked2terminated" , name = "checkBalance2final4" , name = "checkBalance2final5" , name = "checkBalance2makeWithdrawal" , name = "checkBalance2transferMoney" , name = "checkBalance_final" , name = "checkBalance_withdraw" , name = "closed2final" , name = "getAmount2checkBalance" , name = "getAmount_checkBalance" , name = "getPin2validatePin" , name = "getPin_validatePin" , name = "initial1_2_new" , name = "initial2NENR" , name = "initial2_2_ready" , name = "initial2authentication" , name = "initial2new" , name = "initial2off" , name = "initial3_2_getPin" , name = "initial4_2_getAmount" , name = "initial5_2_validateCard" , name = "initial_wait" , name = "maintenance2outOfService" , name = "maintenance2selfTest" , name = "makeWithdrawal2final4" , name = "new2active" , name = "new2closed" , name = "new2runnable" , name = "new2suspended" , name = "off2selfTest" , name = "outOfService2Off" , name = "outOfService2maintenance" , name = "ready2running" , name = "runnable2blocked" , name = "runnable2terminated" , name = "runnable2timedWaiting" , name = "runnable2waiting" , name = "running2final2" , name = "running2ready" ,
-		name = "selectingTransaction2transfer" ,
-		name = "selectingTransaction2withdraw" , name = "selfTest2idle" , name = "selfTest2outOfService" , name = "serviceCustomer2idle" , name = "serviceCustomer2outOfService" , name = "suspended2active" , name = "suspended2closed" , name = "terminated2final" , name = "timedWaiting2blocked" , name = "timedWaiting2runnable" , name = "timedWaiting2terminated" , name = "transfer2final2" , name = "transferMoney2final5" , name = "validateCard2getAmount" , name = "validatePin2SelectingTransaction" , name = "validatePin2final3" , name = "validatePin_final" , name = "validatePin_getAmount" , name = "wait_getPin" , name = "waiting2blocked" , name = "waiting2terminated" , name = "withdraw2final2" , name = "withdraw_final" }
+		create Trigger with { name = random-string ( 2 , 4 ) , eventType = one EventType }
 	}
 	b96  {
-		p = modify one Transition where { name = "ENR2ER" or name = "ENR2NENR" or name = "ER2ENR" or name = "ER2ER" or name = "ER2NER" or name = "IT" or name = "Idle2maintenance" or name = "Idle2off" or name = "Idle2serviceCustomer" or name = "Initial_S1" or name = "NENR2ER" or name = "NER2NENR" or name = "NER2NER" or name = "T1" or name = "T1.1" or name = "T1.1.1" or name = "T1.1.2" or name = "T1.2" or name = "T1.2.1" or name = "T1.2.2" or name = "T1.3" or name = "T1.4" or name = "T1.5" or name = "T2" or name = "T2.1" or name = "T2.1.1" or name = "T2.1.2" or name = "T2.2" or name = "T2.2.1" or name = "T2.2.2" or name = "T2.3" or name = "T2.4" or name = "T2.5" or name = "T3" or name = "T3.1" or name = "T3.1.1" or name = "T3.1.2" or name = "T3.2" or name = "T4" or name = "T5" or name = "T6" or name = "T7" or name = "active2closed" or name = "active2suspended" or name = "authentication2final2" or name = "blocked2runnable" or name = "blocked2terminated" or name = "checkBalance2final4" or name = "checkBalance2final5" or name = "checkBalance2makeWithdrawal" or name = "checkBalance2transferMoney" or name = "checkBalance_final" or name = "checkBalance_withdraw" or name = "closed2final" or name = "getAmount2checkBalance" or name = "getAmount_checkBalance" or name = "getPin2validatePin" or name = "getPin_validatePin" or name = "initial1_2_new" or name = "initial2NENR" or name = "initial2_2_ready" or name = "initial2authentication" or name = "initial2new" or name = "initial2off" or name = "initial3_2_getPin" or name = "initial4_2_getAmount" or name = "initial5_2_validateCard" or name = "initial_wait" or name = "maintenance2outOfService" or name = "maintenance2selfTest" or name = "makeWithdrawal2final4" or name = "new2active" or name = "new2closed" or name = "new2runnable" or name = "new2suspended" or name = "off2selfTest" or name = "outOfService2Off" or name = "outOfService2maintenance" or name = "ready2running" or name = "runnable2blocked" or name = "runnable2terminated" or name = "runnable2timedWaiting" or name = "runnable2waiting" or name = "running2final2" or name = "running2ready" or
-		name = "selectingTransaction2transfer" or
-		name = "selectingTransaction2withdraw" or name = "selfTest2idle" or name = "selfTest2outOfService" or name = "serviceCustomer2idle" or name = "serviceCustomer2outOfService" or name = "suspended2active" or name = "suspended2closed" or name = "terminated2final" or name = "timedWaiting2blocked" or name = "timedWaiting2runnable" or name = "timedWaiting2terminated" or name = "transfer2final2" or name = "transferMoney2final5" or name = "validateCard2getAmount" or name = "validatePin2SelectingTransaction" or name = "validatePin2final3" or name = "validatePin_final" or name = "validatePin_getAmount" or name = "wait_getPin" or name = "waiting2blocked" or name = "waiting2terminated" or name = "withdraw2final2" or name = "withdraw_final" } with { name = "ENR2ER" , name = "ENR2NENR" , name = "ER2ENR" , name = "ER2ER" , name = "ER2NER" , name = "IT" , name = "Idle2maintenance" , name = "Idle2off" , name = "Idle2serviceCustomer" , name = "Initial_S1" , name = "NENR2ER" , name = "NER2NENR" , name = "NER2NER" , name = "T1" , name = "T1.1" , name = "T1.1.1" , name = "T1.1.2" , name = "T1.2" , name = "T1.2.1" , name = "T1.2.2" , name = "T1.3" , name = "T1.4" , name = "T1.5" , name = "T2" , name = "T2.1" , name = "T2.1.1" , name = "T2.1.2" , name = "T2.2" , name = "T2.2.1" , name = "T2.2.2" , name = "T2.3" , name = "T2.4" , name = "T2.5" , name = "T3" , name = "T3.1" , name = "T3.1.1" , name = "T3.1.2" , name = "T3.2" , name = "T4" , name = "T5" , name = "T6" , name = "T7" , name = "active2closed" , name = "active2suspended" , name = "authentication2final2" , name = "blocked2runnable" , name = "blocked2terminated" , name = "checkBalance2final4" , name = "checkBalance2final5" , name = "checkBalance2makeWithdrawal" , name = "checkBalance2transferMoney" , name = "checkBalance_final" , name = "checkBalance_withdraw" , name = "closed2final" , name = "getAmount2checkBalance" , name = "getAmount_checkBalance" , name = "getPin2validatePin" , name = "getPin_validatePin" , name = "initial1_2_new" , name = "initial2NENR" , name = "initial2_2_ready" , name = "initial2authentication" , name = "initial2new" , name = "initial2off" , name = "initial3_2_getPin" , name = "initial4_2_getAmount" , name = "initial5_2_validateCard" , name = "initial_wait" , name = "maintenance2outOfService" , name = "maintenance2selfTest" , name = "makeWithdrawal2final4" , name = "new2active" , name = "new2closed" , name = "new2runnable" , name = "new2suspended" , name = "off2selfTest" , name = "outOfService2Off" , name = "outOfService2maintenance" , name = "ready2running" , name = "runnable2blocked" , name = "runnable2terminated" , name = "runnable2timedWaiting" , name = "runnable2waiting" , name = "running2final2" , name = "running2ready" ,
-		name = "selectingTransaction2transfer" ,
-		name = "selectingTransaction2withdraw" , name = "selfTest2idle" , name = "selfTest2outOfService" , name = "serviceCustomer2idle" , name = "serviceCustomer2outOfService" , name = "suspended2active" , name = "suspended2closed" , name = "terminated2final" , name = "timedWaiting2blocked" , name = "timedWaiting2runnable" , name = "timedWaiting2terminated" , name = "transfer2final2" , name = "transferMoney2final5" , name = "validateCard2getAmount" , name = "validatePin2SelectingTransaction" , name = "validatePin2final3" , name = "validatePin_final" , name = "validatePin_getAmount" , name = "wait_getPin" , name = "waiting2blocked" , name = "waiting2terminated" , name = "withdraw2final2" , name = "withdraw_final" , ^source = one Vertex , ^target = one Vertex , triggers = one Trigger , ^container = one Region , effect = one Behavior , constraint = one Constraint }
+		p = deep clone one Trigger where { eventType = one EventType } with { name = random-string ( 2 , 4 ) , eventType = one EventType }
 	}
 	b97  {
-		remove one Transition where { name = "ENR2ER" or name = "ENR2NENR" or name = "ER2ENR" or name = "ER2ER" or name = "ER2NER" or name = "IT" or name = "Idle2maintenance" or name = "Idle2off" or name = "Idle2serviceCustomer" or name = "Initial_S1" or name = "NENR2ER" or name = "NER2NENR" or name = "NER2NER" or name = "T1" or name = "T1.1" or name = "T1.1.1" or name = "T1.1.2" or name = "T1.2" or name = "T1.2.1" or name = "T1.2.2" or name = "T1.3" or name = "T1.4" or name = "T1.5" or name = "T2" or name = "T2.1" or name = "T2.1.1" or name = "T2.1.2" or name = "T2.2" or name = "T2.2.1" or name = "T2.2.2" or name = "T2.3" or name = "T2.4" or name = "T2.5" or name = "T3" or name = "T3.1" or name = "T3.1.1" or name = "T3.1.2" or name = "T3.2" or name = "T4" or name = "T5" or name = "T6" or name = "T7" or name = "active2closed" or name = "active2suspended" or name = "authentication2final2" or name = "blocked2runnable" or name = "blocked2terminated" or name = "checkBalance2final4" or name = "checkBalance2final5" or name = "checkBalance2makeWithdrawal" or name = "checkBalance2transferMoney" or name = "checkBalance_final" or name = "checkBalance_withdraw" or name = "closed2final" or name = "getAmount2checkBalance" or name = "getAmount_checkBalance" or name = "getPin2validatePin" or name = "getPin_validatePin" or name = "initial1_2_new" or name = "initial2NENR" or name = "initial2_2_ready" or name = "initial2authentication" or name = "initial2new" or name = "initial2off" or name = "initial3_2_getPin" or name = "initial4_2_getAmount" or name = "initial5_2_validateCard" or name = "initial_wait" or name = "maintenance2outOfService" or name = "maintenance2selfTest" or name = "makeWithdrawal2final4" or name = "new2active" or name = "new2closed" or name = "new2runnable" or name = "new2suspended" or name = "off2selfTest" or name = "outOfService2Off" or name = "outOfService2maintenance" or name = "ready2running" or name = "runnable2blocked" or name = "runnable2terminated" or name = "runnable2timedWaiting" or name = "runnable2waiting" or name = "running2final2" or name = "running2ready" or
-		name = "selectingTransaction2transfer" or
-		name = "selectingTransaction2withdraw" or name = "selfTest2idle" or name = "selfTest2outOfService" or name = "serviceCustomer2idle" or name = "serviceCustomer2outOfService" or name = "suspended2active" or name = "suspended2closed" or name = "terminated2final" or name = "timedWaiting2blocked" or name = "timedWaiting2runnable" or name = "timedWaiting2terminated" or name = "transfer2final2" or name = "transferMoney2final5" or name = "validateCard2getAmount" or name = "validatePin2SelectingTransaction" or name = "validatePin2final3" or name = "validatePin_final" or name = "validatePin_getAmount" or name = "wait_getPin" or name = "waiting2blocked" or name = "waiting2terminated" or name = "withdraw2final2" or name = "withdraw_final" }
+		p = modify one Trigger where { eventType = one EventType } with { name = random-string ( 2 , 4 ) , eventType = one EventType }
 	}
 	b98  {
-		p = select one Transition where { name = "ENR2ER" or name = "ENR2NENR" or name = "ER2ENR" or name = "ER2ER" or name = "ER2NER" or name = "IT" or name = "Idle2maintenance" or name = "Idle2off" or name = "Idle2serviceCustomer" or name = "Initial_S1" or name = "NENR2ER" or name = "NER2NENR" or name = "NER2NER" or name = "T1" or name = "T1.1" or name = "T1.1.1" or name = "T1.1.2" or name = "T1.2" or name = "T1.2.1" or name = "T1.2.2" or name = "T1.3" or name = "T1.4" or name = "T1.5" or name = "T2" or name = "T2.1" or name = "T2.1.1" or name = "T2.1.2" or name = "T2.2" or name = "T2.2.1" or name = "T2.2.2" or name = "T2.3" or name = "T2.4" or name = "T2.5" or name = "T3" or name = "T3.1" or name = "T3.1.1" or name = "T3.1.2" or name = "T3.2" or name = "T4" or name = "T5" or name = "T6" or name = "T7" or name = "active2closed" or name = "active2suspended" or name = "authentication2final2" or name = "blocked2runnable" or name = "blocked2terminated" or name = "checkBalance2final4" or name = "checkBalance2final5" or name = "checkBalance2makeWithdrawal" or name = "checkBalance2transferMoney" or name = "checkBalance_final" or name = "checkBalance_withdraw" or name = "closed2final" or name = "getAmount2checkBalance" or name = "getAmount_checkBalance" or name = "getPin2validatePin" or name = "getPin_validatePin" or name = "initial1_2_new" or name = "initial2NENR" or name = "initial2_2_ready" or name = "initial2authentication" or name = "initial2new" or name = "initial2off" or name = "initial3_2_getPin" or name = "initial4_2_getAmount" or name = "initial5_2_validateCard" or name = "initial_wait" or name = "maintenance2outOfService" or name = "maintenance2selfTest" or name = "makeWithdrawal2final4" or name = "new2active" or name = "new2closed" or name = "new2runnable" or name = "new2suspended" or name = "off2selfTest" or name = "outOfService2Off" or name = "outOfService2maintenance" or name = "ready2running" or name = "runnable2blocked" or name = "runnable2terminated" or name = "runnable2timedWaiting" or name = "runnable2waiting" or name = "running2final2" or name = "running2ready" or
-		name = "selectingTransaction2transfer" or
-		name = "selectingTransaction2withdraw" or name = "selfTest2idle" or name = "selfTest2outOfService" or name = "serviceCustomer2idle" or name = "serviceCustomer2outOfService" or name = "suspended2active" or name = "suspended2closed" or name = "terminated2final" or name = "timedWaiting2blocked" or name = "timedWaiting2runnable" or name = "timedWaiting2terminated" or name = "transfer2final2" or name = "transferMoney2final5" or name = "validateCard2getAmount" or name = "validatePin2SelectingTransaction" or name = "validatePin2final3" or name = "validatePin_final" or name = "validatePin_getAmount" or name = "wait_getPin" or name = "waiting2blocked" or name = "waiting2terminated" or name = "withdraw2final2" or name = "withdraw_final" }
+		remove one Trigger where { eventType = one EventType }
 	}
 	b99  {
-		p = retype one Transition where { name = "ENR2ER" or name = "ENR2NENR" or name = "ER2ENR" or name = "ER2ER" or name = "ER2NER" or name = "IT" or name = "Idle2maintenance" or name = "Idle2off" or name = "Idle2serviceCustomer" or name = "Initial_S1" or name = "NENR2ER" or name = "NER2NENR" or name = "NER2NER" or name = "T1" or name = "T1.1" or name = "T1.1.1" or name = "T1.1.2" or name = "T1.2" or name = "T1.2.1" or name = "T1.2.2" or name = "T1.3" or name = "T1.4" or name = "T1.5" or name = "T2" or name = "T2.1" or name = "T2.1.1" or name = "T2.1.2" or name = "T2.2" or name = "T2.2.1" or name = "T2.2.2" or name = "T2.3" or name = "T2.4" or name = "T2.5" or name = "T3" or name = "T3.1" or name = "T3.1.1" or name = "T3.1.2" or name = "T3.2" or name = "T4" or name = "T5" or name = "T6" or name = "T7" or name = "active2closed" or name = "active2suspended" or name = "authentication2final2" or name = "blocked2runnable" or name = "blocked2terminated" or name = "checkBalance2final4" or name = "checkBalance2final5" or name = "checkBalance2makeWithdrawal" or name = "checkBalance2transferMoney" or name = "checkBalance_final" or name = "checkBalance_withdraw" or name = "closed2final" or name = "getAmount2checkBalance" or name = "getAmount_checkBalance" or name = "getPin2validatePin" or name = "getPin_validatePin" or name = "initial1_2_new" or name = "initial2NENR" or name = "initial2_2_ready" or name = "initial2authentication" or name = "initial2new" or name = "initial2off" or name = "initial3_2_getPin" or name = "initial4_2_getAmount" or name = "initial5_2_validateCard" or name = "initial_wait" or name = "maintenance2outOfService" or name = "maintenance2selfTest" or name = "makeWithdrawal2final4" or name = "new2active" or name = "new2closed" or name = "new2runnable" or name = "new2suspended" or name = "off2selfTest" or name = "outOfService2Off" or name = "outOfService2maintenance" or name = "ready2running" or name = "runnable2blocked" or name = "runnable2terminated" or name = "runnable2timedWaiting" or name = "runnable2waiting" or name = "running2final2" or name = "running2ready" or
-		name = "selectingTransaction2transfer" or
-		name = "selectingTransaction2withdraw" or name = "selfTest2idle" or name = "selfTest2outOfService" or name = "serviceCustomer2idle" or name = "serviceCustomer2outOfService" or name = "suspended2active" or name = "suspended2closed" or name = "terminated2final" or name = "timedWaiting2blocked" or name = "timedWaiting2runnable" or name = "timedWaiting2terminated" or name = "transfer2final2" or name = "transferMoney2final5" or name = "validateCard2getAmount" or name = "validatePin2SelectingTransaction" or name = "validatePin2final3" or name = "validatePin_final" or name = "validatePin_getAmount" or name = "wait_getPin" or name = "waiting2blocked" or name = "waiting2terminated" or name = "withdraw2final2" or name = "withdraw_final" } as [ Signal , Operation , BooleanAttribute , IntegerAttribute , StringAttribute , StateMachine , Region , Pseudostate , State , FinalState , Trigger , Behavior , OperationBehavior ] with { name = "ENR2ER" , name = "ENR2NENR" , name = "ER2ENR" , name = "ER2ER" , name = "ER2NER" , name = "IT" , name = "Idle2maintenance" , name = "Idle2off" , name = "Idle2serviceCustomer" , name = "Initial_S1" , name = "NENR2ER" , name = "NER2NENR" , name = "NER2NER" , name = "T1" , name = "T1.1" , name = "T1.1.1" , name = "T1.1.2" , name = "T1.2" , name = "T1.2.1" , name = "T1.2.2" , name = "T1.3" , name = "T1.4" , name = "T1.5" , name = "T2" , name = "T2.1" , name = "T2.1.1" , name = "T2.1.2" , name = "T2.2" , name = "T2.2.1" , name = "T2.2.2" , name = "T2.3" , name = "T2.4" , name = "T2.5" , name = "T3" , name = "T3.1" , name = "T3.1.1" , name = "T3.1.2" , name = "T3.2" , name = "T4" , name = "T5" , name = "T6" , name = "T7" , name = "active2closed" , name = "active2suspended" , name = "authentication2final2" , name = "blocked2runnable" , name = "blocked2terminated" , name = "checkBalance2final4" , name = "checkBalance2final5" , name = "checkBalance2makeWithdrawal" , name = "checkBalance2transferMoney" , name = "checkBalance_final" , name = "checkBalance_withdraw" , name = "closed2final" , name = "getAmount2checkBalance" , name = "getAmount_checkBalance" , name = "getPin2validatePin" , name = "getPin_validatePin" , name = "initial1_2_new" , name = "initial2NENR" , name = "initial2_2_ready" , name = "initial2authentication" , name = "initial2new" , name = "initial2off" , name = "initial3_2_getPin" , name = "initial4_2_getAmount" , name = "initial5_2_validateCard" , name = "initial_wait" , name = "maintenance2outOfService" , name = "maintenance2selfTest" , name = "makeWithdrawal2final4" , name = "new2active" , name = "new2closed" , name = "new2runnable" , name = "new2suspended" , name = "off2selfTest" , name = "outOfService2Off" , name = "outOfService2maintenance" , name = "ready2running" , name = "runnable2blocked" , name = "runnable2terminated" , name = "runnable2timedWaiting" , name = "runnable2waiting" , name = "running2final2" , name = "running2ready" ,
-		name = "selectingTransaction2transfer" ,
-		name = "selectingTransaction2withdraw" , name = "selfTest2idle" , name = "selfTest2outOfService" , name = "serviceCustomer2idle" , name = "serviceCustomer2outOfService" , name = "suspended2active" , name = "suspended2closed" , name = "terminated2final" , name = "timedWaiting2blocked" , name = "timedWaiting2runnable" , name = "timedWaiting2terminated" , name = "transfer2final2" , name = "transferMoney2final5" , name = "validateCard2getAmount" , name = "validatePin2SelectingTransaction" , name = "validatePin2final3" , name = "validatePin_final" , name = "validatePin_getAmount" , name = "wait_getPin" , name = "waiting2blocked" , name = "waiting2terminated" , name = "withdraw2final2" , name = "withdraw_final" }
+		p = select one Trigger where { eventType = one EventType }
 	}
 	b100  {
-		create Trigger with { name = "AnoterSignalTrigger" , name = "AnotherSignalDeferrableTrigger" , name = "AnotherSignalTrigger" , name = "CallEventOp2trigger" , name = "CallEventOpTrigger" , name = "Continue" , name = "ContinueSignalEventTrigger" , name = "ContinueTrigger" , name = "DataSignalEventTrigger" , name = "DeferredContinueTrigger" , name = "IntegerDataSignalEventTrigger" , name = "OpCallEventTrigger" , name = "Pending" , name = "PendingTrigger" , name = "Start" , name = "StartEvent" , name = "StartSignalEventTrigger" , name = "StartSignalEventtrigger" , name = "StartTrigger" , name = "T2" , name = "amountEntered" , name = "amountEnteredTrigger" , name = "businessMethodTrigger" , name = "cancelTrigger" , name = "cardInserted" , name = "cardInsertedTrigger" , name = "continueTrigger" , name = "crashTrigger" , name = "exceptionTrigger" , name = "failureTrigger" , name = "finishTrigger" , name = "handleTrigger" , name = "home.
-		createTrigger" , name = "home.
-		removeTrigger" , name = "isAccountDormantTrigger" , name = "isCancelRequestedTrigger" , name = "isLockExpiredTrigger" , name = "isPasswordAlertTrigger" , name = "isPolicyVoilatedTrigger" , name = "isResumeRequestedTrigger" , name = "isSuspendRequestedTrigger" , name = "isUniqueIdTrigger" , name = "isVerifiedTrigger" , name = "lockSupport.parkNanosTrigger" , name = "lockSupport.parkTrigger" , name = "lockSupport.parkUntilTrigger" , name = "monitorLockTrigger" , name = "o.notifyAllTrigger" , name = "o.notifyTrigger" , name = "o.wait()Trigger" , name = "o.waitTrigger" , name = "object.
-		removeTrigger" , name = "op" , name = "pinEntered" , name = "pinEnteredTrigger" , name = "releaseTrigger" , name = "serviceTrigger" , name = "sleepTimeElapsedTrigger" , name = "sucessTrigger" , name = "t.join()Trigger" , name = "t.joinTrigger" , name = "t.startTrigger" , name = "thread.yieldTrigger" , name = "threadSelectedTrigger" , name = "threadSleep()Trigger" , name = "threadSuspendedTrigger" , name = "threadTerminatedTrigger" , name = "timeoutTrigger" , name = "transferTrigger" , name = "turnOffTrigger" , name = "turnOnTrigger" , name = "wait4lock2enterTrigger" , name = "wait4lock2reenterTrigger" , name = "withdrawTrigger" }
+		p = retype one Trigger as [ Signal , Operation , BooleanAttribute , IntegerAttribute , StringAttribute , StateMachine , Region , Pseudostate , State , FinalState , Transition , Behavior , OperationBehavior ] with { name = random-string ( 2 , 4 ) }
 	}
 	b101  {
-		p = deep clone one Trigger where { name = "AnoterSignalTrigger" or name = "AnotherSignalDeferrableTrigger" or name = "AnotherSignalTrigger" or name = "CallEventOp2trigger" or name = "CallEventOpTrigger" or name = "Continue" or name = "ContinueSignalEventTrigger" or name = "ContinueTrigger" or name = "DataSignalEventTrigger" or name = "DeferredContinueTrigger" or name = "IntegerDataSignalEventTrigger" or name = "OpCallEventTrigger" or name = "Pending" or name = "PendingTrigger" or name = "Start" or name = "StartEvent" or name = "StartSignalEventTrigger" or name = "StartSignalEventtrigger" or name = "StartTrigger" or name = "T2" or name = "amountEntered" or name = "amountEnteredTrigger" or name = "businessMethodTrigger" or name = "cancelTrigger" or name = "cardInserted" or name = "cardInsertedTrigger" or name = "continueTrigger" or name = "crashTrigger" or name = "exceptionTrigger" or name = "failureTrigger" or name = "finishTrigger" or name = "handleTrigger" or name = "home.
-		createTrigger" or name = "home.
-		removeTrigger" or name = "isAccountDormantTrigger" or name = "isCancelRequestedTrigger" or name = "isLockExpiredTrigger" or name = "isPasswordAlertTrigger" or name = "isPolicyVoilatedTrigger" or name = "isResumeRequestedTrigger" or name = "isSuspendRequestedTrigger" or name = "isUniqueIdTrigger" or name = "isVerifiedTrigger" or name = "lockSupport.parkNanosTrigger" or name = "lockSupport.parkTrigger" or name = "lockSupport.parkUntilTrigger" or name = "monitorLockTrigger" or name = "o.notifyAllTrigger" or name = "o.notifyTrigger" or name = "o.wait()Trigger" or name = "o.waitTrigger" or name = "object.
-		removeTrigger" or name = "op" or name = "pinEntered" or name = "pinEnteredTrigger" or name = "releaseTrigger" or name = "serviceTrigger" or name = "sleepTimeElapsedTrigger" or name = "sucessTrigger" or name = "t.join()Trigger" or name = "t.joinTrigger" or name = "t.startTrigger" or name = "thread.yieldTrigger" or name = "threadSelectedTrigger" or name = "threadSleep()Trigger" or name = "threadSuspendedTrigger" or name = "threadTerminatedTrigger" or name = "timeoutTrigger" or name = "transferTrigger" or name = "turnOffTrigger" or name = "turnOnTrigger" or name = "wait4lock2enterTrigger" or name = "wait4lock2reenterTrigger" or name = "withdrawTrigger" } with { name = "AnoterSignalTrigger" , name = "AnotherSignalDeferrableTrigger" , name = "AnotherSignalTrigger" , name = "CallEventOp2trigger" , name = "CallEventOpTrigger" , name = "Continue" , name = "ContinueSignalEventTrigger" , name = "ContinueTrigger" , name = "DataSignalEventTrigger" , name = "DeferredContinueTrigger" , name = "IntegerDataSignalEventTrigger" , name = "OpCallEventTrigger" , name = "Pending" , name = "PendingTrigger" , name = "Start" , name = "StartEvent" , name = "StartSignalEventTrigger" , name = "StartSignalEventtrigger" , name = "StartTrigger" , name = "T2" , name = "amountEntered" , name = "amountEnteredTrigger" , name = "businessMethodTrigger" , name = "cancelTrigger" , name = "cardInserted" , name = "cardInsertedTrigger" , name = "continueTrigger" , name = "crashTrigger" , name = "exceptionTrigger" , name = "failureTrigger" , name = "finishTrigger" , name = "handleTrigger" , name = "home.
-		createTrigger" , name = "home.
-		removeTrigger" , name = "isAccountDormantTrigger" , name = "isCancelRequestedTrigger" , name = "isLockExpiredTrigger" , name = "isPasswordAlertTrigger" , name = "isPolicyVoilatedTrigger" , name = "isResumeRequestedTrigger" , name = "isSuspendRequestedTrigger" , name = "isUniqueIdTrigger" , name = "isVerifiedTrigger" , name = "lockSupport.parkNanosTrigger" , name = "lockSupport.parkTrigger" , name = "lockSupport.parkUntilTrigger" , name = "monitorLockTrigger" , name = "o.notifyAllTrigger" , name = "o.notifyTrigger" , name = "o.wait()Trigger" , name = "o.waitTrigger" , name = "object.
-		removeTrigger" , name = "op" , name = "pinEntered" , name = "pinEnteredTrigger" , name = "releaseTrigger" , name = "serviceTrigger" , name = "sleepTimeElapsedTrigger" , name = "sucessTrigger" , name = "t.join()Trigger" , name = "t.joinTrigger" , name = "t.startTrigger" , name = "thread.yieldTrigger" , name = "threadSelectedTrigger" , name = "threadSleep()Trigger" , name = "threadSuspendedTrigger" , name = "threadTerminatedTrigger" , name = "timeoutTrigger" , name = "transferTrigger" , name = "turnOffTrigger" , name = "turnOnTrigger" , name = "wait4lock2enterTrigger" , name = "wait4lock2reenterTrigger" , name = "withdrawTrigger" }
+		create Behavior with { name = random-string ( 2 , 4 ) , emittedSignals = one SignalEventOccurrence }
 	}
 	b102  {
-		p = modify one Trigger where { name = "AnoterSignalTrigger" or name = "AnotherSignalDeferrableTrigger" or name = "AnotherSignalTrigger" or name = "CallEventOp2trigger" or name = "CallEventOpTrigger" or name = "Continue" or name = "ContinueSignalEventTrigger" or name = "ContinueTrigger" or name = "DataSignalEventTrigger" or name = "DeferredContinueTrigger" or name = "IntegerDataSignalEventTrigger" or name = "OpCallEventTrigger" or name = "Pending" or name = "PendingTrigger" or name = "Start" or name = "StartEvent" or name = "StartSignalEventTrigger" or name = "StartSignalEventtrigger" or name = "StartTrigger" or name = "T2" or name = "amountEntered" or name = "amountEnteredTrigger" or name = "businessMethodTrigger" or name = "cancelTrigger" or name = "cardInserted" or name = "cardInsertedTrigger" or name = "continueTrigger" or name = "crashTrigger" or name = "exceptionTrigger" or name = "failureTrigger" or name = "finishTrigger" or name = "handleTrigger" or name = "home.
-		createTrigger" or name = "home.
-		removeTrigger" or name = "isAccountDormantTrigger" or name = "isCancelRequestedTrigger" or name = "isLockExpiredTrigger" or name = "isPasswordAlertTrigger" or name = "isPolicyVoilatedTrigger" or name = "isResumeRequestedTrigger" or name = "isSuspendRequestedTrigger" or name = "isUniqueIdTrigger" or name = "isVerifiedTrigger" or name = "lockSupport.parkNanosTrigger" or name = "lockSupport.parkTrigger" or name = "lockSupport.parkUntilTrigger" or name = "monitorLockTrigger" or name = "o.notifyAllTrigger" or name = "o.notifyTrigger" or name = "o.wait()Trigger" or name = "o.waitTrigger" or name = "object.
-		removeTrigger" or name = "op" or name = "pinEntered" or name = "pinEnteredTrigger" or name = "releaseTrigger" or name = "serviceTrigger" or name = "sleepTimeElapsedTrigger" or name = "sucessTrigger" or name = "t.join()Trigger" or name = "t.joinTrigger" or name = "t.startTrigger" or name = "thread.yieldTrigger" or name = "threadSelectedTrigger" or name = "threadSleep()Trigger" or name = "threadSuspendedTrigger" or name = "threadTerminatedTrigger" or name = "timeoutTrigger" or name = "transferTrigger" or name = "turnOffTrigger" or name = "turnOnTrigger" or name = "wait4lock2enterTrigger" or name = "wait4lock2reenterTrigger" or name = "withdrawTrigger" } with { name = "AnoterSignalTrigger" , name = "AnotherSignalDeferrableTrigger" , name = "AnotherSignalTrigger" , name = "CallEventOp2trigger" , name = "CallEventOpTrigger" , name = "Continue" , name = "ContinueSignalEventTrigger" , name = "ContinueTrigger" , name = "DataSignalEventTrigger" , name = "DeferredContinueTrigger" , name = "IntegerDataSignalEventTrigger" , name = "OpCallEventTrigger" , name = "Pending" , name = "PendingTrigger" , name = "Start" , name = "StartEvent" , name = "StartSignalEventTrigger" , name = "StartSignalEventtrigger" , name = "StartTrigger" , name = "T2" , name = "amountEntered" , name = "amountEnteredTrigger" , name = "businessMethodTrigger" , name = "cancelTrigger" , name = "cardInserted" , name = "cardInsertedTrigger" , name = "continueTrigger" , name = "crashTrigger" , name = "exceptionTrigger" , name = "failureTrigger" , name = "finishTrigger" , name = "handleTrigger" , name = "home.
-		createTrigger" , name = "home.
-		removeTrigger" , name = "isAccountDormantTrigger" , name = "isCancelRequestedTrigger" , name = "isLockExpiredTrigger" , name = "isPasswordAlertTrigger" , name = "isPolicyVoilatedTrigger" , name = "isResumeRequestedTrigger" , name = "isSuspendRequestedTrigger" , name = "isUniqueIdTrigger" , name = "isVerifiedTrigger" , name = "lockSupport.parkNanosTrigger" , name = "lockSupport.parkTrigger" , name = "lockSupport.parkUntilTrigger" , name = "monitorLockTrigger" , name = "o.notifyAllTrigger" , name = "o.notifyTrigger" , name = "o.wait()Trigger" , name = "o.waitTrigger" , name = "object.
-		removeTrigger" , name = "op" , name = "pinEntered" , name = "pinEnteredTrigger" , name = "releaseTrigger" , name = "serviceTrigger" , name = "sleepTimeElapsedTrigger" , name = "sucessTrigger" , name = "t.join()Trigger" , name = "t.joinTrigger" , name = "t.startTrigger" , name = "thread.yieldTrigger" , name = "threadSelectedTrigger" , name = "threadSleep()Trigger" , name = "threadSuspendedTrigger" , name = "threadTerminatedTrigger" , name = "timeoutTrigger" , name = "transferTrigger" , name = "turnOffTrigger" , name = "turnOnTrigger" , name = "wait4lock2enterTrigger" , name = "wait4lock2reenterTrigger" , name = "withdrawTrigger" , eventType = one EventType }
+		p = deep clone one Behavior where { emittedSignals = one SignalEventOccurrence } with { name = random-string ( 2 , 4 ) , emittedSignals = one SignalEventOccurrence }
 	}
 	b103  {
-		remove one Trigger where { name = "AnoterSignalTrigger" or name = "AnotherSignalDeferrableTrigger" or name = "AnotherSignalTrigger" or name = "CallEventOp2trigger" or name = "CallEventOpTrigger" or name = "Continue" or name = "ContinueSignalEventTrigger" or name = "ContinueTrigger" or name = "DataSignalEventTrigger" or name = "DeferredContinueTrigger" or name = "IntegerDataSignalEventTrigger" or name = "OpCallEventTrigger" or name = "Pending" or name = "PendingTrigger" or name = "Start" or name = "StartEvent" or name = "StartSignalEventTrigger" or name = "StartSignalEventtrigger" or name = "StartTrigger" or name = "T2" or name = "amountEntered" or name = "amountEnteredTrigger" or name = "businessMethodTrigger" or name = "cancelTrigger" or name = "cardInserted" or name = "cardInsertedTrigger" or name = "continueTrigger" or name = "crashTrigger" or name = "exceptionTrigger" or name = "failureTrigger" or name = "finishTrigger" or name = "handleTrigger" or name = "home.
-		createTrigger" or name = "home.
-		removeTrigger" or name = "isAccountDormantTrigger" or name = "isCancelRequestedTrigger" or name = "isLockExpiredTrigger" or name = "isPasswordAlertTrigger" or name = "isPolicyVoilatedTrigger" or name = "isResumeRequestedTrigger" or name = "isSuspendRequestedTrigger" or name = "isUniqueIdTrigger" or name = "isVerifiedTrigger" or name = "lockSupport.parkNanosTrigger" or name = "lockSupport.parkTrigger" or name = "lockSupport.parkUntilTrigger" or name = "monitorLockTrigger" or name = "o.notifyAllTrigger" or name = "o.notifyTrigger" or name = "o.wait()Trigger" or name = "o.waitTrigger" or name = "object.
-		removeTrigger" or name = "op" or name = "pinEntered" or name = "pinEnteredTrigger" or name = "releaseTrigger" or name = "serviceTrigger" or name = "sleepTimeElapsedTrigger" or name = "sucessTrigger" or name = "t.join()Trigger" or name = "t.joinTrigger" or name = "t.startTrigger" or name = "thread.yieldTrigger" or name = "threadSelectedTrigger" or name = "threadSleep()Trigger" or name = "threadSuspendedTrigger" or name = "threadTerminatedTrigger" or name = "timeoutTrigger" or name = "transferTrigger" or name = "turnOffTrigger" or name = "turnOnTrigger" or name = "wait4lock2enterTrigger" or name = "wait4lock2reenterTrigger" or name = "withdrawTrigger" }
+		p = modify one Behavior where { emittedSignals = one SignalEventOccurrence } with { name = random-string ( 2 , 4 ) , emittedSignals = one SignalEventOccurrence }
 	}
 	b104  {
-		p = select one Trigger where { name = "AnoterSignalTrigger" or name = "AnotherSignalDeferrableTrigger" or name = "AnotherSignalTrigger" or name = "CallEventOp2trigger" or name = "CallEventOpTrigger" or name = "Continue" or name = "ContinueSignalEventTrigger" or name = "ContinueTrigger" or name = "DataSignalEventTrigger" or name = "DeferredContinueTrigger" or name = "IntegerDataSignalEventTrigger" or name = "OpCallEventTrigger" or name = "Pending" or name = "PendingTrigger" or name = "Start" or name = "StartEvent" or name = "StartSignalEventTrigger" or name = "StartSignalEventtrigger" or name = "StartTrigger" or name = "T2" or name = "amountEntered" or name = "amountEnteredTrigger" or name = "businessMethodTrigger" or name = "cancelTrigger" or name = "cardInserted" or name = "cardInsertedTrigger" or name = "continueTrigger" or name = "crashTrigger" or name = "exceptionTrigger" or name = "failureTrigger" or name = "finishTrigger" or name = "handleTrigger" or name = "home.
-		createTrigger" or name = "home.
-		removeTrigger" or name = "isAccountDormantTrigger" or name = "isCancelRequestedTrigger" or name = "isLockExpiredTrigger" or name = "isPasswordAlertTrigger" or name = "isPolicyVoilatedTrigger" or name = "isResumeRequestedTrigger" or name = "isSuspendRequestedTrigger" or name = "isUniqueIdTrigger" or name = "isVerifiedTrigger" or name = "lockSupport.parkNanosTrigger" or name = "lockSupport.parkTrigger" or name = "lockSupport.parkUntilTrigger" or name = "monitorLockTrigger" or name = "o.notifyAllTrigger" or name = "o.notifyTrigger" or name = "o.wait()Trigger" or name = "o.waitTrigger" or name = "object.
-		removeTrigger" or name = "op" or name = "pinEntered" or name = "pinEnteredTrigger" or name = "releaseTrigger" or name = "serviceTrigger" or name = "sleepTimeElapsedTrigger" or name = "sucessTrigger" or name = "t.join()Trigger" or name = "t.joinTrigger" or name = "t.startTrigger" or name = "thread.yieldTrigger" or name = "threadSelectedTrigger" or name = "threadSleep()Trigger" or name = "threadSuspendedTrigger" or name = "threadTerminatedTrigger" or name = "timeoutTrigger" or name = "transferTrigger" or name = "turnOffTrigger" or name = "turnOnTrigger" or name = "wait4lock2enterTrigger" or name = "wait4lock2reenterTrigger" or name = "withdrawTrigger" }
+		remove one Behavior where { emittedSignals = one SignalEventOccurrence }
 	}
 	b105  {
-		p = retype one Trigger where { name = "AnoterSignalTrigger" or name = "AnotherSignalDeferrableTrigger" or name = "AnotherSignalTrigger" or name = "CallEventOp2trigger" or name = "CallEventOpTrigger" or name = "Continue" or name = "ContinueSignalEventTrigger" or name = "ContinueTrigger" or name = "DataSignalEventTrigger" or name = "DeferredContinueTrigger" or name = "IntegerDataSignalEventTrigger" or name = "OpCallEventTrigger" or name = "Pending" or name = "PendingTrigger" or name = "Start" or name = "StartEvent" or name = "StartSignalEventTrigger" or name = "StartSignalEventtrigger" or name = "StartTrigger" or name = "T2" or name = "amountEntered" or name = "amountEnteredTrigger" or name = "businessMethodTrigger" or name = "cancelTrigger" or name = "cardInserted" or name = "cardInsertedTrigger" or name = "continueTrigger" or name = "crashTrigger" or name = "exceptionTrigger" or name = "failureTrigger" or name = "finishTrigger" or name = "handleTrigger" or name = "home.
-		createTrigger" or name = "home.
-		removeTrigger" or name = "isAccountDormantTrigger" or name = "isCancelRequestedTrigger" or name = "isLockExpiredTrigger" or name = "isPasswordAlertTrigger" or name = "isPolicyVoilatedTrigger" or name = "isResumeRequestedTrigger" or name = "isSuspendRequestedTrigger" or name = "isUniqueIdTrigger" or name = "isVerifiedTrigger" or name = "lockSupport.parkNanosTrigger" or name = "lockSupport.parkTrigger" or name = "lockSupport.parkUntilTrigger" or name = "monitorLockTrigger" or name = "o.notifyAllTrigger" or name = "o.notifyTrigger" or name = "o.wait()Trigger" or name = "o.waitTrigger" or name = "object.
-		removeTrigger" or name = "op" or name = "pinEntered" or name = "pinEnteredTrigger" or name = "releaseTrigger" or name = "serviceTrigger" or name = "sleepTimeElapsedTrigger" or name = "sucessTrigger" or name = "t.join()Trigger" or name = "t.joinTrigger" or name = "t.startTrigger" or name = "thread.yieldTrigger" or name = "threadSelectedTrigger" or name = "threadSleep()Trigger" or name = "threadSuspendedTrigger" or name = "threadTerminatedTrigger" or name = "timeoutTrigger" or name = "transferTrigger" or name = "turnOffTrigger" or name = "turnOnTrigger" or name = "wait4lock2enterTrigger" or name = "wait4lock2reenterTrigger" or name = "withdrawTrigger" } as [ Signal , Operation , BooleanAttribute , IntegerAttribute , StringAttribute , StateMachine , Region , Pseudostate , State , FinalState , Transition , Behavior , OperationBehavior ] with { name = "AnoterSignalTrigger" , name = "AnotherSignalDeferrableTrigger" , name = "AnotherSignalTrigger" , name = "CallEventOp2trigger" , name = "CallEventOpTrigger" , name = "Continue" , name = "ContinueSignalEventTrigger" , name = "ContinueTrigger" , name = "DataSignalEventTrigger" , name = "DeferredContinueTrigger" , name = "IntegerDataSignalEventTrigger" , name = "OpCallEventTrigger" , name = "Pending" , name = "PendingTrigger" , name = "Start" , name = "StartEvent" , name = "StartSignalEventTrigger" , name = "StartSignalEventtrigger" , name = "StartTrigger" , name = "T2" , name = "amountEntered" , name = "amountEnteredTrigger" , name = "businessMethodTrigger" , name = "cancelTrigger" , name = "cardInserted" , name = "cardInsertedTrigger" , name = "continueTrigger" , name = "crashTrigger" , name = "exceptionTrigger" , name = "failureTrigger" , name = "finishTrigger" , name = "handleTrigger" , name = "home.
-		createTrigger" , name = "home.
-		removeTrigger" , name = "isAccountDormantTrigger" , name = "isCancelRequestedTrigger" , name = "isLockExpiredTrigger" , name = "isPasswordAlertTrigger" , name = "isPolicyVoilatedTrigger" , name = "isResumeRequestedTrigger" , name = "isSuspendRequestedTrigger" , name = "isUniqueIdTrigger" , name = "isVerifiedTrigger" , name = "lockSupport.parkNanosTrigger" , name = "lockSupport.parkTrigger" , name = "lockSupport.parkUntilTrigger" , name = "monitorLockTrigger" , name = "o.notifyAllTrigger" , name = "o.notifyTrigger" , name = "o.wait()Trigger" , name = "o.waitTrigger" , name = "object.
-		removeTrigger" , name = "op" , name = "pinEntered" , name = "pinEnteredTrigger" , name = "releaseTrigger" , name = "serviceTrigger" , name = "sleepTimeElapsedTrigger" , name = "sucessTrigger" , name = "t.join()Trigger" , name = "t.joinTrigger" , name = "t.startTrigger" , name = "thread.yieldTrigger" , name = "threadSelectedTrigger" , name = "threadSleep()Trigger" , name = "threadSuspendedTrigger" , name = "threadTerminatedTrigger" , name = "timeoutTrigger" , name = "transferTrigger" , name = "turnOffTrigger" , name = "turnOnTrigger" , name = "wait4lock2enterTrigger" , name = "wait4lock2reenterTrigger" , name = "withdrawTrigger" }
+		p = select one Behavior where { emittedSignals = one SignalEventOccurrence }
 	}
 	b106  {
-		create Behavior with { name = "ATMIsOff" , name = "IT(doEffectInternalTransition)" , name = "ObjectExists&NotReferenced" , name = "ObjectExists&Referenced" , name = "ObjectNotExisted&NotReferenced" , name = "ObjectNotExisted&Referenced" , name = "S1(doActivity)" , name = "S1(entry)" , name = "S1(exit)" , name = "S1(testEnd)" , name = "S1.1(doActivity)" , name = "S1.1(entry)" , name = "S1.1(exit)" , name = "S1.1.1(entry)" , name = "S1.1.1(exit)" , name = "S1.2(entry)" , name = "S1.2(exit)" , name = "S1.2.1(exit)" , name = "S1.3(entry)" , name = "S2(entry)" , name = "S2(exit)" , name = "S2.1(entry)" , name = "S2.1(exit)" , name = "S2.1.1(entry)" , name = "S3(entry)" , name = "S3.1(doActivity)" , name = "T1(doTraversal)" , name = "T1.1(doTraversal)" , name = "T1.1(effect)" , name = "T1.1.2(effect)" , name = "T1.1.2(testEnd)" , name = "T1.2(effect)" , name = "T1.2(testEnd)" , name = "T1.3(effect)" , name = "T1.4(effect)" , name = "T2(doTraversal)" , name = "T2(effect)" , name = "T2(testEnd)" , name = "T2.1(effect)" , name = "T2.1.2(effect)" , name = "T2.2(doTraversal)" , name = "T2.2(effect)" , name = "T2.2(testEnd)" , name = "T2.2.2(effect)" , name = "T2.3(effect)" , name = "T2.4(effect)" , name = "T3(doTraversal)" , name = "T3(effect)" , name = "T3(testEnd)" , name = "T3.1(effect)" , name = "T3.1.2(doTraversal)" , name = "T3.2(doTraversal)" , name = "T4(effect)" , name = "T4(testEnd)" , name = "T5(effect)" , name = "T5(testEnd)" , name = "T6(effect)" , name = "T6(testEnd)" , name = "T7(testEnd)" , name = "ThreadIsBlocked" , name = "ThreadIsReady" , name = "ThreadIsRunnable" , name = "ThreadIsRunning" , name = "ThreadIsTerminated" , name = "ThreadIsWaiting" , name = "ThreadIsWaitingByTime" , name = "Waiting(exit)" , name = "activate" , name = "cancel" , name = "cardNumberIsValid" , name = "
-		create" , name = "customerAuthentication" , name = "deliverCash" , name = "ejectCard" , name = "enterAmountMsg" , name = "enterPinMsg" , name = "insertCardMsg" , name = "lock" , name = "newThreadCreated" , name = "notEnoughMoneyMsg" , name = "outOfService" , name = "readCard" , name = "resume" ,
-		name = "selectTransaction" , name = "shutDown" , name = "startup" , name = "successfullyTransferred" , name = "suspend" , name = "underMaintenance" , name = "underTesting" , name = "unlock" , name = "updateCardBalance" , name = "wait(exit)" , name = "waitingForCard" , name = "wrongPinMsg" }
+		p = retype one Behavior as [ OperationBehavior , Signal , Operation , BooleanAttribute , IntegerAttribute , StringAttribute , StateMachine , Region , Pseudostate , State , FinalState , Transition , Trigger ] with { name = random-string ( 2 , 4 ) }
 	}
 	b107  {
-		p = deep clone one Behavior where { name = "ATMIsOff" or name = "IT(doEffectInternalTransition)" or name = "ObjectExists&NotReferenced" or name = "ObjectExists&Referenced" or name = "ObjectNotExisted&NotReferenced" or name = "ObjectNotExisted&Referenced" or name = "S1(doActivity)" or name = "S1(entry)" or name = "S1(exit)" or name = "S1(testEnd)" or name = "S1.1(doActivity)" or name = "S1.1(entry)" or name = "S1.1(exit)" or name = "S1.1.1(entry)" or name = "S1.1.1(exit)" or name = "S1.2(entry)" or name = "S1.2(exit)" or name = "S1.2.1(exit)" or name = "S1.3(entry)" or name = "S2(entry)" or name = "S2(exit)" or name = "S2.1(entry)" or name = "S2.1(exit)" or name = "S2.1.1(entry)" or name = "S3(entry)" or name = "S3.1(doActivity)" or name = "T1(doTraversal)" or name = "T1.1(doTraversal)" or name = "T1.1(effect)" or name = "T1.1.2(effect)" or name = "T1.1.2(testEnd)" or name = "T1.2(effect)" or name = "T1.2(testEnd)" or name = "T1.3(effect)" or name = "T1.4(effect)" or name = "T2(doTraversal)" or name = "T2(effect)" or name = "T2(testEnd)" or name = "T2.1(effect)" or name = "T2.1.2(effect)" or name = "T2.2(doTraversal)" or name = "T2.2(effect)" or name = "T2.2(testEnd)" or name = "T2.2.2(effect)" or name = "T2.3(effect)" or name = "T2.4(effect)" or name = "T3(doTraversal)" or name = "T3(effect)" or name = "T3(testEnd)" or name = "T3.1(effect)" or name = "T3.1.2(doTraversal)" or name = "T3.2(doTraversal)" or name = "T4(effect)" or name = "T4(testEnd)" or name = "T5(effect)" or name = "T5(testEnd)" or name = "T6(effect)" or name = "T6(testEnd)" or name = "T7(testEnd)" or name = "ThreadIsBlocked" or name = "ThreadIsReady" or name = "ThreadIsRunnable" or name = "ThreadIsRunning" or name = "ThreadIsTerminated" or name = "ThreadIsWaiting" or name = "ThreadIsWaitingByTime" or name = "Waiting(exit)" or name = "activate" or name = "cancel" or name = "cardNumberIsValid" or
-		name = "create" or name = "customerAuthentication" or name = "deliverCash" or name = "ejectCard" or name = "enterAmountMsg" or name = "enterPinMsg" or name = "insertCardMsg" or name = "lock" or name = "newThreadCreated" or name = "notEnoughMoneyMsg" or name = "outOfService" or name = "readCard" or name = "resume" or
-		name = "selectTransaction" or name = "shutDown" or name = "startup" or name = "successfullyTransferred" or name = "suspend" or name = "underMaintenance" or name = "underTesting" or name = "unlock" or name = "updateCardBalance" or name = "wait(exit)" or name = "waitingForCard" or name = "wrongPinMsg" } with { name = "ATMIsOff" , name = "IT(doEffectInternalTransition)" , name = "ObjectExists&NotReferenced" , name = "ObjectExists&Referenced" , name = "ObjectNotExisted&NotReferenced" , name = "ObjectNotExisted&Referenced" , name = "S1(doActivity)" , name = "S1(entry)" , name = "S1(exit)" , name = "S1(testEnd)" , name = "S1.1(doActivity)" , name = "S1.1(entry)" , name = "S1.1(exit)" , name = "S1.1.1(entry)" , name = "S1.1.1(exit)" , name = "S1.2(entry)" , name = "S1.2(exit)" , name = "S1.2.1(exit)" , name = "S1.3(entry)" , name = "S2(entry)" , name = "S2(exit)" , name = "S2.1(entry)" , name = "S2.1(exit)" , name = "S2.1.1(entry)" , name = "S3(entry)" , name = "S3.1(doActivity)" , name = "T1(doTraversal)" , name = "T1.1(doTraversal)" , name = "T1.1(effect)" , name = "T1.1.2(effect)" , name = "T1.1.2(testEnd)" , name = "T1.2(effect)" , name = "T1.2(testEnd)" , name = "T1.3(effect)" , name = "T1.4(effect)" , name = "T2(doTraversal)" , name = "T2(effect)" , name = "T2(testEnd)" , name = "T2.1(effect)" , name = "T2.1.2(effect)" , name = "T2.2(doTraversal)" , name = "T2.2(effect)" , name = "T2.2(testEnd)" , name = "T2.2.2(effect)" , name = "T2.3(effect)" , name = "T2.4(effect)" , name = "T3(doTraversal)" , name = "T3(effect)" , name = "T3(testEnd)" , name = "T3.1(effect)" , name = "T3.1.2(doTraversal)" , name = "T3.2(doTraversal)" , name = "T4(effect)" , name = "T4(testEnd)" , name = "T5(effect)" , name = "T5(testEnd)" , name = "T6(effect)" , name = "T6(testEnd)" , name = "T7(testEnd)" , name = "ThreadIsBlocked" , name = "ThreadIsReady" , name = "ThreadIsRunnable" , name = "ThreadIsRunning" , name = "ThreadIsTerminated" , name = "ThreadIsWaiting" , name = "ThreadIsWaitingByTime" , name = "Waiting(exit)" , name = "activate" , name = "cancel" , name = "cardNumberIsValid" ,
-		name = "create" , name = "customerAuthentication" , name = "deliverCash" , name = "ejectCard" , name = "enterAmountMsg" , name = "enterPinMsg" , name = "insertCardMsg" , name = "lock" , name = "newThreadCreated" , name = "notEnoughMoneyMsg" , name = "outOfService" , name = "readCard" , name = "resume" ,
-		name = "selectTransaction" , name = "shutDown" , name = "startup" , name = "successfullyTransferred" , name = "suspend" , name = "underMaintenance" , name = "underTesting" , name = "unlock" , name = "updateCardBalance" , name = "wait(exit)" , name = "waitingForCard" , name = "wrongPinMsg" }
+		create OperationBehavior with { name = random-string ( 2 , 4 ) , emittedSignals = one SignalEventOccurrence , attributeValues = one AttributeValue }
 	}
 	b108  {
-		p = modify one Behavior where { name = "ATMIsOff" or name = "IT(doEffectInternalTransition)" or name = "ObjectExists&NotReferenced" or name = "ObjectExists&Referenced" or name = "ObjectNotExisted&NotReferenced" or name = "ObjectNotExisted&Referenced" or name = "S1(doActivity)" or name = "S1(entry)" or name = "S1(exit)" or name = "S1(testEnd)" or name = "S1.1(doActivity)" or name = "S1.1(entry)" or name = "S1.1(exit)" or name = "S1.1.1(entry)" or name = "S1.1.1(exit)" or name = "S1.2(entry)" or name = "S1.2(exit)" or name = "S1.2.1(exit)" or name = "S1.3(entry)" or name = "S2(entry)" or name = "S2(exit)" or name = "S2.1(entry)" or name = "S2.1(exit)" or name = "S2.1.1(entry)" or name = "S3(entry)" or name = "S3.1(doActivity)" or name = "T1(doTraversal)" or name = "T1.1(doTraversal)" or name = "T1.1(effect)" or name = "T1.1.2(effect)" or name = "T1.1.2(testEnd)" or name = "T1.2(effect)" or name = "T1.2(testEnd)" or name = "T1.3(effect)" or name = "T1.4(effect)" or name = "T2(doTraversal)" or name = "T2(effect)" or name = "T2(testEnd)" or name = "T2.1(effect)" or name = "T2.1.2(effect)" or name = "T2.2(doTraversal)" or name = "T2.2(effect)" or name = "T2.2(testEnd)" or name = "T2.2.2(effect)" or name = "T2.3(effect)" or name = "T2.4(effect)" or name = "T3(doTraversal)" or name = "T3(effect)" or name = "T3(testEnd)" or name = "T3.1(effect)" or name = "T3.1.2(doTraversal)" or name = "T3.2(doTraversal)" or name = "T4(effect)" or name = "T4(testEnd)" or name = "T5(effect)" or name = "T5(testEnd)" or name = "T6(effect)" or name = "T6(testEnd)" or name = "T7(testEnd)" or name = "ThreadIsBlocked" or name = "ThreadIsReady" or name = "ThreadIsRunnable" or name = "ThreadIsRunning" or name = "ThreadIsTerminated" or name = "ThreadIsWaiting" or name = "ThreadIsWaitingByTime" or name = "Waiting(exit)" or name = "activate" or name = "cancel" or name = "cardNumberIsValid" or
-		name = "create" or name = "customerAuthentication" or name = "deliverCash" or name = "ejectCard" or name = "enterAmountMsg" or name = "enterPinMsg" or name = "insertCardMsg" or name = "lock" or name = "newThreadCreated" or name = "notEnoughMoneyMsg" or name = "outOfService" or name = "readCard" or name = "resume" or
-		name = "selectTransaction" or name = "shutDown" or name = "startup" or name = "successfullyTransferred" or name = "suspend" or name = "underMaintenance" or name = "underTesting" or name = "unlock" or name = "updateCardBalance" or name = "wait(exit)" or name = "waitingForCard" or name = "wrongPinMsg" } with { name = "ATMIsOff" , name = "IT(doEffectInternalTransition)" , name = "ObjectExists&NotReferenced" , name = "ObjectExists&Referenced" , name = "ObjectNotExisted&NotReferenced" , name = "ObjectNotExisted&Referenced" , name = "S1(doActivity)" , name = "S1(entry)" , name = "S1(exit)" , name = "S1(testEnd)" , name = "S1.1(doActivity)" , name = "S1.1(entry)" , name = "S1.1(exit)" , name = "S1.1.1(entry)" , name = "S1.1.1(exit)" , name = "S1.2(entry)" , name = "S1.2(exit)" , name = "S1.2.1(exit)" , name = "S1.3(entry)" , name = "S2(entry)" , name = "S2(exit)" , name = "S2.1(entry)" , name = "S2.1(exit)" , name = "S2.1.1(entry)" , name = "S3(entry)" , name = "S3.1(doActivity)" , name = "T1(doTraversal)" , name = "T1.1(doTraversal)" , name = "T1.1(effect)" , name = "T1.1.2(effect)" , name = "T1.1.2(testEnd)" , name = "T1.2(effect)" , name = "T1.2(testEnd)" , name = "T1.3(effect)" , name = "T1.4(effect)" , name = "T2(doTraversal)" , name = "T2(effect)" , name = "T2(testEnd)" , name = "T2.1(effect)" , name = "T2.1.2(effect)" , name = "T2.2(doTraversal)" , name = "T2.2(effect)" , name = "T2.2(testEnd)" , name = "T2.2.2(effect)" , name = "T2.3(effect)" , name = "T2.4(effect)" , name = "T3(doTraversal)" , name = "T3(effect)" , name = "T3(testEnd)" , name = "T3.1(effect)" , name = "T3.1.2(doTraversal)" , name = "T3.2(doTraversal)" , name = "T4(effect)" , name = "T4(testEnd)" , name = "T5(effect)" , name = "T5(testEnd)" , name = "T6(effect)" , name = "T6(testEnd)" , name = "T7(testEnd)" , name = "ThreadIsBlocked" , name = "ThreadIsReady" , name = "ThreadIsRunnable" , name = "ThreadIsRunning" , name = "ThreadIsTerminated" , name = "ThreadIsWaiting" , name = "ThreadIsWaitingByTime" , name = "Waiting(exit)" , name = "activate" , name = "cancel" , name = "cardNumberIsValid" ,
-		name = "create" , name = "customerAuthentication" , name = "deliverCash" , name = "ejectCard" , name = "enterAmountMsg" , name = "enterPinMsg" , name = "insertCardMsg" , name = "lock" , name = "newThreadCreated" , name = "notEnoughMoneyMsg" , name = "outOfService" , name = "readCard" , name = "resume" ,
-		name = "selectTransaction" , name = "shutDown" , name = "startup" , name = "successfullyTransferred" , name = "suspend" , name = "underMaintenance" , name = "underTesting" , name = "unlock" , name = "updateCardBalance" , name = "wait(exit)" , name = "waitingForCard" , name = "wrongPinMsg" , emittedSignals = one SignalEventOccurrence }
+		p = deep clone one OperationBehavior where { emittedSignals = one SignalEventOccurrence or attributeValues = one AttributeValue } with { name = random-string ( 2 , 4 ) , emittedSignals = one SignalEventOccurrence , attributeValues = one AttributeValue }
 	}
 	b109  {
-		remove one Behavior where { name = "ATMIsOff" or name = "IT(doEffectInternalTransition)" or name = "ObjectExists&NotReferenced" or name = "ObjectExists&Referenced" or name = "ObjectNotExisted&NotReferenced" or name = "ObjectNotExisted&Referenced" or name = "S1(doActivity)" or name = "S1(entry)" or name = "S1(exit)" or name = "S1(testEnd)" or name = "S1.1(doActivity)" or name = "S1.1(entry)" or name = "S1.1(exit)" or name = "S1.1.1(entry)" or name = "S1.1.1(exit)" or name = "S1.2(entry)" or name = "S1.2(exit)" or name = "S1.2.1(exit)" or name = "S1.3(entry)" or name = "S2(entry)" or name = "S2(exit)" or name = "S2.1(entry)" or name = "S2.1(exit)" or name = "S2.1.1(entry)" or name = "S3(entry)" or name = "S3.1(doActivity)" or name = "T1(doTraversal)" or name = "T1.1(doTraversal)" or name = "T1.1(effect)" or name = "T1.1.2(effect)" or name = "T1.1.2(testEnd)" or name = "T1.2(effect)" or name = "T1.2(testEnd)" or name = "T1.3(effect)" or name = "T1.4(effect)" or name = "T2(doTraversal)" or name = "T2(effect)" or name = "T2(testEnd)" or name = "T2.1(effect)" or name = "T2.1.2(effect)" or name = "T2.2(doTraversal)" or name = "T2.2(effect)" or name = "T2.2(testEnd)" or name = "T2.2.2(effect)" or name = "T2.3(effect)" or name = "T2.4(effect)" or name = "T3(doTraversal)" or name = "T3(effect)" or name = "T3(testEnd)" or name = "T3.1(effect)" or name = "T3.1.2(doTraversal)" or name = "T3.2(doTraversal)" or name = "T4(effect)" or name = "T4(testEnd)" or name = "T5(effect)" or name = "T5(testEnd)" or name = "T6(effect)" or name = "T6(testEnd)" or name = "T7(testEnd)" or name = "ThreadIsBlocked" or name = "ThreadIsReady" or name = "ThreadIsRunnable" or name = "ThreadIsRunning" or name = "ThreadIsTerminated" or name = "ThreadIsWaiting" or name = "ThreadIsWaitingByTime" or name = "Waiting(exit)" or name = "activate" or name = "cancel" or name = "cardNumberIsValid" or
-		name = "create" or name = "customerAuthentication" or name = "deliverCash" or name = "ejectCard" or name = "enterAmountMsg" or name = "enterPinMsg" or name = "insertCardMsg" or name = "lock" or name = "newThreadCreated" or name = "notEnoughMoneyMsg" or name = "outOfService" or name = "readCard" or name = "resume" or
-		name = "selectTransaction" or name = "shutDown" or name = "startup" or name = "successfullyTransferred" or name = "suspend" or name = "underMaintenance" or name = "underTesting" or name = "unlock" or name = "updateCardBalance" or name = "wait(exit)" or name = "waitingForCard" or name = "wrongPinMsg" }
+		p = modify one OperationBehavior where { emittedSignals = one SignalEventOccurrence or attributeValues = one AttributeValue } with { name = random-string ( 2 , 4 ) , emittedSignals = one SignalEventOccurrence , attributeValues = one AttributeValue }
 	}
 	b110  {
-		p = select one Behavior where { name = "ATMIsOff" or name = "IT(doEffectInternalTransition)" or name = "ObjectExists&NotReferenced" or name = "ObjectExists&Referenced" or name = "ObjectNotExisted&NotReferenced" or name = "ObjectNotExisted&Referenced" or name = "S1(doActivity)" or name = "S1(entry)" or name = "S1(exit)" or name = "S1(testEnd)" or name = "S1.1(doActivity)" or name = "S1.1(entry)" or name = "S1.1(exit)" or name = "S1.1.1(entry)" or name = "S1.1.1(exit)" or name = "S1.2(entry)" or name = "S1.2(exit)" or name = "S1.2.1(exit)" or name = "S1.3(entry)" or name = "S2(entry)" or name = "S2(exit)" or name = "S2.1(entry)" or name = "S2.1(exit)" or name = "S2.1.1(entry)" or name = "S3(entry)" or name = "S3.1(doActivity)" or name = "T1(doTraversal)" or name = "T1.1(doTraversal)" or name = "T1.1(effect)" or name = "T1.1.2(effect)" or name = "T1.1.2(testEnd)" or name = "T1.2(effect)" or name = "T1.2(testEnd)" or name = "T1.3(effect)" or name = "T1.4(effect)" or name = "T2(doTraversal)" or name = "T2(effect)" or name = "T2(testEnd)" or name = "T2.1(effect)" or name = "T2.1.2(effect)" or name = "T2.2(doTraversal)" or name = "T2.2(effect)" or name = "T2.2(testEnd)" or name = "T2.2.2(effect)" or name = "T2.3(effect)" or name = "T2.4(effect)" or name = "T3(doTraversal)" or name = "T3(effect)" or name = "T3(testEnd)" or name = "T3.1(effect)" or name = "T3.1.2(doTraversal)" or name = "T3.2(doTraversal)" or name = "T4(effect)" or name = "T4(testEnd)" or name = "T5(effect)" or name = "T5(testEnd)" or name = "T6(effect)" or name = "T6(testEnd)" or name = "T7(testEnd)" or name = "ThreadIsBlocked" or name = "ThreadIsReady" or name = "ThreadIsRunnable" or name = "ThreadIsRunning" or name = "ThreadIsTerminated" or name = "ThreadIsWaiting" or name = "ThreadIsWaitingByTime" or name = "Waiting(exit)" or name = "activate" or name = "cancel" or name = "cardNumberIsValid" or
-		name = "create" or name = "customerAuthentication" or name = "deliverCash" or name = "ejectCard" or name = "enterAmountMsg" or name = "enterPinMsg" or name = "insertCardMsg" or name = "lock" or name = "newThreadCreated" or name = "notEnoughMoneyMsg" or name = "outOfService" or name = "readCard" or name = "resume" or
-		name = "selectTransaction" or name = "shutDown" or name = "startup" or name = "successfullyTransferred" or name = "suspend" or name = "underMaintenance" or name = "underTesting" or name = "unlock" or name = "updateCardBalance" or name = "wait(exit)" or name = "waitingForCard" or name = "wrongPinMsg" }
+		remove one OperationBehavior where { emittedSignals = one SignalEventOccurrence or attributeValues = one AttributeValue }
 	}
 	b111  {
-		p = retype one Behavior where { name = "ATMIsOff" or name = "IT(doEffectInternalTransition)" or name = "ObjectExists&NotReferenced" or name = "ObjectExists&Referenced" or name = "ObjectNotExisted&NotReferenced" or name = "ObjectNotExisted&Referenced" or name = "S1(doActivity)" or name = "S1(entry)" or name = "S1(exit)" or name = "S1(testEnd)" or name = "S1.1(doActivity)" or name = "S1.1(entry)" or name = "S1.1(exit)" or name = "S1.1.1(entry)" or name = "S1.1.1(exit)" or name = "S1.2(entry)" or name = "S1.2(exit)" or name = "S1.2.1(exit)" or name = "S1.3(entry)" or name = "S2(entry)" or name = "S2(exit)" or name = "S2.1(entry)" or name = "S2.1(exit)" or name = "S2.1.1(entry)" or name = "S3(entry)" or name = "S3.1(doActivity)" or name = "T1(doTraversal)" or name = "T1.1(doTraversal)" or name = "T1.1(effect)" or name = "T1.1.2(effect)" or name = "T1.1.2(testEnd)" or name = "T1.2(effect)" or name = "T1.2(testEnd)" or name = "T1.3(effect)" or name = "T1.4(effect)" or name = "T2(doTraversal)" or name = "T2(effect)" or name = "T2(testEnd)" or name = "T2.1(effect)" or name = "T2.1.2(effect)" or name = "T2.2(doTraversal)" or name = "T2.2(effect)" or name = "T2.2(testEnd)" or name = "T2.2.2(effect)" or name = "T2.3(effect)" or name = "T2.4(effect)" or name = "T3(doTraversal)" or name = "T3(effect)" or name = "T3(testEnd)" or name = "T3.1(effect)" or name = "T3.1.2(doTraversal)" or name = "T3.2(doTraversal)" or name = "T4(effect)" or name = "T4(testEnd)" or name = "T5(effect)" or name = "T5(testEnd)" or name = "T6(effect)" or name = "T6(testEnd)" or name = "T7(testEnd)" or name = "ThreadIsBlocked" or name = "ThreadIsReady" or name = "ThreadIsRunnable" or name = "ThreadIsRunning" or name = "ThreadIsTerminated" or name = "ThreadIsWaiting" or name = "ThreadIsWaitingByTime" or name = "Waiting(exit)" or name = "activate" or name = "cancel" or name = "cardNumberIsValid" or
-		name = "create" or name = "customerAuthentication" or name = "deliverCash" or name = "ejectCard" or name = "enterAmountMsg" or name = "enterPinMsg" or name = "insertCardMsg" or name = "lock" or name = "newThreadCreated" or name = "notEnoughMoneyMsg" or name = "outOfService" or name = "readCard" or name = "resume" or
-		name = "selectTransaction" or name = "shutDown" or name = "startup" or name = "successfullyTransferred" or name = "suspend" or name = "underMaintenance" or name = "underTesting" or name = "unlock" or name = "updateCardBalance" or name = "wait(exit)" or name = "waitingForCard" or name = "wrongPinMsg" } as [ OperationBehavior , Signal , Operation , BooleanAttribute , IntegerAttribute , StringAttribute , StateMachine , Region , Pseudostate , State , FinalState , Transition , Trigger ] with { name = "ATMIsOff" , name = "IT(doEffectInternalTransition)" , name = "ObjectExists&NotReferenced" , name = "ObjectExists&Referenced" , name = "ObjectNotExisted&NotReferenced" , name = "ObjectNotExisted&Referenced" , name = "S1(doActivity)" , name = "S1(entry)" , name = "S1(exit)" , name = "S1(testEnd)" , name = "S1.1(doActivity)" , name = "S1.1(entry)" , name = "S1.1(exit)" , name = "S1.1.1(entry)" , name = "S1.1.1(exit)" , name = "S1.2(entry)" , name = "S1.2(exit)" , name = "S1.2.1(exit)" , name = "S1.3(entry)" , name = "S2(entry)" , name = "S2(exit)" , name = "S2.1(entry)" , name = "S2.1(exit)" , name = "S2.1.1(entry)" , name = "S3(entry)" , name = "S3.1(doActivity)" , name = "T1(doTraversal)" , name = "T1.1(doTraversal)" , name = "T1.1(effect)" , name = "T1.1.2(effect)" , name = "T1.1.2(testEnd)" , name = "T1.2(effect)" , name = "T1.2(testEnd)" , name = "T1.3(effect)" , name = "T1.4(effect)" , name = "T2(doTraversal)" , name = "T2(effect)" , name = "T2(testEnd)" , name = "T2.1(effect)" , name = "T2.1.2(effect)" , name = "T2.2(doTraversal)" , name = "T2.2(effect)" , name = "T2.2(testEnd)" , name = "T2.2.2(effect)" , name = "T2.3(effect)" , name = "T2.4(effect)" , name = "T3(doTraversal)" , name = "T3(effect)" , name = "T3(testEnd)" , name = "T3.1(effect)" , name = "T3.1.2(doTraversal)" , name = "T3.2(doTraversal)" , name = "T4(effect)" , name = "T4(testEnd)" , name = "T5(effect)" , name = "T5(testEnd)" , name = "T6(effect)" , name = "T6(testEnd)" , name = "T7(testEnd)" , name = "ThreadIsBlocked" , name = "ThreadIsReady" , name = "ThreadIsRunnable" , name = "ThreadIsRunning" , name = "ThreadIsTerminated" , name = "ThreadIsWaiting" , name = "ThreadIsWaitingByTime" , name = "Waiting(exit)" , name = "activate" , name = "cancel" , name = "cardNumberIsValid" ,
-		name = "create" , name = "customerAuthentication" , name = "deliverCash" , name = "ejectCard" , name = "enterAmountMsg" , name = "enterPinMsg" , name = "insertCardMsg" , name = "lock" , name = "newThreadCreated" , name = "notEnoughMoneyMsg" , name = "outOfService" , name = "readCard" , name = "resume" ,
-		name = "selectTransaction" , name = "shutDown" , name = "startup" , name = "successfullyTransferred" , name = "suspend" , name = "underMaintenance" , name = "underTesting" , name = "unlock" , name = "updateCardBalance" , name = "wait(exit)" , name = "waitingForCard" , name = "wrongPinMsg" }
+		p = select one OperationBehavior where { emittedSignals = one SignalEventOccurrence or attributeValues = one AttributeValue }
 	}
 	b112  {
-		create OperationBehavior
+		create BooleanAttributeValue with { attribute = one BooleanAttribute }
 	}
 	b113  {
-		p = deep clone one OperationBehavior
+		p = deep clone one BooleanAttributeValue where { attribute = one BooleanAttribute } with { attribute = one BooleanAttribute }
 	}
 	b114  {
-		p = modify one OperationBehavior with { name = random-string ( 2 , 4 ) , emittedSignals = one SignalEventOccurrence , attributeValues = one AttributeValue }
+		p = modify one BooleanAttributeValue where { attribute = one BooleanAttribute } with { attribute = one BooleanAttribute }
 	}
 	b115  {
-		remove one OperationBehavior
+		remove one BooleanAttributeValue where { attribute = one BooleanAttribute }
 	}
 	b116  {
-		p = select one OperationBehavior
+		p = select one BooleanAttributeValue where { attribute = one BooleanAttribute }
 	}
 	b117  {
-		create BooleanAttributeValue
-	}
-	b118  {
-		p = deep clone one BooleanAttributeValue
-	}
-	b119  {
-		p = modify one BooleanAttributeValue with { attribute = one BooleanAttribute }
-	}
-	b120  {
-		remove one BooleanAttributeValue
-	}
-	b121  {
-		p = select one BooleanAttributeValue
-	}
-	b122  {
 		p = retype one BooleanAttributeValue as [ IntegerAttributeValue , StringAttributeValue ]
 	}
+	b118  {
+		create IntegerAttributeValue with { attribute = one IntegerAttribute }
+	}
+	b119  {
+		p = deep clone one IntegerAttributeValue where { attribute = one IntegerAttribute } with { attribute = one IntegerAttribute }
+	}
+	b120  {
+		p = modify one IntegerAttributeValue where { attribute = one IntegerAttribute } with { attribute = one IntegerAttribute }
+	}
+	b121  {
+		remove one IntegerAttributeValue where { attribute = one IntegerAttribute }
+	}
+	b122  {
+		p = select one IntegerAttributeValue where { attribute = one IntegerAttribute }
+	}
 	b123  {
-		create IntegerAttributeValue
-	}
-	b124  {
-		p = deep clone one IntegerAttributeValue
-	}
-	b125  {
-		p = modify one IntegerAttributeValue with { attribute = one IntegerAttribute }
-	}
-	b126  {
-		remove one IntegerAttributeValue
-	}
-	b127  {
-		p = select one IntegerAttributeValue
-	}
-	b128  {
 		p = retype one IntegerAttributeValue as [ BooleanAttributeValue , StringAttributeValue ]
 	}
+	b124  {
+		create StringAttributeValue with { value = random-string ( 2 , 4 ) , attribute = one StringAttribute }
+	}
+	b125  {
+		p = deep clone one StringAttributeValue where { attribute = one StringAttribute } with { value = random-string ( 2 , 4 ) , attribute = one StringAttribute }
+	}
+	b126  {
+		p = modify one StringAttributeValue where { attribute = one StringAttribute } with { value = random-string ( 2 , 4 ) , attribute = one StringAttribute }
+	}
+	b127  {
+		remove one StringAttributeValue where { attribute = one StringAttribute }
+	}
+	b128  {
+		p = select one StringAttributeValue where { attribute = one StringAttribute }
+	}
 	b129  {
-		create StringAttributeValue
-	}
-	b130  {
-		p = deep clone one StringAttributeValue
-	}
-	b131  {
-		p = modify one StringAttributeValue with { value = random-string ( 2 , 4 ) , attribute = one StringAttribute }
-	}
-	b132  {
-		remove one StringAttributeValue
-	}
-	b133  {
-		p = select one StringAttributeValue
-	}
-	b134  {
 		p = retype one StringAttributeValue as [ BooleanAttributeValue , IntegerAttributeValue ]
 	}
+	b130  {
+		create IntegerComparisonExpression with { operand1 = one IntegerAttribute , operand2 = one IntegerAttribute }
+	}
+	b131  {
+		p = deep clone one IntegerComparisonExpression where { operand1 = one IntegerAttribute or operand2 = one IntegerAttribute } with { operand1 = one IntegerAttribute , operand2 = one IntegerAttribute }
+	}
+	b132  {
+		p = modify one IntegerComparisonExpression where { operand1 = one IntegerAttribute or operand2 = one IntegerAttribute } with { operand1 = one IntegerAttribute , operand2 = one IntegerAttribute }
+	}
+	b133  {
+		remove one IntegerComparisonExpression where { operand1 = one IntegerAttribute or operand2 = one IntegerAttribute }
+	}
+	b134  {
+		p = select one IntegerComparisonExpression where { operand1 = one IntegerAttribute or operand2 = one IntegerAttribute }
+	}
 	b135  {
-		create IntegerComparisonExpression
-	}
-	b136  {
-		p = deep clone one IntegerComparisonExpression
-	}
-	b137  {
-		p = modify one IntegerComparisonExpression with { operand1 = one IntegerAttribute , operand2 = one IntegerAttribute }
-	}
-	b138  {
-		remove one IntegerComparisonExpression
-	}
-	b139  {
-		p = select one IntegerComparisonExpression
-	}
-	b140  {
 		p = retype one IntegerComparisonExpression as [ StringComparisonExpression , BooleanBinaryExpression , BooleanUnaryExpression ]
 	}
+	b136  {
+		create StringComparisonExpression with { operand1 = one StringAttribute , operand2 = one StringAttribute }
+	}
+	b137  {
+		p = deep clone one StringComparisonExpression where { operand1 = one StringAttribute or operand2 = one StringAttribute } with { operand1 = one StringAttribute , operand2 = one StringAttribute }
+	}
+	b138  {
+		p = modify one StringComparisonExpression where { operand1 = one StringAttribute or operand2 = one StringAttribute } with { operand1 = one StringAttribute , operand2 = one StringAttribute }
+	}
+	b139  {
+		remove one StringComparisonExpression where { operand1 = one StringAttribute or operand2 = one StringAttribute }
+	}
+	b140  {
+		p = select one StringComparisonExpression where { operand1 = one StringAttribute or operand2 = one StringAttribute }
+	}
 	b141  {
-		create StringComparisonExpression
-	}
-	b142  {
-		p = deep clone one StringComparisonExpression
-	}
-	b143  {
-		p = modify one StringComparisonExpression with { operand1 = one StringAttribute , operand2 = one StringAttribute }
-	}
-	b144  {
-		remove one StringComparisonExpression
-	}
-	b145  {
-		p = select one StringComparisonExpression
-	}
-	b146  {
 		p = retype one StringComparisonExpression as [ IntegerComparisonExpression , BooleanBinaryExpression , BooleanUnaryExpression ]
 	}
+	b142  {
+		create BooleanBinaryExpression with { operand1 = one BooleanAttribute , operand2 = one BooleanAttribute }
+	}
+	b143  {
+		p = deep clone one BooleanBinaryExpression where { operand1 = one BooleanAttribute or operand2 = one BooleanAttribute } with { operand1 = one BooleanAttribute , operand2 = one BooleanAttribute }
+	}
+	b144  {
+		p = modify one BooleanBinaryExpression where { operand1 = one BooleanAttribute or operand2 = one BooleanAttribute } with { operand1 = one BooleanAttribute , operand2 = one BooleanAttribute }
+	}
+	b145  {
+		remove one BooleanBinaryExpression where { operand1 = one BooleanAttribute or operand2 = one BooleanAttribute }
+	}
+	b146  {
+		p = select one BooleanBinaryExpression where { operand1 = one BooleanAttribute or operand2 = one BooleanAttribute }
+	}
 	b147  {
-		create BooleanBinaryExpression
-	}
-	b148  {
-		p = deep clone one BooleanBinaryExpression
-	}
-	b149  {
-		p = modify one BooleanBinaryExpression with { operand1 = one BooleanAttribute , operand2 = one BooleanAttribute }
-	}
-	b150  {
-		remove one BooleanBinaryExpression
-	}
-	b151  {
-		p = select one BooleanBinaryExpression
-	}
-	b152  {
 		p = retype one BooleanBinaryExpression as [ BooleanUnaryExpression ]
 	}
+	b148  {
+		create BooleanUnaryExpression with { operand = one BooleanAttribute }
+	}
+	b149  {
+		p = deep clone one BooleanUnaryExpression where { operand = one BooleanAttribute } with { operand = one BooleanAttribute }
+	}
+	b150  {
+		p = modify one BooleanUnaryExpression where { operand = one BooleanAttribute } with { operand = one BooleanAttribute }
+	}
+	b151  {
+		remove one BooleanUnaryExpression where { operand = one BooleanAttribute }
+	}
+	b152  {
+		p = select one BooleanUnaryExpression where { operand = one BooleanAttribute }
+	}
 	b153  {
-		create BooleanUnaryExpression
-	}
-	b154  {
-		p = deep clone one BooleanUnaryExpression
-	}
-	b155  {
-		p = modify one BooleanUnaryExpression with { operand = one BooleanAttribute }
-	}
-	b156  {
-		remove one BooleanUnaryExpression
-	}
-	b157  {
-		p = select one BooleanUnaryExpression
-	}
-	b158  {
 		p = retype one BooleanUnaryExpression as [ BooleanBinaryExpression ]
 	}
+	b154  {
+		create CompletionEventOccurrence with { state = one State }
+	}
+	b155  {
+		p = deep clone one CompletionEventOccurrence where { state = one State } with { state = one State }
+	}
+	b156  {
+		p = modify one CompletionEventOccurrence where { state = one State } with { state = one State }
+	}
+	b157  {
+		remove one CompletionEventOccurrence where { state = one State }
+	}
+	b158  {
+		p = select one CompletionEventOccurrence where { state = one State }
+	}
 	b159  {
-		create CompletionEventOccurrence
+		create SignalEventOccurrence with { signal = one Signal , attributeValues = one AttributeValue }
 	}
 	b160  {
-		p = deep clone one CompletionEventOccurrence
+		p = deep clone one SignalEventOccurrence where { signal = one Signal or attributeValues = one AttributeValue } with { signal = one Signal , attributeValues = one AttributeValue }
 	}
 	b161  {
-		p = modify one CompletionEventOccurrence with { state = one State }
+		p = modify one SignalEventOccurrence where { signal = one Signal or attributeValues = one AttributeValue } with { signal = one Signal , attributeValues = one AttributeValue }
 	}
 	b162  {
-		remove one CompletionEventOccurrence
+		remove one SignalEventOccurrence where { signal = one Signal or attributeValues = one AttributeValue }
 	}
 	b163  {
-		p = select one CompletionEventOccurrence
+		p = select one SignalEventOccurrence where { signal = one Signal or attributeValues = one AttributeValue }
 	}
 	b164  {
-		create SignalEventOccurrence
-	}
-	b165  {
-		p = deep clone one SignalEventOccurrence
-	}
-	b166  {
-		p = modify one SignalEventOccurrence with { signal = one Signal , attributeValues = one AttributeValue }
-	}
-	b167  {
-		remove one SignalEventOccurrence
-	}
-	b168  {
-		p = select one SignalEventOccurrence
-	}
-	b169  {
 		p = retype one SignalEventOccurrence as [ CallEventOccurrence ]
 	}
+	b165  {
+		create CallEventOccurrence with { operation = one Operation , inParameterValues = one AttributeValue , outParameterValues = one AttributeValue , returnValue = one AttributeValue }
+	}
+	b166  {
+		p = deep clone one CallEventOccurrence where { operation = one Operation or inParameterValues = one AttributeValue or outParameterValues = one AttributeValue or returnValue = one AttributeValue } with { operation = one Operation , inParameterValues = one AttributeValue , outParameterValues = one AttributeValue , returnValue = one AttributeValue }
+	}
+	b167  {
+		p = modify one CallEventOccurrence where { operation = one Operation or inParameterValues = one AttributeValue or outParameterValues = one AttributeValue or returnValue = one AttributeValue } with { operation = one Operation , inParameterValues = one AttributeValue , outParameterValues = one AttributeValue , returnValue = one AttributeValue }
+	}
+	b168  {
+		remove one CallEventOccurrence where { operation = one Operation or inParameterValues = one AttributeValue or outParameterValues = one AttributeValue or returnValue = one AttributeValue }
+	}
+	b169  {
+		p = select one CallEventOccurrence where { operation = one Operation or inParameterValues = one AttributeValue or outParameterValues = one AttributeValue or returnValue = one AttributeValue }
+	}
 	b170  {
-		create CallEventOccurrence
-	}
-	b171  {
-		p = deep clone one CallEventOccurrence
-	}
-	b172  {
-		p = modify one CallEventOccurrence with { operation = one Operation , inParameterValues = one AttributeValue , outParameterValues = one AttributeValue , returnValue = one AttributeValue }
-	}
-	b173  {
-		remove one CallEventOccurrence
-	}
-	b174  {
-		p = select one CallEventOccurrence
-	}
-	b175  {
 		p = retype one CallEventOccurrence as [ SignalEventOccurrence ]
 	}
 	

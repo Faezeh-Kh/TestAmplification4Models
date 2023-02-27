@@ -37,10 +37,6 @@
                   <operand xsi:type="arduino:IntegerConstant" xmi:id="_s9XGg9FgEey60oAITKsoDQ"/>
                 </instructions>
               </block>
-              <condition xsi:type="arduino:BinaryBooleanExpression" xmi:id="_laLB4NFgEey60oAITKsoDQ" operator="equal">
-                <left xsi:type="arduino:IntegerModuleGet" xmi:id="_laLB4dFgEey60oAITKsoDQ" module="_TeGOtbvnEey7OoLBzoKkPA"/>
-                <right xsi:type="arduino:IntegerConstant" xmi:id="_laLB4tFgEey60oAITKsoDQ" value="1"/>
-              </condition>
             </instructions>
           </block>
           <condition xsi:type="arduino:BinaryBooleanExpression" xmi:id="_TeGOwLvnEey7OoLBzoKkPA" operator="equal">
@@ -56,5 +52,10 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:UnaryBooleanExpression/>
+  <arduino:UnaryBooleanExpression>
+    <operand xsi:type="arduino:BinaryBooleanExpression" operator="equal">
+      <left xsi:type="arduino:IntegerModuleGet" module="_TeGOtbvnEey7OoLBzoKkPA"/>
+      <right xsi:type="arduino:IntegerConstant" value="1"/>
+    </operand>
+  </arduino:UnaryBooleanExpression>
 </xmi:XMI>

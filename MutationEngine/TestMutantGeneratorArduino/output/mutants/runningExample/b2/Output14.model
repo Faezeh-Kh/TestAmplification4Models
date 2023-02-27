@@ -4,10 +4,10 @@
     <digitalPins name="whiteLedPin">
       <module xsi:type="arduino:LED" name="whiteLed" color="white"/>
     </digitalPins>
-    <digitalPins name="whiteLedPin">
+    <digitalPins name="IR_sensorPin">
       <module xsi:type="arduino:InfraRedSensor" name="IR_sensor"/>
     </digitalPins>
-    <digitalPins name="buzzerPin">
+    <digitalPins name="servo1">
       <module xsi:type="arduino:Buzzer" name="buzzer"/>
     </digitalPins>
     <digitalPins name="buttonPin">

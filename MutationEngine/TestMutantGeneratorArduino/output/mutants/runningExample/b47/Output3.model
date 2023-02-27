@@ -42,16 +42,17 @@
             </condition>
           </instructions>
         </block>
-        <condition xsi:type="arduino:BinaryBooleanExpression" xmi:id="_TeGOwLvnEey7OoLBzoKkPA" operator="equal">
-          <left xsi:type="arduino:IntegerModuleGet" xmi:id="_ubWisM-YEeyj4OK2t3h2Ug" module="_L26qENFgEey60oAITKsoDQ"/>
-          <right xsi:type="arduino:IntegerConstant" xmi:id="_wA6LQM-YEeyj4OK2t3h2Ug" value="1"/>
-        </condition>
-        <elseBlock xmi:id="_gw7l4NFgEey60oAITKsoDQ">
-          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_hdNdENFgEey60oAITKsoDQ" module="_TeGOs7vnEey7OoLBzoKkPA">
-            <operand xsi:type="arduino:IntegerConstant" xmi:id="_hdNdEdFgEey60oAITKsoDQ"/>
+      </instructions>
+      <instructions xsi:type="arduino:While">
+        <block>
+          <instructions xsi:type="arduino:ModuleAssignment" module="_TeGOs7vnEey7OoLBzoKkPA">
+            <operand xsi:type="arduino:IntegerConstant"/>
           </instructions>
-          <instructions xsi:type="arduino:While"/>
-        </elseBlock>
+        </block>
+        <condition xsi:type="arduino:BinaryBooleanExpression" operator="equal">
+          <left xsi:type="arduino:IntegerModuleGet" module="_L26qENFgEey60oAITKsoDQ"/>
+          <right xsi:type="arduino:IntegerConstant" value="1"/>
+        </condition>
       </instructions>
     </block>
   </sketches>

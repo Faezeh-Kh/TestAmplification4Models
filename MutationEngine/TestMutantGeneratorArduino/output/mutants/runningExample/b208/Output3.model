@@ -4,9 +4,6 @@
     <digitalPins xmi:id="_TeGOsrvnEey7OoLBzoKkPA" name="whiteLedPin">
       <module xsi:type="arduino:LED" xmi:id="_TeGOs7vnEey7OoLBzoKkPA" name="whiteLed" color="white"/>
     </digitalPins>
-    <digitalPins xmi:id="_TeGOtLvnEey7OoLBzoKkPA" name="IR_sensorPin">
-      <module xsi:type="arduino:InfraRedSensor" xmi:id="_TeGOtbvnEey7OoLBzoKkPA" name="IR_sensor"/>
-    </digitalPins>
     <digitalPins xmi:id="_F8FqYNFgEey60oAITKsoDQ" name="buzzerPin">
       <module xsi:type="arduino:Buzzer" xmi:id="_H0GU4NFgEey60oAITKsoDQ" name="buzzer"/>
     </digitalPins>
@@ -14,7 +11,11 @@
       <module xsi:type="arduino:PushButton" xmi:id="_L26qENFgEey60oAITKsoDQ" name="button1"/>
     </digitalPins>
   </boards>
-  <boards xsi:type="arduino:ArduinoBoard" name="board"/>
+  <boards xsi:type="arduino:ArduinoBoard" name="board">
+    <digitalPins xmi:id="_TeGOtLvnEey7OoLBzoKkPA" name="IR_sensorPin">
+      <module xsi:type="arduino:InfraRedSensor" xmi:id="_TeGOtbvnEey7OoLBzoKkPA" name="IR_sensor"/>
+    </digitalPins>
+  </boards>
   <sketches xmi:id="_TeGOtrvnEey7OoLBzoKkPA" name="sketch" board="_TeGOsbvnEey7OoLBzoKkPA">
     <block xmi:id="_TeGOt7vnEey7OoLBzoKkPA">
       <instructions xsi:type="arduino:If" xmi:id="_TeGOuLvnEey7OoLBzoKkPA">

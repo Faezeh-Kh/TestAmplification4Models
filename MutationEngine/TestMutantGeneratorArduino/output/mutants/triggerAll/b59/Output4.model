@@ -61,9 +61,7 @@
         </instructions>
         <instructions xsi:type="arduino:If" xmi:id="_4rMuMMovEeyrEsguAqucdw">
           <block xmi:id="_6QlXoMovEeyrEsguAqucdw">
-            <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_9NZuEMovEeyrEsguAqucdw" module="_IxQoQMovEeyrEsguAqucdw">
-              <operand xsi:type="arduino:IntegerConstant" xmi:id="_-VLOcMovEeyrEsguAqucdw" value="90"/>
-            </instructions>
+            <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_9NZuEMovEeyrEsguAqucdw" module="_IxQoQMovEeyrEsguAqucdw"/>
             <instructions xsi:type="arduino:ModuleAssignment" xmi:id="__OqbMMovEeyrEsguAqucdw" module="_IxQoQMovEeyrEsguAqucdw">
               <operand xsi:type="arduino:IntegerConstant" xmi:id="__OqbMcovEeyrEsguAqucdw"/>
             </instructions>
@@ -75,9 +73,7 @@
             <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_V3lI0MowEeyrEsguAqucdw" module="_KowVYcovEeyrEsguAqucdw">
               <operand xsi:type="arduino:IntegerConstant" xmi:id="_W7YvMMowEeyrEsguAqucdw"/>
             </instructions>
-            <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_ZGsJIMowEeyrEsguAqucdw" module="_TJEJkMovEeyrEsguAqucdw">
-              <operand xsi:type="arduino:IntegerConstant" xmi:id="_aJ1oMMowEeyrEsguAqucdw" value="1"/>
-            </instructions>
+            <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_ZGsJIMowEeyrEsguAqucdw" module="_TJEJkMovEeyrEsguAqucdw"/>
             <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_bTL14MowEeyrEsguAqucdw" module="_TJEJkMovEeyrEsguAqucdw">
               <operand xsi:type="arduino:IntegerConstant" xmi:id="_bTL14cowEeyrEsguAqucdw"/>
             </instructions>
@@ -93,5 +89,8 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:BinaryIntegerExpression/>
+  <arduino:BinaryIntegerExpression>
+    <left xsi:type="arduino:IntegerConstant" value="90"/>
+    <right xsi:type="arduino:IntegerConstant" value="1"/>
+  </arduino:BinaryIntegerExpression>
 </xmi:XMI>

@@ -4,10 +4,10 @@
     <digitalPins name="pushButton">
       <module xsi:type="arduino:PushButton" name="button"/>
     </digitalPins>
-    <digitalPins name="IRSensor">
+    <digitalPins name="blueLed">
       <module xsi:type="arduino:InfraRedSensor" name="IRSensor"/>
     </digitalPins>
-    <digitalPins name="whiteLedPin">
+    <digitalPins name="blueLED">
       <module xsi:type="arduino:LED" name="blueLED"/>
     </digitalPins>
     <digitalPins name="Servo">

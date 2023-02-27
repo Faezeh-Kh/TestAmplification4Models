@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+<DFAAutomaton:Automaton xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DFAAutomaton="http://dfaAutomaton/1.0" xsi:schemaLocation="http://dfaAutomaton/1.0 ../../../model/DFAAutomaton.ecore" name="Exercise 5">
+  <states name="q0" isInitial="true"/>
+  <states name="q1"/>
+  <states name="q2" isFinal="true"/>
+  <states name="q3"/>
+  <states name="q4"/>
+  <transitions src="//@states.0" tar="//@states.3" symbol="//@alphabet.0"/>
+  <transitions src="//@states.0" tar="//@states.1" symbol="//@alphabet.1"/>
+  <transitions src="//@states.1" tar="//@states.2" symbol="//@alphabet.0"/>
+  <transitions src="//@states.1" tar="//@states.4" symbol="//@alphabet.1"/>
+  <transitions src="//@states.2" tar="//@states.4" symbol="//@alphabet.0"/>
+  <transitions src="//@states.2" tar="//@states.4" symbol="//@alphabet.1"/>
+  <transitions src="//@states.3" tar="//@states.4" symbol="//@alphabet.0"/>
+  <transitions src="//@states.3" tar="//@states.0" symbol="//@alphabet.1"/>
+  <transitions src="//@states.4" tar="//@states.4" symbol="//@alphabet.0"/>
+  <transitions src="//@states.4" tar="//@states.4" symbol="//@alphabet.1"/>
+  <transitions>
+    <src href="../../../model/exercise5.model#_YsDvsGFEEeW5yMxFQxbbHw"/>
+    <tar href="../../../model/exercise5.model#_d5HqcGFEEeW5yMxFQxbbHw"/>
+    <symbol href="../../../model/exercise5.model#_ob00MGFEEeW5yMxFQxbbHw"/>
+  </transitions>
+  <transitions>
+    <src href="../../../model/exercise5.model#_YsDvsGFEEeW5yMxFQxbbHw"/>
+    <tar href="../../../model/exercise5.model#_YsDvsGFEEeW5yMxFQxbbHw"/>
+    <symbol href="../../../model/exercise5.model#_pdIgMGFEEeW5yMxFQxbbHw"/>
+  </transitions>
+  <transitions>
+    <src href="../../../model/exercise5.model#_iYicEGFEEeW5yMxFQxbbHw"/>
+    <tar href="../../../model/exercise5.model#_iYicEGFEEeW5yMxFQxbbHw"/>
+    <symbol href="../../../model/exercise5.model#_ob00MGFEEeW5yMxFQxbbHw"/>
+  </transitions>
+  <alphabet symbol="a"/>
+  <alphabet symbol="b"/>
+</DFAAutomaton:Automaton>

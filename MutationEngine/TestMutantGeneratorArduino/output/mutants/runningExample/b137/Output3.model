@@ -56,5 +56,5 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:PushButton name="turnOffButton"/>
+  <arduino:PushButton name="button"/>
 </xmi:XMI>

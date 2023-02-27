@@ -45,16 +45,20 @@
             <block>
               <instructions xsi:type="arduino:If">
                 <block>
-                  <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.1/@module">
+                  <instructions xsi:type="arduino:ModuleAssignment">
+                    <module xsi:type="arduino:MicroServo" href="../../../model/triggerFan.model#_KowVYcovEeyrEsguAqucdw"/>
                     <operand xsi:type="arduino:IntegerConstant"/>
                   </instructions>
-                  <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
+                  <instructions xsi:type="arduino:ModuleAssignment">
+                    <module xsi:type="arduino:Fan" href="../../../model/triggerFan.model#_TJEJkMovEeyrEsguAqucdw"/>
                     <operand xsi:type="arduino:IntegerConstant" value="1"/>
                   </instructions>
-                  <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
+                  <instructions xsi:type="arduino:ModuleAssignment">
+                    <module xsi:type="arduino:Fan" href="../../../model/triggerFan.model#_TJEJkMovEeyrEsguAqucdw"/>
                     <operand xsi:type="arduino:IntegerConstant"/>
                   </instructions>
-                  <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.1/@module">
+                  <instructions xsi:type="arduino:ModuleAssignment">
+                    <module xsi:type="arduino:MicroServo" href="../../../model/triggerFan.model#_KowVYcovEeyrEsguAqucdw"/>
                     <operand xsi:type="arduino:IntegerConstant" value="60"/>
                   </instructions>
                 </block>

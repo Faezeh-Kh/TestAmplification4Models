@@ -14,7 +14,8 @@
       <module xsi:type="arduino:MicroServo" xmi:id="_WDu3abvrEey6kqvve9HPhQ" name="Servo"/>
     </digitalPins>
   </boards>
-  <sketches xmi:id="_WDu3arvrEey6kqvve9HPhQ" name="sketch" board="_WDu3YbvrEey6kqvve9HPhQ">
+  <sketches xmi:id="_WDu3arvrEey6kqvve9HPhQ" name="sketch" board="_WDu3YbvrEey6kqvve9HPhQ"/>
+  <sketches name="mainSketch" board="_WDu3YbvrEey6kqvve9HPhQ">
     <block xmi:id="_WDu3a7vrEey6kqvve9HPhQ">
       <instructions xsi:type="arduino:VariableDeclaration" xmi:id="_WDu3bLvrEey6kqvve9HPhQ">
         <variable xsi:type="arduino:IntegerVariable" xmi:id="_WDwFgLvrEey6kqvve9HPhQ" name="i"/>
@@ -59,5 +60,4 @@
       </instructions>
     </block>
   </sketches>
-  <sketches name="sketch"/>
 </arduino:Project>

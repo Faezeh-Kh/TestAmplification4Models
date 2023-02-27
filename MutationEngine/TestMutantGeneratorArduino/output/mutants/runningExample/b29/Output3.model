@@ -29,9 +29,7 @@
               <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_oqHIoNFgEey60oAITKsoDQ" module="_H0GU4NFgEey60oAITKsoDQ">
                 <operand xsi:type="arduino:IntegerConstant" xmi:id="_oqHIodFgEey60oAITKsoDQ"/>
               </instructions>
-              <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_s9XGgNFgEey60oAITKsoDQ" module="_H0GU4NFgEey60oAITKsoDQ">
-                <operand xsi:type="arduino:IntegerConstant" xmi:id="_s9XGgdFgEey60oAITKsoDQ" value="1"/>
-              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_s9XGgNFgEey60oAITKsoDQ" module="_H0GU4NFgEey60oAITKsoDQ"/>
               <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_s9XGgtFgEey60oAITKsoDQ" module="_H0GU4NFgEey60oAITKsoDQ">
                 <operand xsi:type="arduino:IntegerConstant" xmi:id="_s9XGg9FgEey60oAITKsoDQ"/>
               </instructions>
@@ -50,9 +48,11 @@
           <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_hdNdENFgEey60oAITKsoDQ" module="_TeGOs7vnEey7OoLBzoKkPA">
             <operand xsi:type="arduino:IntegerConstant" xmi:id="_hdNdEdFgEey60oAITKsoDQ"/>
           </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment" module="_L26qENFgEey60oAITKsoDQ">
+            <operand xsi:type="arduino:IntegerConstant" value="1"/>
+          </instructions>
         </elseBlock>
       </instructions>
-      <instructions xsi:type="arduino:ModuleAssignment"/>
     </block>
   </sketches>
 </arduino:Project>

@@ -66,15 +66,15 @@
           <instructions xsi:type="arduino:ModuleAssignment" xmi:id="__OqbMMovEeyrEsguAqucdw" module="_IxQoQMovEeyrEsguAqucdw">
             <operand xsi:type="arduino:IntegerConstant" xmi:id="__OqbMcovEeyrEsguAqucdw"/>
           </instructions>
-          <instructions xsi:type="arduino:ModuleAssignment"/>
+          <instructions xsi:type="arduino:ModuleAssignment" module="_Qf35wMovEeyrEsguAqucdw">
+            <operand xsi:type="arduino:IntegerConstant"/>
+          </instructions>
         </block>
         <condition xsi:type="arduino:BooleanModuleGet" xmi:id="_5RsGcMovEeyrEsguAqucdw" module="_Omt_wMovEeyrEsguAqucdw"/>
       </instructions>
       <instructions xsi:type="arduino:If" xmi:id="_BoicoMowEeyrEsguAqucdw">
         <block xmi:id="_Uwou4MowEeyrEsguAqucdw">
-          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_V3lI0MowEeyrEsguAqucdw" module="_KowVYcovEeyrEsguAqucdw">
-            <operand xsi:type="arduino:IntegerConstant" xmi:id="_W7YvMMowEeyrEsguAqucdw"/>
-          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_V3lI0MowEeyrEsguAqucdw" module="_KowVYcovEeyrEsguAqucdw"/>
           <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_ZGsJIMowEeyrEsguAqucdw" module="_TJEJkMovEeyrEsguAqucdw">
             <operand xsi:type="arduino:IntegerConstant" xmi:id="_aJ1oMMowEeyrEsguAqucdw" value="1"/>
           </instructions>

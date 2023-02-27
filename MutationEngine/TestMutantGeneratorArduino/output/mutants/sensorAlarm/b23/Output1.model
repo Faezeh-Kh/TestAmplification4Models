@@ -38,7 +38,7 @@
           <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_bfYjprsuEeyYPqXDdDsRMg" module="_bfGPwbsuEeyYPqXDdDsRMg">
             <operand xsi:type="arduino:IntegerConstant" xmi:id="_bfYjp7suEeyYPqXDdDsRMg"/>
           </instructions>
-          <instructions xsi:type="arduino:Delay"/>
+          <instructions xsi:type="arduino:Delay" value="8"/>
         </block>
         <condition xsi:type="arduino:BinaryBooleanExpression" xmi:id="_bfYjqbsuEeyYPqXDdDsRMg" operator="equal">
           <left xsi:type="arduino:IntegerModuleGet" xmi:id="_gaFK4M-ZEeyj4OK2t3h2Ug" module="_bfGPw7suEeyYPqXDdDsRMg"/>

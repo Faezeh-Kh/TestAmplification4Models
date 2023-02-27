@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ASCII"?>
+<statemachines:CustomSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
+  <statemachine name="Entering005_Test$behavior$1">
+    <regions name="Region1">
+      <vertice xsi:type="statemachines:Pseudostate" name="Initial1" outgoingTransitions="//@statemachine/@regions.0/@transitions.0"/>
+      <vertice xsi:type="statemachines:State" name="S1">
+        <regions name="Region1">
+          <vertice xsi:type="statemachines:State" name="S1.1" incomingTransitions="//@statemachine/@regions.0/@vertice.1/@regions.0/@transitions.0">
+            <regions name="Region1">
+              <vertice xsi:type="statemachines:State" name="S1.1.1" outgoingTransitions="//@statemachine/@regions.0/@vertice.1/@regions.0/@vertice.0/@regions.0/@transitions.1" incomingTransitions="//@statemachine/@regions.0/@transitions.1 //@statemachine/@regions.0/@vertice.1/@regions.0/@vertice.0/@regions.0/@transitions.0">
+                <entry name="S1.1.1(entry)"/>
+              </vertice>
+              <vertice xsi:type="statemachines:Pseudostate" name="Initial1" outgoingTransitions="//@statemachine/@regions.0/@vertice.1/@regions.0/@vertice.0/@regions.0/@transitions.0"/>
+              <vertice xsi:type="statemachines:FinalState" name="FS1.1.1" incomingTransitions="//@statemachine/@regions.0/@vertice.1/@regions.0/@vertice.0/@regions.0/@transitions.1"/>
+              <transitions name="T1.1.1" source="//@statemachine/@regions.0/@vertice.1/@regions.0/@vertice.0/@regions.0/@vertice.1" target="//@statemachine/@regions.0/@vertice.1/@regions.0/@vertice.0/@regions.0/@vertice.0" kind="external"/>
+              <transitions name="T1.1.2" source="//@statemachine/@regions.0/@vertice.1/@regions.0/@vertice.0/@regions.0/@vertice.0" target="//@statemachine/@regions.0/@vertice.1/@regions.0/@vertice.0/@regions.0/@vertice.2" kind="external">
+                <effect name="T1.1.2(testEnd)"/>
+              </transitions>
+            </regions>
+            <entry name="S1.1(entry)"/>
+          </vertice>
+          <vertice xsi:type="statemachines:Pseudostate" name="Initial1" outgoingTransitions="//@statemachine/@regions.0/@vertice.1/@regions.0/@transitions.0"/>
+          <transitions name="T1.1" source="//@statemachine/@regions.0/@vertice.1/@regions.0/@vertice.1" target="//@statemachine/@regions.0/@vertice.1/@regions.0/@vertice.0" kind="external"/>
+        </regions>
+        <entry name="S1(entry)"/>
+      </vertice>
+      <vertice xsi:type="statemachines:State" name="waiting" outgoingTransitions="//@statemachine/@regions.0/@transitions.1" incomingTransitions="//@statemachine/@regions.0/@transitions.0"/>
+      <transitions name="T1" source="//@statemachine/@regions.0/@vertice.0" target="//@statemachine/@regions.0/@vertice.2" kind="external"/>
+      <transitions name="T2" source="//@statemachine/@regions.0/@vertice.2" target="//@statemachine/@regions.0/@vertice.1/@regions.0/@vertice.0/@regions.0/@vertice.0" kind="external">
+        <triggers name="StartTrigger">
+          <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.0"/>
+        </triggers>
+        <effect name="T2(effect)"/>
+        <constraint xsi:type="statemachines:StringConstraint"/>
+      </transitions>
+    </regions>
+  </statemachine>
+  <signals name="Start"/>
+</statemachines:CustomSystem>

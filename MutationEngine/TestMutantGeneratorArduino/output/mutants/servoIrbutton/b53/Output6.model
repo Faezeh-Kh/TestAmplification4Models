@@ -35,10 +35,6 @@
             </block>
             <condition xsi:type="arduino:BinaryBooleanExpression" xmi:id="_WDwFjLvrEey6kqvve9HPhQ" operator="AND">
               <left xsi:type="arduino:BooleanModuleGet" xmi:id="_WDwFjbvrEey6kqvve9HPhQ" module="_WDu3ZbvrEey6kqvve9HPhQ"/>
-              <right xsi:type="arduino:BinaryBooleanExpression" xmi:id="_WDwFjrvrEey6kqvve9HPhQ" operator="infOrEqual">
-                <left xsi:type="arduino:IntegerVariableRef" xmi:id="_WDwFj7vrEey6kqvve9HPhQ" variable="_WDwFgLvrEey6kqvve9HPhQ"/>
-                <right xsi:type="arduino:IntegerConstant" xmi:id="_WDwFkLvrEey6kqvve9HPhQ" value="18"/>
-              </right>
             </condition>
           </instructions>
           <instructions xsi:type="arduino:If" xmi:id="_WDwFkbvrEey6kqvve9HPhQ">
@@ -49,11 +45,16 @@
               <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_WDwskrvrEey6kqvve9HPhQ" module="_WDu3Z7vrEey6kqvve9HPhQ">
                 <operand xsi:type="arduino:IntegerConstant" xmi:id="_WDwsk7vrEey6kqvve9HPhQ"/>
               </instructions>
-              <instructions xsi:type="arduino:VariableAssignment"/>
             </block>
             <condition xsi:type="arduino:UnaryBooleanExpression" xmi:id="_WDwslbvrEey6kqvve9HPhQ">
               <operand xsi:type="arduino:BooleanModuleGet" xmi:id="_WDwslrvrEey6kqvve9HPhQ" module="_WDu3ZbvrEey6kqvve9HPhQ"/>
             </condition>
+          </instructions>
+          <instructions xsi:type="arduino:VariableAssignment" variable="_WDwFgLvrEey6kqvve9HPhQ">
+            <operand xsi:type="arduino:BinaryBooleanExpression" operator="infOrEqual">
+              <left xsi:type="arduino:IntegerVariableRef" variable="_WDwFgLvrEey6kqvve9HPhQ"/>
+              <right xsi:type="arduino:IntegerConstant" value="18"/>
+            </operand>
           </instructions>
         </block>
         <condition xsi:type="arduino:BooleanModuleGet" xmi:id="_WDwsl7vrEey6kqvve9HPhQ" module="_WDu3Y7vrEey6kqvve9HPhQ"/>

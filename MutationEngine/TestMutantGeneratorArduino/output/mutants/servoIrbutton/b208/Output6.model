@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <arduino:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduino="http://www.obeo.fr/arduino" xsi:schemaLocation="http://www.obeo.fr/arduino ../../../model/arduino.ecore" xmi:id="_WDu3YLvrEey6kqvve9HPhQ">
   <boards xsi:type="arduino:ArduinoBoard" xmi:id="_WDu3YbvrEey6kqvve9HPhQ" name="board">
-    <digitalPins xmi:id="_WDu3YrvrEey6kqvve9HPhQ" name="pushButton">
-      <module xsi:type="arduino:PushButton" xmi:id="_WDu3Y7vrEey6kqvve9HPhQ" name="button"/>
-    </digitalPins>
     <digitalPins xmi:id="_WDu3ZLvrEey6kqvve9HPhQ" name="IRSensor">
       <module xsi:type="arduino:InfraRedSensor" xmi:id="_WDu3ZbvrEey6kqvve9HPhQ" name="IRSensor"/>
     </digitalPins>
@@ -14,7 +11,11 @@
       <module xsi:type="arduino:MicroServo" xmi:id="_WDu3abvrEey6kqvve9HPhQ" name="Servo"/>
     </digitalPins>
   </boards>
-  <boards xsi:type="arduino:ArduinoBoard" name="board"/>
+  <boards xsi:type="arduino:ArduinoBoard" name="board">
+    <digitalPins xmi:id="_WDu3YrvrEey6kqvve9HPhQ" name="pushButton">
+      <module xsi:type="arduino:PushButton" xmi:id="_WDu3Y7vrEey6kqvve9HPhQ" name="button"/>
+    </digitalPins>
+  </boards>
   <sketches xmi:id="_WDu3arvrEey6kqvve9HPhQ" name="sketch" board="_WDu3YbvrEey6kqvve9HPhQ">
     <block xmi:id="_WDu3a7vrEey6kqvve9HPhQ">
       <instructions xsi:type="arduino:VariableDeclaration" xmi:id="_WDu3bLvrEey6kqvve9HPhQ">

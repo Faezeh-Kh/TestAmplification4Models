@@ -38,6 +38,7 @@
               <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_da8VsM-YEeyj4OK2t3h2Ug" module="_bNFXAM-YEeyj4OK2t3h2Ug">
                 <operand xsi:type="arduino:IntegerConstant" xmi:id="_da8Vsc-YEeyj4OK2t3h2Ug"/>
               </instructions>
+              <instructions xsi:type="arduino:Delay" value="7"/>
             </block>
             <condition xsi:type="arduino:BooleanModuleGet" xmi:id="_VbiroM-XEeyj4OK2t3h2Ug" module="_O4upcM-YEeyj4OK2t3h2Ug"/>
           </instructions>
@@ -65,7 +66,6 @@
               <right xsi:type="arduino:IntegerConstant" xmi:id="_mKijEM-YEeyj4OK2t3h2Ug" value="128"/>
             </condition>
           </instructions>
-          <instructions xsi:type="arduino:Delay"/>
         </block>
         <condition xsi:type="arduino:BooleanModuleGet" xmi:id="_-TEUMM-WEeyj4OK2t3h2Ug" module="_pbE9QMxXEeyMmOihs3jxMw"/>
         <elseBlock xmi:id="_Rvs2kM-YEeyj4OK2t3h2Ug">

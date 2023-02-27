@@ -4,13 +4,13 @@
     <digitalPins name="blueLed">
       <module xsi:type="arduino:LED" name="blueLed"/>
     </digitalPins>
-    <digitalPins name="whiteLedPin">
+    <digitalPins name="servo2">
       <module xsi:type="arduino:MicroServo" name="servo2"/>
     </digitalPins>
     <digitalPins name="fan">
       <module xsi:type="arduino:Fan" name="fan"/>
     </digitalPins>
-    <digitalPins name="boardOnButtonPin">
+    <digitalPins name="servo1">
       <module xsi:type="arduino:PushButton" name="boardOnButton"/>
     </digitalPins>
     <digitalPins name="IRSensorPin">

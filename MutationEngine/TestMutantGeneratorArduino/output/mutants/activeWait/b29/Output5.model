@@ -12,9 +12,7 @@
     <block xmi:id="_TeGOt7vnEey7OoLBzoKkPA">
       <instructions xsi:type="arduino:If" xmi:id="_TeGOuLvnEey7OoLBzoKkPA">
         <block xmi:id="_TeGOubvnEey7OoLBzoKkPA">
-          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_TeGOurvnEey7OoLBzoKkPA" module="_TeGOs7vnEey7OoLBzoKkPA">
-            <operand xsi:type="arduino:IntegerConstant" xmi:id="_TeGOu7vnEey7OoLBzoKkPA" value="1"/>
-          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_TeGOurvnEey7OoLBzoKkPA" module="_TeGOs7vnEey7OoLBzoKkPA"/>
           <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_TeGOvbvnEey7OoLBzoKkPA" module="_TeGOs7vnEey7OoLBzoKkPA">
             <operand xsi:type="arduino:IntegerConstant" xmi:id="_TeGOvrvnEey7OoLBzoKkPA"/>
           </instructions>
@@ -33,7 +31,9 @@
           <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_TeGOxLvnEey7OoLBzoKkPA" module="_TeGOs7vnEey7OoLBzoKkPA">
             <operand xsi:type="arduino:IntegerConstant" xmi:id="_TeGOxbvnEey7OoLBzoKkPA" value="1"/>
           </instructions>
-          <instructions xsi:type="arduino:ModuleAssignment"/>
+          <instructions xsi:type="arduino:ModuleAssignment" module="_TeGOs7vnEey7OoLBzoKkPA">
+            <operand xsi:type="arduino:IntegerConstant" value="1"/>
+          </instructions>
         </elseBlock>
       </instructions>
     </block>

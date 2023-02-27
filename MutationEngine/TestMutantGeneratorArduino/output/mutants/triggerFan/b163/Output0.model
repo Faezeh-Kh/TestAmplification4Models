@@ -8,7 +8,7 @@
       <module xsi:type="arduino:MicroServo" name="servo2"/>
     </digitalPins>
     <digitalPins name="fan">
-      <module xsi:type="arduino:Fan" name="fan"/>
+      <module xsi:type="arduino:Fan" name=""/>
     </digitalPins>
     <digitalPins name="boardOnButtonPin">
       <module xsi:type="arduino:PushButton" name="boardOnButton"/>

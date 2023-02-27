@@ -52,7 +52,7 @@
           </instructions>
         </elseBlock>
       </instructions>
-      <instructions xsi:type="arduino:WaitFor"/>
+      <instructions xsi:type="arduino:WaitFor" pin="_Jz0J4NFgEey60oAITKsoDQ"/>
     </block>
   </sketches>
 </arduino:Project>

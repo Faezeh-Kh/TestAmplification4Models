@@ -25,7 +25,7 @@
             <operand xsi:type="arduino:IntegerConstant"/>
           </instructions>
         </block>
-        <condition xsi:type="arduino:BooleanVariableRef"/>
+        <condition xsi:type="arduino:BooleanConstant"/>
         <elseBlock>
           <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
             <operand xsi:type="arduino:IntegerConstant" value="1"/>

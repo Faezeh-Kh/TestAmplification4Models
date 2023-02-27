@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
 <arduino:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduino="http://www.obeo.fr/arduino" xsi:schemaLocation="http://www.obeo.fr/arduino ../../../model/arduino.ecore" xmi:id="_bfAwMLsuEeyYPqXDdDsRMg">
   <boards xsi:type="arduino:ArduinoBoard" xmi:id="_bfAwMbsuEeyYPqXDdDsRMg" name="board">
-    <digitalPins xmi:id="_bfGPwLsuEeyYPqXDdDsRMg" name="led_pin">
-      <module xsi:type="arduino:LED" xmi:id="_bfGPwbsuEeyYPqXDdDsRMg" name="LED1"/>
-    </digitalPins>
+    <digitalPins xmi:id="_bfGPwLsuEeyYPqXDdDsRMg" name="led_pin"/>
     <digitalPins xmi:id="_bfGPwrsuEeyYPqXDdDsRMg" name="sensor_pin">
       <module xsi:type="arduino:InfraRedSensor" xmi:id="_bfGPw7suEeyYPqXDdDsRMg" name="IRSensor1"/>
     </digitalPins>
@@ -13,7 +11,9 @@
     <digitalPins xmi:id="_bfGPxrsuEeyYPqXDdDsRMg" name="button_pin">
       <module xsi:type="arduino:PushButton" xmi:id="_bfGPx7suEeyYPqXDdDsRMg" name="Button1"/>
     </digitalPins>
-    <digitalPins name="whiteLedPin"/>
+    <digitalPins name="servo1">
+      <module xsi:type="arduino:LED" name="LED1"/>
+    </digitalPins>
   </boards>
   <sketches xmi:id="_bfMWYLsuEeyYPqXDdDsRMg" name="sketch" board="_bfAwMbsuEeyYPqXDdDsRMg">
     <block xmi:id="_bfMWYbsuEeyYPqXDdDsRMg">
@@ -33,10 +33,10 @@
       </instructions>
       <instructions xsi:type="arduino:If" xmi:id="_bfYjobsuEeyYPqXDdDsRMg">
         <block xmi:id="_bfYjorsuEeyYPqXDdDsRMg">
-          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_bfYjo7suEeyYPqXDdDsRMg" module="_bfGPwbsuEeyYPqXDdDsRMg">
+          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_bfYjo7suEeyYPqXDdDsRMg" module="//@boards.0/@digitalPins.4/@module">
             <operand xsi:type="arduino:IntegerConstant" xmi:id="_bfYjpLsuEeyYPqXDdDsRMg" value="1"/>
           </instructions>
-          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_bfYjprsuEeyYPqXDdDsRMg" module="_bfGPwbsuEeyYPqXDdDsRMg">
+          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_bfYjprsuEeyYPqXDdDsRMg" module="//@boards.0/@digitalPins.4/@module">
             <operand xsi:type="arduino:IntegerConstant" xmi:id="_bfYjp7suEeyYPqXDdDsRMg"/>
           </instructions>
         </block>

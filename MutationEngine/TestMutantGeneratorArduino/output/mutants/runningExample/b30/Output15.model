@@ -41,8 +41,11 @@
               <right xsi:type="arduino:IntegerConstant" value="1"/>
             </condition>
           </instructions>
-          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.0/@module">
-            <operand xsi:type="arduino:IntegerConstant" value="1"/>
+          <instructions xsi:type="arduino:ModuleAssignment">
+            <module xsi:type="arduino:InfraRedSensor" href="../../../model/runningExample.model#_TeGOtbvnEey7OoLBzoKkPA"/>
+            <operand xsi:type="arduino:IntegerModuleGet">
+              <module xsi:type="arduino:PushButton" href="../../../model/runningExample.model#_L26qENFgEey60oAITKsoDQ"/>
+            </operand>
           </instructions>
         </block>
         <condition xsi:type="arduino:BinaryBooleanExpression" operator="equal">

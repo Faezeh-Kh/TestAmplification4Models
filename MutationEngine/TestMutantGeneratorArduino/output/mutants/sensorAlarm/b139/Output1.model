@@ -11,7 +11,7 @@
       <module xsi:type="arduino:Buzzer" name="Alarm1"/>
     </digitalPins>
     <digitalPins name="button_pin">
-      <module xsi:type="arduino:PushButton" name="turnOffButton"/>
+      <module xsi:type="arduino:PushButton" name="button1"/>
     </digitalPins>
   </boards>
   <sketches name="sketch" board="//@boards.0">

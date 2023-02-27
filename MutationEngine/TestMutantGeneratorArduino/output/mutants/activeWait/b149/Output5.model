@@ -39,5 +39,5 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:MicroServo name="servo2"/>
+  <arduino:MicroServo name="Servo"/>
 </xmi:XMI>

@@ -10,7 +10,7 @@
     <digitalPins name="blueLED">
       <module xsi:type="arduino:LED" name="blueLED"/>
     </digitalPins>
-    <digitalPins name="whiteLedPin">
+    <digitalPins name="Servo">
       <module xsi:type="arduino:MicroServo" name="Servo"/>
     </digitalPins>
   </boards>
