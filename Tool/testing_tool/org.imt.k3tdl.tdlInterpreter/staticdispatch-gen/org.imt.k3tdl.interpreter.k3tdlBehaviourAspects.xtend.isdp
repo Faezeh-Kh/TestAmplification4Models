@@ -1,0 +1,405 @@
+	// BeginInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.WaitAspect
+		if (_self instanceof org.etsi.mts.tdl.Wait){
+			result = org.imt.k3tdl.interpreter.WaitAspect.performBehavior((org.etsi.mts.tdl.Wait)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.WaitAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.WaitAspect
+		if (_self instanceof org.etsi.mts.tdl.Wait){
+			result = org.imt.k3tdl.interpreter.WaitAspect.performBehavior((org.etsi.mts.tdl.Wait)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.WaitAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.SingleCombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.CompoundBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.CompoundBehaviour){
+			result = org.imt.k3tdl.interpreter.CompoundBehaviourAspect.performBehavior((org.etsi.mts.tdl.CompoundBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.SingleCombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.CompoundBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.MultipleCombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ConditionalBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.ConditionalBehaviour){
+			result = org.imt.k3tdl.interpreter.ConditionalBehaviourAspect.performBehavior((org.etsi.mts.tdl.ConditionalBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.MultipleCombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ConditionalBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TimerStartAspect
+		if (_self instanceof org.etsi.mts.tdl.TimerStart){
+			result = org.imt.k3tdl.interpreter.TimerStartAspect.performBehavior((org.etsi.mts.tdl.TimerStart)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TimerStartAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TimeOutAspect
+		if (_self instanceof org.etsi.mts.tdl.TimeOut){
+			result = org.imt.k3tdl.interpreter.TimeOutAspect.performBehavior((org.etsi.mts.tdl.TimeOut)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TimeOutAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ParallelBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.ParallelBehaviour){
+			result = org.imt.k3tdl.interpreter.ParallelBehaviourAspect.performBehavior((org.etsi.mts.tdl.ParallelBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ParallelBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.VerdictAssignmentAspect
+		if (_self instanceof org.etsi.mts.tdl.VerdictAssignment){
+			result = org.imt.k3tdl.interpreter.VerdictAssignmentAspect.performBehavior((org.etsi.mts.tdl.VerdictAssignment)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.VerdictAssignmentAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TimeOperationAspect
+		if (_self instanceof org.etsi.mts.tdl.TimeOperation){
+			result = org.imt.k3tdl.interpreter.TimeOperationAspect.performBehavior((org.etsi.mts.tdl.TimeOperation)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TimeOperationAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.ActionBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.InlineActionAspect
+		if (_self instanceof org.etsi.mts.tdl.InlineAction){
+			result = org.imt.k3tdl.interpreter.InlineActionAspect.performBehavior((org.etsi.mts.tdl.InlineAction)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.ActionBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.InlineActionAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.CombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.SingleCombinedBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.SingleCombinedBehaviour){
+			result = org.imt.k3tdl.interpreter.SingleCombinedBehaviourAspect.performBehavior((org.etsi.mts.tdl.SingleCombinedBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.CombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.SingleCombinedBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.InterruptBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.InterruptBehaviour){
+			result = org.imt.k3tdl.interpreter.InterruptBehaviourAspect.performBehavior((org.etsi.mts.tdl.InterruptBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.InterruptBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.TimerOperationAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TimerStartAspect
+		if (_self instanceof org.etsi.mts.tdl.TimerStart){
+			result = org.imt.k3tdl.interpreter.TimerStartAspect.performBehavior((org.etsi.mts.tdl.TimerStart)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.TimerOperationAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TimerStartAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.QuiescenceAspect
+		if (_self instanceof org.etsi.mts.tdl.Quiescence){
+			result = org.imt.k3tdl.interpreter.QuiescenceAspect.performBehavior((org.etsi.mts.tdl.Quiescence)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.QuiescenceAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.InteractoinAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ProcedureCallAspect
+		if (_self instanceof org.etsi.mts.tdl.ProcedureCall){
+			result = org.imt.k3tdl.interpreter.ProcedureCallAspect.performBehavior((org.etsi.mts.tdl.ProcedureCall)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.InteractoinAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ProcedureCallAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.CombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ConditionalBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.ConditionalBehaviour){
+			result = org.imt.k3tdl.interpreter.ConditionalBehaviourAspect.performBehavior((org.etsi.mts.tdl.ConditionalBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.CombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ConditionalBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.StopAspect
+		if (_self instanceof org.etsi.mts.tdl.Stop){
+			result = org.imt.k3tdl.interpreter.StopAspect.performBehavior((org.etsi.mts.tdl.Stop)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.StopAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.AssignmentAspect
+		if (_self instanceof org.etsi.mts.tdl.Assignment){
+			result = org.imt.k3tdl.interpreter.AssignmentAspect.performBehavior((org.etsi.mts.tdl.Assignment)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.AssignmentAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ActionReferenceAspect
+		if (_self instanceof org.etsi.mts.tdl.ActionReference){
+			result = org.imt.k3tdl.interpreter.ActionReferenceAspect.performBehavior((org.etsi.mts.tdl.ActionReference)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ActionReferenceAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.CombinedBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.CombinedBehaviour){
+			result = org.imt.k3tdl.interpreter.CombinedBehaviourAspect.performBehavior((org.etsi.mts.tdl.CombinedBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.CombinedBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.BreakAspect
+		if (_self instanceof org.etsi.mts.tdl.Break){
+			result = org.imt.k3tdl.interpreter.BreakAspect.performBehavior((org.etsi.mts.tdl.Break)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.BreakAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.TimeOperationAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.WaitAspect
+		if (_self instanceof org.etsi.mts.tdl.Wait){
+			result = org.imt.k3tdl.interpreter.WaitAspect.performBehavior((org.etsi.mts.tdl.Wait)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.TimeOperationAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.WaitAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TimeOperationAspect
+		if (_self instanceof org.etsi.mts.tdl.TimeOperation){
+			result = org.imt.k3tdl.interpreter.TimeOperationAspect.performBehavior((org.etsi.mts.tdl.TimeOperation)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TimeOperationAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.AlternativeBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.AlternativeBehaviour){
+			result = org.imt.k3tdl.interpreter.AlternativeBehaviourAspect.performBehavior((org.etsi.mts.tdl.AlternativeBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.AlternativeBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TimerStopAspect
+		if (_self instanceof org.etsi.mts.tdl.TimerStop){
+			result = org.imt.k3tdl.interpreter.TimerStopAspect.performBehavior((org.etsi.mts.tdl.TimerStop)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TimerStopAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.StopAspect
+		if (_self instanceof org.etsi.mts.tdl.Stop){
+			result = org.imt.k3tdl.interpreter.StopAspect.performBehavior((org.etsi.mts.tdl.Stop)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.StopAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.InteractoinAspect
+		if (_self instanceof org.etsi.mts.tdl.Interaction){
+			result = org.imt.k3tdl.interpreter.InteractoinAspect.performBehavior((org.etsi.mts.tdl.Interaction)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.InteractoinAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.SingleCombinedBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.SingleCombinedBehaviour){
+			result = org.imt.k3tdl.interpreter.SingleCombinedBehaviourAspect.performBehavior((org.etsi.mts.tdl.SingleCombinedBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.SingleCombinedBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.TimeOperationAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.QuiescenceAspect
+		if (_self instanceof org.etsi.mts.tdl.Quiescence){
+			result = org.imt.k3tdl.interpreter.QuiescenceAspect.performBehavior((org.etsi.mts.tdl.Quiescence)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.TimeOperationAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.QuiescenceAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TimerStopAspect
+		if (_self instanceof org.etsi.mts.tdl.TimerStop){
+			result = org.imt.k3tdl.interpreter.TimerStopAspect.performBehavior((org.etsi.mts.tdl.TimerStop)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TimerStopAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.MessageAspect
+		if (_self instanceof org.etsi.mts.tdl.Message){
+			result = org.imt.k3tdl.interpreter.MessageAspect.performBehavior((org.etsi.mts.tdl.Message)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.MessageAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.TimerOperationAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TimeOutAspect
+		if (_self instanceof org.etsi.mts.tdl.TimeOut){
+			result = org.imt.k3tdl.interpreter.TimeOutAspect.performBehavior((org.etsi.mts.tdl.TimeOut)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.TimerOperationAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TimeOutAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.UnBoundedLoopBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.UnboundedLoopBehaviour){
+			result = org.imt.k3tdl.interpreter.UnBoundedLoopBehaviourAspect.performBehavior((org.etsi.mts.tdl.UnboundedLoopBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.UnBoundedLoopBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.ActionBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.AssertionAspect
+		if (_self instanceof org.etsi.mts.tdl.Assertion){
+			result = org.imt.k3tdl.interpreter.AssertionAspect.performBehavior((org.etsi.mts.tdl.Assertion)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.ActionBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.AssertionAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.AssignmentAspect
+		if (_self instanceof org.etsi.mts.tdl.Assignment){
+			result = org.imt.k3tdl.interpreter.AssignmentAspect.performBehavior((org.etsi.mts.tdl.Assignment)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.AssignmentAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.CombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.CompoundBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.CompoundBehaviour){
+			result = org.imt.k3tdl.interpreter.CompoundBehaviourAspect.performBehavior((org.etsi.mts.tdl.CompoundBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.CombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.CompoundBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.OptionalBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.OptionalBehaviour){
+			result = org.imt.k3tdl.interpreter.OptionalBehaviourAspect.performBehavior((org.etsi.mts.tdl.OptionalBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.OptionalBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.MultipleCombinedBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.MultipleCombinedBehaviour){
+			result = org.imt.k3tdl.interpreter.MultipleCombinedBehaviourAspect.performBehavior((org.etsi.mts.tdl.MultipleCombinedBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.MultipleCombinedBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.BreakAspect
+		if (_self instanceof org.etsi.mts.tdl.Break){
+			result = org.imt.k3tdl.interpreter.BreakAspect.performBehavior((org.etsi.mts.tdl.Break)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.BreakAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.VerdictAssignmentAspect
+		if (_self instanceof org.etsi.mts.tdl.VerdictAssignment){
+			result = org.imt.k3tdl.interpreter.VerdictAssignmentAspect.performBehavior((org.etsi.mts.tdl.VerdictAssignment)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.VerdictAssignmentAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TestDescriptionReferenceAspect
+		if (_self instanceof org.etsi.mts.tdl.TestDescriptionReference){
+			result = org.imt.k3tdl.interpreter.TestDescriptionReferenceAspect.performBehavior((org.etsi.mts.tdl.TestDescriptionReference)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TestDescriptionReferenceAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ActionReferenceAspect
+		if (_self instanceof org.etsi.mts.tdl.ActionReference){
+			result = org.imt.k3tdl.interpreter.ActionReferenceAspect.performBehavior((org.etsi.mts.tdl.ActionReference)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ActionReferenceAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.ExceptionalBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.DefaultBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.DefaultBehaviour){
+			result = org.imt.k3tdl.interpreter.DefaultBehaviourAspect.performBehavior((org.etsi.mts.tdl.DefaultBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.ExceptionalBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.DefaultBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ExceptionalBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.ExceptionalBehaviour){
+			result = org.imt.k3tdl.interpreter.ExceptionalBehaviourAspect.performBehavior((org.etsi.mts.tdl.ExceptionalBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ExceptionalBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.AtomicBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.AtomicBehaviour){
+			result = org.imt.k3tdl.interpreter.AtomicBehaviourAspect.performBehavior((org.etsi.mts.tdl.AtomicBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.AtomicBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.InteractoinAspect
+		if (_self instanceof org.etsi.mts.tdl.Interaction){
+			result = org.imt.k3tdl.interpreter.InteractoinAspect.performBehavior((org.etsi.mts.tdl.Interaction)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.InteractoinAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.InlineActionAspect
+		if (_self instanceof org.etsi.mts.tdl.InlineAction){
+			result = org.imt.k3tdl.interpreter.InlineActionAspect.performBehavior((org.etsi.mts.tdl.InlineAction)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.InlineActionAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ConditionalBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.ConditionalBehaviour){
+			result = org.imt.k3tdl.interpreter.ConditionalBehaviourAspect.performBehavior((org.etsi.mts.tdl.ConditionalBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ConditionalBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.CompoundBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.CompoundBehaviour){
+			result = org.imt.k3tdl.interpreter.CompoundBehaviourAspect.performBehavior((org.etsi.mts.tdl.CompoundBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.CompoundBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TimerStartAspect
+		if (_self instanceof org.etsi.mts.tdl.TimerStart){
+			result = org.imt.k3tdl.interpreter.TimerStartAspect.performBehavior((org.etsi.mts.tdl.TimerStart)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TimerStartAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.TimerOperationAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TimerStopAspect
+		if (_self instanceof org.etsi.mts.tdl.TimerStop){
+			result = org.imt.k3tdl.interpreter.TimerStopAspect.performBehavior((org.etsi.mts.tdl.TimerStop)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.TimerOperationAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TimerStopAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.CombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ParallelBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.ParallelBehaviour){
+			result = org.imt.k3tdl.interpreter.ParallelBehaviourAspect.performBehavior((org.etsi.mts.tdl.ParallelBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.CombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ParallelBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.CombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.BoundedLoopBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.BoundedLoopBehaviour){
+			result = org.imt.k3tdl.interpreter.BoundedLoopBehaviourAspect.performBehavior((org.etsi.mts.tdl.BoundedLoopBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.CombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.BoundedLoopBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.SingleCombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.OptionalBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.OptionalBehaviour){
+			result = org.imt.k3tdl.interpreter.OptionalBehaviourAspect.performBehavior((org.etsi.mts.tdl.OptionalBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.SingleCombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.OptionalBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.CombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.OptionalBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.OptionalBehaviour){
+			result = org.imt.k3tdl.interpreter.OptionalBehaviourAspect.performBehavior((org.etsi.mts.tdl.OptionalBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.CombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.OptionalBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ActionBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.ActionBehaviour){
+			result = org.imt.k3tdl.interpreter.ActionBehaviourAspect.performBehavior((org.etsi.mts.tdl.ActionBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ActionBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.InlineActionAspect
+		if (_self instanceof org.etsi.mts.tdl.InlineAction){
+			result = org.imt.k3tdl.interpreter.InlineActionAspect.performBehavior((org.etsi.mts.tdl.InlineAction)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.InlineActionAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ProcedureCallAspect
+		if (_self instanceof org.etsi.mts.tdl.ProcedureCall){
+			result = org.imt.k3tdl.interpreter.ProcedureCallAspect.performBehavior((org.etsi.mts.tdl.ProcedureCall)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ProcedureCallAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.PeriodicBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.PeriodicBehaviour){
+			result = org.imt.k3tdl.interpreter.PeriodicBehaviourAspect.performBehavior((org.etsi.mts.tdl.PeriodicBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.PeriodicBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.ActionBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ActionReferenceAspect
+		if (_self instanceof org.etsi.mts.tdl.ActionReference){
+			result = org.imt.k3tdl.interpreter.ActionReferenceAspect.performBehavior((org.etsi.mts.tdl.ActionReference)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.ActionBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ActionReferenceAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.CombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.AlternativeBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.AlternativeBehaviour){
+			result = org.imt.k3tdl.interpreter.AlternativeBehaviourAspect.performBehavior((org.etsi.mts.tdl.AlternativeBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.CombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.AlternativeBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.BoundedLoopBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.BoundedLoopBehaviour){
+			result = org.imt.k3tdl.interpreter.BoundedLoopBehaviourAspect.performBehavior((org.etsi.mts.tdl.BoundedLoopBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.BoundedLoopBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TimerOperationAspect
+		if (_self instanceof org.etsi.mts.tdl.TimerOperation){
+			result = org.imt.k3tdl.interpreter.TimerOperationAspect.performBehavior((org.etsi.mts.tdl.TimerOperation)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TimerOperationAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.InteractoinAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.MessageAspect
+		if (_self instanceof org.etsi.mts.tdl.Message){
+			result = org.imt.k3tdl.interpreter.MessageAspect.performBehavior((org.etsi.mts.tdl.Message)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.InteractoinAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.MessageAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.SingleCombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.UnBoundedLoopBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.UnboundedLoopBehaviour){
+			result = org.imt.k3tdl.interpreter.UnBoundedLoopBehaviourAspect.performBehavior((org.etsi.mts.tdl.UnboundedLoopBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.SingleCombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.UnBoundedLoopBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.CombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.UnBoundedLoopBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.UnboundedLoopBehaviour){
+			result = org.imt.k3tdl.interpreter.UnBoundedLoopBehaviourAspect.performBehavior((org.etsi.mts.tdl.UnboundedLoopBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.CombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.UnBoundedLoopBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.AssertionAspect
+		if (_self instanceof org.etsi.mts.tdl.Assertion){
+			result = org.imt.k3tdl.interpreter.AssertionAspect.performBehavior((org.etsi.mts.tdl.Assertion)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.AssertionAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TimeOutAspect
+		if (_self instanceof org.etsi.mts.tdl.TimeOut){
+			result = org.imt.k3tdl.interpreter.TimeOutAspect.performBehavior((org.etsi.mts.tdl.TimeOut)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TimeOutAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.CombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.MultipleCombinedBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.MultipleCombinedBehaviour){
+			result = org.imt.k3tdl.interpreter.MultipleCombinedBehaviourAspect.performBehavior((org.etsi.mts.tdl.MultipleCombinedBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.CombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.MultipleCombinedBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ProcedureCallAspect
+		if (_self instanceof org.etsi.mts.tdl.ProcedureCall){
+			result = org.imt.k3tdl.interpreter.ProcedureCallAspect.performBehavior((org.etsi.mts.tdl.ProcedureCall)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ProcedureCallAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.ExceptionalBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.InterruptBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.InterruptBehaviour){
+			result = org.imt.k3tdl.interpreter.InterruptBehaviourAspect.performBehavior((org.etsi.mts.tdl.InterruptBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.ExceptionalBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.InterruptBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.SingleCombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.BoundedLoopBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.BoundedLoopBehaviour){
+			result = org.imt.k3tdl.interpreter.BoundedLoopBehaviourAspect.performBehavior((org.etsi.mts.tdl.BoundedLoopBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.SingleCombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.BoundedLoopBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TestDescriptionReferenceAspect
+		if (_self instanceof org.etsi.mts.tdl.TestDescriptionReference){
+			result = org.imt.k3tdl.interpreter.TestDescriptionReferenceAspect.performBehavior((org.etsi.mts.tdl.TestDescriptionReference)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TestDescriptionReferenceAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ActionBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.ActionBehaviour){
+			result = org.imt.k3tdl.interpreter.ActionBehaviourAspect.performBehavior((org.etsi.mts.tdl.ActionBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ActionBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.DefaultBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.DefaultBehaviour){
+			result = org.imt.k3tdl.interpreter.DefaultBehaviourAspect.performBehavior((org.etsi.mts.tdl.DefaultBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.DefaultBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.QuiescenceAspect
+		if (_self instanceof org.etsi.mts.tdl.Quiescence){
+			result = org.imt.k3tdl.interpreter.QuiescenceAspect.performBehavior((org.etsi.mts.tdl.Quiescence)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.QuiescenceAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.MultipleCombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ParallelBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.ParallelBehaviour){
+			result = org.imt.k3tdl.interpreter.ParallelBehaviourAspect.performBehavior((org.etsi.mts.tdl.ParallelBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.MultipleCombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.ParallelBehaviourAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TimerOperationAspect
+		if (_self instanceof org.etsi.mts.tdl.TimerOperation){
+			result = org.imt.k3tdl.interpreter.TimerOperationAspect.performBehavior((org.etsi.mts.tdl.TimerOperation)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.TimerOperationAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.AssertionAspect
+		if (_self instanceof org.etsi.mts.tdl.Assertion){
+			result = org.imt.k3tdl.interpreter.AssertionAspect.performBehavior((org.etsi.mts.tdl.Assertion)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.BehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.AssertionAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.MessageAspect
+		if (_self instanceof org.etsi.mts.tdl.Message){
+			result = org.imt.k3tdl.interpreter.MessageAspect.performBehavior((org.etsi.mts.tdl.Message)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.AtomicBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.MessageAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.MultipleCombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.AlternativeBehaviourAspect
+		if (_self instanceof org.etsi.mts.tdl.AlternativeBehaviour){
+			result = org.imt.k3tdl.interpreter.AlternativeBehaviourAspect.performBehavior((org.etsi.mts.tdl.AlternativeBehaviour)_self);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.MultipleCombinedBehaviourAspect#boolean performBehavior() from org.imt.k3tdl.interpreter.AlternativeBehaviourAspect

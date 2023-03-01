@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point 
+   		id="org.imt.tdl.coverage.extensionpoint.DSLSpecificCoverage" 
+   		name="DSLSpecificCoverage" 
+   		schema="schema/org.imt.tdl.coverage.extensionpoint.DSLSpecificCoverage.exsd"/>
+	<extension
+         point="org.eclipse.ui.views">  
+      <category
+            id="tdl.views"
+            name="TDL">
+      </category>    
+      <view
+            category="tdl.views"
+            class="org.imt.tdl.coverage.ui.TDLCoverageView"
+            icon="icons/coverage.png"
+            id="org.imt.tdl.rt.ui.coverageView"
+            name="Coverage"
+            restorable="true">
+      </view>
+   </extension>
+ <extension
+       point="org.eclipse.gemoc.gemoc_language_workbench.engine_addon">
+    <addon
+          class="org.imt.tdl.coverage.persistence.TestCoveragePersistence"
+          id="org.imt.tdl.coverage.reportAddon"
+          name="TDL Test Coverage"
+          shortDescription="Save the result of TDL test coverage">
+    </addon>
+ </extension>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated TDLTestCoverage -->
+      <package
+            uri="http://org.imt.tdl.coverage/TDLTestCoverage"
+            class="TDLTestCoverage.TDLTestCoveragePackage"
+            genModel="model/TDLTestCoverage.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated DSLSpecificCoverage -->
+      <package
+            uri="https://org.imt.tdl.coverage/DSLSpecificCoverage"
+            class="DSLSpecificCoverage.DSLSpecificCoveragePackage"
+            genModel="model/DSLSpecificCoverage.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated TestCoverage -->
+      <package
+            uri="http://org.imt.tdl.coverage/metamodel"
+            class="TestCoverage.TestCoveragePackage"
+            genModel="model/TestCoverage.genmodel"/>
+   </extension>
+
+</plugin>

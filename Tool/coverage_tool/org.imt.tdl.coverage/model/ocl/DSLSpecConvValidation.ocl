@@ -1,0 +1,31 @@
+import 'platform:/plugin/coverage.computation/model/DSLSpecificCoverage.ecore'
+
+
+package DSLSpecificCoverage
+
+context Context
+
+def: asError(verdict : Boolean) : Boolean =
+	if verdict then true else null endif
+
+def: hasInclusionRule : Boolean = 
+	self.rules->exists(r | r.oclIsKindOf(InclusionRule)) 
+	
+def: hasExclusionRule : Boolean = 
+	self.rules->exists(r | r.oclIsKindOf(ExclusionRule)) 
+	
+inv repeatedContextIncExcCriteria('Context cannot have both Inclusion and Exclusion rules'): 
+	asError((hasInclusionRule and hasExclusionRule) = false)
+
+context BranchSpecification
+
+def: asError(verdict : Boolean) : Boolean =
+	if verdict then true else null endif
+
+inv atLeastOneExplicitBranch('BranchSpecification rule must have at least one ExplicitBranch'):
+	 asError(self.branches->exists(b | b.oclIsTypeOf(ExplicitBranch)))
+
+inv onlyOneImplicitBranch('BranchSpecification rule must have at most one ImplicitBranch'):
+	asError(self.branches->select(b | b.oclIsTypeOf(ImplicitBranch))->size() <= 1)
+		
+endpackage

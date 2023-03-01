@@ -1,0 +1,90 @@
+	// BeginInjectInto org.imt.k3tdl.interpreter.StaticDataUseAspect#String updateData(EObject,EStructuralFeature) from org.imt.k3tdl.interpreter.SpecialValueUseAspect
+		if (_self instanceof org.etsi.mts.tdl.SpecialValueUse){
+			result = org.imt.k3tdl.interpreter.SpecialValueUseAspect.updateData((org.etsi.mts.tdl.SpecialValueUse)_self,object,matchedFeature);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.StaticDataUseAspect#String updateData(EObject,EStructuralFeature) from org.imt.k3tdl.interpreter.SpecialValueUseAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.StaticDataUseAspect#String updateData(EObject,EStructuralFeature) from org.imt.k3tdl.interpreter.LiteralValueUseAspect
+		if (_self instanceof org.etsi.mts.tdl.LiteralValueUse){
+			result = org.imt.k3tdl.interpreter.LiteralValueUseAspect.updateData((org.etsi.mts.tdl.LiteralValueUse)_self,object,matchedFeature);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.StaticDataUseAspect#String updateData(EObject,EStructuralFeature) from org.imt.k3tdl.interpreter.LiteralValueUseAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.DataUseAspect#String updateData(EObject,EStructuralFeature) from org.imt.k3tdl.interpreter.LiteralValueUseAspect
+		if (_self instanceof org.etsi.mts.tdl.LiteralValueUse){
+			result = org.imt.k3tdl.interpreter.LiteralValueUseAspect.updateData((org.etsi.mts.tdl.LiteralValueUse)_self,object,matchedFeature);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.DataUseAspect#String updateData(EObject,EStructuralFeature) from org.imt.k3tdl.interpreter.LiteralValueUseAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.DataInstanceAspect#ArrayList<EObject> getMatchedMUTElement(ArrayList<EObject>,boolean,Resource) from org.imt.k3tdl.interpreter.SimpleDataInstanceAspect
+		if (_self instanceof org.etsi.mts.tdl.SimpleDataInstance){
+			result = org.imt.k3tdl.interpreter.SimpleDataInstanceAspect.getMatchedMUTElement((org.etsi.mts.tdl.SimpleDataInstance)_self,rootElement,isAssertion,MUTResource);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.DataInstanceAspect#ArrayList<EObject> getMatchedMUTElement(ArrayList<EObject>,boolean,Resource) from org.imt.k3tdl.interpreter.SimpleDataInstanceAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.DataUseAspect#String assertEquals(Object) from org.imt.k3tdl.interpreter.LiteralValueUseAspect
+		if (_self instanceof org.etsi.mts.tdl.LiteralValueUse){
+			result = org.imt.k3tdl.interpreter.LiteralValueUseAspect.assertEquals((org.etsi.mts.tdl.LiteralValueUse)_self,featureValue);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.DataUseAspect#String assertEquals(Object) from org.imt.k3tdl.interpreter.LiteralValueUseAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.StaticDataUseAspect#String assertEquals(Object) from org.imt.k3tdl.interpreter.SpecialValueUseAspect
+		if (_self instanceof org.etsi.mts.tdl.SpecialValueUse){
+			result = org.imt.k3tdl.interpreter.SpecialValueUseAspect.assertEquals((org.etsi.mts.tdl.SpecialValueUse)_self,featureValue);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.StaticDataUseAspect#String assertEquals(Object) from org.imt.k3tdl.interpreter.SpecialValueUseAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.DataInstanceAspect#ArrayList<EObject> getMatchedMUTElement(ArrayList<EObject>,boolean,Resource) from org.imt.k3tdl.interpreter.StructuredDataInstanceAspect
+		if (_self instanceof org.etsi.mts.tdl.StructuredDataInstance){
+			result = org.imt.k3tdl.interpreter.StructuredDataInstanceAspect.getMatchedMUTElement((org.etsi.mts.tdl.StructuredDataInstance)_self,rootElement,isAssertion,MUTResource);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.DataInstanceAspect#ArrayList<EObject> getMatchedMUTElement(ArrayList<EObject>,boolean,Resource) from org.imt.k3tdl.interpreter.StructuredDataInstanceAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.DataUseAspect#String assertEquals(Object) from org.imt.k3tdl.interpreter.StaticDataUseAspect
+		if (_self instanceof org.etsi.mts.tdl.StaticDataUse){
+			result = org.imt.k3tdl.interpreter.StaticDataUseAspect.assertEquals((org.etsi.mts.tdl.StaticDataUse)_self,featureValue);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.DataUseAspect#String assertEquals(Object) from org.imt.k3tdl.interpreter.StaticDataUseAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.DataUseAspect#String updateData(EObject,EStructuralFeature) from org.imt.k3tdl.interpreter.SpecialValueUseAspect
+		if (_self instanceof org.etsi.mts.tdl.SpecialValueUse){
+			result = org.imt.k3tdl.interpreter.SpecialValueUseAspect.updateData((org.etsi.mts.tdl.SpecialValueUse)_self,object,matchedFeature);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.DataUseAspect#String updateData(EObject,EStructuralFeature) from org.imt.k3tdl.interpreter.SpecialValueUseAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.StaticDataUseAspect#String assertEquals(Object) from org.imt.k3tdl.interpreter.LiteralValueUseAspect
+		if (_self instanceof org.etsi.mts.tdl.LiteralValueUse){
+			result = org.imt.k3tdl.interpreter.LiteralValueUseAspect.assertEquals((org.etsi.mts.tdl.LiteralValueUse)_self,featureValue);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.StaticDataUseAspect#String assertEquals(Object) from org.imt.k3tdl.interpreter.LiteralValueUseAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.StaticDataUseAspect#String assertEquals(Object,Boolean,Resource) from org.imt.k3tdl.interpreter.DataInstanceUseAspect
+		if (_self instanceof org.etsi.mts.tdl.DataInstanceUse){
+			result = org.imt.k3tdl.interpreter.DataInstanceUseAspect.assertEquals((org.etsi.mts.tdl.DataInstanceUse)_self,featureValue,isAssertion,MUTResource);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.StaticDataUseAspect#String assertEquals(Object,Boolean,Resource) from org.imt.k3tdl.interpreter.DataInstanceUseAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.StaticDataUseAspect#String updateData(EObject,EStructuralFeature,Resource) from org.imt.k3tdl.interpreter.DataInstanceUseAspect
+		if (_self instanceof org.etsi.mts.tdl.DataInstanceUse){
+			result = org.imt.k3tdl.interpreter.DataInstanceUseAspect.updateData((org.etsi.mts.tdl.DataInstanceUse)_self,object,matchedFeature,MUTResource);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.StaticDataUseAspect#String updateData(EObject,EStructuralFeature,Resource) from org.imt.k3tdl.interpreter.DataInstanceUseAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.DataUseAspect#String assertEquals(Object) from org.imt.k3tdl.interpreter.SpecialValueUseAspect
+		if (_self instanceof org.etsi.mts.tdl.SpecialValueUse){
+			result = org.imt.k3tdl.interpreter.SpecialValueUseAspect.assertEquals((org.etsi.mts.tdl.SpecialValueUse)_self,featureValue);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.DataUseAspect#String assertEquals(Object) from org.imt.k3tdl.interpreter.SpecialValueUseAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.DataUseAspect#String assertEquals(Object,Boolean,Resource) from org.imt.k3tdl.interpreter.DataInstanceUseAspect
+		if (_self instanceof org.etsi.mts.tdl.DataInstanceUse){
+			result = org.imt.k3tdl.interpreter.DataInstanceUseAspect.assertEquals((org.etsi.mts.tdl.DataInstanceUse)_self,featureValue,isAssertion,MUTResource);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.DataUseAspect#String assertEquals(Object,Boolean,Resource) from org.imt.k3tdl.interpreter.DataInstanceUseAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.DataUseAspect#String updateData(EObject,EStructuralFeature,Resource) from org.imt.k3tdl.interpreter.DataInstanceUseAspect
+		if (_self instanceof org.etsi.mts.tdl.DataInstanceUse){
+			result = org.imt.k3tdl.interpreter.DataInstanceUseAspect.updateData((org.etsi.mts.tdl.DataInstanceUse)_self,object,matchedFeature,MUTResource);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.DataUseAspect#String updateData(EObject,EStructuralFeature,Resource) from org.imt.k3tdl.interpreter.DataInstanceUseAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.DataUseAspect#String assertEquals(Object,Boolean,Resource) from org.imt.k3tdl.interpreter.StaticDataUseAspect
+		if (_self instanceof org.etsi.mts.tdl.StaticDataUse){
+			result = org.imt.k3tdl.interpreter.StaticDataUseAspect.assertEquals((org.etsi.mts.tdl.StaticDataUse)_self,featureValue,isAssertion,MUTResource);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.DataUseAspect#String assertEquals(Object,Boolean,Resource) from org.imt.k3tdl.interpreter.StaticDataUseAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.DataUseAspect#String updateData(EObject,EStructuralFeature) from org.imt.k3tdl.interpreter.StaticDataUseAspect
+		if (_self instanceof org.etsi.mts.tdl.StaticDataUse){
+			result = org.imt.k3tdl.interpreter.StaticDataUseAspect.updateData((org.etsi.mts.tdl.StaticDataUse)_self,object,matchedFeature);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.DataUseAspect#String updateData(EObject,EStructuralFeature) from org.imt.k3tdl.interpreter.StaticDataUseAspect
+	// BeginInjectInto org.imt.k3tdl.interpreter.DataUseAspect#String updateData(EObject,EStructuralFeature,Resource) from org.imt.k3tdl.interpreter.StaticDataUseAspect
+		if (_self instanceof org.etsi.mts.tdl.StaticDataUse){
+			result = org.imt.k3tdl.interpreter.StaticDataUseAspect.updateData((org.etsi.mts.tdl.StaticDataUse)_self,object,matchedFeature,MUTResource);
+		} else
+		// EndInjectInto org.imt.k3tdl.interpreter.DataUseAspect#String updateData(EObject,EStructuralFeature,Resource) from org.imt.k3tdl.interpreter.StaticDataUseAspect
