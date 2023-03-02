@@ -248,6 +248,7 @@ public class MutationScoreCalculator {
 		File modelFolder = new File(mutantsProject.getLocation() + "/mutants");
 		if (modelFolder.listFiles() == null) {
 			noMutantsExists = true;
+			//TODO: generate mutants
 		}else {
 			for (File file : modelFolder.listFiles()) {
 				mutantsPathsHelper(projectName, file);

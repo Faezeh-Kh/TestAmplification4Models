@@ -1,16 +1,17 @@
 package org.imt.tdl.mutation;
-import java.io.IOException;
-
-import exceptions.MetaModelNotFoundException;
+import wodel.dsls.WodelUtils;
 
 /**
  * @author Pablo Gomez-Abajo - Utils for serialize and deserialize Wodel programs
  * 
  */
 public class MutantGenerator {
-	public static void main(String[] args) throws MetaModelNotFoundException, IOException {
-		//args[0] = domainMetamodelPath, args[1] = inputPath, args[2] = outputPath, args[3] = wodelProjectPath,  args[4] = eclipseHomePath (, args[5] = exhaustive == true, optimized == false)?
-		//eclipseHomePath: the path to the binary of eclipse e.g., c:/GemocStudio
-		wodel.dsls.WodelUtils.main(args);
+	public static void main(String[] args) {
+		
+		WodelUtils.generateMutants(new String[]{
+				"c:/labtop/gemoc_studio/workspaces/xTDL_Amplification/mutationOperatorGenerator/models", 
+				"c:/labtop/gemoc_studio/workspaces/xTDL_Amplification/mutationOperatorGenerator/mutants", 
+				"c:/GemocStudio/workspace2/wodeleduapp", 
+				"c:/GemocStudio"});
 	}
 }
