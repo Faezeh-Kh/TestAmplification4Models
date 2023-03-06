@@ -17,4 +17,12 @@ Require-Bundle: org.etsi.mts.tdl.model;bundle-version="1.4.0",
  org.imt.k3tdl.tdlInterpreter;bundle-version="1.0.0",
  org.imt.tdl.configuration,
  wodel.dsls.wodel;bundle-version="1.0.0",
- wodel.utils
+ wodel.models;bundle-version="1.0.0", 
+ org.eclipse.emf.compare,
+ org.eclipse.ocl,
+ org.apache.log4j,
+ org.eclipse.jface,
+ org.eclipse.jdt.core
+Bundle-ClassPath: lib/mutator-1.0.0.jar,
+ .,
+ lib/org.eclipse.xtext.xbase.lib_2.12.0.v20170518-0757.jar
