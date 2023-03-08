@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated amplifier -->
+      <package
+            uri="http://org.imt.tdl.amplification/configuration/amplifier"
+            class="org.imt.tdl.amplification.configuration.amplifier.AmplifierPackage"
+            genModel="model/amplifier.genmodel"/>
+   </extension>
+
+</plugin>
