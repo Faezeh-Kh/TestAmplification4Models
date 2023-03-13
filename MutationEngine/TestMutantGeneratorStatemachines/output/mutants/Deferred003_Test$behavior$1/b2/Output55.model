@@ -65,7 +65,7 @@
     </regions>
   </statemachine>
   <signals name="Continue"/>
-  <signals name="AnotherSignal"/>
+  <signals name="WEj"/>
   <signals name="Start"/>
-  <signals name="xkj"/>
+  <signals name="Pending"/>
 </statemachines:CustomSystem>

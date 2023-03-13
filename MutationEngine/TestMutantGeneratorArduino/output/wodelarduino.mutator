@@ -5,7 +5,7 @@ metamodel "c:/GemocStudio/workspace2/wodelarduino/data/model/arduino.ecore"
 
 with blocks {
 	b0  {
-		create DigitalPin with { name in [ IRSensor , IRSensorPin , IR_sensor , IR_sensorPin , Servo , alarmPin , blueLED , blueLed , boardOnButtonPin , button , buttonPin , button_pin , buzzerPin , buzzer_pin , fan , irSensor , led_pin , pushButton , redLed , sensor_pin , servo , servo1 , servo2 , whiteLed , whiteLedPin ] , level = 0 , name in [ IRSensor , IRSensorPin , IR_sensor , IR_sensorPin , Servo , alarmPin , blueLED , blueLed , boardOnButtonPin , button , buttonPin , button_pin , buzzerPin , buzzer_pin , fan , irSensor , led_pin , pushButton , redLed , sensor_pin , servo , servo1 , servo2 , whiteLed , whiteLedPin ] , level = 0 , module = one ArduinoDigitalModule }
+		create DigitalPin with { name in [ IRSensor , IRSensorPin , IR_sensor , IR_sensorPin , Servo , alarmPin , blueLED , blueLed , boardOnButtonPin , button , buttonPin , button_pin , buzzerPin , buzzer_pin , fan , irSensor , led_pin , pushButton , redLed , sensor_pin , servo , servo1 , servo2 , whiteLed , whiteLedPin ] , level = 0 , module = one ArduinoDigitalModule }
 	}
 	b1  {
 		p = deep clone one DigitalPin where { name in [ IRSensor , IRSensorPin , IR_sensor , IR_sensorPin , Servo , alarmPin , blueLED , blueLed , boardOnButtonPin , button , buttonPin , button_pin , buzzerPin , buzzer_pin , fan , irSensor , led_pin , pushButton , redLed , sensor_pin , servo , servo1 , servo2 , whiteLed , whiteLedPin ] or level = 0 or module = one ArduinoDigitalModule } with { name in [ IRSensor , IRSensorPin , IR_sensor , IR_sensorPin , Servo , alarmPin , blueLED , blueLed , boardOnButtonPin , button , buttonPin , button_pin , buzzerPin , buzzer_pin , fan , irSensor , led_pin , pushButton , redLed , sensor_pin , servo , servo1 , servo2 , whiteLed , whiteLedPin ] , level = 0 , module = one ArduinoDigitalModule }
@@ -17,648 +17,537 @@ with blocks {
 		remove one DigitalPin where { name in [ IRSensor , IRSensorPin , IR_sensor , IR_sensorPin , Servo , alarmPin , blueLED , blueLed , boardOnButtonPin , button , buttonPin , button_pin , buzzerPin , buzzer_pin , fan , irSensor , led_pin , pushButton , redLed , sensor_pin , servo , servo1 , servo2 , whiteLed , whiteLedPin ] or level = 0 or module = one ArduinoDigitalModule }
 	}
 	b4  {
-		p = select one DigitalPin where { name in [ IRSensor , IRSensorPin , IR_sensor , IR_sensorPin , Servo , alarmPin , blueLED , blueLed , boardOnButtonPin , button , buttonPin , button_pin , buzzerPin , buzzer_pin , fan , irSensor , led_pin , pushButton , redLed , sensor_pin , servo , servo1 , servo2 , whiteLed , whiteLedPin ] or level = 0 or module = one ArduinoDigitalModule }
-	}
-	b5  {
 		p = retype one DigitalPin where { name in [ IRSensor , IRSensorPin , IR_sensor , IR_sensorPin , Servo , alarmPin , blueLED , blueLed , boardOnButtonPin , button , buttonPin , button_pin , buzzerPin , buzzer_pin , fan , irSensor , led_pin , pushButton , redLed , sensor_pin , servo , servo1 , servo2 , whiteLed , whiteLedPin ] or level = 0 } as [ AnalogPin ] with { name in [ IRSensor , IRSensorPin , IR_sensor , IR_sensorPin , Servo , alarmPin , blueLED , blueLed , boardOnButtonPin , button , buttonPin , button_pin , buzzerPin , buzzer_pin , fan , irSensor , led_pin , pushButton , redLed , sensor_pin , servo , servo1 , servo2 , whiteLed , whiteLedPin ] , level = 0 }
 	}
-	b6  {
-		create AnalogPin with { name in [ soundSensor ] , level = 0 , name in [ soundSensor ] , level = 0 , module = one ArduinoAnalogModule }
+	b5  {
+		create AnalogPin with { name in [ soundSensor ] , level = 0 , module = one ArduinoAnalogModule }
 	}
-	b7  {
+	b6  {
 		p = deep clone one AnalogPin where { name in [ soundSensor ] or level = 0 or module = one ArduinoAnalogModule } with { name in [ soundSensor ] , level = 0 , module = one ArduinoAnalogModule }
 	}
-	b8  {
+	b7  {
 		p = modify one AnalogPin where { name in [ soundSensor ] or level = 0 or module = one ArduinoAnalogModule } with { name in [ soundSensor ] , level = 0 , module = one ArduinoAnalogModule }
 	}
-	b9  {
+	b8  {
 		remove one AnalogPin where { name in [ soundSensor ] or level = 0 or module = one ArduinoAnalogModule }
 	}
-	b10  {
-		p = select one AnalogPin where { name in [ soundSensor ] or level = 0 or module = one ArduinoAnalogModule }
-	}
-	b11  {
+	b9  {
 		p = retype one AnalogPin where { name in [ soundSensor ] or level = 0 } as [ DigitalPin ] with { name in [ soundSensor ] , level = 0 }
 	}
-	b12  {
-		create Sketch with { name in [ mainSketch , sketch ] , name in [ mainSketch , sketch ] , project = one Project , block = one Block , board = one Board }
+	b10  {
+		create Sketch with { name in [ mainSketch , sketch ] , project = one Project , block = one Block , board = one Board }
 	}
-	b13  {
+	b11  {
 		p = deep clone one Sketch where { name in [ mainSketch , sketch ] or project = one Project or block = one Block or board = one Board } with { name in [ mainSketch , sketch ] , project = one Project , block = one Block , board = one Board }
 	}
-	b14  {
+	b12  {
 		p = modify one Sketch where { name in [ mainSketch , sketch ] or project = one Project or block = one Block or board = one Board } with { name in [ mainSketch , sketch ] , project = one Project , block = one Block , board = one Board }
 	}
-	b15  {
+	b13  {
 		remove one Sketch where { name in [ mainSketch , sketch ] or project = one Project or block = one Block or board = one Board }
 	}
-	b16  {
-		p = select one Sketch where { name in [ mainSketch , sketch ] or project = one Project or block = one Block or board = one Board }
-	}
-	b17  {
+	b14  {
 		p = retype one Sketch where { name in [ mainSketch , sketch ] } as [ ArduinoBoard , LED , PushButton , Buzzer , MicroServo , InfraRedSensor , Fan , RotationSensor , AmbientLightSensor , SoundSensor , MusicPlayer , BluetoothTransceiver , DigitalPin , AnalogPin , IntegerVariable , BooleanVariable ] with { name in [ mainSketch , sketch ] }
 	}
-	b18  {
+	b15  {
 		create Project with { boards = one Board , sketches = one Sketch }
 	}
-	b19  {
+	b16  {
 		p = deep clone one Project where { boards = one Board or sketches = one Sketch } with { boards = one Board , sketches = one Sketch }
 	}
-	b20  {
+	b17  {
 		p = modify one Project where { boards = one Board or sketches = one Sketch } with { boards = one Board , sketches = one Sketch }
 	}
-	b21  {
+	b18  {
 		remove one Project where { boards = one Board or sketches = one Sketch }
 	}
-	b22  {
-		p = select one Project where { boards = one Board or sketches = one Sketch }
+	b19  {
+		create Delay
 	}
-	b23  {
-		create Delay with { value = random-int ( 2 , 10 ) }
-	}
-	b24  {
+	b20  {
 		p = deep clone one Delay with { value = random-int ( 2 , 10 ) }
 	}
-	b25  {
+	b21  {
 		p = modify one Delay with { value = random-int ( 2 , 10 ) }
 	}
-	b26  {
+	b22  {
 		remove one Delay
 	}
-	b27  {
-		p = select one Delay
-	}
-	b28  {
+	b23  {
 		p = retype one Delay as [ WaitFor ]
 	}
-	b29  {
+	b24  {
 		create ModuleAssignment with { module = one Module , operand = one Expression }
 	}
-	b30  {
+	b25  {
 		p = deep clone one ModuleAssignment where { module = one Module or operand = one Expression } with { module = one Module , operand = one Expression }
 	}
-	b31  {
+	b26  {
 		p = modify one ModuleAssignment where { module = one Module or operand = one Expression } with { module = one Module , operand = one Expression }
 	}
-	b32  {
+	b27  {
 		remove one ModuleAssignment where { module = one Module or operand = one Expression }
 	}
-	b33  {
-		p = select one ModuleAssignment where { module = one Module or operand = one Expression }
-	}
-	b34  {
+	b28  {
 		p = retype one ModuleAssignment where { operand = one Expression } as [ VariableAssignment ] with { operand = one Expression }
 	}
-	b35  {
-		create Repeat with { iteration = 3 , iteration = 3 , block = one Block }
+	b29  {
+		create Repeat with { iteration = 3 , block = one Block }
 	}
-	b36  {
+	b30  {
 		p = deep clone one Repeat where { iteration = 3 or block = one Block } with { iteration = 3 , block = one Block }
 	}
-	b37  {
+	b31  {
 		p = modify one Repeat where { iteration = 3 or block = one Block } with { iteration = 3 , block = one Block }
 	}
-	b38  {
+	b32  {
 		remove one Repeat where { iteration = 3 or block = one Block }
 	}
-	b39  {
-		p = select one Repeat where { iteration = 3 or block = one Block }
-	}
-	b40  {
+	b33  {
 		p = retype one Repeat where { block = one Block } as [ If , While ] with { block = one Block }
 	}
-	b41  {
+	b34  {
 		create If with { block = one Block , condition = one BooleanExpression , elseBlock = one Block }
 	}
-	b42  {
+	b35  {
 		p = deep clone one If where { block = one Block or condition = one BooleanExpression or elseBlock = one Block } with { block = one Block , condition = one BooleanExpression , elseBlock = one Block }
 	}
-	b43  {
+	b36  {
 		p = modify one If where { block = one Block or condition = one BooleanExpression or elseBlock = one Block } with { block = one Block , condition = one BooleanExpression , elseBlock = one Block }
 	}
-	b44  {
+	b37  {
 		remove one If where { block = one Block or condition = one BooleanExpression or elseBlock = one Block }
 	}
-	b45  {
-		p = select one If where { block = one Block or condition = one BooleanExpression or elseBlock = one Block }
-	}
-	b46  {
+	b38  {
 		p = retype one If where { block = one Block } as [ Repeat , While ] with { block = one Block }
 	}
-	b47  {
+	b39  {
 		create While with { block = one Block , condition = one BooleanExpression }
 	}
-	b48  {
+	b40  {
 		p = deep clone one While where { block = one Block or condition = one BooleanExpression } with { block = one Block , condition = one BooleanExpression }
 	}
-	b49  {
+	b41  {
 		p = modify one While where { block = one Block or condition = one BooleanExpression } with { block = one Block , condition = one BooleanExpression }
 	}
-	b50  {
+	b42  {
 		remove one While where { block = one Block or condition = one BooleanExpression }
 	}
-	b51  {
-		p = select one While where { block = one Block or condition = one BooleanExpression }
-	}
-	b52  {
+	b43  {
 		p = retype one While where { block = one Block } as [ Repeat , If ] with { block = one Block }
 	}
-	b53  {
+	b44  {
 		create VariableAssignment with { operand = one Expression , variable = one Variable }
 	}
-	b54  {
+	b45  {
 		p = deep clone one VariableAssignment where { operand = one Expression or variable = one Variable } with { operand = one Expression , variable = one Variable }
 	}
-	b55  {
+	b46  {
 		p = modify one VariableAssignment where { operand = one Expression or variable = one Variable } with { operand = one Expression , variable = one Variable }
 	}
-	b56  {
+	b47  {
 		remove one VariableAssignment where { operand = one Expression or variable = one Variable }
 	}
-	b57  {
-		p = select one VariableAssignment where { operand = one Expression or variable = one Variable }
-	}
-	b58  {
+	b48  {
 		p = retype one VariableAssignment as [ ModuleAssignment , Repeat , If , While , Delay , WaitFor , VariableDeclaration ]
 	}
-	b59  {
+	b49  {
 		create BinaryIntegerExpression with { left = one Expression , right = one Expression }
 	}
-	b60  {
+	b50  {
 		p = deep clone one BinaryIntegerExpression where { left = one Expression or right = one Expression } with { left = one Expression , right = one Expression }
 	}
-	b61  {
+	b51  {
 		p = modify one BinaryIntegerExpression where { left = one Expression or right = one Expression } with { left = one Expression , right = one Expression }
 	}
-	b62  {
+	b52  {
 		remove one BinaryIntegerExpression where { left = one Expression or right = one Expression }
 	}
-	b63  {
-		p = select one BinaryIntegerExpression where { left = one Expression or right = one Expression }
-	}
-	b64  {
+	b53  {
 		p = retype one BinaryIntegerExpression as [ BinaryBooleanExpression , IntegerConstant , IntegerModuleGet , UnaryIntegerExpression , IntegerVariableRef ]
 	}
-	b65  {
+	b54  {
 		create BinaryBooleanExpression with { left = one Expression , right = one Expression }
 	}
-	b66  {
+	b55  {
 		p = deep clone one BinaryBooleanExpression where { left = one Expression or right = one Expression } with { left = one Expression , right = one Expression }
 	}
-	b67  {
+	b56  {
 		p = modify one BinaryBooleanExpression where { left = one Expression or right = one Expression } with { left = one Expression , right = one Expression }
 	}
-	b68  {
+	b57  {
 		remove one BinaryBooleanExpression where { left = one Expression or right = one Expression }
 	}
-	b69  {
-		p = select one BinaryBooleanExpression where { left = one Expression or right = one Expression }
-	}
-	b70  {
+	b58  {
 		p = retype one BinaryBooleanExpression as [ BinaryIntegerExpression , BooleanConstant , BooleanModuleGet , UnaryBooleanExpression , BooleanVariableRef ]
 	}
-	b71  {
-		create IntegerConstant with { value = 90 , value = 90 }
+	b59  {
+		create IntegerConstant with { value = 90 }
 	}
-	b72  {
+	b60  {
 		p = deep clone one IntegerConstant where { value = 90 } with { value = 90 }
 	}
-	b73  {
+	b61  {
 		p = modify one IntegerConstant where { value = 90 } with { value = 90 }
 	}
-	b74  {
+	b62  {
 		remove one IntegerConstant where { value = 90 }
 	}
-	b75  {
-		p = select one IntegerConstant where { value = 90 }
-	}
-	b76  {
+	b63  {
 		p = retype one IntegerConstant as [ BooleanConstant , BinaryIntegerExpression , IntegerModuleGet , UnaryIntegerExpression , IntegerVariableRef ]
 	}
-	b77  {
-		create BooleanConstant with { value = random-boolean }
+	b64  {
+		create BooleanConstant
 	}
-	b78  {
+	b65  {
 		p = deep clone one BooleanConstant with { value = random-boolean }
 	}
-	b79  {
+	b66  {
 		p = modify one BooleanConstant with { value = random-boolean }
 	}
-	b80  {
+	b67  {
 		remove one BooleanConstant
 	}
-	b81  {
-		p = select one BooleanConstant
-	}
-	b82  {
+	b68  {
 		p = retype one BooleanConstant as [ IntegerConstant , BinaryBooleanExpression , BooleanModuleGet , UnaryBooleanExpression , BooleanVariableRef ]
 	}
-	b83  {
-		create IntegerVariable with { name in [ i ] , initialValue = 0 , name in [ i ] , initialValue = 0 }
+	b69  {
+		create IntegerVariable with { name in [ i ] , initialValue = 0 }
 	}
-	b84  {
+	b70  {
 		p = deep clone one IntegerVariable where { name in [ i ] or initialValue = 0 } with { name in [ i ] , initialValue = 0 }
 	}
-	b85  {
+	b71  {
 		p = modify one IntegerVariable where { name in [ i ] or initialValue = 0 } with { name in [ i ] , initialValue = 0 }
 	}
-	b86  {
+	b72  {
 		remove one IntegerVariable where { name in [ i ] or initialValue = 0 }
 	}
-	b87  {
-		p = select one IntegerVariable where { name in [ i ] or initialValue = 0 }
-	}
-	b88  {
+	b73  {
 		p = retype one IntegerVariable where { name in [ i ] } as [ BooleanVariable ] with { name in [ i ] }
 	}
-	b89  {
-		create BooleanVariable with { name = random-string ( 2 , 4 ) , initialValue = random-boolean }
+	b74  {
+		create BooleanVariable
 	}
-	b90  {
+	b75  {
 		p = deep clone one BooleanVariable with { name = random-string ( 2 , 4 ) , initialValue = random-boolean }
 	}
-	b91  {
+	b76  {
 		p = modify one BooleanVariable with { name = random-string ( 2 , 4 ) , initialValue = random-boolean }
 	}
-	b92  {
+	b77  {
 		remove one BooleanVariable
 	}
-	b93  {
-		p = select one BooleanVariable
-	}
-	b94  {
+	b78  {
 		p = retype one BooleanVariable as [ IntegerVariable ] with { name = random-string ( 2 , 4 ) }
 	}
-	b95  {
+	b79  {
 		create BooleanModuleGet with { module = one Module }
 	}
-	b96  {
+	b80  {
 		p = deep clone one BooleanModuleGet where { module = one Module } with { module = one Module }
 	}
-	b97  {
+	b81  {
 		p = modify one BooleanModuleGet where { module = one Module } with { module = one Module }
 	}
-	b98  {
+	b82  {
 		remove one BooleanModuleGet where { module = one Module }
 	}
-	b99  {
-		p = select one BooleanModuleGet where { module = one Module }
-	}
-	b100  {
+	b83  {
 		p = retype one BooleanModuleGet as [ IntegerModuleGet , BinaryBooleanExpression , BooleanConstant , UnaryBooleanExpression , BooleanVariableRef ]
 	}
-	b101  {
+	b84  {
 		create IntegerModuleGet with { module = one Module }
 	}
-	b102  {
+	b85  {
 		p = deep clone one IntegerModuleGet where { module = one Module } with { module = one Module }
 	}
-	b103  {
+	b86  {
 		p = modify one IntegerModuleGet where { module = one Module } with { module = one Module }
 	}
-	b104  {
+	b87  {
 		remove one IntegerModuleGet where { module = one Module }
 	}
-	b105  {
-		p = select one IntegerModuleGet where { module = one Module }
-	}
-	b106  {
+	b88  {
 		p = retype one IntegerModuleGet as [ BooleanModuleGet , BinaryIntegerExpression , IntegerConstant , UnaryIntegerExpression , IntegerVariableRef ]
 	}
-	b107  {
+	b89  {
 		create UnaryBooleanExpression with { operand = one Expression }
 	}
-	b108  {
+	b90  {
 		p = deep clone one UnaryBooleanExpression where { operand = one Expression } with { operand = one Expression }
 	}
-	b109  {
+	b91  {
 		p = modify one UnaryBooleanExpression where { operand = one Expression } with { operand = one Expression }
 	}
-	b110  {
+	b92  {
 		remove one UnaryBooleanExpression where { operand = one Expression }
 	}
-	b111  {
-		p = select one UnaryBooleanExpression where { operand = one Expression }
-	}
-	b112  {
+	b93  {
 		p = retype one UnaryBooleanExpression as [ UnaryIntegerExpression , BinaryBooleanExpression , BooleanConstant , BooleanModuleGet , BooleanVariableRef ]
 	}
-	b113  {
+	b94  {
 		create UnaryIntegerExpression with { operand = one Expression }
 	}
-	b114  {
+	b95  {
 		p = deep clone one UnaryIntegerExpression where { operand = one Expression } with { operand = one Expression }
 	}
-	b115  {
+	b96  {
 		p = modify one UnaryIntegerExpression where { operand = one Expression } with { operand = one Expression }
 	}
-	b116  {
+	b97  {
 		remove one UnaryIntegerExpression where { operand = one Expression }
 	}
-	b117  {
-		p = select one UnaryIntegerExpression where { operand = one Expression }
-	}
-	b118  {
+	b98  {
 		p = retype one UnaryIntegerExpression as [ UnaryBooleanExpression , BinaryIntegerExpression , IntegerConstant , IntegerModuleGet , IntegerVariableRef ]
 	}
-	b119  {
+	b99  {
 		create VariableDeclaration with { variable = one Variable }
 	}
-	b120  {
+	b100  {
 		p = deep clone one VariableDeclaration where { variable = one Variable } with { variable = one Variable }
 	}
-	b121  {
+	b101  {
 		p = modify one VariableDeclaration where { variable = one Variable } with { variable = one Variable }
 	}
-	b122  {
+	b102  {
 		remove one VariableDeclaration where { variable = one Variable }
 	}
-	b123  {
-		p = select one VariableDeclaration where { variable = one Variable }
-	}
-	b124  {
+	b103  {
 		p = retype one VariableDeclaration as [ ModuleAssignment , Repeat , If , While , Delay , WaitFor , VariableAssignment ]
 	}
-	b125  {
+	b104  {
 		create IntegerVariableRef with { variable = one IntegerVariable }
 	}
-	b126  {
+	b105  {
 		p = deep clone one IntegerVariableRef where { variable = one IntegerVariable } with { variable = one IntegerVariable }
 	}
-	b127  {
+	b106  {
 		p = modify one IntegerVariableRef where { variable = one IntegerVariable } with { variable = one IntegerVariable }
 	}
-	b128  {
+	b107  {
 		remove one IntegerVariableRef where { variable = one IntegerVariable }
 	}
-	b129  {
-		p = select one IntegerVariableRef where { variable = one IntegerVariable }
-	}
-	b130  {
+	b108  {
 		p = retype one IntegerVariableRef as [ BooleanVariableRef , BinaryIntegerExpression , IntegerConstant , IntegerModuleGet , UnaryIntegerExpression ]
 	}
-	b131  {
-		create LED with { name in [ LED1 , blueLED , blueLed , redLed , whiteLed ] , name in [ LED1 , blueLED , blueLed , redLed , whiteLed ] }
+	b109  {
+		create LED with { name in [ LED1 , blueLED , blueLed , redLed , whiteLed ] }
 	}
-	b132  {
+	b110  {
 		p = deep clone one LED where { name in [ LED1 , blueLED , blueLed , redLed , whiteLed ] } with { name in [ LED1 , blueLED , blueLed , redLed , whiteLed ] }
 	}
-	b133  {
+	b111  {
 		p = modify one LED where { name in [ LED1 , blueLED , blueLed , redLed , whiteLed ] } with { name in [ LED1 , blueLED , blueLed , redLed , whiteLed ] }
 	}
-	b134  {
+	b112  {
 		remove one LED where { name in [ LED1 , blueLED , blueLed , redLed , whiteLed ] }
 	}
-	b135  {
-		p = select one LED where { name in [ LED1 , blueLED , blueLed , redLed , whiteLed ] }
-	}
-	b136  {
+	b113  {
 		p = retype one LED where { name in [ LED1 , blueLED , blueLed , redLed , whiteLed ] } as [ PushButton , Buzzer , MicroServo , InfraRedSensor , Fan ] with { name in [ LED1 , blueLED , blueLed , redLed , whiteLed ] }
 	}
-	b137  {
-		create PushButton with { name in [ Button1 , boardOnButton , button , button1 , turnOffButton ] , name in [ Button1 , boardOnButton , button , button1 , turnOffButton ] }
+	b114  {
+		create PushButton with { name in [ Button1 , boardOnButton , button , button1 , turnOffButton ] }
 	}
-	b138  {
+	b115  {
 		p = deep clone one PushButton where { name in [ Button1 , boardOnButton , button , button1 , turnOffButton ] } with { name in [ Button1 , boardOnButton , button , button1 , turnOffButton ] }
 	}
-	b139  {
+	b116  {
 		p = modify one PushButton where { name in [ Button1 , boardOnButton , button , button1 , turnOffButton ] } with { name in [ Button1 , boardOnButton , button , button1 , turnOffButton ] }
 	}
-	b140  {
+	b117  {
 		remove one PushButton where { name in [ Button1 , boardOnButton , button , button1 , turnOffButton ] }
 	}
-	b141  {
-		p = select one PushButton where { name in [ Button1 , boardOnButton , button , button1 , turnOffButton ] }
-	}
-	b142  {
+	b118  {
 		p = retype one PushButton where { name in [ Button1 , boardOnButton , button , button1 , turnOffButton ] } as [ LED , Buzzer , MicroServo , InfraRedSensor , Fan ] with { name in [ Button1 , boardOnButton , button , button1 , turnOffButton ] }
 	}
-	b143  {
-		create Buzzer with { name in [ Alarm1 , alarm , buzzer ] , name in [ Alarm1 , alarm , buzzer ] }
+	b119  {
+		create Buzzer with { name in [ Alarm1 , alarm , buzzer ] }
 	}
-	b144  {
+	b120  {
 		p = deep clone one Buzzer where { name in [ Alarm1 , alarm , buzzer ] } with { name in [ Alarm1 , alarm , buzzer ] }
 	}
-	b145  {
+	b121  {
 		p = modify one Buzzer where { name in [ Alarm1 , alarm , buzzer ] } with { name in [ Alarm1 , alarm , buzzer ] }
 	}
-	b146  {
+	b122  {
 		remove one Buzzer where { name in [ Alarm1 , alarm , buzzer ] }
 	}
-	b147  {
-		p = select one Buzzer where { name in [ Alarm1 , alarm , buzzer ] }
-	}
-	b148  {
+	b123  {
 		p = retype one Buzzer where { name in [ Alarm1 , alarm , buzzer ] } as [ LED , PushButton , MicroServo , InfraRedSensor , Fan ] with { name in [ Alarm1 , alarm , buzzer ] }
 	}
-	b149  {
-		create MicroServo with { name in [ Servo , servo , servo1 , servo2 ] , name in [ Servo , servo , servo1 , servo2 ] }
+	b124  {
+		create MicroServo with { name in [ Servo , servo , servo1 , servo2 ] }
 	}
-	b150  {
+	b125  {
 		p = deep clone one MicroServo where { name in [ Servo , servo , servo1 , servo2 ] } with { name in [ Servo , servo , servo1 , servo2 ] }
 	}
-	b151  {
+	b126  {
 		p = modify one MicroServo where { name in [ Servo , servo , servo1 , servo2 ] } with { name in [ Servo , servo , servo1 , servo2 ] }
 	}
-	b152  {
+	b127  {
 		remove one MicroServo where { name in [ Servo , servo , servo1 , servo2 ] }
 	}
-	b153  {
-		p = select one MicroServo where { name in [ Servo , servo , servo1 , servo2 ] }
-	}
-	b154  {
+	b128  {
 		p = retype one MicroServo where { name in [ Servo , servo , servo1 , servo2 ] } as [ LED , PushButton , Buzzer , InfraRedSensor , Fan ] with { name in [ Servo , servo , servo1 , servo2 ] }
 	}
-	b155  {
-		create InfraRedSensor with { name in [ IRSensor , IRSensor1 , IR_sensor , irSensor ] , name in [ IRSensor , IRSensor1 , IR_sensor , irSensor ] }
+	b129  {
+		create InfraRedSensor with { name in [ IRSensor , IRSensor1 , IR_sensor , irSensor ] }
 	}
-	b156  {
+	b130  {
 		p = deep clone one InfraRedSensor where { name in [ IRSensor , IRSensor1 , IR_sensor , irSensor ] } with { name in [ IRSensor , IRSensor1 , IR_sensor , irSensor ] }
 	}
-	b157  {
+	b131  {
 		p = modify one InfraRedSensor where { name in [ IRSensor , IRSensor1 , IR_sensor , irSensor ] } with { name in [ IRSensor , IRSensor1 , IR_sensor , irSensor ] }
 	}
-	b158  {
+	b132  {
 		remove one InfraRedSensor where { name in [ IRSensor , IRSensor1 , IR_sensor , irSensor ] }
 	}
-	b159  {
-		p = select one InfraRedSensor where { name in [ IRSensor , IRSensor1 , IR_sensor , irSensor ] }
-	}
-	b160  {
+	b133  {
 		p = retype one InfraRedSensor where { name in [ IRSensor , IRSensor1 , IR_sensor , irSensor ] } as [ LED , PushButton , Buzzer , MicroServo , Fan ] with { name in [ IRSensor , IRSensor1 , IR_sensor , irSensor ] }
 	}
-	b161  {
-		create Fan with { name in [ fan ] , name in [ fan ] }
+	b134  {
+		create Fan with { name in [ fan ] }
 	}
-	b162  {
+	b135  {
 		p = deep clone one Fan where { name in [ fan ] } with { name in [ fan ] }
 	}
-	b163  {
+	b136  {
 		p = modify one Fan where { name in [ fan ] } with { name in [ fan ] }
 	}
-	b164  {
+	b137  {
 		remove one Fan where { name in [ fan ] }
 	}
-	b165  {
-		p = select one Fan where { name in [ fan ] }
-	}
-	b166  {
+	b138  {
 		p = retype one Fan where { name in [ fan ] } as [ LED , PushButton , Buzzer , MicroServo , InfraRedSensor ] with { name in [ fan ] }
 	}
-	b167  {
-		create RotationSensor with { name = random-string ( 2 , 4 ) }
+	b139  {
+		create RotationSensor
 	}
-	b168  {
+	b140  {
 		p = deep clone one RotationSensor with { name = random-string ( 2 , 4 ) }
 	}
-	b169  {
+	b141  {
 		p = modify one RotationSensor with { name = random-string ( 2 , 4 ) }
 	}
-	b170  {
+	b142  {
 		remove one RotationSensor
 	}
-	b171  {
-		p = select one RotationSensor
-	}
-	b172  {
+	b143  {
 		p = retype one RotationSensor as [ AmbientLightSensor , SoundSensor , MusicPlayer , BluetoothTransceiver ] with { name = random-string ( 2 , 4 ) }
 	}
-	b173  {
-		create AmbientLightSensor with { name = random-string ( 2 , 4 ) }
+	b144  {
+		create AmbientLightSensor
 	}
-	b174  {
+	b145  {
 		p = deep clone one AmbientLightSensor with { name = random-string ( 2 , 4 ) }
 	}
-	b175  {
+	b146  {
 		p = modify one AmbientLightSensor with { name = random-string ( 2 , 4 ) }
 	}
-	b176  {
+	b147  {
 		remove one AmbientLightSensor
 	}
-	b177  {
-		p = select one AmbientLightSensor
-	}
-	b178  {
+	b148  {
 		p = retype one AmbientLightSensor as [ RotationSensor , SoundSensor , MusicPlayer , BluetoothTransceiver ] with { name = random-string ( 2 , 4 ) }
 	}
-	b179  {
-		create SoundSensor with { name in [ soundSensor ] , name in [ soundSensor ] }
+	b149  {
+		create SoundSensor with { name in [ soundSensor ] }
 	}
-	b180  {
+	b150  {
 		p = deep clone one SoundSensor where { name in [ soundSensor ] } with { name in [ soundSensor ] }
 	}
-	b181  {
+	b151  {
 		p = modify one SoundSensor where { name in [ soundSensor ] } with { name in [ soundSensor ] }
 	}
-	b182  {
+	b152  {
 		remove one SoundSensor where { name in [ soundSensor ] }
 	}
-	b183  {
-		p = select one SoundSensor where { name in [ soundSensor ] }
-	}
-	b184  {
+	b153  {
 		p = retype one SoundSensor where { name in [ soundSensor ] } as [ RotationSensor , AmbientLightSensor , MusicPlayer , BluetoothTransceiver ] with { name in [ soundSensor ] }
 	}
-	b185  {
-		create MusicPlayer with { name = random-string ( 2 , 4 ) }
+	b154  {
+		create MusicPlayer
 	}
-	b186  {
+	b155  {
 		p = deep clone one MusicPlayer with { name = random-string ( 2 , 4 ) }
 	}
-	b187  {
+	b156  {
 		p = modify one MusicPlayer with { name = random-string ( 2 , 4 ) }
 	}
-	b188  {
+	b157  {
 		remove one MusicPlayer
 	}
-	b189  {
-		p = select one MusicPlayer
-	}
-	b190  {
+	b158  {
 		p = retype one MusicPlayer as [ RotationSensor , AmbientLightSensor , SoundSensor , BluetoothTransceiver ] with { name = random-string ( 2 , 4 ) }
 	}
-	b191  {
-		create BluetoothTransceiver with { name = random-string ( 2 , 4 ) , connectedTransceiver = one BluetoothTransceiver }
+	b159  {
+		create BluetoothTransceiver with { connectedTransceiver = one BluetoothTransceiver }
 	}
-	b192  {
+	b160  {
 		p = deep clone one BluetoothTransceiver where { connectedTransceiver = one BluetoothTransceiver } with { name = random-string ( 2 , 4 ) , connectedTransceiver = one BluetoothTransceiver }
 	}
-	b193  {
+	b161  {
 		p = modify one BluetoothTransceiver where { connectedTransceiver = one BluetoothTransceiver } with { name = random-string ( 2 , 4 ) , connectedTransceiver = one BluetoothTransceiver }
 	}
-	b194  {
+	b162  {
 		remove one BluetoothTransceiver where { connectedTransceiver = one BluetoothTransceiver }
 	}
-	b195  {
-		p = select one BluetoothTransceiver where { connectedTransceiver = one BluetoothTransceiver }
-	}
-	b196  {
+	b163  {
 		p = retype one BluetoothTransceiver as [ RotationSensor , AmbientLightSensor , SoundSensor , MusicPlayer ] with { name = random-string ( 2 , 4 ) }
 	}
-	b197  {
+	b164  {
 		create WaitFor with { pin = one Pin }
 	}
-	b198  {
+	b165  {
 		p = deep clone one WaitFor where { pin = one Pin } with { pin = one Pin }
 	}
-	b199  {
+	b166  {
 		p = modify one WaitFor where { pin = one Pin } with { pin = one Pin }
 	}
-	b200  {
+	b167  {
 		remove one WaitFor where { pin = one Pin }
 	}
-	b201  {
-		p = select one WaitFor where { pin = one Pin }
-	}
-	b202  {
+	b168  {
 		p = retype one WaitFor as [ Delay ]
 	}
-	b203  {
+	b169  {
 		create Block with { instructions = one Instruction }
 	}
-	b204  {
+	b170  {
 		p = deep clone one Block where { instructions = one Instruction } with { instructions = one Instruction }
 	}
-	b205  {
+	b171  {
 		p = modify one Block where { instructions = one Instruction } with { instructions = one Instruction }
 	}
-	b206  {
+	b172  {
 		remove one Block where { instructions = one Instruction }
 	}
-	b207  {
-		p = select one Block where { instructions = one Instruction }
+	b173  {
+		create ArduinoBoard with { name in [ board ] , project = one Project , digitalPins = one DigitalPin , analogPins = one AnalogPin }
 	}
-	b208  {
-		create ArduinoBoard with { name in [ board ] , name in [ board ] , project = one Project , digitalPins = one DigitalPin , analogPins = one AnalogPin }
-	}
-	b209  {
+	b174  {
 		p = deep clone one ArduinoBoard where { name in [ board ] or project = one Project or digitalPins = one DigitalPin or analogPins = one AnalogPin } with { name in [ board ] , project = one Project , digitalPins = one DigitalPin , analogPins = one AnalogPin }
 	}
-	b210  {
+	b175  {
 		p = modify one ArduinoBoard where { name in [ board ] or project = one Project or digitalPins = one DigitalPin or analogPins = one AnalogPin } with { name in [ board ] , project = one Project , digitalPins = one DigitalPin , analogPins = one AnalogPin }
 	}
-	b211  {
+	b176  {
 		remove one ArduinoBoard where { name in [ board ] or project = one Project or digitalPins = one DigitalPin or analogPins = one AnalogPin }
 	}
-	b212  {
-		p = select one ArduinoBoard where { name in [ board ] or project = one Project or digitalPins = one DigitalPin or analogPins = one AnalogPin }
-	}
-	b213  {
+	b177  {
 		create BooleanVariableRef with { variable = one BooleanVariable }
 	}
-	b214  {
+	b178  {
 		p = deep clone one BooleanVariableRef where { variable = one BooleanVariable } with { variable = one BooleanVariable }
 	}
-	b215  {
+	b179  {
 		p = modify one BooleanVariableRef where { variable = one BooleanVariable } with { variable = one BooleanVariable }
 	}
-	b216  {
+	b180  {
 		remove one BooleanVariableRef where { variable = one BooleanVariable }
 	}
-	b217  {
-		p = select one BooleanVariableRef where { variable = one BooleanVariable }
-	}
-	b218  {
+	b181  {
 		p = retype one BooleanVariableRef as [ IntegerVariableRef , BinaryBooleanExpression , BooleanConstant , BooleanModuleGet , UnaryBooleanExpression ]
 	}
 	

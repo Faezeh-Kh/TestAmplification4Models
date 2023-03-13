@@ -36,6 +36,6 @@
   </statemachine>
   <signals name="AnotherSignal"/>
   <signals name="Continue"/>
-  <signals name="jF"/>
-  <signals name="LZ"/>
+  <signals name="tD"/>
+  <signals name="JLW"/>
 </statemachines:CustomSystem>

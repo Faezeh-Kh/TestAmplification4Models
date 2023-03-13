@@ -19,8 +19,8 @@
     <digitalPins name="alarmPin">
       <module xsi:type="arduino:Buzzer" name="alarm"/>
     </digitalPins>
-    <digitalPins name="alarmPin">
-      <module xsi:type="arduino:MicroServo" name="servo2"/>
+    <digitalPins name="blueLED">
+      <module xsi:type="arduino:Buzzer" name="alarm"/>
     </digitalPins>
     <analogPins name="soundSensor">
       <module xsi:type="arduino:SoundSensor" name="soundSensor"/>

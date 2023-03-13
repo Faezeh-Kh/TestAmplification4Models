@@ -11,7 +11,7 @@
     <digitalPins xmi:id="_WDu3aLvrEey6kqvve9HPhQ" name="Servo">
       <module xsi:type="arduino:MicroServo" xmi:id="_WDu3abvrEey6kqvve9HPhQ" name="Servo"/>
     </digitalPins>
-    <digitalPins name="buzzerPin">
+    <digitalPins name="pushButton">
       <module xsi:type="arduino:InfraRedSensor" name="IRSensor"/>
     </digitalPins>
   </boards>

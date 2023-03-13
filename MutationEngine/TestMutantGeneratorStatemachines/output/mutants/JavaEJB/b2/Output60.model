@@ -84,12 +84,12 @@
     </regions>
   </statemachine>
   <signals name="home.create&lt;method>()"/>
-  <signals name="businessMethod()"/>
+  <signals name="pa"/>
   <signals name="object.remove()"/>
   <signals name="home.remove()"/>
   <signals name="systemException"/>
   <signals name="beanTimout"/>
   <signals name="containerCrash"/>
   <signals name="releaseReference"/>
-  <signals name="lto"/>
+  <signals name="handle.getEJBObject()"/>
 </statemachines:CustomSystem>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<statemachines:CustomSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
+  <statemachine name="fd"/>
+  <signals name="Continue"/>
+  <signals name="Start"/>
+  <signals name="AnotherSignal">
+    <attributes xsi:type="statemachines:StringAttribute" name="LvG"/>
+  </signals>
+  <signals name="Pending"/>
+  <operations name="SMo"/>
+</statemachines:CustomSystem>

@@ -4,10 +4,10 @@
     <digitalPins name="led_pin">
       <module xsi:type="arduino:LED" name="LED1"/>
     </digitalPins>
-    <digitalPins name="IR_sensorPin">
+    <digitalPins name="sensor_pin">
       <module xsi:type="arduino:InfraRedSensor" name="IRSensor1"/>
     </digitalPins>
-    <digitalPins name="buzzer_pin">
+    <digitalPins name="fan">
       <module xsi:type="arduino:Buzzer" name="Alarm1"/>
     </digitalPins>
     <digitalPins name="button_pin">

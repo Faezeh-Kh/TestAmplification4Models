@@ -25,7 +25,7 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="GGx">
+  <signals>
     <attributes xsi:type="statemachines:BooleanAttribute" name="p2"/>
   </signals>
   <operations xmi:id="_nIH3gLslEeyrPdT0pCfx6w" name="op">

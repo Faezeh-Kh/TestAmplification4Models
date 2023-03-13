@@ -31,7 +31,7 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="Start"/>
+  <signals name="xx"/>
   <signals name="AnotherSignal"/>
-  <signals name="iw"/>
+  <signals name="Continue"/>
 </statemachines:CustomSystem>

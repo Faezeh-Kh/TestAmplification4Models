@@ -31,5 +31,5 @@
   </statemachine>
   <signals name="Start"/>
   <signals name="Continue"/>
-  <signals name="uZm"/>
+  <signals name="lwt"/>
 </statemachines:CustomSystem>

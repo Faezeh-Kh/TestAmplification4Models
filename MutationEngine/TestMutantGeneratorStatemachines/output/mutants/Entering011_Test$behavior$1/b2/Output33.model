@@ -44,6 +44,6 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="gmB"/>
-  <signals name="Continue"/>
+  <signals name="Start"/>
+  <signals name="Rw"/>
 </statemachines:CustomSystem>

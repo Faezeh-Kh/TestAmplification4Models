@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<statemachines:CustomSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
+<statemachines:CustomSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
   <statemachine name="Transition015_Test$behavior$1">
     <regions name="Region1">
       <vertice xsi:type="statemachines:Pseudostate" name="Initial1" outgoingTransitions="//@statemachine/@regions.0/@transitions.0"/>
@@ -9,9 +9,7 @@
         <doActivity name="S1(doActivity)"/>
       </vertice>
       <vertice xsi:type="statemachines:FinalState" name="FinalState1" incomingTransitions="//@statemachine/@regions.0/@transitions.2"/>
-      <transitions source="//@statemachine/@regions.0/@vertice.0" target="//@statemachine/@regions.0/@vertice.1" kind="external">
-        <constraint xsi:type="statemachines:StringConstraint"/>
-      </transitions>
+      <transitions source="//@statemachine/@regions.0/@vertice.0" target="//@statemachine/@regions.0/@vertice.1" kind="external"/>
       <transitions name="T2" source="//@statemachine/@regions.0/@vertice.1" target="//@statemachine/@regions.0/@vertice.2" kind="external">
         <triggers name="StartTrigger">
           <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.0"/>
@@ -22,5 +20,7 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="Start"/>
+  <signals name="Start">
+    <attributes xsi:type="statemachines:IntegerAttribute" name="HX"/>
+  </signals>
 </statemachines:CustomSystem>

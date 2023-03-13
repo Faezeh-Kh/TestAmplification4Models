@@ -53,8 +53,8 @@
     </regions>
   </statemachine>
   <signals name="Start"/>
-  <signals name="Pending"/>
-  <signals name="Continue">
-    <attributes xsi:type="statemachines:IntegerAttribute" name="Bi"/>
+  <signals name="Pending">
+    <attributes xsi:type="statemachines:StringAttribute"/>
   </signals>
+  <signals name="Continue"/>
 </statemachines:CustomSystem>

@@ -7,10 +7,10 @@
     <digitalPins name="IR_sensorPin">
       <module xsi:type="arduino:InfraRedSensor" name="IR_sensor"/>
     </digitalPins>
-    <digitalPins name="servo1">
+    <digitalPins name="buzzerPin">
       <module xsi:type="arduino:Buzzer" name="buzzer"/>
     </digitalPins>
-    <digitalPins name="buttonPin">
+    <digitalPins name="IRSensor">
       <module xsi:type="arduino:PushButton" name="button1"/>
     </digitalPins>
   </boards>

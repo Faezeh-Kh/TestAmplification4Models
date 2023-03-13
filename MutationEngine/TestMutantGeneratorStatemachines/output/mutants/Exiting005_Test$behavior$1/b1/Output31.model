@@ -48,7 +48,7 @@
   <signals name="Start"/>
   <signals name="Continue"/>
   <signals name="Pending"/>
-  <signals name="oF"/>
-  <signals name="zWD"/>
-  <signals name="nQn"/>
+  <signals name="Xnf"/>
+  <signals name="UwD"/>
+  <signals name="lv"/>
 </statemachines:CustomSystem>

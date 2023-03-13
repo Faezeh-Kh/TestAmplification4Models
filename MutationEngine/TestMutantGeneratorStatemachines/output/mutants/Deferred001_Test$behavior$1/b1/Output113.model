@@ -49,6 +49,6 @@
   <signals name="Start"/>
   <signals name="AnotherSignal"/>
   <signals name="Pending"/>
-  <signals name="Sdj"/>
-  <signals name="YcO"/>
+  <signals name="JGf"/>
+  <signals name="xze"/>
 </statemachines:CustomSystem>

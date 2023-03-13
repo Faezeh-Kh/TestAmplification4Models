@@ -53,6 +53,6 @@
     </regions>
   </statemachine>
   <signals name="Start"/>
-  <signals name="JGO"/>
-  <signals name="Continue"/>
+  <signals name="Pending"/>
+  <signals name="DP"/>
 </statemachines:CustomSystem>

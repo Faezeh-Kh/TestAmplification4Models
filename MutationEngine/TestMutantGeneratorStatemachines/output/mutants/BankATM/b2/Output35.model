@@ -214,7 +214,7 @@
   <signals name="turnOff"/>
   <signals name="service"/>
   <signals name="cancel"/>
-  <signals name="IMO">
+  <signals name="nh">
     <attributes xsi:type="statemachines:IntegerAttribute" name="cardPin"/>
     <attributes xsi:type="statemachines:IntegerAttribute" name="cardBalance"/>
   </signals>

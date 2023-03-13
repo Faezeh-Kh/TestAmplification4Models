@@ -8,7 +8,7 @@
       <module xsi:type="arduino:MicroServo" name="servo2"/>
     </digitalPins>
     <digitalPins name="fan">
-      <module xsi:type="arduino:Fan" name="fan"/>
+      <module xsi:type="arduino:MicroServo" name="mainSketch"/>
     </digitalPins>
     <digitalPins name="boardOnButtonPin">
       <module xsi:type="arduino:PushButton" name="boardOnButton"/>
@@ -23,7 +23,7 @@
       <module xsi:type="arduino:SoundSensor" name="soundSensor"/>
     </analogPins>
   </boards>
-  <sketches name="mainSketch" board="//@boards.0">
+  <sketches name="sketch" board="//@boards.0">
     <block>
       <instructions xsi:type="arduino:If">
         <block>
@@ -48,10 +48,10 @@
                   <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.1/@module">
                     <operand xsi:type="arduino:IntegerConstant"/>
                   </instructions>
-                  <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
+                  <instructions xsi:type="arduino:ModuleAssignment">
                     <operand xsi:type="arduino:IntegerConstant" value="1"/>
                   </instructions>
-                  <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
+                  <instructions xsi:type="arduino:ModuleAssignment">
                     <operand xsi:type="arduino:IntegerConstant"/>
                   </instructions>
                   <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.1/@module">

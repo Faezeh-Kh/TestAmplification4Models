@@ -52,7 +52,7 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="Start"/>
+  <signals name="tW"/>
   <signals name="Pending"/>
-  <signals name="lLJ"/>
+  <signals name="Continue"/>
 </statemachines:CustomSystem>

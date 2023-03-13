@@ -179,7 +179,7 @@
   <signals name="o.notifyAll"/>
   <signals name="o.notify"/>
   <signals name="monitorLockAcquired"/>
-  <operations name="Thread.sleep()">
+  <operations name="Mg">
     <inParameters xsi:type="statemachines:IntegerAttribute" name="sleeptime"/>
   </operations>
   <operations name="o.wait()">
@@ -187,10 +187,5 @@
   </operations>
   <operations name="t.join()">
     <inParameters xsi:type="statemachines:IntegerAttribute" name="joinTimeout"/>
-  </operations>
-  <operations name="Kp">
-    <inParameters xsi:type="statemachines:IntegerAttribute" name="sleeptime"/>
-    <inParameters xsi:type="statemachines:IntegerAttribute" name="waitTimeout"/>
-    <return xsi:type="statemachines:IntegerAttribute" name="joinTimeout"/>
   </operations>
 </statemachines:CustomSystem>

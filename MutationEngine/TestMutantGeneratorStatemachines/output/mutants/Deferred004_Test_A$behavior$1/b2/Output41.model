@@ -63,8 +63,8 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="ep"/>
+  <signals name="Continue"/>
   <signals name="Start"/>
   <signals name="AnotherSignal"/>
-  <signals name="Pending"/>
+  <signals name="fs"/>
 </statemachines:CustomSystem>

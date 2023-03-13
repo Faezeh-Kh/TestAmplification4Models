@@ -4,7 +4,7 @@
     <digitalPins name="blueLed">
       <module xsi:type="arduino:LED" name="blueLed"/>
     </digitalPins>
-    <digitalPins name="IRSensorPin">
+    <digitalPins name="redLed">
       <module xsi:type="arduino:InfraRedSensor" name="IR_sensor"/>
     </digitalPins>
   </boards>

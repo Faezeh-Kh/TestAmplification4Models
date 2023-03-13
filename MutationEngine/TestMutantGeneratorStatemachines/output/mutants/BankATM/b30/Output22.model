@@ -211,9 +211,7 @@
   <signals name="turnOn"/>
   <signals name="failure"/>
   <signals name="success"/>
-  <signals name="turnOff">
-    <attributes xsi:type="statemachines:IntegerAttribute" name="XZ"/>
-  </signals>
+  <signals name="turnOff"/>
   <signals name="service"/>
   <signals name="cancel"/>
   <signals name="Card">
@@ -224,7 +222,9 @@
     <attributes xsi:type="statemachines:IntegerAttribute" name="pin"/>
   </signals>
   <signals name="WithdrawTransaction"/>
-  <signals name="TransferTransaction"/>
+  <signals name="TransferTransaction">
+    <attributes xsi:type="statemachines:StringAttribute"/>
+  </signals>
   <signals name="Amount">
     <attributes xsi:type="statemachines:IntegerAttribute" name="enteredAmount"/>
   </signals>

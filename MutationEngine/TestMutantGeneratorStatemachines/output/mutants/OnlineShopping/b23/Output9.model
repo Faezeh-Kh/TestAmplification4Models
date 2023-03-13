@@ -10,7 +10,7 @@
       <vertice xsi:type="statemachines:FinalState" name="final" incomingTransitions="//@statemachine/@regions.0/@transitions.13"/>
       <transitions name="initial2new" source="//@statemachine/@regions.0/@vertice.0" target="//@statemachine/@regions.0/@vertice.1" kind="external">
         <triggers name="isUniqueIdTrigger">
-          <eventType xsi:type="statemachines:SignalEventType"/>
+          <eventType xsi:type="statemachines:CallEventType" operation="//@operations.0"/>
         </triggers>
         <effect name="create"/>
         <constraint xsi:type="statemachines:BooleanConstraint">
@@ -18,7 +18,9 @@
         </constraint>
       </transitions>
       <transitions name="new2closed" source="//@statemachine/@regions.0/@vertice.1" target="//@statemachine/@regions.0/@vertice.4" kind="external">
-        <triggers name="isCancelRequestedTrigger"/>
+        <triggers name="isCancelRequestedTrigger">
+          <eventType xsi:type="statemachines:CallEventType" operation="//@operations.3"/>
+        </triggers>
         <effect name="cancel"/>
         <constraint xsi:type="statemachines:BooleanConstraint">
           <expression xsi:type="statemachines:BooleanUnaryExpression" operand="//@operations.3/@return"/>
@@ -26,7 +28,7 @@
       </transitions>
       <transitions name="new2active" source="//@statemachine/@regions.0/@vertice.1" target="//@statemachine/@regions.0/@vertice.2" kind="external">
         <triggers name="isVerifiedTrigger">
-          <eventType xsi:type="statemachines:SignalEventType"/>
+          <eventType xsi:type="statemachines:CallEventType" operation="//@operations.2"/>
         </triggers>
         <effect name="activate"/>
         <constraint xsi:type="statemachines:BooleanConstraint">
@@ -43,7 +45,9 @@
         </constraint>
       </transitions>
       <transitions name="active2closed" source="//@statemachine/@regions.0/@vertice.2" target="//@statemachine/@regions.0/@vertice.4" kind="external">
-        <triggers name="isCancelRequestedTrigger"/>
+        <triggers name="isCancelRequestedTrigger">
+          <eventType xsi:type="statemachines:CallEventType" operation="//@operations.3"/>
+        </triggers>
         <effect name="cancel"/>
         <constraint xsi:type="statemachines:BooleanConstraint">
           <expression xsi:type="statemachines:BooleanUnaryExpression" operand="//@operations.3/@return"/>
@@ -87,7 +91,7 @@
       </transitions>
       <transitions name="suspended2closed" source="//@statemachine/@regions.0/@vertice.3" target="//@statemachine/@regions.0/@vertice.4" kind="external">
         <triggers name="isCancelRequestedTrigger">
-          <eventType xsi:type="statemachines:SignalEventType"/>
+          <eventType xsi:type="statemachines:CallEventType" operation="//@operations.3"/>
         </triggers>
         <effect name="cancel"/>
         <constraint xsi:type="statemachines:BooleanConstraint">
@@ -118,7 +122,7 @@
         </triggers>
         <effect name="unlock"/>
         <constraint xsi:type="statemachines:BooleanConstraint">
-          <expression xsi:type="statemachines:BooleanUnaryExpression" operand="//@operations.8/@return"/>
+          <expression xsi:type="statemachines:BooleanUnaryExpression"/>
         </constraint>
       </transitions>
       <transitions name="closed2final" source="//@statemachine/@regions.0/@vertice.4" target="//@statemachine/@regions.0/@vertice.5" kind="external"/>
@@ -148,7 +152,5 @@
   <operations name="isResumeRequested()">
     <return xsi:type="statemachines:BooleanAttribute" name="isResumeRequested"/>
   </operations>
-  <operations name="isLockExpired()">
-    <return xsi:type="statemachines:BooleanAttribute" name="isLockExpired"/>
-  </operations>
+  <operations name="isLockExpired()"/>
 </statemachines:CustomSystem>

@@ -31,5 +31,5 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="juf"/>
+  <signals name="ya"/>
 </statemachines:CustomSystem>

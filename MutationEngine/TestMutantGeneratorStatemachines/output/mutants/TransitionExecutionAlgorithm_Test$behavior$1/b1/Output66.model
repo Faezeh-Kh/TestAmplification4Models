@@ -51,6 +51,6 @@
   </statemachine>
   <signals name="Start"/>
   <signals name="Continue"/>
-  <signals name="OME"/>
-  <signals name="YLP"/>
+  <signals name="dHC"/>
+  <signals name="Ogm"/>
 </statemachines:CustomSystem>

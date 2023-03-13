@@ -39,5 +39,5 @@
   </statemachine>
   <signals name="Start"/>
   <signals name="Continue"/>
-  <signals name="MD"/>
+  <signals name="jr"/>
 </statemachines:CustomSystem>

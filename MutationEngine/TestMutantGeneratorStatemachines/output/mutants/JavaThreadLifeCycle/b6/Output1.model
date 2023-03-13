@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<statemachines:CustomSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
+<statemachines:CustomSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
   <statemachine name="JaveThreadStates">
     <regions name="mainRegion">
       <vertice xsi:type="statemachines:Pseudostate" name="initial1" outgoingTransitions="//@statemachine/@regions.0/@transitions.0"/>
@@ -182,10 +182,15 @@
   <operations name="Thread.sleep()">
     <inParameters xsi:type="statemachines:IntegerAttribute" name="sleeptime"/>
   </operations>
-  <operations name="o.wait()"/>
-  <operations name="t.join()"/>
-  <operations name="PcT">
-    <outParameters xsi:type="statemachines:IntegerAttribute" name="waitTimeout"/>
-    <return xsi:type="statemachines:IntegerAttribute" name="joinTimeout"/>
+  <operations name="o.wait()">
+    <inParameters xsi:type="statemachines:IntegerAttribute" name="waitTimeout"/>
+  </operations>
+  <operations name="t.join()">
+    <inParameters xsi:type="statemachines:IntegerAttribute" name="joinTimeout"/>
+  </operations>
+  <operations name="Wl">
+    <inParameters xsi:type="statemachines:IntegerAttribute" name="sleeptime"/>
+    <inParameters xsi:type="statemachines:IntegerAttribute" name="waitTimeout"/>
+    <return xsi:type="statemachines:IntegerAttribute" name="sleeptime"/>
   </operations>
 </statemachines:CustomSystem>

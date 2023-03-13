@@ -10,7 +10,7 @@
       <vertice xsi:type="statemachines:FinalState" name="final" incomingTransitions="//@statemachine/@regions.0/@transitions.13"/>
       <transitions name="initial2new" source="//@statemachine/@regions.0/@vertice.0" target="//@statemachine/@regions.0/@vertice.1" kind="external">
         <triggers name="isUniqueIdTrigger">
-          <eventType xsi:type="statemachines:SignalEventType"/>
+          <eventType xsi:type="statemachines:CallEventType" operation="//@operations.0"/>
         </triggers>
         <effect name="create"/>
         <constraint xsi:type="statemachines:BooleanConstraint">
@@ -77,7 +77,7 @@
         </triggers>
         <effect name="lock"/>
         <constraint xsi:type="statemachines:BooleanConstraint">
-          <expression xsi:type="statemachines:BooleanUnaryExpression" operand="//@operations.6/@return"/>
+          <expression xsi:type="statemachines:BooleanUnaryExpression"/>
         </constraint>
       </transitions>
       <transitions name="active2suspended" source="//@statemachine/@regions.0/@vertice.2" target="//@statemachine/@regions.0/@vertice.3" kind="external">
@@ -146,9 +146,7 @@
   <operations name="isSuspendRequested()">
     <return xsi:type="statemachines:BooleanAttribute" name="isSuspendRequested"/>
   </operations>
-  <operations name="isPasswordAlert()">
-    <return xsi:type="statemachines:BooleanAttribute" name="isPasswordAlert"/>
-  </operations>
+  <operations name="isPasswordAlert()"/>
   <operations name="isResumeRequested()">
     <return xsi:type="statemachines:BooleanAttribute" name="isResumeRequested"/>
   </operations>

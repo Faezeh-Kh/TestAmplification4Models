@@ -17,7 +17,7 @@
     <digitalPins xmi:id="_Z_DdoM-YEeyj4OK2t3h2Ug" name="alarmPin">
       <module xsi:type="arduino:Buzzer" xmi:id="_bNFXAM-YEeyj4OK2t3h2Ug" name="alarm"/>
     </digitalPins>
-    <digitalPins name="servo">
+    <digitalPins name="fan">
       <module xsi:type="arduino:Fan" name="fan"/>
     </digitalPins>
     <analogPins xmi:id="_MhMBMMowEeyrEsguAqucdw" name="soundSensor">

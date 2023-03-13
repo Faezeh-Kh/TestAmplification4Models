@@ -36,5 +36,5 @@
   </statemachine>
   <signals name="AnotherSignal"/>
   <signals name="Continue"/>
-  <signals name="JH"/>
+  <signals/>
 </statemachines:CustomSystem>

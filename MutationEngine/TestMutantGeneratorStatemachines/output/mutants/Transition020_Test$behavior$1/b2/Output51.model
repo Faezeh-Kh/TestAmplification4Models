@@ -29,6 +29,6 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="Of"/>
+  <signals name="jZU"/>
   <signals name="Continue"/>
 </statemachines:CustomSystem>

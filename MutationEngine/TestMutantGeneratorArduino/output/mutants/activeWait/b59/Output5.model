@@ -19,11 +19,17 @@
             <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_TeGOvbvnEey7OoLBzoKkPA" module="_TeGOs7vnEey7OoLBzoKkPA">
               <operand xsi:type="arduino:IntegerConstant" xmi:id="_TeGOvrvnEey7OoLBzoKkPA"/>
             </instructions>
-            <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_vWSdkLvnEey7OoLBzoKkPA" module="_TeGOs7vnEey7OoLBzoKkPA"/>
+            <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_vWSdkLvnEey7OoLBzoKkPA" module="_TeGOs7vnEey7OoLBzoKkPA">
+              <operand xsi:type="arduino:IntegerConstant" xmi:id="_vWSdkbvnEey7OoLBzoKkPA" value="1"/>
+            </instructions>
             <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_vWSdkrvnEey7OoLBzoKkPA" module="_TeGOs7vnEey7OoLBzoKkPA">
               <operand xsi:type="arduino:IntegerConstant" xmi:id="_vWSdk7vnEey7OoLBzoKkPA"/>
             </instructions>
           </block>
+          <condition xsi:type="arduino:BinaryBooleanExpression" xmi:id="_TeGOwLvnEey7OoLBzoKkPA" operator="equal">
+            <left xsi:type="arduino:IntegerModuleGet" xmi:id="_ubWisM-YEeyj4OK2t3h2Ug" module="_TeGOtbvnEey7OoLBzoKkPA"/>
+            <right xsi:type="arduino:IntegerConstant" xmi:id="_wA6LQM-YEeyj4OK2t3h2Ug"/>
+          </condition>
           <elseBlock xmi:id="_TeGOw7vnEey7OoLBzoKkPA">
             <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_TeGOxLvnEey7OoLBzoKkPA" module="_TeGOs7vnEey7OoLBzoKkPA">
               <operand xsi:type="arduino:IntegerConstant" xmi:id="_TeGOxbvnEey7OoLBzoKkPA" value="1"/>
@@ -33,11 +39,5 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:BinaryIntegerExpression>
-    <left xsi:type="arduino:IntegerConstant" value="1"/>
-    <right xsi:type="arduino:BinaryBooleanExpression" operator="equal">
-      <left xsi:type="arduino:IntegerModuleGet" module="_TeGOtbvnEey7OoLBzoKkPA"/>
-      <right xsi:type="arduino:IntegerConstant"/>
-    </right>
-  </arduino:BinaryIntegerExpression>
+  <arduino:IntegerConstant value="90"/>
 </xmi:XMI>

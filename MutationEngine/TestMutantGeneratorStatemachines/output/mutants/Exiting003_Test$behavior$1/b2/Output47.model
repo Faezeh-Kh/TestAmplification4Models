@@ -56,6 +56,6 @@
     </regions>
   </statemachine>
   <signals name="Start"/>
-  <signals name="LNa"/>
+  <signals name="Tj"/>
   <signals name="Pending"/>
 </statemachines:CustomSystem>

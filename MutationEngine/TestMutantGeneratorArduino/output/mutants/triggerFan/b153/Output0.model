@@ -20,7 +20,7 @@
       <module xsi:type="arduino:Buzzer" name="alarm"/>
     </digitalPins>
     <analogPins name="soundSensor">
-      <module xsi:type="arduino:SoundSensor" name="soundSensor"/>
+      <module xsi:type="arduino:RotationSensor" name=""/>
     </analogPins>
   </boards>
   <sketches name="sketch" board="//@boards.0">

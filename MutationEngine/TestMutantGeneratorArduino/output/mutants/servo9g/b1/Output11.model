@@ -7,11 +7,11 @@
     <digitalPins name="button_pin">
       <module xsi:type="arduino:PushButton" name="turnOffButton"/>
     </digitalPins>
-    <digitalPins name="servo1">
-      <module xsi:type="arduino:MicroServo" name="servo"/>
-    </digitalPins>
-    <digitalPins name="IR_sensorPin">
+    <digitalPins name="blueLed">
       <module xsi:type="arduino:PushButton" name="turnOffButton"/>
+    </digitalPins>
+    <digitalPins name="redLed">
+      <module xsi:type="arduino:MicroServo" name="servo"/>
     </digitalPins>
   </boards>
   <sketches name="mainSketch">

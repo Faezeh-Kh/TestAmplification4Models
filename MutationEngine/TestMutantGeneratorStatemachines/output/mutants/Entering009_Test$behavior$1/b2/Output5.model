@@ -29,5 +29,5 @@
       <transitions name="T1" source="//@statemachine/@regions.0/@vertice.0" target="//@statemachine/@regions.0/@vertice.2" kind="external"/>
     </regions>
   </statemachine>
-  <signals name="Smy"/>
+  <signals name="oYg"/>
 </statemachines:CustomSystem>

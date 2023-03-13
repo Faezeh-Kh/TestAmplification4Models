@@ -141,7 +141,7 @@
     <return xsi:type="statemachines:BooleanAttribute" name="isCancelRequested"/>
   </operations>
   <operations name="isPolicyVoilated()">
-    <return xsi:type="statemachines:BooleanAttribute" name="isPolicyVoilated"/>
+    <return xsi:type="statemachines:BooleanAttribute" name="gKy"/>
   </operations>
   <operations name="isSuspendRequested()">
     <return xsi:type="statemachines:BooleanAttribute" name="isSuspendRequested"/>

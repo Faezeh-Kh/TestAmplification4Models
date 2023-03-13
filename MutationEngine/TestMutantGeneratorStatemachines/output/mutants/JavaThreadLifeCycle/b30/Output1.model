@@ -181,7 +181,7 @@
   <signals name="monitorLockAcquired"/>
   <operations name="Thread.sleep()">
     <inParameters xsi:type="statemachines:IntegerAttribute" name="sleeptime"/>
-    <inParameters xsi:type="statemachines:IntegerAttribute" name="SSe"/>
+    <inParameters xsi:type="statemachines:StringAttribute"/>
   </operations>
   <operations name="o.wait()">
     <inParameters xsi:type="statemachines:IntegerAttribute" name="waitTimeout"/>

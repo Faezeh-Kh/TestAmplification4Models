@@ -52,7 +52,7 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="AfX"/>
+  <signals name="Continue"/>
   <signals name="Start"/>
-  <signals name="AnotherSignal"/>
+  <signals name="zCr"/>
 </statemachines:CustomSystem>

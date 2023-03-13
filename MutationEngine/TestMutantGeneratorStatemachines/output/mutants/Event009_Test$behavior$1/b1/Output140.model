@@ -55,6 +55,6 @@
   <signals name="Start"/>
   <signals name="Pending"/>
   <signals name="Continue"/>
-  <signals name="JN"/>
-  <signals name="AML"/>
+  <signals name="Gzb"/>
+  <signals name="UGw"/>
 </statemachines:CustomSystem>

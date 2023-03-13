@@ -39,6 +39,6 @@
     </regions>
   </statemachine>
   <signals name="Continue">
-    <attributes xsi:type="statemachines:IntegerAttribute" name="PKR"/>
+    <attributes xsi:type="statemachines:StringAttribute"/>
   </signals>
 </statemachines:CustomSystem>

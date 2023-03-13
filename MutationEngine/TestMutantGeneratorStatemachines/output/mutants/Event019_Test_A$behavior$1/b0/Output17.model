@@ -26,6 +26,6 @@
     </regions>
   </statemachine>
   <signals name="Continue"/>
-  <signals name="nhn"/>
+  <signals/>
   <operations name="op"/>
 </statemachines:CustomSystem>

@@ -37,6 +37,6 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="RV"/>
-  <signals name="Start"/>
+  <signals name="Continue"/>
+  <signals name="gQ"/>
 </statemachines:CustomSystem>

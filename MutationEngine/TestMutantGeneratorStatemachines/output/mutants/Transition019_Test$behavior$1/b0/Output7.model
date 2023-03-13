@@ -55,5 +55,5 @@
   </statemachine>
   <signals name="Start"/>
   <signals name="Continue"/>
-  <signals name="RK"/>
+  <signals/>
 </statemachines:CustomSystem>

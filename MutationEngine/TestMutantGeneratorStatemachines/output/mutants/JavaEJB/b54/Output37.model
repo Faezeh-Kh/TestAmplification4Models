@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<statemachines:CustomSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
+<statemachines:CustomSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
   <statemachine name="JavaEJB">
     <regions name="mainRegion">
       <vertice xsi:type="statemachines:Pseudostate" name="initial" outgoingTransitions="//@statemachine/@regions.0/@transitions.0"/>
@@ -45,7 +45,6 @@
         <triggers name="timeoutTrigger">
           <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.5"/>
         </triggers>
-        <constraint xsi:type="statemachines:StringConstraint"/>
       </transitions>
       <transitions name="ER2NER" source="//@statemachine/@regions.0/@vertice.2" target="//@statemachine/@regions.0/@vertice.3" kind="external">
         <triggers name="crashTrigger">
@@ -90,7 +89,9 @@
   <signals name="home.remove()"/>
   <signals name="systemException"/>
   <signals name="beanTimout"/>
-  <signals name="containerCrash"/>
+  <signals name="containerCrash">
+    <attributes xsi:type="statemachines:BooleanAttribute" name="vIi"/>
+  </signals>
   <signals name="releaseReference"/>
   <signals name="handle.getEJBObject()"/>
 </statemachines:CustomSystem>

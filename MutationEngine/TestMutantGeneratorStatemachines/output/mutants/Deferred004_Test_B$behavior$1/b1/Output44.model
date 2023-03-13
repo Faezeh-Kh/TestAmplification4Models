@@ -69,8 +69,8 @@
   <signals name="Start"/>
   <signals name="Continue"/>
   <signals name="Pending"/>
-  <signals name="FM"/>
-  <signals name="XO"/>
-  <signals name="Lv"/>
-  <signals name="gT"/>
+  <signals name="CMZ"/>
+  <signals name="AM"/>
+  <signals name="Aq"/>
+  <signals name="cxv"/>
 </statemachines:CustomSystem>

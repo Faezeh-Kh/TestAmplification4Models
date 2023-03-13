@@ -46,5 +46,5 @@
   <signals name="Start"/>
   <signals name="Continue"/>
   <signals name="Pending"/>
-  <signals name="FbF"/>
+  <signals name="uVF"/>
 </statemachines:CustomSystem>

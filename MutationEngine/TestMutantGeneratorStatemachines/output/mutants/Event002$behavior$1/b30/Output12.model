@@ -37,8 +37,8 @@
     </regions>
   </statemachine>
   <signals name="Start"/>
-  <signals name="AnotherSignal"/>
-  <signals name="Continue">
-    <attributes xsi:type="statemachines:IntegerAttribute" name="Fe"/>
+  <signals name="AnotherSignal">
+    <attributes xsi:type="statemachines:StringAttribute"/>
   </signals>
+  <signals name="Continue"/>
 </statemachines:CustomSystem>

@@ -55,6 +55,6 @@
   <signals name="Continue"/>
   <signals name="Start"/>
   <signals name="AnotherSignal"/>
-  <signals name="EjU"/>
-  <signals name="PD"/>
+  <signals name="vIe"/>
+  <signals name="mAd"/>
 </statemachines:CustomSystem>

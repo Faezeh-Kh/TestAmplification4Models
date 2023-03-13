@@ -35,5 +35,5 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="gd"/>
+  <signals name="IC"/>
 </statemachines:CustomSystem>

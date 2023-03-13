@@ -9,6 +9,11 @@
   <transitions src="//@states.1" tar="//@states.2" symbol="//@alphabet.0"/>
   <transitions src="//@states.0" tar="//@states.1" symbol="//@alphabet.1"/>
   <transitions src="//@states.0" tar="//@states.2" symbol="//@alphabet.0"/>
+  <transitions>
+    <src href="../../../model/exercise8.model#_JOnZsXqlEeumM_nlrwHWFw"/>
+    <tar href="../../../model/exercise8.model#_JOnZsHqlEeumM_nlrwHWFw"/>
+    <symbol href="../../../model/exercise8.model#_JOnZuXqlEeumM_nlrwHWFw"/>
+  </transitions>
   <alphabet symbol="a"/>
   <alphabet symbol="b"/>
 </DFAAutomaton:Automaton>

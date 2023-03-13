@@ -57,6 +57,6 @@
   <signals name="Continue"/>
   <signals name="Start"/>
   <signals name="Pending"/>
-  <signals name="Xma"/>
-  <signals name="zQb"/>
+  <signals name="RT"/>
+  <signals name="xSI"/>
 </statemachines:CustomSystem>

@@ -45,11 +45,7 @@
   </statemachine>
   <signals name="Start"/>
   <signals name="Continue"/>
-  <operations name="op">
+  <operations name="vN">
     <inParameters xsi:type="statemachines:BooleanAttribute" name="p1"/>
-  </operations>
-  <operations name="Ed">
-    <inParameters xsi:type="statemachines:BooleanAttribute" name="p1"/>
-    <return xsi:type="statemachines:BooleanAttribute" name="p1"/>
   </operations>
 </statemachines:CustomSystem>

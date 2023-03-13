@@ -37,6 +37,6 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="Continue"/>
-  <signals name="YFr"/>
+  <signals name="ndL"/>
+  <signals name="Start"/>
 </statemachines:CustomSystem>

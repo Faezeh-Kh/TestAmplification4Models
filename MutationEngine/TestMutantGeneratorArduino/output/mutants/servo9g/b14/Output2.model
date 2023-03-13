@@ -8,7 +8,7 @@
       <module xsi:type="arduino:PushButton" name="turnOffButton"/>
     </digitalPins>
   </boards>
-  <sketches name="sketch">
+  <sketches name="mainSketch">
     <block>
       <instructions xsi:type="arduino:If">
         <block>

@@ -13,6 +13,9 @@
     <digitalPins name="Servo">
       <module xsi:type="arduino:MicroServo" name="Servo"/>
     </digitalPins>
+    <analogPins name="IR_sensor"/>
+    <analogPins name="IRSensor"/>
+    <analogPins name="fan"/>
   </boards>
   <sketches name="sketch" board="//@boards.0">
     <block>

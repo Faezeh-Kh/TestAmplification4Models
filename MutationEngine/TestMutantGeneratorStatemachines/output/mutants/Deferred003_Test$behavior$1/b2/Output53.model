@@ -64,7 +64,7 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="pI"/>
+  <signals name="zci"/>
   <signals name="AnotherSignal"/>
   <signals name="Start"/>
   <signals name="Pending"/>

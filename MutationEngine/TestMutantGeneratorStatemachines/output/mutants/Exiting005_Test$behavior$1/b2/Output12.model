@@ -46,6 +46,6 @@
     </regions>
   </statemachine>
   <signals name="Start"/>
-  <signals name="byS"/>
+  <signals name="uO"/>
   <signals name="Pending"/>
 </statemachines:CustomSystem>

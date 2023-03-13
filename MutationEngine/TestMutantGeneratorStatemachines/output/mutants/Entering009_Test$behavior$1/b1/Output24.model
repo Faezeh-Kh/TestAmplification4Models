@@ -30,5 +30,5 @@
     </regions>
   </statemachine>
   <signals name="Start"/>
-  <signals name="UQ"/>
+  <signals name="dWB"/>
 </statemachines:CustomSystem>

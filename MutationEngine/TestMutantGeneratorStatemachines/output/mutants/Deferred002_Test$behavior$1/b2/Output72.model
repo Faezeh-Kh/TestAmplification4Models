@@ -53,6 +53,6 @@
     </regions>
   </statemachine>
   <signals name="Continue"/>
-  <signals name="YK"/>
+  <signals name="XT"/>
   <signals name="AnotherSignal"/>
 </statemachines:CustomSystem>

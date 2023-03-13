@@ -179,25 +179,25 @@
   <signals name="o.notifyAll"/>
   <signals name="o.notify"/>
   <signals name="monitorLockAcquired"/>
-  <signals name="Vq">
-    <attributes xsi:type="statemachines:IntegerAttribute" name="joinTimeout"/>
-  </signals>
-  <signals name="TU">
-    <attributes xsi:type="statemachines:IntegerAttribute" name="waitTimeout"/>
-  </signals>
-  <signals name="mDq">
+  <signals name="yZc">
     <attributes xsi:type="statemachines:IntegerAttribute" name="sleeptime"/>
   </signals>
-  <signals name="umS"/>
-  <signals name="EX"/>
-  <signals name="OX"/>
-  <signals name="JEG"/>
-  <signals name="BCr"/>
-  <signals name="XW"/>
-  <signals name="FSB"/>
-  <signals name="OB"/>
-  <signals name="FYr"/>
-  <signals name="bGi"/>
+  <signals name="Zge">
+    <attributes xsi:type="statemachines:IntegerAttribute" name="joinTimeout"/>
+  </signals>
+  <signals name="Dw">
+    <attributes xsi:type="statemachines:IntegerAttribute" name="waitTimeout"/>
+  </signals>
+  <signals name="jPK"/>
+  <signals name="ylF"/>
+  <signals name="Nvp"/>
+  <signals name="tr"/>
+  <signals name="iyB"/>
+  <signals name="hlz"/>
+  <signals name="LQ"/>
+  <signals name="oBN"/>
+  <signals name="Viv"/>
+  <signals name="VdQ"/>
   <operations name="Thread.sleep()">
     <inParameters xsi:type="statemachines:IntegerAttribute" name="sleeptime"/>
   </operations>

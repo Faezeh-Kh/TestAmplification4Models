@@ -138,7 +138,7 @@
     <return xsi:type="statemachines:BooleanAttribute" name="isVerified"/>
   </operations>
   <operations name="isCancelRequested()">
-    <return xsi:type="statemachines:BooleanAttribute" name="isCancelRequested"/>
+    <return xsi:type="statemachines:BooleanAttribute" name="lJ"/>
   </operations>
   <operations name="isPolicyVoilated()">
     <return xsi:type="statemachines:BooleanAttribute" name="isPolicyVoilated"/>

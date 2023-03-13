@@ -46,5 +46,5 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="mKB"/>
+  <signals name="Zm"/>
 </statemachines:CustomSystem>

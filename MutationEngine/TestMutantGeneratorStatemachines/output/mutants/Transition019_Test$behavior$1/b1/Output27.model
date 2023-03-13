@@ -55,5 +55,5 @@
   </statemachine>
   <signals name="Start"/>
   <signals name="Continue"/>
-  <signals name="BmL"/>
+  <signals name="TY"/>
 </statemachines:CustomSystem>

@@ -43,5 +43,5 @@
     </regions>
   </statemachine>
   <signals name="Start"/>
-  <signals name="VrI"/>
+  <signals/>
 </statemachines:CustomSystem>

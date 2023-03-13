@@ -13,6 +13,8 @@
     <digitalPins name="buttonPin">
       <module xsi:type="arduino:PushButton" name="button1"/>
     </digitalPins>
+    <analogPins name="alarmPin"/>
+    <analogPins name="buzzer_pin"/>
   </boards>
   <sketches name="sketch" board="//@boards.0">
     <block>

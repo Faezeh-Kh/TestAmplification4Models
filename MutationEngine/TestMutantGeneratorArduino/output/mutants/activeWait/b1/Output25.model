@@ -7,11 +7,11 @@
     <digitalPins name="IR_sensor">
       <module xsi:type="arduino:InfraRedSensor" name="IR_sensor"/>
     </digitalPins>
-    <digitalPins name="boardOnButtonPin">
-      <module xsi:type="arduino:InfraRedSensor" name="IR_sensor"/>
-    </digitalPins>
     <digitalPins name="IRSensorPin">
       <module xsi:type="arduino:LED" name="blueLed"/>
+    </digitalPins>
+    <digitalPins name="IR_sensor">
+      <module xsi:type="arduino:InfraRedSensor" name="IR_sensor"/>
     </digitalPins>
   </boards>
   <sketches name="sketch" board="//@boards.0">

@@ -68,6 +68,6 @@
   <signals name="AnotherSignal"/>
   <signals name="Start"/>
   <signals name="Pending"/>
-  <signals name="MyB"/>
-  <signals name="Uo"/>
+  <signals name="Qow"/>
+  <signals name="hAU"/>
 </statemachines:CustomSystem>

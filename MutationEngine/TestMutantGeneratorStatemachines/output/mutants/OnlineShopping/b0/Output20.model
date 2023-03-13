@@ -32,7 +32,7 @@
         </triggers>
         <effect name="activate"/>
         <constraint xsi:type="statemachines:BooleanConstraint">
-          <expression xsi:type="statemachines:BooleanUnaryExpression" operand="//@operations.2/@return"/>
+          <expression xsi:type="statemachines:BooleanUnaryExpression" operand="//@signals.0/@attributes.0"/>
         </constraint>
       </transitions>
       <transitions name="new2suspended" source="//@statemachine/@regions.0/@vertice.1" target="//@statemachine/@regions.0/@vertice.3" kind="external">
@@ -59,7 +59,7 @@
         </triggers>
         <effect name="cancel"/>
         <constraint xsi:type="statemachines:BooleanConstraint">
-          <expression xsi:type="statemachines:BooleanUnaryExpression" operand="//@signals.0/@attributes.0"/>
+          <expression xsi:type="statemachines:BooleanUnaryExpression" operand="//@operations.4/@return"/>
         </constraint>
       </transitions>
       <transitions name="active2suspended" source="//@statemachine/@regions.0/@vertice.2" target="//@statemachine/@regions.0/@vertice.3" kind="external">
@@ -104,7 +104,7 @@
         </triggers>
         <effect name="cancel"/>
         <constraint xsi:type="statemachines:BooleanConstraint">
-          <expression xsi:type="statemachines:BooleanUnaryExpression" operand="//@signals.0/@attributes.0"/>
+          <expression xsi:type="statemachines:BooleanUnaryExpression" operand="//@operations.4/@return"/>
         </constraint>
       </transitions>
       <transitions name="suspended2active" source="//@statemachine/@regions.0/@vertice.3" target="//@statemachine/@regions.0/@vertice.2" kind="external">
@@ -128,8 +128,8 @@
       <transitions name="closed2final" source="//@statemachine/@regions.0/@vertice.4" target="//@statemachine/@regions.0/@vertice.5" kind="external"/>
     </regions>
   </statemachine>
-  <signals name="CR">
-    <attributes xsi:type="statemachines:BooleanAttribute" name="isPolicyVoilated"/>
+  <signals>
+    <attributes xsi:type="statemachines:BooleanAttribute" name="isVerified"/>
   </signals>
   <operations name="isUniqueId()">
     <return xsi:type="statemachines:BooleanAttribute" name="isUniqueId"/>
@@ -137,13 +137,13 @@
   <operations name="isAccountDormant()">
     <return xsi:type="statemachines:BooleanAttribute" name="isAccountDormant"/>
   </operations>
-  <operations name="isVerified()">
-    <return xsi:type="statemachines:BooleanAttribute" name="isVerified"/>
-  </operations>
+  <operations name="isVerified()"/>
   <operations name="isCancelRequested()">
     <return xsi:type="statemachines:BooleanAttribute" name="isCancelRequested"/>
   </operations>
-  <operations name="isPolicyVoilated()"/>
+  <operations name="isPolicyVoilated()">
+    <return xsi:type="statemachines:BooleanAttribute" name="isPolicyVoilated"/>
+  </operations>
   <operations name="isSuspendRequested()">
     <return xsi:type="statemachines:BooleanAttribute" name="isSuspendRequested"/>
   </operations>

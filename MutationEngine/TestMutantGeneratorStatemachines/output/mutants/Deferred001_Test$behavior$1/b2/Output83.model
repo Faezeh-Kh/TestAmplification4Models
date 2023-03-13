@@ -48,5 +48,5 @@
   <signals name="Continue"/>
   <signals name="Start"/>
   <signals name="AnotherSignal"/>
-  <signals name="Eq"/>
+  <signals name="Wc"/>
 </statemachines:CustomSystem>

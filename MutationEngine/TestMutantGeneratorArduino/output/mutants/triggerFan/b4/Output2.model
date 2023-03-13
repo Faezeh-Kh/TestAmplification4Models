@@ -22,6 +22,9 @@
     <analogPins name="soundSensor">
       <module xsi:type="arduino:SoundSensor" name="soundSensor"/>
     </analogPins>
+    <analogPins name="pushButton"/>
+    <analogPins name="servo1"/>
+    <analogPins name="pushButton"/>
   </boards>
   <sketches name="sketch" board="//@boards.0">
     <block>

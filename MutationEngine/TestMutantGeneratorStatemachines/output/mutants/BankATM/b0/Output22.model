@@ -37,13 +37,13 @@
               </transitions>
               <transitions name="validatePin2SelectingTransaction" source="//@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.1/@regions.0/@vertice.2" target="//@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.2" kind="external">
                 <constraint xsi:type="statemachines:IntegerConstraint">
-                  <expression operator="==" operand1="//@signals.7/@attributes.0" operand2="//@signals.6/@attributes.0"/>
+                  <expression operator="==" operand1="//@signals.11/@attributes.0" operand2="//@signals.6/@attributes.0"/>
                 </constraint>
               </transitions>
               <transitions name="validatePin2final3" source="//@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.1/@regions.0/@vertice.2" target="//@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.1/@regions.0/@vertice.3" kind="external">
                 <effect name="wrongPinMsg"/>
                 <constraint xsi:type="statemachines:IntegerConstraint">
-                  <expression operator="!=" operand1="//@signals.7/@attributes.0" operand2="//@signals.6/@attributes.0"/>
+                  <expression operator="!=" operand1="//@signals.11/@attributes.0" operand2="//@signals.6/@attributes.0"/>
                 </constraint>
               </transitions>
             </regions>
@@ -71,13 +71,13 @@
               </transitions>
               <transitions name="checkBalance2makeWithdrawal" source="//@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.3/@regions.0/@vertice.2" target="//@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.3/@regions.0/@vertice.3" kind="external">
                 <constraint xsi:type="statemachines:IntegerConstraint">
-                  <expression operator="&lt;=" operand1="//@signals.11/@attributes.0" operand2="//@signals.6/@attributes.1"/>
+                  <expression operator="&lt;=" operand1="//@signals.10/@attributes.0" operand2="//@signals.6/@attributes.1"/>
                 </constraint>
               </transitions>
               <transitions name="checkBalance2final4" source="//@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.3/@regions.0/@vertice.2" target="//@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.3/@regions.0/@vertice.4" kind="external">
                 <effect name="notEnoughMoneyMsg"/>
                 <constraint xsi:type="statemachines:IntegerConstraint">
-                  <expression operator=">" operand1="//@signals.11/@attributes.0" operand2="//@signals.6/@attributes.1"/>
+                  <expression operator=">" operand1="//@signals.10/@attributes.0" operand2="//@signals.6/@attributes.1"/>
                 </constraint>
               </transitions>
               <transitions name="makeWithdrawal2final4" source="//@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.3/@regions.0/@vertice.3" target="//@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.3/@regions.0/@vertice.4" kind="external">
@@ -108,13 +108,13 @@
               </transitions>
               <transitions name="checkBalance2transferMoney" source="//@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@vertice.3" target="//@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@vertice.4" kind="external">
                 <constraint xsi:type="statemachines:IntegerConstraint">
-                  <expression operator="&lt;=" operand1="//@signals.11/@attributes.0" operand2="//@signals.6/@attributes.1"/>
+                  <expression operator="&lt;=" operand1="//@signals.10/@attributes.0" operand2="//@signals.6/@attributes.1"/>
                 </constraint>
               </transitions>
               <transitions name="checkBalance2final5" source="//@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@vertice.3" target="//@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@vertice.5" kind="external">
                 <effect name="notEnoughMoneyMsg"/>
                 <constraint xsi:type="statemachines:IntegerConstraint">
-                  <expression operator=">" operand1="//@signals.11/@attributes.0" operand2="//@signals.6/@attributes.1"/>
+                  <expression operator=">" operand1="//@signals.10/@attributes.0" operand2="//@signals.6/@attributes.1"/>
                 </constraint>
               </transitions>
               <transitions name="transferMoney2final5" source="//@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@vertice.4" target="//@statemachine/@regions.0/@vertice.6/@regions.0/@vertice.4/@regions.0/@vertice.5" kind="external">
@@ -218,13 +218,13 @@
     <attributes xsi:type="statemachines:IntegerAttribute" name="cardPin"/>
     <attributes xsi:type="statemachines:IntegerAttribute" name="cardBalance"/>
   </signals>
-  <signals name="Pin">
-    <attributes xsi:type="statemachines:IntegerAttribute" name="pin"/>
-  </signals>
+  <signals name="Pin"/>
   <signals name="WithdrawTransaction"/>
   <signals name="TransferTransaction"/>
-  <signals name="Amount"/>
-  <signals name="cU">
+  <signals name="Amount">
     <attributes xsi:type="statemachines:IntegerAttribute" name="enteredAmount"/>
+  </signals>
+  <signals>
+    <attributes xsi:type="statemachines:IntegerAttribute" name="pin"/>
   </signals>
 </statemachines:CustomSystem>

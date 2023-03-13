@@ -21,5 +21,5 @@
     </regions>
   </statemachine>
   <signals name="Start"/>
-  <signals name="ci"/>
+  <signals name="SbI"/>
 </statemachines:CustomSystem>

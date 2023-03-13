@@ -25,6 +25,6 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="Start"/>
-  <signals name="nq"/>
+  <signals name="ene"/>
+  <signals name="Continue"/>
 </statemachines:CustomSystem>

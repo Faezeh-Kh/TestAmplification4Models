@@ -13,6 +13,8 @@
     <digitalPins name="button_pin">
       <module xsi:type="arduino:PushButton" name="Button1"/>
     </digitalPins>
+    <analogPins name="whiteLed"/>
+    <analogPins name="IRSensor"/>
   </boards>
   <sketches name="sketch" board="//@boards.0">
     <block>

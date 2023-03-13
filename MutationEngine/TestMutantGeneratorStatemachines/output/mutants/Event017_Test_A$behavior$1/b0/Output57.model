@@ -38,7 +38,7 @@
   </statemachine>
   <signals xmi:id="_OiyhcLsaEey7I_R-wPwR8g" name="Start"/>
   <signals xmi:id="_OiyhcbsaEey7I_R-wPwR8g" name="Data"/>
-  <signals name="UB">
+  <signals>
     <attributes xsi:type="statemachines:BooleanAttribute" name="value"/>
   </signals>
 </statemachines:CustomSystem>

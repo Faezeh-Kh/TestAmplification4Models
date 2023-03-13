@@ -65,6 +65,6 @@
   </statemachine>
   <signals name="Continue"/>
   <signals name="Start"/>
-  <signals name="iq"/>
+  <signals name="RM"/>
   <signals name="Pending"/>
 </statemachines:CustomSystem>

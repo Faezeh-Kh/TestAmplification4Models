@@ -55,6 +55,6 @@
     </regions>
   </statemachine>
   <signals name="Continue"/>
-  <signals name="sX"/>
-  <signals name="Pending"/>
+  <signals name="Start"/>
+  <signals name="pKX"/>
 </statemachines:CustomSystem>

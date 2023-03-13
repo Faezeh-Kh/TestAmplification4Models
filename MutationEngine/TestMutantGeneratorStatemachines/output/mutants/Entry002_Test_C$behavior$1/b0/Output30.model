@@ -32,5 +32,5 @@
     </regions>
   </statemachine>
   <signals name="Start"/>
-  <signals name="RfH"/>
+  <signals/>
 </statemachines:CustomSystem>

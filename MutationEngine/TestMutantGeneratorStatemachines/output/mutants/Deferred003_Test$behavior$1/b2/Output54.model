@@ -66,6 +66,6 @@
   </statemachine>
   <signals name="Continue"/>
   <signals name="AnotherSignal"/>
-  <signals name="gSw"/>
-  <signals name="Pending"/>
+  <signals name="Start"/>
+  <signals name="WFf"/>
 </statemachines:CustomSystem>

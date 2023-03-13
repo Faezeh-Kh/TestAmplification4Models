@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
 <arduino:Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduino="http://www.obeo.fr/arduino" xsi:schemaLocation="http://www.obeo.fr/arduino ../../../model/arduino.ecore">
   <boards xsi:type="arduino:ArduinoBoard" name="board">
-    <digitalPins name="button_pin">
+    <digitalPins name="servo">
       <module xsi:type="arduino:LED" name="blueLed"/>
     </digitalPins>
     <digitalPins name="IR_sensor">

@@ -5,7 +5,7 @@
     <digitalPins xmi:id="_TeGOtLvnEey7OoLBzoKkPA" name="IR_sensor">
       <module xsi:type="arduino:InfraRedSensor" xmi:id="_TeGOtbvnEey7OoLBzoKkPA" name="IR_sensor"/>
     </digitalPins>
-    <digitalPins name="boardOnButtonPin">
+    <digitalPins name="button_pin">
       <module xsi:type="arduino:LED" name="blueLed"/>
     </digitalPins>
   </boards>

@@ -48,5 +48,5 @@
   <signals name="Start"/>
   <signals name="Continue"/>
   <signals name="Pending"/>
-  <signals name="aN"/>
+  <signals/>
 </statemachines:CustomSystem>

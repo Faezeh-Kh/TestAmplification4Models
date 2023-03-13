@@ -45,7 +45,7 @@
   </statemachine>
   <signals name="Start"/>
   <signals name="Continue"/>
-  <signals name="yN">
+  <signals name="BWt">
     <attributes xsi:type="statemachines:BooleanAttribute" name="p1"/>
   </signals>
   <operations name="op">

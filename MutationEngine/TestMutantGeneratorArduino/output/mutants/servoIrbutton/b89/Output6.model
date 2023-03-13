@@ -56,10 +56,11 @@
               </condition>
             </instructions>
           </block>
-          <condition xsi:type="arduino:BooleanModuleGet" xmi:id="_WDwsl7vrEey6kqvve9HPhQ" module="_WDu3Y7vrEey6kqvve9HPhQ"/>
         </instructions>
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:BooleanVariable name="Lk" initialValue="true"/>
+  <arduino:UnaryBooleanExpression>
+    <operand xsi:type="arduino:BooleanModuleGet" module="_WDu3Y7vrEey6kqvve9HPhQ"/>
+  </arduino:UnaryBooleanExpression>
 </xmi:XMI>

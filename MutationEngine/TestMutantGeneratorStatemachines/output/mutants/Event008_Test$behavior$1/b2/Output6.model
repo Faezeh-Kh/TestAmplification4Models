@@ -25,6 +25,6 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="yL"/>
-  <signals name="Continue"/>
+  <signals name="Start"/>
+  <signals name="eZP"/>
 </statemachines:CustomSystem>

@@ -92,5 +92,5 @@
   <signals name="containerCrash"/>
   <signals name="releaseReference"/>
   <signals name="handle.getEJBObject()"/>
-  <signals name="dy"/>
+  <signals/>
 </statemachines:CustomSystem>

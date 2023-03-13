@@ -41,5 +41,5 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="EBU"/>
+  <signals name="YAJ"/>
 </statemachines:CustomSystem>

@@ -64,7 +64,7 @@
   <signals name="Card">
     <attributes xsi:type="statemachines:IntegerAttribute" name="cardPin"/>
     <attributes xsi:type="statemachines:IntegerAttribute" name="cardBalance"/>
-    <attributes xsi:type="statemachines:IntegerAttribute" name="Pe"/>
+    <attributes xsi:type="statemachines:StringAttribute"/>
   </signals>
   <signals name="Pin">
     <attributes xsi:type="statemachines:IntegerAttribute" name="enteredPin"/>

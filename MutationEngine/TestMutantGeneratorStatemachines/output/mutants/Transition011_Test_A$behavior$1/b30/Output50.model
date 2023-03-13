@@ -43,9 +43,9 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="Start"/>
-  <signals name="Continue">
-    <attributes xsi:type="statemachines:IntegerAttribute" name="ijK"/>
+  <signals name="Start">
+    <attributes xsi:type="statemachines:StringAttribute"/>
   </signals>
+  <signals name="Continue"/>
   <signals name="Pending"/>
 </statemachines:CustomSystem>

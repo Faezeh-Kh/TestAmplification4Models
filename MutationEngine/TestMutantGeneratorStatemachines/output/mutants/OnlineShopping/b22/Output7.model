@@ -144,7 +144,7 @@
     <return xsi:type="statemachines:BooleanAttribute" name="isPolicyVoilated"/>
   </operations>
   <operations name="isSuspendRequested()">
-    <return xsi:type="statemachines:BooleanAttribute" name="isSuspendRequested"/>
+    <return xsi:type="statemachines:BooleanAttribute" name="Bfm"/>
   </operations>
   <operations name="isPasswordAlert()">
     <return xsi:type="statemachines:BooleanAttribute" name="isPasswordAlert"/>

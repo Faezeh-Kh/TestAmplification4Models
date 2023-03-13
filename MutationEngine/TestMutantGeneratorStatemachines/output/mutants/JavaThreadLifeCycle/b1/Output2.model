@@ -179,8 +179,8 @@
   <signals name="o.notifyAll"/>
   <signals name="o.notify"/>
   <signals name="monitorLockAcquired"/>
-  <signals name="Vq">
-    <attributes xsi:type="statemachines:IntegerAttribute" name="joinTimeout"/>
+  <signals name="yZc">
+    <attributes xsi:type="statemachines:IntegerAttribute" name="sleeptime"/>
   </signals>
   <operations name="Thread.sleep()">
     <inParameters xsi:type="statemachines:IntegerAttribute" name="sleeptime"/>

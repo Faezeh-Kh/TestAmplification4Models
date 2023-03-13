@@ -48,6 +48,6 @@
   <signals name="Start"/>
   <signals name="Continue"/>
   <signals name="Pending"/>
-  <signals name="oF"/>
-  <signals name="zWD"/>
+  <signals name="Xnf"/>
+  <signals name="UwD"/>
 </statemachines:CustomSystem>

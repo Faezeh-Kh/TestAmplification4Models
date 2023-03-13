@@ -65,9 +65,9 @@
     </regions>
   </statemachine>
   <signals name="Continue"/>
-  <signals name="AnotherSignal">
-    <attributes xsi:type="statemachines:IntegerAttribute" name="mzI"/>
-  </signals>
+  <signals name="AnotherSignal"/>
   <signals name="Start"/>
-  <signals name="Pending"/>
+  <signals name="Pending">
+    <attributes xsi:type="statemachines:StringAttribute"/>
+  </signals>
 </statemachines:CustomSystem>

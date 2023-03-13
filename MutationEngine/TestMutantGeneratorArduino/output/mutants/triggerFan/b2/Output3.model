@@ -10,10 +10,10 @@
     <digitalPins name="fan">
       <module xsi:type="arduino:Fan" name="fan"/>
     </digitalPins>
-    <digitalPins name="servo1">
+    <digitalPins name="boardOnButtonPin">
       <module xsi:type="arduino:PushButton" name="boardOnButton"/>
     </digitalPins>
-    <digitalPins name="IRSensorPin">
+    <digitalPins name="IRSensor">
       <module xsi:type="arduino:InfraRedSensor" name="IRSensor"/>
     </digitalPins>
     <digitalPins name="alarmPin">

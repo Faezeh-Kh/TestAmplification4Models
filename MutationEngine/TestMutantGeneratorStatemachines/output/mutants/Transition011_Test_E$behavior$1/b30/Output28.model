@@ -38,6 +38,6 @@
     </regions>
   </statemachine>
   <signals name="Start">
-    <attributes xsi:type="statemachines:IntegerAttribute" name="OG"/>
+    <attributes xsi:type="statemachines:StringAttribute"/>
   </signals>
 </statemachines:CustomSystem>

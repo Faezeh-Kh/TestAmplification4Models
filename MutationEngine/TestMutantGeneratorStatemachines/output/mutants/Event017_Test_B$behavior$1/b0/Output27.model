@@ -46,7 +46,7 @@
   </statemachine>
   <signals xmi:id="_CdVnBLskEeyrPdT0pCfx6w" name="Data"/>
   <signals xmi:id="_CdW1IbskEeyrPdT0pCfx6w" name="Continue"/>
-  <signals name="Xwk">
+  <signals>
     <attributes xsi:type="statemachines:BooleanAttribute" name="value"/>
   </signals>
 </statemachines:CustomSystem>

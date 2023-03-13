@@ -55,7 +55,7 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="GbH"/>
+  <signals name="lt"/>
   <signals name="Continue"/>
   <signals name="Pending"/>
 </statemachines:CustomSystem>

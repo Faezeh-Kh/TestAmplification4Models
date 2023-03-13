@@ -31,7 +31,7 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="sA"/>
+  <signals name="Start"/>
   <signals name="AnotherSignal"/>
-  <signals name="Continue"/>
+  <signals name="ZJM"/>
 </statemachines:CustomSystem>

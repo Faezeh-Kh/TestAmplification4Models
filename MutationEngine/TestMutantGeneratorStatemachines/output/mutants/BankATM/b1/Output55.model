@@ -226,10 +226,10 @@
   <signals name="Amount">
     <attributes xsi:type="statemachines:IntegerAttribute" name="enteredAmount"/>
   </signals>
-  <signals name="RLr">
+  <signals name="Am">
     <attributes xsi:type="statemachines:IntegerAttribute" name="pin"/>
   </signals>
-  <signals name="Fck">
-    <attributes xsi:type="statemachines:IntegerAttribute" name="enteredAmount"/>
+  <signals name="cO">
+    <attributes xsi:type="statemachines:IntegerAttribute" name="cardPin"/>
   </signals>
 </statemachines:CustomSystem>

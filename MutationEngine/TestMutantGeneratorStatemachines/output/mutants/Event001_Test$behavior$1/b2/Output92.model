@@ -16,5 +16,5 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="nW"/>
+  <signals name="dke"/>
 </statemachines:CustomSystem>

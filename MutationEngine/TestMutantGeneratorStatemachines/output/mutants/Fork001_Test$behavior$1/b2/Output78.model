@@ -57,5 +57,5 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="px"/>
+  <signals name="Vtl"/>
 </statemachines:CustomSystem>

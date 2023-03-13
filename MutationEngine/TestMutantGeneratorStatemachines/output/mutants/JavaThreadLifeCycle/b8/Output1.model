@@ -71,7 +71,7 @@
       </transitions>
       <transitions name="runnable2timedWaiting" source="//@statemachine/@regions.0/@vertice.2" target="//@statemachine/@regions.0/@vertice.3" kind="external">
         <triggers name="t.join()Trigger">
-          <eventType xsi:type="statemachines:CallEventType" operation="//@operations.2"/>
+          <eventType xsi:type="statemachines:CallEventType"/>
         </triggers>
       </transitions>
       <transitions name="runnable2timedWaiting" source="//@statemachine/@regions.0/@vertice.2" target="//@statemachine/@regions.0/@vertice.3" kind="external">
@@ -179,13 +179,10 @@
   <signals name="o.notifyAll"/>
   <signals name="o.notify"/>
   <signals name="monitorLockAcquired"/>
-  <operations name="eLF">
+  <operations name="Thread.sleep()">
     <inParameters xsi:type="statemachines:IntegerAttribute" name="sleeptime"/>
   </operations>
   <operations name="o.wait()">
     <inParameters xsi:type="statemachines:IntegerAttribute" name="waitTimeout"/>
-  </operations>
-  <operations name="t.join()">
-    <inParameters xsi:type="statemachines:IntegerAttribute" name="joinTimeout"/>
   </operations>
 </statemachines:CustomSystem>

@@ -30,7 +30,7 @@
     </regions>
   </statemachine>
   <signals name="Start">
-    <attributes xsi:type="statemachines:IntegerAttribute" name="gY"/>
+    <attributes xsi:type="statemachines:StringAttribute"/>
   </signals>
   <signals name="Continue"/>
 </statemachines:CustomSystem>

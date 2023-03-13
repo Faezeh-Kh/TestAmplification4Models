@@ -31,13 +31,13 @@
       </transitions>
       <transitions name="validatePin_getAmount" source="//@statemachine/@regions.0/@vertice.3" target="//@statemachine/@regions.0/@vertice.4" kind="external">
         <constraint xsi:type="statemachines:IntegerConstraint">
-          <expression operator="==" operand1="//@signals.1/@attributes.0" operand2="//@signals.3/@attributes.0"/>
+          <expression operator="==" operand1="//@signals.1/@attributes.0" operand2="//@signals.0/@attributes.0"/>
         </constraint>
       </transitions>
       <transitions name="validatePin_final" source="//@statemachine/@regions.0/@vertice.3" target="//@statemachine/@regions.0/@vertice.7" kind="external">
         <effect name="wrongPinMsg"/>
         <constraint xsi:type="statemachines:IntegerConstraint">
-          <expression operator="!=" operand1="//@signals.1/@attributes.0" operand2="//@signals.3/@attributes.0"/>
+          <expression operator="!=" operand1="//@signals.1/@attributes.0" operand2="//@signals.0/@attributes.0"/>
         </constraint>
       </transitions>
       <transitions name="getAmount_checkBalance" source="//@statemachine/@regions.0/@vertice.4" target="//@statemachine/@regions.0/@vertice.5" kind="external">
@@ -47,13 +47,13 @@
       </transitions>
       <transitions name="checkBalance_withdraw" source="//@statemachine/@regions.0/@vertice.5" target="//@statemachine/@regions.0/@vertice.6" kind="external">
         <constraint xsi:type="statemachines:IntegerConstraint">
-          <expression operator="&lt;=" operand1="//@signals.2/@attributes.0" operand2="//@signals.0/@attributes.0"/>
+          <expression operator="&lt;=" operand1="//@signals.2/@attributes.0" operand2="//@signals.3/@attributes.0"/>
         </constraint>
       </transitions>
       <transitions name="checkBalance_final" source="//@statemachine/@regions.0/@vertice.5" target="//@statemachine/@regions.0/@vertice.7" kind="external">
         <effect name="notEnoughMoneyMsg"/>
         <constraint xsi:type="statemachines:IntegerConstraint">
-          <expression operator=">" operand1="//@signals.2/@attributes.0" operand2="//@signals.0/@attributes.0"/>
+          <expression operator=">" operand1="//@signals.2/@attributes.0" operand2="//@signals.3/@attributes.0"/>
         </constraint>
       </transitions>
       <transitions name="withdraw_final" source="//@statemachine/@regions.0/@vertice.6" target="//@statemachine/@regions.0/@vertice.7" kind="external">
@@ -62,7 +62,7 @@
     </regions>
   </statemachine>
   <signals name="Card">
-    <attributes xsi:type="statemachines:IntegerAttribute" name="cardBalance"/>
+    <attributes xsi:type="statemachines:IntegerAttribute" name="cardPin"/>
   </signals>
   <signals name="Pin">
     <attributes xsi:type="statemachines:IntegerAttribute" name="enteredPin"/>
@@ -70,7 +70,7 @@
   <signals name="Amount">
     <attributes xsi:type="statemachines:IntegerAttribute" name="enteredAmount"/>
   </signals>
-  <signals name="sT">
-    <attributes xsi:type="statemachines:IntegerAttribute" name="cardPin"/>
+  <signals>
+    <attributes xsi:type="statemachines:IntegerAttribute" name="cardBalance"/>
   </signals>
 </statemachines:CustomSystem>

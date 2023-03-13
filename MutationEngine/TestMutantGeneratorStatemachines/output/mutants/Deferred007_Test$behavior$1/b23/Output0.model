@@ -6,7 +6,9 @@
       <vertice xsi:type="statemachines:State" name="wait" outgoingTransitions="//@statemachine/@regions.0/@transitions.1" incomingTransitions="//@statemachine/@regions.0/@transitions.0"/>
       <vertice xsi:type="statemachines:State" name="S1" outgoingTransitions="//@statemachine/@regions.0/@transitions.2" incomingTransitions="//@statemachine/@regions.0/@transitions.1">
         <exit name="S1(exit)"/>
-        <deferrableTriggers name="OpCallEventTrigger"/>
+        <deferrableTriggers name="OpCallEventTrigger">
+          <eventType xsi:type="statemachines:CallEventType" operation="//@operations.0"/>
+        </deferrableTriggers>
       </vertice>
       <vertice xsi:type="statemachines:State" name="S2" outgoingTransitions="//@statemachine/@regions.0/@transitions.3 //@statemachine/@regions.0/@transitions.4" incomingTransitions="//@statemachine/@regions.0/@transitions.2">
         <exit name="S2(exit)"/>
@@ -32,7 +34,7 @@
       </transitions>
       <transitions name="T6" source="//@statemachine/@regions.0/@vertice.3" target="//@statemachine/@regions.0/@vertice.4" kind="external">
         <triggers name="op">
-          <eventType xsi:type="statemachines:SignalEventType"/>
+          <eventType xsi:type="statemachines:CallEventType" operation="//@operations.0"/>
         </triggers>
         <effect name="T6(effect)"/>
       </transitions>
@@ -43,7 +45,5 @@
   </statemachine>
   <signals name="Start"/>
   <signals name="Continue"/>
-  <operations name="op">
-    <inParameters xsi:type="statemachines:BooleanAttribute" name="p1"/>
-  </operations>
+  <operations name="op"/>
 </statemachines:CustomSystem>

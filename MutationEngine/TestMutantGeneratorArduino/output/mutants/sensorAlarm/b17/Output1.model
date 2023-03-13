@@ -8,7 +8,7 @@
       <module xsi:type="arduino:InfraRedSensor" name="IRSensor1"/>
     </digitalPins>
     <digitalPins name="buzzer_pin">
-      <module xsi:type="arduino:MicroServo" name="mainSketch"/>
+      <module xsi:type="arduino:Buzzer" name="Alarm1"/>
     </digitalPins>
     <digitalPins name="button_pin">
       <module xsi:type="arduino:PushButton" name="Button1"/>
@@ -18,10 +18,10 @@
     <block>
       <instructions xsi:type="arduino:If">
         <block>
-          <instructions xsi:type="arduino:ModuleAssignment">
+          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
             <operand xsi:type="arduino:IntegerConstant" value="1"/>
           </instructions>
-          <instructions xsi:type="arduino:ModuleAssignment">
+          <instructions xsi:type="arduino:ModuleAssignment" module="//@boards.0/@digitalPins.2/@module">
             <operand xsi:type="arduino:IntegerConstant"/>
           </instructions>
         </block>

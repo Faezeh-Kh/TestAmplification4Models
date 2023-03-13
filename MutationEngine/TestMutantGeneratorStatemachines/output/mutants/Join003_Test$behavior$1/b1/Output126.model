@@ -52,10 +52,10 @@
   <signals name="IntegerData">
     <attributes xsi:type="statemachines:IntegerAttribute" name="value"/>
   </signals>
-  <signals name="WA">
+  <signals name="ZfC">
     <attributes xsi:type="statemachines:IntegerAttribute" name="value"/>
   </signals>
-  <signals name="fPD">
+  <signals name="Mux">
     <attributes xsi:type="statemachines:IntegerAttribute" name="value"/>
   </signals>
 </statemachines:CustomSystem>

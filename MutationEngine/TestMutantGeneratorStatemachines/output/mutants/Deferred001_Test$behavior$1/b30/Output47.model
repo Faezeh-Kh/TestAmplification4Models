@@ -46,9 +46,9 @@
     </regions>
   </statemachine>
   <signals name="Continue"/>
-  <signals name="Start"/>
-  <signals name="AnotherSignal">
-    <attributes xsi:type="statemachines:IntegerAttribute" name="Wa"/>
+  <signals name="Start">
+    <attributes xsi:type="statemachines:StringAttribute"/>
   </signals>
+  <signals name="AnotherSignal"/>
   <signals name="Pending"/>
 </statemachines:CustomSystem>

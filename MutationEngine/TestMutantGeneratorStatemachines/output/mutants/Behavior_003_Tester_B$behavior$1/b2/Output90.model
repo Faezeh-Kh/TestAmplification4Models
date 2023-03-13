@@ -20,5 +20,5 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="cN"/>
+  <signals name="ANK"/>
 </statemachines:CustomSystem>

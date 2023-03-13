@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<arduino:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduino="http://www.obeo.fr/arduino" xsi:schemaLocation="http://www.obeo.fr/arduino ../../../model/arduino.ecore" xmi:id="_Uck-QLvpEey6kqvve9HPhQ">
+  <boards xsi:type="arduino:ArduinoBoard" xmi:id="_Uck-QbvpEey6kqvve9HPhQ" name="board">
+    <digitalPins xmi:id="_Uck-RLvpEey6kqvve9HPhQ" name="redLed">
+      <module xsi:type="arduino:LED" xmi:id="_Uck-RbvpEey6kqvve9HPhQ" name="redLed" color="red"/>
+    </digitalPins>
+    <digitalPins xmi:id="_DErf8MovEeyrEsguAqucdw" name="blueLed">
+      <module xsi:type="arduino:LED" xmi:id="_DErf8covEeyrEsguAqucdw" name="blueLed"/>
+    </digitalPins>
+    <digitalPins xmi:id="_DLddYMovEeyrEsguAqucdw" name="whiteLed">
+      <module xsi:type="arduino:LED" xmi:id="_DLddYcovEeyrEsguAqucdw" name="whiteLed" color="white"/>
+    </digitalPins>
+    <digitalPins xmi:id="_H921YMovEeyrEsguAqucdw" name="servo1">
+      <module xsi:type="arduino:MicroServo" xmi:id="_IxQoQMovEeyrEsguAqucdw" name="servo1"/>
+    </digitalPins>
+    <digitalPins xmi:id="_KowVYMovEeyrEsguAqucdw" name="servo2">
+      <module xsi:type="arduino:MicroServo" xmi:id="_KowVYcovEeyrEsguAqucdw" name="servo2"/>
+    </digitalPins>
+    <digitalPins xmi:id="_Nv8IwMovEeyrEsguAqucdw" name="irSensor">
+      <module xsi:type="arduino:InfraRedSensor" xmi:id="_Omt_wMovEeyrEsguAqucdw" name="irSensor"/>
+    </digitalPins>
+    <digitalPins xmi:id="_PicoMMovEeyrEsguAqucdw" name="button">
+      <module xsi:type="arduino:PushButton" xmi:id="_Qf35wMovEeyrEsguAqucdw" name="button"/>
+    </digitalPins>
+    <digitalPins xmi:id="_R9yCMMovEeyrEsguAqucdw" name="fan">
+      <module xsi:type="arduino:Fan" xmi:id="_TJEJkMovEeyrEsguAqucdw" name="fan"/>
+    </digitalPins>
+    <analogPins xmi:id="_MhMBMMowEeyrEsguAqucdw" name="soundSensor">
+      <module xsi:type="arduino:SoundSensor" xmi:id="_NGu-QMowEeyrEsguAqucdw" name="soundSensor"/>
+    </analogPins>
+  </boards>
+  <sketches xmi:id="_Uck-RrvpEey6kqvve9HPhQ" name="sketch" board="_Uck-QbvpEey6kqvve9HPhQ"/>
+</arduino:Project>

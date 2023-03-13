@@ -39,7 +39,7 @@
   <signals name="Start"/>
   <signals name="AnotherSignal"/>
   <signals name="Continue"/>
-  <signals name="ki"/>
-  <signals name="Yb"/>
-  <signals name="mp"/>
+  <signals name="fT"/>
+  <signals name="vu"/>
+  <signals name="jKy"/>
 </statemachines:CustomSystem>

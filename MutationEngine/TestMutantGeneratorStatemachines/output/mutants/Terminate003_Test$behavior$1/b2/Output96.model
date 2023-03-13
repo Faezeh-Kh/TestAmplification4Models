@@ -19,5 +19,5 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="fj"/>
+  <signals name="XA"/>
 </statemachines:CustomSystem>
