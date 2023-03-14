@@ -3,9 +3,9 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="amplifier" nsURI="http://org.imt.tdl.amplification/configuration/amplifier"
     nsPrefix="amplifier">
   <eClassifiers xsi:type="ecore:EClass" name="Configuration">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="metamodel" lowerBound="1"
-        eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EPackage"/>
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="approach" lowerBound="1"
         eType="#//AmplificationApproach" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operators" lowerBound="1"
@@ -26,10 +26,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxOccurrence" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ApplicationPolicy">
-    <eLiterals name="first" value="1"/>
-    <eLiterals name="last" value="2"/>
-    <eLiterals name="one" value="3"/>
-    <eLiterals name="all" value="4"/>
+    <eLiterals name="all" value="1"/>
+    <eLiterals name="one" value="2"/>
+    <eLiterals name="first" value="3"/>
+    <eLiterals name="last" value="4"/>
     <eLiterals name="fixed" value="5"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PrimitiveDataModifier" abstract="true"
@@ -62,7 +62,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MutationOperatorType" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="scope" upperBound="-1"
-        eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EClass"/>
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CreationOperator" eSuperTypes="#//MutationOperatorType"/>
   <eClassifiers xsi:type="ecore:EClass" name="CloningOperator" eSuperTypes="#//MutationOperatorType"/>
