@@ -54,6 +54,7 @@ public class DSLProcessor {
 	final static String SUBTYPE_REL_ID = "subtypeRelId";
 	final static String COVERAGE_RULES = "coverageRules";
 	final static String MUTATION_OPERATORS = "mutationOperators";
+	final static String AMPLIFIER_CONFIG = "amplifierConfig";
 	
 	final static String xdsml_extension_point_id = "org.eclipse.gemoc.gemoc_language_workbench.xdsml";
 	
@@ -261,6 +262,14 @@ public class DSLProcessor {
 		return dslEntries.get(MUTATION_OPERATORS);
 	}
 
+	public boolean dslHasAmplifierConfig() {
+		return dslEntries.get(AMPLIFIER_CONFIG) != null;
+	}
+	
+	public String getPath2AmplifierConfig() {
+		return dslEntries.get(AMPLIFIER_CONFIG);
+	}
+	
 	public IConfigurationElement getLanguage() {
 		return language;
 	}

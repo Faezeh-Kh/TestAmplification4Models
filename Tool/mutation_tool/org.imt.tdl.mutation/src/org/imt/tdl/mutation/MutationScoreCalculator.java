@@ -1,8 +1,6 @@
 package org.imt.tdl.mutation;
 
 import java.io.File;
-
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -31,9 +29,9 @@ import org.etsi.mts.tdl.Interaction;
 import org.etsi.mts.tdl.Package;
 import org.etsi.mts.tdl.TestDescription;
 import org.imt.k3tdl.interpreter.TestDescriptionAspect;
-import org.imt.tdl.mutation.utilities.PathHelper;
 import org.imt.tdl.testResult.TDLTestCaseResult;
 import org.imt.tdl.testResult.TDLTestResultUtil;
+import org.imt.tdl.utilities.PathHelper;
 
 public class MutationScoreCalculator {
 	
@@ -51,12 +49,17 @@ public class MutationScoreCalculator {
 	public HashMap<String, List<String>> testCase_killedMutant = new HashMap<>();
 	
 	int numOfMutants;
-	int numOfKilledMutants;
-	double mutationScore;
+	
+	double seedMutationScore;
+	int seedNumOfKilledMutants;
+	
+	int currentNumOfKilledMutants;
+	double currentMutationScore;
 	
 	double timeoutFactor;
 	int timeoutConstant;
 
+	PathHelper pathHelper;
 	Path workspacePath;
 	Path seedModelPath;
 	IProject mutantsProject;
@@ -65,8 +68,9 @@ public class MutationScoreCalculator {
 		this.testSuite = testSuite;
 		testCases = testSuite.getPackagedElement().stream().filter(p -> p instanceof TestDescription).
 				map(p -> (TestDescription) p).collect(Collectors.toList());
-		seedModelPath = PathHelper.getInstance().getSeedModelPath();
-		workspacePath = PathHelper.getInstance().getWorkspacePath();
+		pathHelper = new PathHelper(testSuite);
+		seedModelPath = pathHelper.getModelUnderTestPath();
+		workspacePath = pathHelper.getWorkspacePath();
 		findMutants();
 		//default values of pitest tool
 		timeoutFactor = 1.25;
@@ -100,10 +104,12 @@ public class MutationScoreCalculator {
 	public double calculateInitialMutationScore() {
 		System.out.println("\nCalculating the mutation score of the input test suite");
 		testCases.forEach(t -> runTestCaseOnAliveMutants(t));
-		calculateOverallMutationScore();
-		System.out.println("The mutation score of the input test suite is: " + mutationScore);
+		updateMutationScore();
+		seedNumOfKilledMutants = currentNumOfKilledMutants;
+		seedMutationScore = currentMutationScore;
+		System.out.println("The mutation score of the input test suite is: " + seedMutationScore);
 		printMutationAnalysisResult();
-		return mutationScore;
+		return seedMutationScore;
 	}
 	
 	public void runTestCaseOnAllMutants(TestDescription testCase) {
@@ -152,7 +158,7 @@ public class MutationScoreCalculator {
 				keepTestCaseKilledMutantMapping(testCase.getName(), mutant);
 				if (mutant_status.get(mutant) != KILLED) {
 					mutant_status.replace(mutant, KILLED);
-					numOfKilledMutants++;
+					currentNumOfKilledMutants++;
 				}	
 			}
 		}
@@ -160,7 +166,7 @@ public class MutationScoreCalculator {
 	
 	public void runTestCaseOnAliveMutants(TestDescription testCase) {
 		Set<String> aliveMutants = new HashSet<>();
-		if (numOfKilledMutants == 0) {
+		if (currentNumOfKilledMutants == 0) {
 			aliveMutants = mutant_status.keySet();
 		}
 		else {
@@ -210,7 +216,7 @@ public class MutationScoreCalculator {
 			if (result == null || result.getValue() == TDLTestResultUtil.FAIL) {
 				mutant_status.replace(mutant, KILLED);
 				keepTestCaseKilledMutantMapping(testCase.getName(), mutant);
-				numOfKilledMutants++;
+				currentNumOfKilledMutants++;
 			}
 		}
 	}
@@ -229,14 +235,14 @@ public class MutationScoreCalculator {
 	}
 
 	public boolean testCaseImprovesMutationScore (TestDescription testCase) {
-		int pastNumOfKilledMutants = numOfKilledMutants;
+		int pastNumOfKilledMutants = currentNumOfKilledMutants;
 		runTestCaseOnAliveMutants(testCase);
-		if (numOfKilledMutants > pastNumOfKilledMutants) {
-			double previousScore = mutationScore;
-			calculateOverallMutationScore();
-			System.out.println("The test case " + testCase.getName() + " has improved the mutation score by: " + (mutationScore - previousScore));
+		if (currentNumOfKilledMutants > pastNumOfKilledMutants) {
+			double previousScore = currentMutationScore;
+			updateMutationScore();
+			System.out.println("The test case " + testCase.getName() + " has improved the mutation score by: " + (currentMutationScore - previousScore));
 			System.out.println("- previous mutation score: " + previousScore);
-			System.out.println("- new mutation score: " + mutationScore + "\n");
+			System.out.println("- new mutation score: " + currentMutationScore + "\n");
 			return true;
 		}
 		return false;
@@ -277,19 +283,19 @@ public class MutationScoreCalculator {
 		}
 	}
 	
-	public void calculateOverallMutationScore() {
-		mutationScore = (double) numOfKilledMutants/numOfMutants;
+	public void updateMutationScore() {
+		currentMutationScore = (double) currentNumOfKilledMutants/numOfMutants;
 	}
 	
 	public void printMutationAnalysisResult() {
 		//saving results into a .txt file
-		String outputFilePath = PathHelper.getInstance().getWorkspacePath() + "/"
-				+ PathHelper.getInstance().getTestSuiteProjectName() + "/" 
-				+ PathHelper.getInstance().getTestSuiteFileName() + 
+		String outputFilePath = pathHelper.getWorkspacePath() + "/"
+				+ pathHelper.getTestSuiteProjectName() + "/" 
+				+ pathHelper.getTestSuiteFileName() + 
 				"_mutationReport.txt";
 		StringBuilder sb = new StringBuilder();
 		sb.append("Number of generated mutants: " + numOfMutants + "\n");
-		sb.append("Number of killed mutants: " + numOfKilledMutants + "\n");
+		sb.append("Number of killed mutants: " + currentNumOfKilledMutants + "\n");
 		sb.append("--------------------------------------------------\n");
 		for (String testCase:testCase_killedMutant.keySet()) {
 			sb.append("Original test case: " + testCase + "\n");
@@ -298,9 +304,9 @@ public class MutationScoreCalculator {
 				sb.append("Killed mutant " + (j++) + ": " + mutant + "\n");
 			}
 		}
-		if (numOfKilledMutants < numOfMutants) {
+		if (currentNumOfKilledMutants < numOfMutants) {
 			sb.append("--------------------------------------------------\n");
-			sb.append("Number of alive mutants: " + (numOfMutants - numOfKilledMutants) + "\n");
+			sb.append("Number of alive mutants: " + (numOfMutants - currentNumOfKilledMutants) + "\n");
 			int j = 1;
 			for (String mutant:getAliveMutants()) {
 				sb.append("Alive mutant " + (j++) + ": " + mutant + "\n");
@@ -326,16 +332,24 @@ public class MutationScoreCalculator {
 		return numOfMutants;
 	}
 	
+	public double getSeedMutationScore() {
+		return seedMutationScore;
+	}
+
+	public int getSeedNumOfKilledMutants() {
+		return seedNumOfKilledMutants;
+	}
+
 	public void setNumOfKilledMutants(int numOfKilledMutants) {
-		this.numOfKilledMutants = numOfKilledMutants;
+		this.currentNumOfKilledMutants = numOfKilledMutants;
 	}
 	
 	public int getNumOfKilledMutants() {
-		return numOfKilledMutants;
+		return currentNumOfKilledMutants;
 	}
 	
-	public double getOverallMutationScore() {
-		return mutationScore;
+	public double getCurrentMutationScore() {
+		return currentMutationScore;
 	}
 	
 	public double getTestCaseMutationScore(TestDescription testCase) {

@@ -1,4 +1,4 @@
-package org.imt.tdl.amplification;
+package org.imt.tdl.amplification.testmodifier;
 
 import java.util.ArrayList;
 import java.util.List;

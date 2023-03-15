@@ -13,7 +13,7 @@ import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.ui.handlers.HandlerUtil;
-import org.imt.tdl.amplification.TDLTestAmplifier;
+import org.imt.tdl.amplification.configuration.AmplifierConfiguration;
 
 public class CommandHandler implements IHandler {
 
@@ -36,8 +36,7 @@ public class CommandHandler implements IHandler {
 						@Override
 						public void run(IProgressMonitor monitor) throws CoreException {
 							try {
-								TDLTestAmplifier amplifier = new TDLTestAmplifier();
-								amplifier.amplifyTestSuite((IFile) element);
+								(new AmplifierConfiguration()).configureAmplifier((IFile) element);
 							} catch (Throwable t) {
 								throw new CoreException(Status.error("Error when running test amplifier", t));
 							}
