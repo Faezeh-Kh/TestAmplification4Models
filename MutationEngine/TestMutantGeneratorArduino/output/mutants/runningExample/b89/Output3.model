@@ -45,7 +45,6 @@
           </block>
           <condition xsi:type="arduino:BinaryBooleanExpression" xmi:id="_TeGOwLvnEey7OoLBzoKkPA" operator="equal">
             <left xsi:type="arduino:IntegerModuleGet" xmi:id="_ubWisM-YEeyj4OK2t3h2Ug" module="_L26qENFgEey60oAITKsoDQ"/>
-            <right xsi:type="arduino:IntegerConstant" xmi:id="_wA6LQM-YEeyj4OK2t3h2Ug" value="1"/>
           </condition>
           <elseBlock xmi:id="_gw7l4NFgEey60oAITKsoDQ">
             <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_hdNdENFgEey60oAITKsoDQ" module="_TeGOs7vnEey7OoLBzoKkPA">
@@ -56,5 +55,7 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:BooleanVariable name="dKX" initialValue="true"/>
+  <arduino:UnaryBooleanExpression>
+    <operand xsi:type="arduino:IntegerConstant" value="1"/>
+  </arduino:UnaryBooleanExpression>
 </xmi:XMI>

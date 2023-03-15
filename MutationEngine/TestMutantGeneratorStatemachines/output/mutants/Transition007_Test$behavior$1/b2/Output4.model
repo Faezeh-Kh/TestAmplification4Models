@@ -34,6 +34,6 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="AnotherSignal"/>
-  <signals name="Rcl"/>
+  <signals name="VYd"/>
+  <signals name="Continue"/>
 </statemachines:CustomSystem>

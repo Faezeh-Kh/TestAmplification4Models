@@ -39,5 +39,5 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="bBB"/>
+  <signals name="az"/>
 </statemachines:CustomSystem>

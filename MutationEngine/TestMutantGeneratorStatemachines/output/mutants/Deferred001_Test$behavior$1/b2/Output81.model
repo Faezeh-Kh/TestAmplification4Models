@@ -46,7 +46,7 @@
     </regions>
   </statemachine>
   <signals name="Continue"/>
-  <signals name="Start"/>
-  <signals name="Gl"/>
+  <signals name="rpc"/>
+  <signals name="AnotherSignal"/>
   <signals name="Pending"/>
 </statemachines:CustomSystem>

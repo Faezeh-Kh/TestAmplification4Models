@@ -20,5 +20,5 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="rgG"/>
+  <signals name="RM"/>
 </statemachines:CustomSystem>

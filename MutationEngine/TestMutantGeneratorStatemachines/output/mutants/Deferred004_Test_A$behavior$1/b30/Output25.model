@@ -65,7 +65,7 @@
   </statemachine>
   <signals name="Continue"/>
   <signals name="Start">
-    <attributes xsi:type="statemachines:IntegerAttribute" name="QBW"/>
+    <attributes xsi:type="statemachines:StringAttribute"/>
   </signals>
   <signals name="AnotherSignal"/>
   <signals name="Pending"/>

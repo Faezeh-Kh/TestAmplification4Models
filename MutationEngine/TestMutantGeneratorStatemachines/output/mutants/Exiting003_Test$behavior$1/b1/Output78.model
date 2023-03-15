@@ -58,7 +58,7 @@
   <signals name="Start"/>
   <signals name="Continue"/>
   <signals name="Pending"/>
-  <signals name="qK"/>
-  <signals name="wJ"/>
-  <signals name="oc"/>
+  <signals name="Fqd"/>
+  <signals name="dww"/>
+  <signals name="Ko"/>
 </statemachines:CustomSystem>

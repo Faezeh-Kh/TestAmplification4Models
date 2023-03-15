@@ -53,6 +53,6 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="AA"/>
+  <signals name="za"/>
   <signals name="Continue"/>
 </statemachines:CustomSystem>

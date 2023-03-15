@@ -13,17 +13,17 @@
     <digitalPins name="button_pin">
       <module xsi:type="arduino:PushButton" name="Button1"/>
     </digitalPins>
-    <digitalPins name="button_pin">
+    <digitalPins name="IRSensor">
+      <module xsi:type="arduino:LED" name="LED1"/>
+    </digitalPins>
+    <digitalPins name="servo2">
+      <module xsi:type="arduino:InfraRedSensor" name="IRSensor1"/>
+    </digitalPins>
+    <digitalPins name="IR_sensor">
       <module xsi:type="arduino:Buzzer" name="Alarm1"/>
     </digitalPins>
     <digitalPins name="blueLED">
-      <module xsi:type="arduino:InfraRedSensor" name="IRSensor1"/>
-    </digitalPins>
-    <digitalPins name="servo">
       <module xsi:type="arduino:PushButton" name="Button1"/>
-    </digitalPins>
-    <digitalPins name="IR_sensorPin">
-      <module xsi:type="arduino:LED" name="LED1"/>
     </digitalPins>
   </boards>
   <sketches name="sketch" board="//@boards.0">

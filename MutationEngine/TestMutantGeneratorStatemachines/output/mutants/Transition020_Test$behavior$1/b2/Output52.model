@@ -30,5 +30,5 @@
     </regions>
   </statemachine>
   <signals name="Start"/>
-  <signals name="oQ"/>
+  <signals name="tdi"/>
 </statemachines:CustomSystem>

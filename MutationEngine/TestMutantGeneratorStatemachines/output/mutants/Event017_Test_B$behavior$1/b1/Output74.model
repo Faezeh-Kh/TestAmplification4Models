@@ -48,9 +48,9 @@
     <attributes xsi:type="statemachines:BooleanAttribute" name="value"/>
   </signals>
   <signals name="Continue"/>
-  <signals name="iJ">
+  <signals name="tlA">
     <attributes xsi:type="statemachines:BooleanAttribute" name="value"/>
     <attributes xsi:type="statemachines:BooleanAttribute" name="value"/>
   </signals>
-  <signals name="YgD"/>
+  <signals name="DL"/>
 </statemachines:CustomSystem>

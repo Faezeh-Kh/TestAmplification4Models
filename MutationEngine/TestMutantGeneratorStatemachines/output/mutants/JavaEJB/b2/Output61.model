@@ -83,12 +83,12 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="Ug"/>
+  <signals name="home.create&lt;method>()"/>
   <signals name="businessMethod()"/>
   <signals name="object.remove()"/>
   <signals name="home.remove()"/>
   <signals name="systemException"/>
-  <signals name="beanTimout"/>
+  <signals name="ekP"/>
   <signals name="containerCrash"/>
   <signals name="releaseReference"/>
   <signals name="handle.getEJBObject()"/>

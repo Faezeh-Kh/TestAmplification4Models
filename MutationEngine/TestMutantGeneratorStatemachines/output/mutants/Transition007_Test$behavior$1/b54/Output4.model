@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<statemachines:CustomSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
+<statemachines:CustomSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
   <statemachine name="Transition007_Test$behavior$1">
     <regions name="Region1">
       <vertice xsi:type="statemachines:Pseudostate" name="Initial1" outgoingTransitions="//@statemachine/@regions.0/@transitions.0"/>
@@ -7,9 +7,7 @@
       <vertice xsi:type="statemachines:State" name="S3" outgoingTransitions="//@statemachine/@regions.0/@transitions.4" incomingTransitions="//@statemachine/@regions.0/@transitions.1"/>
       <vertice xsi:type="statemachines:FinalState" name="FinalState1" incomingTransitions="//@statemachine/@regions.0/@transitions.3"/>
       <vertice xsi:type="statemachines:State" name="S2" outgoingTransitions="//@statemachine/@regions.0/@transitions.3" incomingTransitions="//@statemachine/@regions.0/@transitions.2"/>
-      <transitions name="Initial_S1" source="//@statemachine/@regions.0/@vertice.0" target="//@statemachine/@regions.0/@vertice.1" kind="external">
-        <constraint xsi:type="statemachines:StringConstraint"/>
-      </transitions>
+      <transitions name="Initial_S1" source="//@statemachine/@regions.0/@vertice.0" target="//@statemachine/@regions.0/@vertice.1" kind="external"/>
       <transitions name="T1" source="//@statemachine/@regions.0/@vertice.1" target="//@statemachine/@regions.0/@vertice.2" kind="external">
         <triggers name="AnotherSignalTrigger">
           <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.0"/>
@@ -37,5 +35,7 @@
     </regions>
   </statemachine>
   <signals name="AnotherSignal"/>
-  <signals name="Continue"/>
+  <signals name="Continue">
+    <attributes xsi:type="statemachines:BooleanAttribute" name="On"/>
+  </signals>
 </statemachines:CustomSystem>

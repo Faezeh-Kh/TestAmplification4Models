@@ -47,5 +47,5 @@
     </regions>
   </statemachine>
   <signals name="Start"/>
-  <signals name="pHw"/>
+  <signals name="BIl"/>
 </statemachines:CustomSystem>

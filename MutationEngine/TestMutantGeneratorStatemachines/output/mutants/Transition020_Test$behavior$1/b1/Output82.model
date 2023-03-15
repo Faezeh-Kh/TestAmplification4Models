@@ -31,6 +31,6 @@
   </statemachine>
   <signals name="Start"/>
   <signals name="Continue"/>
-  <signals name="uZm"/>
-  <signals name="HS"/>
+  <signals name="lwt"/>
+  <signals name="ma"/>
 </statemachines:CustomSystem>

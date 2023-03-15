@@ -43,6 +43,6 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="AIk"/>
-  <signals name="Continue"/>
+  <signals name="Start"/>
+  <signals name="AB"/>
 </statemachines:CustomSystem>

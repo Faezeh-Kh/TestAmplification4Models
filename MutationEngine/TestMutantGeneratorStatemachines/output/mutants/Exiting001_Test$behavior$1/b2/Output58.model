@@ -43,6 +43,6 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="Ao"/>
-  <signals name="Continue"/>
+  <signals name="Start"/>
+  <signals name="Ywm"/>
 </statemachines:CustomSystem>

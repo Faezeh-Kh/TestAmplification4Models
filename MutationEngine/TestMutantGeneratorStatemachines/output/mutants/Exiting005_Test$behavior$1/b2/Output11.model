@@ -45,7 +45,7 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="wd"/>
+  <signals name="pB"/>
   <signals name="Continue"/>
   <signals name="Pending"/>
 </statemachines:CustomSystem>

@@ -37,7 +37,7 @@
           <transitions name="T1.1" source="//@statemachine/@regions.0/@vertice.2/@regions.0/@vertice.1" target="//@statemachine/@regions.0/@vertice.2/@regions.0/@vertice.0" kind="external"/>
           <transitions name="T1.2" source="//@statemachine/@regions.0/@vertice.2/@regions.0/@vertice.0" target="//@statemachine/@regions.0/@vertice.2/@regions.0/@vertice.2" kind="external">
             <triggers name="PendingTrigger">
-              <eventType xsi:type="statemachines:SignalEventType"/>
+              <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.2"/>
             </triggers>
             <effect name="T1.2(effect)"/>
           </transitions>
@@ -53,7 +53,7 @@
       <transitions name="T1" source="//@statemachine/@regions.0/@vertice.0" target="//@statemachine/@regions.0/@vertice.1" kind="external"/>
       <transitions name="T2" source="//@statemachine/@regions.0/@vertice.1" target="//@statemachine/@regions.0/@vertice.2" kind="external">
         <triggers name="StartTrigger">
-          <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.2"/>
+          <eventType xsi:type="statemachines:SignalEventType"/>
         </triggers>
       </transitions>
       <transitions name="T3" source="//@statemachine/@regions.0/@vertice.2" target="//@statemachine/@regions.0/@vertice.3" kind="external">
@@ -66,5 +66,5 @@
   </statemachine>
   <signals name="Continue"/>
   <signals name="AnotherSignal"/>
-  <signals name="Start"/>
+  <signals name="Pending"/>
 </statemachines:CustomSystem>

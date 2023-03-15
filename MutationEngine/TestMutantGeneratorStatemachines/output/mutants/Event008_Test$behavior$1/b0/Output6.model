@@ -27,5 +27,5 @@
   </statemachine>
   <signals name="Start"/>
   <signals name="Continue"/>
-  <signals name="phR"/>
+  <signals/>
 </statemachines:CustomSystem>

@@ -30,5 +30,5 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="HTt"/>
+  <signals name="BU"/>
 </statemachines:CustomSystem>

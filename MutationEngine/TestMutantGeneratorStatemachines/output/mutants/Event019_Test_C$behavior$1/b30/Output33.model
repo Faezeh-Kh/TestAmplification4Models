@@ -55,6 +55,6 @@
   </operations>
   <operations xmi:id="_i33t1LsmEeyrPdT0pCfx6w" name="op2">
     <inParameters xsi:type="statemachines:BooleanAttribute" xmi:id="_i33t1bsmEeyrPdT0pCfx6w" name="p2.1"/>
-    <return xsi:type="statemachines:IntegerAttribute" name="yM"/>
+    <return xsi:type="statemachines:StringAttribute"/>
   </operations>
 </statemachines:CustomSystem>

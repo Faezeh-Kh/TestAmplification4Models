@@ -96,5 +96,5 @@
   </statemachine>
   <signals name="Start"/>
   <signals name="Continue"/>
-  <signals name="lrL"/>
+  <signals name="Xr"/>
 </statemachines:CustomSystem>

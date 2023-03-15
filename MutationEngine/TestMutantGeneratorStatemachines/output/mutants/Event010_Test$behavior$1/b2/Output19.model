@@ -60,6 +60,6 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="yr"/>
+  <signals name="KVV"/>
   <signals name="Continue"/>
 </statemachines:CustomSystem>

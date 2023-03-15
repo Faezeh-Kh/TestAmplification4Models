@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<arduino:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduino="http://www.obeo.fr/arduino" xsi:schemaLocation="http://www.obeo.fr/arduino ../../../model/arduino.ecore" xmi:id="_TeGOsLvnEey7OoLBzoKkPA">
+  <boards xsi:type="arduino:ArduinoBoard" xmi:id="_TeGOsbvnEey7OoLBzoKkPA" name="board">
+    <digitalPins xmi:id="_TeGOsrvnEey7OoLBzoKkPA" name="whiteLedPin">
+      <module xsi:type="arduino:LED" xmi:id="_TeGOs7vnEey7OoLBzoKkPA" name="whiteLed" color="white"/>
+    </digitalPins>
+    <digitalPins xmi:id="_TeGOtLvnEey7OoLBzoKkPA" name="IR_sensorPin">
+      <module xsi:type="arduino:InfraRedSensor" xmi:id="_TeGOtbvnEey7OoLBzoKkPA" name="IR_sensor"/>
+    </digitalPins>
+    <digitalPins xmi:id="_F8FqYNFgEey60oAITKsoDQ" name="buzzerPin">
+      <module xsi:type="arduino:Buzzer" xmi:id="_H0GU4NFgEey60oAITKsoDQ" name="buzzer"/>
+    </digitalPins>
+    <digitalPins xmi:id="_Jz0J4NFgEey60oAITKsoDQ" name="buttonPin">
+      <module xsi:type="arduino:PushButton" xmi:id="_L26qENFgEey60oAITKsoDQ" name="button1"/>
+    </digitalPins>
+  </boards>
+  <sketches xmi:id="_TeGOtrvnEey7OoLBzoKkPA" name="sketch" board="_TeGOsbvnEey7OoLBzoKkPA">
+    <block xmi:id="_TeGOt7vnEey7OoLBzoKkPA">
+      <instructions xsi:type="arduino:If" xmi:id="_TeGOuLvnEey7OoLBzoKkPA">
+        <block xmi:id="_TeGOubvnEey7OoLBzoKkPA">
+          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_TeGOurvnEey7OoLBzoKkPA" module="_TeGOs7vnEey7OoLBzoKkPA">
+            <operand xsi:type="arduino:IntegerConstant" xmi:id="_TeGOu7vnEey7OoLBzoKkPA" value="1"/>
+          </instructions>
+          <instructions xsi:type="arduino:If" xmi:id="_kSBuENFgEey60oAITKsoDQ">
+            <block xmi:id="_m6xR8NFgEey60oAITKsoDQ">
+              <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_ndN3sNFgEey60oAITKsoDQ" module="_H0GU4NFgEey60oAITKsoDQ">
+                <operand xsi:type="arduino:IntegerConstant" xmi:id="_ndN3sdFgEey60oAITKsoDQ" value="1"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_oqHIoNFgEey60oAITKsoDQ" module="_H0GU4NFgEey60oAITKsoDQ">
+                <operand xsi:type="arduino:IntegerConstant" xmi:id="_oqHIodFgEey60oAITKsoDQ"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_s9XGgNFgEey60oAITKsoDQ" module="_H0GU4NFgEey60oAITKsoDQ">
+                <operand xsi:type="arduino:IntegerConstant" xmi:id="_s9XGgdFgEey60oAITKsoDQ" value="1"/>
+              </instructions>
+              <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_s9XGgtFgEey60oAITKsoDQ" module="_H0GU4NFgEey60oAITKsoDQ">
+                <operand xsi:type="arduino:IntegerConstant" xmi:id="_s9XGg9FgEey60oAITKsoDQ"/>
+              </instructions>
+            </block>
+            <condition xsi:type="arduino:BinaryBooleanExpression" xmi:id="_laLB4NFgEey60oAITKsoDQ" operator="equal">
+              <right xsi:type="arduino:IntegerConstant" xmi:id="_laLB4tFgEey60oAITKsoDQ" value="1"/>
+            </condition>
+          </instructions>
+        </block>
+        <condition xsi:type="arduino:BinaryBooleanExpression" xmi:id="_TeGOwLvnEey7OoLBzoKkPA" operator="equal">
+          <left xsi:type="arduino:IntegerModuleGet" xmi:id="_ubWisM-YEeyj4OK2t3h2Ug" module="_L26qENFgEey60oAITKsoDQ"/>
+          <right xsi:type="arduino:IntegerConstant" xmi:id="_wA6LQM-YEeyj4OK2t3h2Ug" value="1"/>
+        </condition>
+        <elseBlock xmi:id="_gw7l4NFgEey60oAITKsoDQ">
+          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_hdNdENFgEey60oAITKsoDQ" module="_TeGOs7vnEey7OoLBzoKkPA">
+            <operand xsi:type="arduino:IntegerConstant" xmi:id="_hdNdEdFgEey60oAITKsoDQ"/>
+          </instructions>
+          <instructions xsi:type="arduino:VariableAssignment">
+            <operand xsi:type="arduino:IntegerModuleGet" module="_TeGOtbvnEey7OoLBzoKkPA"/>
+          </instructions>
+        </elseBlock>
+      </instructions>
+    </block>
+  </sketches>
+</arduino:Project>

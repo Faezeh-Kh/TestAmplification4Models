@@ -26,6 +26,6 @@
     </regions>
   </statemachine>
   <signals name="Continue"/>
-  <signals name="Ve"/>
+  <signals name="NKx"/>
   <operations name="op"/>
 </statemachines:CustomSystem>

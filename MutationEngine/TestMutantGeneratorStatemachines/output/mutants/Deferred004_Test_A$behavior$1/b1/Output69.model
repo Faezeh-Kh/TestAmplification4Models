@@ -67,6 +67,6 @@
   <signals name="Start"/>
   <signals name="AnotherSignal"/>
   <signals name="Pending"/>
-  <signals name="Jre"/>
-  <signals name="XM"/>
+  <signals name="kyo"/>
+  <signals name="iOb"/>
 </statemachines:CustomSystem>

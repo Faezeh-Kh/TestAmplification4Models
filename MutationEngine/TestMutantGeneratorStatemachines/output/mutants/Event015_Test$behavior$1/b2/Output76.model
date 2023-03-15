@@ -30,5 +30,5 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="RZA"/>
+  <signals name="kxj"/>
 </statemachines:CustomSystem>

@@ -39,5 +39,5 @@
   <signals name="Start"/>
   <signals name="AnotherSignal"/>
   <signals name="Continue"/>
-  <signals name="ki"/>
+  <signals name="fT"/>
 </statemachines:CustomSystem>

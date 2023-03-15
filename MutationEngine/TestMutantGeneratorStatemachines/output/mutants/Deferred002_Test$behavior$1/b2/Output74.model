@@ -52,7 +52,7 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="Continue"/>
+  <signals name="FtW"/>
   <signals name="Start"/>
-  <signals name="kEm"/>
+  <signals name="AnotherSignal"/>
 </statemachines:CustomSystem>

@@ -40,7 +40,7 @@
   <signals name="Data">
     <attributes xsi:type="statemachines:BooleanAttribute" name="value"/>
   </signals>
-  <signals name="TLY">
+  <signals name="zUS">
     <attributes xsi:type="statemachines:BooleanAttribute" name="value"/>
   </signals>
 </statemachines:CustomSystem>

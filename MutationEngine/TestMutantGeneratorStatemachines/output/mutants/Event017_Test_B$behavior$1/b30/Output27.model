@@ -46,7 +46,8 @@
   </statemachine>
   <signals xmi:id="_CdVnBLskEeyrPdT0pCfx6w" name="Data">
     <attributes xsi:type="statemachines:BooleanAttribute" xmi:id="_CdW1ILskEeyrPdT0pCfx6w" name="value"/>
-    <attributes xsi:type="statemachines:IntegerAttribute" name="hJ"/>
   </signals>
-  <signals xmi:id="_CdW1IbskEeyrPdT0pCfx6w" name="Continue"/>
+  <signals xmi:id="_CdW1IbskEeyrPdT0pCfx6w" name="Continue">
+    <attributes xsi:type="statemachines:StringAttribute"/>
+  </signals>
 </statemachines:CustomSystem>

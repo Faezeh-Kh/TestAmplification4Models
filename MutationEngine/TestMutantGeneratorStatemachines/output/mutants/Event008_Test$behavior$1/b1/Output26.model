@@ -27,6 +27,6 @@
   </statemachine>
   <signals name="Start"/>
   <signals name="Continue"/>
-  <signals name="pza"/>
-  <signals name="Gh"/>
+  <signals name="fu"/>
+  <signals name="Ezt"/>
 </statemachines:CustomSystem>

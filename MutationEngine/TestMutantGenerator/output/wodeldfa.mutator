@@ -1,0 +1,44 @@
+generate exhaustive mutants 
+in "data/out/" 
+from "data/model/" 
+metamodel "c:/GemocStudio/workspace2/wodeldfa/data/model/DFAAutomaton.ecore" 
+
+with blocks {
+	b0  {
+		create Symbol with { symbol in [ "0" , "1" , a , b ] }
+	}
+	b1  {
+		p = deep clone one Symbol where { symbol in [ "0" , "1" , a , b ] } with { symbol in [ "0" , "1" , a , b ] }
+	}
+	b2  {
+		p = modify one Symbol where { symbol in [ "0" , "1" , a , b ] } with { symbol in [ "0" , "1" , a , b ] }
+	}
+	b3  {
+		remove one Symbol where { symbol in [ "0" , "1" , a , b ] }
+	}
+	b4  {
+		create State with { name in [ even , odd , q0 , q1 , q2 , q3 , q4 , q5 ] , isInitial = true , isFinal = true }
+	}
+	b5  {
+		p = deep clone one State where { name in [ even , odd , q0 , q1 , q2 , q3 , q4 , q5 ] or isInitial = true or isFinal = true } with { name in [ even , odd , q0 , q1 , q2 , q3 , q4 , q5 ] , isInitial = true , isFinal = true }
+	}
+	b6  {
+		p = modify one State where { name in [ even , odd , q0 , q1 , q2 , q3 , q4 , q5 ] or isInitial = true or isFinal = true } with { name in [ even , odd , q0 , q1 , q2 , q3 , q4 , q5 ] , isInitial = true , isFinal = true }
+	}
+	b7  {
+		remove one State where { name in [ even , odd , q0 , q1 , q2 , q3 , q4 , q5 ] or isInitial = true or isFinal = true }
+	}
+	b8  {
+		create Transition with { src = one State , tar = one State , symbol = one Symbol }
+	}
+	b9  {
+		p = deep clone one Transition where { src = one State or tar = one State or symbol = one Symbol } with { src = one State , tar = one State , symbol = one Symbol }
+	}
+	b10  {
+		p = modify one Transition where { src = one State or tar = one State or symbol = one Symbol } with { src = one State , tar = one State , symbol = one Symbol }
+	}
+	b11  {
+		remove one Transition where { src = one State or tar = one State or symbol = one Symbol }
+	}
+	
+}

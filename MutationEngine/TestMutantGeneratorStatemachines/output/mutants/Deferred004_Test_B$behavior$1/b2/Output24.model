@@ -65,8 +65,8 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="AnotherSignal"/>
+  <signals name="yn"/>
   <signals name="Start"/>
   <signals name="Continue"/>
-  <signals name="QY"/>
+  <signals name="Pending"/>
 </statemachines:CustomSystem>

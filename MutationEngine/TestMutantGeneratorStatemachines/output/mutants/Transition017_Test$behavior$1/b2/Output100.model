@@ -49,5 +49,5 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="gr"/>
+  <signals name="WDq"/>
 </statemachines:CustomSystem>

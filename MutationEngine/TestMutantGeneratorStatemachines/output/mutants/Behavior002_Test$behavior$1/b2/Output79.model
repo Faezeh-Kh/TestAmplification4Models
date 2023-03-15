@@ -16,5 +16,5 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="YbY"/>
+  <signals name="Kg"/>
 </statemachines:CustomSystem>

@@ -71,12 +71,12 @@
   <signals name="Amount">
     <attributes xsi:type="statemachines:IntegerAttribute" name="enteredAmount"/>
   </signals>
-  <signals name="JwE">
+  <signals name="eYe">
     <attributes xsi:type="statemachines:IntegerAttribute" name="cardPin"/>
     <attributes xsi:type="statemachines:IntegerAttribute" name="cardBalance"/>
-    <attributes xsi:type="statemachines:IntegerAttribute" name="enteredPin"/>
+    <attributes xsi:type="statemachines:IntegerAttribute" name="cardPin"/>
   </signals>
-  <signals name="gNO">
+  <signals name="yf">
     <attributes xsi:type="statemachines:IntegerAttribute" name="enteredPin"/>
     <attributes xsi:type="statemachines:IntegerAttribute" name="enteredAmount"/>
   </signals>

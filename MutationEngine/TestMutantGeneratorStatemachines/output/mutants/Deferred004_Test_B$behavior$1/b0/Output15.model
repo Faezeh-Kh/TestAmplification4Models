@@ -69,5 +69,5 @@
   <signals name="Start"/>
   <signals name="Continue"/>
   <signals name="Pending"/>
-  <signals name="Fk"/>
+  <signals/>
 </statemachines:CustomSystem>

@@ -43,8 +43,8 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="Start">
-    <attributes xsi:type="statemachines:IntegerAttribute" name="spD"/>
+  <signals name="Start"/>
+  <signals name="Continue">
+    <attributes xsi:type="statemachines:StringAttribute"/>
   </signals>
-  <signals name="Continue"/>
 </statemachines:CustomSystem>

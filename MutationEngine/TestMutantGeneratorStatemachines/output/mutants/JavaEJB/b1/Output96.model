@@ -92,11 +92,11 @@
   <signals name="containerCrash"/>
   <signals name="releaseReference"/>
   <signals name="handle.getEJBObject()"/>
-  <signals name="lN"/>
-  <signals name="Dq"/>
-  <signals name="HH"/>
-  <signals name="DA"/>
-  <signals name="QN"/>
-  <signals name="qOw"/>
-  <signals name="qqG"/>
+  <signals name="dC"/>
+  <signals name="Zw"/>
+  <signals name="vzP"/>
+  <signals name="CAG"/>
+  <signals name="eP"/>
+  <signals name="Sb"/>
+  <signals name="fX"/>
 </statemachines:CustomSystem>

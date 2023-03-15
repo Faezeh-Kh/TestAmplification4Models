@@ -59,59 +59,6 @@
                   </instructions>
                 </block>
               </instructions>
-              <instructions xsi:type="arduino:Repeat" iteration="3">
-                <block>
-                  <instructions xsi:type="arduino:ModuleAssignment">
-                    <module xsi:type="arduino:LED" href="../../../model/triggerFan.model#_DErf8covEeyrEsguAqucdw"/>
-                    <operand xsi:type="arduino:IntegerConstant" value="1"/>
-                  </instructions>
-                  <instructions xsi:type="arduino:If">
-                    <block>
-                      <instructions xsi:type="arduino:ModuleAssignment">
-                        <module xsi:type="arduino:Buzzer" href="../../../model/triggerFan.model#_bNFXAM-YEeyj4OK2t3h2Ug"/>
-                        <operand xsi:type="arduino:IntegerConstant" value="1"/>
-                      </instructions>
-                      <instructions xsi:type="arduino:ModuleAssignment">
-                        <module xsi:type="arduino:Buzzer" href="../../../model/triggerFan.model#_bNFXAM-YEeyj4OK2t3h2Ug"/>
-                        <operand xsi:type="arduino:IntegerConstant"/>
-                      </instructions>
-                    </block>
-                    <condition xsi:type="arduino:BooleanModuleGet">
-                      <module xsi:type="arduino:InfraRedSensor" href="../../../model/triggerFan.model#_O4upcM-YEeyj4OK2t3h2Ug"/>
-                    </condition>
-                  </instructions>
-                  <instructions xsi:type="arduino:If">
-                    <block>
-                      <instructions xsi:type="arduino:Repeat" iteration="3">
-                        <block>
-                          <instructions xsi:type="arduino:ModuleAssignment">
-                            <module xsi:type="arduino:MicroServo" href="../../../model/triggerFan.model#_KowVYcovEeyrEsguAqucdw"/>
-                            <operand xsi:type="arduino:IntegerConstant"/>
-                          </instructions>
-                          <instructions xsi:type="arduino:ModuleAssignment">
-                            <module xsi:type="arduino:Fan" href="../../../model/triggerFan.model#_TJEJkMovEeyrEsguAqucdw"/>
-                            <operand xsi:type="arduino:IntegerConstant" value="1"/>
-                          </instructions>
-                          <instructions xsi:type="arduino:ModuleAssignment">
-                            <module xsi:type="arduino:Fan" href="../../../model/triggerFan.model#_TJEJkMovEeyrEsguAqucdw"/>
-                            <operand xsi:type="arduino:IntegerConstant"/>
-                          </instructions>
-                          <instructions xsi:type="arduino:ModuleAssignment">
-                            <module xsi:type="arduino:MicroServo" href="../../../model/triggerFan.model#_KowVYcovEeyrEsguAqucdw"/>
-                            <operand xsi:type="arduino:IntegerConstant" value="60"/>
-                          </instructions>
-                        </block>
-                      </instructions>
-                    </block>
-                    <condition xsi:type="arduino:BinaryBooleanExpression" operator="sup">
-                      <left xsi:type="arduino:IntegerModuleGet">
-                        <module xsi:type="arduino:SoundSensor" href="../../../model/triggerFan.model#_NGu-QMowEeyrEsguAqucdw"/>
-                      </left>
-                      <right xsi:type="arduino:IntegerConstant" value="128"/>
-                    </condition>
-                  </instructions>
-                </block>
-              </instructions>
             </block>
             <condition xsi:type="arduino:BinaryBooleanExpression" operator="sup">
               <left xsi:type="arduino:IntegerModuleGet" module="//@boards.0/@analogPins.0/@module"/>

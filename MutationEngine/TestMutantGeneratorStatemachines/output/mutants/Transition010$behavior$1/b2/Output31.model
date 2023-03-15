@@ -32,6 +32,6 @@
     </regions>
   </statemachine>
   <signals name="Start"/>
-  <signals name="WWB"/>
+  <signals name="cZy"/>
   <signals name="Continue"/>
 </statemachines:CustomSystem>

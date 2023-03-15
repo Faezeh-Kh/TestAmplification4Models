@@ -45,5 +45,5 @@
   </statemachine>
   <signals name="Start"/>
   <signals name="Continue"/>
-  <signals name="iEm"/>
+  <signals name="IK"/>
 </statemachines:CustomSystem>

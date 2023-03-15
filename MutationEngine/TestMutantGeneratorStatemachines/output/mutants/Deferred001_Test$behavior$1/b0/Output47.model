@@ -49,5 +49,5 @@
   <signals name="Start"/>
   <signals name="AnotherSignal"/>
   <signals name="Pending"/>
-  <signals name="Vfh"/>
+  <signals/>
 </statemachines:CustomSystem>

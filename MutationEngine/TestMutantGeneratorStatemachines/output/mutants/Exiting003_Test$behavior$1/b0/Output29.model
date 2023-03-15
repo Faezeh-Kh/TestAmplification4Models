@@ -58,5 +58,5 @@
   <signals name="Start"/>
   <signals name="Continue"/>
   <signals name="Pending"/>
-  <signals name="xZ"/>
+  <signals/>
 </statemachines:CustomSystem>

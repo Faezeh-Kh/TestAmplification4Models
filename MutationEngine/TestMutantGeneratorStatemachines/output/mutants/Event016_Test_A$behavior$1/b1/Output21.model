@@ -39,6 +39,6 @@
   </statemachine>
   <signals name="Continue"/>
   <signals name="Start"/>
-  <signals name="Qn"/>
-  <signals name="os"/>
+  <signals name="taq"/>
+  <signals name="mnb"/>
 </statemachines:CustomSystem>

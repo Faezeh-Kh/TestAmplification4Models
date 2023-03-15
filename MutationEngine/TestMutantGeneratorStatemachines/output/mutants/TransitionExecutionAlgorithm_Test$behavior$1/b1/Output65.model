@@ -51,5 +51,5 @@
   </statemachine>
   <signals name="Start"/>
   <signals name="Continue"/>
-  <signals name="OME"/>
+  <signals name="dHC"/>
 </statemachines:CustomSystem>

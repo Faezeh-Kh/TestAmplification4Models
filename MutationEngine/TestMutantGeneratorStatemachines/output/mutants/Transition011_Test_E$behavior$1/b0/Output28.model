@@ -38,5 +38,5 @@
     </regions>
   </statemachine>
   <signals name="Start"/>
-  <signals name="rK"/>
+  <signals/>
 </statemachines:CustomSystem>

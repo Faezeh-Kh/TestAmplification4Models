@@ -10,7 +10,7 @@
       <transitions name="T1" source="//@statemachine/@regions.0/@vertice.0" target="//@statemachine/@regions.0/@vertice.1" kind="external"/>
       <transitions name="T2" source="//@statemachine/@regions.0/@vertice.1" target="//@statemachine/@regions.0/@vertice.2" kind="external">
         <triggers>
-          <eventType xsi:type="statemachines:SignalEventType"/>
+          <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.0"/>
         </triggers>
         <effect name="T2(effect)"/>
       </transitions>
@@ -19,11 +19,11 @@
       </transitions>
       <transitions name="T4" source="//@statemachine/@regions.0/@vertice.3" target="//@statemachine/@regions.0/@vertice.4" kind="external">
         <triggers name="ContinueTrigger">
-          <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.0"/>
+          <eventType xsi:type="statemachines:SignalEventType"/>
         </triggers>
         <effect name="T4(testEnd)"/>
       </transitions>
     </regions>
   </statemachine>
-  <signals name="Continue"/>
+  <signals name="Start"/>
 </statemachines:CustomSystem>

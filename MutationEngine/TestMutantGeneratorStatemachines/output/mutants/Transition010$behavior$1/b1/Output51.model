@@ -34,7 +34,7 @@
   <signals name="Start"/>
   <signals name="AnotherSignal"/>
   <signals name="Continue"/>
-  <signals name="Ri"/>
-  <signals name="Xh"/>
-  <signals name="MWS"/>
+  <signals name="UMt"/>
+  <signals name="ZW"/>
+  <signals name="Xt"/>
 </statemachines:CustomSystem>

@@ -49,7 +49,7 @@
     </regions>
   </statemachine>
   <signals name="Start"/>
-  <signals name="sv">
+  <signals name="xEv">
     <attributes xsi:type="statemachines:IntegerAttribute" name="value"/>
   </signals>
 </statemachines:CustomSystem>

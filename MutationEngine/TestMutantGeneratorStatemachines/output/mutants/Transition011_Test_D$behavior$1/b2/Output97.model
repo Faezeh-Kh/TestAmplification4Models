@@ -54,7 +54,7 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="Continue"/>
+  <signals name="GI"/>
   <signals name="Start"/>
-  <signals name="RrW"/>
+  <signals name="Pending"/>
 </statemachines:CustomSystem>

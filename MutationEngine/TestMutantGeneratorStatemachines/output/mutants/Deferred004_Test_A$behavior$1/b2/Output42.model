@@ -63,8 +63,8 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="Continue"/>
-  <signals name="XVZ"/>
+  <signals name="tc"/>
+  <signals name="Start"/>
   <signals name="AnotherSignal"/>
   <signals name="Pending"/>
 </statemachines:CustomSystem>

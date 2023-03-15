@@ -37,6 +37,6 @@
     </regions>
   </statemachine>
   <signals name="Start"/>
-  <signals name="Ne"/>
+  <signals name="cj"/>
   <signals name="Continue"/>
 </statemachines:CustomSystem>

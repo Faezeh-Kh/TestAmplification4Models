@@ -87,7 +87,7 @@
   <signals name="businessMethod()"/>
   <signals name="object.remove()"/>
   <signals name="home.remove()"/>
-  <signals name="XI"/>
+  <signals name="sT"/>
   <signals name="beanTimout"/>
   <signals name="containerCrash"/>
   <signals name="releaseReference"/>

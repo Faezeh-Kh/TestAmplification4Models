@@ -62,6 +62,6 @@
   </statemachine>
   <signals name="Start"/>
   <signals name="Continue"/>
-  <signals name="bV"/>
-  <signals name="PyU"/>
+  <signals name="iZy"/>
+  <signals name="Ll"/>
 </statemachines:CustomSystem>

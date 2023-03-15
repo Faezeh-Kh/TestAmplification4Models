@@ -94,6 +94,6 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="Start"/>
-  <signals name="Rq"/>
+  <signals name="HBN"/>
+  <signals name="Continue"/>
 </statemachines:CustomSystem>

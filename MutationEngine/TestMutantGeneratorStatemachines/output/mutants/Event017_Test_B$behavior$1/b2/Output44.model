@@ -44,7 +44,7 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="YW">
+  <signals name="aCc">
     <attributes xsi:type="statemachines:BooleanAttribute" name="value"/>
   </signals>
   <signals name="Continue"/>

@@ -38,5 +38,5 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="VLf"/>
+  <signals name="VhW"/>
 </statemachines:CustomSystem>

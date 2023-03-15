@@ -13,16 +13,16 @@
     <digitalPins name="Servo">
       <module xsi:type="arduino:MicroServo" name="Servo"/>
     </digitalPins>
-    <digitalPins name="buttonPin">
-      <module xsi:type="arduino:PushButton" name="button"/>
-    </digitalPins>
-    <digitalPins name="IR_sensor">
-      <module xsi:type="arduino:MicroServo" name="Servo"/>
-    </digitalPins>
-    <digitalPins name="redLed">
+    <digitalPins name="irSensor">
       <module xsi:type="arduino:LED" name="blueLED"/>
     </digitalPins>
-    <digitalPins name="servo">
+    <digitalPins name="redLed">
+      <module xsi:type="arduino:MicroServo" name="Servo"/>
+    </digitalPins>
+    <digitalPins name="fan">
+      <module xsi:type="arduino:PushButton" name="button"/>
+    </digitalPins>
+    <digitalPins name="led_pin">
       <module xsi:type="arduino:InfraRedSensor" name="IRSensor"/>
     </digitalPins>
   </boards>

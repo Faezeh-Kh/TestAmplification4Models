@@ -44,6 +44,6 @@
     </regions>
   </statemachine>
   <signals name="Start"/>
-  <signals name="ZML"/>
+  <signals name="br"/>
   <signals name="Pending"/>
 </statemachines:CustomSystem>

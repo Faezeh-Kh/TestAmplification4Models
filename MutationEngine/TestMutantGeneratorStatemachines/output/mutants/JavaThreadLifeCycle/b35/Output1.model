@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<statemachines:CustomSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
+<statemachines:CustomSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
   <statemachine name="JaveThreadStates">
     <regions name="mainRegion">
       <vertice xsi:type="statemachines:Pseudostate" name="initial1" outgoingTransitions="//@statemachine/@regions.0/@transitions.0"/>
@@ -159,7 +159,9 @@
           <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.13"/>
         </triggers>
       </transitions>
-      <transitions name="terminated2final" source="//@statemachine/@regions.0/@vertice.6" target="//@statemachine/@regions.0/@vertice.7" kind="external"/>
+      <transitions name="terminated2final" source="//@statemachine/@regions.0/@vertice.6" target="//@statemachine/@regions.0/@vertice.7" kind="external">
+        <constraint xsi:type="statemachines:BooleanConstraint"/>
+      </transitions>
     </regions>
   </statemachine>
   <signals name="t.start"/>
@@ -180,10 +182,10 @@
   <signals name="o.notify"/>
   <signals name="monitorLockAcquired"/>
   <operations name="Thread.sleep()">
-    <inParameters xsi:type="statemachines:BooleanAttribute" name="rSd"/>
+    <inParameters xsi:type="statemachines:IntegerAttribute" name="sleeptime"/>
   </operations>
   <operations name="o.wait()">
-    <inParameters xsi:type="statemachines:StringAttribute" name="oJX"/>
+    <inParameters xsi:type="statemachines:IntegerAttribute" name="waitTimeout"/>
   </operations>
   <operations name="t.join()">
     <inParameters xsi:type="statemachines:IntegerAttribute" name="joinTimeout"/>

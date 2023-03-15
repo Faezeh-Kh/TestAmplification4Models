@@ -44,5 +44,5 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="tU"/>
+  <signals name="NJs"/>
 </statemachines:CustomSystem>

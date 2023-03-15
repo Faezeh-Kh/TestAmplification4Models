@@ -66,7 +66,7 @@
     </regions>
   </statemachine>
   <signals name="AnotherSignal"/>
-  <signals name="Mas"/>
+  <signals name="Start"/>
   <signals name="Continue"/>
-  <signals name="Pending"/>
+  <signals name="oV"/>
 </statemachines:CustomSystem>

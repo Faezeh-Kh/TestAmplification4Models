@@ -18,7 +18,7 @@
       <transitions name="T1" source="//@statemachine/@regions.0/@vertice.0" target="//@statemachine/@regions.0/@vertice.1" kind="external"/>
       <transitions name="T2" source="//@statemachine/@regions.0/@vertice.1" target="//@statemachine/@regions.0/@vertice.2" kind="external">
         <triggers name="StartSignalEventTrigger">
-          <eventType xsi:type="statemachines:CallEventType"/>
+          <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.0"/>
         </triggers>
       </transitions>
       <transitions name="T3" source="//@statemachine/@regions.0/@vertice.2" target="//@statemachine/@regions.0/@vertice.3" kind="external">

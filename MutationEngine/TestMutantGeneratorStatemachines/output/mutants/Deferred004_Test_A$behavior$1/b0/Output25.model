@@ -67,5 +67,5 @@
   <signals name="Start"/>
   <signals name="AnotherSignal"/>
   <signals name="Pending"/>
-  <signals name="rcg"/>
+  <signals/>
 </statemachines:CustomSystem>

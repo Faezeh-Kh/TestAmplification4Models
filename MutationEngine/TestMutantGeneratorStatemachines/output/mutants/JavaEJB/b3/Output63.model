@@ -18,12 +18,12 @@
       <transitions name="initial2NENR" source="//@statemachine/@regions.0/@vertice.0" target="//@statemachine/@regions.0/@vertice.1" kind="external"/>
       <transitions name="NENR2ER" source="//@statemachine/@regions.0/@vertice.1" target="//@statemachine/@regions.0/@vertice.2" kind="external">
         <triggers name="home.createTrigger">
-          <eventType xsi:type="statemachines:SignalEventType"/>
+          <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.0"/>
         </triggers>
       </transitions>
       <transitions name="ER2ER" source="//@statemachine/@regions.0/@vertice.2" target="//@statemachine/@regions.0/@vertice.2" kind="external">
         <triggers name="businessMethodTrigger">
-          <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.0"/>
+          <eventType xsi:type="statemachines:SignalEventType"/>
         </triggers>
       </transitions>
       <transitions name="ER2NER" source="//@statemachine/@regions.0/@vertice.2" target="//@statemachine/@regions.0/@vertice.3" kind="external">
@@ -73,7 +73,7 @@
       </transitions>
       <transitions name="NER2NER" source="//@statemachine/@regions.0/@vertice.3" target="//@statemachine/@regions.0/@vertice.3" kind="external">
         <triggers name="businessMethodTrigger">
-          <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.0"/>
+          <eventType xsi:type="statemachines:SignalEventType"/>
         </triggers>
       </transitions>
       <transitions name="NER2NENR" source="//@statemachine/@regions.0/@vertice.3" target="//@statemachine/@regions.0/@vertice.1" kind="external">
@@ -83,7 +83,7 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="businessMethod()"/>
+  <signals name="home.create&lt;method>()"/>
   <signals name="object.remove()"/>
   <signals name="home.remove()"/>
   <signals name="systemException"/>

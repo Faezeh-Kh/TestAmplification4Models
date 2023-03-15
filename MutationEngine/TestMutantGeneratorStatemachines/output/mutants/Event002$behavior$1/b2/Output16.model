@@ -38,5 +38,5 @@
   </statemachine>
   <signals name="Start"/>
   <signals name="AnotherSignal"/>
-  <signals name="bLU"/>
+  <signals name="MGC"/>
 </statemachines:CustomSystem>

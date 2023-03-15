@@ -18,5 +18,5 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="DAL"/>
+  <signals name="Aek"/>
 </statemachines:CustomSystem>

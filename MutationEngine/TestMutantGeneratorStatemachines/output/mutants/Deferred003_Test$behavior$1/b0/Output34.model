@@ -68,5 +68,5 @@
   <signals name="AnotherSignal"/>
   <signals name="Start"/>
   <signals name="Pending"/>
-  <signals name="OiJ"/>
+  <signals/>
 </statemachines:CustomSystem>

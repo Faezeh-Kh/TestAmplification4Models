@@ -25,8 +25,8 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="Continue">
-    <attributes xsi:type="statemachines:IntegerAttribute" name="DhW"/>
-  </signals>
-  <operations name="op"/>
+  <signals name="Continue"/>
+  <operations name="op">
+    <inParameters xsi:type="statemachines:StringAttribute"/>
+  </operations>
 </statemachines:CustomSystem>

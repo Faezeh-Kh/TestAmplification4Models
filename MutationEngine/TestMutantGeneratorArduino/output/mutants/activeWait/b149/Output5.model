@@ -39,5 +39,5 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:MicroServo name="Servo"/>
+  <arduino:SoundSensor name="soundSensor"/>
 </xmi:XMI>

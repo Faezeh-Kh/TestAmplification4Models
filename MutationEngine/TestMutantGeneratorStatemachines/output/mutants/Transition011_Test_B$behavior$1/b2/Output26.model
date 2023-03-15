@@ -37,6 +37,6 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="Start"/>
-  <signals name="Ce"/>
+  <signals name="xNd"/>
+  <signals name="Continue"/>
 </statemachines:CustomSystem>

@@ -4,15 +4,15 @@
     <digitalPins xmi:id="_TeGOsrvnEey7OoLBzoKkPA" name="whiteLedPin">
       <module xsi:type="arduino:LED" xmi:id="_TeGOs7vnEey7OoLBzoKkPA" name="whiteLed" color="white"/>
     </digitalPins>
-    <digitalPins xmi:id="_TeGOtLvnEey7OoLBzoKkPA" name="IR_sensorPin">
-      <module xsi:type="arduino:InfraRedSensor" xmi:id="_TeGOtbvnEey7OoLBzoKkPA" name="IR_sensor"/>
+    <digitalPins xmi:id="_TeGOtLvnEey7OoLBzoKkPA" name="IR_sensorPin"/>
+    <digitalPins xmi:id="_F8FqYNFgEey60oAITKsoDQ" name="buzzerPin">
+      <module xsi:type="arduino:Buzzer" xmi:id="_H0GU4NFgEey60oAITKsoDQ" name="buzzer"/>
     </digitalPins>
-    <digitalPins xmi:id="_F8FqYNFgEey60oAITKsoDQ" name="buzzerPin"/>
     <digitalPins xmi:id="_Jz0J4NFgEey60oAITKsoDQ" name="buttonPin">
       <module xsi:type="arduino:PushButton" xmi:id="_L26qENFgEey60oAITKsoDQ" name="button1"/>
     </digitalPins>
-    <digitalPins name="buzzer_pin">
-      <module xsi:type="arduino:Buzzer" name="buzzer"/>
+    <digitalPins name="irSensor">
+      <module xsi:type="arduino:InfraRedSensor" name="IR_sensor"/>
     </digitalPins>
   </boards>
   <sketches xmi:id="_TeGOtrvnEey7OoLBzoKkPA" name="sketch" board="_TeGOsbvnEey7OoLBzoKkPA">
@@ -24,21 +24,21 @@
           </instructions>
           <instructions xsi:type="arduino:If" xmi:id="_kSBuENFgEey60oAITKsoDQ">
             <block xmi:id="_m6xR8NFgEey60oAITKsoDQ">
-              <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_ndN3sNFgEey60oAITKsoDQ" module="//@boards.0/@digitalPins.4/@module">
+              <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_ndN3sNFgEey60oAITKsoDQ" module="_H0GU4NFgEey60oAITKsoDQ">
                 <operand xsi:type="arduino:IntegerConstant" xmi:id="_ndN3sdFgEey60oAITKsoDQ" value="1"/>
               </instructions>
-              <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_oqHIoNFgEey60oAITKsoDQ" module="//@boards.0/@digitalPins.4/@module">
+              <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_oqHIoNFgEey60oAITKsoDQ" module="_H0GU4NFgEey60oAITKsoDQ">
                 <operand xsi:type="arduino:IntegerConstant" xmi:id="_oqHIodFgEey60oAITKsoDQ"/>
               </instructions>
-              <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_s9XGgNFgEey60oAITKsoDQ" module="//@boards.0/@digitalPins.4/@module">
+              <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_s9XGgNFgEey60oAITKsoDQ" module="_H0GU4NFgEey60oAITKsoDQ">
                 <operand xsi:type="arduino:IntegerConstant" xmi:id="_s9XGgdFgEey60oAITKsoDQ" value="1"/>
               </instructions>
-              <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_s9XGgtFgEey60oAITKsoDQ" module="//@boards.0/@digitalPins.4/@module">
+              <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_s9XGgtFgEey60oAITKsoDQ" module="_H0GU4NFgEey60oAITKsoDQ">
                 <operand xsi:type="arduino:IntegerConstant" xmi:id="_s9XGg9FgEey60oAITKsoDQ"/>
               </instructions>
             </block>
             <condition xsi:type="arduino:BinaryBooleanExpression" xmi:id="_laLB4NFgEey60oAITKsoDQ" operator="equal">
-              <left xsi:type="arduino:IntegerModuleGet" xmi:id="_laLB4dFgEey60oAITKsoDQ" module="_TeGOtbvnEey7OoLBzoKkPA"/>
+              <left xsi:type="arduino:IntegerModuleGet" xmi:id="_laLB4dFgEey60oAITKsoDQ" module="//@boards.0/@digitalPins.4/@module"/>
               <right xsi:type="arduino:IntegerConstant" xmi:id="_laLB4tFgEey60oAITKsoDQ" value="1"/>
             </condition>
           </instructions>

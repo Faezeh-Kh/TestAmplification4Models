@@ -64,7 +64,7 @@
     </regions>
   </statemachine>
   <signals name="Continue"/>
-  <signals name="Start"/>
+  <signals name="Gk"/>
   <signals name="AnotherSignal"/>
-  <signals name="NvO"/>
+  <signals name="Pending"/>
 </statemachines:CustomSystem>

@@ -14,7 +14,7 @@
           <transitions name="T1.1" source="//@statemachine/@regions.0/@vertice.2/@regions.0/@vertice.0" target="//@statemachine/@regions.0/@vertice.2/@regions.0/@vertice.1" kind="external"/>
           <transitions name="T1.2" source="//@statemachine/@regions.0/@vertice.2/@regions.0/@vertice.1" target="//@statemachine/@regions.0/@vertice.2/@regions.0/@vertice.2" kind="external">
             <triggers name="ContinueTrigger">
-              <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.0"/>
+              <eventType xsi:type="statemachines:SignalEventType"/>
             </triggers>
             <effect name="T1.2(effect)"/>
           </transitions>
@@ -31,7 +31,7 @@
           <transitions name="T2.1" source="//@statemachine/@regions.0/@vertice.2/@regions.1/@vertice.0" target="//@statemachine/@regions.0/@vertice.2/@regions.1/@vertice.1" kind="external"/>
           <transitions name="T2.2" source="//@statemachine/@regions.0/@vertice.2/@regions.1/@vertice.1" target="//@statemachine/@regions.0/@vertice.2/@regions.1/@vertice.2" kind="external">
             <triggers name="Continue">
-              <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.0"/>
+              <eventType xsi:type="statemachines:SignalEventType"/>
             </triggers>
             <effect name="T2.2(effect)"/>
           </transitions>
@@ -45,7 +45,7 @@
       <transitions name="T1" source="//@statemachine/@regions.0/@vertice.0" target="//@statemachine/@regions.0/@vertice.1" kind="external"/>
       <transitions name="T2" source="//@statemachine/@regions.0/@vertice.1" target="//@statemachine/@regions.0/@vertice.2" kind="external">
         <triggers name="StartTrigger">
-          <eventType xsi:type="statemachines:SignalEventType"/>
+          <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.0"/>
         </triggers>
       </transitions>
       <transitions name="T3" source="//@statemachine/@regions.0/@vertice.3" target="//@statemachine/@regions.0/@vertice.4" kind="external">
@@ -53,5 +53,5 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="Continue"/>
+  <signals name="Start"/>
 </statemachines:CustomSystem>

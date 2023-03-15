@@ -49,7 +49,7 @@
   <signals name="Start"/>
   <signals name="AnotherSignal"/>
   <signals name="Pending"/>
-  <signals name="Sdj"/>
-  <signals name="YcO"/>
-  <signals name="pLa"/>
+  <signals name="JGf"/>
+  <signals name="xze"/>
+  <signals name="kPl"/>
 </statemachines:CustomSystem>

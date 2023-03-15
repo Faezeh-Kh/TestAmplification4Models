@@ -37,6 +37,6 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="NdD"/>
-  <signals name="Continue"/>
+  <signals name="Start"/>
+  <signals name="WEW"/>
 </statemachines:CustomSystem>

@@ -5,7 +5,7 @@
       <module xsi:type="arduino:LED" name="blueLed"/>
     </digitalPins>
     <digitalPins name="servo2">
-      <module xsi:type="arduino:MicroServo" name="servo1"/>
+      <module xsi:type="arduino:MicroServo" name="servo2"/>
     </digitalPins>
     <digitalPins name="fan">
       <module xsi:type="arduino:Fan" name="fan"/>
@@ -20,7 +20,7 @@
       <module xsi:type="arduino:Buzzer" name="alarm"/>
     </digitalPins>
     <analogPins name="soundSensor">
-      <module xsi:type="arduino:SoundSensor" name="soundSensor"/>
+      <module xsi:type="arduino:SoundSensor" name=""/>
     </analogPins>
   </boards>
   <sketches name="sketch" board="//@boards.0">

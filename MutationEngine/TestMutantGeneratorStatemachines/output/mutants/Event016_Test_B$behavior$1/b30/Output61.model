@@ -96,6 +96,6 @@
   </statemachine>
   <signals name="Start"/>
   <signals name="Continue">
-    <attributes xsi:type="statemachines:IntegerAttribute" name="adH"/>
+    <attributes xsi:type="statemachines:StringAttribute"/>
   </signals>
 </statemachines:CustomSystem>

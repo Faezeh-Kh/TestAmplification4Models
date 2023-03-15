@@ -51,6 +51,6 @@
   <signals name="Start"/>
   <signals name="IntegerData">
     <attributes xsi:type="statemachines:IntegerAttribute" name="value"/>
-    <attributes xsi:type="statemachines:IntegerAttribute" name="RdY"/>
+    <attributes xsi:type="statemachines:StringAttribute"/>
   </signals>
 </statemachines:CustomSystem>

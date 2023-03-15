@@ -45,6 +45,6 @@
   </statemachine>
   <signals name="Start"/>
   <signals name="Continue"/>
-  <signals name="gJ"/>
-  <signals name="Rk"/>
+  <signals name="WYF"/>
+  <signals name="pfZ"/>
 </statemachines:CustomSystem>

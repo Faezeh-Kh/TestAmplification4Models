@@ -4,7 +4,7 @@
     <digitalPins name="blueLed">
       <module xsi:type="arduino:LED" name="blueLed"/>
     </digitalPins>
-    <digitalPins name="sensor_pin">
+    <digitalPins name="servo2">
       <module xsi:type="arduino:MicroServo" name="servo2"/>
     </digitalPins>
     <digitalPins name="fan">

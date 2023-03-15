@@ -90,6 +90,6 @@
   <signals name="systemException"/>
   <signals name="beanTimout"/>
   <signals name="containerCrash"/>
-  <signals name="keY"/>
+  <signals name="yfn"/>
   <signals name="handle.getEJBObject()"/>
 </statemachines:CustomSystem>

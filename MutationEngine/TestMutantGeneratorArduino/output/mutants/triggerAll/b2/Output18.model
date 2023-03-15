@@ -19,10 +19,10 @@
     <digitalPins name="irSensor">
       <module xsi:type="arduino:InfraRedSensor" name="irSensor"/>
     </digitalPins>
-    <digitalPins name="button">
+    <digitalPins name="buzzerPin">
       <module xsi:type="arduino:PushButton" name="button"/>
     </digitalPins>
-    <digitalPins name="irSensor">
+    <digitalPins name="fan">
       <module xsi:type="arduino:Fan" name="fan"/>
     </digitalPins>
     <analogPins name="soundSensor">

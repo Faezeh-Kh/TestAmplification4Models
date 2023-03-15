@@ -94,6 +94,6 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="gb"/>
-  <signals name="Continue"/>
+  <signals name="Start"/>
+  <signals name="AGt"/>
 </statemachines:CustomSystem>

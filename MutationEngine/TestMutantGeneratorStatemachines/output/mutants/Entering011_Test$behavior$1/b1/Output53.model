@@ -46,6 +46,6 @@
   </statemachine>
   <signals name="Start"/>
   <signals name="Continue"/>
-  <signals name="xh"/>
-  <signals name="Evn"/>
+  <signals name="dgs"/>
+  <signals name="nt"/>
 </statemachines:CustomSystem>

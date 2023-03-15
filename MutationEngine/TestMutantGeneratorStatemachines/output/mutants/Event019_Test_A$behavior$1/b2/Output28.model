@@ -25,6 +25,6 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="grc"/>
+  <signals name="Se"/>
   <operations name="op"/>
 </statemachines:CustomSystem>

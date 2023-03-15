@@ -9,7 +9,9 @@
       <vertice xsi:type="statemachines:State" name="Closed" outgoingTransitions="//@statemachine/@regions.0/@transitions.13" incomingTransitions="//@statemachine/@regions.0/@transitions.1 //@statemachine/@regions.0/@transitions.4 //@statemachine/@regions.0/@transitions.5 //@statemachine/@regions.0/@transitions.9 //@statemachine/@regions.0/@transitions.10"/>
       <vertice xsi:type="statemachines:FinalState" name="final" incomingTransitions="//@statemachine/@regions.0/@transitions.13"/>
       <transitions name="initial2new" source="//@statemachine/@regions.0/@vertice.0" target="//@statemachine/@regions.0/@vertice.1" kind="external">
-        <triggers name="isUniqueIdTrigger"/>
+        <triggers name="isUniqueIdTrigger">
+          <eventType xsi:type="statemachines:CallEventType" operation="//@operations.0"/>
+        </triggers>
         <effect name="create"/>
         <constraint xsi:type="statemachines:BooleanConstraint">
           <expression xsi:type="statemachines:BooleanUnaryExpression" operand="//@operations.0/@return"/>
@@ -127,12 +129,15 @@
     </regions>
   </statemachine>
   <operations name="isUniqueId()">
+    <outParameters xsi:type="statemachines:BooleanAttribute" name="nq"/>
     <return xsi:type="statemachines:BooleanAttribute" name="isUniqueId"/>
   </operations>
   <operations name="isAccountDormant()">
+    <inParameters xsi:type="statemachines:BooleanAttribute" name="hc"/>
     <return xsi:type="statemachines:BooleanAttribute" name="isAccountDormant"/>
   </operations>
   <operations name="isVerified()">
+    <inParameters xsi:type="statemachines:BooleanAttribute" name="kxQ"/>
     <return xsi:type="statemachines:BooleanAttribute" name="isVerified"/>
   </operations>
   <operations name="isCancelRequested()">

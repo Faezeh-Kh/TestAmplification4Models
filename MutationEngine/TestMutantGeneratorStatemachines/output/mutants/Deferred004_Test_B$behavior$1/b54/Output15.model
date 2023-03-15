@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<statemachines:CustomSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
+<statemachines:CustomSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
   <statemachine name="Deferred004_Test_B$behavior$1">
     <regions name="Region1">
       <vertice xsi:type="statemachines:Pseudostate" name="Initial1" outgoingTransitions="//@statemachine/@regions.0/@transitions.0"/>
@@ -30,6 +30,7 @@
           <vertice xsi:type="statemachines:FinalState" name="FinalState1" incomingTransitions="//@statemachine/@regions.0/@vertice.2/@regions.0/@transitions.1"/>
           <transitions name="T1.1" source="//@statemachine/@regions.0/@vertice.2/@regions.0/@vertice.0" target="//@statemachine/@regions.0/@vertice.2/@regions.0/@vertice.1" kind="external"/>
           <transitions name="T1.2" source="//@statemachine/@regions.0/@vertice.2/@regions.0/@vertice.1" target="//@statemachine/@regions.0/@vertice.2/@regions.0/@vertice.2" kind="external"/>
+          <transitions name="Wfz"/>
         </regions>
         <regions name="Region2">
           <vertice xsi:type="statemachines:Pseudostate" name="Initial1" outgoingTransitions="//@statemachine/@regions.0/@vertice.2/@regions.1/@transitions.0"/>
@@ -37,9 +38,7 @@
             <exit name="S2.1(exit)"/>
           </vertice>
           <vertice xsi:type="statemachines:FinalState" name="FinalState1" incomingTransitions="//@statemachine/@regions.0/@vertice.2/@regions.1/@transitions.1 //@statemachine/@regions.0/@vertice.2/@regions.1/@transitions.2"/>
-          <transitions name="T2.1" source="//@statemachine/@regions.0/@vertice.2/@regions.1/@vertice.0" target="//@statemachine/@regions.0/@vertice.2/@regions.1/@vertice.1" kind="external">
-            <constraint xsi:type="statemachines:StringConstraint"/>
-          </transitions>
+          <transitions name="T2.1" source="//@statemachine/@regions.0/@vertice.2/@regions.1/@vertice.0" target="//@statemachine/@regions.0/@vertice.2/@regions.1/@vertice.1" kind="external"/>
           <transitions name="T2.2" source="//@statemachine/@regions.0/@vertice.2/@regions.1/@vertice.1" target="//@statemachine/@regions.0/@vertice.2/@regions.1/@vertice.2" kind="external">
             <triggers name="AnotherSignalTrigger">
               <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.0"/>

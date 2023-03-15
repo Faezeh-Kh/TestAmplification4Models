@@ -65,8 +65,8 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="Ywe"/>
-  <signals name="Start"/>
+  <signals name="AnotherSignal"/>
+  <signals name="mz"/>
   <signals name="Continue"/>
   <signals name="Pending"/>
 </statemachines:CustomSystem>

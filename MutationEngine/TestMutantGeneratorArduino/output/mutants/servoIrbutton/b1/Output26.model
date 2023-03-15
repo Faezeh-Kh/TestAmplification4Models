@@ -13,8 +13,8 @@
     <digitalPins name="Servo">
       <module xsi:type="arduino:MicroServo" name="Servo"/>
     </digitalPins>
-    <digitalPins name="buttonPin">
-      <module xsi:type="arduino:PushButton" name="button"/>
+    <digitalPins name="irSensor">
+      <module xsi:type="arduino:LED" name="blueLED"/>
     </digitalPins>
   </boards>
   <sketches name="sketch" board="//@boards.0">

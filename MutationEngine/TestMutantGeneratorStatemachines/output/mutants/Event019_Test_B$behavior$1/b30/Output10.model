@@ -28,6 +28,6 @@
   <operations xmi:id="_nIH3gLslEeyrPdT0pCfx6w" name="op">
     <inParameters xsi:type="statemachines:IntegerAttribute" xmi:id="_nIH3gbslEeyrPdT0pCfx6w" name="p1"/>
     <inParameters xsi:type="statemachines:BooleanAttribute" xmi:id="_nIH3grslEeyrPdT0pCfx6w" name="p2"/>
-    <return xsi:type="statemachines:IntegerAttribute" name="pRz"/>
+    <return xsi:type="statemachines:StringAttribute"/>
   </operations>
 </statemachines:CustomSystem>

@@ -38,22 +38,22 @@
       </transitions>
       <transitions name="ER2NER" source="//@statemachine/@regions.0/@vertice.2" target="//@statemachine/@regions.0/@vertice.3" kind="external">
         <triggers name="exceptionTrigger">
-          <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.4"/>
+          <eventType xsi:type="statemachines:SignalEventType"/>
         </triggers>
       </transitions>
       <transitions name="ER2NER" source="//@statemachine/@regions.0/@vertice.2" target="//@statemachine/@regions.0/@vertice.3" kind="external">
         <triggers name="timeoutTrigger">
-          <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.5"/>
+          <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.4"/>
         </triggers>
       </transitions>
       <transitions name="ER2NER" source="//@statemachine/@regions.0/@vertice.2" target="//@statemachine/@regions.0/@vertice.3" kind="external">
         <triggers name="crashTrigger">
-          <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.6"/>
+          <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.5"/>
         </triggers>
       </transitions>
       <transitions name="ER2ENR" source="//@statemachine/@regions.0/@vertice.2" target="//@statemachine/@regions.0/@vertice.4" kind="external">
         <triggers name="releaseTrigger">
-          <eventType xsi:type="statemachines:SignalEventType"/>
+          <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.6"/>
         </triggers>
       </transitions>
       <transitions name="ENR2ER" source="//@statemachine/@regions.0/@vertice.4" target="//@statemachine/@regions.0/@vertice.2" kind="external">
@@ -63,12 +63,12 @@
       </transitions>
       <transitions name="ENR2NENR" source="//@statemachine/@regions.0/@vertice.4" target="//@statemachine/@regions.0/@vertice.1" kind="external">
         <triggers name="timeoutTrigger">
-          <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.5"/>
+          <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.4"/>
         </triggers>
       </transitions>
       <transitions name="ENR2NENR" source="//@statemachine/@regions.0/@vertice.4" target="//@statemachine/@regions.0/@vertice.1" kind="external">
         <triggers name="crashTrigger">
-          <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.6"/>
+          <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.5"/>
         </triggers>
       </transitions>
       <transitions name="NER2NER" source="//@statemachine/@regions.0/@vertice.3" target="//@statemachine/@regions.0/@vertice.3" kind="external">
@@ -78,7 +78,7 @@
       </transitions>
       <transitions name="NER2NENR" source="//@statemachine/@regions.0/@vertice.3" target="//@statemachine/@regions.0/@vertice.1" kind="external">
         <triggers name="releaseTrigger">
-          <eventType xsi:type="statemachines:SignalEventType"/>
+          <eventType xsi:type="statemachines:SignalEventType" signal="//@signals.6"/>
         </triggers>
       </transitions>
     </regions>
@@ -87,8 +87,8 @@
   <signals name="businessMethod()"/>
   <signals name="object.remove()"/>
   <signals name="home.remove()"/>
-  <signals name="systemException"/>
   <signals name="beanTimout"/>
   <signals name="containerCrash"/>
+  <signals name="releaseReference"/>
   <signals name="handle.getEJBObject()"/>
 </statemachines:CustomSystem>

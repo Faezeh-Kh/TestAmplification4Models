@@ -23,7 +23,7 @@
     <digitalPins xmi:id="_R9yCMMovEeyrEsguAqucdw" name="fan">
       <module xsi:type="arduino:Fan" xmi:id="_TJEJkMovEeyrEsguAqucdw" name="fan"/>
     </digitalPins>
-    <digitalPins name="Servo">
+    <digitalPins name="servo2">
       <module xsi:type="arduino:InfraRedSensor" name="irSensor"/>
     </digitalPins>
     <analogPins xmi:id="_MhMBMMowEeyrEsguAqucdw" name="soundSensor">

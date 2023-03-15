@@ -16,9 +16,7 @@
             <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_TeGOurvnEey7OoLBzoKkPA" module="_TeGOs7vnEey7OoLBzoKkPA">
               <operand xsi:type="arduino:IntegerConstant" xmi:id="_TeGOu7vnEey7OoLBzoKkPA" value="1"/>
             </instructions>
-            <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_TeGOvbvnEey7OoLBzoKkPA" module="_TeGOs7vnEey7OoLBzoKkPA">
-              <operand xsi:type="arduino:IntegerConstant" xmi:id="_TeGOvrvnEey7OoLBzoKkPA"/>
-            </instructions>
+            <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_TeGOvbvnEey7OoLBzoKkPA" module="_TeGOs7vnEey7OoLBzoKkPA"/>
             <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_vWSdkLvnEey7OoLBzoKkPA" module="_TeGOs7vnEey7OoLBzoKkPA">
               <operand xsi:type="arduino:IntegerConstant" xmi:id="_vWSdkbvnEey7OoLBzoKkPA" value="1"/>
             </instructions>
@@ -39,5 +37,7 @@
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:BooleanVariable name="mkL" initialValue="true"/>
+  <arduino:UnaryBooleanExpression>
+    <operand xsi:type="arduino:IntegerConstant"/>
+  </arduino:UnaryBooleanExpression>
 </xmi:XMI>

@@ -65,7 +65,7 @@
     </regions>
   </statemachine>
   <signals name="Continue"/>
-  <signals name="Gat"/>
-  <signals name="Start"/>
+  <signals name="AnotherSignal"/>
+  <signals name="pRz"/>
   <signals name="Pending"/>
 </statemachines:CustomSystem>

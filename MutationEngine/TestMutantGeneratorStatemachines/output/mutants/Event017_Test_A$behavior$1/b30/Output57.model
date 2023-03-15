@@ -36,10 +36,9 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals xmi:id="_OiyhcLsaEey7I_R-wPwR8g" name="Start">
-    <attributes xsi:type="statemachines:IntegerAttribute" name="Xd"/>
-  </signals>
+  <signals xmi:id="_OiyhcLsaEey7I_R-wPwR8g" name="Start"/>
   <signals xmi:id="_OiyhcbsaEey7I_R-wPwR8g" name="Data">
     <attributes xsi:type="statemachines:BooleanAttribute" xmi:id="_OizIgLsaEey7I_R-wPwR8g" name="value"/>
+    <attributes xsi:type="statemachines:StringAttribute"/>
   </signals>
 </statemachines:CustomSystem>

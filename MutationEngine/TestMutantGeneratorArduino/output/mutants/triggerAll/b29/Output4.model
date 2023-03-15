@@ -59,22 +59,13 @@
         <condition xsi:type="arduino:BooleanModuleGet" xmi:id="_Yn-pUMovEeyrEsguAqucdw" module="_Qf35wMovEeyrEsguAqucdw"/>
       </instructions>
       <instructions xsi:type="arduino:If" xmi:id="_4rMuMMovEeyrEsguAqucdw">
-        <block xmi:id="_6QlXoMovEeyrEsguAqucdw">
-          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_9NZuEMovEeyrEsguAqucdw" module="_IxQoQMovEeyrEsguAqucdw">
-            <operand xsi:type="arduino:IntegerConstant" xmi:id="_-VLOcMovEeyrEsguAqucdw" value="90"/>
-          </instructions>
-          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="__OqbMMovEeyrEsguAqucdw" module="_IxQoQMovEeyrEsguAqucdw">
-            <operand xsi:type="arduino:IntegerConstant" xmi:id="__OqbMcovEeyrEsguAqucdw"/>
-          </instructions>
-          <instructions xsi:type="arduino:ModuleAssignment" module="_Qf35wMovEeyrEsguAqucdw">
-            <operand xsi:type="arduino:IntegerConstant"/>
-          </instructions>
-        </block>
         <condition xsi:type="arduino:BooleanModuleGet" xmi:id="_5RsGcMovEeyrEsguAqucdw" module="_Omt_wMovEeyrEsguAqucdw"/>
       </instructions>
       <instructions xsi:type="arduino:If" xmi:id="_BoicoMowEeyrEsguAqucdw">
         <block xmi:id="_Uwou4MowEeyrEsguAqucdw">
-          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_V3lI0MowEeyrEsguAqucdw" module="_KowVYcovEeyrEsguAqucdw"/>
+          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_V3lI0MowEeyrEsguAqucdw" module="_KowVYcovEeyrEsguAqucdw">
+            <operand xsi:type="arduino:IntegerConstant" xmi:id="_W7YvMMowEeyrEsguAqucdw"/>
+          </instructions>
           <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_ZGsJIMowEeyrEsguAqucdw" module="_TJEJkMovEeyrEsguAqucdw">
             <operand xsi:type="arduino:IntegerConstant" xmi:id="_aJ1oMMowEeyrEsguAqucdw" value="1"/>
           </instructions>
@@ -89,6 +80,16 @@
           <left xsi:type="arduino:IntegerModuleGet" xmi:id="_Faj8wMowEeyrEsguAqucdw" module="_NGu-QMowEeyrEsguAqucdw"/>
           <right xsi:type="arduino:IntegerConstant" xmi:id="_R1dXMMowEeyrEsguAqucdw" value="128"/>
         </condition>
+      </instructions>
+      <instructions xsi:type="arduino:Repeat" iteration="3">
+        <block>
+          <instructions xsi:type="arduino:ModuleAssignment" module="_IxQoQMovEeyrEsguAqucdw">
+            <operand xsi:type="arduino:IntegerConstant" value="90"/>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment" module="_IxQoQMovEeyrEsguAqucdw">
+            <operand xsi:type="arduino:IntegerConstant"/>
+          </instructions>
+        </block>
       </instructions>
     </block>
   </sketches>

@@ -34,5 +34,5 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="CQ"/>
+  <signals name="uT"/>
 </statemachines:CustomSystem>

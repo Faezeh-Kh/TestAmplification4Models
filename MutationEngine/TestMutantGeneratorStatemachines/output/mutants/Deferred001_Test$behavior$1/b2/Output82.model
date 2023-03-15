@@ -45,8 +45,8 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="XX"/>
+  <signals name="Continue"/>
   <signals name="Start"/>
-  <signals name="AnotherSignal"/>
+  <signals name="hI"/>
   <signals name="Pending"/>
 </statemachines:CustomSystem>

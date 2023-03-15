@@ -49,6 +49,6 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="my"/>
+  <signals name="tHj"/>
   <signals name="Continue"/>
 </statemachines:CustomSystem>

@@ -52,7 +52,7 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="Qs"/>
-  <signals name="Pending"/>
+  <signals name="Start"/>
+  <signals name="Db"/>
   <signals name="Continue"/>
 </statemachines:CustomSystem>

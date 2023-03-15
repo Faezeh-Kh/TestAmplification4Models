@@ -27,5 +27,5 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="IRz"/>
+  <signals name="Wbd"/>
 </statemachines:CustomSystem>

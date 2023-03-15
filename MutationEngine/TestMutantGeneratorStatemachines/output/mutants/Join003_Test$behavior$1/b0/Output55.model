@@ -50,7 +50,7 @@
   </statemachine>
   <signals name="Start"/>
   <signals name="IntegerData"/>
-  <signals name="cu">
+  <signals>
     <attributes xsi:type="statemachines:IntegerAttribute" name="value"/>
   </signals>
 </statemachines:CustomSystem>

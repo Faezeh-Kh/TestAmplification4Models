@@ -4,7 +4,7 @@
     <digitalPins name="redLed">
       <module xsi:type="arduino:LED" name="redLed" color="red"/>
     </digitalPins>
-    <digitalPins name="servo">
+    <digitalPins name="blueLed">
       <module xsi:type="arduino:LED" name="blueLed"/>
     </digitalPins>
     <digitalPins name="whiteLed">
@@ -16,7 +16,7 @@
     <digitalPins name="servo2">
       <module xsi:type="arduino:MicroServo" name="servo2"/>
     </digitalPins>
-    <digitalPins name="irSensor">
+    <digitalPins name="buttonPin">
       <module xsi:type="arduino:InfraRedSensor" name="irSensor"/>
     </digitalPins>
     <digitalPins name="button">

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ASCII"?>
+<DFAAutomaton:Automaton xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DFAAutomaton="http://dfaAutomaton/1.0" xsi:schemaLocation="http://dfaAutomaton/1.0 ../../../model/DFAAutomaton.ecore" name="Exercise 2">
+  <states name="q0" isInitial="true" isFinal="true"/>
+  <states name="q1" isFinal="true"/>
+  <states name="q2"/>
+  <transitions src="//@states.0" tar="//@states.0" symbol="//@alphabet.0"/>
+  <transitions src="//@states.0" tar="//@states.1" symbol="//@alphabet.1"/>
+  <transitions src="//@states.1" tar="//@states.1" symbol="//@alphabet.1"/>
+  <transitions src="//@states.1" tar="//@states.2" symbol="//@alphabet.0"/>
+  <transitions src="//@states.2" tar="//@states.2" symbol="//@alphabet.0"/>
+  <transitions src="//@states.2" tar="//@states.2" symbol="//@alphabet.1"/>
+  <transitions>
+    <src href="../../../model/exercise2.model#_RkYDcBg8EeuUd5wpkgojdw"/>
+    <tar href="../../../model/exercise2.model#_SuOncBg8EeuUd5wpkgojdw"/>
+    <symbol href="../../../model/exercise2.model#_Xqr6YBg8EeuUd5wpkgojdw"/>
+  </transitions>
+  <transitions>
+    <src href="../../../model/exercise2.model#_Tb6z4Bg8EeuUd5wpkgojdw"/>
+    <tar href="../../../model/exercise2.model#_Tb6z4Bg8EeuUd5wpkgojdw"/>
+    <symbol href="../../../model/exercise2.model#_Xqr6YBg8EeuUd5wpkgojdw"/>
+  </transitions>
+  <transitions>
+    <src href="../../../model/exercise2.model#_SuOncBg8EeuUd5wpkgojdw"/>
+    <tar href="../../../model/exercise2.model#_Tb6z4Bg8EeuUd5wpkgojdw"/>
+    <symbol href="../../../model/exercise2.model#_Xqr6YBg8EeuUd5wpkgojdw"/>
+  </transitions>
+  <transitions>
+    <src href="../../../model/exercise2.model#_SuOncBg8EeuUd5wpkgojdw"/>
+    <tar href="../../../model/exercise2.model#_RkYDcBg8EeuUd5wpkgojdw"/>
+    <symbol href="../../../model/exercise2.model#_W-I9cBg8EeuUd5wpkgojdw"/>
+  </transitions>
+  <alphabet symbol="a"/>
+  <alphabet symbol="b"/>
+</DFAAutomaton:Automaton>

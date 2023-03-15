@@ -47,5 +47,5 @@
     </regions>
   </statemachine>
   <signals name="Start"/>
-  <signals name="laX"/>
+  <signals name="amB"/>
 </statemachines:CustomSystem>

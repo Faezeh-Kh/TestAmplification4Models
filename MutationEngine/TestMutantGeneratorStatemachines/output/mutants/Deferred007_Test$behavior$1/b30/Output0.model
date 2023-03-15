@@ -43,11 +43,10 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="Start">
-    <attributes xsi:type="statemachines:IntegerAttribute" name="Zz"/>
-  </signals>
+  <signals name="Start"/>
   <signals name="Continue"/>
   <operations name="op">
     <inParameters xsi:type="statemachines:BooleanAttribute" name="p1"/>
+    <outParameters xsi:type="statemachines:StringAttribute"/>
   </operations>
 </statemachines:CustomSystem>

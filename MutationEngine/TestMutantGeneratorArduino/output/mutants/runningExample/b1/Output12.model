@@ -13,8 +13,8 @@
     <digitalPins name="buttonPin">
       <module xsi:type="arduino:PushButton" name="button1"/>
     </digitalPins>
-    <digitalPins name="sensor_pin">
-      <module xsi:type="arduino:PushButton" name="button1"/>
+    <digitalPins name="servo">
+      <module xsi:type="arduino:LED" name="whiteLed" color="white"/>
     </digitalPins>
   </boards>
   <sketches name="sketch" board="//@boards.0">

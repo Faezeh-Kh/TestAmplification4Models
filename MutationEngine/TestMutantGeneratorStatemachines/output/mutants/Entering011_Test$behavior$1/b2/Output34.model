@@ -44,6 +44,6 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="Start"/>
-  <signals name="xAL"/>
+  <signals name="eyG"/>
+  <signals name="Continue"/>
 </statemachines:CustomSystem>

@@ -138,6 +138,7 @@
     <return xsi:type="statemachines:BooleanAttribute" name="isVerified"/>
   </operations>
   <operations name="isCancelRequested()">
+    <outParameters xsi:type="statemachines:StringAttribute"/>
     <return xsi:type="statemachines:BooleanAttribute" name="isCancelRequested"/>
   </operations>
   <operations name="isPolicyVoilated()">
@@ -150,7 +151,6 @@
     <return xsi:type="statemachines:BooleanAttribute" name="isPasswordAlert"/>
   </operations>
   <operations name="isResumeRequested()">
-    <outParameters xsi:type="statemachines:IntegerAttribute" name="XB"/>
     <return xsi:type="statemachines:BooleanAttribute" name="isResumeRequested"/>
   </operations>
   <operations name="isLockExpired()">

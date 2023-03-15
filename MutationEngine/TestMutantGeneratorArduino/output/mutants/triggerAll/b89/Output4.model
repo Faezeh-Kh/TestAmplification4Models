@@ -87,11 +87,12 @@
           </block>
           <condition xsi:type="arduino:BinaryBooleanExpression" xmi:id="_DNUCEMowEeyrEsguAqucdw" operator="sup">
             <left xsi:type="arduino:IntegerModuleGet" xmi:id="_Faj8wMowEeyrEsguAqucdw" module="_NGu-QMowEeyrEsguAqucdw"/>
-            <right xsi:type="arduino:IntegerConstant" xmi:id="_R1dXMMowEeyrEsguAqucdw" value="128"/>
           </condition>
         </instructions>
       </block>
     </sketches>
   </arduino:Project>
-  <arduino:BooleanVariable name="ySt" initialValue="true"/>
+  <arduino:UnaryBooleanExpression>
+    <operand xsi:type="arduino:IntegerConstant" value="128"/>
+  </arduino:UnaryBooleanExpression>
 </xmi:XMI>

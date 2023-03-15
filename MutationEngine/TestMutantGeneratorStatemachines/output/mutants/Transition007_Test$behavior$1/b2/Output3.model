@@ -34,6 +34,6 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="Bp"/>
-  <signals name="Continue"/>
+  <signals name="AnotherSignal"/>
+  <signals name="xcj"/>
 </statemachines:CustomSystem>

@@ -43,7 +43,7 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="DgM"/>
+  <signals name="ujx"/>
   <signals name="Continue"/>
   <signals name="Pending"/>
 </statemachines:CustomSystem>

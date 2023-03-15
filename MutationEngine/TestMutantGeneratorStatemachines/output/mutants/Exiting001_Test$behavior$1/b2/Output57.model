@@ -43,6 +43,6 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="Start"/>
-  <signals name="BT"/>
+  <signals name="XGx"/>
+  <signals name="Continue"/>
 </statemachines:CustomSystem>

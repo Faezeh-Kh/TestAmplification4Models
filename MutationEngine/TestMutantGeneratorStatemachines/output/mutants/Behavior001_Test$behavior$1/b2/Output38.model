@@ -16,5 +16,5 @@
       </transitions>
     </regions>
   </statemachine>
-  <signals name="pUL"/>
+  <signals name="Oj"/>
 </statemachines:CustomSystem>
