@@ -24,10 +24,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference amplifier.ecore#//Configuration/operators"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference amplifier.ecore#//Configuration/filtering"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="amplifier.ecore#//AmplificationApproach"/>
+    <genClasses image="false" ecoreClass="amplifier.ecore#//AmplificationApproach">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute amplifier.ecore#//AmplificationApproach/selectionScoreThreshold"/>
+    </genClasses>
     <genClasses ecoreClass="amplifier.ecore#//Iterative">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute amplifier.ecore#//Iterative/numOfIterations"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute amplifier.ecore#//Iterative/selectionScoreThreshold"/>
     </genClasses>
     <genClasses ecoreClass="amplifier.ecore#//SearchBased"/>
     <genClasses image="false" ecoreClass="amplifier.ecore#//TestModificationOperator">
@@ -44,7 +45,7 @@
     <genClasses ecoreClass="amplifier.ecore#//EventPermutation"/>
     <genClasses ecoreClass="amplifier.ecore#//EventCreation"/>
     <genClasses ecoreClass="amplifier.ecore#//EventModification"/>
-    <genClasses image="false" ecoreClass="amplifier.ecore#//TestSelectionCriteria"/>
+    <genClasses image="false" ecoreClass="amplifier.ecore#//TestSelectionCriterion"/>
     <genClasses ecoreClass="amplifier.ecore#//ElementCoverage"/>
     <genClasses ecoreClass="amplifier.ecore#//MutationAnalysis">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference amplifier.ecore#//MutationAnalysis/mutantGenerator"/>

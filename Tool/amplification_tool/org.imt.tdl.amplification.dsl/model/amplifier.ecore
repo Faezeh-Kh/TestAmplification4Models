@@ -11,13 +11,14 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="operators" lowerBound="1"
         upperBound="-1" eType="#//TestModificationOperator" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="filtering" lowerBound="1"
-        eType="#//TestSelectionCriteria" containment="true"/>
+        eType="#//TestSelectionCriterion" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AmplificationApproach" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Iterative" eSuperTypes="#//AmplificationApproach">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numOfIterations" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AmplificationApproach" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectionScoreThreshold"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Iterative" eSuperTypes="#//AmplificationApproach">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numOfIterations" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SearchBased" eSuperTypes="#//AmplificationApproach"/>
   <eClassifiers xsi:type="ecore:EClass" name="TestModificationOperator" abstract="true">
@@ -44,9 +45,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="EventPermutation" eSuperTypes="#//EventSequenceModifier"/>
   <eClassifiers xsi:type="ecore:EClass" name="EventCreation" eSuperTypes="#//EventSequenceModifier"/>
   <eClassifiers xsi:type="ecore:EClass" name="EventModification" eSuperTypes="#//EventSequenceModifier"/>
-  <eClassifiers xsi:type="ecore:EClass" name="TestSelectionCriteria" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ElementCoverage" eSuperTypes="#//TestSelectionCriteria"/>
-  <eClassifiers xsi:type="ecore:EClass" name="MutationAnalysis" eSuperTypes="#//TestSelectionCriteria">
+  <eClassifiers xsi:type="ecore:EClass" name="TestSelectionCriterion" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementCoverage" eSuperTypes="#//TestSelectionCriterion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MutationAnalysis" eSuperTypes="#//TestSelectionCriterion">
     <eStructuralFeatures xsi:type="ecore:EReference" name="mutantGenerator" eType="#//MutantGenerator"
         containment="true"/>
   </eClassifiers>

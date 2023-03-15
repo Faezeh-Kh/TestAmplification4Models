@@ -9,7 +9,7 @@ Configuration returns Configuration:
 	'config' 'amplifier' name=EString '{'
 		'import' 'metamodel' metamodel=[ecore::EPackage]
 		
-		'technique' approach = (Iterative | SearchBased)
+		approach = AmplificationApproach
 		'test' 'modifiers' '{'
 			operators+=TestModificationOperator (',' operators+=TestModificationOperator)*
 		'}'
@@ -17,14 +17,19 @@ Configuration returns Configuration:
 	'}'
 ;
 	
-Iterative returns Iterative:
-	{Iterative} 'iterative:' 'stop'
-	('after' numOfIterations=EInt 'iterations')?
-	('when' 'score' 'reached' selectionScoreThreshold=EDouble)?
+AmplificationApproach: 
+	Iterative | SearchBased
+;
+
+Iterative:
+	{Iterative} 'iterative' 'technique'
+		('stop' 'after' numOfIterations=EInt 'iterations')?
+		('stop' 'when' 'score' 'reached' selectionScoreThreshold=EDouble)?
 	;
 
-SearchBased returns SearchBased:
-	{SearchBased} 'searchBased'
+SearchBased:
+	{SearchBased} 'searchBased' 'technique'  
+		('stop' 'when' 'score' 'reached' selectionScoreThreshold=EDouble)?
 	;
 
 TestModificationOperator returns TestModificationOperator:
@@ -63,7 +68,7 @@ EventPermutation:
 ;
 
 enum ApplicationPolicy returns ApplicationPolicy:
-	first = 'first' | last = 'last' | one = 'one' | all = 'all' | fixed = 'just'
+	first = 'first' | last = 'last' | one = 'one' | all = 'all' | fixed = 'atmost'
 ;
 
 ElementCoverage returns ElementCoverage: 
@@ -79,19 +84,15 @@ MutationAnalysis returns MutationAnalysis:
 ;
 
 MutantGenerator:
-	{MutantGenerator} 'generate' 'mutants' 
-	('using' 'mutation' 'operators' pathToMutationOperatorsFile=STRING)?
-	('{'
-		'generate' 'mutation' 'operators' 
-		'{'
-			mutationOperatorGenerator=MutationOperatorGenerator
-		'}'
-	 '}'
-	)?
+	{MutantGenerator} 'generate' 'mutants' 'using' 'mutation' 'operators'
+	(pathToMutationOperatorsFile=STRING)?
+	(mutationOperatorGenerator=MutationOperatorGenerator)?
 ;
 
 MutationOperatorGenerator: 
-	operators+=MutationOperatorType (',' operators+=MutationOperatorType)*
+	'{'
+		operators+=MutationOperatorType (',' operators+=MutationOperatorType)*
+	'}'
 ;
 
 MutationOperatorType: 
