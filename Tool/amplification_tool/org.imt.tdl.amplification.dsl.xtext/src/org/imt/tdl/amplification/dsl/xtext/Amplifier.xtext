@@ -64,7 +64,7 @@ EventModification:
 	'modify' policy= ApplicationPolicy (maxOccurrence=EInt)? 'events'
 ;
 EventPermutation: 
-	'permute' 'events' (maxOccurrence=EInt 'times')?
+	'permute' policy= ApplicationPolicy (maxOccurrence=EInt)? 'events'
 ;
 
 enum ApplicationPolicy returns ApplicationPolicy:

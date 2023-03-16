@@ -14,9 +14,11 @@ public abstract class AbstractTestModificationRunner extends TestModificationOpe
 	
 	TestDescription tdlTestCase;
 	
-	boolean applyAllModifiers;
 	//default policy is ALL
 	ApplicationPolicy policy = ApplicationPolicy.ALL;
+	int maxOccurrence = 1;
+	
+	boolean applyAllModifiers;
 	
 	int numOfNewTests;
 	List<TestDescription> generatedTestsByModification = new ArrayList<>();
