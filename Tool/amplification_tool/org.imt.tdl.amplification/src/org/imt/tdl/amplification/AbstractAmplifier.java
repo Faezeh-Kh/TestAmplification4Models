@@ -1,6 +1,7 @@
 package org.imt.tdl.amplification;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -10,6 +11,7 @@ import org.etsi.mts.tdl.Package;
 import org.imt.tdl.amplification.dsl.amplifier.Configuration;
 import org.imt.tdl.amplification.dsl.amplifier.ElementCoverage;
 import org.imt.tdl.amplification.dsl.amplifier.MutationAnalysis;
+import org.imt.tdl.amplification.dsl.amplifier.TestModificationOperator;
 import org.imt.tdl.amplification.filtering.FilterByCoverage;
 import org.imt.tdl.amplification.filtering.FilterByMutationScore;
 import org.imt.tdl.amplification.filtering.ITestSelector;
@@ -17,18 +19,28 @@ import org.imt.tdl.utilities.PathHelper;
 
 public abstract class AbstractAmplifier implements IAmplifier{
 
+	ArrayList<TestModificationOperator> modifiers;
+	
 	double maxSelectionScore;
 	ITestSelector testSelector;
 	
 	int numNewTests = 0;
 	
-	protected void instantiateTestSelector() {
+	protected void defaultSetup() {
+		//default: consider all modifiers
+		modifiers = null;
 		//set default selector: coverage is the default selector
 		maxSelectionScore = 100;
 		testSelector = new FilterByCoverage(maxSelectionScore);
 	}
 	
-	protected void instantiateTestSelector(Configuration amplifierConfiguration) {
+	
+	protected void customSetup (Configuration amplifierConfiguration) {
+		//finding the considered test modifiers
+		modifiers = new ArrayList<>();
+		amplifierConfiguration.getOperators().forEach(o -> modifiers.add(o));
+
+		//finding the considered selection criterion
 		maxSelectionScore = amplifierConfiguration.getApproach().getSelectionScoreThreshold();
 		if (amplifierConfiguration.getFiltering() instanceof ElementCoverage) {
 			testSelector = new FilterByCoverage(maxSelectionScore);
@@ -38,7 +50,7 @@ public abstract class AbstractAmplifier implements IAmplifier{
 					(MutationAnalysis) amplifierConfiguration.getFiltering(), maxSelectionScore);
 		}
 	}
-	
+
 	protected void saveAmplifiedTestCases(Package tdlTestSuite) {
 		PathHelper pathHelper = new PathHelper(tdlTestSuite);
 		Resource testSuiteRes = tdlTestSuite.eResource();

@@ -35,14 +35,14 @@ public class IterativeAmplifier extends AbstractAmplifier{
 	//default constructor
 	public IterativeAmplifier() {
 		maxIterations = 3;
-		super.instantiateTestSelector();
+		super.defaultSetup();
 	}
 	
 	//constructor based on configuration file
 	public IterativeAmplifier (Configuration amplifierConfiguration) {
 		Iterative iapproach = (Iterative) amplifierConfiguration.getApproach();
 		maxIterations = iapproach.getNumOfIterations();
-		super.instantiateTestSelector(amplifierConfiguration);
+		super.customSetup(amplifierConfiguration);
 	}
 
 	@Override
@@ -98,8 +98,8 @@ public class IterativeAmplifier extends AbstractAmplifier{
 
 			List<TestDescription> TMP = new ArrayList<>();
 			System.out.println("Phase (2): Modifying test input Data to generate new test cases");
-			TestInputDataModification IAmplifier = new TestInputDataModification(tdlTestSuite);
-			TMP.addAll(IAmplifier.generateNewTestsByInputModification(copyTdlTestCase));
+			TestInputDataModification IAmplifier = new TestInputDataModification();
+			TMP.addAll(IAmplifier.generateNewTestsByInputModification(copyTdlTestCase, modifiers));
 			System.out.println("Done: #of generated test cases by input modification = " + TMP.size());
 			
 			System.out.println("\nPhase (3): Running new tests and generating assertions");
@@ -112,18 +112,12 @@ public class IterativeAmplifier extends AbstractAmplifier{
 					tdlTestSuite.getPackagedElement().remove(newTestCase);
 				}
 				else {
-					//check whether the new test case is passed on the model
+					//ignore the new test case if it fails on the model or does not improve the score
 					amplifiedTests.add(newTestCase);
-					if (runTestCase(newTestCase) != TDLTestResultUtil.PASS) {
+					if (runTestCase(newTestCase) != TDLTestResultUtil.PASS 
+							|| !testSelector.testCaseImprovesScore(newTestCase)) {
 						tdlTestSuite.getPackagedElement().remove(newTestCase);
 						amplifiedTests.remove(newTestCase);
-					}
-					//check whether the new test case improves the selection score
-					else {
-						if (!testSelector.testCaseImprovesScore(newTestCase)) {
-							tdlTestSuite.getPackagedElement().remove(newTestCase);
-							amplifiedTests.remove(newTestCase);
-						}
 					}
 				}
 				//if the score reached the max score, break the loop

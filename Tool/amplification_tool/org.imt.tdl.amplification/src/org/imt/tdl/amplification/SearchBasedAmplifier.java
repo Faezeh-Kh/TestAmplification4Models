@@ -7,12 +7,12 @@ public class SearchBasedAmplifier extends AbstractAmplifier{
 	
 	//default constructor
 	public SearchBasedAmplifier() {
-		instantiateTestSelector();
+		super.defaultSetup();
 	}
 	
 	//constructor based on configuration file
 	public SearchBasedAmplifier(Configuration amplifierConfiguration) {
-		instantiateTestSelector(amplifierConfiguration);
+		super.customSetup(amplifierConfiguration);
 	}
 
 	@Override
