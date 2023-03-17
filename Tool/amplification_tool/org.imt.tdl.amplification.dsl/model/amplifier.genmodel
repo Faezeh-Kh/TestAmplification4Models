@@ -13,6 +13,7 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="amplifier.ecore#//ApplicationPolicy">
       <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//ApplicationPolicy/all"/>
       <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//ApplicationPolicy/one"/>
+      <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//ApplicationPolicy/each"/>
       <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//ApplicationPolicy/first"/>
       <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//ApplicationPolicy/last"/>
       <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//ApplicationPolicy/fixed"/>

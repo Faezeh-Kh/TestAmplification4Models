@@ -23,9 +23,9 @@ public abstract class AbstractTestModificationRunner extends TestModificationOpe
 	int numOfNewTests;
 	List<TestDescription> generatedTestsByModification = new ArrayList<>();
 	
-	protected TestDescription copyTdlTestCase(TestDescription testCase, int id, String modificationOperator) {
+	protected TestDescription copyTdlTestCase(TestDescription testCase, String id) {
 		TestDescription copyTdlTestCase = tdlFactory.eINSTANCE.createTestDescription();
-		copyTdlTestCase.setName(testCase.getName()  + "_" + id + "_" + modificationOperator);
+		copyTdlTestCase.setName(testCase.getName()  + "_" + id);
 		copyTdlTestCase.setTestConfiguration(testCase.getTestConfiguration());
 		copyTdlTestCase.setBehaviourDescription(EcoreUtil.copy(testCase.getBehaviourDescription()));
 		return copyTdlTestCase;

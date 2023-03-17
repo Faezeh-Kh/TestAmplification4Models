@@ -20,7 +20,7 @@ import org.imt.tdl.amplification.dsl.amplifier.Configuration;
 import org.imt.tdl.amplification.dsl.amplifier.Iterative;
 import org.imt.tdl.amplification.testmodifier.AssertionGenerator;
 import org.imt.tdl.amplification.testmodifier.AssertionRemover;
-import org.imt.tdl.amplification.testmodifier.TestInputDataModification;
+import org.imt.tdl.amplification.testmodifier.TestGenerator;
 import org.imt.tdl.testResult.TDLTestCaseResult;
 import org.imt.tdl.testResult.TDLTestResultUtil;
 import org.imt.tdl.utilities.PathHelper;
@@ -98,8 +98,8 @@ public class IterativeAmplifier extends AbstractAmplifier{
 
 			List<TestDescription> TMP = new ArrayList<>();
 			System.out.println("Phase (2): Modifying test input Data to generate new test cases");
-			TestInputDataModification IAmplifier = new TestInputDataModification();
-			TMP.addAll(IAmplifier.generateNewTestsByInputModification(copyTdlTestCase, modifiers));
+			TestGenerator testGenerator = new TestGenerator();
+			TMP.addAll(testGenerator.generateNewTestsByInputModification(copyTdlTestCase, modifiers));
 			System.out.println("Done: #of generated test cases by input modification = " + TMP.size());
 			
 			System.out.println("\nPhase (3): Running new tests and generating assertions");

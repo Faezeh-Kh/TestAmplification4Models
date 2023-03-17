@@ -179,321 +179,285 @@ public class PrimitiveValueModificationRunner extends AbstractTestModificationRu
 		generateTestsByLiteralModification(new FloatChangeWithExisting(), floatLiterals, FLOATMODIFICATION);
 	}
 	
-	private void generateTestsByLiteralModification(ILiteralValueModifier modifier, List<LiteralValueUse> literals, String modifierType) {
+	private void generateTestsByLiteralModification(ITestDataModifier modifier, List<LiteralValueUse> literals, String modifierType) {
 		if (maxOccurrence > literals.size()) {
 			maxOccurrence = literals.size();
 		}
+		String newTestId = numOfNewTests + "_" + modifierType + "_" + policy;
 		HashMap<LiteralValueUse, String> literal_initialValue = new HashMap<>();
 		if (policy == ApplicationPolicy.ALL) {//modify all values to generate a test case
 			for (LiteralValueUse literal: literals) {
 				literal_initialValue.put(literal, getLiteralValue(literal));
-				modifier.modifyValue(literal);
+				modifier.modifyData(literal);
 			}
-			generatedTestsByModification.add(copyTdlTestCase(tdlTestCase, numOfNewTests++, modifierType + "_" + policy));
+			generatedTestsByModification.add(copyTdlTestCase(tdlTestCase, newTestId));
+			numOfNewTests++;
 			//retrieve the initial values for the original test case
 			literals.forEach(l -> l.setValue("\""+ literal_initialValue.get(l) + "\""));
 		}
-		else if (policy == ApplicationPolicy.ONE) {//modify a random value to generate a test
+		else if (policy == ApplicationPolicy.ONE) {//modify a random value to generate a test case
 			Random random = new Random();
 			int randomIndex = random.nextInt(literals.size());
 			LiteralValueUse literal = literals.get(randomIndex);
 			String initialValue = getLiteralValue(literal);
-			modifier.modifyValue(literal);
-			generatedTestsByModification.add(copyTdlTestCase(tdlTestCase, numOfNewTests++, modifierType + "_" + policy));
+			modifier.modifyData(literal);
+			generatedTestsByModification.add(copyTdlTestCase(tdlTestCase, newTestId));
+			numOfNewTests++;
 			literal.setValue("\""+ initialValue + "\"");
+		}
+		else if (policy == ApplicationPolicy.EACH) {//generate a test case by modifying each value
+			for (LiteralValueUse literal: literals) {
+				String initialValue = getLiteralValue(literal);
+				modifier.modifyData(literal);
+				generatedTestsByModification.add(copyTdlTestCase(tdlTestCase, newTestId));
+				numOfNewTests++;
+				//retrieve the initial values for the original test case
+				literals.forEach(l -> l.setValue("\""+ initialValue + "\""));
+			}
 		}
 		else if (policy == ApplicationPolicy.FIRST || policy == ApplicationPolicy.FIXED) {//modify the first values (up to maxOccurrence) to generate a test
 			for (int i=0; i<maxOccurrence; i++) {
 				LiteralValueUse literal = literals.get(i);
 				literal_initialValue.put(literal, getLiteralValue(literal));
-				modifier.modifyValue(literal);
+				modifier.modifyData(literal);
 			}
-			generatedTestsByModification.add(copyTdlTestCase(tdlTestCase, numOfNewTests++, modifierType + "_" + policy));
+			generatedTestsByModification.add(copyTdlTestCase(tdlTestCase, newTestId));
+			numOfNewTests++;
 			for (int i=0; i<maxOccurrence; i++) {
 				LiteralValueUse literal = literals.get(i);
 				literal.setValue("\""+ literal_initialValue.get(literal) + "\"");
 			}
 		}
-		else if (policy == ApplicationPolicy.LAST) {//negate the last boolean values (up to maxOccurrence) to generate a test
+		else if (policy == ApplicationPolicy.LAST) {//modify the last values (up to maxOccurrence) to generate a test
 			for (int i=maxOccurrence-1; i>=0; i--) {
 				LiteralValueUse literal = literals.get(i);
 				literal_initialValue.put(literal, getLiteralValue(literal));
-				modifier.modifyValue(literal);
+				modifier.modifyData(literal);
 			}
-			generatedTestsByModification.add(copyTdlTestCase(tdlTestCase, numOfNewTests++, modifierType + "_" + policy));
+			generatedTestsByModification.add(copyTdlTestCase(tdlTestCase, newTestId));
+			numOfNewTests++;
 			for (int i=maxOccurrence-1; i>=0; i--) {
 				LiteralValueUse literal = literals.get(i);
 				literal.setValue("\""+ literal_initialValue.get(literal) + "\"");
 			}
 		}
 	}
-}
-//Boolean Modification Operators
-class NegateBooleanValue implements ILiteralValueModifier{
+	
+	//Boolean Modification Operators
+	class NegateBooleanValue implements ITestDataModifier{
 
-	@Override
-	public void modifyValue(LiteralValueUse tdlLiteralValue) {
-		String value = tdlLiteralValue.getValue();
-		if (value.startsWith("\"") || value.startsWith("'")){
-			value = value.substring(1, value.length()-1);//remove quotation marks
-    	}
-		if (value.equals("true")) {
-			tdlLiteralValue.setValue("\"false\"");
+		@Override
+		public void modifyData(Object data) {
+			LiteralValueUse tdlLiteralValue = (LiteralValueUse) data;
+			String value = getLiteralValue(tdlLiteralValue);
+			if (value.equals("true")) {
+				tdlLiteralValue.setValue("\"false\"");
+			}
+			else if (value.equals("false")) {
+				tdlLiteralValue.setValue("\"true\"");
+			}
 		}
-		else if (value.equals("false")) {
-			tdlLiteralValue.setValue("\"true\"");
+	}
+
+	//String Modification Operators
+	class AddRandomChar implements ITestDataModifier{
+
+		@Override
+		public void modifyData(Object data) {
+			LiteralValueUse tdlLiteralValue = (LiteralValueUse) data;
+			String value = getLiteralValue(tdlLiteralValue);
+			StringBuilder sb = new StringBuilder(value);
+			sb.append(RandomStringUtils.randomAlphanumeric(1));
+			tdlLiteralValue.setValue(sb.toString());
 		}
 	}
-}
+	class RemoveRandomChar implements ITestDataModifier{
 
-//String Modification Operators
-class AddRandomChar implements ILiteralValueModifier{
-
-	@Override
-	public void modifyValue(LiteralValueUse tdlLiteralValue) {
-		String value = tdlLiteralValue.getValue();
-		if (value.startsWith("\"") || value.startsWith("'")){
-			value = value.substring(1, value.length()-1);//remove quotation marks
-    	}
-		StringBuilder sb = new StringBuilder(value);
-		sb.append(RandomStringUtils.randomAlphanumeric(1));
-		tdlLiteralValue.setValue(sb.toString());
+		@Override
+		public void modifyData(Object data) {
+			LiteralValueUse tdlLiteralValue = (LiteralValueUse) data;
+			String value = getLiteralValue(tdlLiteralValue);
+			StringBuilder sb = new StringBuilder(value);
+			Random rand = new Random();
+			int randomIndex = rand.nextInt(sb.length());
+			sb.deleteCharAt(randomIndex);
+			tdlLiteralValue.setValue(sb.toString());
+		}
 	}
-}
-class RemoveRandomChar implements ILiteralValueModifier{
+	class ReplaceRandomChar implements ITestDataModifier{
 
-	@Override
-	public void modifyValue(LiteralValueUse tdlLiteralValue) {
-		String value = tdlLiteralValue.getValue();
-		if (value.startsWith("\"") || value.startsWith("'")){
-			value = value.substring(1, value.length()-1);//remove quotation marks
-    	}
-		StringBuilder sb = new StringBuilder(value);
-		Random rand = new Random();
-		int randomIndex = rand.nextInt(sb.length());
-		sb.deleteCharAt(randomIndex);
-		tdlLiteralValue.setValue(sb.toString());
+		@Override
+		public void modifyData(Object data) {
+			LiteralValueUse tdlLiteralValue = (LiteralValueUse) data;
+			String value = getLiteralValue(tdlLiteralValue);
+			StringBuilder sb = new StringBuilder(value);
+			Random rand = new Random();
+			int randomIndex = rand.nextInt(sb.length());
+			sb.replace(randomIndex, randomIndex + 1, RandomStringUtils.randomAlphanumeric(1));
+			tdlLiteralValue.setValue(sb.toString());
+		}
 	}
-}
-class ReplaceRandomChar implements ILiteralValueModifier{
+	class ReplaceString implements ITestDataModifier{
 
-	@Override
-	public void modifyValue(LiteralValueUse tdlLiteralValue) {
-		String value = tdlLiteralValue.getValue();
-		if (value.startsWith("\"") || value.startsWith("'")){
-			value = value.substring(1, value.length()-1);//remove quotation marks
-    	}
-		StringBuilder sb = new StringBuilder(value);
-		Random rand = new Random();
-		int randomIndex = rand.nextInt(sb.length());
-		sb.replace(randomIndex, randomIndex + 1, RandomStringUtils.randomAlphanumeric(1));
-		tdlLiteralValue.setValue(sb.toString());
+		@Override
+		public void modifyData(Object data) {
+			LiteralValueUse tdlLiteralValue = (LiteralValueUse) data;
+			String value = getLiteralValue(tdlLiteralValue);
+			tdlLiteralValue.setValue(RandomStringUtils.randomAlphanumeric(value.length()));
+		}
 	}
-}
-class ReplaceString implements ILiteralValueModifier{
+	class EmptyString implements ITestDataModifier{
 
-	@Override
-	public void modifyValue(LiteralValueUse tdlLiteralValue) {
-		String value = tdlLiteralValue.getValue();
-		if (value.startsWith("\"") || value.startsWith("'")){
-			value = value.substring(1, value.length()-1);//remove quotation marks
-    	}
-		tdlLiteralValue.setValue(RandomStringUtils.randomAlphanumeric(value.length()));
+		@Override
+		public void modifyData(Object data) {
+			LiteralValueUse tdlLiteralValue = (LiteralValueUse) data;
+			tdlLiteralValue.setValue("\"\"");
+		}
 	}
-}
-class EmptyString implements ILiteralValueModifier{
 
-	@Override
-	public void modifyValue(LiteralValueUse tdlLiteralValue) {
-		tdlLiteralValue.setValue("\"\"");
+	//Numeric Modification Operators
+	class NumericEqualOne implements ITestDataModifier{
+
+		@Override
+		public void modifyData(Object data) {
+			LiteralValueUse tdlLiteralValue = (LiteralValueUse) data;
+			tdlLiteralValue.setValue("\"" + (1) + "\"");
+		}
 	}
-}
+	class NumericEqualZero implements ITestDataModifier{
 
-//Numeric Modification Operators
-class NumericEqualOne implements ILiteralValueModifier{
-
-	@Override
-	public void modifyValue(LiteralValueUse tdlLiteralValue) {
-		String value = tdlLiteralValue.getValue();
-		if (value.startsWith("\"") || value.startsWith("'")){
-			value = value.substring(1, value.length()-1);//remove quotation marks
-    	}
-		tdlLiteralValue.setValue("\"" + (1) + "\"");
+		@Override
+		public void modifyData(Object data) {
+			LiteralValueUse tdlLiteralValue = (LiteralValueUse) data;
+			tdlLiteralValue.setValue("\"" + (0) + "\"");
+		}
 	}
-}
-class NumericEqualZero implements ILiteralValueModifier{
+	class NumericEqualMinusOne implements ITestDataModifier{
 
-	@Override
-	public void modifyValue(LiteralValueUse tdlLiteralValue) {
-		String value = tdlLiteralValue.getValue();
-		if (value.startsWith("\"") || value.startsWith("'")){
-			value = value.substring(1, value.length()-1);//remove quotation marks
-    	}
-		tdlLiteralValue.setValue("\"" + (0) + "\"");
+		@Override
+		public void modifyData(Object data) {
+			LiteralValueUse tdlLiteralValue = (LiteralValueUse) data;
+			tdlLiteralValue.setValue("\"" + (-1) + "\"");
+		}
 	}
-}
-class NumericEqualMinusOne implements ILiteralValueModifier{
+	class IntNegateValue implements ITestDataModifier{
 
-	@Override
-	public void modifyValue(LiteralValueUse tdlLiteralValue) {
-		String value = tdlLiteralValue.getValue();
-		if (value.startsWith("\"") || value.startsWith("'")){
-			value = value.substring(1, value.length()-1);//remove quotation marks
-    	}
-		tdlLiteralValue.setValue("\"" + (-1) + "\"");
+		@Override
+		public void modifyData(Object data) {
+			LiteralValueUse tdlLiteralValue = (LiteralValueUse) data;
+			String value = getLiteralValue(tdlLiteralValue);
+			int intValue = Integer.parseInt(value);
+			tdlLiteralValue.setValue("\"" + (-intValue) + "\"");
+		}
 	}
-}
-class IntNegateValue implements ILiteralValueModifier{
+	class IntPlusOne implements ITestDataModifier{
 
-	@Override
-	public void modifyValue(LiteralValueUse tdlLiteralValue) {
-		String value = tdlLiteralValue.getValue();
-		if (value.startsWith("\"") || value.startsWith("'")){
-			value = value.substring(1, value.length()-1);//remove quotation marks
-    	}
-		int intValue = Integer.parseInt(value);
-		tdlLiteralValue.setValue("\"" + (-intValue) + "\"");
+		@Override
+		public void modifyData(Object data) {
+			LiteralValueUse tdlLiteralValue = (LiteralValueUse) data;
+			String value = getLiteralValue(tdlLiteralValue);
+			int intValue = Integer.parseInt(value);
+			tdlLiteralValue.setValue("\"" + (intValue + 1) + "\"");
+		}
 	}
-}
-class IntPlusOne implements ILiteralValueModifier{
+	class IntMinusOne implements ITestDataModifier{
 
-	@Override
-	public void modifyValue(LiteralValueUse tdlLiteralValue) {
-		String value = tdlLiteralValue.getValue();
-		if (value.startsWith("\"") || value.startsWith("'")){
-			value = value.substring(1, value.length()-1);//remove quotation marks
-    	}
-		int intValue = Integer.parseInt(value);
-		tdlLiteralValue.setValue("\"" + (intValue + 1) + "\"");
+		@Override
+		public void modifyData(Object data) {
+			LiteralValueUse tdlLiteralValue = (LiteralValueUse) data;
+			String value = getLiteralValue(tdlLiteralValue);
+			int intValue = Integer.parseInt(value);
+			tdlLiteralValue.setValue("\"" + (intValue - 1) + "\"");
+		}
 	}
-}
-class IntMinusOne implements ILiteralValueModifier{
+	class IntMultiplyTwo implements ITestDataModifier{
 
-	@Override
-	public void modifyValue(LiteralValueUse tdlLiteralValue) {
-		String value = tdlLiteralValue.getValue();
-		if (value.startsWith("\"") || value.startsWith("'")){
-			value = value.substring(1, value.length()-1);//remove quotation marks
-    	}
-		int intValue = Integer.parseInt(value);
-		tdlLiteralValue.setValue("\"" + (intValue - 1) + "\"");
+		@Override
+		public void modifyData(Object data) {
+			LiteralValueUse tdlLiteralValue = (LiteralValueUse) data;
+			String value = getLiteralValue(tdlLiteralValue);
+			int intValue = Integer.parseInt(value);
+			tdlLiteralValue.setValue("\"" + (intValue * 2) + "\"");
+		}
 	}
-}
-class IntMultiplyTwo implements ILiteralValueModifier{
+	class IntDevideTwo implements ITestDataModifier{
 
-	@Override
-	public void modifyValue(LiteralValueUse tdlLiteralValue) {
-		String value = tdlLiteralValue.getValue();
-		if (value.startsWith("\"") || value.startsWith("'")){
-			value = value.substring(1, value.length()-1);//remove quotation marks
-    	}
-		int intValue = Integer.parseInt(value);
-		tdlLiteralValue.setValue("\"" + (intValue * 2) + "\"");
+		@Override
+		public void modifyData(Object data) {
+			LiteralValueUse tdlLiteralValue = (LiteralValueUse) data;
+			String value = getLiteralValue(tdlLiteralValue);
+			int intValue = Integer.parseInt(value);
+			tdlLiteralValue.setValue("\"" + (intValue / 2) + "\"");
+		}
 	}
-}
-class IntDevideTwo implements ILiteralValueModifier{
+	class IntChangeWithExisting implements ITestDataModifier{
 
-	@Override
-	public void modifyValue(LiteralValueUse tdlLiteralValue) {
-		String value = tdlLiteralValue.getValue();
-		if (value.startsWith("\"") || value.startsWith("'")){
-			value = value.substring(1, value.length()-1);//remove quotation marks
-    	}
-		int intValue = Integer.parseInt(value);
-		tdlLiteralValue.setValue("\"" + (intValue / 2) + "\"");
+		@Override
+		public void modifyData(Object data) {
+			LiteralValueUse tdlLiteralValue = (LiteralValueUse) data;
+			LiteralValueUse otherValue = intLiterals.stream()
+					.filter(i -> i != tdlLiteralValue).findAny().get();
+			tdlLiteralValue.setValue(otherValue.getValue());
+		}
 	}
-}
-class IntChangeWithExisting implements ILiteralValueModifier{
+	class FloatNegateValue implements ITestDataModifier{
 
-	@Override
-	public void modifyValue(LiteralValueUse tdlLiteralValue) {
-		String value = tdlLiteralValue.getValue();
-		if (value.startsWith("\"") || value.startsWith("'")){
-			value = value.substring(1, value.length()-1);//remove quotation marks
-    	}
-		int intValue = Integer.parseInt(value);
-		//TODO: How to find existing values?
-//		List<LiteralValueUse> otherValues = intLiterals.stream()
-//				.filter(i -> i != intLiteral).collect(Collectors.toList());
-//		for (LiteralValueUse otherValue: otherValues) {
-//			intLiteral.setValue(otherValue.getValue());
-//		}
+		@Override
+		public void modifyData(Object data) {
+			LiteralValueUse tdlLiteralValue = (LiteralValueUse) data;
+			String value = getLiteralValue(tdlLiteralValue);
+			float floatValue = Float.parseFloat(value);
+			tdlLiteralValue.setValue("\"" + (-floatValue) + "\"");
+		}
 	}
-}
-class FloatNegateValue implements ILiteralValueModifier{
+	class FloatPlusOne implements ITestDataModifier{
 
-	@Override
-	public void modifyValue(LiteralValueUse tdlLiteralValue) {
-		String value = tdlLiteralValue.getValue();
-		if (value.startsWith("\"") || value.startsWith("'")){
-			value = value.substring(1, value.length()-1);//remove quotation marks
-    	}
-		float floatValue = Float.parseFloat(value);
-		tdlLiteralValue.setValue("\"" + (-floatValue) + "\"");
+		@Override
+		public void modifyData(Object data) {
+			LiteralValueUse tdlLiteralValue = (LiteralValueUse) data;
+			String value = getLiteralValue(tdlLiteralValue);
+			float floatValue = Float.parseFloat(value);
+			tdlLiteralValue.setValue("\"" + (floatValue + 1) + "\"");
+		}
 	}
-}
-class FloatPlusOne implements ILiteralValueModifier{
+	class FloatMinusOne implements ITestDataModifier{
 
-	@Override
-	public void modifyValue(LiteralValueUse tdlLiteralValue) {
-		String value = tdlLiteralValue.getValue();
-		if (value.startsWith("\"") || value.startsWith("'")){
-			value = value.substring(1, value.length()-1);//remove quotation marks
-    	}
-		float floatValue = Float.parseFloat(value);
-		tdlLiteralValue.setValue("\"" + (floatValue + 1) + "\"");
+		@Override
+		public void modifyData(Object data) {
+			LiteralValueUse tdlLiteralValue = (LiteralValueUse) data;
+			String value = getLiteralValue(tdlLiteralValue);
+			float floatValue = Float.parseFloat(value);
+			tdlLiteralValue.setValue("\"" + (floatValue - 1) + "\"");
+		}
 	}
-}
-class FloatMinusOne implements ILiteralValueModifier{
+	class FloatMultiplyTwo implements ITestDataModifier{
 
-	@Override
-	public void modifyValue(LiteralValueUse tdlLiteralValue) {
-		String value = tdlLiteralValue.getValue();
-		if (value.startsWith("\"") || value.startsWith("'")){
-			value = value.substring(1, value.length()-1);//remove quotation marks
-    	}
-		float floatValue = Float.parseFloat(value);
-		tdlLiteralValue.setValue("\"" + (floatValue - 1) + "\"");
+		@Override
+		public void modifyData(Object data) {
+			LiteralValueUse tdlLiteralValue = (LiteralValueUse) data;
+			String value = getLiteralValue(tdlLiteralValue);
+			float floatValue = Float.parseFloat(value);
+			tdlLiteralValue.setValue("\"" + (floatValue * 2) + "\"");
+		}
 	}
-}
-class FloatMultiplyTwo implements ILiteralValueModifier{
+	class FloatDevideTwo implements ITestDataModifier{
 
-	@Override
-	public void modifyValue(LiteralValueUse tdlLiteralValue) {
-		String value = tdlLiteralValue.getValue();
-		if (value.startsWith("\"") || value.startsWith("'")){
-			value = value.substring(1, value.length()-1);//remove quotation marks
-    	}
-		float floatValue = Float.parseFloat(value);
-		tdlLiteralValue.setValue("\"" + (floatValue * 2) + "\"");
+		@Override
+		public void modifyData(Object data) {
+			LiteralValueUse tdlLiteralValue = (LiteralValueUse) data;
+			String value = getLiteralValue(tdlLiteralValue);
+			float floatValue = Float.parseFloat(value);
+			tdlLiteralValue.setValue("\"" + (floatValue / 2) + "\"");
+		}
 	}
-}
-class FloatDevideTwo implements ILiteralValueModifier{
+	class FloatChangeWithExisting implements ITestDataModifier{
 
-	@Override
-	public void modifyValue(LiteralValueUse tdlLiteralValue) {
-		String value = tdlLiteralValue.getValue();
-		if (value.startsWith("\"") || value.startsWith("'")){
-			value = value.substring(1, value.length()-1);//remove quotation marks
-    	}
-		float floatValue = Float.parseFloat(value);
-		tdlLiteralValue.setValue("\"" + (floatValue / 2) + "\"");
-	}
-}
-class FloatChangeWithExisting implements ILiteralValueModifier{
-
-	@Override
-	public void modifyValue(LiteralValueUse tdlLiteralValue) {
-		String value = tdlLiteralValue.getValue();
-		if (value.startsWith("\"") || value.startsWith("'")){
-			value = value.substring(1, value.length()-1);//remove quotation marks
-    	}
-		float floatValue = Float.parseFloat(value);
-		//TODO: How to find existing values?
-//		List<LiteralValueUse> otherValues = intLiterals.stream()
-//				.filter(i -> i != intLiteral).collect(Collectors.toList());
-//		for (LiteralValueUse otherValue: otherValues) {
-//			intLiteral.setValue(otherValue.getValue());
-//		}
+		@Override
+		public void modifyData(Object data) {
+			LiteralValueUse tdlLiteralValue = (LiteralValueUse) data;
+			LiteralValueUse otherValue = floatLiterals.stream()
+					.filter(i -> i != tdlLiteralValue).findAny().get();
+			tdlLiteralValue.setValue(otherValue.getValue());
+		}
 	}
 }

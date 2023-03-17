@@ -68,7 +68,7 @@ EventPermutation:
 ;
 
 enum ApplicationPolicy returns ApplicationPolicy:
-	first = 'first' | last = 'last' | one = 'one' | all = 'all' | fixed = 'atmost'
+	all = 'all'| one = 'one' | each = 'each' | first = 'first' | last = 'last' | fixed = 'atmost'
 ;
 
 ElementCoverage returns ElementCoverage: 

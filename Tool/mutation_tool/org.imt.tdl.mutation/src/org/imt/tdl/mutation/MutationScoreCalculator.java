@@ -29,16 +29,20 @@ import org.etsi.mts.tdl.Interaction;
 import org.etsi.mts.tdl.Package;
 import org.etsi.mts.tdl.TestDescription;
 import org.imt.k3tdl.interpreter.TestDescriptionAspect;
+import org.imt.tdl.amplification.dsl.amplifier.MutantGenerator;
 import org.imt.tdl.testResult.TDLTestCaseResult;
 import org.imt.tdl.testResult.TDLTestResultUtil;
 import org.imt.tdl.utilities.PathHelper;
+
+import wodel.dsls.WodelUtils;
 
 public class MutationScoreCalculator {
 	
 	Package testSuite;
 	List<TestDescription> testCases = new ArrayList<>();
-	public boolean noMutantsExists;
 	
+	MutantGenerator mutantGenerator;
+	public boolean noMutantsExists;
 	private static String KILLED = "killed";
 	private static String ALIVE = "alive";
 	
@@ -64,13 +68,15 @@ public class MutationScoreCalculator {
 	Path seedModelPath;
 	IProject mutantsProject;
 	
-	public MutationScoreCalculator(Package testSuite) {
+	public MutationScoreCalculator(MutantGenerator mutantGenerator, Package testSuite) {
 		this.testSuite = testSuite;
 		testCases = testSuite.getPackagedElement().stream().filter(p -> p instanceof TestDescription).
 				map(p -> (TestDescription) p).collect(Collectors.toList());
 		pathHelper = new PathHelper(testSuite);
 		seedModelPath = pathHelper.getModelUnderTestPath();
 		workspacePath = pathHelper.getWorkspacePath();
+		
+		this.mutantGenerator = mutantGenerator;
 		findMutants();
 		//default values of pitest tool
 		timeoutFactor = 1.25;
@@ -254,11 +260,14 @@ public class MutationScoreCalculator {
 		File modelFolder = new File(mutantsProject.getLocation() + "/mutants");
 		if (modelFolder.listFiles() == null) {
 			noMutantsExists = true;
-			//TODO: generate mutants
-		}else {
-			for (File file : modelFolder.listFiles()) {
-				mutantsPathsHelper(projectName, file);
-			}
+			String inputPath = mutantsProject.getLocation().toString();
+			String outputPath = inputPath + "/mutants";
+			String wodelProjectPath = mutantGenerator.getPathToMutationOperatorsFile();
+			String eclipseHomePath = "c:/labtop/gemoc_studio";
+			WodelUtils.generateMutants(new String[] {inputPath, outputPath, wodelProjectPath, eclipseHomePath});
+		}
+		for (File file : modelFolder.listFiles()) {
+			mutantsPathsHelper(projectName, file);
 		}
 	}
 	

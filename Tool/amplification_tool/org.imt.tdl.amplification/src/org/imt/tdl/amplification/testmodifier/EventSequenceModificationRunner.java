@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Random;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -32,6 +33,7 @@ import org.etsi.mts.tdl.StructuredDataInstance;
 import org.etsi.mts.tdl.StructuredDataType;
 import org.etsi.mts.tdl.TestDescription;
 import org.etsi.mts.tdl.tdlFactory;
+import org.imt.tdl.amplification.dsl.amplifier.ApplicationPolicy;
 import org.imt.tdl.amplification.dsl.amplifier.EventCreation;
 import org.imt.tdl.amplification.dsl.amplifier.EventDeletion;
 import org.imt.tdl.amplification.dsl.amplifier.EventDuplication;
@@ -74,39 +76,35 @@ public class EventSequenceModificationRunner extends AbstractTestModificationRun
 		pathHelper = new PathHelper(tdlTestSuite);
 		//initialization
 		findTdlDataOfDSLInterface();
-		findTdlDataOfMUT();
-		modifyExchangedEvents();
+		
+		generateTestsByEventModification();
 		return generatedTestsByModification;
 	}
 
 	/* four operators can be applied:
 	 * 1. duplication of existing 
-	 * 2. creation of new events based on the interface
-	 * 3. deletion
-	 * 4. reordering
-	 * 5. modification of event parameters values with other values for the same parameter
-	 * 
+	 * 2. deletion
+	 * 3. reordering
+	 * 4. modification of event parameters values with other values for the same parameter
+	 * 5. creation of new events based on the interface
 	 * NOTE: We assume a TDL test case only contains a series of Message elements each sending an accepted event to the model under test
 	 */
-	private void modifyExchangedEvents() {
+	private void generateTestsByEventModification() {
 		if (modifiers == null) {
 			//default configuration: apply all operators
-			if (tdlEventInstances != null) {
-				generateTestsByEventCreation();
-			}
 			generateTestsByEventDuplication();
 			generateTestsByEventDeletion();
 			generateTestsByEventPermutation();
-			generateTestsByEventModification();
+			generateTestsByEventParameterModification();
+			if (tdlEventInstances != null) {
+				generateTestsByEventCreation();
+			}
 		}
 		else {
 			for (TestModificationOperator modifier:modifiers) {
 				policy = modifier.getPolicy();
 				maxOccurrence = modifier.getMaxOccurrence();
-				if (modifier instanceof EventCreation && tdlEventInstances != null) {
-					generateTestsByEventCreation();
-				}
-				else if (modifier instanceof EventDuplication) {
+				if (modifier instanceof EventDuplication) {
 					generateTestsByEventDuplication();
 				}
 				else if (modifier instanceof EventDeletion) {
@@ -116,120 +114,101 @@ public class EventSequenceModificationRunner extends AbstractTestModificationRun
 					generateTestsByEventPermutation();
 				}
 				else if (modifier instanceof EventModification) {
-					generateTestsByEventModification();
+					generateTestsByEventParameterModification();
+				}
+				else if (modifier instanceof EventCreation && tdlEventInstances != null) {
+					generateTestsByEventCreation();
 				}
 			}
 		}
 	}
 	
-	private void findTdlDataOfDSLInterface() {
-		String dslFilePath = pathHelper.getDSLPath().toString().replace("\\", "/");
-		Resource dslRes = (new ResourceSetImpl()).getResource(URI.createURI(dslFilePath), true);
-		Dsl dsl = (Dsl)dslRes.getContents().get(0);
-		if (dsl.getEntry("behavioralInterface") != null) {
-			String interfacePath = dsl.getEntry("behavioralInterface").getValue().replaceFirst("resource", "plugin");
-			Resource interfaceRes = (new ResourceSetImpl()).getResource(URI.createURI(interfacePath), true);
-			BehavioralInterface interfaceRootElement = (BehavioralInterface) interfaceRes.getContents().get(0);
-			List<Event> acceptedEvents = interfaceRootElement.getEvents().stream()
-					.filter(e -> e.getType() == EventType.ACCEPTED).collect(Collectors.toList());
-			for (Event event:acceptedEvents) {
-				//finding the tdl instance corresponding to the accepted event 
-				StructuredDataInstance tdlEventInstance = tdlTestSuite.getPackagedElement().stream().filter(p -> p instanceof StructuredDataInstance).
-					map(p -> (StructuredDataInstance) p).filter(d -> getDSLCompatibleName(d.getName()).equals(event.getName())).findFirst().get();
-				tdlEventInstances.add(tdlEventInstance);
-				//finding the types of the event parameters
-				for (Member tdlEventParameter:((StructuredDataType)tdlEventInstance.getDataType()).allMembers()) {
-					tdlEventParameterTypes.add((StructuredDataType) tdlEventParameter.getDataType());
-				}
-			}		
-		}
+	private void generateTestsByEventDuplication() {
+		modifyExchangedEvents(new DuplicateEvent(), getAllOriginalMessages());
 	}
-	
-	private void findTdlDataOfMUT() {
-		tdlEventParameterTypes.forEach(t -> etype_tdlEObjects.put(t.getName(), new ArrayList<>()));
-		EObject2TDLConverter object2tdlCoverter = new EObject2TDLConverter(tdlTestSuite);
-		Resource MUTResource = pathHelper.getMUTResource();
-		TreeIterator<EObject> modelContents = MUTResource.getAllContents();
-		while (modelContents.hasNext()) {
-			EObject modelObject = modelContents.next();
-			String objectType = modelObject.eClass().getName();
-			if (tdlEventParameterTypes.stream().anyMatch(t -> t.getName().equals(objectType))) {
-				StructuredDataInstance tdlInstance4object = (StructuredDataInstance) object2tdlCoverter.convertEObject2TDLData(modelObject);
-				etype_tdlEObjects.get(objectType).add(tdlInstance4object);
-			}
-		}
-		//for dynamic eTypes, create new eobjects
-		//TODO: using MOMoT
+
+	private void generateTestsByEventDeletion() {
+		modifyExchangedEvents(new DeleteEvent(), getAllOriginalMessages());
 	}
-	
-	/* generating new test cases by addition-creation of new events
-	 * for the accepted events of the behavioral interface that are not used in the test cases, create new events
-	 * - if the EObjects used as event parameters are existed in the model under test
-	 * all the possible new events are created and new tests are generated by adding one new event to them
-	 * create new tests by adding new events one by one, and adding them all to one test case
-	 */
+
+	private void generateTestsByEventPermutation() {
+		modifyExchangedEvents(new PermuteEvent(), getAllOriginalMessages());
+	}
+
+	private void generateTestsByEventParameterModification() {
+		modifyExchangedEvents(new ModifyEventParameter(), getAllOriginalMessages());
+	}
+
 	private void generateTestsByEventCreation() {
-		//TODO: apply based on policy
+		List<Message> newMessages = generateMessages4MissedEvents();
+		if (newMessages.size()>0) {
+			modifyExchangedEvents(new CreateEvent(), newMessages);
+		}
+	}
+	
+	private void modifyExchangedEvents(ITestDataModifier modifier, List<Message> tdlMessages) {
+		if (policy == ApplicationPolicy.ALL) {//modify all events to generate a test case
+			modifier.modifyData(tdlMessages);
+		}
+		else if (policy == ApplicationPolicy.ONE) {//modify a random event to generate a test
+			Random random = new Random();
+			int randomIndex = random.nextInt(tdlMessages.size());
+			modifier.modifyData(tdlMessages.subList(randomIndex, randomIndex+1));
+		}
+		else if (policy == ApplicationPolicy.EACH) {//generate a test case by modifying each value
+			for (int i=0; i< tdlMessages.size(); i++) {
+				modifier.modifyData(tdlMessages.subList(i, i+1));
+			}
+		}
+		else if (policy == ApplicationPolicy.FIRST || policy == ApplicationPolicy.FIXED) {//modify the first events (up to maxOccurrence) to generate a test
+			modifier.modifyData(tdlMessages.subList(0, maxOccurrence));
+		}
+		else if (policy == ApplicationPolicy.LAST) {//modify the last events (up to maxOccurrence) to generate a test
+			modifier.modifyData(tdlMessages.subList(tdlMessages.size()-maxOccurrence, tdlMessages.size()));
+		}
+	}
+	
+	private List<Message> getAllOriginalMessages(){
+		//only for messages sending an event, perform the needed modification
+		Block messagesContainer = ((CompoundBehaviour) tdlTestCase.getBehaviourDescription().getBehaviour()).getBlock();
+		List<Message> tdlMessages = messagesContainer.getBehaviour().stream()
+				.filter (b -> b instanceof Message && isMessageSendingAnEvent((Message) b))
+				.map(b -> (Message) b).collect(Collectors.toList());
+		return tdlMessages;
+	}
+	
+	private List<Message> generateMessages4MissedEvents(){
 		Set<StructuredDataInstance> eventsUsedInTests = findEventsUsedInTestCase();
 		List<StructuredDataInstance> eventsNotUsedInTests = tdlEventInstances.stream().
 				filter(e -> !eventsUsedInTests.contains(e)).collect(Collectors.toList());
 		List<Message> newMessagesForNotUsedEvents = new ArrayList<>();
-		int n = 0;
 		for (StructuredDataInstance tdlEventInstance: eventsNotUsedInTests) {
 			//check whether for each event parameter, at least one eobject exists in the model under test
 			//this is required for setting the value of parameters
 			List<Member> tdlEventParameters = ((StructuredDataType) tdlEventInstance.getDataType()).allMembers();
-			if (tdlEventParameters.stream().allMatch(p -> !etype_tdlEObjects.get(p.getDataType().getName()).isEmpty())) {
-				List<Message> newMessages = generateNewMessages4NotUsedEvent(tdlEventInstance);
-				//for each new message, create a new test case
-				for (Message newMessage: newMessages) {
-					TestDescription copyTdlTestCase = copyTdlTestCase(tdlTestCase, numOfNewTests++, EVENTCREATION);
-					Block copyContainer = ((CompoundBehaviour) copyTdlTestCase.getBehaviourDescription().getBehaviour()).getBlock();
-					copyContainer.getBehaviour().add(newMessage);
-					generatedTestsByModification.add(copyTdlTestCase);
-				}
-				if (newMessages.size()>1) {
-					//create a new test case containing all new messages
-					List<Message> allNewMessages = new ArrayList<>();
-					Collections.copy(allNewMessages, newMessages);
-					TestDescription copyTdlTestCase = copyTdlTestCase(tdlTestCase, numOfNewTests++, EVENTCREATION);
-					Block copyContainer = ((CompoundBehaviour) copyTdlTestCase.getBehaviourDescription().getBehaviour()).getBlock();
-					copyContainer.getBehaviour().addAll(allNewMessages);
-					generatedTestsByModification.add(copyTdlTestCase);
-					//for this new test case having several new messages, amplify it by other operators: duplication, permutation, deletion
-					TestDescription inputTestCase = this.tdlTestCase;
-					tdlTestCase = copyTdlTestCase;
-					generateTestsByEventDuplication();
-					generateTestsByEventPermutation();
-					if (newMessages.size() > 2) {
-						generateTestsByEventDeletion();
-					}
-					tdlTestCase = inputTestCase;
-				}
-				newMessages.forEach(m -> newMessagesForNotUsedEvents.add(copyTdlMessage(m)));;
-				n++;
+			if (tdlEventParameters.stream()
+					.allMatch(p -> !etype_tdlEObjects.get(p.getDataType().getName()).isEmpty())) {
+				newMessagesForNotUsedEvents = transformEvent2Message(tdlEventInstance);
 			}
 		}
-		if (n>1) {
-			//create a new test case containing all new messages for all not used event instances
-			TestDescription copyTdlTestCase = copyTdlTestCase(tdlTestCase, numOfNewTests++, EVENTCREATION);
-			Block copyContainer = ((CompoundBehaviour) copyTdlTestCase.getBehaviourDescription().getBehaviour()).getBlock();
-			copyContainer.getBehaviour().addAll(newMessagesForNotUsedEvents);
-			generatedTestsByModification.add(copyTdlTestCase);
-			//for this new test case having several new messages, amplify it by other operators: duplication, permutation, deletion
-			TestDescription inputTestCase = this.tdlTestCase;
-			tdlTestCase = copyTdlTestCase;
-			generateTestsByEventDuplication();
-			generateTestsByEventPermutation();
-			if (n > 2) {
-				generateTestsByEventDeletion();
-			}
-			tdlTestCase = inputTestCase;
+		return newMessagesForNotUsedEvents;
+	}
+	
+	private Set<StructuredDataInstance> findEventsUsedInTestCase() {
+		Set<StructuredDataInstance> eventsUsedInTests = new HashSet<StructuredDataInstance>();
+		Block messagesContainer = ((CompoundBehaviour) tdlTestCase.getBehaviourDescription().getBehaviour()).getBlock();
+		List<Message> tdlMessages = messagesContainer.getBehaviour().stream()
+				.map(b -> (Message) b).collect(Collectors.toList());
+		for (Message message:tdlMessages.stream()
+				.filter(m -> isMessageSendingAnEvent(m)).collect(Collectors.toList())) {
+			DataInstance tdlEvent = ((DataInstanceUse) message.getArgument()).getDataInstance();
+			eventsUsedInTests.add((StructuredDataInstance) tdlEvent);
 		}
+		return eventsUsedInTests;
 	}
 	
 	//creating new messages for the not used event by using all possible values for all event parameters
-	private List<Message> generateNewMessages4NotUsedEvent(StructuredDataInstance tdlEventInstance) {
+	private List<Message> transformEvent2Message(StructuredDataInstance tdlEventInstance) {
 		List<Message> newMessages = new ArrayList<>();
 		newMessages.add(createFirstMessage4Event(tdlEventInstance));
 		int paramIndex = 0;
@@ -238,34 +217,10 @@ public class EventSequenceModificationRunner extends AbstractTestModificationRun
 			List<Message> newMessagesByModification = new ArrayList<>();
 			Parameter consideredParameter = ((StructuredDataType) tdlEventInstance.getDataType()).allMembers().get(paramIndex);
 			for (Message newMessage:newMessages) {
-				newMessagesByModification.addAll(createNewMessagesByModification(newMessage, consideredParameter));
+				newMessagesByModification.addAll(generateNewMessagesByNewParameterValues(newMessage, consideredParameter));
 			}
 			newMessages.addAll(newMessagesByModification);
 			paramIndex++;
-		}
-		return newMessages;
-	}
-	
-	//creating new Messages by modifying the value of a specific parameter
-	private List<Message> createNewMessagesByModification(Message currentMessage, Parameter consideredParameter) {
-		List<Message> newMessages = new ArrayList<>();
-		DataInstanceUse exchangedTdlEventInstance = (DataInstanceUse) currentMessage.getArgument();
-		//find parameterBinding of the currentMessage related to the considered parameter
-		Optional<ParameterBinding> pbOptional = exchangedTdlEventInstance.getArgument().stream().filter(pb -> pb.getParameter() == consideredParameter).findFirst();
-		if (pbOptional.isEmpty()) {
-			return null;
-		}
-		ParameterBinding relatedBinding = pbOptional.get();
-		String paramType = consideredParameter.getDataType().getName().toString();
-		int paramValueIndex = 1;
-		int paramValuesSize = etype_tdlEObjects.get(paramType).size();
-		while(paramValueIndex < paramValuesSize) {
-			Message newMessage = copyTdlMessage(currentMessage);
-			relatedBinding = ((DataInstanceUse) newMessage.getArgument()).getArgument().stream().
-					filter(pb -> pb.getParameter() == consideredParameter).findFirst().get();
-			((DataInstanceUse)relatedBinding.getDataUse()).setDataInstance(etype_tdlEObjects.get(paramType).get(paramValueIndex));
-			newMessages.add(newMessage);
-			paramValueIndex++;
 		}
 		return newMessages;
 	}
@@ -293,147 +248,199 @@ public class EventSequenceModificationRunner extends AbstractTestModificationRun
 		return newMessage;
 	}
 	
-	private Set<StructuredDataInstance> findEventsUsedInTestCase() {
-		Set<StructuredDataInstance> eventsUsedInTests = new HashSet<StructuredDataInstance>();
-		Block messagesContainer = ((CompoundBehaviour) tdlTestCase.getBehaviourDescription().getBehaviour()).getBlock();
-		List<Message> tdlMessages = messagesContainer.getBehaviour().stream()
-				.map(b -> (Message) b).collect(Collectors.toList());
-		for (Message message:tdlMessages.stream()
-				.filter(m -> isMessageSendingAnEvent(m)).collect(Collectors.toList())) {
-			DataInstance tdlEvent = ((DataInstanceUse) message.getArgument()).getDataInstance();
-			eventsUsedInTests.add((StructuredDataInstance) tdlEvent);
+	//creating new Messages by modifying the value of a specific parameter
+	private List<Message> generateNewMessagesByNewParameterValues(Message currentMessage, Parameter consideredParameter) {
+		List<Message> newMessages = new ArrayList<>();
+		DataInstanceUse exchangedTdlEventInstance = (DataInstanceUse) currentMessage.getArgument();
+		//find parameterBinding of the currentMessage related to the considered parameter
+		Optional<ParameterBinding> pbOptional = exchangedTdlEventInstance.getArgument().stream()
+				.filter(pb -> pb.getParameter() == consideredParameter)
+				.findFirst();
+		if (pbOptional.isEmpty()) {
+			return null;
 		}
-		return eventsUsedInTests;
-	}
-
-	private boolean isMessageSendingAnEvent(Message message) {
-		 return tdlEventInstances.contains(((DataInstanceUse) message.getArgument()).getDataInstance());
+		ParameterBinding relatedBinding = pbOptional.get();
+		String paramType = consideredParameter.getDataType().getName().toString();
+		int paramValueIndex = 1;
+		int paramValuesSize = etype_tdlEObjects.get(paramType).size();
+		while(paramValueIndex < paramValuesSize) {
+			Message newMessage = copyTdlMessage(currentMessage);
+			relatedBinding = ((DataInstanceUse) newMessage.getArgument()).getArgument().stream().
+					filter(pb -> pb.getParameter() == consideredParameter).findFirst().get();
+			((DataInstanceUse)relatedBinding.getDataUse()).setDataInstance(etype_tdlEObjects.get(paramType).get(paramValueIndex));
+			newMessages.add(newMessage);
+			paramValueIndex++;
+		}
+		return newMessages;
 	}
 	
-	//generating new test cases by addition-duplication of existing events
-	private void generateTestsByEventDuplication() {
-		//TODO: apply based on policy
-		Block messagesContainer = ((CompoundBehaviour) tdlTestCase.getBehaviourDescription().getBehaviour()).getBlock();
-		List<Message> tdlMessages = messagesContainer.getBehaviour().stream()
-				.map(b -> (Message) b).collect(Collectors.toList());
-		//only for messages sending an event, perform modification by duplication
-		for (Message tdlMessage: tdlMessages.stream().filter(m -> isMessageSendingAnEvent(m)).collect(Collectors.toList())) {
-			TestDescription copyTdlTestCase = copyTdlTestCase(tdlTestCase, numOfNewTests++, EVENTDUPLICATION);
-			Block copyContainer = ((CompoundBehaviour) copyTdlTestCase.getBehaviourDescription().getBehaviour()).getBlock();
-			copyContainer.getBehaviour().add(copyTdlMessage(tdlMessage));
-			generatedTestsByModification.add(copyTdlTestCase);
-		}
-	}
-		
-	//generating new tests by deleting the existing events
-	private void generateTestsByEventDeletion() {
-		//TODO: apply based on policy
-		Block messagesContainer = ((CompoundBehaviour) tdlTestCase.getBehaviourDescription().getBehaviour()).getBlock();
-		List<Message> tdlMessages = messagesContainer.getBehaviour().stream()
-				.map(b -> (Message) b).collect(Collectors.toList());
-		for (Message tdlMessage: tdlMessages.stream()
-				.filter(m -> isMessageSendingAnEvent(m)).collect(Collectors.toList())) {
-			TestDescription copyTdlTestCase = copyTdlTestCase(tdlTestCase, numOfNewTests++, EVENTDELETION);
-			Block copyContainer = ((CompoundBehaviour) copyTdlTestCase.getBehaviourDescription().getBehaviour()).getBlock();
-			copyContainer.getBehaviour().remove(tdlMessage);
-			generatedTestsByModification.add(copyTdlTestCase);
-		}
-	}
-
-	//generating new tests by permuting the existing events
-	private void generateTestsByEventPermutation() {
-		//TODO: apply based on policy
-		TestDescription copyTdlTestCase = copyTdlTestCase(tdlTestCase, numOfNewTests++, EVENTPERMUTATION);
-		Block copyContainer = ((CompoundBehaviour) copyTdlTestCase.getBehaviourDescription().getBehaviour()).getBlock();
-		List<Message> copyMessages = copyContainer.getBehaviour().stream().map(b -> (Message) b).
-				filter(m -> isMessageSendingAnEvent(m)).collect(Collectors.toList());
-		copyContainer.getBehaviour().clear();
-		copyContainer.getBehaviour().addAll(copyMessages);
-		generatedTestsByModification.add(copyTdlTestCase);
-	}
-	
-	/*
-	 * generating new tests by modifying the event parameter values of existing events 
-	 * indeed changing their values with other values of the same type
-	 * NOTE: Event parameter values are indeed model objects (according to behavioral interface metalanguage)
-	 * we initially discovered the types of the event parameters (tdlEventParameterTypes) 
-	 * and find/create other/new eobjects for each of them and keeping them in etype_tdlEObjects
-	 */
-	private void generateTestsByEventModification() {
-		//TODO: apply based on policy
-		List<DataInstanceUse> eventParameterValues = findValuesOfEventParamsInTestCase();
-		for (DataInstanceUse tdlEobjectRef:eventParameterValues) {
-			String eobjectType = tdlEobjectRef.getDataInstance().getDataType().getName();
-			DataInstance initialEObject = tdlFactory.eINSTANCE.createStructuredDataInstance();
-			initialEObject = EcoreUtil.copy(tdlEobjectRef.getDataInstance());
-			//if there are some values for this type, generate new test by changing the value to other values of the same type
-			if (!etype_tdlEObjects.get(eobjectType).isEmpty()) {
-				for (StructuredDataInstance tdlEobjectInstance:etype_tdlEObjects.get(eobjectType)) {
-					if (!EcoreUtil.equals(initialEObject, tdlEobjectInstance)) {
-						tdlEobjectRef.setDataInstance(tdlEobjectInstance);
-						generatedTestsByModification.add(copyTdlTestCase(tdlTestCase, numOfNewTests++, EVENTMODIFICATION));
-					}
+	private void findTdlDataOfDSLInterface() {
+		String dslFilePath = pathHelper.getDSLPath().toString().replace("\\", "/");
+		Resource dslRes = (new ResourceSetImpl()).getResource(URI.createURI(dslFilePath), true);
+		Dsl dsl = (Dsl)dslRes.getContents().get(0);
+		if (dsl.getEntry("behavioralInterface") != null) {
+			String interfacePath = dsl.getEntry("behavioralInterface").getValue().replaceFirst("resource", "plugin");
+			Resource interfaceRes = (new ResourceSetImpl()).getResource(URI.createURI(interfacePath), true);
+			BehavioralInterface interfaceRootElement = (BehavioralInterface) interfaceRes.getContents().get(0);
+			List<Event> acceptedEvents = interfaceRootElement.getEvents().stream()
+					.filter(e -> e.getType() == EventType.ACCEPTED).collect(Collectors.toList());
+			for (Event event:acceptedEvents) {
+				//finding the tdl instance corresponding to the accepted event 
+				StructuredDataInstance tdlEventInstance = tdlTestSuite.getPackagedElement().stream()
+						.filter(p -> p instanceof StructuredDataInstance)
+						.map(p -> (StructuredDataInstance) p)
+						.filter(d -> getDSLCompatibleName(d.getName()).equals(event.getName()))
+						.findFirst().get();
+				tdlEventInstances.add(tdlEventInstance);
+				//finding the types of the event parameters
+				for (Member tdlEventParameter:((StructuredDataType)tdlEventInstance.getDataType()).allMembers()) {
+					tdlEventParameterTypes.add((StructuredDataType) tdlEventParameter.getDataType());
 				}
+			}	
+			findTdlDataOfEventParameters();
+		}
+	}
+	
+	private void findTdlDataOfEventParameters() {
+		tdlEventParameterTypes.forEach(t -> etype_tdlEObjects.put(t.getName(), new ArrayList<>()));
+		EObject2TDLConverter object2tdlCoverter = new EObject2TDLConverter(tdlTestSuite);
+		Resource MUTResource = pathHelper.getMUTResource();
+		TreeIterator<EObject> modelContents = MUTResource.getAllContents();
+		while (modelContents.hasNext()) {
+			EObject modelObject = modelContents.next();
+			String objectType = modelObject.eClass().getName();
+			if (tdlEventParameterTypes.stream().anyMatch(t -> t.getName().equals(objectType))) {
+				StructuredDataInstance tdlInstance4object = (StructuredDataInstance) object2tdlCoverter.convertEObject2TDLData(modelObject);
+				etype_tdlEObjects.get(objectType).add(tdlInstance4object);
 			}
 		}
+		//for dynamic eTypes, create new eobjects
+		//TODO: using MOMoT
 	}
-	
-	//finding values of event parameters		
-	private List<DataInstanceUse> findValuesOfEventParamsInTestCase() {
-		Block messagesContainer = ((CompoundBehaviour) tdlTestCase.getBehaviourDescription().getBehaviour()).getBlock();
-		List<Message> tdlMessages = messagesContainer.getBehaviour().stream()
-				.map(b -> (Message) b).filter(m -> isMessageSendingAnEvent(m)).collect(Collectors.toList());
-		List<DataInstanceUse> exchangedEvents = tdlMessages.stream()
-				.map(m -> (DataInstanceUse) m.getArgument()).collect(Collectors.toList());
-		List<DataInstanceUse> eventParamsValues = new ArrayList<>();
-		for (DataInstanceUse eventInstance: exchangedEvents) {
-			if (eventInstance.getArgument().size()>0) {
-				for (ParameterBinding eventParamValue: eventInstance.getArgument()) {
-					eventParamsValues.add((DataInstanceUse) eventParamValue.getDataUse());
-				}
-			}
-		}
-		return eventParamsValues;
-	}
-		
-//	//finding parameterBindings that their value are eobject instances
-//	private List<DataInstanceUse> findEObjectRefsInTestCase(TestDescription copyTdlTestCase) {
-//		Block messagesContainer = ((CompoundBehaviour) copyTdlTestCase.getBehaviourDescription().getBehaviour()).getBlock();
-//		List<Message> tdlMessages = messagesContainer.getBehaviour().stream().map(b -> (Message) b).toList();
-//		List<DataInstanceUse> exchangedEvents = tdlMessages.stream().map(m -> (DataInstanceUse) m.getArgument()).toList();
-//		List<DataInstanceUse> eobjectRefrences = new ArrayList<>();
-//		for (DataInstanceUse eventInstance: exchangedEvents) {
-//			Iterator<EObject> iterator = eventInstance.eAllContents();
-//			while (iterator.hasNext()) {
-//				EObject object = iterator.next();
-//				if (object instanceof ParameterBinding && ((ParameterBinding) object).getDataUse() instanceof DataInstanceUse) {
-//					DataInstanceUse reference = (DataInstanceUse)((ParameterBinding) object).getDataUse();
-//					eobjectRefrences.addAll(getDirectEObjectReferences(reference));
-//				}
-//			}
-//		}
-//		return eobjectRefrences;
-//	}
-//	
-//	private List<DataInstanceUse> getDirectEObjectReferences(DataInstanceUse reference){
-//		List<DataInstanceUse> eobjectRefrences = new ArrayList<>();
-//		if (reference.getItem() != null && reference.getItem().size()>0) {
-//			for (StaticDataUse item: reference.getItem()) {
-//				if (item instanceof DataInstanceUse) {
-//					eobjectRefrences.addAll(getDirectEObjectReferences((DataInstanceUse)item));
-//				}	
-//			}
-//		}
-//		else if (reference.getDataInstance() != null ){
-//			eobjectRefrences.add(reference);
-//		}
-//		return eobjectRefrences;
-//	}
 	
 	private String getDSLCompatibleName (String name) {
 		if (name.startsWith("_")) {
 			return name.substring(1);
 		}
 		return name;
+	}
+	
+	private boolean isMessageSendingAnEvent(Message message) {
+		 return tdlEventInstances.contains(((DataInstanceUse) message.getArgument()).getDataInstance());
+	}
+	
+	class DuplicateEvent implements ITestDataModifier{
+
+		@Override
+		public void modifyData(Object data) {
+			String newTestId = (numOfNewTests++) + "_" + EVENTDUPLICATION + "_" + policy;
+			TestDescription copyTdlTestCase = copyTdlTestCase(tdlTestCase, newTestId);
+			Block copyContainer = ((CompoundBehaviour) copyTdlTestCase.getBehaviourDescription().getBehaviour()).getBlock();
+			List<Message> tdlMessages = (List<Message>) data;
+			tdlMessages.forEach(m -> copyContainer.getBehaviour().add(copyTdlMessage(m)));
+			generatedTestsByModification.add(copyTdlTestCase);
+		}
+	}
+	
+	class DeleteEvent implements ITestDataModifier{
+
+		@Override
+		public void modifyData(Object data) {
+			String newTestId = (numOfNewTests++) + "_" + EVENTDELETION + "_" + policy;
+			TestDescription copyTdlTestCase = copyTdlTestCase(tdlTestCase, newTestId);
+			Block copyContainer = ((CompoundBehaviour) copyTdlTestCase.getBehaviourDescription().getBehaviour()).getBlock();
+			List<Message> tdlMessages = (List<Message>) data;
+			copyContainer.getBehaviour().removeAll(tdlMessages);
+			generatedTestsByModification.add(copyTdlTestCase);
+		}
+	}
+	
+	class PermuteEvent implements ITestDataModifier{
+
+		@Override
+		public void modifyData(Object data) {
+			String newTestId = (numOfNewTests++) + "_" + EVENTPERMUTATION + "_" + policy;
+			TestDescription copyTdlTestCase = copyTdlTestCase(tdlTestCase, newTestId);
+			Block copyContainer = ((CompoundBehaviour) copyTdlTestCase.getBehaviourDescription().getBehaviour()).getBlock();
+			List<Message> tdlMessages = (List<Message>) data;
+			copyContainer.getBehaviour().removeAll(tdlMessages);
+			Collections.shuffle(tdlMessages);
+			copyContainer.getBehaviour().addAll(tdlMessages);
+			generatedTestsByModification.add(copyTdlTestCase);
+		}
+	}
+	/*
+	 * generating new tests by modifying the event parameter values of existing events 
+	 * indeed changing their values with other values of the same type
+	 * NOTE: Event parameter values are indeed model objects (according to behavioral interface metalanguage)
+	 * we initially discover the types of the event parameters (tdlEventParameterTypes) 
+	 * and find/create other/new eobjects for each of them and keeping them in etype_tdlEObjects
+	 */
+	class ModifyEventParameter implements ITestDataModifier{
+
+		@Override
+		public void modifyData(Object data) {
+			List<Message> tdlMessages = (List<Message>) data;
+			
+			String newTestId = numOfNewTests + "_" + EVENTMODIFICATION + "_" + policy;
+			TestDescription copyTdlTestCase = copyTdlTestCase(tdlTestCase, newTestId);
+			Block messagesContainer = ((CompoundBehaviour) copyTdlTestCase.getBehaviourDescription().getBehaviour()).getBlock();
+			List<Message> copyTdlMessages = messagesContainer.getBehaviour().stream()
+					.filter (b -> b instanceof Message 
+							&& isMessageSendingAnEvent((Message) b)
+							&& tdlMessages.contains((Message) b))
+					.map(b -> (Message) b).collect(Collectors.toList());
+			
+			boolean oneParameterChanged = false;
+			List<DataInstanceUse> eventParameterValues = findValuesForEventParams(copyTdlMessages);
+			for (DataInstanceUse tdlEobjectRef:eventParameterValues) {
+				String eobjectType = tdlEobjectRef.getDataInstance().getDataType().getName();
+				DataInstance initialEObject = tdlFactory.eINSTANCE.createStructuredDataInstance();
+				initialEObject = EcoreUtil.copy(tdlEobjectRef.getDataInstance());
+				//if there are some values for this type, generate new test by changing the value to another value
+				if (!etype_tdlEObjects.get(eobjectType).isEmpty()) {
+					for (StructuredDataInstance tdlEobjectInstance:etype_tdlEObjects.get(eobjectType)) {
+						if (!EcoreUtil.equals(initialEObject, tdlEobjectInstance)) {
+							tdlEobjectRef.setDataInstance(tdlEobjectInstance);
+							oneParameterChanged = true;
+							break;
+						}
+					}
+				}
+			}
+			//keep the new test case if at least one parameter changed
+			if (oneParameterChanged) {		
+				generatedTestsByModification.add(copyTdlTestCase);
+				numOfNewTests++;
+			}
+		}
+		
+		//finding values of event parameters		
+		private List<DataInstanceUse> findValuesForEventParams(List<Message> tdlMessages) {
+			List<DataInstanceUse> exchangedEvents = tdlMessages.stream()
+					.map(m -> (DataInstanceUse) m.getArgument())
+					.collect(Collectors.toList());
+			List<DataInstanceUse> eventParamsValues = new ArrayList<>();
+			for (DataInstanceUse eventInstance: exchangedEvents) {
+				if (eventInstance.getArgument().size()>0) {
+					eventInstance.getArgument().forEach(a -> 
+						eventParamsValues.add((DataInstanceUse) a.getDataUse()));
+				}
+			}
+			return eventParamsValues;
+		}
+	}
+	
+	class CreateEvent implements ITestDataModifier{
+
+		@Override
+		public void modifyData(Object data) {
+			List<Message> newTdlMessages = (List<Message>) data;
+			String newTestId = (numOfNewTests++) + "_" + EVENTCREATION + "_" + policy;
+			TestDescription copyTdlTestCase = copyTdlTestCase(tdlTestCase, newTestId);
+			Block copyContainer = ((CompoundBehaviour) copyTdlTestCase.getBehaviourDescription().getBehaviour()).getBlock();
+			copyContainer.getBehaviour().addAll(newTdlMessages);
+			generatedTestsByModification.add(copyTdlTestCase);
+		}		
 	}
 }

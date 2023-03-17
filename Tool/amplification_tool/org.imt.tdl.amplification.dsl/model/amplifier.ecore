@@ -29,9 +29,10 @@
   <eClassifiers xsi:type="ecore:EEnum" name="ApplicationPolicy">
     <eLiterals name="all" value="1"/>
     <eLiterals name="one" value="2"/>
-    <eLiterals name="first" value="3"/>
-    <eLiterals name="last" value="4"/>
-    <eLiterals name="fixed" value="5"/>
+    <eLiterals name="each" value="3" literal="each"/>
+    <eLiterals name="first" value="4"/>
+    <eLiterals name="last" value="5"/>
+    <eLiterals name="fixed" value="6"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PrimitiveDataModifier" abstract="true"
       eSuperTypes="#//TestModificationOperator"/>

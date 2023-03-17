@@ -21,7 +21,8 @@ Require-Bundle: org.etsi.mts.tdl.model;bundle-version="1.4.0",
  org.apache.log4j,
  org.eclipse.jface,
  org.eclipse.jdt.core,
- org.imt.tdl.utilities;bundle-version="1.0.0"
+ org.imt.tdl.utilities;bundle-version="1.0.0",
+ org.imt.tdl.amplification.dsl;bundle-version="0.1.0"
 Bundle-ClassPath: lib/mutator-1.0.0.jar,
  .,
  lib/org.eclipse.xtext.xbase.lib_2.12.0.v20170518-0757.jar
