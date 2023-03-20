@@ -32,7 +32,7 @@ public class AmplifierConfiguration {
 		
 		DSLProcessor dslProcessor = new DSLProcessor(pathHelper.getDSLName());
 		if (dslProcessor.dslHasAmplifierConfig()) {
-			URI uri = URI.createPlatformResourceURI(dslProcessor.getPath2AmplifierConfig(), false);
+			URI uri = URI.createPlatformPluginURI(dslProcessor.getPath2AmplifierConfig(), false);
 			Resource configRes = (new ResourceSetImpl()).getResource(uri, true);
 			Configuration amplifierConfigObject = (Configuration) configRes.getContents().get(0);
 			//check the approach
