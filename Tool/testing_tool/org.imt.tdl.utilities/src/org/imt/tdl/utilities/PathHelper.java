@@ -31,7 +31,7 @@ public class PathHelper {
 	
 	Package testSuite;
 
-	Path workspacePath;
+	Path runtimeWorkspacePath;
 	Path modelsProjectPath;
 	Path modelUnderTestPath;
 	Resource MUTResource;
@@ -154,7 +154,7 @@ public class PathHelper {
 		IProject mutProject = getModelUnderTestProject();
 		String path = mutProject.getLocation().toString();
 		path = path.replace(mutProject.getLocation().lastSegment(), "");
-		workspacePath = Paths.get(path);
+		runtimeWorkspacePath = Paths.get(path);
 	}
 	
 	public Path getWorkspacePath(Path path) {
@@ -171,8 +171,8 @@ public class PathHelper {
 		return Paths.get(projectPath);
 	}
 	
-	public Path getWorkspacePath() {
-		return workspacePath;
+	public Path getRuntimeWorkspacePath() {
+		return runtimeWorkspacePath;
 	}
 	
 	public IProject getProject (Path path) {
