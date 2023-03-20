@@ -28,7 +28,7 @@ public class FilterByMutationScore implements ITestSelector{
 	@Override
 	public double calculateInitialScore(Package testSuite) throws AmplificationRuntimeException{
 		scoreCalculator = new MutationScoreCalculator(mutationAnalysis.getMutantGenerator(), testSuite);
-		if (!scoreCalculator.noMutantsExists) {
+		if (scoreCalculator.mutantsExists()) {
 			String result = scoreCalculator.runTestSuiteOnOriginalModel();
 			if (result == TDLTestResultUtil.FAIL) {
 				String message = "Amplification Stopped: The manually-written test suite is failed on the original model under test.";
@@ -37,9 +37,10 @@ public class FilterByMutationScore implements ITestSelector{
 			}
 			currentMutationScore = scoreCalculator.calculateInitialMutationScore();
 			originalTestCase_killedMutant.putAll(scoreCalculator.testCase_killedMutant);
+		}else {
+			//if there is no mutant, we cannot compute any score
+			currentMutationScore = -1;
 		}
-		//if there is no mutant, the initial score is 100
-		currentMutationScore = 100.00;
 		return currentMutationScore;
 	}
 
@@ -50,7 +51,7 @@ public class FilterByMutationScore implements ITestSelector{
 			return false;
 		}
 		//check whether the new test case improves the mutation score, if there is any mutant
-		else if (!scoreCalculator.noMutantsExists){
+		else if (scoreCalculator.mutantsExists()){
 			return scoreCalculator.testCaseImprovesMutationScore(testCase);
 		}
 		return false;
@@ -58,7 +59,7 @@ public class FilterByMutationScore implements ITestSelector{
 
 	@Override
 	public void generateOverallScoreReport(StringBuilder stringBuilder) {
-		if (!scoreCalculator.noMutantsExists) {
+		if (scoreCalculator.mutantsExists()) {
 			stringBuilder.append("Total number of mutants: " + scoreCalculator.getNumOfMutants() + "\n");
 			stringBuilder.append("- initial number of killed mutants: " + scoreCalculator.getSeedNumOfKilledMutants() + "\n");
 			stringBuilder.append("- initial mutation score : " + (scoreCalculator.getSeedMutationScore() * 100) + "%" + "\n");

@@ -21,6 +21,7 @@ import java.util.stream.Collectors;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.etsi.mts.tdl.ComponentInstanceRole;
@@ -34,6 +35,7 @@ import org.imt.tdl.testResult.TDLTestCaseResult;
 import org.imt.tdl.testResult.TDLTestResultUtil;
 import org.imt.tdl.utilities.PathHelper;
 
+import exceptions.MetaModelNotFoundException;
 import wodel.dsls.WodelUtils;
 
 public class MutationScoreCalculator {
@@ -42,7 +44,7 @@ public class MutationScoreCalculator {
 	List<TestDescription> testCases = new ArrayList<>();
 	
 	MutantGenerator mutantGenerator;
-	public boolean noMutantsExists;
+
 	private static String KILLED = "killed";
 	private static String ALIVE = "alive";
 	
@@ -64,7 +66,7 @@ public class MutationScoreCalculator {
 	int timeoutConstant;
 
 	PathHelper pathHelper;
-	Path workspacePath;
+	Path runtimeWorkspacePath;
 	Path seedModelPath;
 	IProject mutantsProject;
 	
@@ -72,9 +74,11 @@ public class MutationScoreCalculator {
 		this.testSuite = testSuite;
 		testCases = testSuite.getPackagedElement().stream().filter(p -> p instanceof TestDescription).
 				map(p -> (TestDescription) p).collect(Collectors.toList());
+		
 		pathHelper = new PathHelper(testSuite);
+		pathHelper.findModelAndDSLPathOfTestSuite();
 		seedModelPath = pathHelper.getModelUnderTestPath();
-		workspacePath = pathHelper.getWorkspacePath();
+		runtimeWorkspacePath = pathHelper.getRuntimeWorkspacePath();
 		
 		this.mutantGenerator = mutantGenerator;
 		findMutants();
@@ -187,6 +191,7 @@ public class MutationScoreCalculator {
 		//run the test case only on alive mutants
 		for (String mutant:aliveMutants) {
 			String mutantPath = mutant.replace("\\", "/");
+			System.out.println("Running test case " + testCase + " on mutant " + mutantPath);
 			TDLTestCaseResult result = null;
 			final Runnable testRunner = new Thread() {
 				  @Override 
@@ -255,32 +260,55 @@ public class MutationScoreCalculator {
 	}
 
 	private void findMutants() {
-		String projectName = seedModelPath.getParent().toString().substring(1);
-		mutantsProject =  ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
+		String modelProjectName = seedModelPath.getParent().toString().substring(1);
+		mutantsProject =  ResourcesPlugin.getWorkspace().getRoot().getProject(modelProjectName);
 		File modelFolder = new File(mutantsProject.getLocation() + "/mutants");
-		if (modelFolder.listFiles() == null) {
-			noMutantsExists = true;
+		//if there is no mutant, generate mutants
+		if (modelFolder.listFiles() == null || modelFolder.listFiles().length == 0) {
 			String inputPath = mutantsProject.getLocation().toString();
 			String outputPath = inputPath + "/mutants";
-			String wodelProjectPath = mutantGenerator.getPathToMutationOperatorsFile();
 			String eclipseHomePath = "c:/labtop/gemoc_studio";
+			String wodelProjectPath = "";
+			String mutatorFilePath = mutantGenerator.getPathToMutationOperatorsFile();
+			
+			//if there is no mutation operator, generate the operators first
+			//TODO: Generate operators based on the configuration file
+			if (mutatorFilePath == null || mutatorFilePath.isEmpty()) {
+				wodelProjectPath = "? how to find the path? should we add it to .dsl file?";
+				String metamodelPath = wodelProjectPath + "? how to find path to ecore file";
+				String eclipseCompilerName = "GemocStudioc";
+				try {
+					WodelUtils.generateMutationOperators(new String[] {metamodelPath, inputPath, wodelProjectPath});
+					WodelUtils.compileWodelProject(new String[] {wodelProjectPath, eclipseHomePath, eclipseCompilerName});
+				} catch (MetaModelNotFoundException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				mutatorFilePath = "?";
+			}
+			
+			//get location of workspace (java.io.File)
+			String wodelProjectName = Paths.get(mutatorFilePath).getName(0).toString();
+			wodelProjectPath = Platform.getBundle(wodelProjectName).getLocation();
+			wodelProjectPath = wodelProjectPath.substring(wodelProjectPath.indexOf("C:/"), wodelProjectPath.length()-1);
 			WodelUtils.generateMutants(new String[] {inputPath, outputPath, wodelProjectPath, eclipseHomePath});
 		}
 		for (File file : modelFolder.listFiles()) {
-			mutantsPathsHelper(projectName, file);
+			mutantsPathsHelper(modelProjectName, file);
 		}
 	}
 	
 	private void mutantsPathsHelper(String projectName, File file) {
 		if (file.isFile() && file.getName().endsWith(".model")) {
 			String filePath = file.getPath();
-			if (workspacePath == null) {
+			if (runtimeWorkspacePath == null) {
 				String path = filePath.substring(0, filePath.lastIndexOf(projectName)-1);
-				workspacePath = Paths.get(path);
+				runtimeWorkspacePath = Paths.get(path);
 			}		
 			//get the relative path of the file
 			if (!filePath.equals(seedModelPath.toString())){
-				filePath = filePath.replace(workspacePath.toString(), "");
+				filePath = filePath.replace(runtimeWorkspacePath.toString(), "");
 				mutant_status.put(filePath, ALIVE);
 				numOfMutants++;
 			}
@@ -298,7 +326,7 @@ public class MutationScoreCalculator {
 	
 	public void printMutationAnalysisResult() {
 		//saving results into a .txt file
-		String outputFilePath = pathHelper.getWorkspacePath() + "/"
+		String outputFilePath = pathHelper.getRuntimeWorkspacePath() + "/"
 				+ pathHelper.getTestSuiteProjectName() + "/" 
 				+ pathHelper.getTestSuiteFileName() + 
 				"_mutationReport.txt";
@@ -333,8 +361,8 @@ public class MutationScoreCalculator {
 		}
 	}
 	
-	public Path getWorkspacePath() {
-		return workspacePath;
+	public Path getRuntimeWorkspacePath() {
+		return runtimeWorkspacePath;
 	}
 	
 	public int getNumOfMutants() {
@@ -373,6 +401,10 @@ public class MutationScoreCalculator {
 	
 	public void setTestCase_numOfAssertions(TestDescription testCase, int numOfAssertions) {
 		testCase_numOfAssertions.put(testCase, numOfAssertions);
+	}
+	
+	public boolean mutantsExists() {
+		return numOfMutants > 0 ? true : false;
 	}
 	
 	public int getNumOfAssertions(TestDescription tdlTestCase){

@@ -12,21 +12,21 @@ public class MutantGeneratorRunner {
 	public static void main(String[] args) {
 		String wodelProjectPath = "c:/labtop/gemoc_studio/workspaces/xTDL_Amplification/ArduinoMutation";
 		String metamodelPath = wodelProjectPath + "/data/model/arduino.ecore";
-		String inputPath = "";
+		String inputPath = "c:/labtop/gemoc_studio/workspaces/xTDL_Amplification/runtime-amplification-configuration/Arduino.RunningExample";
 		String eclipseHomePath = "c:/labtop/gemoc_studio";
 		String eclipseCompilerName = "GemocStudioc";
-		String outputPath = wodelProjectPath + "/out/mutants";
+		String outputPath = inputPath + "/mutants";
 		
-		try {
-			WodelUtils.generateMutationOperators(new String[] {metamodelPath, inputPath, wodelProjectPath});
-			//WodelUtils.compileWodelProject(new String[] {wodelProjectPath, eclipseHomePath, eclipseCompilerName});
-			//WodelUtils.generateMutants(new String[] {inputPath, outputPath, wodelProjectPath, eclipseHomePath});
-		} catch (MetaModelNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			//WodelUtils.generateMutationOperators(new String[] {metamodelPath, inputPath, wodelProjectPath});
+//			//WodelUtils.compileWodelProject(new String[] {wodelProjectPath, eclipseHomePath, eclipseCompilerName});
+//		} catch (MetaModelNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		WodelUtils.generateMutants(new String[] {inputPath, outputPath, wodelProjectPath, eclipseHomePath});
 	}
 }
