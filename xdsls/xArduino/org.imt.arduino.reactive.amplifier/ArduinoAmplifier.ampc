@@ -3,7 +3,9 @@ config amplifier ArduinoAmplifier{
 	
 	//amplification techniques: 
 	//(1): iterative until a limited number of iterations
-	iterative technique: stop after 3 iterations
+	iterative technique
+		stop after 3 iterations
+		stop when score reached 100.00
 	//(2): iterative until reaching a specific selection score
 	//technique iterative: stop when score reached 100.00
 	//(3): search-based! 
@@ -19,8 +21,8 @@ config amplifier ArduinoAmplifier{
 		create all missed events,
 		delete first events,
 		duplicate last events,
-		modify atmost 2 events,
-		permute events 3 times
+		modify each events,
+		permute atmost 2 events
 	}
 	
 	//test selection criteria:
@@ -30,14 +32,14 @@ config amplifier ArduinoAmplifier{
 	filterby mutation score {
 		//generating mutants:
 		//(1) using a provided mutation operators file
-		//generate mutants using mutation operators "pathToMutationOperatorsFile"
+		generate mutants using mutation operators "/ArduinoMutation/src/ArduinoMutation.mutator"
 		//(2) generating the mutation operators first
-		generate mutants using mutation operators{
-			creation operators for [Module],
-			cloning operators for [If, While],
-			modification operators for [ModuleAssignment, Expression],
-			removal operators for [Constant],
-			retyping operators for [DigitalPin]
-		}
+//		generate mutants using mutation operators{
+//			creation operators for [Module],
+//			cloning operators for [If, While],
+//			modification operators for [ModuleAssignment, Expression],
+//			removal operators for [Constant],
+//			retyping operators for [DigitalPin]
+//		}
 	}
 }
