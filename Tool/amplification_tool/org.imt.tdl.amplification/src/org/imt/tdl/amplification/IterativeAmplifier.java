@@ -48,11 +48,18 @@ public class IterativeAmplifier extends AbstractAmplifier{
 	@Override
 	public void runAmplification(Package tdlTestSuite) throws AmplificationRuntimeException{
 		double initialScore = testSelector.calculateInitialScore(tdlTestSuite);
-		if (initialScore == maxSelectionScore) {
+		if (initialScore == -1) {
+			String message = "There is no mutants, so the initial score cannot be computed and the amplication stops";
+			throw (new AmplificationRuntimeException(message));
+		}
+		else if (initialScore == 100.00) {
 			String message = "As the initial score is 100% there is no need for test amplification";
 			throw (new AmplificationRuntimeException(message));
 		}
-		
+		else if (maxSelectionScore > 0 && initialScore == maxSelectionScore) {
+			String message = "As the initial score is the maximum expected score, there is no need for test amplification";
+			throw (new AmplificationRuntimeException(message));
+		}
 		List<TestDescription> initialTdlTestCases = tdlTestSuite.getPackagedElement().stream()
 				.filter(p -> p instanceof TestDescription)
 				.map(t -> (TestDescription) t)
@@ -159,7 +166,7 @@ public class IterativeAmplifier extends AbstractAmplifier{
 		}
 		try {
 			PathHelper pathHelper = new PathHelper(tdlTestSuite);
-			String outputFilePath = pathHelper.getWorkspacePath() + "/"
+			String outputFilePath = pathHelper.getRuntimeWorkspacePath() + "/"
 					+ pathHelper.getTestSuiteProjectName() + "/" 
 					+ pathHelper.getTestSuiteFileName() + 
 					"_amplificationReport.txt";
