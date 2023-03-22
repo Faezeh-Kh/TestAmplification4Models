@@ -13,16 +13,16 @@ config amplifier ArduinoAmplifier{
 	
 	test modifiers{
 		//primitive modifiers
-		modify all string values,
-		modify first boolean values,
-		modify one numeric values,
+		//modify all string values,
+		//modify first boolean values,
+		//modify one numeric values,
 		
 		//event modifiers
-		create all missed events,
-		delete first events,
-		duplicate last events,
-		modify each events,
-		permute atmost 2 events
+		create each missed events,
+		//delete first events,
+		//duplicate last events,
+		//modify each events,
+		//permute atmost 2 events
 	}
 	
 	//test selection criteria:
