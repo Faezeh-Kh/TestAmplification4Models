@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gemoc.executionframework.behavioralinterface.behavioralInterface.BehavioralInterface;
 import org.eclipse.gemoc.executionframework.behavioralinterface.behavioralInterface.Event;
 import org.eclipse.gemoc.executionframework.behavioralinterface.behavioralInterface.EventType;
+import org.etsi.mts.tdl.Behaviour;
 import org.etsi.mts.tdl.Block;
 import org.etsi.mts.tdl.CompoundBehaviour;
 import org.etsi.mts.tdl.DataInstance;
@@ -192,6 +193,14 @@ public class EventSequenceModificationRunner extends AbstractTestModificationRun
 		return tdlMessages;
 	}
 	
+	private List<Message> getEquivalentMessagesOfTestCase(List<Message> messages2find, TestDescription copyTdlTestCase){
+		Block copyContainer = ((CompoundBehaviour) copyTdlTestCase.getBehaviourDescription().getBehaviour()).getBlock();
+		return copyContainer.getBehaviour().stream()
+			.filter(b -> b instanceof Message).map(b -> (Message)b)
+			.filter(cm -> messages2find.stream().anyMatch(m -> EcoreUtil.equals(m, cm)))
+			.collect(Collectors.toList());
+	}
+	
 	private List<Message> generateMessages4MissedEvents(){
 		Set<StructuredDataInstance> eventsUsedInTests = findEventsUsedInTestCase();
 		List<StructuredDataInstance> eventsNotUsedInTests = tdlEventInstances.stream().
@@ -361,7 +370,7 @@ public class EventSequenceModificationRunner extends AbstractTestModificationRun
 			String newTestId = (numOfNewTests++) + "_" + EVENTDELETION + "_" + policy;
 			TestDescription copyTdlTestCase = copyTdlTestCase(tdlTestCase, newTestId);
 			Block copyContainer = ((CompoundBehaviour) copyTdlTestCase.getBehaviourDescription().getBehaviour()).getBlock();
-			List<Message> tdlMessages = (List<Message>) data;
+			List<Message> tdlMessages = getEquivalentMessagesOfTestCase((List<Message>) data, copyTdlTestCase);
 			copyContainer.getBehaviour().removeAll(tdlMessages);
 			generatedTestsByModification.add(copyTdlTestCase);
 		}
@@ -374,7 +383,7 @@ public class EventSequenceModificationRunner extends AbstractTestModificationRun
 			String newTestId = (numOfNewTests++) + "_" + EVENTPERMUTATION + "_" + policy;
 			TestDescription copyTdlTestCase = copyTdlTestCase(tdlTestCase, newTestId);
 			Block copyContainer = ((CompoundBehaviour) copyTdlTestCase.getBehaviourDescription().getBehaviour()).getBlock();
-			List<Message> tdlMessages = (List<Message>) data;
+			List<Message> tdlMessages = getEquivalentMessagesOfTestCase((List<Message>) data, copyTdlTestCase);
 			copyContainer.getBehaviour().removeAll(tdlMessages);
 			Collections.shuffle(tdlMessages);
 			copyContainer.getBehaviour().addAll(tdlMessages);
@@ -392,19 +401,13 @@ public class EventSequenceModificationRunner extends AbstractTestModificationRun
 
 		@Override
 		public void modifyData(Object data) {
-			List<Message> tdlMessages = (List<Message>) data;
-			
 			String newTestId = numOfNewTests + "_" + EVENTMODIFICATION + "_" + policy;
 			TestDescription copyTdlTestCase = copyTdlTestCase(tdlTestCase, newTestId);
 			Block messagesContainer = ((CompoundBehaviour) copyTdlTestCase.getBehaviourDescription().getBehaviour()).getBlock();
-			List<Message> copyTdlMessages = messagesContainer.getBehaviour().stream()
-					.filter (b -> b instanceof Message 
-							&& isMessageSendingAnEvent((Message) b)
-							&& tdlMessages.contains((Message) b))
-					.map(b -> (Message) b).collect(Collectors.toList());
+			List<Message> tdlMessages = getEquivalentMessagesOfTestCase((List<Message>) data, copyTdlTestCase);
 			
 			boolean oneParameterChanged = false;
-			List<DataInstanceUse> eventParameterValues = findValuesForEventParams(copyTdlMessages);
+			List<DataInstanceUse> eventParameterValues = findValuesForEventParams(tdlMessages);
 			for (DataInstanceUse tdlEobjectRef:eventParameterValues) {
 				String eobjectType = tdlEobjectRef.getDataInstance().getDataType().getName();
 				DataInstance initialEObject = tdlFactory.eINSTANCE.createStructuredDataInstance();

@@ -17,7 +17,6 @@ public class FilterByMutationScore implements ITestSelector{
 	double mutationScoreThreshold;
 	
 	MutationScoreCalculator scoreCalculator;
-	double currentMutationScore;
 	private HashMap<String, List<String>> originalTestCase_killedMutant = new HashMap<>();
 	
 	public FilterByMutationScore (MutationAnalysis mutationAnalysis, double threshold) {
@@ -27,6 +26,7 @@ public class FilterByMutationScore implements ITestSelector{
 
 	@Override
 	public double calculateInitialScore(Package testSuite) throws AmplificationRuntimeException{
+		double initialScore = -1;
 		scoreCalculator = new MutationScoreCalculator(mutationAnalysis.getMutantGenerator(), testSuite);
 		if (scoreCalculator.mutantsExists()) {
 			String result = scoreCalculator.runTestSuiteOnOriginalModel();
@@ -35,13 +35,10 @@ public class FilterByMutationScore implements ITestSelector{
 				System.out.println(message);
 				throw (new AmplificationRuntimeException(message));
 			}
-			currentMutationScore = scoreCalculator.calculateInitialMutationScore();
+			initialScore = scoreCalculator.calculateInitialMutationScore();
 			originalTestCase_killedMutant.putAll(scoreCalculator.testCase_killedMutant);
-		}else {
-			//if there is no mutant, we cannot compute any score
-			currentMutationScore = -1;
 		}
-		return currentMutationScore;
+		return initialScore;
 	}
 
 	@Override
@@ -104,6 +101,6 @@ public class FilterByMutationScore implements ITestSelector{
 	
 	@Override
 	public double getCurrentScore() {
-		return currentMutationScore;
+		return scoreCalculator.getCurrentMutationScore()*100;
 	}
 }

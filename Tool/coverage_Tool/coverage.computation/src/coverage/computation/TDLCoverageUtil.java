@@ -76,7 +76,7 @@ public class TDLCoverageUtil {
 	}
 
 	public void setDSLPath(String DSLPath) {
-		instance.DSLPath = DSLPath;
+		instance.DSLPath = "platform:/plugin" + DSLPath.replace("\\", "/");
 	}
 	
 	public void runCoverageComputation() {
@@ -100,10 +100,13 @@ public class TDLCoverageUtil {
 				.stream().filter(l -> l.getAttribute("xdsmlFilePath").equals(DSLPath.substring(16)))
 				.findFirst().orElse(null);
 		
-		final Resource res = resSet.getResource(URI.createURI(DSLPath), true);
+		final Resource res = resSet.getResource(URI.createURI(DSLPath, false), true);
 		final Dsl dsl = (Dsl) res.getContents().get(0);
 		final Bundle bundle = Platform.getBundle(language.getContributor().getName());
 		String ecoreFilePath = dsl.getEntry("ecore").getValue().replaceFirst("resource", "plugin");
+		if (!ecoreFilePath.startsWith("platform:/plugin")) {
+			ecoreFilePath = "platform:/plugin" + ecoreFilePath;
+		}
 		Resource ecoreResource = (new ResourceSetImpl()).getResource(URI.createURI(ecoreFilePath), true);
 		metamodelRootElement = (EPackage) ecoreResource.getContents().get(0);
 		

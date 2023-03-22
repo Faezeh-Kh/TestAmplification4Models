@@ -35,8 +35,8 @@ import org.imt.tdl.testResult.TDLTestCaseResult;
 import org.imt.tdl.testResult.TDLTestResultUtil;
 import org.imt.tdl.utilities.PathHelper;
 
-import exceptions.MetaModelNotFoundException;
 import wodel.dsls.WodelUtils;
+import wodel.utils.exceptions.MetaModelNotFoundException;
 
 public class MutationScoreCalculator {
 	
@@ -278,8 +278,8 @@ public class MutationScoreCalculator {
 				String metamodelPath = wodelProjectPath + "? how to find path to ecore file";
 				String eclipseCompilerName = "GemocStudioc";
 				try {
-					WodelUtils.generateMutationOperators(new String[] {metamodelPath, inputPath, wodelProjectPath});
-					WodelUtils.compileWodelProject(new String[] {wodelProjectPath, eclipseHomePath, eclipseCompilerName});
+					WodelUtils.generateMutationOperators(metamodelPath, inputPath, wodelProjectPath);
+					WodelUtils.compileWodelProject(wodelProjectPath, eclipseHomePath, eclipseCompilerName);
 				} catch (MetaModelNotFoundException e) {
 					e.printStackTrace();
 				} catch (IOException e) {
@@ -292,8 +292,13 @@ public class MutationScoreCalculator {
 			String wodelProjectName = Paths.get(mutatorFilePath).getName(0).toString();
 			wodelProjectPath = Platform.getBundle(wodelProjectName).getLocation();
 			wodelProjectPath = wodelProjectPath.substring(wodelProjectPath.indexOf("C:/"), wodelProjectPath.length()-1);
-			WodelUtils.generateMutants(new String[] {inputPath, outputPath, wodelProjectPath, eclipseHomePath});
+			
+			String currentPluginPath = Platform.getBundle("org.imt.tdl.mutation").getLocation();
+			currentPluginPath = currentPluginPath.substring(currentPluginPath.indexOf("C:/"), currentPluginPath.length()-1);
+			
+			WodelUtils.generateMutants(inputPath, outputPath, currentPluginPath, wodelProjectPath, eclipseHomePath);
 		}
+
 		for (File file : modelFolder.listFiles()) {
 			mutantsPathsHelper(modelProjectName, file);
 		}

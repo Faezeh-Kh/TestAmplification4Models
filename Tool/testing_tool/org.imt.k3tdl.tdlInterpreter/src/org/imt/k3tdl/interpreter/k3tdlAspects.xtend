@@ -88,7 +88,7 @@ class TestDescriptionAspect{
 	
 	@Step
 	def TDLTestCaseResult executeTestCase(){
-		if (!_self.launcher.launcherIsTuned){
+		if (_self.launcher !== null && !_self.launcher.launcherIsTuned){
 			_self.activateConfiguration()
 		}
 		return _self.runTestAndReturnResult

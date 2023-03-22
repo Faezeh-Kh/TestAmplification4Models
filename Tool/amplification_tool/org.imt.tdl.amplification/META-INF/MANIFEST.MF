@@ -25,5 +25,6 @@ Require-Bundle: org.eclipse.xtend.lib;bundle-version="2.25.0",
  org.eclipse.emf.ecore,
  org.imt.tdl.mutation;bundle-version="1.0.0",
  org.imt.tdl.utilities;bundle-version="1.0.0",
- org.imt.tdl.amplification.dsl;bundle-version="0.1.0"
+ org.imt.tdl.amplification.dsl;bundle-version="0.1.0",
+ coverage.computation;bundle-version="1.0.0"
 Export-Package: org.imt.tdl.amplification
