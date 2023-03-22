@@ -98,43 +98,39 @@ public class PrimitiveValueModificationRunner extends AbstractTestModificationRu
 	private void generateTestsByLiteralModification() {
 		if (modifiers == null) {
 			//default configuration: run all modifiers
-			if (boolLiterals.size()>0) {
-				generateTestsByBooleanModification();
-			}
-			else if (stringLiterals.size()>0) {
-				generateTestsByStringModification();
-			}
-			else if (intLiterals.size()>0) {
-				generateTestsByIntegerModification();
-			}
-			else if (floatLiterals.size()>0) {
-				generateTestsByFloatModification();
-			}
+			generateTestsByBooleanModification();
+			generateTestsByStringModification();
+			generateTestsByIntegerModification();
+			generateTestsByFloatModification();
 		}
 		else {
 			for (PrimitiveDataModifier modifier:modifiers) {
 				policy = modifier.getPolicy();
 				maxOccurrence = modifier.getMaxOccurrence();
-				if (modifier instanceof BooleanValueModifier && boolLiterals.size()>0) {
+				if (modifier instanceof BooleanValueModifier) {
 					generateTestsByBooleanModification();
 				}
-				else if (modifier instanceof StringValueModifier && stringLiterals.size()>0) {
+				else if (modifier instanceof StringValueModifier) {
 					generateTestsByStringModification();
 				}
 				else if (modifier instanceof NumericValueModifier) {
-					if (intLiterals.size()>0) {
-						generateTestsByIntegerModification();
-					}
-					if (floatLiterals.size()>0) {
-						generateTestsByFloatModification();
-					}
+					generateTestsByIntegerModification();
+					generateTestsByFloatModification();
+				}
+				else if (modifier instanceof PrimitiveDataModifier) {
+					generateTestsByBooleanModification();
+					generateTestsByStringModification();
+					generateTestsByIntegerModification();
+					generateTestsByFloatModification();
 				}
 			}
 		}
 	}
 
 	private void generateTestsByBooleanModification() {
-		generateTestsByLiteralModification(new NegateBooleanValue(), boolLiterals, BOOLMODIFICATION);
+		if (boolLiterals.size()>0) {
+			generateTestsByLiteralModification(new NegateBooleanValue(), boolLiterals, BOOLMODIFICATION);
+		}	
 	}
 
 	/*five string operators: 
@@ -145,38 +141,44 @@ public class PrimitiveValueModificationRunner extends AbstractTestModificationRu
 	 * 5. set string as empty
 	 */
 	private void generateTestsByStringModification() {
-		generateTestsByLiteralModification(new AddRandomChar(), stringLiterals, STRINGMODIFICATION);
-		generateTestsByLiteralModification(new RemoveRandomChar(), stringLiterals, STRINGMODIFICATION);
-		generateTestsByLiteralModification(new ReplaceRandomChar(), stringLiterals, STRINGMODIFICATION);
-		generateTestsByLiteralModification(new ReplaceString(), stringLiterals, STRINGMODIFICATION);
-		generateTestsByLiteralModification(new EmptyString(), stringLiterals, STRINGMODIFICATION);
+		if (stringLiterals.size()>0) {
+			generateTestsByLiteralModification(new AddRandomChar(), stringLiterals, STRINGMODIFICATION);
+			generateTestsByLiteralModification(new RemoveRandomChar(), stringLiterals, STRINGMODIFICATION);
+			generateTestsByLiteralModification(new ReplaceRandomChar(), stringLiterals, STRINGMODIFICATION);
+			generateTestsByLiteralModification(new ReplaceString(), stringLiterals, STRINGMODIFICATION);
+			generateTestsByLiteralModification(new EmptyString(), stringLiterals, STRINGMODIFICATION);
+		}	
 	}
 	
 	/* nine operators for numeric values: 
 	 * 1, 0, −1, -n, n+1, n−1, n×2, n÷2, or with another existing value
 	 */
 	private void generateTestsByIntegerModification() {
-		generateTestsByLiteralModification(new NumericEqualOne(), intLiterals, INTMODIFICATION);
-		generateTestsByLiteralModification(new NumericEqualZero(), intLiterals, INTMODIFICATION);
-		generateTestsByLiteralModification(new NumericEqualMinusOne(), intLiterals, INTMODIFICATION);
-		generateTestsByLiteralModification(new IntNegateValue(), intLiterals, INTMODIFICATION);
-		generateTestsByLiteralModification(new IntPlusOne(), intLiterals, INTMODIFICATION);
-		generateTestsByLiteralModification(new IntMinusOne(), intLiterals, INTMODIFICATION);
-		generateTestsByLiteralModification(new IntMultiplyTwo(), intLiterals, INTMODIFICATION);
-		generateTestsByLiteralModification(new IntDevideTwo(), intLiterals, INTMODIFICATION);
-		generateTestsByLiteralModification(new IntChangeWithExisting(), intLiterals, INTMODIFICATION);
+		if (intLiterals.size()>0) {
+			generateTestsByLiteralModification(new NumericEqualOne(), intLiterals, INTMODIFICATION);
+			generateTestsByLiteralModification(new NumericEqualZero(), intLiterals, INTMODIFICATION);
+			generateTestsByLiteralModification(new NumericEqualMinusOne(), intLiterals, INTMODIFICATION);
+			generateTestsByLiteralModification(new IntNegateValue(), intLiterals, INTMODIFICATION);
+			generateTestsByLiteralModification(new IntPlusOne(), intLiterals, INTMODIFICATION);
+			generateTestsByLiteralModification(new IntMinusOne(), intLiterals, INTMODIFICATION);
+			generateTestsByLiteralModification(new IntMultiplyTwo(), intLiterals, INTMODIFICATION);
+			generateTestsByLiteralModification(new IntDevideTwo(), intLiterals, INTMODIFICATION);
+			generateTestsByLiteralModification(new IntChangeWithExisting(), intLiterals, INTMODIFICATION);
+		}	
 	}
 
 	private void generateTestsByFloatModification() {
-		generateTestsByLiteralModification(new NumericEqualOne(), floatLiterals, FLOATMODIFICATION);
-		generateTestsByLiteralModification(new NumericEqualZero(), floatLiterals, FLOATMODIFICATION);
-		generateTestsByLiteralModification(new NumericEqualMinusOne(), floatLiterals, FLOATMODIFICATION);
-		generateTestsByLiteralModification(new FloatNegateValue(), floatLiterals, FLOATMODIFICATION);
-		generateTestsByLiteralModification(new FloatPlusOne(), floatLiterals, FLOATMODIFICATION);
-		generateTestsByLiteralModification(new FloatMinusOne(), floatLiterals, FLOATMODIFICATION);
-		generateTestsByLiteralModification(new FloatMultiplyTwo(), floatLiterals, FLOATMODIFICATION);
-		generateTestsByLiteralModification(new FloatDevideTwo(), floatLiterals, FLOATMODIFICATION);
-		generateTestsByLiteralModification(new FloatChangeWithExisting(), floatLiterals, FLOATMODIFICATION);
+		if (floatLiterals.size()>0) {
+			generateTestsByLiteralModification(new NumericEqualOne(), floatLiterals, FLOATMODIFICATION);
+			generateTestsByLiteralModification(new NumericEqualZero(), floatLiterals, FLOATMODIFICATION);
+			generateTestsByLiteralModification(new NumericEqualMinusOne(), floatLiterals, FLOATMODIFICATION);
+			generateTestsByLiteralModification(new FloatNegateValue(), floatLiterals, FLOATMODIFICATION);
+			generateTestsByLiteralModification(new FloatPlusOne(), floatLiterals, FLOATMODIFICATION);
+			generateTestsByLiteralModification(new FloatMinusOne(), floatLiterals, FLOATMODIFICATION);
+			generateTestsByLiteralModification(new FloatMultiplyTwo(), floatLiterals, FLOATMODIFICATION);
+			generateTestsByLiteralModification(new FloatDevideTwo(), floatLiterals, FLOATMODIFICATION);
+			generateTestsByLiteralModification(new FloatChangeWithExisting(), floatLiterals, FLOATMODIFICATION);
+		}
 	}
 	
 	private void generateTestsByLiteralModification(ITestDataModifier modifier, List<LiteralValueUse> literals, String modifierType) {

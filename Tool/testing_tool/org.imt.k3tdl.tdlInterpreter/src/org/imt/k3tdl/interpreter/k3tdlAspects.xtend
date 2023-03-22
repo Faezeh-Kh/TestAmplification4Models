@@ -82,9 +82,9 @@ class PackageAspect {
 @Aspect (className = TestDescription)
 class TestDescriptionAspect{
 	
-	public EngineFactory launcher = new EngineFactory
-	public TDLTestCaseResult testCaseResult = new TDLTestCaseResult
-	public TDLTestCaseCoverage testCaseCoverage = new TDLTestCaseCoverage
+	public EngineFactory launcher
+	public TDLTestCaseResult testCaseResult
+	public TDLTestCaseCoverage testCaseCoverage
 	
 	@Step
 	def TDLTestCaseResult executeTestCase(){
@@ -114,6 +114,7 @@ class TestDescriptionAspect{
 			pathHelper = new PathHelper(_self.eContainer as Package)
 		}
 		pathHelper.findModelAndDSLPathOfTestCase(_self)
+		_self.launcher = new EngineFactory
 		_self.testConfiguration.activateConfiguration(_self.launcher)
 	}
 	
@@ -124,16 +125,16 @@ class TestDescriptionAspect{
 		pathHelper.findModelAndDSLPathOfTestCase(_self)
 		pathHelper.modelUnderTestPath = Paths.get(MUTPath)
 		
-		_self.launcher = new EngineFactory
-		_self.testCaseResult = new TDLTestCaseResult
-		_self.testCaseCoverage = new TDLTestCaseCoverage
-		
+		_self.launcher = new EngineFactory		
 		_self.testConfiguration.activateConfiguration(_self.launcher)
 	}
 	
 	def TDLTestCaseResult runTestAndReturnResult(){
-		println("Start test case execution: " + _self.name)
+		_self.testCaseResult = new TDLTestCaseResult
 		_self.testCaseResult.testCase = _self
+		
+		println("Start test case execution: " + _self.name)
+		
 		_self.behaviourDescription.callBehavior()
 		val modelExecutionResult = _self.testConfiguration.stopModelExecutionEngine(_self.launcher)
 		if (modelExecutionResult !== null && modelExecutionResult.contains(TDLTestResultUtil.FAIL)){
@@ -143,6 +144,7 @@ class TestDescriptionAspect{
 		
 		if (_self.testCaseResult.value != TDLTestResultUtil.INCONCLUSIVE){
 			//save the model execution trace and the MUTResource related to this test case if its result is not INCONCLUSIVE
+			_self.testCaseCoverage = new TDLTestCaseCoverage
 			_self.testCaseCoverage.testCase = _self
 			_self.testCaseCoverage.trace = _self.launcher.executionTrace
 	    	_self.testCaseCoverage.MUTResource = _self.launcher.MUTResource

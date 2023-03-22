@@ -1,5 +1,6 @@
 package org.imt.tdl.configuration;
 
+import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Map;
@@ -139,14 +140,26 @@ public class EngineFactory{
 	}
 	
 	public Resource getMUTResource() {
+		Resource resource = null;
 		IExecutionEngine activeEngine = getActiveEngine();
 		if (activeEngine instanceof ISequentialExecutionEngine) {
-			return sequentialEngineLauncher.getModelResource();
+			resource = sequentialEngineLauncher.getModelResource();
 		}
 		else if (activeEngine instanceof IEventBasedExecutionEngine) {
-			return eventManagerLauncher.getModelResource();
+			resource = eventManagerLauncher.getModelResource();
 		}
-		return (new ResourceSetImpl()).getResource(URI.createURI(MUTPath.toString()), true);
+		else {
+			resource = (new ResourceSetImpl()).getResource(URI.createURI(MUTPath.toString()), true);
+		}
+		if (!resource.isLoaded()) {
+			try {
+				resource.load(null);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return resource;
 	}
 	
 	public IExecutionEngine getActiveEngine() {

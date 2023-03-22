@@ -99,7 +99,7 @@ public class K3RuleExecutor implements IMetalanguageRuleExecutor{
 				final List<EPackage> packages = dsl.getEntries().stream().filter(e -> e.getKey().equals("ecore"))
 						.findFirst()
 						.map(as -> Arrays.asList(as.getValue().split(", ")).stream()
-								.map(s -> URI.createURI(s.replace("platform:/resource", "platform:/plugin"), true))
+								.map(s -> URI.createURI(getEcorePath(s), true))
 								.map(uri -> ((EPackage) resSet.getResource(uri, true).getContents().get(0)).getNsURI()))
 						.map(uris -> uris.map(uri -> Arrays
 								.asList(Platform.getExtensionRegistry()
@@ -118,6 +118,13 @@ public class K3RuleExecutor implements IMetalanguageRuleExecutor{
 				this.operationalSemantics.addAll(classes);
 			}
 		}
+	}
+
+	private String getEcorePath(String s) {
+		if (s.startsWith("/")) {
+			return  "platform:/plugin" + s;
+		}
+		return s.replace("platform:/resource", "platform:/plugin");
 	}
 
 	private EPackage loadPackage(IConfigurationElement configurationElement) {

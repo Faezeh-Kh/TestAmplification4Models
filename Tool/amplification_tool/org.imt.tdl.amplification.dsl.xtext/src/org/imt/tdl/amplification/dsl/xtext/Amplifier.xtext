@@ -3,11 +3,13 @@ grammar org.imt.tdl.amplification.dsl.xtext.Amplifier with org.eclipse.xtext.com
 
 import "http://org.imt.tdl.amplification/configuration/amplifier"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+import "http://www.eclipse.org/gemoc/xdsmlframework/behavioralinterface/BehavioralInterface" as bi
 
 Configuration returns Configuration: 
 	{Configuration}
 	'config' 'amplifier' name=EString '{'
 		'import' 'metamodel' metamodel=[ecore::EPackage]
+		('import' 'behavioral' 'interface' behavioralInterface=[bi::BehavioralInterface])?
 		
 		approach = AmplificationApproach
 		'test' 'modifiers' '{'
@@ -36,7 +38,10 @@ TestModificationOperator returns TestModificationOperator:
 	PrimitiveDataModifier | EventSequenceModifier
 ;
 
-PrimitiveDataModifier: StringValueModifier | BooleanValueModifier | NumericValueModifier;
+PrimitiveDataModifier: 
+	'all' 'primitive' 'modifiers' 'on' policy= ApplicationPolicy (maxOccurrence=EInt)? 'literals' |
+	StringValueModifier | BooleanValueModifier | NumericValueModifier
+;
 
 StringValueModifier: 
 	'modify' policy= ApplicationPolicy (maxOccurrence=EInt)? 'string' 'values'
@@ -49,22 +54,37 @@ NumericValueModifier:
 ;
 
 EventSequenceModifier: 
-	EventCreation | EventDeletion | EventDuplication | EventModification | EventPermutation
+	'all' 'event' 'modifiers' 'on' 
+		policy= ApplicationPolicy 
+		(maxOccurrence=EInt)? 
+		('['scope+=[bi::Event] (',' scope+=[bi::Event])*']')? 'events'
+	|EventCreation | EventDeletion | EventDuplication | EventModification | EventPermutation
 ;
 EventCreation: 
-	'create' policy= ApplicationPolicy (maxOccurrence=EInt)? 'missed' 'events'
+	'create' 
+		policy= ApplicationPolicy 
+		(maxOccurrence=EInt)? 
+		('['scope+=[bi::Event] (',' scope+=[bi::Event])*']')? 'missed' 'events'
 ;
 EventDeletion: 
-	'delete' policy= ApplicationPolicy (maxOccurrence=EInt)? 'events'
+	'delete' policy= ApplicationPolicy 
+		(maxOccurrence=EInt)? 
+		('['scope+=[bi::Event] (',' scope+=[bi::Event])*']')? 'events'
 ;
 EventDuplication: 
-	'duplicate' policy= ApplicationPolicy (maxOccurrence=EInt)? 'events'
+	'duplicate' policy= ApplicationPolicy 
+		(maxOccurrence=EInt)? 
+		('['scope+=[bi::Event] (',' scope+=[bi::Event])*']')? 'events'
 ;
 EventModification: 
-	'modify' policy= ApplicationPolicy (maxOccurrence=EInt)? 'events'
+	'modify' policy= ApplicationPolicy 
+		(maxOccurrence=EInt)? 
+		('['scope+=[bi::Event] (',' scope+=[bi::Event])*']')? 'events'
 ;
 EventPermutation: 
-	'permute' policy= ApplicationPolicy (maxOccurrence=EInt)? 'events'
+	'permute' policy= ApplicationPolicy 
+		(maxOccurrence=EInt)? 
+		('['scope+=[bi::Event] (',' scope+=[bi::Event])*']')? 'events'
 ;
 
 enum ApplicationPolicy returns ApplicationPolicy:
@@ -100,23 +120,28 @@ MutationOperatorType:
 ;
 
 CreationOperator: 
-	{CreationOperator} 'creation' 'operators' ('for' '[' scope+=[ecore::EClass] (',' scope+=[ecore::EClass])* ']')?
+	{CreationOperator} 'creation' 'operators' 
+	('for' '[' scope+=[ecore::EClass] (',' scope+=[ecore::EClass])* ']')?
 ;
 
 CloningOperator: 
-	{CloningOperator} 'cloning' 'operators' ('for' '[' scope+=[ecore::EClass] (',' scope+=[ecore::EClass])* ']')?
+	{CloningOperator} 'cloning' 'operators' 
+	('for' '[' scope+=[ecore::EClass] (',' scope+=[ecore::EClass])* ']')?
 ;
 
 RemovalOperator: 
-	{RemovalOperator} 'removal' 'operators' ('for' '[' scope+=[ecore::EClass] (',' scope+=[ecore::EClass])* ']')?
+	{RemovalOperator} 'removal' 'operators' 
+	('for' '[' scope+=[ecore::EClass] (',' scope+=[ecore::EClass])* ']')?
 ;
 
 ModificationOperator: 
-	{ModificationOperator} 'modification' 'operators' ('for' '[' scope+=[ecore::EClass] (',' scope+=[ecore::EClass])* ']')?
+	{ModificationOperator} 'modification' 'operators' 
+	('for' '[' scope+=[ecore::EClass] (',' scope+=[ecore::EClass])* ']')?
 ;
 
 RetypingOperator: 
-	{RetypingOperator} 'retyping' 'operators' ('for' '[' scope+=[ecore::EClass] (',' scope+=[ecore::EClass])* ']')?
+	{RetypingOperator} 'retyping' 'operators' 
+	('for' '[' scope+=[ecore::EClass] (',' scope+=[ecore::EClass])* ']')?
 ;
 
 EInt returns ecore::EInt:

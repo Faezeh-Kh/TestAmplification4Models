@@ -12,12 +12,10 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.TreeIterator;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.gemoc.dsl.Dsl;
 import org.eclipse.gemoc.executionframework.behavioralinterface.behavioralInterface.BehavioralInterface;
 import org.eclipse.gemoc.executionframework.behavioralinterface.behavioralInterface.Event;
 import org.eclipse.gemoc.executionframework.behavioralinterface.behavioralInterface.EventType;
@@ -27,6 +25,7 @@ import org.etsi.mts.tdl.DataInstance;
 import org.etsi.mts.tdl.DataInstanceUse;
 import org.etsi.mts.tdl.Member;
 import org.etsi.mts.tdl.Message;
+import org.etsi.mts.tdl.Package;
 import org.etsi.mts.tdl.Parameter;
 import org.etsi.mts.tdl.ParameterBinding;
 import org.etsi.mts.tdl.StructuredDataInstance;
@@ -41,12 +40,13 @@ import org.imt.tdl.amplification.dsl.amplifier.EventModification;
 import org.imt.tdl.amplification.dsl.amplifier.EventPermutation;
 import org.imt.tdl.amplification.dsl.amplifier.EventSequenceModifier;
 import org.imt.tdl.amplification.dsl.amplifier.TestModificationOperator;
+import org.imt.tdl.utilities.DSLProcessor;
 import org.imt.tdl.utilities.PathHelper;
 
 public class EventSequenceModificationRunner extends AbstractTestModificationRunner{
 	
 	PathHelper pathHelper;
-	org.etsi.mts.tdl.Package tdlTestSuite;
+	Package tdlTestSuite;
 	List<EventSequenceModifier> modifiers;
 	
 	//the tdl instances corresponding to the accepted events
@@ -62,22 +62,30 @@ public class EventSequenceModificationRunner extends AbstractTestModificationRun
 	private static String EVENTPERMUTATION = "EventPermutation";
 	private static String EVENTMODIFICATION = "EventModification";
 	
-	public EventSequenceModificationRunner() {
+	public EventSequenceModificationRunner(Package tdlTestSuite) {
+		setTdlTestSuite(tdlTestSuite);
 		applyAllModifiers = true;
 	}
 	
-	public EventSequenceModificationRunner(List<EventSequenceModifier> modifiers) {
+	public EventSequenceModificationRunner(Package tdlTestSuite, List<EventSequenceModifier> modifiers) {
+		setTdlTestSuite(tdlTestSuite);
 		this.modifiers = modifiers;
+	}
+	
+	private void setTdlTestSuite(Package tdlTestSuite) {
+		this.tdlTestSuite = tdlTestSuite;
+		pathHelper = new PathHelper(tdlTestSuite);
+		pathHelper.findModelAndDSLPathOfTestSuite();
 	}
 
 	@Override
 	public List<TestDescription> generateTests(TestDescription testCase) {
-		tdlTestSuite = (org.etsi.mts.tdl.Package) testCase.eContainer();
-		pathHelper = new PathHelper(tdlTestSuite);
 		//initialization
+		this.tdlTestCase = testCase;
 		findTdlDataOfDSLInterface();
 		
 		generateTestsByEventModification();
+		
 		return generatedTestsByModification;
 	}
 
@@ -96,14 +104,12 @@ public class EventSequenceModificationRunner extends AbstractTestModificationRun
 			generateTestsByEventDeletion();
 			generateTestsByEventPermutation();
 			generateTestsByEventParameterModification();
-			if (tdlEventInstances != null) {
-				generateTestsByEventCreation();
-			}
+			generateTestsByEventCreation();
 		}
 		else {
 			for (TestModificationOperator modifier:modifiers) {
 				policy = modifier.getPolicy();
-				maxOccurrence = modifier.getMaxOccurrence();
+				maxOccurrence = modifier.getMaxOccurrence() > 0 ? modifier.getMaxOccurrence() : 1;
 				if (modifier instanceof EventDuplication) {
 					generateTestsByEventDuplication();
 				}
@@ -116,7 +122,14 @@ public class EventSequenceModificationRunner extends AbstractTestModificationRun
 				else if (modifier instanceof EventModification) {
 					generateTestsByEventParameterModification();
 				}
-				else if (modifier instanceof EventCreation && tdlEventInstances != null) {
+				else if (modifier instanceof EventCreation) {
+					generateTestsByEventCreation();
+				}
+				else if (modifier instanceof EventSequenceModifier) {
+					generateTestsByEventDuplication();
+					generateTestsByEventDeletion();
+					generateTestsByEventPermutation();
+					generateTestsByEventParameterModification();
 					generateTestsByEventCreation();
 				}
 			}
@@ -140,9 +153,11 @@ public class EventSequenceModificationRunner extends AbstractTestModificationRun
 	}
 
 	private void generateTestsByEventCreation() {
-		List<Message> newMessages = generateMessages4MissedEvents();
-		if (newMessages.size()>0) {
-			modifyExchangedEvents(new CreateEvent(), newMessages);
+		if (tdlEventInstances != null) {
+			List<Message> newMessages = generateMessages4MissedEvents();
+			if (newMessages.size()>0) {
+				modifyExchangedEvents(new CreateEvent(), newMessages);
+			}
 		}
 	}
 	
@@ -188,7 +203,7 @@ public class EventSequenceModificationRunner extends AbstractTestModificationRun
 			List<Member> tdlEventParameters = ((StructuredDataType) tdlEventInstance.getDataType()).allMembers();
 			if (tdlEventParameters.stream()
 					.allMatch(p -> !etype_tdlEObjects.get(p.getDataType().getName()).isEmpty())) {
-				newMessagesForNotUsedEvents = transformEvent2Message(tdlEventInstance);
+				newMessagesForNotUsedEvents.addAll(transformEvent2Message(tdlEventInstance));
 			}
 		}
 		return newMessagesForNotUsedEvents;
@@ -275,12 +290,9 @@ public class EventSequenceModificationRunner extends AbstractTestModificationRun
 	}
 	
 	private void findTdlDataOfDSLInterface() {
-		String dslFilePath = pathHelper.getDSLPath().toString().replace("\\", "/");
-		Resource dslRes = (new ResourceSetImpl()).getResource(URI.createURI(dslFilePath), true);
-		Dsl dsl = (Dsl)dslRes.getContents().get(0);
-		if (dsl.getEntry("behavioralInterface") != null) {
-			String interfacePath = dsl.getEntry("behavioralInterface").getValue().replaceFirst("resource", "plugin");
-			Resource interfaceRes = (new ResourceSetImpl()).getResource(URI.createURI(interfacePath), true);
+		DSLProcessor dslProcessor = new DSLProcessor(pathHelper.getDSLPath());
+		if (dslProcessor.dslHasBehavioralInterface()) {
+			Resource interfaceRes = (new ResourceSetImpl()).getResource(dslProcessor.getBehavioralInterfacePluginURI(), true);
 			BehavioralInterface interfaceRootElement = (BehavioralInterface) interfaceRes.getContents().get(0);
 			List<Event> acceptedEvents = interfaceRootElement.getEvents().stream()
 					.filter(e -> e.getType() == EventType.ACCEPTED).collect(Collectors.toList());

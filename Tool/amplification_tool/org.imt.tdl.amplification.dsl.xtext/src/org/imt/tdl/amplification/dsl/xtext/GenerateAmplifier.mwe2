@@ -35,6 +35,7 @@ Workflow {
 			fileExtensions = "ampc"
 			referencedResource = "platform:/resource/org.imt.tdl.amplification.dsl/model/amplifier.genmodel"
 			referencedResource = "platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel"
+			referencedResource = "platform:/resource/org.eclipse.gemoc.executionframework.behavioralinterface/model/generated/BehavioralInterface.genmodel"
 			
 			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
 

@@ -70,14 +70,16 @@ public class IterativeAmplifier extends AbstractAmplifier{
 
 		//considering number of iterations && max score
 		if (maxIterations > 0 && maxSelectionScore > 0.0) {
-			while (currentIteration<maxIterations && testSelector.getCurrentScore()<maxSelectionScore) {
+			while (!iteration_ampTests.get(currentIteration-1).isEmpty() 
+					&& (currentIteration<maxIterations && testSelector.getCurrentScore()<maxSelectionScore)) {
 				//at each iteration, the previously amplified tests are amplified
 				amplifyTestCases(iteration_ampTests.get(currentIteration-1));
 			}
 		}
 		else {
 			//considering number of iterations || max score
-			while (currentIteration<maxIterations || testSelector.getCurrentScore()<maxSelectionScore) {
+			while (!iteration_ampTests.get(currentIteration-1).isEmpty() 
+					&& (currentIteration<maxIterations || testSelector.getCurrentScore()<maxSelectionScore)) {
 				//at each iteration, the previously amplified tests are amplified
 				amplifyTestCases(iteration_ampTests.get(currentIteration-1));
 			}
@@ -105,7 +107,7 @@ public class IterativeAmplifier extends AbstractAmplifier{
 
 			List<TestDescription> TMP = new ArrayList<>();
 			System.out.println("Phase (2): Modifying test input Data to generate new test cases");
-			TestGenerator testGenerator = new TestGenerator();
+			TestGenerator testGenerator = new TestGenerator(tdlTestSuite);
 			TMP.addAll(testGenerator.generateNewTestsByInputModification(copyTdlTestCase, modifiers));
 			System.out.println("Done: #of generated test cases by input modification = " + TMP.size());
 			
@@ -119,10 +121,9 @@ public class IterativeAmplifier extends AbstractAmplifier{
 					tdlTestSuite.getPackagedElement().remove(newTestCase);
 				}
 				else {
-					//ignore the new test case if it fails on the model or does not improve the score
+					//ignore the new test case does not improve the score
 					amplifiedTests.add(newTestCase);
-					if (runTestCase(newTestCase) != TDLTestResultUtil.PASS 
-							|| !testSelector.testCaseImprovesScore(newTestCase)) {
+					if (!testSelector.testCaseImprovesScore(newTestCase)) {
 						tdlTestSuite.getPackagedElement().remove(newTestCase);
 						amplifiedTests.remove(newTestCase);
 					}
@@ -144,6 +145,7 @@ public class IterativeAmplifier extends AbstractAmplifier{
 	}
 	
 	public String runTestCase (TestDescription testCase) {
+		TestDescriptionAspect.activateConfiguration(testCase);
 		TDLTestCaseResult result = TestDescriptionAspect.executeTestCase(testCase);
 		if (result.getValue() != TDLTestResultUtil.PASS) {
 			return TDLTestResultUtil.FAIL;
@@ -166,6 +168,7 @@ public class IterativeAmplifier extends AbstractAmplifier{
 		}
 		try {
 			PathHelper pathHelper = new PathHelper(tdlTestSuite);
+			pathHelper.findModelAndDSLPathOfTestSuite();
 			String outputFilePath = pathHelper.getRuntimeWorkspacePath() + "/"
 					+ pathHelper.getTestSuiteProjectName() + "/" 
 					+ pathHelper.getTestSuiteFileName() + 

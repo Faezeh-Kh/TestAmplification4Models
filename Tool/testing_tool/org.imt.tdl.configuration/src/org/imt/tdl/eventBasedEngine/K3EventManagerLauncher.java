@@ -104,9 +104,9 @@ public class K3EventManagerLauncher implements IEventBasedExecutionEngine{
 	
 	@Override
 	public void setUp(String MUTPath, String DSLPath){
-		this.MUTPath = MUTPath.replace("\\", "/");
-		this.DSLPath = "platform:/plugin/" + DSLPath.replace("\\", "/");;
 		dslProcessor = new DSLProcessor(Paths.get(DSLPath));
+		this.MUTPath = MUTPath.replace("\\", "/");
+		this.DSLPath = "platform:/plugin/" + DSLPath.replace("\\", "/");
 		final String languageName = dslProcessor.getDSLName();
 		final String implemRelId = dslProcessor.getImplemRelId();
 		final String subtypeRelId = dslProcessor.getSubtypeRelId();
@@ -340,7 +340,8 @@ public class K3EventManagerLauncher implements IEventBasedExecutionEngine{
 	}
 	
 	private EventOccurrence createEventOccurance(EventOccurrenceType eventType, String eventName, Map<String, Object> parameters) {
-		BehavioralInterface bInterface = getBehavioralInterfaceRootElement(dslProcessor.getPath2BehavioralInterface());
+		Resource interfaceRes = (new ResourceSetImpl()).getResource(dslProcessor.getBehavioralInterfacePluginURI(), true);
+		BehavioralInterface bInterface = (BehavioralInterface) interfaceRes.getContents().get(0);
 		Event event = null;
 		for (int i=0; i<bInterface.getEvents().size();i++) {
 			if (bInterface.getEvents().get(i).getName().equals(eventName)) {
@@ -522,13 +523,6 @@ public class K3EventManagerLauncher implements IEventBasedExecutionEngine{
 			result += ")";
 		}
 		return result;
-	}
-	
-	private BehavioralInterface getBehavioralInterfaceRootElement(String interfacePath) {
-		interfacePath = interfacePath.replaceFirst("resource", "plugin");
-		Resource interfaceRes = (new ResourceSetImpl()).getResource(URI.createURI(interfacePath), true);
-		BehavioralInterface interfaceRootElement = (BehavioralInterface) interfaceRes.getContents().get(0);
-		return interfaceRootElement;
 	}
 	
 	public void setModelResource(Resource resource) {

@@ -6,6 +6,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="metamodel" lowerBound="1"
         eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="behavioralInterface" eType="ecore:EClass ../../org.eclipse.gemoc.executionframework.behavioralinterface/model/generated/BehavioralInterface.ecore#//BehavioralInterface"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="approach" lowerBound="1"
         eType="#//AmplificationApproach" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operators" lowerBound="1"
@@ -24,7 +25,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="TestModificationOperator" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="policy" lowerBound="1"
         eType="#//ApplicationPolicy"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxOccurrence" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxOccurrence" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ApplicationPolicy">
     <eLiterals name="all" value="1"/>
@@ -34,13 +36,14 @@
     <eLiterals name="last" value="5"/>
     <eLiterals name="fixed" value="6"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PrimitiveDataModifier" abstract="true"
-      eSuperTypes="#//TestModificationOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PrimitiveDataModifier" eSuperTypes="#//TestModificationOperator"/>
   <eClassifiers xsi:type="ecore:EClass" name="NumericValueModifier" eSuperTypes="#//PrimitiveDataModifier"/>
   <eClassifiers xsi:type="ecore:EClass" name="StringValueModifier" eSuperTypes="#//PrimitiveDataModifier"/>
   <eClassifiers xsi:type="ecore:EClass" name="BooleanValueModifier" eSuperTypes="#//PrimitiveDataModifier"/>
-  <eClassifiers xsi:type="ecore:EClass" name="EventSequenceModifier" abstract="true"
-      eSuperTypes="#//TestModificationOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EventSequenceModifier" eSuperTypes="#//TestModificationOperator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="scope" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.gemoc.executionframework.behavioralinterface/model/generated/BehavioralInterface.ecore#//Event"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EventDuplication" eSuperTypes="#//EventSequenceModifier"/>
   <eClassifiers xsi:type="ecore:EClass" name="EventDeletion" eSuperTypes="#//EventSequenceModifier"/>
   <eClassifiers xsi:type="ecore:EClass" name="EventPermutation" eSuperTypes="#//EventSequenceModifier"/>

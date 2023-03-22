@@ -18,6 +18,10 @@ public class TestGenerator {
 	int numOfNewTests = 0;
 	List<TestDescription> generatedTestsByModification = new ArrayList<>();
 	
+	public TestGenerator(Package tdlTestSuite) {
+		this.tdlTestSuite = tdlTestSuite;
+	}
+
 	public List<TestDescription> generateNewTestsByInputModification (TestDescription testCase
 			, ArrayList<TestModificationOperator> modifiers) {
 		tdlTestCase = testCase;
@@ -30,7 +34,7 @@ public class TestGenerator {
 		EventSequenceModificationRunner runner4events = null;
 		if (modifiers == null) {
 			runner4primitives = new PrimitiveValueModificationRunner();
-			runner4events = new EventSequenceModificationRunner();
+			runner4events = new EventSequenceModificationRunner(tdlTestSuite);
 		}
 		else {
 			if (modifiers.stream().anyMatch(m -> m instanceof PrimitiveDataModifier)) {
@@ -45,7 +49,7 @@ public class TestGenerator {
 						.filter(EventSequenceModifier.class::isInstance)
 						.map(EventSequenceModifier.class::cast)
 						.collect(Collectors.toList());
-				runner4events = new EventSequenceModificationRunner(modifiers4events);
+				runner4events = new EventSequenceModificationRunner(tdlTestSuite, modifiers4events);
 			}
 		}
 		if (runner4primitives != null) {

@@ -191,7 +191,7 @@ public class MutationScoreCalculator {
 		//run the test case only on alive mutants
 		for (String mutant:aliveMutants) {
 			String mutantPath = mutant.replace("\\", "/");
-			System.out.println("Running test case " + testCase + " on mutant " + mutantPath);
+			System.out.println("Running test case " + testCase.getName() + " on mutant " + mutantPath);
 			TDLTestCaseResult result = null;
 			final Runnable testRunner = new Thread() {
 				  @Override 

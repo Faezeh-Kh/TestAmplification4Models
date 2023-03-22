@@ -85,7 +85,7 @@ public class DSLProcessor {
 	public void loadDSLMetaclasses(){
 		if (dslEntries.get(ECORE) != null){
 			String metamodelPath = dslEntries.get(ECORE).replaceFirst("resource", "plugin");
-			Resource metamodelRes = (new ResourceSetImpl()).getResource(URI.createURI(metamodelPath), true);
+			Resource metamodelRes = (new ResourceSetImpl()).getResource(URI.createPlatformPluginURI(metamodelPath, false), true);
 			metamodelRootElement = (EPackage) metamodelRes.getContents().get(0);
 			eClassifiers = new BasicEList<EClassifier>();
 			eClassifiers.addAll(metamodelRootElement.getEClassifiers());
@@ -222,12 +222,32 @@ public class DSLProcessor {
 		return dslEntries.get(ECORE);
 	}
 	
+	public URI getEcoreResourceURI() {
+		String path = getPath2Ecore().replaceFirst("plugin", "resource");
+		return URI.createPlatformResourceURI(path, false);
+	}
+	
+	public URI getEcorePluginURI() {
+		String path = getPath2Ecore().replaceFirst("resource", "plugin");
+		return URI.createPlatformPluginURI(path, false);
+	}
+	
 	public boolean dslHasBehavioralInterface() {
 		return dslEntries.get(BEHAVIORAL_INTERFACE) != null;
 	}
 	
 	public String getPath2BehavioralInterface() {
 		return dslEntries.get(BEHAVIORAL_INTERFACE);
+	}
+	
+	public URI getBehavioralInterfaceResourceURI() {
+		String path = getPath2BehavioralInterface().replaceFirst("plugin", "resource");
+		return URI.createPlatformResourceURI(path, false);
+	}
+	
+	public URI getBehavioralInterfacePluginURI() {
+		String path = getPath2BehavioralInterface().replaceFirst("resource", "plugin");
+		return URI.createPlatformPluginURI(path, false);
 	}
 	
 	public boolean dslHasImplemRelId() {
@@ -254,6 +274,17 @@ public class DSLProcessor {
 		return dslEntries.get(COVERAGE_RULES);
 	}
 	
+	public URI getCoverageRulesResourceURI() {
+		String path = getPath2CoverageRules().replaceFirst("plugin", "resource");
+		return URI.createPlatformResourceURI(path, false);
+	}
+	
+	public URI getCoverageRulesPluginURI() {
+		String path = getPath2CoverageRules().replaceFirst("resource", "plugin");
+		return URI.createPlatformPluginURI(path, false);
+	}
+	
+	
 	public boolean dslHasMutationOperators() {
 		return dslEntries.get(MUTATION_OPERATORS) != null;
 	}
@@ -262,12 +293,32 @@ public class DSLProcessor {
 		return dslEntries.get(MUTATION_OPERATORS);
 	}
 
+	public URI getMutationOperatorsResourceURI() {
+		String path = getPath2MutationOperators().replaceFirst("plugin", "resource");
+		return URI.createPlatformResourceURI(path, false);
+	}
+	
+	public URI getMutationOperatorsPluginURI() {
+		String path = getPath2MutationOperators().replaceFirst("resource", "plugin");
+		return URI.createPlatformPluginURI(path, false);
+	}
+	
 	public boolean dslHasAmplifierConfig() {
 		return dslEntries.get(AMPLIFIER_CONFIG) != null;
 	}
 	
 	public String getPath2AmplifierConfig() {
 		return dslEntries.get(AMPLIFIER_CONFIG);
+	}
+	
+	public URI getAmplifierConfigResourceURI() {
+		String path = getPath2AmplifierConfig().replaceFirst("plugin", "resource");
+		return URI.createPlatformResourceURI(path, false);
+	}
+	
+	public URI getAmplifierConfigPluginURI() {
+		String path = getPath2AmplifierConfig().replaceFirst("resource", "plugin");
+		return URI.createPlatformPluginURI(path, false);
 	}
 	
 	public IConfigurationElement getLanguage() {
