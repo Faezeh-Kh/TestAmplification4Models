@@ -12,7 +12,7 @@ public class TestMutantGenerator {
 		
 		MutatorenvironmentPackage.eINSTANCE.getClass();
 		try {
-			WodelUtils.generateMutationOperators(new String[] {"c:/GemocStudio/workspace2/wodelsm/data/model/statemachines.ecore", "d:/sm/empty", "c:/GemocStudio/workspace2/wodelsm"});
+			WodelUtils.generateMutationOperators("c:/GemocStudio/workspace2/wodelsm/data/model/statemachines.ecore", "d:/sm/empty", "c:/GemocStudio/workspace2/wodelsm");
 		} catch (MetaModelNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -22,8 +22,16 @@ public class TestMutantGenerator {
 			e.printStackTrace();
 			return;
 		}
-		WodelUtils.compileWodelProject(new String[] {"c:/GemocStudio/workspace2/wodelsm", "c:/GemocStudio", "GemocStudioc"});
-		
-		WodelUtils.generateMutants(new String[]{"d:/sm/models", "d:/sm/mutants", "c:/GemocStudio/workspace2/wodelsm", "c:/GemocStudio"});
+		WodelUtils.compileWodelProject("c:/GemocStudio/workspace2/wodelsm", "c:/GemocStudio", "GemocStudioc");
+
+		String currentPath = null;
+		try {
+			currentPath = new java.io.File(".").getCanonicalPath();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return;
+		}
+		WodelUtils.generateMutants("d:/sm/models", "d:/sm/mutants", currentPath, "c:/GemocStudio/workspace2/wodelsm", "c:/GemocStudio");
 	}
 }
