@@ -136,6 +136,13 @@ public class TDLTestSuiteCoverage {
 	public List<TDLTestCaseCoverage> getTcCoverages() {
 		return tcCoverages;
 	}
+	
+	public int getNumOfCoveredObjs() {
+		return numOfCoveredObjs;
+	}
+	public int getNumOfNotCoverableElements() {
+		return numOfNotCoverableElements;
+	}
 	public double getTsCoveragePercentage() {
 		return tsCoveragePercentage;
 	}
