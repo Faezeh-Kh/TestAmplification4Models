@@ -1,6 +1,5 @@
 config amplifier ArduinoAmplifier{
 	import metamodel arduino
-	import behavioral interface ArduinoInterface
 	
 	//amplification techniques: 
 	//(1): iterative until a limited number of iterations & reaching a specific selection score
@@ -15,35 +14,36 @@ config amplifier ArduinoAmplifier{
 	
 	test modifiers{
 		//primitive modifiers
-		all primitive modifiers on all literals,
+//		all primitive modifiers on all literals,
 //		modify all string values,
 //		modify first boolean values,
 //		modify one numeric values,
 		
 		//event modifiers
-		//all event modifiers on all events,
-		create each missed events,
-		delete first events,
-		duplicate last events,
-		modify all events,
-		permute atmost 2 events
+//		all event modifiers on all events,
+		//or
+		create each missed events
+//		delete first events,
+//		duplicate last events,
+//		modify all events,
+//		permute atmost 2 events
 	}
 	
 	//test selection criteria:
 	//(1): model element coverage (using our SLE paper)
 	filterby element coverage
 	//(2): mutation analysis (using WODEL)
-	//filterby mutation score {
+//	filterby mutation score {
 		//generating mutants:
 		//(1) using a provided mutation operators file
 		//generate mutants using mutation operators "/ArduinoMutation/src/ArduinoMutation.mutator"
 		//(2) generating the mutation operators first
-//		generate mutants using mutation operators{
+//		generate mutants using mutation operators "/ArduinoMutation/src/ArduinoMutation.mutator"{
 //			creation operators for [Module],
 //			cloning operators for [If, While],
 //			modification operators for [ModuleAssignment, Expression],
 //			removal operators for [Constant],
 //			retyping operators for [DigitalPin]
 //		}
-	}
+//	}
 }

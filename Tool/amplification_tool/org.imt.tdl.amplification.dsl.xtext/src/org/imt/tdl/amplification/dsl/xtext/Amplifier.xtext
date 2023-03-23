@@ -3,13 +3,12 @@ grammar org.imt.tdl.amplification.dsl.xtext.Amplifier with org.eclipse.xtext.com
 
 import "http://org.imt.tdl.amplification/configuration/amplifier"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
-import "http://www.eclipse.org/gemoc/xdsmlframework/behavioralinterface/BehavioralInterface" as bi
 
 Configuration returns Configuration: 
 	{Configuration}
 	'config' 'amplifier' name=EString '{'
 		'import' 'metamodel' metamodel=[ecore::EPackage]
-		('import' 'behavioral' 'interface' behavioralInterface=[bi::BehavioralInterface])?
+		('import' 'behavioral' 'interface' behavioralInterfaceUri=EString)?
 		
 		approach = AmplificationApproach
 		'test' 'modifiers' '{'
@@ -57,34 +56,34 @@ EventSequenceModifier:
 	'all' 'event' 'modifiers' 'on' 
 		policy= ApplicationPolicy 
 		(maxOccurrence=EInt)? 
-		('['scope+=[bi::Event] (',' scope+=[bi::Event])*']')? 'events'
+		('['scope+=EString (',' scope+=EString)*']')? 'events'
 	|EventCreation | EventDeletion | EventDuplication | EventModification | EventPermutation
 ;
 EventCreation: 
 	'create' 
 		policy= ApplicationPolicy 
 		(maxOccurrence=EInt)? 
-		('['scope+=[bi::Event] (',' scope+=[bi::Event])*']')? 'missed' 'events'
+		('['scope+=EString (',' scope+=EString)*']')? 'missed' 'events'
 ;
 EventDeletion: 
 	'delete' policy= ApplicationPolicy 
 		(maxOccurrence=EInt)? 
-		('['scope+=[bi::Event] (',' scope+=[bi::Event])*']')? 'events'
+		('['scope+=EString (',' scope+=EString)*']')? 'events'
 ;
 EventDuplication: 
 	'duplicate' policy= ApplicationPolicy 
 		(maxOccurrence=EInt)? 
-		('['scope+=[bi::Event] (',' scope+=[bi::Event])*']')? 'events'
+		('['scope+=EString (',' scope+=EString)*']')? 'events'
 ;
 EventModification: 
 	'modify' policy= ApplicationPolicy 
 		(maxOccurrence=EInt)? 
-		('['scope+=[bi::Event] (',' scope+=[bi::Event])*']')? 'events'
+		('['scope+=EString (',' scope+=EString)*']')? 'events'
 ;
 EventPermutation: 
 	'permute' policy= ApplicationPolicy 
 		(maxOccurrence=EInt)? 
-		('['scope+=[bi::Event] (',' scope+=[bi::Event])*']')? 'events'
+		('['scope+=EString (',' scope+=EString)*']')? 'events'
 ;
 
 enum ApplicationPolicy returns ApplicationPolicy:
@@ -98,20 +97,21 @@ ElementCoverage returns ElementCoverage:
 MutationAnalysis returns MutationAnalysis:
 	{MutationAnalysis} 'mutation' 'score'
 	('{' 
-		mutantGenerator=MutantGenerator 
+		mutationOperators+=MutationOperator (',' mutationOperators+=MutationOperator)*
 	 '}'
 	)?
 ;
 
-MutantGenerator:
-	{MutantGenerator} 'generate' 'mutants' 'using' 'mutation' 'operators'
-	(pathToMutationOperatorsFile=STRING)?
-	(mutationOperatorGenerator=MutationOperatorGenerator)?
+MutationOperator: UserDefinedOperator | GeneratedOperator;
+
+UserDefinedOperator: 'generate' 'mutants' 'using' 'mutation' 'operators'
+	(pathToMutationOperatorsFile=STRING)
 ;
 
-MutationOperatorGenerator: 
+GeneratedOperator: 'generate' 'mutants' 'using' 'mutation' 'operators'
+	(pathToMutationOperatorsFile=STRING)
 	'{'
-		operators+=MutationOperatorType (',' operators+=MutationOperatorType)*
+		operatorsTypes+=MutationOperatorType (',' operatorsTypes+=MutationOperatorType)*
 	'}'
 ;
 

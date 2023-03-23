@@ -6,7 +6,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="metamodel" lowerBound="1"
         eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="behavioralInterface" eType="ecore:EClass ../../org.eclipse.gemoc.executionframework.behavioralinterface/model/generated/BehavioralInterface.ecore#//BehavioralInterface"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="behavioralInterfaceUri"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="approach" lowerBound="1"
         eType="#//AmplificationApproach" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operators" lowerBound="1"
@@ -41,8 +42,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="StringValueModifier" eSuperTypes="#//PrimitiveDataModifier"/>
   <eClassifiers xsi:type="ecore:EClass" name="BooleanValueModifier" eSuperTypes="#//PrimitiveDataModifier"/>
   <eClassifiers xsi:type="ecore:EClass" name="EventSequenceModifier" eSuperTypes="#//TestModificationOperator">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="scope" upperBound="-1"
-        eType="ecore:EClass ../../org.eclipse.gemoc.executionframework.behavioralinterface/model/generated/BehavioralInterface.ecore#//Event"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scope" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EventDuplication" eSuperTypes="#//EventSequenceModifier"/>
   <eClassifiers xsi:type="ecore:EClass" name="EventDeletion" eSuperTypes="#//EventSequenceModifier"/>
@@ -52,17 +53,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="TestSelectionCriterion" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="ElementCoverage" eSuperTypes="#//TestSelectionCriterion"/>
   <eClassifiers xsi:type="ecore:EClass" name="MutationAnalysis" eSuperTypes="#//TestSelectionCriterion">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mutantGenerator" eType="#//MutantGenerator"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mutationOperators" lowerBound="1"
+        upperBound="-1" eType="#//MutationOperator" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MutantGenerator">
+  <eClassifiers xsi:type="ecore:EClass" name="MutationOperator" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pathToMutationOperatorsFile"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mutationOperatorGenerator"
-        eType="#//MutationOperatorGenerator" containment="true"/>
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MutationOperatorGenerator">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="operators" lowerBound="1"
+  <eClassifiers xsi:type="ecore:EClass" name="UserDefinedOperator" eSuperTypes="#//MutationOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratedOperator" eSuperTypes="#//MutationOperator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operatorsTypes" lowerBound="1"
         upperBound="-1" eType="#//MutationOperatorType" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MutationOperatorType" abstract="true">

@@ -5,8 +5,7 @@
     editDirectory="/org.imt.tdl.amplification.dsl.edit/src-gen" editorDirectory="/org.imt.tdl.amplification.dsl.editor/src-gen"
     modelPluginID="org.imt.tdl.amplification.dsl" modelName="Amplifier" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
-    copyrightFields="false" usedGenPackages="../../org.eclipse.gemoc.executionframework.behavioralinterface/model/generated/BehavioralInterface.genmodel#//behavioralInterface"
-    operationReflection="true" importOrganizing="true">
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
   <foreignModel>amplifier.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Amplifier" basePackage="org.imt.tdl.amplification.dsl" disposableProviderFactory="true"
@@ -22,7 +21,7 @@
     <genClasses ecoreClass="amplifier.ecore#//Configuration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute amplifier.ecore#//Configuration/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference amplifier.ecore#//Configuration/metamodel"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference amplifier.ecore#//Configuration/behavioralInterface"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute amplifier.ecore#//Configuration/behavioralInterfaceUri"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference amplifier.ecore#//Configuration/approach"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference amplifier.ecore#//Configuration/operators"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference amplifier.ecore#//Configuration/filtering"/>
@@ -43,7 +42,7 @@
     <genClasses ecoreClass="amplifier.ecore#//StringValueModifier"/>
     <genClasses ecoreClass="amplifier.ecore#//BooleanValueModifier"/>
     <genClasses image="false" ecoreClass="amplifier.ecore#//EventSequenceModifier">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference amplifier.ecore#//EventSequenceModifier/scope"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EAttribute amplifier.ecore#//EventSequenceModifier/scope"/>
     </genClasses>
     <genClasses ecoreClass="amplifier.ecore#//EventDuplication"/>
     <genClasses ecoreClass="amplifier.ecore#//EventDeletion"/>
@@ -53,14 +52,14 @@
     <genClasses image="false" ecoreClass="amplifier.ecore#//TestSelectionCriterion"/>
     <genClasses ecoreClass="amplifier.ecore#//ElementCoverage"/>
     <genClasses ecoreClass="amplifier.ecore#//MutationAnalysis">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference amplifier.ecore#//MutationAnalysis/mutantGenerator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference amplifier.ecore#//MutationAnalysis/mutationOperators"/>
     </genClasses>
-    <genClasses ecoreClass="amplifier.ecore#//MutantGenerator">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute amplifier.ecore#//MutantGenerator/pathToMutationOperatorsFile"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference amplifier.ecore#//MutantGenerator/mutationOperatorGenerator"/>
+    <genClasses image="false" ecoreClass="amplifier.ecore#//MutationOperator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute amplifier.ecore#//MutationOperator/pathToMutationOperatorsFile"/>
     </genClasses>
-    <genClasses ecoreClass="amplifier.ecore#//MutationOperatorGenerator">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference amplifier.ecore#//MutationOperatorGenerator/operators"/>
+    <genClasses ecoreClass="amplifier.ecore#//UserDefinedOperator"/>
+    <genClasses ecoreClass="amplifier.ecore#//GeneratedOperator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference amplifier.ecore#//GeneratedOperator/operatorsTypes"/>
     </genClasses>
     <genClasses image="false" ecoreClass="amplifier.ecore#//MutationOperatorType">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference amplifier.ecore#//MutationOperatorType/scope"/>

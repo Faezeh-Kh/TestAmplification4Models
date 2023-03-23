@@ -15,9 +15,8 @@ import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
 import org.imt.tdl.amplification.dsl.amplifier.AmplifierPackage;
 import org.imt.tdl.amplification.dsl.amplifier.Configuration;
-import org.imt.tdl.amplification.dsl.amplifier.MutantGenerator;
+import org.imt.tdl.amplification.dsl.amplifier.GeneratedOperator;
 import org.imt.tdl.amplification.dsl.amplifier.MutationAnalysis;
-import org.imt.tdl.amplification.dsl.amplifier.MutationOperatorGenerator;
 import org.imt.tdl.amplification.dsl.amplifier.MutationOperatorType;
 /**
  * This class contains custom scoping description.
@@ -41,11 +40,9 @@ public class AmplifierScopeProvider extends AbstractAmplifierScopeProvider {
 			Collection<EClass> allClasses = (
 					(Configuration)
 						((MutationAnalysis)
-							((MutantGenerator)
-								((MutationOperatorGenerator)
+							((GeneratedOperator)
 									((MutationOperatorType) context)
 								.eContainer())
-							.eContainer())
 						.eContainer())
 					.eContainer())
 					.getMetamodel().getEClassifiers().stream()
