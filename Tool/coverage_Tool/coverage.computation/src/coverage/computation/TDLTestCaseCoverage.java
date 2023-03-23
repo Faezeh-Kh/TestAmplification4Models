@@ -48,7 +48,6 @@ public class TDLTestCaseCoverage {
 	
 	//calculating the coverage of the test case based on the model execution trace and dsl-specific coverage rules
 	public void calculateTCCoverage () {
-		listEObjects();
 		Step<?> rootStep = trace.getRootStep();
 		calculateCoverageBasedOnTrace(rootStep);
 		
@@ -63,15 +62,6 @@ public class TDLTestCaseCoverage {
 		findNotCoverableObjects();
 		countNumOfElements();
 		calculateCoveragePercentage();
-	}
-
-	private void listEObjects() {
-		//list objects of the MUTResource of the test case and set their initial status as NOT-COVERED
-		TreeIterator<EObject> modelContents = MUTResource.getAllContents();
-		while (modelContents.hasNext()) {
-			modelObjects.add(modelContents.next());
-			tcObjectCoverageStatus.add(TDLCoverageUtil.NOT_COVERED);
-		}
 	}
 	
 	private void calculateCoverageBasedOnTrace(Object rootStep) {
@@ -189,8 +179,18 @@ public class TDLTestCaseCoverage {
 
 	public void setMUTResource(Resource MUTResource) {
 		this.MUTResource = MUTResource;
+		listEObjects();
 	}
 
+	private void listEObjects() {
+		//list objects of the MUTResource of the test case and set their initial status as NOT-COVERED
+		TreeIterator<EObject> modelContents = MUTResource.getAllContents();
+		while (modelContents.hasNext()) {
+			modelObjects.add(modelContents.next());
+			tcObjectCoverageStatus.add(TDLCoverageUtil.NOT_COVERED);
+		}
+	}
+	
 	public TestDescription getTestCase() {
 		return testCase;
 	}
