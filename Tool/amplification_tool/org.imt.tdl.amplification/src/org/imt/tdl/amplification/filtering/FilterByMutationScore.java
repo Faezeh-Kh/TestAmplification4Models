@@ -59,7 +59,7 @@ public class FilterByMutationScore implements ITestSelector{
 		if (scoreCalculator.mutantsExists()) {
 			stringBuilder.append("Total number of mutants: " + scoreCalculator.getNumOfMutants() + "\n");
 			stringBuilder.append("- initial number of killed mutants: " + scoreCalculator.getSeedNumOfKilledMutants() + "\n");
-			stringBuilder.append("- initial mutation score : " + (scoreCalculator.getSeedMutationScore() * 100) + "%" + "\n");
+			stringBuilder.append("- initial mutation score : " + (scoreCalculator.getSeedMutationScore() * 100) + "%" + "\n\n");
 			stringBuilder.append("- number of mutants killed by improved test cases: " + (scoreCalculator.getNumOfKilledMutants()-scoreCalculator.getSeedNumOfKilledMutants())+ "\n");
 			stringBuilder.append("- total number of killed mutants: " + scoreCalculator.getNumOfKilledMutants() + "\n");
 			stringBuilder.append("- final mutation score : " + (scoreCalculator.getCurrentMutationScore() * 100) + "%" + "\n");
