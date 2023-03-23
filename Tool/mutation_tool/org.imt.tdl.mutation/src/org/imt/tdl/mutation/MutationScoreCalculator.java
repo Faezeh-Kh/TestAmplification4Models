@@ -30,7 +30,7 @@ import org.etsi.mts.tdl.Interaction;
 import org.etsi.mts.tdl.Package;
 import org.etsi.mts.tdl.TestDescription;
 import org.imt.k3tdl.interpreter.TestDescriptionAspect;
-import org.imt.tdl.amplification.dsl.amplifier.MutantGenerator;
+import org.imt.tdl.amplification.dsl.amplifier.MutationAnalysis;
 import org.imt.tdl.testResult.TDLTestCaseResult;
 import org.imt.tdl.testResult.TDLTestResultUtil;
 import org.imt.tdl.utilities.PathHelper;
@@ -43,7 +43,7 @@ public class MutationScoreCalculator {
 	Package testSuite;
 	List<TestDescription> testCases = new ArrayList<>();
 	
-	MutantGenerator mutantGenerator;
+	MutationAnalysis mutationAnalysisSpec;
 
 	private static String KILLED = "killed";
 	private static String ALIVE = "alive";
@@ -70,7 +70,7 @@ public class MutationScoreCalculator {
 	Path seedModelPath;
 	IProject mutantsProject;
 	
-	public MutationScoreCalculator(MutantGenerator mutantGenerator, Package testSuite) {
+	public MutationScoreCalculator(MutationAnalysis mutationAnalysisSpec, Package testSuite) {
 		this.testSuite = testSuite;
 		testCases = testSuite.getPackagedElement().stream().filter(p -> p instanceof TestDescription).
 				map(p -> (TestDescription) p).collect(Collectors.toList());
@@ -80,7 +80,7 @@ public class MutationScoreCalculator {
 		seedModelPath = pathHelper.getModelUnderTestPath();
 		runtimeWorkspacePath = pathHelper.getRuntimeWorkspacePath();
 		
-		this.mutantGenerator = mutantGenerator;
+		this.mutationAnalysisSpec = mutationAnalysisSpec;
 		findMutants();
 		//default values of pitest tool
 		timeoutFactor = 1.25;
@@ -269,7 +269,7 @@ public class MutationScoreCalculator {
 			String outputPath = inputPath + "/mutants";
 			String eclipseHomePath = "c:/labtop/gemoc_studio";
 			String wodelProjectPath = "";
-			String mutatorFilePath = mutantGenerator.getPathToMutationOperatorsFile();
+			String mutatorFilePath = mutationAnalysisSpec.getMutationOperators().get(0).getPathToMutationOperatorsFile();
 			
 			//if there is no mutation operator, generate the operators first
 			//TODO: Generate operators based on the configuration file

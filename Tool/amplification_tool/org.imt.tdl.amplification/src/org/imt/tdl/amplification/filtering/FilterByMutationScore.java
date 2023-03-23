@@ -27,7 +27,7 @@ public class FilterByMutationScore implements ITestSelector{
 	@Override
 	public double calculateInitialScore(Package testSuite) throws AmplificationRuntimeException{
 		double initialScore = -1;
-		scoreCalculator = new MutationScoreCalculator(mutationAnalysis.getMutantGenerator(), testSuite);
+		scoreCalculator = new MutationScoreCalculator(mutationAnalysis, testSuite);
 		if (scoreCalculator.mutantsExists()) {
 			String result = scoreCalculator.runTestSuiteOnOriginalModel();
 			if (result == TDLTestResultUtil.FAIL) {
