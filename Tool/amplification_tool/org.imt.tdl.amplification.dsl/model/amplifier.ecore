@@ -4,7 +4,7 @@
     nsPrefix="amplifier">
   <eClassifiers xsi:type="ecore:EClass" name="Configuration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="metamodel" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metamodel"
         eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="behavioralInterfaceUri"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

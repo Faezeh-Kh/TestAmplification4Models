@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 import org.apache.commons.lang3.RandomStringUtils;
@@ -397,9 +398,11 @@ public class PrimitiveValueModificationRunner extends AbstractTestModificationRu
 		@Override
 		public void modifyData(Object data) {
 			LiteralValueUse tdlLiteralValue = (LiteralValueUse) data;
-			LiteralValueUse otherValue = intLiterals.stream()
-					.filter(i -> i != tdlLiteralValue).findAny().get();
-			tdlLiteralValue.setValue(otherValue.getValue());
+			Optional<LiteralValueUse> otherValue = intLiterals.stream()
+					.filter(i -> i != tdlLiteralValue).findAny();
+			if (otherValue.isPresent()) {
+				tdlLiteralValue.setValue(otherValue.get().getValue());
+			}
 		}
 	}
 	class FloatNegateValue implements ITestDataModifier{
@@ -457,9 +460,11 @@ public class PrimitiveValueModificationRunner extends AbstractTestModificationRu
 		@Override
 		public void modifyData(Object data) {
 			LiteralValueUse tdlLiteralValue = (LiteralValueUse) data;
-			LiteralValueUse otherValue = floatLiterals.stream()
-					.filter(i -> i != tdlLiteralValue).findAny().get();
-			tdlLiteralValue.setValue(otherValue.getValue());
+			Optional<LiteralValueUse> otherValue = intLiterals.stream()
+					.filter(i -> i != tdlLiteralValue).findAny();
+			if (otherValue.isPresent()) {
+				tdlLiteralValue.setValue(otherValue.get().getValue());
+			}
 		}
 	}
 }

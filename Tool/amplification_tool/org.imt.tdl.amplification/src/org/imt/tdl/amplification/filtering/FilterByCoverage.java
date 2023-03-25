@@ -90,7 +90,7 @@ public class FilterByCoverage implements ITestSelector{
 		stringBuilder.append("- number of covered elements by improved test cases: " + (numOfCoveredElements-tsCoverageRunner.getNumOfCoveredObjs())+ "\n");
 		stringBuilder.append("- total number of covered elements: " + numOfCoveredElements + "\n");
 		stringBuilder.append("- final test suite coverage: " + amplifiedCoverage + "%" + "\n");
-		stringBuilder.append("=> improvement in the coverage percentage: %.2f" + (new BigDecimal(amplifiedCoverage-initialCoverage).setScale(2, RoundingMode.HALF_UP)).doubleValue() + "%" + "\n");
+		stringBuilder.append("=> improvement in the coverage percentage: " + (new BigDecimal(amplifiedCoverage-initialCoverage).setScale(2, RoundingMode.HALF_UP)).doubleValue() + "%" + "\n");
 		stringBuilder.append("--------------------------------------------------\n");
 		System.out.println(stringBuilder);
 		
