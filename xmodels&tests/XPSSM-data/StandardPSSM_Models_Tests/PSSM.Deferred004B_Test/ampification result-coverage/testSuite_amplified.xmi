@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="ASCII"?>
+<tdl:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tdl="http://www.etsi.org/spec/TDL/1.4.1" name="testSuite">
+  <packagedElement xsi:type="tdl:TestConfiguration" name="configuration4Deferred004_Test_B">
+    <componentInstance name="tester" type="//@packagedElement.123" role="Tester"/>
+    <componentInstance name="PSSM" type="//@packagedElement.124">
+      <annotation value="'/PSSM.Deferred004B/Deferred004_Test_B$behavior$1.model'" key="//@packagedElement.125"/>
+      <annotation value="'org.imt.pssm.reactive.ReactivePSSM'" key="//@packagedElement.126"/>
+    </componentInstance>
+    <connection>
+      <endPoint component="//@packagedElement.0/@componentInstance.0" gate="//@packagedElement.123/@gateInstance.0"/>
+      <endPoint component="//@packagedElement.0/@componentInstance.1" gate="//@packagedElement.124/@gateInstance.0"/>
+    </connection>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataInstance" name="Deferred004_Test_B" dataType="//@packagedElement.34">
+    <memberAssignment member="//@packagedElement.33/@member.0">
+      <memberSpec xsi:type="tdl:LiteralValueUse" value="Deferred004_Test_B$behavior$1"/>
+    </memberAssignment>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataInstance" name="AnotherSignal" dataType="//@packagedElement.20">
+    <memberAssignment member="//@packagedElement.33/@member.0">
+      <memberSpec xsi:type="tdl:LiteralValueUse" value="AnotherSignal"/>
+    </memberAssignment>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataInstance" name="Start" dataType="//@packagedElement.20">
+    <memberAssignment member="//@packagedElement.33/@member.0">
+      <memberSpec xsi:type="tdl:LiteralValueUse" value="Start"/>
+    </memberAssignment>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataInstance" name="Continue" dataType="//@packagedElement.20">
+    <memberAssignment member="//@packagedElement.33/@member.0">
+      <memberSpec xsi:type="tdl:LiteralValueUse" value="Continue"/>
+    </memberAssignment>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataInstance" name="Pending" dataType="//@packagedElement.20">
+    <memberAssignment member="//@packagedElement.33/@member.0">
+      <memberSpec xsi:type="tdl:LiteralValueUse" value="Pending"/>
+    </memberAssignment>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataInstance" name="S1_1_1_exit" dataType="//@packagedElement.42">
+    <memberAssignment member="//@packagedElement.33/@member.0">
+      <memberSpec xsi:type="tdl:LiteralValueUse" value="S1.1.1(exit)"/>
+    </memberAssignment>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataInstance" name="T1_1_2_effect" dataType="//@packagedElement.42">
+    <memberAssignment member="//@packagedElement.33/@member.0">
+      <memberSpec xsi:type="tdl:LiteralValueUse" value="T1.1.2(effect)"/>
+    </memberAssignment>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataInstance" name="S1_1_exit" dataType="//@packagedElement.42">
+    <memberAssignment member="//@packagedElement.33/@member.0">
+      <memberSpec xsi:type="tdl:LiteralValueUse" value="S1.1(exit)"/>
+    </memberAssignment>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataInstance" name="S2_1_exit" dataType="//@packagedElement.42">
+    <memberAssignment member="//@packagedElement.33/@member.0">
+      <memberSpec xsi:type="tdl:LiteralValueUse" value="S2.1(exit)"/>
+    </memberAssignment>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataInstance" name="T2_2_effect" dataType="//@packagedElement.42">
+    <memberAssignment member="//@packagedElement.33/@member.0">
+      <memberSpec xsi:type="tdl:LiteralValueUse" value="T2.2(effect)"/>
+    </memberAssignment>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataInstance" name="T2_3_effect" dataType="//@packagedElement.42">
+    <memberAssignment member="//@packagedElement.33/@member.0">
+      <memberSpec xsi:type="tdl:LiteralValueUse" value="T2.3(effect)"/>
+    </memberAssignment>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataInstance" name="S1_exit" dataType="//@packagedElement.42">
+    <memberAssignment member="//@packagedElement.33/@member.0">
+      <memberSpec xsi:type="tdl:LiteralValueUse" value="S1(exit)"/>
+    </memberAssignment>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataInstance" name="T3_testEnd" dataType="//@packagedElement.42">
+    <memberAssignment member="//@packagedElement.33/@member.0">
+      <memberSpec xsi:type="tdl:LiteralValueUse" value="T3(testEnd)"/>
+    </memberAssignment>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataInstance" name="start_occurrence" dataType="//@packagedElement.50">
+    <memberAssignment member="//@packagedElement.50/@member.0">
+      <memberSpec xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.3"/>
+    </memberAssignment>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataInstance" name="continue_occurrence" dataType="//@packagedElement.50">
+    <memberAssignment member="//@packagedElement.50/@member.0">
+      <memberSpec xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.4"/>
+    </memberAssignment>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataInstance" name="another_occurrence" dataType="//@packagedElement.50">
+    <memberAssignment member="//@packagedElement.50/@member.0">
+      <memberSpec xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.2"/>
+    </memberAssignment>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataInstance" name="pending_occurrence" dataType="//@packagedElement.50">
+    <memberAssignment member="//@packagedElement.50/@member.0">
+      <memberSpec xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.5"/>
+    </memberAssignment>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:TestDescription" name="Deferred004_Test_B" testConfiguration="//@packagedElement.0">
+    <behaviourDescription>
+      <behaviour xsi:type="tdl:CompoundBehaviour">
+        <block>
+          <behaviour xsi:type="tdl:Message" sourceGate="//@packagedElement.0/@connection.0/@endPoint.0">
+            <target targetGate="//@packagedElement.0/@connection.0/@endPoint.1"/>
+            <argument xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.113">
+              <argument parameter="//@packagedElement.112/@member.0">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.1"/>
+              </argument>
+            </argument>
+          </behaviour>
+          <behaviour xsi:type="tdl:Message" sourceGate="//@packagedElement.0/@connection.0/@endPoint.0">
+            <target targetGate="//@packagedElement.0/@connection.0/@endPoint.1"/>
+            <argument xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.115">
+              <argument parameter="//@packagedElement.114/@member.0">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.1"/>
+              </argument>
+              <argument parameter="//@packagedElement.114/@member.1">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.14"/>
+              </argument>
+            </argument>
+          </behaviour>
+          <behaviour xsi:type="tdl:Message" sourceGate="//@packagedElement.0/@connection.0/@endPoint.0">
+            <target targetGate="//@packagedElement.0/@connection.0/@endPoint.1"/>
+            <argument xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.115">
+              <argument parameter="//@packagedElement.114/@member.0">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.1"/>
+              </argument>
+              <argument parameter="//@packagedElement.114/@member.1">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.16"/>
+              </argument>
+            </argument>
+          </behaviour>
+          <behaviour xsi:type="tdl:Message" sourceGate="//@packagedElement.0/@connection.0/@endPoint.0">
+            <target targetGate="//@packagedElement.0/@connection.0/@endPoint.1"/>
+            <argument xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.115">
+              <argument parameter="//@packagedElement.114/@member.0">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.1"/>
+              </argument>
+              <argument parameter="//@packagedElement.114/@member.1">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.15"/>
+              </argument>
+            </argument>
+          </behaviour>
+          <behaviour xsi:type="tdl:Message" sourceGate="//@packagedElement.0/@connection.0/@endPoint.0">
+            <target targetGate="//@packagedElement.0/@connection.0/@endPoint.1"/>
+            <argument xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.115">
+              <argument parameter="//@packagedElement.114/@member.0">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.1"/>
+              </argument>
+              <argument parameter="//@packagedElement.114/@member.1">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.17"/>
+              </argument>
+            </argument>
+          </behaviour>
+          <behaviour xsi:type="tdl:Message" sourceGate="//@packagedElement.0/@connection.0/@endPoint.1">
+            <target targetGate="//@packagedElement.0/@connection.0/@endPoint.0"/>
+            <argument xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.119">
+              <argument parameter="//@packagedElement.118/@member.0">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.6"/>
+              </argument>
+            </argument>
+          </behaviour>
+          <behaviour xsi:type="tdl:Message" sourceGate="//@packagedElement.0/@connection.0/@endPoint.1">
+            <target targetGate="//@packagedElement.0/@connection.0/@endPoint.0"/>
+            <argument xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.119">
+              <argument parameter="//@packagedElement.118/@member.0">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.7"/>
+              </argument>
+            </argument>
+          </behaviour>
+          <behaviour xsi:type="tdl:Message" sourceGate="//@packagedElement.0/@connection.0/@endPoint.1">
+            <target targetGate="//@packagedElement.0/@connection.0/@endPoint.0"/>
+            <argument xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.119">
+              <argument parameter="//@packagedElement.118/@member.0">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.8"/>
+              </argument>
+            </argument>
+          </behaviour>
+          <behaviour xsi:type="tdl:Message" sourceGate="//@packagedElement.0/@connection.0/@endPoint.1">
+            <target targetGate="//@packagedElement.0/@connection.0/@endPoint.0"/>
+            <argument xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.119">
+              <argument parameter="//@packagedElement.118/@member.0">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.9"/>
+              </argument>
+            </argument>
+          </behaviour>
+          <behaviour xsi:type="tdl:Message" sourceGate="//@packagedElement.0/@connection.0/@endPoint.1">
+            <target targetGate="//@packagedElement.0/@connection.0/@endPoint.0"/>
+            <argument xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.119">
+              <argument parameter="//@packagedElement.118/@member.0">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.10"/>
+              </argument>
+            </argument>
+          </behaviour>
+          <behaviour xsi:type="tdl:Message" sourceGate="//@packagedElement.0/@connection.0/@endPoint.1">
+            <target targetGate="//@packagedElement.0/@connection.0/@endPoint.0"/>
+            <argument xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.119">
+              <argument parameter="//@packagedElement.118/@member.0">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.12"/>
+              </argument>
+            </argument>
+          </behaviour>
+          <behaviour xsi:type="tdl:Message" sourceGate="//@packagedElement.0/@connection.0/@endPoint.1">
+            <target targetGate="//@packagedElement.0/@connection.0/@endPoint.0"/>
+            <argument xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.119">
+              <argument parameter="//@packagedElement.118/@member.0">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.13"/>
+              </argument>
+            </argument>
+          </behaviour>
+        </block>
+      </behaviour>
+    </behaviourDescription>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="CustomSystem">
+    <member name="statemachine" dataType="//@packagedElement.34"/>
+    <member name="signals" dataType="//@packagedElement.20"/>
+    <member name="operations" dataType="//@packagedElement.21"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="Signal">
+    <extension extending="//@packagedElement.33"/>
+    <member name="attributes" dataType="//@packagedElement.25"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="Operation">
+    <extension extending="//@packagedElement.33"/>
+    <member name="inParameters" dataType="//@packagedElement.25"/>
+    <member name="outParameters" dataType="//@packagedElement.25"/>
+    <member name="return" dataType="//@packagedElement.25"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EventType">
+    <annotation key="//@packagedElement.64"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="SignalEventType">
+    <extension extending="//@packagedElement.22"/>
+    <member name="signal" dataType="//@packagedElement.20"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="CallEventType">
+    <extension extending="//@packagedElement.22"/>
+    <member name="operation" dataType="//@packagedElement.21"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="Attribute">
+    <annotation key="//@packagedElement.64"/>
+    <extension extending="//@packagedElement.33"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="BooleanAttribute">
+    <extension extending="//@packagedElement.25"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="IntegerAttribute">
+    <extension extending="//@packagedElement.25"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="StringAttribute">
+    <extension extending="//@packagedElement.25"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="_Constraint">
+    <annotation key="//@packagedElement.64"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="BooleanConstraint">
+    <extension extending="//@packagedElement.29"/>
+    <member name="attribute" dataType="//@packagedElement.26"/>
+    <member name="value" dataType="//@packagedElement.85"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="IntegerConstraint">
+    <extension extending="//@packagedElement.29"/>
+    <member name="attribute" dataType="//@packagedElement.27"/>
+    <member name="value" dataType="//@packagedElement.89"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="StringConstraint">
+    <extension extending="//@packagedElement.29"/>
+    <member name="attribute" dataType="//@packagedElement.28"/>
+    <member name="value" dataType="//@packagedElement.86"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="NamedElement">
+    <annotation key="//@packagedElement.64"/>
+    <member name="_name" dataType="//@packagedElement.86"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="StateMachine">
+    <extension extending="//@packagedElement.33"/>
+    <member name="regions" dataType="//@packagedElement.35"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="Region">
+    <extension extending="//@packagedElement.33"/>
+    <member name="vertice" dataType="//@packagedElement.36"/>
+    <member name="transitions" dataType="//@packagedElement.40"/>
+    <member name="stateMachine" dataType="//@packagedElement.34"/>
+    <member name="state" dataType="//@packagedElement.38"/>
+    <member name="currentVertex" dataType="//@packagedElement.36">
+      <annotation key="//@packagedElement.63"/>
+    </member>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="Vertex">
+    <annotation key="//@packagedElement.64"/>
+    <extension extending="//@packagedElement.33"/>
+    <member name="container" dataType="//@packagedElement.35"/>
+    <member name="outgoingTransitions" dataType="//@packagedElement.40"/>
+    <member name="incomingTransitions" dataType="//@packagedElement.40"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="Pseudostate">
+    <extension extending="//@packagedElement.36"/>
+    <member name="kind" dataType="//@packagedElement.52"/>
+    <member name="state" dataType="//@packagedElement.38"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="State">
+    <extension extending="//@packagedElement.36"/>
+    <member name="regions" dataType="//@packagedElement.35"/>
+    <member name="entry" dataType="//@packagedElement.42"/>
+    <member name="doActivity" dataType="//@packagedElement.42"/>
+    <member name="exit" dataType="//@packagedElement.42"/>
+    <member name="deferrableTriggers" dataType="//@packagedElement.41"/>
+    <member name="connectionPoint" dataType="//@packagedElement.37"/>
+    <member name="isEntryCompleted" dataType="//@packagedElement.74">
+      <annotation key="//@packagedElement.63"/>
+    </member>
+    <member name="isDoActivityCompleted" dataType="//@packagedElement.74">
+      <annotation key="//@packagedElement.63"/>
+    </member>
+    <member name="isExitCompleted" dataType="//@packagedElement.74">
+      <annotation key="//@packagedElement.63"/>
+    </member>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="FinalState">
+    <extension extending="//@packagedElement.38"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="Transition">
+    <extension extending="//@packagedElement.33"/>
+    <member name="source" dataType="//@packagedElement.36"/>
+    <member name="target" dataType="//@packagedElement.36"/>
+    <member name="_triggers" dataType="//@packagedElement.41"/>
+    <member name="container" dataType="//@packagedElement.35"/>
+    <member name="kind" dataType="//@packagedElement.53"/>
+    <member name="effect" dataType="//@packagedElement.42"/>
+    <member name="constraint" dataType="//@packagedElement.29"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="Trigger">
+    <extension extending="//@packagedElement.33"/>
+    <member name="eventType" dataType="//@packagedElement.22"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="Behavior">
+    <extension extending="//@packagedElement.33"/>
+    <member name="emittedSignals" dataType="//@packagedElement.50"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="OperationBehavior">
+    <extension extending="//@packagedElement.42"/>
+    <member name="attributeValues" dataType="//@packagedElement.44"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="AttributeValue">
+    <annotation key="//@packagedElement.64"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="BooleanAttributeValue">
+    <extension extending="//@packagedElement.44"/>
+    <member name="attribute" dataType="//@packagedElement.26"/>
+    <member name="value" dataType="//@packagedElement.85"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="IntegerAttributeValue">
+    <extension extending="//@packagedElement.44"/>
+    <member name="attribute" dataType="//@packagedElement.27"/>
+    <member name="value" dataType="//@packagedElement.89"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="StringAttributeValue">
+    <extension extending="//@packagedElement.44"/>
+    <member name="attribute" dataType="//@packagedElement.28"/>
+    <member name="value" dataType="//@packagedElement.86"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="EventOccurrence">
+    <annotation key="//@packagedElement.64"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="CompletionEventOccurrence">
+    <member name="state" dataType="//@packagedElement.38"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="SignalEventOccurrence">
+    <extension extending="//@packagedElement.48"/>
+    <member name="signal" dataType="//@packagedElement.20"/>
+    <member name="attributeValues" dataType="//@packagedElement.44">
+      <annotation key="//@packagedElement.63"/>
+    </member>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="CallEventOccurrence">
+    <extension extending="//@packagedElement.48"/>
+    <member name="operation" dataType="//@packagedElement.21"/>
+    <member name="inParameterValues" dataType="//@packagedElement.44">
+      <annotation key="//@packagedElement.63"/>
+    </member>
+    <member name="outParameterValues" dataType="//@packagedElement.44">
+      <annotation key="//@packagedElement.63"/>
+    </member>
+    <member name="returnValue" dataType="//@packagedElement.44">
+      <annotation key="//@packagedElement.63"/>
+    </member>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="PseudostateKind"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="TransitionKind"/>
+  <packagedElement xsi:type="tdl:SimpleDataInstance" name="initial" dataType="//@packagedElement.52"/>
+  <packagedElement xsi:type="tdl:SimpleDataInstance" name="join" dataType="//@packagedElement.52"/>
+  <packagedElement xsi:type="tdl:SimpleDataInstance" name="fork" dataType="//@packagedElement.52"/>
+  <packagedElement xsi:type="tdl:SimpleDataInstance" name="_terminate" dataType="//@packagedElement.52"/>
+  <packagedElement xsi:type="tdl:SimpleDataInstance" name="entrypoint" dataType="//@packagedElement.52"/>
+  <packagedElement xsi:type="tdl:SimpleDataInstance" name="exitpoint" dataType="//@packagedElement.52"/>
+  <packagedElement xsi:type="tdl:SimpleDataInstance" name="internal" dataType="//@packagedElement.53"/>
+  <packagedElement xsi:type="tdl:SimpleDataInstance" name="local" dataType="//@packagedElement.53"/>
+  <packagedElement xsi:type="tdl:SimpleDataInstance" name="external" dataType="//@packagedElement.53"/>
+  <packagedElement xsi:type="tdl:AnnotationType" name="dynamic"/>
+  <packagedElement xsi:type="tdl:AnnotationType" name="abstract"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EResource"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="ELongObject"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EMap"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EDate"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EDoubleObject"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EShortObject"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EChar"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EInt"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EFeatureMap"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EBoolean"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EResourceSet"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EByte"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EByteObject"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="ECharacterObject"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EDouble"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="ETreeIterator"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EFloat"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EEList"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EShort"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EJavaObject"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EBooleanObject"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EString"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EEnumerator"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EInvocationTargetException"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EIntegerObject"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EBigInteger"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EDiagnosticChain"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EFloatObject"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EBigDecimal"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EByteArray"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EFeatureMapEntry"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="ELong"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="EJavaClass"/>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="OCL">
+    <member name="query" dataType="//@packagedElement.86"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataInstance" name="oclQuery" dataType="//@packagedElement.98">
+    <memberAssignment member="//@packagedElement.98/@member.0">
+      <memberSpec xsi:type="tdl:AnyValue" name="?"/>
+    </memberAssignment>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="Verdict"/>
+  <packagedElement xsi:type="tdl:SimpleDataInstance" name="PASS" dataType="//@packagedElement.100"/>
+  <packagedElement xsi:type="tdl:SimpleDataInstance" name="FAIL" dataType="//@packagedElement.100"/>
+  <packagedElement xsi:type="tdl:SimpleDataInstance" name="INCONCLUSINVE" dataType="//@packagedElement.100"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" name="modelExecutionCommand"/>
+  <packagedElement xsi:type="tdl:SimpleDataInstance" name="runModel" dataType="//@packagedElement.104"/>
+  <packagedElement xsi:type="tdl:SimpleDataInstance" name="runModelAsynchronous" dataType="//@packagedElement.104"/>
+  <packagedElement xsi:type="tdl:SimpleDataInstance" name="stopModelExecution" dataType="//@packagedElement.104"/>
+  <packagedElement xsi:type="tdl:SimpleDataInstance" name="resetModel" dataType="//@packagedElement.104"/>
+  <packagedElement xsi:type="tdl:SimpleDataInstance" name="getModelState" dataType="//@packagedElement.104"/>
+  <packagedElement xsi:type="tdl:AnnotationType" name="AcceptedEvent"/>
+  <packagedElement xsi:type="tdl:AnnotationType" name="ExposedEvent"/>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="_run">
+    <annotation key="//@packagedElement.110"/>
+    <member name="state_machine" dataType="//@packagedElement.34"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataInstance" name="_run" dataType="//@packagedElement.112">
+    <memberAssignment member="//@packagedElement.112/@member.0">
+      <memberSpec xsi:type="tdl:AnyValue" name="?"/>
+    </memberAssignment>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="signal_received">
+    <annotation key="//@packagedElement.110"/>
+    <member name="state_machine" dataType="//@packagedElement.34"/>
+    <member name="signal_occurrence" dataType="//@packagedElement.50"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataInstance" name="signal_received" dataType="//@packagedElement.114">
+    <memberAssignment member="//@packagedElement.114/@member.0">
+      <memberSpec xsi:type="tdl:AnyValue" name="?"/>
+    </memberAssignment>
+    <memberAssignment member="//@packagedElement.114/@member.1">
+      <memberSpec xsi:type="tdl:AnyValue" name="?"/>
+    </memberAssignment>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="callOperation_received">
+    <annotation key="//@packagedElement.110"/>
+    <member name="state_machine" dataType="//@packagedElement.34"/>
+    <member name="call_occurrence" dataType="//@packagedElement.51"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataInstance" name="callOperation_received" dataType="//@packagedElement.116">
+    <memberAssignment member="//@packagedElement.116/@member.0">
+      <memberSpec xsi:type="tdl:AnyValue" name="?"/>
+    </memberAssignment>
+    <memberAssignment member="//@packagedElement.116/@member.1">
+      <memberSpec xsi:type="tdl:AnyValue" name="?"/>
+    </memberAssignment>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataType" name="behavior_executed">
+    <annotation key="//@packagedElement.111"/>
+    <member name="behavior" dataType="//@packagedElement.42"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:StructuredDataInstance" name="behavior_executed" dataType="//@packagedElement.118">
+    <memberAssignment member="//@packagedElement.118/@member.0">
+      <memberSpec xsi:type="tdl:AnyValue" name="?"/>
+    </memberAssignment>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:GateType" name="genericGateType" dataType="//@packagedElement.104"/>
+  <packagedElement xsi:type="tdl:GateType" name="reactiveGateType" dataType="//@packagedElement.112 //@packagedElement.114 //@packagedElement.116 //@packagedElement.118"/>
+  <packagedElement xsi:type="tdl:GateType" name="oclGateType" dataType="//@packagedElement.98"/>
+  <packagedElement xsi:type="tdl:ComponentType" name="TestSystem">
+    <gateInstance name="reactiveGate" type="//@packagedElement.121"/>
+    <gateInstance name="oclGate" type="//@packagedElement.122"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:ComponentType" name="MUT">
+    <gateInstance name="reactiveGate" type="//@packagedElement.121"/>
+    <gateInstance name="oclGate" type="//@packagedElement.122"/>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:AnnotationType" name="MUTPath"/>
+  <packagedElement xsi:type="tdl:AnnotationType" name="DSLName"/>
+  <packagedElement xsi:type="tdl:TestDescription" name="Deferred004_Test_B_7_EventDeletion_each" testConfiguration="//@packagedElement.0">
+    <behaviourDescription>
+      <behaviour xsi:type="tdl:CompoundBehaviour">
+        <block>
+          <behaviour xsi:type="tdl:Message" sourceGate="//@packagedElement.0/@connection.0/@endPoint.0">
+            <target targetGate="//@packagedElement.0/@connection.0/@endPoint.1"/>
+            <argument xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.113">
+              <argument parameter="//@packagedElement.112/@member.0">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.1"/>
+              </argument>
+            </argument>
+          </behaviour>
+          <behaviour xsi:type="tdl:Message" sourceGate="//@packagedElement.0/@connection.0/@endPoint.0">
+            <target targetGate="//@packagedElement.0/@connection.0/@endPoint.1"/>
+            <argument xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.115">
+              <argument parameter="//@packagedElement.114/@member.0">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.1"/>
+              </argument>
+              <argument parameter="//@packagedElement.114/@member.1">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.14"/>
+              </argument>
+            </argument>
+          </behaviour>
+          <behaviour xsi:type="tdl:Message" sourceGate="//@packagedElement.0/@connection.0/@endPoint.0">
+            <target targetGate="//@packagedElement.0/@connection.0/@endPoint.1"/>
+            <argument xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.115">
+              <argument parameter="//@packagedElement.114/@member.0">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.1"/>
+              </argument>
+              <argument parameter="//@packagedElement.114/@member.1">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.15"/>
+              </argument>
+            </argument>
+          </behaviour>
+          <behaviour xsi:type="tdl:Message" sourceGate="//@packagedElement.0/@connection.0/@endPoint.0">
+            <target targetGate="//@packagedElement.0/@connection.0/@endPoint.1"/>
+            <argument xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.115">
+              <argument parameter="//@packagedElement.114/@member.0">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.1"/>
+              </argument>
+              <argument parameter="//@packagedElement.114/@member.1">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.17"/>
+              </argument>
+            </argument>
+          </behaviour>
+          <behaviour xsi:type="tdl:Message" sourceGate="//@packagedElement.0/@connection.0/@endPoint.1">
+            <target targetGate="//@packagedElement.0/@connection.0/@endPoint.0"/>
+            <argument xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.119">
+              <argument parameter="//@packagedElement.118/@member.0">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.6"/>
+              </argument>
+            </argument>
+          </behaviour>
+          <behaviour xsi:type="tdl:Message" sourceGate="//@packagedElement.0/@connection.0/@endPoint.1">
+            <target targetGate="//@packagedElement.0/@connection.0/@endPoint.0"/>
+            <argument xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.119">
+              <argument parameter="//@packagedElement.118/@member.0">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.7"/>
+              </argument>
+            </argument>
+          </behaviour>
+          <behaviour xsi:type="tdl:Message" sourceGate="//@packagedElement.0/@connection.0/@endPoint.1">
+            <target targetGate="//@packagedElement.0/@connection.0/@endPoint.0"/>
+            <argument xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.119">
+              <argument parameter="//@packagedElement.118/@member.0">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.8"/>
+              </argument>
+            </argument>
+          </behaviour>
+          <behaviour xsi:type="tdl:Message" sourceGate="//@packagedElement.0/@connection.0/@endPoint.1">
+            <target targetGate="//@packagedElement.0/@connection.0/@endPoint.0"/>
+            <argument xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.119">
+              <argument parameter="//@packagedElement.118/@member.0">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.9"/>
+              </argument>
+            </argument>
+          </behaviour>
+          <behaviour xsi:type="tdl:Message" sourceGate="//@packagedElement.0/@connection.0/@endPoint.1">
+            <target targetGate="//@packagedElement.0/@connection.0/@endPoint.0"/>
+            <argument xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.119">
+              <argument parameter="//@packagedElement.118/@member.0">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.11"/>
+              </argument>
+            </argument>
+          </behaviour>
+          <behaviour xsi:type="tdl:Message" sourceGate="//@packagedElement.0/@connection.0/@endPoint.1">
+            <target targetGate="//@packagedElement.0/@connection.0/@endPoint.0"/>
+            <argument xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.119">
+              <argument parameter="//@packagedElement.118/@member.0">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.12"/>
+              </argument>
+            </argument>
+          </behaviour>
+          <behaviour xsi:type="tdl:Message" sourceGate="//@packagedElement.0/@connection.0/@endPoint.1">
+            <target targetGate="//@packagedElement.0/@connection.0/@endPoint.0"/>
+            <argument xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.119">
+              <argument parameter="//@packagedElement.118/@member.0">
+                <dataUse xsi:type="tdl:DataInstanceUse" dataInstance="//@packagedElement.13"/>
+              </argument>
+            </argument>
+          </behaviour>
+        </block>
+      </behaviour>
+    </behaviourDescription>
+  </packagedElement>
+</tdl:Package>

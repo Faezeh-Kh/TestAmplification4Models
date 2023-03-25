@@ -1,0 +1,71 @@
+Total number of model elements: 51
+Total number of coverable model elements: 19
+- initial number of covered elements: 17
+- initial test suite coverage: 89.47%
+
+- number of covered elements by improved test cases: 2
+- total number of covered elements: 19
+- final test suite coverage: 100.0%
+=> improvement in the coverage percentage: 10.53%
+--------------------------------------------------
+Initial Coverage Matrix: 
+                                                                            Model element name|Coverage status
+----------------------------------------------------------------------------------------------+---------------
+     platform:/resource/PSSM.Deferred004B/Deferred004_Test_B$behavior$1.model::Custom System()|     Not_Traced
+Custom System::State Machine Deferred004_Test_B$behavior$1(name=Deferred004_Test_B$behavior$1)|        Covered
+                     State Machine Deferred004_Test_B$behavior$1::Region Region1(name=Region1)|     Not_Traced
+                             Region Region1::Pseudostate Initial1(name=Initial1, kind=initial)|     Not_Traced
+                                                         Region Region1::State wait(name=wait)|     Not_Traced
+                                                             Region Region1::State S1(name=S1)|     Not_Traced
+                                                        State S1::Region Region1(name=Region1)|     Not_Traced
+                             Region Region1::Pseudostate Initial1(name=Initial1, kind=initial)|     Not_Traced
+                                                         Region Region1::State S1.1(name=S1.1)|     Not_Traced
+                                                      State S1.1::Region Region1(name=Region1)|     Not_Traced
+                             Region Region1::Pseudostate Initial1(name=Initial1, kind=initial)|     Not_Traced
+                                                     Region Region1::State S1.1.1(name=S1.1.1)|     Not_Traced
+                                        State S1.1.1::Behavior S1.1.1(exit)(name=S1.1.1(exit))|        Covered
+     State S1.1.1::Trigger AnotherSignalDeferrableTrigger(name=AnotherSignalDeferrableTrigger)|     Not_Traced
+                                   Trigger AnotherSignalDeferrableTrigger::Signal Event Type()|     Not_Traced
+                                     Region Region1::Final State FinalState1(name=FinalState1)|     Not_Traced
+                                 Region Region1::Transition T1.1.1(name=T1.1.1, kind=external)|        Covered
+                                 Region Region1::Transition T1.1.2(name=T1.1.2, kind=external)|        Covered
+                              Transition T1.1.2::Trigger ContinueTrigger(name=ContinueTrigger)|     Not_Traced
+                                                  Trigger ContinueTrigger::Signal Event Type()|     Not_Traced
+                               Transition T1.1.2::Behavior T1.1.2(effect)(name=T1.1.2(effect))|        Covered
+                                              State S1.1::Behavior S1.1(exit)(name=S1.1(exit))|        Covered
+                                     Region Region1::Final State FinalState1(name=FinalState1)|     Not_Traced
+                                     Region Region1::Transition T1.1(name=T1.1, kind=external)|        Covered
+                                     Region Region1::Transition T1.2(name=T1.2, kind=external)|        Covered
+                                                        State S1::Region Region2(name=Region2)|     Not_Traced
+                             Region Region2::Pseudostate Initial1(name=Initial1, kind=initial)|     Not_Traced
+                                                         Region Region2::State S2.1(name=S2.1)|     Not_Traced
+                                              State S2.1::Behavior S2.1(exit)(name=S2.1(exit))|        Covered
+                                     Region Region2::Final State FinalState1(name=FinalState1)|     Not_Traced
+                                     Region Region2::Transition T2.1(name=T2.1, kind=external)|        Covered
+                                     Region Region2::Transition T2.2(name=T2.2, kind=external)|        Covered
+                      Transition T2.2::Trigger AnotherSignalTrigger(name=AnotherSignalTrigger)|     Not_Traced
+                                             Trigger AnotherSignalTrigger::Signal Event Type()|     Not_Traced
+                                     Transition T2.2::Behavior T2.2(effect)(name=T2.2(effect))|        Covered
+                                     Region Region2::Transition T2.3(name=T2.3, kind=external)|    Not_Covered
+                                  Transition T2.3::Trigger PendingTrigger(name=PendingTrigger)|     Not_Traced
+                                                   Trigger PendingTrigger::Signal Event Type()|     Not_Traced
+                                     Transition T2.3::Behavior T2.3(effect)(name=T2.3(effect))|    Not_Covered
+                                                    State S1::Behavior S1(exit)(name=S1(exit))|        Covered
+                                     Region Region1::Final State FinalState1(name=FinalState1)|     Not_Traced
+                                         Region Region1::Transition T1(name=T1, kind=external)|        Covered
+                                         Region Region1::Transition T2(name=T2, kind=external)|        Covered
+                                        Transition T2::Trigger StartTrigger(name=StartTrigger)|     Not_Traced
+                                                     Trigger StartTrigger::Signal Event Type()|     Not_Traced
+                                         Region Region1::Transition T3(name=T3, kind=external)|        Covered
+                                         Transition T3::Behavior T3(testEnd)(name=T3(testEnd))|        Covered
+                                       Custom System::Signal AnotherSignal(name=AnotherSignal)|     Not_Traced
+                                                       Custom System::Signal Start(name=Start)|     Not_Traced
+                                                 Custom System::Signal Continue(name=Continue)|     Not_Traced
+                                                   Custom System::Signal Pending(name=Pending)|     Not_Traced
+--------------------------------------------------
+Total number of test cases improving selection score: 1
+iteration 1: 1 generated test cases
+Amplified Test Case: Deferred004_Test_B_7_EventDeletion_each
+New covered model element 1: Region Region2::Transition T2.3(name=T2.3, kind=external)
+New covered model element 2: Transition T2.3::Behavior T2.3(effect)(name=T2.3(effect))
+

@@ -212,12 +212,12 @@ Package testSuite {
 	Type BooleanAttribute extends Attribute ( ) ;
 	Type IntegerAttribute extends Attribute ( ) ;
 	Type StringAttribute extends Attribute ( ) ;
-	Type Constraint ( ) with {
+	Type _Constraint ( ) with {
 		abstract ;
 	} ;
-	Type BooleanConstraint extends Constraint ( attribute of type BooleanAttribute , value of type EBooleanObject ) ;
-	Type IntegerConstraint extends Constraint ( attribute of type IntegerAttribute , value of type EIntegerObject ) ;
-	Type StringConstraint extends Constraint ( attribute of type StringAttribute , value of type EString ) ;
+	Type BooleanConstraint extends _Constraint ( attribute of type BooleanAttribute , value of type EBooleanObject ) ;
+	Type IntegerConstraint extends _Constraint ( attribute of type IntegerAttribute , value of type EIntegerObject ) ;
+	Type StringConstraint extends _Constraint ( attribute of type StringAttribute , value of type EString ) ;
 	Type NamedElement ( _name of type EString ) with {
 		abstract ;
 	} ;
@@ -230,7 +230,7 @@ Package testSuite {
 	Type Pseudostate extends Vertex ( kind of type PseudostateKind , state of type State ) ;
 	Type State extends Vertex ( regions of type Region , entry of type Behavior , doActivity of type Behavior , exit of type Behavior , deferrableTriggers of type Trigger , connectionPoint of type Pseudostate ) ;
 	Type FinalState extends State ( ) ;
-	Type Transition extends NamedElement ( source of type Vertex , target of type Vertex , _triggers of type Trigger , container of type Region , kind of type TransitionKind , effect of type Behavior , constraint of type Constraint ) ;
+	Type Transition extends NamedElement ( source of type Vertex , target of type Vertex , _triggers of type Trigger , container of type Region , kind of type TransitionKind , effect of type Behavior , constraint of type _Constraint ) ;
 	Type Trigger extends NamedElement ( eventType of type EventType ) ;
 	Type Behavior extends NamedElement ( emittedSignals of type SignalEventOccurrence ) ;
 	Type OperationBehavior extends Behavior ( attributeValues of type AttributeValue ) ;

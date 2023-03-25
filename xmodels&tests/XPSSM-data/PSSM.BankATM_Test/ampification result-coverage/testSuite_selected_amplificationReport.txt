@@ -1,0 +1,176 @@
+Total number of model elements: 154
+Total number of coverable model elements: 59
+- initial number of covered elements: 47
+- initial test suite coverage: 79.66%
+
+- number of covered elements by improved test cases: 11
+- total number of covered elements: 58
+- final test suite coverage: 98.31%
+=> improvement in the coverage percentage: 18.65%
+--------------------------------------------------
+Initial Coverage Matrix: 
+                                                                                                            Model element name|Coverage status
+------------------------------------------------------------------------------------------------------------------------------+---------------
+                                                        platform:/resource/PSSM.BankATM_Mutants/BankATM.model::Custom System()|     Not_Traced
+                                                                            Custom System::State Machine BankATM(name=BankATM)|        Covered
+                                                                     State Machine BankATM::Region mainRegion(name=mainRegion)|     Not_Traced
+                                                          Region mainRegion::Pseudostate initial1(name=initial1, kind=initial)|     Not_Traced
+                                                                                        Region mainRegion::State Off(name=Off)|     Not_Traced
+                                                                                   State Off::Behavior ATMIsOff(name=ATMIsOff)|        Covered
+                                                                              Region mainRegion::State SelfTest(name=SelfTest)|     Not_Traced
+                                                                      State SelfTest::Behavior underTesting(name=underTesting)|        Covered
+                                                                                      Region mainRegion::State Idle(name=Idle)|     Not_Traced
+                                                                      State Idle::Behavior waitingForCard(name=waitingForCard)|        Covered
+                                                                      Region mainRegion::State OutOfService(name=OutOfService)|     Not_Traced
+                                                                  State OutOfService::Behavior outOfService(name=outOfService)|        Covered
+                                                                        Region mainRegion::State Maintenance(name=Maintenance)|     Not_Traced
+                                                           State Maintenance::Behavior underMaintenance(name=underMaintenance)|        Covered
+                                                                Region mainRegion::State ServiceCustomer(name=ServiceCustomer)|     Not_Traced
+                                               State ServiceCustomer::Region serviceCustomerRegion(name=serviceCustomerRegion)|     Not_Traced
+                                               Region serviceCustomerRegion::Pseudostate initial2(name=initial2, kind=initial)|     Not_Traced
+                                       Region serviceCustomerRegion::State CustomerAuthentication(name=CustomerAuthentication)|     Not_Traced
+                                          State CustomerAuthentication::Region authenticationRegion(name=authenticationRegion)|     Not_Traced
+                                                Region authenticationRegion::Pseudostate initial3(name=initial3, kind=initial)|     Not_Traced
+                                                                        Region authenticationRegion::State getPin(name=getPin)|     Not_Traced
+                                                                          State getPin::Behavior enterPinMsg(name=enterPinMsg)|        Covered
+                                                              Region authenticationRegion::State validatePin(name=validatePin)|     Not_Traced
+                                                                  Region authenticationRegion::Final State final3(name=final3)|     Not_Traced
+                              Region authenticationRegion::Transition initial3_2_getPin(name=initial3_2_getPin, kind=external)|        Covered
+                            Region authenticationRegion::Transition getPin2validatePin(name=getPin2validatePin, kind=external)|        Covered
+                                              Transition getPin2validatePin::Trigger pinEnteredTrigger(name=pinEnteredTrigger)|     Not_Traced
+                                                                                Trigger pinEnteredTrigger::Signal Event Type()|     Not_Traced
+Region authenticationRegion::Transition validatePin2SelectingTransaction(name=validatePin2SelectingTransaction, kind=external)|        Covered
+                                                             Transition validatePin2SelectingTransaction::Integer Constraint()|     Not_Traced
+                                                             Integer Constraint::Integer Comparison Expression ==(operator===)|     Not_Traced
+                            Region authenticationRegion::Transition validatePin2final3(name=validatePin2final3, kind=external)|    Not_Covered
+                                                         Transition validatePin2final3::Behavior wrongPinMsg(name=wrongPinMsg)|    Not_Covered
+                                                                           Transition validatePin2final3::Integer Constraint()|     Not_Traced
+                                                             Integer Constraint::Integer Comparison Expression !=(operator=!=)|     Not_Traced
+                                    State CustomerAuthentication::Behavior customerAuthentication(name=customerAuthentication)|        Covered
+                                           Region serviceCustomerRegion::State SelectingTransaction(name=SelectingTransaction)|     Not_Traced
+                                                State SelectingTransaction::Behavior selectTransaction(name=selectTransaction)|        Covered
+                                                         Region serviceCustomerRegion::State WithdrawMoney(name=WithdrawMoney)|     Not_Traced
+                                                               State WithdrawMoney::Region withdrawRegion(name=withdrawRegion)|     Not_Traced
+                                                      Region withdrawRegion::Pseudostate initial4(name=initial4, kind=initial)|     Not_Traced
+                                                                        Region withdrawRegion::State GetAmount(name=GetAmount)|     Not_Traced
+                                                                 State GetAmount::Behavior enterAmountMsg(name=enterAmountMsg)|        Covered
+                                                                  Region withdrawRegion::State CheckBalance(name=CheckBalance)|     Not_Traced
+                                                              Region withdrawRegion::State MakeWithdrawal(name=MakeWithdrawal)|     Not_Traced
+                                                      State MakeWithdrawal::Behavior updateCardBalance(name=updateCardBalance)|    Not_Covered
+                                                                        Region withdrawRegion::Final State final4(name=final4)|     Not_Traced
+                              Region withdrawRegion::Transition initial4_2_getAmount(name=initial4_2_getAmount, kind=external)|        Covered
+                          Region withdrawRegion::Transition getAmount2checkBalance(name=getAmount2checkBalance, kind=external)|        Covered
+                                    Transition getAmount2checkBalance::Trigger amountEnteredTrigger(name=amountEnteredTrigger)|     Not_Traced
+                                                                             Trigger amountEnteredTrigger::Signal Event Type()|     Not_Traced
+                Region withdrawRegion::Transition checkBalance2makeWithdrawal(name=checkBalance2makeWithdrawal, kind=external)|    Not_Covered
+                                                                  Transition checkBalance2makeWithdrawal::Integer Constraint()|     Not_Traced
+                                                             Integer Constraint::Integer Comparison Expression <=(operator=<=)|     Not_Traced
+                                Region withdrawRegion::Transition checkBalance2final4(name=checkBalance2final4, kind=external)|        Covered
+                                            Transition checkBalance2final4::Behavior notEnoughMoneyMsg(name=notEnoughMoneyMsg)|        Covered
+                                                                          Transition checkBalance2final4::Integer Constraint()|     Not_Traced
+                                                               Integer Constraint::Integer Comparison Expression >(operator=>)|     Not_Traced
+                            Region withdrawRegion::Transition makeWithdrawal2final4(name=makeWithdrawal2final4, kind=external)|    Not_Covered
+                                                      Transition makeWithdrawal2final4::Behavior deliverCash(name=deliverCash)|    Not_Covered
+                                                         Region serviceCustomerRegion::State TransferMoney(name=TransferMoney)|     Not_Traced
+                                                               State TransferMoney::Region transferRegion(name=transferRegion)|     Not_Traced
+                                                      Region transferRegion::Pseudostate initial5(name=initial5, kind=initial)|     Not_Traced
+                                                                  Region transferRegion::State ValidateCard(name=ValidateCard)|     Not_Traced
+                                                                        Region transferRegion::State GetAmount(name=GetAmount)|     Not_Traced
+                                                                 State GetAmount::Behavior enterAmountMsg(name=enterAmountMsg)|        Covered
+                                                                  Region transferRegion::State CheckBalance(name=CheckBalance)|     Not_Traced
+                                                                Region transferRegion::State TransferMoney(name=TransferMoney)|     Not_Traced
+                                                       State TransferMoney::Behavior updateCardBalance(name=updateCardBalance)|    Not_Covered
+                                                                        Region transferRegion::Final State final5(name=final5)|     Not_Traced
+                        Region transferRegion::Transition initial5_2_validateCard(name=initial5_2_validateCard, kind=external)|        Covered
+                          Region transferRegion::Transition validateCard2getAmount(name=validateCard2getAmount, kind=external)|        Covered
+                                         Transition validateCard2getAmount::Behavior cardNumberIsValid(name=cardNumberIsValid)|        Covered
+                          Region transferRegion::Transition getAmount2checkBalance(name=getAmount2checkBalance, kind=external)|        Covered
+                                    Transition getAmount2checkBalance::Trigger amountEnteredTrigger(name=amountEnteredTrigger)|     Not_Traced
+                                                                             Trigger amountEnteredTrigger::Signal Event Type()|     Not_Traced
+                  Region transferRegion::Transition checkBalance2transferMoney(name=checkBalance2transferMoney, kind=external)|    Not_Covered
+                                                                   Transition checkBalance2transferMoney::Integer Constraint()|     Not_Traced
+                                                             Integer Constraint::Integer Comparison Expression <=(operator=<=)|     Not_Traced
+                                Region transferRegion::Transition checkBalance2final5(name=checkBalance2final5, kind=external)|        Covered
+                                            Transition checkBalance2final5::Behavior notEnoughMoneyMsg(name=notEnoughMoneyMsg)|        Covered
+                                                                          Transition checkBalance2final5::Integer Constraint()|     Not_Traced
+                                                               Integer Constraint::Integer Comparison Expression >(operator=>)|     Not_Traced
+                              Region transferRegion::Transition transferMoney2final5(name=transferMoney2final5, kind=external)|    Not_Covered
+                               Transition transferMoney2final5::Behavior successfullyTransferred(name=successfullyTransferred)|    Not_Covered
+                                                                 Region serviceCustomerRegion::Final State final2(name=final2)|     Not_Traced
+                   Region serviceCustomerRegion::Transition initial2authentication(name=initial2authentication, kind=external)|        Covered
+     Region serviceCustomerRegion::Transition selectingTransaction2withdraw(name=selectingTransaction2withdraw, kind=external)|        Covered
+                                       Transition selectingTransaction2withdraw::Trigger withdrawTrigger(name=withdrawTrigger)|     Not_Traced
+                                                                                  Trigger withdrawTrigger::Signal Event Type()|     Not_Traced
+     Region serviceCustomerRegion::Transition selectingTransaction2transfer(name=selectingTransaction2transfer, kind=external)|        Covered
+                                       Transition selectingTransaction2transfer::Trigger transferTrigger(name=transferTrigger)|     Not_Traced
+                                                                                  Trigger transferTrigger::Signal Event Type()|     Not_Traced
+                                 Region serviceCustomerRegion::Transition withdraw2final2(name=withdraw2final2, kind=external)|        Covered
+                                 Region serviceCustomerRegion::Transition transfer2final2(name=transfer2final2, kind=external)|        Covered
+                     Region serviceCustomerRegion::Transition authentication2final2(name=authentication2final2, kind=external)|    Not_Covered
+                                                                       State ServiceCustomer::Behavior readCard(name=readCard)|        Covered
+                                                                     State ServiceCustomer::Behavior ejectCard(name=ejectCard)|        Covered
+                                                    Region mainRegion::Transition initial2off(name=initial2off, kind=external)|        Covered
+                                                  Region mainRegion::Transition off2selfTest(name=off2selfTest, kind=external)|        Covered
+                                                            Transition off2selfTest::Trigger turnOnTrigger(name=turnOnTrigger)|     Not_Traced
+                                                                                    Trigger turnOnTrigger::Signal Event Type()|     Not_Traced
+                                                                       Transition off2selfTest::Behavior startup(name=startup)|        Covered
+                                                Region mainRegion::Transition selfTest2idle(name=selfTest2idle, kind=external)|        Covered
+                                                           Transition selfTest2idle::Trigger sucessTrigger(name=sucessTrigger)|     Not_Traced
+                                                                                    Trigger sucessTrigger::Signal Event Type()|     Not_Traced
+                                Region mainRegion::Transition selfTest2outOfService(name=selfTest2outOfService, kind=external)|        Covered
+                                                 Transition selfTest2outOfService::Trigger failureTrigger(name=failureTrigger)|     Not_Traced
+                                                                                   Trigger failureTrigger::Signal Event Type()|     Not_Traced
+                                          Region mainRegion::Transition outOfService2Off(name=outOfService2Off, kind=external)|        Covered
+                                                      Transition outOfService2Off::Trigger turnOffTrigger(name=turnOffTrigger)|     Not_Traced
+                                                                                   Trigger turnOffTrigger::Signal Event Type()|     Not_Traced
+                                                                 Transition outOfService2Off::Behavior shutDown(name=shutDown)|        Covered
+                          Region mainRegion::Transition outOfService2maintenance(name=outOfService2maintenance, kind=external)|        Covered
+                                              Transition outOfService2maintenance::Trigger serviceTrigger(name=serviceTrigger)|     Not_Traced
+                                                                                   Trigger serviceTrigger::Signal Event Type()|     Not_Traced
+                          Region mainRegion::Transition maintenance2outOfService(name=maintenance2outOfService, kind=external)|        Covered
+                                              Transition maintenance2outOfService::Trigger failureTrigger(name=failureTrigger)|     Not_Traced
+                                                                                   Trigger failureTrigger::Signal Event Type()|     Not_Traced
+                                  Region mainRegion::Transition maintenance2selfTest(name=maintenance2selfTest, kind=external)|        Covered
+                                                    Transition maintenance2selfTest::Trigger sucessTrigger(name=sucessTrigger)|     Not_Traced
+                                                                                    Trigger sucessTrigger::Signal Event Type()|     Not_Traced
+                                                          Region mainRegion::Transition Idle2off(name=Idle2off, kind=external)|        Covered
+                                                              Transition Idle2off::Trigger turnOffTrigger(name=turnOffTrigger)|     Not_Traced
+                                                                                   Trigger turnOffTrigger::Signal Event Type()|     Not_Traced
+                                                                         Transition Idle2off::Behavior shutDown(name=shutDown)|        Covered
+                                          Region mainRegion::Transition Idle2maintenance(name=Idle2maintenance, kind=external)|        Covered
+                                                      Transition Idle2maintenance::Trigger serviceTrigger(name=serviceTrigger)|     Not_Traced
+                                                                                   Trigger serviceTrigger::Signal Event Type()|     Not_Traced
+                                  Region mainRegion::Transition Idle2serviceCustomer(name=Idle2serviceCustomer, kind=external)|        Covered
+                                        Transition Idle2serviceCustomer::Trigger cardInsertedTrigger(name=cardInsertedTrigger)|     Not_Traced
+                                                                              Trigger cardInsertedTrigger::Signal Event Type()|     Not_Traced
+                                  Region mainRegion::Transition serviceCustomer2idle(name=serviceCustomer2idle, kind=external)|    Not_Covered
+                                                    Transition serviceCustomer2idle::Trigger cancelTrigger(name=cancelTrigger)|     Not_Traced
+                                                                                    Trigger cancelTrigger::Signal Event Type()|     Not_Traced
+                                  Region mainRegion::Transition serviceCustomer2idle(name=serviceCustomer2idle, kind=external)|        Covered
+                  Region mainRegion::Transition serviceCustomer2outOfService(name=serviceCustomer2outOfService, kind=external)|        Covered
+                                          Transition serviceCustomer2outOfService::Trigger failureTrigger(name=failureTrigger)|     Not_Traced
+                                                                                   Trigger failureTrigger::Signal Event Type()|     Not_Traced
+                                                                                     Custom System::Signal turnOn(name=turnOn)|     Not_Traced
+                                                                                   Custom System::Signal failure(name=failure)|     Not_Traced
+                                                                                   Custom System::Signal success(name=success)|     Not_Traced
+                                                                                   Custom System::Signal turnOff(name=turnOff)|     Not_Traced
+                                                                                   Custom System::Signal service(name=service)|     Not_Traced
+                                                                                     Custom System::Signal cancel(name=cancel)|     Not_Traced
+                                                                                         Custom System::Signal Card(name=Card)|     Not_Traced
+                                                                          Signal Card::Integer Attribute cardPin(name=cardPin)|     Not_Traced
+                                                                  Signal Card::Integer Attribute cardBalance(name=cardBalance)|     Not_Traced
+                                                                                           Custom System::Signal Pin(name=Pin)|     Not_Traced
+                                                                                   Signal Pin::Integer Attribute pin(name=pin)|     Not_Traced
+                                                           Custom System::Signal WithdrawTransaction(name=WithdrawTransaction)|     Not_Traced
+                                                           Custom System::Signal TransferTransaction(name=TransferTransaction)|     Not_Traced
+                                                                                     Custom System::Signal Amount(name=Amount)|     Not_Traced
+                                                            Signal Amount::Integer Attribute enteredAmount(name=enteredAmount)|     Not_Traced
+--------------------------------------------------
+Total number of test cases improving selection score: 3
+iteration 1: 3 generated test cases
+Amplified Test Case: test19_0_IntegerModification_each
+
+Amplified Test Case: test23_0_IntegerModification_each
+
+Amplified Test Case: test25_0_IntegerModification_each
+

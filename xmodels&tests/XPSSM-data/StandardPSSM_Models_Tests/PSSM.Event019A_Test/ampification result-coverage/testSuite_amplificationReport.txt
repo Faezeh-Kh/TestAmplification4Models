@@ -1,0 +1,41 @@
+Total number of model elements: 20
+Total number of coverable model elements: 8
+- initial number of covered elements: 5
+- initial test suite coverage: 62.5%
+
+- number of covered elements by improved test cases: 3
+- total number of covered elements: 8
+- final test suite coverage: 100.0%
+=> improvement in the coverage percentage: 37.5%
+--------------------------------------------------
+Initial Coverage Matrix: 
+                                                                      Model element name|Coverage status
+----------------------------------------------------------------------------------------+---------------
+     platform:/resource/PSSM.Event019A/Event019_Test_A$behavior$1.model::Custom System()|     Not_Traced
+Custom System::State Machine Event019_Test_A$behavior$1(name=Event019_Test_A$behavior$1)|        Covered
+                  State Machine Event019_Test_A$behavior$1::Region Region1(name=Region1)|     Not_Traced
+                       Region Region1::Pseudostate Initial1(name=Initial1, kind=initial)|     Not_Traced
+                                                       Region Region1::State S1(name=S1)|     Not_Traced
+                                              State S1::Behavior S1(exit)(name=S1(exit))|        Covered
+                                                       Region Region1::State S2(name=S2)|     Not_Traced
+                                            State S2::Behavior S2(entry)(name=S2(entry))|    Not_Covered
+                               Region Region1::Final State FinalState1(name=FinalState1)|     Not_Traced
+                                   Region Region1::Transition T1(name=T1, kind=external)|        Covered
+                                   Region Region1::Transition T2(name=T2, kind=external)|        Covered
+                      Transition T2::Trigger CallEventOpTrigger(name=CallEventOpTrigger)|     Not_Traced
+                                           Trigger CallEventOpTrigger::Call Event Type()|     Not_Traced
+                                     Transition T2::Behavior T2(effect)(name=T2(effect))|        Covered
+                                   Region Region1::Transition T3(name=T3, kind=external)|    Not_Covered
+      Transition T3::Trigger ContinueSignalEventTrigger(name=ContinueSignalEventTrigger)|     Not_Traced
+                                 Trigger ContinueSignalEventTrigger::Signal Event Type()|     Not_Traced
+                                   Transition T3::Behavior T3(testEnd)(name=T3(testEnd))|    Not_Covered
+                                           Custom System::Signal Continue(name=Continue)|     Not_Traced
+                                                    Custom System::Operation op(name=op)|     Not_Traced
+--------------------------------------------------
+Total number of test cases improving selection score: 1
+iteration 1: 1 generated test cases
+Amplified Test Case: Event019_Test_A_1_EventDuplication_each
+New covered model element 1: State S2::Behavior S2(entry)(name=S2(entry))
+New covered model element 2: Region Region1::Transition T3(name=T3, kind=external)
+New covered model element 3: Transition T3::Behavior T3(testEnd)(name=T3(testEnd))
+

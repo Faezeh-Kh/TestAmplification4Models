@@ -1,0 +1,38 @@
+Total number of model elements: 23
+Total number of coverable model elements: 10
+- initial number of covered elements: 8
+- initial test suite coverage: 80.0%
+
+- number of covered elements by improved test cases: 0
+- total number of covered elements: 8
+- final test suite coverage: 80.0%
+=> improvement in the coverage percentage: 0.0%
+--------------------------------------------------
+Initial Coverage Matrix: 
+                                                                  Model element name|Coverage status
+------------------------------------------------------------------------------------+---------------
+    platform:/resource/PSSM.Event015/Event015_Test$behavior$1.model::Custom System()|     Not_Traced
+Custom System::State Machine Event015_Test$behavior$1(name=Event015_Test$behavior$1)|        Covered
+                State Machine Event015_Test$behavior$1::Region Region2(name=Region2)|     Not_Traced
+                   Region Region2::Pseudostate Initial1(name=Initial1, kind=initial)|     Not_Traced
+                                         Region Region2::State waiting(name=waiting)|     Not_Traced
+                                                   Region Region2::State S1(name=S1)|     Not_Traced
+                                              State S1::Region Region1(name=Region1)|     Not_Traced
+                   Region Region1::Pseudostate Initial1(name=Initial1, kind=initial)|     Not_Traced
+                                               Region Region1::State S1.1(name=S1.1)|     Not_Traced
+                                       Region Region1::Final State FS1.2(name=FS1.2)|     Not_Traced
+                           Region Region1::Transition T1.1(name=T1.1, kind=external)|        Covered
+                           Region Region1::Transition T1.2(name=T1.2, kind=external)|        Covered
+                           Transition T1.2::Behavior T1.2(effect)(name=T1.2(effect))|        Covered
+                           Region Region1::Transition T1.3(name=T1.3, kind=external)|    Not_Covered
+                           Transition T1.3::Behavior T1.3(effect)(name=T1.3(effect))|    Not_Covered
+                                         Region Region2::Final State FSR1(name=FSR1)|     Not_Traced
+                               Region Region2::Transition T1(name=T1, kind=external)|        Covered
+                               Region Region2::Transition T2(name=T2, kind=external)|        Covered
+                              Transition T2::Trigger StartTrigger(name=StartTrigger)|     Not_Traced
+                                           Trigger StartTrigger::Signal Event Type()|     Not_Traced
+                               Region Region2::Transition T3(name=T3, kind=external)|        Covered
+                               Transition T3::Behavior T3(testEnd)(name=T3(testEnd))|        Covered
+                                             Custom System::Signal Start(name=Start)|     Not_Traced
+--------------------------------------------------
+Total number of test cases improving selection score: 0

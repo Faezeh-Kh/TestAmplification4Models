@@ -1,0 +1,361 @@
+Package TestSuite {
+	Sketch sketch ( _name = "mainSketch" );
+	DigitalPin servoPin ( _name = "servo", level = ? );
+	PushButton turnOffButton ( _name = "turnOffButton" );
+	Test Description test1
+		uses configuration servo9gConfiguration {
+		tester.reactiveGate sends _run (
+			sketch = sketch
+		) to arduino.reactiveGate ;
+		arduino.reactiveGate sends Pin_level_changed (
+			pin = servoPin ( level = "90" )
+		) to tester.reactiveGate ;
+		arduino.reactiveGate sends Pin_level_changed (
+			pin = servoPin ( level = "180" )
+		) to tester.reactiveGate ;
+	}
+	Type Board extends NamedElement (
+		project of type Project
+	) with {
+		abstract;
+	} ;
+	Type Module extends NamedElement ( ) with {
+		abstract;
+	} ;
+	Type DigitalPin extends Pin (
+		module of type ArduinoDigitalModule
+	);
+	Type Pin extends NamedElement (
+		level of type EInt with {
+			dynamic;
+		}
+	) with {
+		abstract ;
+	} ;
+	Type AnalogPin extends Pin (
+		module of type ArduinoAnalogModule
+	);
+	Type Sketch extends NamedElement (
+		project of type Project,
+		block of type Block ,
+		board of type Board
+	);
+	Type Project (
+		boards of type Board,
+		sketches of type Sketch
+	);
+	Type Instruction ( ) with {
+		abstract;
+	} ;
+	Type ModuleAssignment extends Assignment ( );
+	Type ModuleInstruction extends Instruction (
+		module of type Module
+	) with {
+		abstract;
+	} ;
+	Type Control extends Instruction (
+		block of type Block
+	) with {
+		abstract;
+	} ;
+	Type Utilities ( ) with {
+		abstract;
+	} ;
+	Type Delay extends Utilities (
+		unit of type _Time,
+		value of type EInt
+	);
+	Type _Time;
+	Type NamedElement (
+		_name of type EString
+	) with {
+		abstract;
+	} ;
+	Type Repeat extends Control (
+		iteration of type EInt
+	);
+	Type ModuleGet extends Expression (
+		module of type Module
+	) with {
+		abstract;
+	} ;
+	Type While extends Control (
+		condition of type BooleanExpression
+	);
+	Type BinaryExpression extends Expression (
+		left of type Expression,
+		right of type Expression
+	) with {
+		abstract;
+	} ;
+	Type BinaryIntegerOperatorKind;
+	Type Variable extends NamedElement ( ) with {
+		abstract;
+	} ;
+	Type VariableAssignment extends Assignment (
+		_variable of type Variable
+	);
+	Type BinaryIntegerExpression extends IntegerExpression (
+		operator of type BinaryIntegerOperatorKind
+	);
+	Type BinaryBooleanExpression extends BooleanExpression (
+		operator of type BinaryBooleanOperatorKind
+	);
+	Type Expression ( ) with {
+		abstract;
+	} ;
+	Type Constant ( ) with {
+		abstract;
+	} ;
+	Type If extends Control (
+		condition of type BooleanExpression,
+		elseBlock of type Block
+	);
+	Type IntegerConstant extends IntegerExpression (
+		value of type EInt
+	);
+	Type BooleanConstant extends BooleanExpression (
+		value of type EBoolean
+	);
+	Type BooleanExpression ( ) with {
+		abstract;
+	} ;
+	Type IntegerExpression ( ) with {
+		abstract;
+	} ;
+	Type Assignment extends Instruction (
+		operand of type Expression
+	) with {
+		abstract;
+	} ;
+	Type IntegerVariable extends Variable (
+		initialValue of type EInt
+	);
+	Type BooleanVariable extends Variable (
+		initialValue of type EBoolean
+	);
+	Type BooleanModuleGet extends BooleanExpression ( );
+	Type IntegerModuleGet extends IntegerExpression ( );
+	Type BinaryBooleanOperatorKind;
+	Type UnaryIntegerOperatorKind;
+	Type UnaryBooleanOperatorKind;
+	Type UnaryExpression extends Expression (
+		operand of type Expression
+	) with {
+		abstract;
+	} ;
+	Type UnaryBooleanExpression extends BooleanExpression (
+		operator of type UnaryBooleanOperatorKind
+	);
+	Type UnaryIntegerExpression extends IntegerExpression (
+		operator of type UnaryIntegerOperatorKind
+	);
+	Type VariableDeclaration extends Instruction (
+		_variable of type Variable
+	);
+	Type VariableRef ( ) with {
+		abstract;
+	} ;
+	Type IntegerVariableRef extends IntegerExpression (
+		_variable of type IntegerVariable
+	);
+	Type LED extends ArduinoDigitalModule (
+		color of type Color
+	);
+	Type PushButton extends ArduinoDigitalModule ( );
+	Type Buzzer extends ArduinoDigitalModule ( );
+	Type RotationSensor extends ArduinoAnalogModule ( );
+	Type MicroServo extends ArduinoDigitalModule ( );
+	Type InfraRedSensor extends ArduinoDigitalModule ( );
+	Type AmbientLightSensor extends ArduinoAnalogModule ( );
+	Type SoundSensor extends ArduinoAnalogModule ( );
+	Type Fan extends ArduinoDigitalModule ( );
+	Type MusicPlayer extends ArduinoAnalogModule ( );
+	Type ArduinoModule extends Module ( ) with {
+		abstract;
+	} ;
+	Type WaitFor extends Utilities (
+		pin of type Pin,
+		mode of type ChangeType
+	);
+	Type Block (
+		instructions of type Instruction
+	);
+	Type ArduinoBoard extends Board (
+		digitalPins of type DigitalPin,
+		analogPins of type AnalogPin
+	);
+	Type ArduinoDigitalModule extends ArduinoModule ( ) with {
+		abstract;
+	} ;
+	Type ArduinoAnalogModule extends ArduinoModule ( ) with {
+		abstract;
+	} ;
+	Type BooleanVariableRef extends BooleanExpression (
+		_variable of type BooleanVariable
+	);
+	Type Color;
+	Type ArduinoCommunicationModule extends ArduinoDigitalModule ( ) with {
+		abstract;
+	} ;
+	Type BluetoothTransceiver extends ArduinoAnalogModule (
+		connectedTransceiver of type BluetoothTransceiver
+	);
+	Type ChangeType;
+	UnaryBooleanOperatorKind NOT;
+	Color blue;
+	Color red;
+	Color white;
+	BinaryBooleanOperatorKind inf;
+	BinaryBooleanOperatorKind sup;
+	BinaryBooleanOperatorKind infOrEqual;
+	BinaryBooleanOperatorKind supOrEqual;
+	BinaryBooleanOperatorKind equal;
+	BinaryBooleanOperatorKind AND;
+	BinaryBooleanOperatorKind OR;
+	BinaryBooleanOperatorKind Different;
+	UnaryIntegerOperatorKind _minus;
+	UnaryIntegerOperatorKind squareRoot;
+	BinaryIntegerOperatorKind minus;
+	BinaryIntegerOperatorKind plus;
+	BinaryIntegerOperatorKind mul;
+	BinaryIntegerOperatorKind div;
+	BinaryIntegerOperatorKind min;
+	BinaryIntegerOperatorKind max;
+	BinaryIntegerOperatorKind pourcent;
+	ChangeType RISING;
+	ChangeType FALLING;
+	ChangeType CHANGE;
+	_Time MilliSecond;
+	_Time MicroSecond;
+	Annotation dynamic;
+	Annotation abstract;
+	Type ELong;
+	Type EIntegerObject;
+	Type EByte;
+	Type EResource;
+	Type EDate;
+	Type EByteObject;
+	Type EChar;
+	Type EResourceSet;
+	Type EString;
+	Type ETreeIterator;
+	Type EDoubleObject;
+	Type EFloatObject;
+	Type EFeatureMap;
+	Type EJavaClass;
+	Type EDouble;
+	Type EInt;
+	Type EDiagnosticChain;
+	Type EByteArray;
+	Type EEList;
+	Type EBoolean;
+	Type EShort;
+	Type EFeatureMapEntry;
+	Type EBigDecimal;
+	Type EBooleanObject;
+	Type EShortObject;
+	Type ELongObject;
+	Type EMap;
+	Type EEnumerator;
+	Type EBigInteger;
+	Type ECharacterObject;
+	Type EInvocationTargetException;
+	Type EFloat;
+	Type EJavaObject;
+	Type OCL (
+		query of type EString
+	);
+	OCL oclQuery ( query = ? );
+	Type Verdict;
+	Verdict PASS;
+	Verdict FAIL;
+	Verdict INCONCLUSINVE;
+	Type modelExecutionCommand;
+	modelExecutionCommand runModel;
+	modelExecutionCommand runModelAsynchronous;
+	modelExecutionCommand stopModelExecution;
+	modelExecutionCommand resetModel;
+	modelExecutionCommand getModelState;
+	Annotation AcceptedEvent;
+	Annotation ExposedEvent;
+	Type _run (
+		sketch of type Sketch
+	) with {
+		AcceptedEvent;
+	} ;
+	_run _run ( sketch = ? );
+	Type button_pressed (
+		button of type PushButton
+	) with {
+		AcceptedEvent;
+	} ;
+	button_pressed button_pressed ( button = ? );
+	Type button_released (
+		button of type PushButton
+	) with {
+		AcceptedEvent;
+	} ;
+	button_released button_released ( button = ? );
+	Type IRSensor_detected (
+		sensor of type InfraRedSensor
+	) with {
+		AcceptedEvent;
+	} ;
+	IRSensor_detected IRSensor_detected ( sensor = ? );
+	Type IRSensor_notDetected (
+		sensor of type InfraRedSensor
+	) with {
+		AcceptedEvent;
+	} ;
+	IRSensor_notDetected IRSensor_notDetected ( sensor = ? );
+	Type soundSensor_detected (
+		sensor of type SoundSensor
+	) with {
+		AcceptedEvent;
+	} ;
+	soundSensor_detected soundSensor_detected ( sensor = ? );
+	Type Pin_level_changed (
+		pin of type Pin
+	) with {
+		ExposedEvent;
+	} ;
+	Pin_level_changed Pin_level_changed ( pin = ? );
+	Gate Type genericGateType accepts modelExecutionCommand;
+	Gate Type reactiveGateType accepts _run, button_pressed , button_released , IRSensor_detected , IRSensor_notDetected , Pin_level_changed;
+	Gate Type oclGateType accepts OCL;
+	Component Type TestSystem having {
+		gate genericGate of type genericGateType;
+		gate reactiveGate of type reactiveGateType ; gate oclGate of type oclGateType ;
+	}
+	Component Type MUT having {
+		gate genericGate of type genericGateType;
+		gate reactiveGate of type reactiveGateType ; gate oclGate of type oclGateType ;
+	}
+	Annotation MUTPath;
+	Annotation DSLName;
+	Test Configuration servo9gConfiguration {
+		create Tester tester of type TestSystem ;
+		create SUT arduino of type MUT with { MUTPath : '/Arduino.Servo9g/servo9g.model' ; DSLName : 'org.imt.arduino.reactiveArduino' ; } ;
+		connect tester.reactiveGate to arduino.reactiveGate ;
+		connect tester.oclGate to arduino.oclGate ;
+	}
+	Test Description test1_3_EventCreation_each
+		uses configuration servo9gConfiguration {
+		tester.reactiveGate sends _run (
+			sketch = sketch
+		) to arduino.reactiveGate ;
+		tester.reactiveGate sends button_pressed (
+			button = turnOffButton
+		) to arduino.reactiveGate ;
+		arduino.reactiveGate sends Pin_level_changed (
+			pin = servoPin ( level = "90" )
+		) to tester.reactiveGate ;
+		arduino.reactiveGate sends Pin_level_changed (
+			pin = servoPin ( level = "180" )
+		) to tester.reactiveGate ;
+		arduino.reactiveGate sends Pin_level_changed (
+			pin = servoPin ( level = "0" )
+		) to tester.reactiveGate ;
+	}
+}

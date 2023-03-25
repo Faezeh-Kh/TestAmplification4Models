@@ -1,0 +1,53 @@
+Total number of model elements: 34
+Total number of coverable model elements: 12
+- initial number of covered elements: 11
+- initial test suite coverage: 91.67%
+
+- number of covered elements by improved test cases: 1
+- total number of covered elements: 12
+- final test suite coverage: 100.0%
+=> improvement in the coverage percentage: 8.33%
+--------------------------------------------------
+Initial Coverage Matrix: 
+                                                                        Model element name|Coverage status
+------------------------------------------------------------------------------------------+---------------
+    platform:/resource/PSSM.Deferred007/Deferred007_Test$behavior$1.model::Custom System()|     Not_Traced
+Custom System::State Machine Deferred007_Test$behavior$1(name=Deferred007_Test$behavior$1)|        Covered
+                   State Machine Deferred007_Test$behavior$1::Region Region1(name=Region1)|     Not_Traced
+                         Region Region1::Pseudostate Initial1(name=Initial1, kind=initial)|     Not_Traced
+                                                     Region Region1::State wait(name=wait)|     Not_Traced
+                                                         Region Region1::State S1(name=S1)|     Not_Traced
+                                                State S1::Behavior S1(exit)(name=S1(exit))|        Covered
+                             State S1::Trigger OpCallEventTrigger(name=OpCallEventTrigger)|     Not_Traced
+                                             Trigger OpCallEventTrigger::Call Event Type()|     Not_Traced
+                                                         Region Region1::State S2(name=S2)|     Not_Traced
+                                                State S2::Behavior S2(exit)(name=S2(exit))|        Covered
+                                                         Region Region1::State S3(name=S3)|     Not_Traced
+                                 Region Region1::Final State FinalState1(name=FinalState1)|     Not_Traced
+                                     Region Region1::Transition T1(name=T1, kind=external)|        Covered
+                                     Region Region1::Transition T2(name=T2, kind=external)|        Covered
+              Transition T2::Trigger StartSignalEventTrigger(name=StartSignalEventTrigger)|     Not_Traced
+                                      Trigger StartSignalEventTrigger::Signal Event Type()|     Not_Traced
+                                     Region Region1::Transition T3(name=T3, kind=external)|        Covered
+        Transition T3::Trigger ContinueSignalEventTrigger(name=ContinueSignalEventTrigger)|     Not_Traced
+                                   Trigger ContinueSignalEventTrigger::Signal Event Type()|     Not_Traced
+                                       Transition T3::Behavior T3(effect)(name=T3(effect))|        Covered
+                                     Region Region1::Transition T5(name=T5, kind=external)|    Not_Covered
+        Transition T5::Trigger ContinueSignalEventTrigger(name=ContinueSignalEventTrigger)|     Not_Traced
+                                   Trigger ContinueSignalEventTrigger::Signal Event Type()|     Not_Traced
+                                     Region Region1::Transition T6(name=T6, kind=external)|        Covered
+                                                        Transition T6::Trigger op(name=op)|     Not_Traced
+                                                             Trigger op::Call Event Type()|     Not_Traced
+                                       Transition T6::Behavior T6(effect)(name=T6(effect))|        Covered
+                                     Region Region1::Transition T7(name=T7, kind=external)|        Covered
+                                     Transition T7::Behavior T7(testEnd)(name=T7(testEnd))|        Covered
+                                                   Custom System::Signal Start(name=Start)|     Not_Traced
+                                             Custom System::Signal Continue(name=Continue)|     Not_Traced
+                                                      Custom System::Operation op(name=op)|     Not_Traced
+                                               Operation op::Boolean Attribute p1(name=p1)|     Not_Traced
+--------------------------------------------------
+Total number of test cases improving selection score: 1
+iteration 1: 1 generated test cases
+Amplified Test Case: Deferred007_Test_7_EventDeletion_each
+New covered model element 1: Region Region1::Transition T5(name=T5, kind=external)
+

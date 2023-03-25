@@ -1,0 +1,44 @@
+Total number of model elements: 29
+Total number of coverable model elements: 9
+- initial number of covered elements: 7
+- initial test suite coverage: 77.78%
+
+- number of covered elements by improved test cases: 0
+- total number of covered elements: 7
+- final test suite coverage: 77.78%
+=> improvement in the coverage percentage: 0.0%
+--------------------------------------------------
+Initial Coverage Matrix: 
+                                                                      Model element name|Coverage status
+----------------------------------------------------------------------------------------+---------------
+     platform:/resource/PSSM.Event017A/Event017_Test_A$behavior$1.model::Custom System()|     Not_Traced
+Custom System::State Machine Event017_Test_A$behavior$1(name=Event017_Test_A$behavior$1)|        Covered
+                  State Machine Event017_Test_A$behavior$1::Region Region1(name=Region1)|     Not_Traced
+                       Region Region1::Pseudostate Initial1(name=Initial1, kind=initial)|     Not_Traced
+                                                   Region Region1::State wait(name=wait)|     Not_Traced
+                                                       Region Region1::State S1(name=S1)|     Not_Traced
+                               Region Region1::Final State FinalState1(name=FinalState1)|     Not_Traced
+                                                       Region Region1::State S2(name=S2)|     Not_Traced
+                                   Region Region1::Transition T1(name=T1, kind=external)|        Covered
+                                   Region Region1::Transition T2(name=T2, kind=external)|        Covered
+            Transition T2::Trigger StartSignalEventtrigger(name=StartSignalEventtrigger)|     Not_Traced
+                                    Trigger StartSignalEventtrigger::Signal Event Type()|     Not_Traced
+                                   Region Region1::Transition T3(name=T3, kind=external)|        Covered
+              Transition T3::Trigger DataSignalEventTrigger(name=DataSignalEventTrigger)|     Not_Traced
+                                     Trigger DataSignalEventTrigger::Signal Event Type()|     Not_Traced
+                                     Transition T3::Behavior T3(effect)(name=T3(effect))|        Covered
+                                                     Transition T3::Boolean Constraint()|     Not_Traced
+                        Boolean Constraint::Boolean Unary Expression True(operator=True)|     Not_Traced
+                                   Region Region1::Transition T4(name=T4, kind=external)|    Not_Covered
+              Transition T4::Trigger DataSignalEventTrigger(name=DataSignalEventTrigger)|     Not_Traced
+                                     Trigger DataSignalEventTrigger::Signal Event Type()|     Not_Traced
+                                     Transition T4::Behavior T4(effect)(name=T4(effect))|    Not_Covered
+                                                     Transition T4::Boolean Constraint()|     Not_Traced
+                      Boolean Constraint::Boolean Unary Expression False(operator=False)|     Not_Traced
+                                   Region Region1::Transition T5(name=T5, kind=external)|        Covered
+                                   Transition T5::Behavior T5(testEnd)(name=T5(testEnd))|        Covered
+                                                 Custom System::Signal Start(name=Start)|     Not_Traced
+                                                   Custom System::Signal Data(name=Data)|     Not_Traced
+                                        Signal Data::Boolean Attribute value(name=value)|     Not_Traced
+--------------------------------------------------
+Total number of test cases improving selection score: 0

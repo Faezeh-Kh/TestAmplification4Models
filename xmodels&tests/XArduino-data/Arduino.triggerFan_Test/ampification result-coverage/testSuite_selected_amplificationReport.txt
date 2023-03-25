@@ -1,0 +1,76 @@
+Total number of model elements: 48
+Total number of coverable model elements: 30
+- initial number of covered elements: 9
+- initial test suite coverage: 30.0%
+
+- number of covered elements by improved test cases: 6
+- total number of covered elements: 15
+- final test suite coverage: 50.0%
+=> improvement in the coverage percentage: 20.0%
+--------------------------------------------------
+Initial Coverage Matrix: 
+                                                               Model element name|Coverage status
+---------------------------------------------------------------------------------+---------------
+                platform:/resource/Arduino.triggerFan/triggerFan.model::Project()|     Not_Traced
+                                         Project::Arduino Board board(name=board)|     Not_Traced
+                  Arduino Board board::Digital Pin blueLed(name=blueLed, level=1)|        Covered
+                       Digital Pin blueLed::LED blueLed(name=blueLed, color=blue)|    Not_Covered
+                    Arduino Board board::Digital Pin servo2(name=servo2, level=0)|    Not_Covered
+                              Digital Pin servo2::Micro Servo servo2(name=servo2)|    Not_Covered
+                          Arduino Board board::Digital Pin fan(name=fan, level=0)|    Not_Covered
+                                               Digital Pin fan::Fan fan(name=fan)|    Not_Covered
+Arduino Board board::Digital Pin boardOnButtonPin(name=boardOnButtonPin, level=1)|    Not_Covered
+      Digital Pin boardOnButtonPin::Push Button boardOnButton(name=boardOnButton)|        Covered
+          Arduino Board board::Digital Pin IRSensorPin(name=IRSensorPin, level=0)|    Not_Covered
+                Digital Pin IRSensorPin::Infra Red Sensor IRSensor(name=IRSensor)|    Not_Covered
+                Arduino Board board::Digital Pin alarmPin(name=alarmPin, level=0)|    Not_Covered
+                                   Digital Pin alarmPin::Buzzer alarm(name=alarm)|    Not_Covered
+           Arduino Board board::Analog Pin soundSensor(name=soundSensor, level=0)|    Not_Covered
+               Analog Pin soundSensor::Sound Sensor soundSensor(name=soundSensor)|    Not_Covered
+                                              Project::Sketch sketch(name=sketch)|    Not_Covered
+                                                           Sketch sketch::Block()|     Not_Traced
+                                                                      Block::If()|        Covered
+                                                                      If::Block()|     Not_Traced
+                                                       Block::Module Assignment()|        Covered
+                                   Module Assignment::Integer Constant 1(value=1)|     Not_Traced
+                                                                      Block::If()|        Covered
+                                                                      If::Block()|     Not_Traced
+                                                       Block::Module Assignment()|    Not_Covered
+                                   Module Assignment::Integer Constant 1(value=1)|     Not_Traced
+                                                       Block::Module Assignment()|    Not_Covered
+                                   Module Assignment::Integer Constant 0(value=0)|     Not_Traced
+                                                         If::Boolean Module Get()|        Covered
+                                                                      Block::If()|        Covered
+                                                                      If::Block()|     Not_Traced
+                                                     Block::Repeat 3(iteration=3)|    Not_Covered
+                                                                Repeat 3::Block()|     Not_Traced
+                                                       Block::Module Assignment()|    Not_Covered
+                                   Module Assignment::Integer Constant 0(value=0)|     Not_Traced
+                                                       Block::Module Assignment()|    Not_Covered
+                                   Module Assignment::Integer Constant 1(value=1)|     Not_Traced
+                                                       Block::Module Assignment()|    Not_Covered
+                                   Module Assignment::Integer Constant 0(value=0)|     Not_Traced
+                                                       Block::Module Assignment()|    Not_Covered
+                                 Module Assignment::Integer Constant 60(value=60)|     Not_Traced
+                                  If::Binary Boolean Expression sup(operator=sup)|     Not_Traced
+                              Binary Boolean Expression sup::Integer Module Get()|        Covered
+                   Binary Boolean Expression sup::Integer Constant 128(value=128)|     Not_Traced
+                                                         If::Boolean Module Get()|        Covered
+                                                                      If::Block()|     Not_Traced
+                                                       Block::Module Assignment()|    Not_Covered
+                                   Module Assignment::Integer Constant 0(value=0)|     Not_Traced
+--------------------------------------------------
+Total number of test cases improving selection score: 3
+iteration 1: 3 generated test cases
+Amplified Test Case: test1_4_EventCreation_each
+New covered model element 1: Block::Module Assignment()
+
+Amplified Test Case: test1_5_EventCreation_each
+New covered model element 1: Digital Pin IRSensorPin::Infra Red Sensor IRSensor(name=IRSensor)
+New covered model element 2: Arduino Board board::Digital Pin alarmPin(name=alarmPin, level=0)
+New covered model element 3: Block::Module Assignment()
+New covered model element 4: Block::Module Assignment()
+
+Amplified Test Case: test1_7_EventCreation_each
+New covered model element 1: Analog Pin soundSensor::Sound Sensor soundSensor(name=soundSensor)
+

@@ -1,0 +1,49 @@
+Total number of model elements: 34
+Total number of coverable model elements: 14
+- initial number of covered elements: 13
+- initial test suite coverage: 92.86%
+
+- number of covered elements by improved test cases: 0
+- total number of covered elements: 13
+- final test suite coverage: 92.86%
+=> improvement in the coverage percentage: 0.0%
+--------------------------------------------------
+Initial Coverage Matrix: 
+                                                                                Model element name|Coverage status
+--------------------------------------------------------------------------------------------------+---------------
+     platform:/resource/PSSM.Transition011A/Transition011_Test_A$behavior$1.model::Custom System()|     Not_Traced
+Custom System::State Machine Transition011_Test_A$behavior$1(name=Transition011_Test_A$behavior$1)|        Covered
+                       State Machine Transition011_Test_A$behavior$1::Region Region1(name=Region1)|     Not_Traced
+                                 Region Region1::Pseudostate Initial1(name=Initial1, kind=initial)|     Not_Traced
+                                                             Region Region1::State wait(name=wait)|     Not_Traced
+                                                                 Region Region1::State S1(name=S1)|     Not_Traced
+                                                            State S1::Region Region1(name=Region1)|     Not_Traced
+                                                             Region Region1::State S1.1(name=S1.1)|     Not_Traced
+                                                State S1.1::Behavior S1.1(entry)(name=S1.1(entry))|        Covered
+                                                  State S1.1::Behavior S1.1(exit)(name=S1.1(exit))|        Covered
+                                 Region Region1::Pseudostate Initial1(name=Initial1, kind=initial)|     Not_Traced
+                                                             Region Region1::State S1.2(name=S1.2)|     Not_Traced
+                                                State S1.2::Behavior S1.2(entry)(name=S1.2(entry))|        Covered
+                                         Region Region1::Final State FinalState1(name=FinalState1)|     Not_Traced
+                                         Region Region1::Transition T1.1(name=T1.1, kind=external)|        Covered
+                                         Region Region1::Transition T1.2(name=T1.2, kind=external)|    Not_Covered
+                                                    Transition T1.2::Trigger Pending(name=Pending)|     Not_Traced
+                                                              Trigger Pending::Signal Event Type()|     Not_Traced
+                                         Region Region1::Transition T1.4(name=T1.4, kind=external)|        Covered
+                                                        State S1::Behavior S1(exit)(name=S1(exit))|        Covered
+                                         Region Region1::Final State FinalState1(name=FinalState1)|     Not_Traced
+                                             Region Region1::Transition T1(name=T1, kind=external)|        Covered
+                                             Region Region1::Transition T2(name=T2, kind=external)|        Covered
+                                                          Transition T2::Trigger Start(name=Start)|     Not_Traced
+                                                                Trigger Start::Signal Event Type()|     Not_Traced
+                                             Region Region1::Transition T3(name=T3, kind=external)|        Covered
+                                             Transition T3::Behavior T3(testEnd)(name=T3(testEnd))|        Covered
+                                            Region Region1::Transition T1.3(name=T1.3, kind=local)|        Covered
+                                                  Transition T1.3::Trigger Continue(name=Continue)|     Not_Traced
+                                                             Trigger Continue::Signal Event Type()|     Not_Traced
+                                         Transition T1.3::Behavior T1.3(effect)(name=T1.3(effect))|        Covered
+                                                           Custom System::Signal Start(name=Start)|     Not_Traced
+                                                     Custom System::Signal Continue(name=Continue)|     Not_Traced
+                                                       Custom System::Signal Pending(name=Pending)|     Not_Traced
+--------------------------------------------------
+Total number of test cases improving selection score: 0
