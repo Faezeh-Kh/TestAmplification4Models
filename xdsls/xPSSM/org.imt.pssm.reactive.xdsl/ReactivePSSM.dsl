@@ -1,6 +1,7 @@
 name = org.imt.pssm.reactive.ReactivePSSM
-ecore = platform:/resource/org.imt.pssm.reactive.abstractSyntax/model/statemachines.ecore
+ecore = /org.imt.pssm.reactive.abstractSyntax/model/statemachines.ecore
 k3 = org.imt.pssm.reactive.interpreter.AttributeValueAspect,org.imt.pssm.reactive.interpreter.BehaviorAspect,org.imt.pssm.reactive.interpreter.BooleanAttributeValueAspect,org.imt.pssm.reactive.interpreter.BooleanBinaryExpressionAspect,org.imt.pssm.reactive.interpreter.BooleanConstraintAspect,org.imt.pssm.reactive.interpreter.BooleanUnaryExpressionAspect,org.imt.pssm.reactive.interpreter.CallEventOccurrenceAspect,org.imt.pssm.reactive.interpreter.ConstraintAspect,org.imt.pssm.reactive.interpreter.EventOccurrenceAspect,org.imt.pssm.reactive.interpreter.FinalStateAspect,org.imt.pssm.reactive.interpreter.IntegerAttributeValueAspect,org.imt.pssm.reactive.interpreter.IntegerComparisonExpressionAspect,org.imt.pssm.reactive.interpreter.IntegerConstraintAspect,org.imt.pssm.reactive.interpreter.OperationBehaviorAspect,org.imt.pssm.reactive.interpreter.PseudostateAspect,org.imt.pssm.reactive.interpreter.RegionAspect,org.imt.pssm.reactive.interpreter.SignalEventOccurrenceAspect,org.imt.pssm.reactive.interpreter.StateAspect,org.imt.pssm.reactive.interpreter.StateMachineAspect,org.imt.pssm.reactive.interpreter.StringAttributeValueAspect,org.imt.pssm.reactive.interpreter.StringComparisonExpressionAspect,org.imt.pssm.reactive.interpreter.StringConstraintAspect,org.imt.pssm.reactive.interpreter.TransitionAspect,org.imt.pssm.reactive.interpreter.VertexAspect
-behavioralInterface = platform:/resource/org.imt.pssm.reactive.behavioralInterface/ReactivePSSM.bi
+behavioralInterface = /org.imt.pssm.reactive.behavioralInterface/ReactivePSSM.bi
 implemRelId = org.imt.pssm.reactive.relationships.implementation_relationship
 subtypeRelId = org.imt.pssm.reactive.relationships.subtyping_relationship
+amplifierConfig = /org.imt.pssm.reactive.amplifier/PSSMAmplifier.ampc
