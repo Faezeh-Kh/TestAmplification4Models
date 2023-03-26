@@ -5,6 +5,7 @@ import wodel.dsls.WodelUtils;
 import java.io.IOException;
 
 import wodel.utils.exceptions.MetaModelNotFoundException;
+import mutatorenvironment.MutatorEnvironment;
 import mutatorenvironment.MutatorenvironmentPackage;
 
 public class TestMutantGenerator {
@@ -12,7 +13,14 @@ public class TestMutantGenerator {
 
 		MutatorenvironmentPackage.eINSTANCE.getClass();
 		try {
-			WodelUtils.generateMutationOperators("c:/GemocStudio/workspace2/wodelarduino/data/model/arduino.ecore", "d:/arduino/models", "c:/GemocStudio/workspace2/wodelarduino");
+			//WodelUtils.generateMutationOperators("c:/GemocStudio/workspace2/wodelarduino/data/model/arduino.ecore", "d:/arduino/models", "c:/GemocStudio/workspace2/wodelarduino");
+			MutatorEnvironment wodel = WodelUtils.generateWodelProgram("c:/GemocStudio/workspace2/wodelarduino/data/model/arduino.ecore");
+			WodelUtils.generateCreationMutationOperators(wodel, "d:/arduino/models", "Module");
+			WodelUtils.generateCloningMutationOperators(wodel, "d:/arduino/models", "If", "While");
+			WodelUtils.generateModificationMutationOperators(wodel, "d:/arduino/models", "ModuleAssignment", "Expression");
+			//WodelUtils.generateRemovalMutationOperators(wodel, "d:/arduino/models");
+			WodelUtils.generateRetypingMutationOperators(wodel, "d:/arduino/models", "DigitalPin");
+			WodelUtils.serializeWodelProgram(wodel, "c:/GemocStudio/workspace2/wodelarduino");
 		} catch (MetaModelNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
