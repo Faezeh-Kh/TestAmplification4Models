@@ -1,0 +1,26 @@
+config amplifier ArduinoAmplifier{
+	import metamodel arduino
+	import behavioral interface "Arduino.bi"
+	iterative technique
+		stop when score reached 85.00
+
+	test modifiers{
+		//primitive modifiers
+		modify each numeric values,
+		//event modifiers
+		create all missed events,
+		delete first events,
+		duplicate last events,
+		modify each ["button_pressed", "button_released"] events,
+		permute atmost 2 events
+	}
+	filterby mutation score {
+		generate mutants using mutation operators "pathToMutationOperatorsFile" {
+			creation operators for [Module],
+			cloning operators for [If, While],
+			modification operators for [ModuleAssignment],
+			removal operators,
+			retyping operators for [DigitalPin]
+		}
+	}
+}
