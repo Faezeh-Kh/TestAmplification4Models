@@ -92,25 +92,34 @@ public class FilterByCoverage implements ITestSelector{
 		stringBuilder.append("- final test suite coverage: " + amplifiedCoverage + "%" + "\n");
 		stringBuilder.append("=> improvement in the coverage percentage: " + (new BigDecimal(amplifiedCoverage-initialCoverage).setScale(2, RoundingMode.HALF_UP)).doubleValue() + "%" + "\n");
 		stringBuilder.append("--------------------------------------------------\n");
-		System.out.println(stringBuilder);
-		
+
+		stringBuilder.append("Yet not-covered elements after amplification: \n");
+		int j = 1;
+		for (int i=0; i<tsObjectCoverageStatus.size();i++) {
+			if (tsObjectCoverageStatus.get(i) == TDLCoverageUtil.NOT_COVERED) {
+				EObject element = tsCoverageRunner.getModelObjects().get(i);
+				stringBuilder.append("Not-covered element " + (j++) + ": " + TDLTestResultUtil.getInstance().eObjectLabelProvider(element) + "\n");
+			}
+		}
+        stringBuilder.append("--------------------------------------------------\n");
+        System.out.println(stringBuilder);
+        
 		stringBuilder.append("Initial Coverage Matrix: \n");
-		List<ElementCoverageStatus> entries = new ArrayList<>();
+		List<ElementCoverageStatus> initialCoverageMatrix = new ArrayList<>();
 		for (ObjectCoverageStatus ocs:tsCoverageRunner.coverageOfModelObjects) {
 			if (ocs.getModelObject() != null) {
 				ElementCoverageStatus entry = new ElementCoverageStatus();
 				entry.elementName = TDLTestResultUtil.getInstance().eObjectLabelProvider(ocs.getModelObject());
 				entry.coverageStatus = ocs.getCoverage().get(ocs.getCoverage().size()-1);
-				entries.add(entry);
+				initialCoverageMatrix.add(entry);
 			}
 		}
 		TableStringBuilder<ElementCoverageStatus> t = new TableStringBuilder<>();
         t.addColumn("Model element name", ElementCoverageStatus::getElementName);
         t.addColumn("Coverage status", ElementCoverageStatus::getCoverageStatus);
-        String s = t.createString(entries);
-        System.out.println(s);
+        String s = t.createString(initialCoverageMatrix);
         stringBuilder.append(s);
-        stringBuilder.append("--------------------------------------------------\n");
+        stringBuilder.append("--------------------------------------------------\n");     
 	}
 
 	@Override
