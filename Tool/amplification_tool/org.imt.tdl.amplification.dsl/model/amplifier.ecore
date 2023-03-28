@@ -4,8 +4,7 @@
     nsPrefix="amplifier">
   <eClassifiers xsi:type="ecore:EClass" name="Configuration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="metamodel"
-        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metamodel" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="behavioralInterfaceUri"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="approach" lowerBound="1"
@@ -53,8 +52,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="TestSelectionCriterion" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="ElementCoverage" eSuperTypes="#//TestSelectionCriterion"/>
   <eClassifiers xsi:type="ecore:EClass" name="MutationAnalysis" eSuperTypes="#//TestSelectionCriterion">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mutationOperators" lowerBound="1"
-        upperBound="-1" eType="#//MutationOperator" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mutationOperators" eType="#//MutationOperator"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MutationOperator" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pathToMutationOperatorsFile"
