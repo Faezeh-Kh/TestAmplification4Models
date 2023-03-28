@@ -23,6 +23,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.etsi.mts.tdl.ComponentInstanceRole;
 import org.etsi.mts.tdl.GateReference;
@@ -30,11 +31,21 @@ import org.etsi.mts.tdl.Interaction;
 import org.etsi.mts.tdl.Package;
 import org.etsi.mts.tdl.TestDescription;
 import org.imt.k3tdl.interpreter.TestDescriptionAspect;
+import org.imt.tdl.amplification.dsl.amplifier.CloningOperator;
+import org.imt.tdl.amplification.dsl.amplifier.CreationOperator;
+import org.imt.tdl.amplification.dsl.amplifier.GeneratedOperator;
+import org.imt.tdl.amplification.dsl.amplifier.ModificationOperator;
 import org.imt.tdl.amplification.dsl.amplifier.MutationAnalysis;
+import org.imt.tdl.amplification.dsl.amplifier.MutationOperatorType;
+import org.imt.tdl.amplification.dsl.amplifier.RemovalOperator;
+import org.imt.tdl.amplification.dsl.amplifier.RetypingOperator;
 import org.imt.tdl.testResult.TDLTestCaseResult;
 import org.imt.tdl.testResult.TDLTestResultUtil;
+import org.imt.tdl.utilities.DSLProcessor;
 import org.imt.tdl.utilities.PathHelper;
 
+import mutatorenvironment.MutatorEnvironment;
+import mutatorenvironment.MutatorenvironmentPackage;
 import wodel.dsls.WodelUtils;
 import wodel.utils.exceptions.MetaModelNotFoundException;
 
@@ -268,42 +279,69 @@ public class MutationScoreCalculator {
 			String inputPath = mutantsProject.getLocation().toString();
 			String outputPath = inputPath + "/mutants";
 			String eclipseHomePath = "c:/labtop/gemoc_studio";
-			String wodelProjectPath = "";
-			String mutatorFilePath = mutationAnalysisSpec.getMutationOperators().get(0).getPathToMutationOperatorsFile();
-			
-			//if there is no mutation operator, generate the operators first
-			//TODO: Generate operators based on the configuration file
-			if (mutatorFilePath == null || mutatorFilePath.isEmpty()) {
-				wodelProjectPath = "? how to find the path? should we add it to .dsl file?";
-				String metamodelPath = wodelProjectPath + "? how to find path to ecore file";
-				String eclipseCompilerName = "GemocStudioc";
-				try {
-					WodelUtils.generateMutationOperators(metamodelPath, inputPath, wodelProjectPath);
-					WodelUtils.compileWodelProject(wodelProjectPath, eclipseHomePath, eclipseCompilerName);
-				} catch (MetaModelNotFoundException e) {
-					e.printStackTrace();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-				mutatorFilePath = "?";
-			}
-			
-			//get location of workspace (java.io.File)
+			String mutatorFilePath = mutationAnalysisSpec.getMutationOperators().getPathToMutationOperatorsFile();
 			String wodelProjectName = Paths.get(mutatorFilePath).getName(0).toString();
-			wodelProjectPath = Platform.getBundle(wodelProjectName).getLocation();
+			String wodelProjectPath = Platform.getBundle(wodelProjectName).getLocation();
 			wodelProjectPath = wodelProjectPath.substring(wodelProjectPath.indexOf("C:/"), wodelProjectPath.length()-1);
 			
+			//if the user requested to generate mutation operators for them
+			if (mutationAnalysisSpec.getMutationOperators() instanceof GeneratedOperator) {
+				generateMutationOperators(wodelProjectPath, eclipseHomePath, inputPath);
+			}
 			String currentPluginPath = Platform.getBundle("org.imt.tdl.mutation").getLocation();
 			currentPluginPath = currentPluginPath.substring(currentPluginPath.indexOf("C:/"), currentPluginPath.length()-1);
-			
 			WodelUtils.generateMutants(inputPath, outputPath, currentPluginPath, wodelProjectPath, eclipseHomePath);
 		}
-
 		for (File file : modelFolder.listFiles()) {
 			mutantsPathsHelper(modelProjectName, file);
 		}
 	}
 	
+	private void generateMutationOperators(String wodelProjectPath, String eclipseHomePath, String inputPath) {
+		DSLProcessor dslProcessor = new DSLProcessor(pathHelper.getDSLPath());
+		String ecoreFilePath = dslProcessor.getPath2Ecore();
+		String ecoreFileName = ecoreFilePath.substring(ecoreFilePath.lastIndexOf("/")+1);
+		String metamodelPath = wodelProjectPath + "/data/model/" + ecoreFileName;
+		String eclipseCompilerName = "GemocStudioc";
+		
+		MutatorenvironmentPackage.eINSTANCE.getClass();
+		MutatorEnvironment wodel = WodelUtils.generateWodelProgram(metamodelPath);
+		//NOTE: We consider there is only one GeneratedOperator 
+		GeneratedOperator genOperator = (GeneratedOperator) mutationAnalysisSpec.getMutationOperators();
+		try {
+			for (MutationOperatorType operatorType: genOperator.getOperatorsTypes()) {	
+				for (EClass scope : operatorType.getScope()) {
+					if (operatorType instanceof CreationOperator) {
+						WodelUtils.generateCreationMutationOperators(wodel, inputPath, scope.getName());
+					}
+					else if (operatorType instanceof CloningOperator) {
+						WodelUtils.generateCloningMutationOperators(wodel, inputPath, scope.getName());
+					}
+					else if (operatorType instanceof RetypingOperator) {
+						WodelUtils.generateRetypingMutationOperators(wodel, inputPath, scope.getName());
+					}
+					else if (operatorType instanceof RemovalOperator) {
+						WodelUtils.generateRemovalMutationOperators(wodel, inputPath, scope.getName());
+					}
+					else if (operatorType instanceof ModificationOperator) {
+						WodelUtils.generateModificationMutationOperators(wodel, inputPath, scope.getName());
+					}
+				}
+			}
+			
+			WodelUtils.serializeWodelProgram(wodel, wodelProjectPath);
+			
+		} catch (MetaModelNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//WodelUtils.generateMutationOperators(metamodelPath, inputPath, wodelProjectPath);
+		WodelUtils.compileWodelProject(wodelProjectPath, eclipseHomePath, eclipseCompilerName);
+	}
+
 	private void mutantsPathsHelper(String projectName, File file) {
 		if (file.isFile() && file.getName().endsWith(".model")) {
 			String filePath = file.getPath();
