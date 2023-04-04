@@ -59,19 +59,19 @@ public abstract class AbstractAmplifier implements IAmplifier{
 		Resource tdlan2TestSuiteRes = (new ResourceSetImpl()).createResource(URI.createURI(tdlan2OutputPath));
 		//all the new elements are in the testSuiteRes
 		tdlan2TestSuiteRes.getContents().addAll(EcoreUtil.copyAll(testSuiteRes.getContents()));
-		String xmiOutputPath = sourcePath.substring(0, sourcePath.lastIndexOf("/")+1) + pathHelper.getTestSuiteFileName() + "_amplified.xmi";
-		Resource xmiTestSuiteRes = (new ResourceSetImpl()).createResource(URI.createURI(xmiOutputPath));
-		//all the new elements are in the testSuiteRes
-		xmiTestSuiteRes.getContents().addAll(EcoreUtil.copyAll(testSuiteRes.getContents()));
-		
+//		String xmiOutputPath = sourcePath.substring(0, sourcePath.lastIndexOf("/")+1) + pathHelper.getTestSuiteFileName() + "_amplified.xmi";
+//		Resource xmiTestSuiteRes = (new ResourceSetImpl()).createResource(URI.createURI(xmiOutputPath));
+//		//all the new elements are in the testSuiteRes
+//		xmiTestSuiteRes.getContents().addAll(EcoreUtil.copyAll(testSuiteRes.getContents()));
+//		
 		try {
 			tdlan2TestSuiteRes.save(null);
-			xmiTestSuiteRes.save(null);
+//			xmiTestSuiteRes.save(null);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		testSuiteRes.unload();
 		tdlan2TestSuiteRes.unload();
-		xmiTestSuiteRes.unload();
+//		xmiTestSuiteRes.unload();
 	}
 }

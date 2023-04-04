@@ -97,7 +97,7 @@ ElementCoverage returns ElementCoverage:
 MutationAnalysis returns MutationAnalysis:
 	{MutationAnalysis} 'mutation' 'score'
 	('{' 
-		mutationOperators+=MutationOperator (',' mutationOperators+=MutationOperator)*
+		mutationOperators=MutationOperator
 	 '}'
 	)?
 ;

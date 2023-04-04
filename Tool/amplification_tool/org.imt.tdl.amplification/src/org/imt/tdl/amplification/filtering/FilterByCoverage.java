@@ -83,6 +83,7 @@ public class FilterByCoverage implements ITestSelector{
 	public void generateOverallScoreReport(StringBuilder stringBuilder) {
 		double initialCoverage = tsCoverageRunner.getTsCoveragePercentage();
 		double amplifiedCoverage = getCurrentScore();
+		double improvement = amplifiedCoverage - initialCoverage;
 		stringBuilder.append("Total number of model elements: " + tsObjectCoverageStatus.size() + "\n");
 		stringBuilder.append("Total number of coverable model elements: " + numOfCoverableElements + "\n");
 		stringBuilder.append("- initial number of covered elements: " + tsCoverageRunner.getNumOfCoveredObjs() + "\n");
@@ -90,7 +91,7 @@ public class FilterByCoverage implements ITestSelector{
 		stringBuilder.append("- number of covered elements by improved test cases: " + (numOfCoveredElements-tsCoverageRunner.getNumOfCoveredObjs())+ "\n");
 		stringBuilder.append("- total number of covered elements: " + numOfCoveredElements + "\n");
 		stringBuilder.append("- final test suite coverage: " + amplifiedCoverage + "%" + "\n");
-		stringBuilder.append("=> improvement in the coverage percentage: " + (new BigDecimal(amplifiedCoverage-initialCoverage).setScale(2, RoundingMode.HALF_UP)).doubleValue() + "%" + "\n");
+		stringBuilder.append("=> improvement in the coverage percentage: " + (new BigDecimal(improvement).setScale(2, RoundingMode.HALF_UP)).doubleValue() + "%" + "\n");
 		stringBuilder.append("--------------------------------------------------\n");
 
 		stringBuilder.append("Yet not-covered elements after amplification: \n");
@@ -107,10 +108,11 @@ public class FilterByCoverage implements ITestSelector{
 		stringBuilder.append("Initial Coverage Matrix: \n");
 		List<ElementCoverageStatus> initialCoverageMatrix = new ArrayList<>();
 		for (ObjectCoverageStatus ocs:tsCoverageRunner.coverageOfModelObjects) {
-			if (ocs.getModelObject() != null) {
+			int tsCoverageIndex = ocs.getCoverage().size()-1;
+			if (ocs.getModelObject() != null && ocs.getCoverage().get(tsCoverageIndex) != TDLCoverageUtil.NOT_TRACED) {
 				ElementCoverageStatus entry = new ElementCoverageStatus();
 				entry.elementName = TDLTestResultUtil.getInstance().eObjectLabelProvider(ocs.getModelObject());
-				entry.coverageStatus = ocs.getCoverage().get(ocs.getCoverage().size()-1);
+				entry.coverageStatus = ocs.getCoverage().get(tsCoverageIndex);
 				initialCoverageMatrix.add(entry);
 			}
 		}
