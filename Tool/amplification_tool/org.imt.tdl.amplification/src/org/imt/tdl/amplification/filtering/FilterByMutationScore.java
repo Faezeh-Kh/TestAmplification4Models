@@ -103,4 +103,9 @@ public class FilterByMutationScore implements ITestSelector{
 	public double getCurrentScore() {
 		return scoreCalculator.getCurrentMutationScore()*100;
 	}
+
+	@Override
+	public double getScoreThreshold() {
+		return mutationScoreThreshold;
+	}
 }

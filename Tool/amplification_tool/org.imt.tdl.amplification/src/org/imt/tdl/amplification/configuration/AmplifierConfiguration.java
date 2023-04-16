@@ -8,10 +8,8 @@ import org.etsi.mts.tdl.Package;
 import org.imt.tdl.amplification.AmplificationRuntimeException;
 import org.imt.tdl.amplification.IAmplifier;
 import org.imt.tdl.amplification.IterativeAmplifier;
-import org.imt.tdl.amplification.SearchBasedAmplifier;
 import org.imt.tdl.amplification.dsl.amplifier.Configuration;
 import org.imt.tdl.amplification.dsl.amplifier.Iterative;
-import org.imt.tdl.amplification.dsl.amplifier.SearchBased;
 import org.imt.tdl.utilities.DSLProcessor;
 import org.imt.tdl.utilities.PathHelper;
 
@@ -38,9 +36,6 @@ public class AmplifierConfiguration {
 			//check the approach
 			if (amplifierConfigObject.getApproach() instanceof Iterative) {
 				amplifier = new IterativeAmplifier(amplifierConfigObject);
-			}
-			else if (amplifierConfigObject.getApproach() instanceof SearchBased) {
-				amplifier = new SearchBasedAmplifier(amplifierConfigObject);
 			}
 		}
 		else {

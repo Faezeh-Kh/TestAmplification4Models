@@ -222,4 +222,9 @@ public class FilterByCoverage implements ITestSelector{
 	        return sb.toString();
 	    }
 	}
+
+	@Override
+	public double getScoreThreshold() {
+		return coveragePercentageThreshold;
+	}
 }

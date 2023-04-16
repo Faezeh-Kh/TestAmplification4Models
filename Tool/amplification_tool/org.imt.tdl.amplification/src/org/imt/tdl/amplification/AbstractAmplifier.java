@@ -1,7 +1,9 @@
 package org.imt.tdl.amplification;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
+import java.util.List;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -12,6 +14,7 @@ import org.imt.tdl.amplification.dsl.amplifier.Configuration;
 import org.imt.tdl.amplification.dsl.amplifier.ElementCoverage;
 import org.imt.tdl.amplification.dsl.amplifier.MutationAnalysis;
 import org.imt.tdl.amplification.dsl.amplifier.TestModificationOperator;
+import org.imt.tdl.amplification.dsl.amplifier.TestSelectionCriterion;
 import org.imt.tdl.amplification.filtering.FilterByCoverage;
 import org.imt.tdl.amplification.filtering.FilterByMutationScore;
 import org.imt.tdl.amplification.filtering.ITestSelector;
@@ -21,8 +24,7 @@ public abstract class AbstractAmplifier implements IAmplifier{
 
 	ArrayList<TestModificationOperator> modifiers;
 	
-	double maxSelectionScore;
-	ITestSelector testSelector;
+	List<ITestSelector> testSelectors = new ArrayList<>();
 	
 	int numNewTests = 0;
 	
@@ -30,8 +32,7 @@ public abstract class AbstractAmplifier implements IAmplifier{
 		//default: consider all modifiers
 		modifiers = null;
 		//set default selector: coverage is the default selector
-		maxSelectionScore = 100;
-		testSelector = new FilterByCoverage(maxSelectionScore);
+		testSelectors.add(new FilterByCoverage(100));
 	}
 	
 	
@@ -41,13 +42,16 @@ public abstract class AbstractAmplifier implements IAmplifier{
 		amplifierConfiguration.getOperators().forEach(o -> modifiers.add(o));
 
 		//finding the considered selection criterion
-		maxSelectionScore = amplifierConfiguration.getApproach().getSelectionScoreThreshold();
-		if (amplifierConfiguration.getFiltering() instanceof ElementCoverage) {
-			testSelector = new FilterByCoverage(maxSelectionScore);
-		}
-		else if (amplifierConfiguration.getFiltering() instanceof MutationAnalysis) {
-			testSelector = new FilterByMutationScore(
-					(MutationAnalysis) amplifierConfiguration.getFiltering(), maxSelectionScore);
+		for (TestSelectionCriterion selector:amplifierConfiguration.getFiltering()) {
+			if (selector instanceof ElementCoverage) {
+				double maxSelectionScore = ((ElementCoverage) selector).getCoveragePercentageThreshold();
+				testSelectors.add(new FilterByCoverage(maxSelectionScore));
+			}
+			else if (selector instanceof MutationAnalysis) {
+				double maxSelectionScore = ((MutationAnalysis) selector).getMutationScoreThreshold();
+				testSelectors.add(new FilterByMutationScore(
+						(MutationAnalysis) amplifierConfiguration.getFiltering(), maxSelectionScore));
+			}
 		}
 	}
 

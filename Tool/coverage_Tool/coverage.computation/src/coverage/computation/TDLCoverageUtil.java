@@ -239,8 +239,7 @@ public class TDLCoverageUtil {
 					filter(c -> c instanceof EClass).map(c -> (EClass) c).
 					filter(c -> c.getEAllSuperTypes().stream().
 							filter(sc -> sc.getName().equals(clazz.getName())).findAny().isPresent() 
-							&& !coverableClasses.contains(c.getName())
-							&& !extendedClassesWithoutStep.contains(c.getName())).
+							&& !coverableClasses.contains(c.getName())).
 					map (c -> c.getName()).collect(Collectors.toList());
 				coverableClasses.addAll(notCoverableSubClasses);
 		}

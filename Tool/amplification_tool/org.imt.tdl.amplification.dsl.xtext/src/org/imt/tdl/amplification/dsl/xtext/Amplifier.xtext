@@ -8,29 +8,22 @@ Configuration returns Configuration:
 	{Configuration}
 	'config' 'amplifier' name=EString '{'
 		('import' 'metamodel' metamodel=[ecore::EPackage])?
-		('import' 'behavioral' 'interface' behavioralInterfaceUri=EString)?
+		('import' 'behavioral' 'interface' behavioralInterface=EString)?
 		
-		approach = AmplificationApproach
+		approach = Iterative
 		'test' 'modifiers' '{'
 			operators+=TestModificationOperator (',' operators+=TestModificationOperator)*
 		'}'
-		'filterby' filtering= (ElementCoverage | MutationAnalysis)
+		
+		'filterby' '{'
+			filtering += TestSelectionCriterion (',' filtering += TestSelectionCriterion)*
+		'}'
 	'}'
-;
-	
-AmplificationApproach: 
-	Iterative | SearchBased
 ;
 
 Iterative:
 	{Iterative} 'iterative' 'technique'
 		('stop' 'after' numOfIterations=EInt 'iterations')?
-		('stop' 'when' 'score' 'reached' selectionScoreThreshold=EDouble)?
-	;
-
-SearchBased:
-	{SearchBased} 'searchBased' 'technique'  
-		('stop' 'when' 'score' 'reached' selectionScoreThreshold=EDouble)?
 	;
 
 TestModificationOperator returns TestModificationOperator:
@@ -90,12 +83,15 @@ enum ApplicationPolicy returns ApplicationPolicy:
 	all = 'all'| one = 'one' | each = 'each' | first = 'first' | last = 'last' | fixed = 'atmost'
 ;
 
+TestSelectionCriterion: ElementCoverage | MutationAnalysis
+;
+
 ElementCoverage returns ElementCoverage: 
-	{ElementCoverage} 'element' 'coverage'
+	{ElementCoverage} 'element' 'coverage:' 'stop' 'at' coveragePercentageThreshold=EDouble
 ;
 
 MutationAnalysis returns MutationAnalysis:
-	{MutationAnalysis} 'mutation' 'score'
+	{MutationAnalysis} 'mutation' 'score:' 'stop' 'at' mutationScoreThreshold=EDouble
 	('{' 
 		mutationOperators=MutationOperator
 	 '}'

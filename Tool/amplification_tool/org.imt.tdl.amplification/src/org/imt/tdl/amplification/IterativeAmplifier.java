@@ -18,6 +18,7 @@ import org.etsi.mts.tdl.tdlFactory;
 import org.imt.k3tdl.interpreter.TestDescriptionAspect;
 import org.imt.tdl.amplification.dsl.amplifier.Configuration;
 import org.imt.tdl.amplification.dsl.amplifier.Iterative;
+import org.imt.tdl.amplification.filtering.ITestSelector;
 import org.imt.tdl.amplification.testmodifier.AssertionGenerator;
 import org.imt.tdl.amplification.testmodifier.AssertionRemover;
 import org.imt.tdl.amplification.testmodifier.TestGenerator;
@@ -47,52 +48,53 @@ public class IterativeAmplifier extends AbstractAmplifier{
 
 	@Override
 	public void runAmplification(Package tdlTestSuite) throws AmplificationRuntimeException{
-		double initialScore = testSelector.calculateInitialScore(tdlTestSuite);
-		if (initialScore == -1) {
-			String message = "There is no mutants, so the initial score cannot be computed and the amplication stops";
-			throw (new AmplificationRuntimeException(message));
-		}
-		else if (initialScore == 100.00) {
-			String message = "As the initial score is 100% there is no need for test amplification";
-			throw (new AmplificationRuntimeException(message));
-		}
-		else if (maxSelectionScore > 0 && initialScore == maxSelectionScore) {
-			String message = "As the initial score is the maximum expected score, there is no need for test amplification";
-			throw (new AmplificationRuntimeException(message));
-		}
 		List<TestDescription> initialTdlTestCases = tdlTestSuite.getPackagedElement().stream()
 				.filter(p -> p instanceof TestDescription)
 				.map(t -> (TestDescription) t)
 				.collect(Collectors.toList());
-		
-		//run test amplification on the given test cases
-		amplifyTestCases(initialTdlTestCases);
+		for (ITestSelector testSelector:testSelectors) {
+			double initialScore = testSelector.calculateInitialScore(tdlTestSuite);
+			double maxSelectionScore = testSelector.getScoreThreshold();
+			if (initialScore == -1) {
+				String message = "There is no mutants, so the initial score cannot be computed and the amplication stops";
+				throw (new AmplificationRuntimeException(message));
+			}
+			else if (initialScore == 100.00) {
+				String message = "As the initial score is 100% there is no need for test amplification";
+				throw (new AmplificationRuntimeException(message));
+			}
+			else if (maxSelectionScore > 0 && initialScore == maxSelectionScore) {
+				String message = "As the initial score is the maximum expected score, there is no need for test amplification";
+				throw (new AmplificationRuntimeException(message));
+			}
+			//run test amplification on the given test cases
+			amplifyTestCases(initialTdlTestCases, testSelector, maxSelectionScore);
 
-		//considering number of iterations && max score
-		if (maxIterations > 0 && maxSelectionScore > 0.0) {
-			while (!iteration_ampTests.get(currentIteration-1).isEmpty() 
-					&& (currentIteration<maxIterations && testSelector.getCurrentScore()<maxSelectionScore)) {
-				//at each iteration, the previously amplified tests are amplified
-				amplifyTestCases(iteration_ampTests.get(currentIteration-1));
+			//considering number of iterations && max score
+			if (maxIterations > 0 && maxSelectionScore > 0.0) {
+				while (!iteration_ampTests.get(currentIteration-1).isEmpty() 
+						&& (currentIteration<maxIterations && testSelector.getCurrentScore()<maxSelectionScore)) {
+					//at each iteration, the previously amplified tests are amplified
+					amplifyTestCases(iteration_ampTests.get(currentIteration-1), testSelector, maxSelectionScore);
+				}
 			}
-		}
-		else {
-			//considering number of iterations || max score
-			while (!iteration_ampTests.get(currentIteration-1).isEmpty() 
-					&& (currentIteration<maxIterations || testSelector.getCurrentScore()<maxSelectionScore)) {
-				//at each iteration, the previously amplified tests are amplified
-				amplifyTestCases(iteration_ampTests.get(currentIteration-1));
+			else {
+				//considering number of iterations || max score
+				while (!iteration_ampTests.get(currentIteration-1).isEmpty() 
+						&& (currentIteration<maxIterations || testSelector.getCurrentScore()<maxSelectionScore)) {
+					//at each iteration, the previously amplified tests are amplified
+					amplifyTestCases(iteration_ampTests.get(currentIteration-1), testSelector, maxSelectionScore);
+				}
 			}
-		}
-		System.out.println("\nTest Amplification has been performed successfully.");
-		printAmplificationResult(tdlTestSuite);
-		if (numNewTests > 0) {
-			System.out.println("\nPhase (4): Saving new test cases");
-			super.saveAmplifiedTestCases(tdlTestSuite);
+			printAmplificationResult(tdlTestSuite, testSelector);
+			if (numNewTests > 0) {
+				System.out.println("\nPhase (4): Saving new test cases");
+				super.saveAmplifiedTestCases(tdlTestSuite);
+			}
 		}
 	}
 	
-	private void amplifyTestCases(List<TestDescription> tdlTestCases) {
+	private void amplifyTestCases(List<TestDescription> tdlTestCases, ITestSelector testSelector, double maxSelectionScore) {
 		Package tdlTestSuite = (Package) tdlTestCases.get(0).eContainer();
 		List<TestDescription> amplifiedTests = new ArrayList<>();
 		for (TestDescription testCase: tdlTestCases) {
@@ -153,7 +155,7 @@ public class IterativeAmplifier extends AbstractAmplifier{
 		return TDLTestResultUtil.PASS;
 	}
 	
-	protected void printAmplificationResult(Package tdlTestSuite) {
+	protected void printAmplificationResult(Package tdlTestSuite, ITestSelector testSelector) {
 		StringBuilder sb = new StringBuilder();
 		testSelector.generateOverallScoreReport(sb);
 		sb.append("Total number of test cases improving selection score: " + numNewTests + "\n");

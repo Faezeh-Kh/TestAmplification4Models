@@ -132,8 +132,7 @@ public class TDLTestCaseCoverage {
 	//if not-covered eobjects are of the not-coverable types, set their status as not-coverable
 	private void findNotCoverableObjects() {
 		for (int i=0; i<tcObjectCoverageStatus.size(); i++) {
-			if (tcObjectCoverageStatus.get(i) == TDLCoverageUtil.NOT_COVERED &&
-					!TDLCoverageUtil.getInstance().isClassCoverable(modelObjects.get(i).eClass())) {
+			if (!TDLCoverageUtil.getInstance().isClassCoverable(modelObjects.get(i).eClass())) {
 				tcObjectCoverageStatus.set(i, TDLCoverageUtil.NOT_TRACED);
 			}
 		}

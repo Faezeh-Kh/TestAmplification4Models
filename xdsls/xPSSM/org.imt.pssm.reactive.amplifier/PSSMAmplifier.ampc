@@ -2,12 +2,11 @@ config amplifier PSSMAmplifier{
 	
 	iterative technique
 		stop after 3 iterations
-		stop when score reached 100.00
 
 	test modifiers{
 		all primitive modifiers on each literals,
 		all event modifiers on each events
 	}
 	
-	filterby element coverage
+	filterby{element coverage: stop at 100.0} 
 }

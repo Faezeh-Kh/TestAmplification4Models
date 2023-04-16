@@ -9,6 +9,7 @@ public interface ITestSelector {
 	double calculateInitialScore (Package testSuite) throws AmplificationRuntimeException;
 	boolean testCaseImprovesScore (TestDescription testCase);
 	double getCurrentScore();
+	double getScoreThreshold();
 	void generateOverallScoreReport (StringBuilder stringBuilder);
 	void generateAmplifiedTestcaseScoreReport (TestDescription testCase, StringBuilder stringBuilder);
 }
