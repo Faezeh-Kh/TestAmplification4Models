@@ -361,10 +361,34 @@ Package TestSuite {
 	}
 	Project project_0 ( );
 	Sketch sketch ( _name = "sketch", project = project_0 );
-	Test Description test1_2_EventDeletion_each
+	Test Description test1_1_EventCreation_each
 		uses configuration testConfiguration {
+		tester.reactiveGate sends button_pressed (
+			button = button1
+		) to arduino.reactiveGate ;
 		tester.reactiveGate sends IRSensor_detected (
 			sensor = IRSensor
 		) to arduino.reactiveGate ;
+		tester.reactiveGate sends button_released (
+			button = button1
+		) to arduino.reactiveGate ;
+		arduino.reactiveGate sends Pin_level_changed (
+			pin = whiteLedPin ( level = "1" )
+		) to tester.reactiveGate ;
+		arduino.reactiveGate sends Pin_level_changed (
+			pin = buzzerPin ( level = "1" )
+		) to tester.reactiveGate ;
+		arduino.reactiveGate sends Pin_level_changed (
+			pin = buzzerPin ( level = "0" )
+		) to tester.reactiveGate ;
+		arduino.reactiveGate sends Pin_level_changed (
+			pin = buzzerPin ( level = "1" )
+		) to tester.reactiveGate ;
+		arduino.reactiveGate sends Pin_level_changed (
+			pin = buzzerPin ( level = "0" )
+		) to tester.reactiveGate ;
+		arduino.reactiveGate sends Pin_level_changed (
+			pin = whiteLedPin ( level = "0" )
+		) to tester.reactiveGate ;
 	}
 }

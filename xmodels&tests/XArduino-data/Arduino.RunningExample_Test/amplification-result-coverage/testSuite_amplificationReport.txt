@@ -1,0 +1,40 @@
+Total number of model elements: 35
+Total number of coverable model elements: 18
+- initial number of covered elements: 16
+- initial test suite coverage: 88.89%
+
+- number of covered elements by improved test cases: 2
+- total number of covered elements: 18
+- final test suite coverage: 100.0%
+=> improvement in the coverage percentage: 11.11%
+--------------------------------------------------
+Yet not-covered elements after amplification: 
+--------------------------------------------------
+Initial Coverage Matrix: 
+                                                       Model element name|Coverage status
+-------------------------------------------------------------------------+---------------
+platform:/resource/Arduino.RunningExample/runningExample.model::Project()|        Covered
+                                      Project::Sketch sketch(name=sketch)|        Covered
+                                                   Sketch sketch::Block()|        Covered
+                                                              Block::If()|        Covered
+                                                              If::Block()|        Covered
+                                               Block::Module Assignment()|        Covered
+                                                              Block::If()|        Covered
+                                                              If::Block()|        Covered
+                                               Block::Module Assignment()|        Covered
+                                               Block::Module Assignment()|        Covered
+                                               Block::Module Assignment()|        Covered
+                                               Block::Module Assignment()|        Covered
+                      If::Binary Boolean Expression equal(operator=equal)|        Covered
+                    Binary Boolean Expression equal::Integer Module Get()|        Covered
+                      If::Binary Boolean Expression equal(operator=equal)|        Covered
+                    Binary Boolean Expression equal::Integer Module Get()|        Covered
+                                                              If::Block()|    Not_Covered
+                                               Block::Module Assignment()|    Not_Covered
+--------------------------------------------------
+Total number of test cases improving selection score: 1
+iteration 1: 1 generated test cases
+Amplified Test Case: test1_1_EventCreation_each
+New covered model element 1: If::Block()
+New covered model element 2: Block::Module Assignment()
+
