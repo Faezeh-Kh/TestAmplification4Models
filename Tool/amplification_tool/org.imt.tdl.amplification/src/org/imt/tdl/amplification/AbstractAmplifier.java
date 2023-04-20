@@ -50,7 +50,7 @@ public abstract class AbstractAmplifier implements IAmplifier{
 			else if (selector instanceof MutationAnalysis) {
 				double maxSelectionScore = ((MutationAnalysis) selector).getMutationScoreThreshold();
 				testSelectors.add(new FilterByMutationScore(
-						(MutationAnalysis) amplifierConfiguration.getFiltering(), maxSelectionScore));
+						(MutationAnalysis) selector, maxSelectionScore));
 			}
 		}
 	}
