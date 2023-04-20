@@ -1,7 +1,6 @@
 package org.imt.tdl.mutation;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -369,10 +368,6 @@ public class MutationScoreCalculator {
 	
 	public void printMutationAnalysisResult() {
 		//saving results into a .txt file
-		String outputFilePath = pathHelper.getRuntimeWorkspacePath() + "/"
-				+ pathHelper.getTestSuiteProjectName() + "/" 
-				+ pathHelper.getTestSuiteFileName() + 
-				"_mutationReport.txt";
 		StringBuilder sb = new StringBuilder();
 		sb.append("Number of generated mutants: " + numOfMutants + "\n");
 		sb.append("Number of killed mutants: " + currentNumOfKilledMutants + "\n");
@@ -392,14 +387,17 @@ public class MutationScoreCalculator {
 				sb.append("Alive mutant " + (j++) + ": " + mutant + "\n");
 			}
 		}
-		
+		String outputFilePath = pathHelper.getRuntimeWorkspacePath() + "/"
+				+ pathHelper.getTestSuiteProjectName() + "/" 
+				+ "amplification-result-mutation" + "/";
+		Path filePath = Paths.get(outputFilePath);
 		try {
-			Path filePath = Paths.get(outputFilePath);
+			Files.createDirectories(filePath);
+			filePath = Paths.get(filePath + "/" + pathHelper.getTestSuiteFileName() + 
+				"_mutationReport.txt");
 			Files.writeString(filePath,sb);
-			
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

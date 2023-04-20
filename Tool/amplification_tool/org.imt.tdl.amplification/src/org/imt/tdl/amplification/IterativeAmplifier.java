@@ -1,6 +1,5 @@
 package org.imt.tdl.amplification;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -18,6 +17,8 @@ import org.etsi.mts.tdl.tdlFactory;
 import org.imt.k3tdl.interpreter.TestDescriptionAspect;
 import org.imt.tdl.amplification.dsl.amplifier.Configuration;
 import org.imt.tdl.amplification.dsl.amplifier.Iterative;
+import org.imt.tdl.amplification.filtering.FilterByCoverage;
+import org.imt.tdl.amplification.filtering.FilterByMutationScore;
 import org.imt.tdl.amplification.filtering.ITestSelector;
 import org.imt.tdl.amplification.testmodifier.AssertionGenerator;
 import org.imt.tdl.amplification.testmodifier.AssertionRemover;
@@ -52,6 +53,7 @@ public class IterativeAmplifier extends AbstractAmplifier{
 				.filter(p -> p instanceof TestDescription)
 				.map(t -> (TestDescription) t)
 				.collect(Collectors.toList());
+		long startTime = System.nanoTime();
 		for (ITestSelector testSelector:testSelectors) {
 			double initialScore = testSelector.calculateInitialScore(tdlTestSuite);
 			double maxSelectionScore = testSelector.getScoreThreshold();
@@ -87,11 +89,13 @@ public class IterativeAmplifier extends AbstractAmplifier{
 				}
 			}
 			printAmplificationResult(tdlTestSuite, testSelector);
-			if (numNewTests > 0) {
-				System.out.println("\nPhase (4): Saving new test cases");
-				super.saveAmplifiedTestCases(tdlTestSuite);
-			}
 		}
+		if (numNewTests > 0) {
+			System.out.println("\nPhase (4): Saving new test cases");
+			super.saveAmplifiedTestCases(tdlTestSuite);
+		}
+		long stopTime = System.nanoTime();
+		System.out.println("Execution time: " + (stopTime - startTime));
 	}
 	
 	private void amplifyTestCases(List<TestDescription> tdlTestCases, ITestSelector testSelector, double maxSelectionScore) {
@@ -168,18 +172,26 @@ public class IterativeAmplifier extends AbstractAmplifier{
 				amplifiedTests.forEach(t -> testSelector.generateAmplifiedTestcaseScoreReport(t, sb));
 			}	
 		}
+		PathHelper pathHelper = new PathHelper(tdlTestSuite);
+		pathHelper.findModelAndDSLPathOfTestSuite();
+		String folderName = "";
+		if (testSelector instanceof FilterByCoverage) {
+			folderName = "amplification-result-coverage";
+		}
+		else if (testSelector instanceof FilterByMutationScore) {
+			folderName = "amplification-result-mutation";
+		}
+		String outputFilePath = pathHelper.getRuntimeWorkspacePath() + "/"
+				+ pathHelper.getTestSuiteProjectName() + "/" 
+				+ folderName + "/";
+		Path filePath = Paths.get(outputFilePath);
 		try {
-			PathHelper pathHelper = new PathHelper(tdlTestSuite);
-			pathHelper.findModelAndDSLPathOfTestSuite();
-			String outputFilePath = pathHelper.getRuntimeWorkspacePath() + "/"
-					+ pathHelper.getTestSuiteProjectName() + "/" 
-					+ pathHelper.getTestSuiteFileName() + 
-					"_amplificationReport.txt";
-			Path filePath = Paths.get(outputFilePath);
+			Files.createDirectories(filePath);
+			filePath = Paths.get(filePath + "/" + pathHelper.getTestSuiteFileName() + 
+				"_amplificationReport.txt");
 			Files.writeString(filePath,sb);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
