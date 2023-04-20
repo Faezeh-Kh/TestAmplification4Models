@@ -101,11 +101,11 @@ public class EventSequenceModificationRunner extends AbstractTestModificationRun
 	private void generateTestsByEventModification() {
 		if (modifiers == null) {
 			//default configuration: apply all operators
-			generateTestsByEventDuplication();
-			generateTestsByEventDeletion();
-			generateTestsByEventPermutation();
-			generateTestsByEventParameterModification();
 			generateTestsByEventCreation();
+			generateTestsByEventParameterModification();
+			generateTestsByEventDuplication();
+			generateTestsByEventPermutation();	
+			generateTestsByEventDeletion();
 		}
 		else {
 			for (TestModificationOperator modifier:modifiers) {
@@ -127,11 +127,11 @@ public class EventSequenceModificationRunner extends AbstractTestModificationRun
 					generateTestsByEventCreation();
 				}
 				else if (modifier instanceof EventSequenceModifier) {
-					generateTestsByEventDuplication();
-					generateTestsByEventDeletion();
-					generateTestsByEventPermutation();
-					generateTestsByEventParameterModification();
 					generateTestsByEventCreation();
+					generateTestsByEventParameterModification();
+					generateTestsByEventDuplication();
+					generateTestsByEventPermutation();	
+					generateTestsByEventDeletion();
 				}
 			}
 		}
