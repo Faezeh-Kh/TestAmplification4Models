@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.gemoc.trace.commons.model.trace.SequentialStep;
+import org.eclipse.gemoc.trace.commons.model.trace.SmallStep;
 import org.eclipse.gemoc.trace.commons.model.trace.Step;
 import org.eclipse.gemoc.trace.commons.model.trace.Trace;
 import org.etsi.mts.tdl.TestDescription;
@@ -66,19 +67,20 @@ public class TDLTestCaseCoverage {
 	
 	private void calculateCoverageBasedOnTrace(Object rootStep) {
 		//System.out.println("Execution Trace:");
-		if (rootStep instanceof SequentialStep) {
-			SequentialStep<?, ?> step = (SequentialStep<?, ?>) rootStep;
-			if (step.getMseoccurrence() != null) {
-				EObject object = step.getMseoccurrence().getMse().getCaller();
-				//System.out.println("execution rule: " + step.getMseoccurrence().getMse().getAction()+
-				//		" (executedObject = " + object + ")");
+		if (rootStep instanceof SmallStep<?>) {
+			SmallStep<?> smallStep = (SmallStep<?>) rootStep;
+			if (smallStep.getMseoccurrence() != null) {
+				EObject object = smallStep.getMseoccurrence().getMse().getCaller();
 				setObjectCoverage(object, TDLCoverageUtil.COVERED);
 			}
-			if (step.getSubSteps() != null) {
-				for (int i=0; i < step.getSubSteps().size(); i++) {
-					calculateCoverageBasedOnTrace(step.getSubSteps().get(i));
-				}
+		}
+		else if (rootStep instanceof SequentialStep<?, ?>) {
+			SequentialStep<?, ?> seqStep = (SequentialStep<?, ?>) rootStep;
+			if (seqStep.getMseoccurrence() != null) {
+				EObject object = seqStep.getMseoccurrence().getMse().getCaller();
+				setObjectCoverage(object, TDLCoverageUtil.COVERED);
 			}
+			seqStep.getSubSteps().forEach(s -> calculateCoverageBasedOnTrace(s));
 		}
 	}
 	
