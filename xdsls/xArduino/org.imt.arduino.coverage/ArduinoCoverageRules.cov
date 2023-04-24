@@ -21,16 +21,16 @@ DomainSpecificCoverage ArduinoCoverage{
 			multiplicity ONE
 		}
 	},
-	Context If{
-		CoverageOfReferenced{
-			reference ^condition
-		}
-	},
-	Context While{
-		CoverageOfReferenced{
-			reference ^condition
-		}
-	},
+//	Context If{
+//		CoverageOfReferenced{
+//			reference ^condition
+//		}
+//	},
+//	Context While{
+//		CoverageOfReferenced{
+//			reference ^condition
+//		}
+//	},
 	//ignore physical-related elements from coverage computation
 	Context Board{
 		Ignore{
