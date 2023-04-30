@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -30,9 +31,14 @@ import org.etsi.mts.tdl.Interaction;
 import org.etsi.mts.tdl.Package;
 import org.etsi.mts.tdl.TestDescription;
 import org.imt.k3tdl.interpreter.TestDescriptionAspect;
+import org.imt.tdl.amplification.dsl.amplifier.AttributeMutation;
+import org.imt.tdl.amplification.dsl.amplifier.ClassSelectionMode;
 import org.imt.tdl.amplification.dsl.amplifier.CloningOperator;
+import org.imt.tdl.amplification.dsl.amplifier.CloningType;
 import org.imt.tdl.amplification.dsl.amplifier.CreationOperator;
+import org.imt.tdl.amplification.dsl.amplifier.ExplicitScopeSelection;
 import org.imt.tdl.amplification.dsl.amplifier.GeneratedOperator;
+import org.imt.tdl.amplification.dsl.amplifier.ImplicitScopeSelection;
 import org.imt.tdl.amplification.dsl.amplifier.ModificationOperator;
 import org.imt.tdl.amplification.dsl.amplifier.MutationAnalysis;
 import org.imt.tdl.amplification.dsl.amplifier.MutationOperatorType;
@@ -278,7 +284,7 @@ public class MutationScoreCalculator {
 			String inputPath = mutantsProject.getLocation().toString();
 			String outputPath = inputPath + "/mutants";
 			String eclipseHomePath = "c:/labtop/gemoc_studio";
-			String mutatorFilePath = mutationAnalysisSpec.getMutationOperators().getPathToMutationOperatorsFile();
+			String mutatorFilePath = mutationAnalysisSpec.getMutationOperators().getPathToMutationOperators();
 			String wodelProjectName = Paths.get(mutatorFilePath).getName(0).toString();
 			String wodelProjectPath = Platform.getBundle(wodelProjectName).getLocation();
 			wodelProjectPath = wodelProjectPath.substring(wodelProjectPath.indexOf("C:/"), wodelProjectPath.length()-1);
@@ -306,14 +312,42 @@ public class MutationScoreCalculator {
 		MutatorenvironmentPackage.eINSTANCE.getClass();
 		MutatorEnvironment wodel = WodelUtils.generateWodelProgram(metamodelPath);
 		//NOTE: We consider there is only one GeneratedOperator 
-		GeneratedOperator genOperator = (GeneratedOperator) mutationAnalysisSpec.getMutationOperators();
+		GeneratedOperator toBeGeneratedOperators = (GeneratedOperator) mutationAnalysisSpec.getMutationOperators();
 		try {
-			for (MutationOperatorType operatorType: genOperator.getOperatorsTypes()) {	
-				for (EClass scope : operatorType.getScope()) {
+			for (MutationOperatorType operatorType: toBeGeneratedOperators.getOperatorsTypes()) {	
+				List<EClass> scopes = new ArrayList<>();
+				if (operatorType.getScopeSelection() instanceof ExplicitScopeSelection) {
+					scopes.addAll(((ExplicitScopeSelection) operatorType.getScopeSelection()).getScope());
+				}
+				else if(operatorType.getScopeSelection() instanceof ImplicitScopeSelection) {
+					ImplicitScopeSelection strategy = (ImplicitScopeSelection) operatorType.getScopeSelection();
+					List<EClass> classes =dslProcessor.getMetamodelRootElement().getEClassifiers().stream()
+							.filter(EClass.class::isInstance)
+							.map(EClass.class::cast)
+							.collect(Collectors.toList());
+					if (strategy.getMode() == ClassSelectionMode.ALL) {
+						scopes.addAll(classes);
+					} else if (strategy.getMode() == ClassSelectionMode.RANDOM) {
+						Random random = new Random();
+						int randomIndex = random.nextInt(classes.size());
+						scopes.add(classes.get(randomIndex));
+					} else if (strategy.getMode() == ClassSelectionMode.CONCRETE) {
+						scopes.addAll(classes.stream()
+								.filter(c -> !c.isAbstract())
+								.collect(Collectors.toList()));
+					} else if (strategy.getMode() == ClassSelectionMode.ABSTRACT) {
+						scopes.addAll(classes.stream()
+								.filter(c -> c.isAbstract())
+								.collect(Collectors.toList()));
+					}
+				}
+				for (EClass scope : scopes) {
 					if (operatorType instanceof CreationOperator) {
 						WodelUtils.generateCreationMutationOperators(wodel, inputPath, scope.getName());
 					}
 					else if (operatorType instanceof CloningOperator) {
+						CloningType mode = ((CloningOperator) operatorType).getType();
+						//TODO: Wodel API must provide a way to specify cloning mode
 						WodelUtils.generateCloningMutationOperators(wodel, inputPath, scope.getName());
 					}
 					else if (operatorType instanceof RetypingOperator) {
@@ -323,6 +357,10 @@ public class MutationScoreCalculator {
 						WodelUtils.generateRemovalMutationOperators(wodel, inputPath, scope.getName());
 					}
 					else if (operatorType instanceof ModificationOperator) {
+						AttributeMutation strategy = ((ModificationOperator) operatorType).getStrategy();
+						if (strategy != null) {
+							//TODO: Wodel API must provide a way to specify attribute selection mode	
+						}
 						WodelUtils.generateModificationMutationOperators(wodel, inputPath, scope.getName());
 					}
 				}

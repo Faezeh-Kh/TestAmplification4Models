@@ -15,6 +15,7 @@ import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
 import org.imt.tdl.amplification.dsl.amplifier.AmplifierPackage;
 import org.imt.tdl.amplification.dsl.amplifier.Configuration;
+import org.imt.tdl.amplification.dsl.amplifier.ExplicitScopeSelection;
 import org.imt.tdl.amplification.dsl.amplifier.GeneratedOperator;
 import org.imt.tdl.amplification.dsl.amplifier.MutationAnalysis;
 import org.imt.tdl.amplification.dsl.amplifier.MutationOperatorType;
@@ -36,13 +37,17 @@ public class AmplifierScopeProvider extends AbstractAmplifierScopeProvider {
 			
 			return Scopes.scopeFor(allPackages);			
 		}
-		else if (reference.equals(AmplifierPackage.eINSTANCE.getMutationOperatorType_Scope())) {
+		else if (reference.equals(AmplifierPackage.eINSTANCE.getExplicitScopeSelection_Scope())) {
+			MutationOperatorType refContext = null;
+			if (context instanceof MutationOperatorType) {
+				refContext = (MutationOperatorType) context;
+			} else if (context instanceof ExplicitScopeSelection) {
+				refContext = (MutationOperatorType)((ExplicitScopeSelection) context).eContainer();
+			}
 			Collection<EClass> allClasses = (
 					(Configuration)
 						((MutationAnalysis)
-							((GeneratedOperator)
-									((MutationOperatorType) context)
-								.eContainer())
+							((GeneratedOperator)refContext.eContainer())
 						.eContainer())
 					.eContainer())
 					.getMetamodel().getEClassifiers().stream()

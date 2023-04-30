@@ -8,19 +8,18 @@ config amplifier ArduinoAmplifier{
 		modify each numeric values,
 		//event modifiers
 		create all missed events,
-		delete first events,
-		duplicate last events,
-		modify each ["button_pressed", "button_released"] events,
-		permute atmost 2 events
+		modify each ["button_pressed"] events
 	}
 	filterby{
+		element coverage: stop at 100.00,
 		mutation score: stop at 85.00 {
-			generate mutants using mutation operators "pathToMutationOperatorsFile" {
-				creation operators for [Module],
-				cloning operators for [If, While],
-				modification operators for [ModuleAssignment],
-				removal operators,
-				retyping operators for [DigitalPin]
+			generate exhaustive mutants using mutation operators "pathToMutationOperatorsFile" {
+				creation operators for [concrete classes]
+					with partial coverage,
+				deep cloning operators for [ModuleAssignment],
+				modification operators for [all classes] {
+					mutate integer attributes with random values between 0 and 10
+				}
 			}
 		}
 	} 

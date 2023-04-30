@@ -98,46 +98,94 @@ MutationAnalysis returns MutationAnalysis:
 	)?
 ;
 
+
 MutationOperator: UserDefinedOperator | GeneratedOperator;
 
 UserDefinedOperator: 'generate' 'mutants' 'using' 'mutation' 'operators'
-	(pathToMutationOperatorsFile=STRING)
+	(pathToMutationOperators=STRING)
 ;
 
-GeneratedOperator: 'generate' 'mutants' 'using' 'mutation' 'operators'
-	(pathToMutationOperatorsFile=STRING)
+GeneratedOperator: 'generate' (mode=ApplicationMode)? 'mutants' 'using' 'mutation' 'operators'
+	(pathToMutationOperators=STRING)
 	'{'
 		operatorsTypes+=MutationOperatorType (',' operatorsTypes+=MutationOperatorType)*
 	'}'
 ;
 
+enum ApplicationMode: 
+	RANDOM = "one" | EXHAUSTIVE = "exhaustive"
+;
+
+
 MutationOperatorType: 
 	CreationOperator | CloningOperator | RemovalOperator | ModificationOperator | RetypingOperator
 ;
 
+enum OperatorCoverage:
+	FULL = "full" | PARTIAL = "partial" 
+;
+
 CreationOperator: 
 	{CreationOperator} 'creation' 'operators' 
-	('for' '[' scope+=[ecore::EClass] (',' scope+=[ecore::EClass])* ']')?
+	'for' '[' scopeSelection = ScopeSelectionStrategy ']'
+	('with' coverage=OperatorCoverage 'coverage')?
 ;
 
 CloningOperator: 
-	{CloningOperator} 'cloning' 'operators' 
-	('for' '[' scope+=[ecore::EClass] (',' scope+=[ecore::EClass])* ']')?
+	{CloningOperator} type=CloningType 'cloning' 'operators' 
+	'for' '[' scopeSelection = ScopeSelectionStrategy ']'
+	('with' coverage=OperatorCoverage 'coverage')?
 ;
+
+enum CloningType: DEEP = "deep" | SHALLOW = "shallow";
 
 RemovalOperator: 
 	{RemovalOperator} 'removal' 'operators' 
-	('for' '[' scope+=[ecore::EClass] (',' scope+=[ecore::EClass])* ']')?
+	'for' '[' scopeSelection = ScopeSelectionStrategy ']'
+	('with' coverage=OperatorCoverage 'coverage')?
 ;
 
 ModificationOperator: 
 	{ModificationOperator} 'modification' 'operators' 
-	('for' '[' scope+=[ecore::EClass] (',' scope+=[ecore::EClass])* ']')?
+	'for' '[' scopeSelection = ScopeSelectionStrategy ']'
+	('with' coverage=OperatorCoverage 'coverage')?
+	('{'
+		'mutate' strategy= AttributeMutation 
+	'}')?
 ;
+
+AttributeMutation: 
+	mode += AttributeSelectionMode 'attributes' 
+	('with' 'random' 'values' 'between' intMin=EInt 'and' intMax=EInt)?
+	('with' 'random' 'values' 'between' doubleMin=EDouble 'and' doubleMax=EDouble)?
+	('with' 'random' 'strings' 'of' stringMin=EInt 'to' stringMax=EInt 'characters')?
+	("," mode+=AttributeSelectionMode
+		('with' 'random' 'values' 'between' intMin=EInt 'and' intMax=EInt)?
+		('with' 'random' 'values' 'between' doubleMin=EDouble 'and' doubleMax=EDouble)?
+		('with' 'random' 'strings' 'of' stringMin=EInt 'to' stringMax=EInt 'characters')?
+	)*
+;
+
+enum AttributeSelectionMode: 
+	ALL = "all" | RANDOM = "random" | BOOLEAN = "boolean" | INTEGER = "integer" | DOUBLE = "double" | STRING = "string"
+;
+
 
 RetypingOperator: 
 	{RetypingOperator} 'retyping' 'operators' 
-	('for' '[' scope+=[ecore::EClass] (',' scope+=[ecore::EClass])* ']')?
+	'for' '[' scopeSelection = ScopeSelectionStrategy ']'
+	('with' coverage=OperatorCoverage 'coverage')?
+;
+
+ScopeSelectionStrategy: ExplicitScopeSelection | ImplicitScopeSelection;
+
+ExplicitScopeSelection:  scope+=[ecore::EClass] (',' scope+=[ecore::EClass])*
+;
+
+ImplicitScopeSelection: mode = ClassSelectionMode "classes";
+
+enum ClassSelectionMode:
+	ALL = "all" | RANDOM = "random" | CONCRETE = "concrete" | ABSTRACT = "abstract" 
 ;
 
 EInt returns ecore::EInt:

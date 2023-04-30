@@ -19,11 +19,11 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gemoc.executionframework.behavioralinterface.behavioralInterface.BehavioralInterface;
 import org.eclipse.gemoc.executionframework.behavioralinterface.behavioralInterface.Event;
 import org.eclipse.gemoc.executionframework.behavioralinterface.behavioralInterface.EventType;
-import org.etsi.mts.tdl.Behaviour;
 import org.etsi.mts.tdl.Block;
 import org.etsi.mts.tdl.CompoundBehaviour;
 import org.etsi.mts.tdl.DataInstance;
 import org.etsi.mts.tdl.DataInstanceUse;
+import org.etsi.mts.tdl.DataUse;
 import org.etsi.mts.tdl.Member;
 import org.etsi.mts.tdl.Message;
 import org.etsi.mts.tdl.Package;
@@ -49,6 +49,7 @@ public class EventSequenceModificationRunner extends AbstractTestModificationRun
 	PathHelper pathHelper;
 	Package tdlTestSuite;
 	List<EventSequenceModifier> modifiers;
+	List<String> scopes;
 	
 	//the tdl instances corresponding to the accepted events
 	List<StructuredDataInstance> tdlEventInstances = new ArrayList<>();
@@ -108,9 +109,10 @@ public class EventSequenceModificationRunner extends AbstractTestModificationRun
 			generateTestsByEventDeletion();
 		}
 		else {
-			for (TestModificationOperator modifier:modifiers) {
+			for (EventSequenceModifier modifier:modifiers) {
 				policy = modifier.getPolicy();
 				maxOccurrence = modifier.getMaxOccurrence() > 0 ? modifier.getMaxOccurrence() : 1;
+				scopes = new ArrayList<>(modifier.getScope());
 				if (modifier instanceof EventDuplication) {
 					generateTestsByEventDuplication();
 				}
@@ -189,10 +191,21 @@ public class EventSequenceModificationRunner extends AbstractTestModificationRun
 		Block messagesContainer = ((CompoundBehaviour) tdlTestCase.getBehaviourDescription().getBehaviour()).getBlock();
 		List<Message> tdlMessages = messagesContainer.getBehaviour().stream()
 				.filter (b -> b instanceof Message && isMessageSendingAnEvent((Message) b))
-				.map(b -> (Message) b).collect(Collectors.toList());
+				.map(b -> (Message) b)
+				.filter(m -> sendsScopeEvent(m.getArgument()))
+				.collect(Collectors.toList());
+		
 		return tdlMessages;
 	}
 	
+	private Boolean sendsScopeEvent(DataUse argument) {
+		DataInstance tdlEvent = ((DataInstanceUse) argument).getDataInstance();
+		if (scopes.contains(getDSLCompatibleName(tdlEvent.getDataType().getName()))) {
+			return true;
+		}
+		return false;
+	}
+
 	private List<Message> getEquivalentMessagesOfTestCase(List<Message> messages2find, TestDescription copyTdlTestCase){
 		Block copyContainer = ((CompoundBehaviour) copyTdlTestCase.getBehaviourDescription().getBehaviour()).getBlock();
 		return copyContainer.getBehaviour().stream()
