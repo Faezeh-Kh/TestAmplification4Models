@@ -8,5 +8,8 @@ config amplifier PSSMAmplifier{
 		all event modifiers on each events
 	}
 	
-	filterby{element coverage: stop at 100.0} 
+	filterby{ 
+		//element coverage: stop at 100.0
+		mutation score: stop at 100.0
+	}
 }
