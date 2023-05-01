@@ -7,6 +7,8 @@ Total number of coverable model elements: 18
 - total number of covered elements: 18
 - final test suite coverage: 100.0%
 => improvement in the coverage percentage: 11.11%
+
+Execution time: 1541521000
 --------------------------------------------------
 Yet not-covered elements after amplification: 
 --------------------------------------------------

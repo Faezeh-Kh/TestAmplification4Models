@@ -1,0 +1,33 @@
+Execution time: 109276397400
+
+Total number of mutants: 15
+- initial number of killed mutants: 13
+- initial mutation score : 86.66666666666667%
+
+- number of mutants killed by improved test cases: 2
+- total number of killed mutants: 15
+- final mutation score : 100.0%
+=> improvement in the mutation score : 13.33333333333333%
+--------------------------------------------------
+--------------------------------------------------
+Original test case: test1
+Killed mutant 1: \Arduino.ActiveWait\mutants\cbbo_or\Output1.model
+Killed mutant 2: \Arduino.ActiveWait\mutants\cic\Output11.model
+Killed mutant 3: \Arduino.ActiveWait\mutants\cic\Output10.model
+Killed mutant 4: \Arduino.ActiveWait\mutants\cmar\Output51.model
+Killed mutant 5: \Arduino.ActiveWait\mutants\cmir\Output52.model
+Killed mutant 6: \Arduino.ActiveWait\mutants\cic\Output9.model
+Killed mutant 7: \Arduino.ActiveWait\mutants\cbbo_inf\Output1.model
+Killed mutant 8: \Arduino.ActiveWait\mutants\cbbo_sup\Output0.model
+Killed mutant 9: \Arduino.ActiveWait\mutants\cmir\Output51.model
+Killed mutant 10: \Arduino.ActiveWait\mutants\cmar\Output52.model
+Killed mutant 11: \Arduino.ActiveWait\mutants\cbbo_different\Output1.model
+Killed mutant 12: \Arduino.ActiveWait\mutants\cbbo_and\Output1.model
+Killed mutant 13: \Arduino.ActiveWait\mutants\cic\Output12.model
+--------------------------------------------------
+Total number of test cases improving selection score: 1
+iteration 1: 1 generated test cases
+Amplified Test Case: test1_1_EventCreation_each
+Killed mutant 1: \Arduino.ActiveWait\mutants\cimgr\Output6.model
+Killed mutant 2: \Arduino.ActiveWait\mutants\cbbo_supe\Output1.model
+

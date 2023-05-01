@@ -2,4 +2,6 @@
 <viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" uid="_RgJHwNExEey60oAITKsoDQ" version="15.0.0.202201261500">
   <semanticResources>testSuite.tdlan2</semanticResources>
   <semanticResources>testSuite_amplified.tdlan2</semanticResources>
+  <semanticResources>amplification-result-coverage/testSuite_amplified.tdlan2</semanticResources>
+  <semanticResources>amplification-result-mutation/testSuite_amplified.tdlan2</semanticResources>
 </viewpoint:DAnalysis>

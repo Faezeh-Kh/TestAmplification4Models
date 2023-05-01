@@ -1,0 +1,70 @@
+Execution time: 394463736600
+
+Total number of mutants: 49
+- initial number of killed mutants: 22
+- initial mutation score : 44.89795918367347%
+
+- number of mutants killed by improved test cases: 27
+- total number of killed mutants: 49
+- final mutation score : 100.0%
+=> improvement in the mutation score : 55.10204081632652%
+--------------------------------------------------
+--------------------------------------------------
+Original test case: test1
+Killed mutant 1: \Arduino.ServoIrbutton\mutants\cic\Output2.model
+Killed mutant 2: \Arduino.ServoIrbutton\mutants\cbmgr\Output3.model
+Killed mutant 3: \Arduino.ServoIrbutton\mutants\cmir\Output2.model
+Killed mutant 4: \Arduino.ServoIrbutton\mutants\cic\Output3.model
+Killed mutant 5: \Arduino.ServoIrbutton\mutants\cbmgr\Output4.model
+Killed mutant 6: \Arduino.ServoIrbutton\mutants\cmir\Output5.model
+Killed mutant 7: \Arduino.ServoIrbutton\mutants\cmar\Output5.model
+Killed mutant 8: \Arduino.ServoIrbutton\mutants\cmir\Output1.model
+Killed mutant 9: \Arduino.ServoIrbutton\mutants\cbbo_or\Output0.model
+Killed mutant 10: \Arduino.ServoIrbutton\mutants\cbmgr\Output0.model
+Killed mutant 11: \Arduino.ServoIrbutton\mutants\cmir\Output8.model
+Killed mutant 12: \Arduino.ServoIrbutton\mutants\cmar\Output8.model
+Killed mutant 13: \Arduino.ServoIrbutton\mutants\cmar\Output1.model
+Killed mutant 14: \Arduino.ServoIrbutton\mutants\cbbo_infe\Output0.model
+Killed mutant 15: \Arduino.ServoIrbutton\mutants\cbmgr\Output1.model
+Killed mutant 16: \Arduino.ServoIrbutton\mutants\cmar\Output4.model
+Killed mutant 17: \Arduino.ServoIrbutton\mutants\cmir\Output7.model
+Killed mutant 18: \Arduino.ServoIrbutton\mutants\cbbo_different\Output1.model
+Killed mutant 19: \Arduino.ServoIrbutton\mutants\cmar\Output7.model
+Killed mutant 20: \Arduino.ServoIrbutton\mutants\cmar\Output0.model
+Killed mutant 21: \Arduino.ServoIrbutton\mutants\cmir\Output3.model
+Killed mutant 22: \Arduino.ServoIrbutton\mutants\cbbo_supe\Output1.model
+--------------------------------------------------
+Total number of test cases improving selection score: 2
+iteration 1: 1 generated test cases
+Amplified Test Case: test1_2_EventCreation_each
+Killed mutant 1: \Arduino.ServoIrbutton\mutants\cbmgr\Output5.model
+Killed mutant 2: \Arduino.ServoIrbutton\mutants\cbbo_sup\Output0.model
+Killed mutant 3: \Arduino.ServoIrbutton\mutants\cbbo_supe\Output0.model
+Killed mutant 4: \Arduino.ServoIrbutton\mutants\cmir\Output4.model
+Killed mutant 5: \Arduino.ServoIrbutton\mutants\cbbo_inf\Output0.model
+Killed mutant 6: \Arduino.ServoIrbutton\mutants\cbio_min\Output0.model
+Killed mutant 7: \Arduino.ServoIrbutton\mutants\cmar\Output6.model
+Killed mutant 8: \Arduino.ServoIrbutton\mutants\cic\Output0.model
+Killed mutant 9: \Arduino.ServoIrbutton\mutants\cbio_minus\Output0.model
+Killed mutant 10: \Arduino.ServoIrbutton\mutants\cbbo_or\Output1.model
+Killed mutant 11: \Arduino.ServoIrbutton\mutants\cbio_pourcent\Output0.model
+Killed mutant 12: \Arduino.ServoIrbutton\mutants\cbbo_sup\Output1.model
+Killed mutant 13: \Arduino.ServoIrbutton\mutants\civ\Output0.model
+Killed mutant 14: \Arduino.ServoIrbutton\mutants\cmar\Output2.model
+Killed mutant 15: \Arduino.ServoIrbutton\mutants\cbbo_inf\Output1.model
+Killed mutant 16: \Arduino.ServoIrbutton\mutants\cbio_div\Output0.model
+Killed mutant 17: \Arduino.ServoIrbutton\mutants\cbio_mul\Output0.model
+Killed mutant 18: \Arduino.ServoIrbutton\mutants\cic\Output1.model
+Killed mutant 19: \Arduino.ServoIrbutton\mutants\cmir\Output0.model
+Killed mutant 20: \Arduino.ServoIrbutton\mutants\cbmgr\Output2.model
+Killed mutant 21: \Arduino.ServoIrbutton\mutants\cmir\Output6.model
+Killed mutant 22: \Arduino.ServoIrbutton\mutants\cmar\Output3.model
+Killed mutant 23: \Arduino.ServoIrbutton\mutants\cbbo_and\Output0.model
+Killed mutant 24: \Arduino.ServoIrbutton\mutants\cbbo_different\Output0.model
+Killed mutant 25: \Arduino.ServoIrbutton\mutants\cbbo_equal\Output1.model
+Killed mutant 26: \Arduino.ServoIrbutton\mutants\cbio_max\Output0.model
+
+iteration 2: 1 generated test cases
+Amplified Test Case: test1_2_EventCreation_each_2_EventCreation_each
+Killed mutant 1: \Arduino.ServoIrbutton\mutants\cbbo_equal\Output0.model
+
