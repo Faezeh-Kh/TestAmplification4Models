@@ -55,6 +55,7 @@ import org.eclipse.xtext.ui.editor.XtextEditor;
 
 import coverage.computation.ObjectCoverageStatus;
 import coverage.computation.TDLCoverageUtil;
+import coverage.computation.TDLTestCaseCoverage;
 import coverage.computation.TDLTestSuiteCoverage;
 
 public class TDLCoverageView extends ViewPart{
@@ -208,11 +209,10 @@ public class TDLCoverageView extends ViewPart{
 		modelColumn.setText("Model Element");
 		modelColumn.setWidth(150);
 		
-		int colNum = TDLCoverageUtil.getInstance().getTestSuiteCoverage().getTCCoverages().size();
-		for (int i=0; i<colNum; i++) {
+		for (TDLTestCaseCoverage tcCoverage : TDLCoverageUtil.getInstance().getTestSuiteCoverage().getTCCoverages()) {
 			TreeColumn column = new TreeColumn(addressTree, SWT.LEFT);
 			column.setAlignment(SWT.CENTER);
-			column.setText("Test " + (i+1));
+			column.setText(tcCoverage.getTestCaseName());
 			column.setWidth(60);
 		}
 		
