@@ -26,7 +26,7 @@ public abstract class AbstractAmplifier implements IAmplifier{
 	
 	List<ITestSelector> testSelectors = new ArrayList<>();
 	
-	int numNewTests = 0;
+	int totalNumNewTests = 0;
 	
 	protected void defaultSetup() {
 		//default: consider all modifiers
@@ -59,23 +59,29 @@ public abstract class AbstractAmplifier implements IAmplifier{
 		PathHelper pathHelper = new PathHelper(tdlTestSuite);
 		Resource testSuiteRes = tdlTestSuite.eResource();
 		String sourcePath = testSuiteRes.getURI().toString();
-		String tdlan2OutputPath = sourcePath.substring(0, sourcePath.lastIndexOf("/")+1) + pathHelper.getTestSuiteFileName() + "_amplified.tdlan2";
-		Resource tdlan2TestSuiteRes = (new ResourceSetImpl()).createResource(URI.createURI(tdlan2OutputPath));
+		String folderName = "";
+		if (testSelectors.size()>1) {
+			folderName = "amplification-result-both";
+		}
+		else if (testSelectors.get(0) instanceof FilterByCoverage) {
+			folderName = "amplification-result-coverage";
+		}
+		else if (testSelectors.get(0) instanceof FilterByMutationScore) {
+			folderName = "amplification-result-mutation";
+		}
+		String outputPath = sourcePath.substring(0, sourcePath.lastIndexOf("/")+1)
+				//+ folderName + "/"
+				+ pathHelper.getTestSuiteFileName() + "_amplified.tdlan2";
+		Resource tdlan2TestSuiteRes = (new ResourceSetImpl()).createResource(URI.createURI(outputPath));
 		//all the new elements are in the testSuiteRes
 		tdlan2TestSuiteRes.getContents().addAll(EcoreUtil.copyAll(testSuiteRes.getContents()));
-//		String xmiOutputPath = sourcePath.substring(0, sourcePath.lastIndexOf("/")+1) + pathHelper.getTestSuiteFileName() + "_amplified.xmi";
-//		Resource xmiTestSuiteRes = (new ResourceSetImpl()).createResource(URI.createURI(xmiOutputPath));
-//		//all the new elements are in the testSuiteRes
-//		xmiTestSuiteRes.getContents().addAll(EcoreUtil.copyAll(testSuiteRes.getContents()));
-//		
+
 		try {
 			tdlan2TestSuiteRes.save(null);
-//			xmiTestSuiteRes.save(null);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		testSuiteRes.unload();
 		tdlan2TestSuiteRes.unload();
-//		xmiTestSuiteRes.unload();
 	}
 }
