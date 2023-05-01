@@ -23,7 +23,6 @@ import org.etsi.mts.tdl.Block;
 import org.etsi.mts.tdl.CompoundBehaviour;
 import org.etsi.mts.tdl.DataInstance;
 import org.etsi.mts.tdl.DataInstanceUse;
-import org.etsi.mts.tdl.DataUse;
 import org.etsi.mts.tdl.Member;
 import org.etsi.mts.tdl.Message;
 import org.etsi.mts.tdl.Package;
@@ -40,7 +39,6 @@ import org.imt.tdl.amplification.dsl.amplifier.EventDuplication;
 import org.imt.tdl.amplification.dsl.amplifier.EventModification;
 import org.imt.tdl.amplification.dsl.amplifier.EventPermutation;
 import org.imt.tdl.amplification.dsl.amplifier.EventSequenceModifier;
-import org.imt.tdl.amplification.dsl.amplifier.TestModificationOperator;
 import org.imt.tdl.utilities.DSLProcessor;
 import org.imt.tdl.utilities.PathHelper;
 
@@ -190,17 +188,18 @@ public class EventSequenceModificationRunner extends AbstractTestModificationRun
 		//only for messages sending an event, perform the needed modification
 		Block messagesContainer = ((CompoundBehaviour) tdlTestCase.getBehaviourDescription().getBehaviour()).getBlock();
 		List<Message> tdlMessages = messagesContainer.getBehaviour().stream()
-				.filter (b -> b instanceof Message && isMessageSendingAnEvent((Message) b))
+				.filter (b -> b instanceof Message 
+						&& isMessageSendingAnEvent((Message) b)
+						&& sendsScopeEvent((Message) b))
 				.map(b -> (Message) b)
-				.filter(m -> sendsScopeEvent(m.getArgument()))
 				.collect(Collectors.toList());
 		
 		return tdlMessages;
 	}
 	
-	private Boolean sendsScopeEvent(DataUse argument) {
-		DataInstance tdlEvent = ((DataInstanceUse) argument).getDataInstance();
-		if (scopes.contains(getDSLCompatibleName(tdlEvent.getDataType().getName()))) {
+	private Boolean sendsScopeEvent(Message message) {
+		DataInstance tdlEvent = ((DataInstanceUse) message.getArgument()).getDataInstance();
+		if (scopes.isEmpty() || scopes.contains(getDSLCompatibleName(tdlEvent.getDataType().getName()))) {
 			return true;
 		}
 		return false;
@@ -338,14 +337,27 @@ public class EventSequenceModificationRunner extends AbstractTestModificationRun
 	private void findTdlDataOfEventParameters() {
 		tdlEventParameterTypes.forEach(t -> etype_tdlEObjects.put(t.getName(), new ArrayList<>()));
 		EObject2TDLConverter object2tdlCoverter = new EObject2TDLConverter(tdlTestSuite);
+		//find alternative values using the model under test
 		Resource MUTResource = pathHelper.getMUTResource();
 		TreeIterator<EObject> modelContents = MUTResource.getAllContents();
 		while (modelContents.hasNext()) {
 			EObject modelObject = modelContents.next();
 			String objectType = modelObject.eClass().getName();
-			if (tdlEventParameterTypes.stream().anyMatch(t -> t.getName().equals(objectType))) {
+			if (etype_tdlEObjects.get(objectType) != null) {
 				StructuredDataInstance tdlInstance4object = (StructuredDataInstance) object2tdlCoverter.convertEObject2TDLData(modelObject);
-				etype_tdlEObjects.get(objectType).add(tdlInstance4object);
+				if (!etype_tdlEObjects.get(objectType).contains(tdlInstance4object)) {
+					etype_tdlEObjects.get(objectType).add(tdlInstance4object);
+				}			
+			}
+		}
+//		//find alternative values using the existing test data of the test suite
+		for (StructuredDataInstance tdlDataInstance:tdlTestSuite.getPackagedElement().stream()
+				.filter(StructuredDataInstance.class::isInstance)
+				.map(StructuredDataInstance.class::cast).collect(Collectors.toList())) {
+			String dataType = tdlDataInstance.getDataType().getName();
+			if (etype_tdlEObjects.get(dataType) != null 
+					&& !etype_tdlEObjects.get(dataType).contains(tdlDataInstance)) {
+				etype_tdlEObjects.get(dataType).add(tdlDataInstance);
 			}
 		}
 		//for dynamic eTypes, create new eobjects
@@ -419,23 +431,25 @@ public class EventSequenceModificationRunner extends AbstractTestModificationRun
 			Block messagesContainer = ((CompoundBehaviour) copyTdlTestCase.getBehaviourDescription().getBehaviour()).getBlock();
 			List<Message> tdlMessages = getEquivalentMessagesOfTestCase((List<Message>) data, copyTdlTestCase);
 			
-			boolean oneParameterChanged = false;
+			//trying to pick a random parameter and change its value with a random value among alternatives
 			List<DataInstanceUse> eventParameterValues = findValuesForEventParams(tdlMessages);
-			for (DataInstanceUse tdlEobjectRef:eventParameterValues) {
-				String eobjectType = tdlEobjectRef.getDataInstance().getDataType().getName();
-				DataInstance initialEObject = tdlFactory.eINSTANCE.createStructuredDataInstance();
-				initialEObject = EcoreUtil.copy(tdlEobjectRef.getDataInstance());
-				//if there are some values for this type, generate new test by changing the value to another value
-				if (!etype_tdlEObjects.get(eobjectType).isEmpty()) {
-					for (StructuredDataInstance tdlEobjectInstance:etype_tdlEObjects.get(eobjectType)) {
-						if (!EcoreUtil.equals(initialEObject, tdlEobjectInstance)) {
-							tdlEobjectRef.setDataInstance(tdlEobjectInstance);
-							oneParameterChanged = true;
-							break;
-						}
-					}
+			Random random = new Random();
+			int randomIndex = random.nextInt(eventParameterValues.size());
+			DataInstanceUse randomParameter = eventParameterValues.get(randomIndex);
+			DataInstance initialEObject = tdlFactory.eINSTANCE.createStructuredDataInstance();
+			initialEObject = EcoreUtil.copy(randomParameter.getDataInstance());
+			//if there are some values for this type, generate new test by changing the value to another value
+			boolean oneParameterChanged = false;
+			String eobjectType = randomParameter.getDataInstance().getDataType().getName();
+			if (!etype_tdlEObjects.get(eobjectType).isEmpty()) {
+				randomIndex = random.nextInt(etype_tdlEObjects.get(eobjectType).size());
+				StructuredDataInstance randomValue = etype_tdlEObjects.get(eobjectType).get(randomIndex);
+				if (!EcoreUtil.equals(initialEObject, randomValue)) {
+					randomParameter.setDataInstance(randomValue);
+					oneParameterChanged = true;
 				}
 			}
+			
 			//keep the new test case if at least one parameter changed
 			if (oneParameterChanged) {		
 				generatedTestsByModification.add(copyTdlTestCase);
