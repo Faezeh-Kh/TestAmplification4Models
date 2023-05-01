@@ -134,7 +134,7 @@ public class MutationScoreCalculator {
 		seedNumOfKilledMutants = currentNumOfKilledMutants;
 		seedMutationScore = currentMutationScore;
 		System.out.println("The mutation score of the input test suite is: " + seedMutationScore);
-		printMutationAnalysisResult();
+		//printMutationAnalysisResult();
 		return seedMutationScore;
 	}
 	
@@ -427,7 +427,7 @@ public class MutationScoreCalculator {
 		}
 		String outputFilePath = pathHelper.getRuntimeWorkspacePath() + "/"
 				+ pathHelper.getTestSuiteProjectName() + "/" 
-				+ "amplification-result-mutation" + "/";
+				+ "mutation-analysis-result" + "/";
 		Path filePath = Paths.get(outputFilePath);
 		try {
 			Files.createDirectories(filePath);
