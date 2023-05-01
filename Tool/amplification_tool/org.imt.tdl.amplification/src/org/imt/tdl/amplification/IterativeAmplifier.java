@@ -30,9 +30,12 @@ import org.imt.tdl.utilities.PathHelper;
 public class IterativeAmplifier extends AbstractAmplifier{
 	
 	int maxIterations;
-	int currentIteration = 0;
+	int currentIteration;
+	int numNewTests;
 	
-	Map<Integer, List<TestDescription>> iteration_ampTests = new HashMap<>();
+	Map<Integer, List<TestDescription>> iteration_ampTests;
+	
+	StringBuilder reportStringBuilder = new StringBuilder();
 	
 	//default constructor
 	public IterativeAmplifier() {
@@ -49,14 +52,20 @@ public class IterativeAmplifier extends AbstractAmplifier{
 
 	@Override
 	public void runAmplification(Package tdlTestSuite) throws AmplificationRuntimeException{
-		List<TestDescription> initialTdlTestCases = tdlTestSuite.getPackagedElement().stream()
-				.filter(p -> p instanceof TestDescription)
-				.map(t -> (TestDescription) t)
-				.collect(Collectors.toList());
+		totalNumNewTests = 0;
 		long startTime = System.nanoTime();
 		for (ITestSelector testSelector:testSelectors) {
+			currentIteration = 0;
+			numNewTests = 0;
+			iteration_ampTests = new HashMap<>();
+			
+			List<TestDescription> initialTdlTestCases = tdlTestSuite.getPackagedElement().stream()
+					.filter(p -> p instanceof TestDescription)
+					.map(t -> (TestDescription) t)
+					.collect(Collectors.toList());
 			double initialScore = testSelector.calculateInitialScore(tdlTestSuite);
 			double maxSelectionScore = testSelector.getScoreThreshold();
+			
 			if (initialScore == -1) {
 				String message = "There is no mutants, so the initial score cannot be computed and the amplication stops";
 				throw (new AmplificationRuntimeException(message));
@@ -88,9 +97,10 @@ public class IterativeAmplifier extends AbstractAmplifier{
 					amplifyTestCases(iteration_ampTests.get(currentIteration-1), testSelector, maxSelectionScore);
 				}
 			}
-			printAmplificationResult(tdlTestSuite, testSelector);
+			generateAmplificationReport(testSelector);
 		}
-		if (numNewTests > 0) {
+		saveAmplificationReport(tdlTestSuite);
+		if (totalNumNewTests > 0) {
 			System.out.println("\nPhase (4): Saving new test cases");
 			super.saveAmplifiedTestCases(tdlTestSuite);
 		}
@@ -145,6 +155,7 @@ public class IterativeAmplifier extends AbstractAmplifier{
 			}
 		}
 		numNewTests += amplifiedTests.size();
+		totalNumNewTests += numNewTests;
 		iteration_ampTests.put(currentIteration, new ArrayList<>());
 		iteration_ampTests.get(currentIteration).addAll(amplifiedTests);
 		currentIteration++;
@@ -159,26 +170,40 @@ public class IterativeAmplifier extends AbstractAmplifier{
 		return TDLTestResultUtil.PASS;
 	}
 	
-	protected void printAmplificationResult(Package tdlTestSuite, ITestSelector testSelector) {
-		StringBuilder sb = new StringBuilder();
-		testSelector.generateOverallScoreReport(sb);
-		sb.append("Total number of test cases improving selection score: " + numNewTests + "\n");
+	protected void generateAmplificationReport(ITestSelector testSelector) {
+		testSelector.generateOverallScoreReport(reportStringBuilder);
+		String selectorTitle = "";
+		if (testSelector instanceof FilterByCoverage) {
+			selectorTitle = "coverage";
+		}
+		else if (testSelector instanceof FilterByMutationScore) {
+			selectorTitle = "mutation";
+		}
+		reportStringBuilder.append("Number of test cases improving " + selectorTitle + " score: " + numNewTests + "\n");
 		
 		//saving results into a .txt file
 		for (int iteration = 1; iteration <= iteration_ampTests.keySet().size(); iteration++) {				
 			List<TestDescription> amplifiedTests = iteration_ampTests.get(iteration-1);
 			if (amplifiedTests.size()>0) {
-				sb.append("iteration " + iteration + ": " + amplifiedTests.size() + " generated test cases\n");
-				amplifiedTests.forEach(t -> testSelector.generateAmplifiedTestcaseScoreReport(t, sb));
+				reportStringBuilder.append("iteration " + iteration + ": " + amplifiedTests.size() + " generated test cases\n");
+				amplifiedTests.forEach(t -> testSelector.generateAmplifiedTestcaseScoreReport(t, reportStringBuilder));
 			}	
 		}
+		reportStringBuilder.append("--------------------------------------------------\n");
+	}
+	
+	private void saveAmplificationReport(Package tdlTestSuite) {
+		reportStringBuilder.append("Total number of test cases improving selection score: " + totalNumNewTests + "\n");
 		PathHelper pathHelper = new PathHelper(tdlTestSuite);
 		pathHelper.findModelAndDSLPathOfTestSuite();
 		String folderName = "";
-		if (testSelector instanceof FilterByCoverage) {
+		if (testSelectors.size()>1) {
+			folderName = "amplification-result-both";
+		}
+		else if (testSelectors.get(0) instanceof FilterByCoverage) {
 			folderName = "amplification-result-coverage";
 		}
-		else if (testSelector instanceof FilterByMutationScore) {
+		else if (testSelectors.get(0) instanceof FilterByMutationScore) {
 			folderName = "amplification-result-mutation";
 		}
 		String outputFilePath = pathHelper.getRuntimeWorkspacePath() + "/"
@@ -189,7 +214,7 @@ public class IterativeAmplifier extends AbstractAmplifier{
 			Files.createDirectories(filePath);
 			filePath = Paths.get(filePath + "/" + pathHelper.getTestSuiteFileName() + 
 				"_amplificationReport.txt");
-			Files.writeString(filePath,sb);
+			Files.writeString(filePath, reportStringBuilder);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
