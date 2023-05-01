@@ -1,0 +1,128 @@
+Execution time: 426097045899
+
+Total number of model elements: 106
+Total number of coverable model elements: 97
+- initial number of covered elements: 84
+- initial test suite coverage: 86.6%
+
+- number of covered elements by improved test cases: 6
+- total number of covered elements: 90
+- final test suite coverage: 92.78%
+=> improvement in the coverage percentage: 6.18%
+--------------------------------------------------
+Yet not-covered elements after amplification: 
+Not-covered element 1: Region mainRegion::Transition suspended2active(name=suspended2active, kind=external)
+Not-covered element 2: Transition suspended2active::Trigger isResumeRequestedTrigger(name=isResumeRequestedTrigger)
+Not-covered element 3: Trigger isResumeRequestedTrigger::Call Event Type()
+Not-covered element 4: Transition suspended2active::Behavior resume(name=resume)
+Not-covered element 5: Transition suspended2active::Boolean Constraint()
+Not-covered element 6: Boolean Constraint::Boolean Unary Expression True(operator=True)
+Not-covered element 7: Custom System::Operation isResumeRequested()(name=isResumeRequested())
+--------------------------------------------------
+Initial Coverage Matrix: 
+                                                                            Model element name|Coverage status
+----------------------------------------------------------------------------------------------+---------------
+          platform:/resource/PSSM.OnlineShopping_Mutants/OnlineShopping.model::Custom System()|        Covered
+                                    Custom System::State Machine UserAccount(name=UserAccount)|        Covered
+                                 State Machine UserAccount::Region mainRegion(name=mainRegion)|        Covered
+                            Region mainRegion::Pseudostate initial(name=initial, kind=initial)|        Covered
+                                                        Region mainRegion::State New(name=New)|        Covered
+                                                  Region mainRegion::State Active(name=Active)|        Covered
+                                            Region mainRegion::State Suspended(name=Suspended)|        Covered
+                                                  Region mainRegion::State Closed(name=Closed)|        Covered
+                                              Region mainRegion::Final State final(name=final)|        Covered
+                    Region mainRegion::Transition initial2new(name=initial2new, kind=external)|        Covered
+                     Transition initial2new::Trigger isUniqueIdTrigger(name=isUniqueIdTrigger)|        Covered
+                                                  Trigger isUniqueIdTrigger::Call Event Type()|        Covered
+                                          Transition initial2new::Behavior create(name=create)|        Covered
+                                                  Transition initial2new::Boolean Constraint()|        Covered
+                              Boolean Constraint::Boolean Unary Expression True(operator=True)|        Covered
+                      Region mainRegion::Transition new2closed(name=new2closed, kind=external)|        Covered
+        Transition new2closed::Trigger isCancelRequestedTrigger(name=isCancelRequestedTrigger)|        Covered
+                                           Trigger isCancelRequestedTrigger::Call Event Type()|        Covered
+                                           Transition new2closed::Behavior cancel(name=cancel)|        Covered
+                                                   Transition new2closed::Boolean Constraint()|        Covered
+                              Boolean Constraint::Boolean Unary Expression True(operator=True)|        Covered
+                      Region mainRegion::Transition new2active(name=new2active, kind=external)|        Covered
+                      Transition new2active::Trigger isVerifiedTrigger(name=isVerifiedTrigger)|        Covered
+                                                  Trigger isVerifiedTrigger::Call Event Type()|        Covered
+                                       Transition new2active::Behavior activate(name=activate)|        Covered
+                                                   Transition new2active::Boolean Constraint()|        Covered
+                              Boolean Constraint::Boolean Unary Expression True(operator=True)|        Covered
+                Region mainRegion::Transition new2suspended(name=new2suspended, kind=external)|        Covered
+       Transition new2suspended::Trigger isAccountDormantTrigger(name=isAccountDormantTrigger)|        Covered
+                                            Trigger isAccountDormantTrigger::Call Event Type()|        Covered
+                                      Transition new2suspended::Behavior suspend(name=suspend)|        Covered
+                                                Transition new2suspended::Boolean Constraint()|        Covered
+                              Boolean Constraint::Boolean Unary Expression True(operator=True)|        Covered
+                Region mainRegion::Transition active2closed(name=active2closed, kind=external)|    Not_Covered
+     Transition active2closed::Trigger isCancelRequestedTrigger(name=isCancelRequestedTrigger)|    Not_Covered
+                                           Trigger isCancelRequestedTrigger::Call Event Type()|    Not_Covered
+                                        Transition active2closed::Behavior cancel(name=cancel)|    Not_Covered
+                                                Transition active2closed::Boolean Constraint()|    Not_Covered
+                              Boolean Constraint::Boolean Unary Expression True(operator=True)|    Not_Covered
+                Region mainRegion::Transition active2closed(name=active2closed, kind=external)|        Covered
+       Transition active2closed::Trigger isPolicyVoilatedTrigger(name=isPolicyVoilatedTrigger)|        Covered
+                                            Trigger isPolicyVoilatedTrigger::Call Event Type()|        Covered
+                                        Transition active2closed::Behavior cancel(name=cancel)|        Covered
+                                                Transition active2closed::Boolean Constraint()|        Covered
+                              Boolean Constraint::Boolean Unary Expression True(operator=True)|        Covered
+          Region mainRegion::Transition active2suspended(name=active2suspended, kind=external)|        Covered
+Transition active2suspended::Trigger isSuspendRequestedTrigger(name=isSuspendRequestedTrigger)|        Covered
+                                          Trigger isSuspendRequestedTrigger::Call Event Type()|        Covered
+                                   Transition active2suspended::Behavior suspend(name=suspend)|        Covered
+                                             Transition active2suspended::Boolean Constraint()|        Covered
+                              Boolean Constraint::Boolean Unary Expression True(operator=True)|        Covered
+          Region mainRegion::Transition active2suspended(name=active2suspended, kind=external)|        Covered
+      Transition active2suspended::Trigger isPasswordAlertTrigger(name=isPasswordAlertTrigger)|        Covered
+                                             Trigger isPasswordAlertTrigger::Call Event Type()|        Covered
+                                         Transition active2suspended::Behavior lock(name=lock)|        Covered
+                                             Transition active2suspended::Boolean Constraint()|        Covered
+                              Boolean Constraint::Boolean Unary Expression True(operator=True)|        Covered
+          Region mainRegion::Transition active2suspended(name=active2suspended, kind=external)|        Covered
+    Transition active2suspended::Trigger isAccountDormantTrigger(name=isAccountDormantTrigger)|        Covered
+                                            Trigger isAccountDormantTrigger::Call Event Type()|        Covered
+                                   Transition active2suspended::Behavior suspend(name=suspend)|        Covered
+                                             Transition active2suspended::Boolean Constraint()|        Covered
+                              Boolean Constraint::Boolean Unary Expression True(operator=True)|        Covered
+          Region mainRegion::Transition suspended2closed(name=suspended2closed, kind=external)|        Covered
+  Transition suspended2closed::Trigger isCancelRequestedTrigger(name=isCancelRequestedTrigger)|        Covered
+                                           Trigger isCancelRequestedTrigger::Call Event Type()|        Covered
+                                     Transition suspended2closed::Behavior cancel(name=cancel)|        Covered
+                                             Transition suspended2closed::Boolean Constraint()|        Covered
+                              Boolean Constraint::Boolean Unary Expression True(operator=True)|        Covered
+          Region mainRegion::Transition suspended2closed(name=suspended2closed, kind=external)|        Covered
+    Transition suspended2closed::Trigger isPolicyVoilatedTrigger(name=isPolicyVoilatedTrigger)|        Covered
+                                            Trigger isPolicyVoilatedTrigger::Call Event Type()|        Covered
+                                     Transition suspended2closed::Behavior cancel(name=cancel)|        Covered
+                                             Transition suspended2closed::Boolean Constraint()|        Covered
+                              Boolean Constraint::Boolean Unary Expression True(operator=True)|        Covered
+          Region mainRegion::Transition suspended2active(name=suspended2active, kind=external)|    Not_Covered
+  Transition suspended2active::Trigger isResumeRequestedTrigger(name=isResumeRequestedTrigger)|    Not_Covered
+                                           Trigger isResumeRequestedTrigger::Call Event Type()|    Not_Covered
+                                     Transition suspended2active::Behavior resume(name=resume)|    Not_Covered
+                                             Transition suspended2active::Boolean Constraint()|    Not_Covered
+                              Boolean Constraint::Boolean Unary Expression True(operator=True)|    Not_Covered
+          Region mainRegion::Transition suspended2active(name=suspended2active, kind=external)|        Covered
+          Transition suspended2active::Trigger isLockExpiredTrigger(name=isLockExpiredTrigger)|        Covered
+                                               Trigger isLockExpiredTrigger::Call Event Type()|        Covered
+                                     Transition suspended2active::Behavior unlock(name=unlock)|        Covered
+                                             Transition suspended2active::Boolean Constraint()|        Covered
+                              Boolean Constraint::Boolean Unary Expression True(operator=True)|        Covered
+                  Region mainRegion::Transition closed2final(name=closed2final, kind=external)|        Covered
+                                      Custom System::Operation isUniqueId()(name=isUniqueId())|        Covered
+                          Custom System::Operation isAccountDormant()(name=isAccountDormant())|        Covered
+                                      Custom System::Operation isVerified()(name=isVerified())|        Covered
+                        Custom System::Operation isCancelRequested()(name=isCancelRequested())|        Covered
+                          Custom System::Operation isPolicyVoilated()(name=isPolicyVoilated())|        Covered
+                      Custom System::Operation isSuspendRequested()(name=isSuspendRequested())|        Covered
+                            Custom System::Operation isPasswordAlert()(name=isPasswordAlert())|        Covered
+                        Custom System::Operation isResumeRequested()(name=isResumeRequested())|    Not_Covered
+                                Custom System::Operation isLockExpired()(name=isLockExpired())|        Covered
+--------------------------------------------------
+Number of test cases improving coverage score: 1
+iteration 1: 1 generated test cases
+Amplified Test Case: test12_0_BooleanModification_each
+
+--------------------------------------------------
+Total number of test cases improving selection score: 1

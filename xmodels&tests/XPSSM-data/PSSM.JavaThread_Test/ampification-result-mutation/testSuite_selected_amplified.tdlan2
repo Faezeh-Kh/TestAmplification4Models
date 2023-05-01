@@ -684,7 +684,10 @@ Package testSuite {
 	Annotation DSLName ;
 	Test Configuration JavaThreadLifeCycleConfiguration {
 		create Tester tester of type TestSystem ;
-		create SUT statemachine of type MUT with { MUTPath : '/PSSM.JavaThread_Mutants/JavaThreadLifeCycle.model' ; DSLName : 'org.imt.pssm.reactive.ReactivePSSM' ; } ;
+		create SUT statemachine of type MUT with { 
+			MUTPath : '/PSSM.JavaThread_Mutants/JavaThreadLifeCycle.model' ; 
+			DSLName : 'org.imt.pssm.reactive.ReactivePSSM' ;
+		} ;
 		connect tester.reactiveGate to statemachine.reactiveGate ;
 	}
 	StateMachine JaveThreadStates ( _name = "JaveThreadStates" ) ;

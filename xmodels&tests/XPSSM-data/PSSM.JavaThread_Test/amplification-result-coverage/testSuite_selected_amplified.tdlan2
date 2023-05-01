@@ -1471,4 +1471,216 @@ Package testSuite {
 	IntegerAttributeValue joinTimeoutValue ( attribute = joinTimeout ) ;
 	Operation t_join__ ( _name = "t.join()" , inParameters = joinTimeout) ;
 	CallEventOccurrence t_join___occurrence ( operation = t_join__ ) ;
+	Test Description test6_4_EventModification_each
+		uses configuration JavaThreadLifeCycleConfiguration {
+		tester.reactiveGate sends _run (
+			state_machine = JaveThreadStates
+		) to statemachine.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = JaveThreadStates ,
+			signal_occurrence = t_start_occurrence
+		) to statemachine.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = JaveThreadStates ,
+			signal_occurrence = threadSelected2Run_occurrence
+		) to statemachine.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = JaveThreadStates ,
+			signal_occurrence = LockSupport_park_occurrence
+		) to statemachine.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = JaveThreadStates ,
+			signal_occurrence = ThreadTerminated_occurrence
+		) to statemachine.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = newThreadCreated
+		) to tester.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = ThreadIsRunnable
+		) to tester.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = ThreadIsReady
+		) to tester.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = ThreadIsRunning
+		) to tester.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = ThreadIsWaiting
+		) to tester.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = ThreadIsTerminated
+		) to tester.reactiveGate ;
+	}
+	Test Description test7_28_EventModification_each
+		uses configuration JavaThreadLifeCycleConfiguration {
+		tester.reactiveGate sends _run (
+			state_machine = JaveThreadStates
+		) to statemachine.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = JaveThreadStates ,
+			signal_occurrence = t_start_occurrence
+		) to statemachine.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = JaveThreadStates ,
+			signal_occurrence = LockSupport_parkUntil___occurrence
+		) to statemachine.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = JaveThreadStates ,
+			signal_occurrence = finishRunnable_occurrence
+		) to statemachine.reactiveGate ;
+		tester.reactiveGate sends callOperation_received (
+			state_machine = JaveThreadStates ,
+			call_occurrence = Thread_sleep___occurrence ( inParameterValues = sleepTimeValue ( value = "10" ) )
+		) to statemachine.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = newThreadCreated
+		) to tester.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = ThreadIsRunnable
+		) to tester.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = ThreadIsReady
+		) to tester.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = ThreadIsWaitingByTime
+		) to tester.reactiveGate ;
+	}
+	Test Description test38_4_EventModification_each
+		uses configuration JavaThreadLifeCycleConfiguration {
+		tester.reactiveGate sends _run (
+			state_machine = JaveThreadStates
+		) to statemachine.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = JaveThreadStates ,
+			signal_occurrence = t_start_occurrence
+		) to statemachine.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = JaveThreadStates ,
+			signal_occurrence = threadSelected2Run_occurrence
+		) to statemachine.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = JaveThreadStates ,
+			signal_occurrence = waitForLockToEnterSynchroBlock_occurrence
+		) to statemachine.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = JaveThreadStates ,
+			signal_occurrence = o_wait_occurrence
+		) to statemachine.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = JaveThreadStates ,
+			signal_occurrence = o_notifyAll_occurrence
+		) to statemachine.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = newThreadCreated
+		) to tester.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = ThreadIsRunnable
+		) to tester.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = ThreadIsReady
+		) to tester.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = ThreadIsRunning
+		) to tester.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = ThreadIsBlocked
+		) to tester.reactiveGate ;
+	}
+	Test Description test52_27_EventModification_each
+		uses configuration JavaThreadLifeCycleConfiguration {
+		tester.reactiveGate sends _run (
+			state_machine = JaveThreadStates
+		) to statemachine.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = JaveThreadStates ,
+			signal_occurrence = t_start_occurrence
+		) to statemachine.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = JaveThreadStates ,
+			signal_occurrence = threadSelected2Run_occurrence
+		) to statemachine.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = JaveThreadStates ,
+			signal_occurrence = Thread_yield_occurrence
+		) to statemachine.reactiveGate ;
+		tester.reactiveGate sends callOperation_received (
+			state_machine = JaveThreadStates ,
+			call_occurrence = t_join___occurrence ( inParameterValues = joinTimeoutValue ( value = "10" ) )
+		) to statemachine.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = JaveThreadStates ,
+			signal_occurrence = o_notifyAll_occurrence
+		) to statemachine.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = JaveThreadStates ,
+			signal_occurrence = monitorLockAcquired_occurrence
+		) to statemachine.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = newThreadCreated
+		) to tester.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = ThreadIsRunnable
+		) to tester.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = ThreadIsReady
+		) to tester.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = ThreadIsRunning
+		) to tester.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = ThreadIsReady
+		) to tester.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = ThreadIsWaitingByTime
+		) to tester.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = ThreadIsBlocked
+		) to tester.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = ThreadIsRunnable
+		) to tester.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = ThreadIsReady
+		) to tester.reactiveGate ;
+	}
+	Test Description test6_4_EventModification_each_4_EventModification_each
+		uses configuration JavaThreadLifeCycleConfiguration {
+		tester.reactiveGate sends _run (
+			state_machine = JaveThreadStates
+		) to statemachine.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = JaveThreadStates ,
+			signal_occurrence = t_start_occurrence
+		) to statemachine.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = JaveThreadStates ,
+			signal_occurrence = threadSelected2Run_occurrence
+		) to statemachine.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = JaveThreadStates ,
+			signal_occurrence = threadSuspended_occurrence
+		) to statemachine.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = JaveThreadStates ,
+			signal_occurrence = ThreadTerminated_occurrence
+		) to statemachine.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = newThreadCreated
+		) to tester.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = ThreadIsRunnable
+		) to tester.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = ThreadIsReady
+		) to tester.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = ThreadIsRunning
+		) to tester.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = ThreadIsReady
+		) to tester.reactiveGate ;
+		statemachine.reactiveGate sends behavior_executed (
+			behavior = ThreadIsTerminated
+		) to tester.reactiveGate ;
+	}
 }

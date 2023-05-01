@@ -9,7 +9,7 @@ config amplifier PSSMAmplifier{
 	}
 	
 	filterby{ 
-		//element coverage: stop at 100.0
-		mutation score: stop at 100.0
+		element coverage: stop at 100.0
+		//mutation score: stop at 100.0
 	}
 }

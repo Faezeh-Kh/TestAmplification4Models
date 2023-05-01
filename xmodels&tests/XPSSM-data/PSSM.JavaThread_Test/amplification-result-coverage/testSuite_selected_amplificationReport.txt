@@ -1,0 +1,185 @@
+Execution time: 540383664999
+
+Total number of model elements: 125
+Total number of coverable model elements: 122
+- initial number of covered elements: 92
+- initial test suite coverage: 75.41%
+
+- number of covered elements by improved test cases: 23
+- total number of covered elements: 115
+- final test suite coverage: 94.26%
+=> improvement in the coverage percentage: 18.85%
+--------------------------------------------------
+Yet not-covered elements after amplification: 
+Not-covered element 1: Region mainRegion::Transition runnable2waiting(name=runnable2waiting, kind=external)
+Not-covered element 2: Transition runnable2waiting::Trigger t.joinTrigger(name=t.joinTrigger)
+Not-covered element 3: Trigger t.joinTrigger::Signal Event Type()
+Not-covered element 4: Region mainRegion::Transition waiting2blocked(name=waiting2blocked, kind=external)
+Not-covered element 5: Transition waiting2blocked::Trigger o.notifyTrigger(name=o.notifyTrigger)
+Not-covered element 6: Trigger o.notifyTrigger::Signal Event Type()
+Not-covered element 7: Custom System::Signal t.join(name=t.join)
+--------------------------------------------------
+Initial Coverage Matrix: 
+                                                                                       Model element name|Coverage status
+---------------------------------------------------------------------------------------------------------+---------------
+                    platform:/resource/PSSM.JavaThread_Mutants/JavaThreadLifeCycle.model::Custom System()|        Covered
+                                     Custom System::State Machine JaveThreadStates(name=JaveThreadStates)|        Covered
+                                       State Machine JaveThreadStates::Region mainRegion(name=mainRegion)|        Covered
+                                     Region mainRegion::Pseudostate initial1(name=initial1, kind=initial)|        Covered
+                                                                   Region mainRegion::State New(name=New)|        Covered
+                                              State New::Behavior newThreadCreated(name=newThreadCreated)|        Covered
+                                                         Region mainRegion::State Runnable(name=Runnable)|        Covered
+                                               State Runnable::Region runnableRegion(name=runnableRegion)|        Covered
+                                 Region runnableRegion::Pseudostate initial2(name=initial2, kind=initial)|        Covered
+                                                           Region runnableRegion::State Ready(name=Ready)|        Covered
+                                                  State Ready::Behavior ThreadIsReady(name=ThreadIsReady)|        Covered
+                                                       Region runnableRegion::State Running(name=Running)|        Covered
+                                            State Running::Behavior ThreadIsRunning(name=ThreadIsRunning)|        Covered
+                                                   Region runnableRegion::Final State final2(name=final2)|        Covered
+                 Region runnableRegion::Transition initial2_2_ready(name=initial2_2_ready, kind=external)|        Covered
+                       Region runnableRegion::Transition ready2running(name=ready2running, kind=external)|        Covered
+                      Transition ready2running::Trigger threadSelectedTrigger(name=threadSelectedTrigger)|        Covered
+                                                       Trigger threadSelectedTrigger::Signal Event Type()|        Covered
+                       Region runnableRegion::Transition running2ready(name=running2ready, kind=external)|    Not_Covered
+                          Transition running2ready::Trigger thread.yieldTrigger(name=thread.yieldTrigger)|    Not_Covered
+                                                         Trigger thread.yieldTrigger::Signal Event Type()|    Not_Covered
+                       Region runnableRegion::Transition running2ready(name=running2ready, kind=external)|    Not_Covered
+                    Transition running2ready::Trigger threadSuspendedTrigger(name=threadSuspendedTrigger)|    Not_Covered
+                                                      Trigger threadSuspendedTrigger::Signal Event Type()|    Not_Covered
+                     Region runnableRegion::Transition running2final2(name=running2final2, kind=external)|        Covered
+                                     Transition running2final2::Trigger finishTrigger(name=finishTrigger)|        Covered
+                                                               Trigger finishTrigger::Signal Event Type()|        Covered
+                                         State Runnable::Behavior ThreadIsRunnable(name=ThreadIsRunnable)|        Covered
+                                                 Region mainRegion::State TimedWaiting(name=TimedWaiting)|        Covered
+                           State TimedWaiting::Behavior ThreadIsWaitingByTime(name=ThreadIsWaitingByTime)|        Covered
+                                                           Region mainRegion::State Waiting(name=Waiting)|        Covered
+                                            State Waiting::Behavior ThreadIsWaiting(name=ThreadIsWaiting)|        Covered
+                                                           Region mainRegion::State Blocked(name=Blocked)|        Covered
+                                            State Blocked::Behavior ThreadIsBlocked(name=ThreadIsBlocked)|        Covered
+                                                     Region mainRegion::State Terminated(name=Terminated)|        Covered
+                                   State Terminated::Behavior ThreadIsTerminated(name=ThreadIsTerminated)|        Covered
+                                                       Region mainRegion::Final State final1(name=final1)|        Covered
+                         Region mainRegion::Transition initial1_2_new(name=initial1_2_new, kind=external)|        Covered
+                             Region mainRegion::Transition new2runnable(name=new2runnable, kind=external)|        Covered
+                                     Transition new2runnable::Trigger t.startTrigger(name=t.startTrigger)|        Covered
+                                                              Trigger t.startTrigger::Signal Event Type()|        Covered
+           Region mainRegion::Transition runnable2timedWaiting(name=runnable2timedWaiting, kind=external)|        Covered
+                Transition runnable2timedWaiting::Trigger threadSleep()Trigger(name=threadSleep()Trigger)|        Covered
+                                                          Trigger threadSleep()Trigger::Call Event Type()|        Covered
+           Region mainRegion::Transition runnable2timedWaiting(name=runnable2timedWaiting, kind=external)|        Covered
+                          Transition runnable2timedWaiting::Trigger o.wait()Trigger(name=o.wait()Trigger)|        Covered
+                                                               Trigger o.wait()Trigger::Call Event Type()|        Covered
+           Region mainRegion::Transition runnable2timedWaiting(name=runnable2timedWaiting, kind=external)|        Covered
+                          Transition runnable2timedWaiting::Trigger t.join()Trigger(name=t.join()Trigger)|        Covered
+                                                               Trigger t.join()Trigger::Call Event Type()|        Covered
+           Region mainRegion::Transition runnable2timedWaiting(name=runnable2timedWaiting, kind=external)|        Covered
+Transition runnable2timedWaiting::Trigger lockSupport.parkNanosTrigger(name=lockSupport.parkNanosTrigger)|        Covered
+                                                Trigger lockSupport.parkNanosTrigger::Signal Event Type()|        Covered
+           Region mainRegion::Transition runnable2timedWaiting(name=runnable2timedWaiting, kind=external)|    Not_Covered
+Transition runnable2timedWaiting::Trigger lockSupport.parkUntilTrigger(name=lockSupport.parkUntilTrigger)|    Not_Covered
+                                                Trigger lockSupport.parkUntilTrigger::Signal Event Type()|    Not_Covered
+                     Region mainRegion::Transition runnable2waiting(name=runnable2waiting, kind=external)|        Covered
+                                   Transition runnable2waiting::Trigger o.waitTrigger(name=o.waitTrigger)|        Covered
+                                                               Trigger o.waitTrigger::Signal Event Type()|        Covered
+                     Region mainRegion::Transition runnable2waiting(name=runnable2waiting, kind=external)|    Not_Covered
+                                   Transition runnable2waiting::Trigger t.joinTrigger(name=t.joinTrigger)|    Not_Covered
+                                                               Trigger t.joinTrigger::Signal Event Type()|    Not_Covered
+                     Region mainRegion::Transition runnable2waiting(name=runnable2waiting, kind=external)|    Not_Covered
+               Transition runnable2waiting::Trigger lockSupport.parkTrigger(name=lockSupport.parkTrigger)|    Not_Covered
+                                                     Trigger lockSupport.parkTrigger::Signal Event Type()|    Not_Covered
+                     Region mainRegion::Transition runnable2blocked(name=runnable2blocked, kind=external)|    Not_Covered
+                 Transition runnable2blocked::Trigger wait4lock2enterTrigger(name=wait4lock2enterTrigger)|    Not_Covered
+                                                      Trigger wait4lock2enterTrigger::Signal Event Type()|    Not_Covered
+                     Region mainRegion::Transition runnable2blocked(name=runnable2blocked, kind=external)|        Covered
+             Transition runnable2blocked::Trigger wait4lock2reenterTrigger(name=wait4lock2reenterTrigger)|        Covered
+                                                    Trigger wait4lock2reenterTrigger::Signal Event Type()|        Covered
+               Region mainRegion::Transition runnable2terminated(name=runnable2terminated, kind=external)|        Covered
+            Transition runnable2terminated::Trigger threadTerminatedTrigger(name=threadTerminatedTrigger)|        Covered
+                                                     Trigger threadTerminatedTrigger::Signal Event Type()|        Covered
+           Region mainRegion::Transition timedWaiting2runnable(name=timedWaiting2runnable, kind=external)|        Covered
+          Transition timedWaiting2runnable::Trigger sleepTimeElapsedTrigger(name=sleepTimeElapsedTrigger)|        Covered
+                                                     Trigger sleepTimeElapsedTrigger::Signal Event Type()|        Covered
+       Region mainRegion::Transition timedWaiting2terminated(name=timedWaiting2terminated, kind=external)|        Covered
+        Transition timedWaiting2terminated::Trigger threadTerminatedTrigger(name=threadTerminatedTrigger)|        Covered
+                                                     Trigger threadTerminatedTrigger::Signal Event Type()|        Covered
+             Region mainRegion::Transition timedWaiting2blocked(name=timedWaiting2blocked, kind=external)|        Covered
+                     Transition timedWaiting2blocked::Trigger o.notifyAllTrigger(name=o.notifyAllTrigger)|        Covered
+                                                          Trigger o.notifyAllTrigger::Signal Event Type()|        Covered
+             Region mainRegion::Transition timedWaiting2blocked(name=timedWaiting2blocked, kind=external)|        Covered
+                           Transition timedWaiting2blocked::Trigger o.notifyTrigger(name=o.notifyTrigger)|        Covered
+                                                             Trigger o.notifyTrigger::Signal Event Type()|        Covered
+                 Region mainRegion::Transition waiting2terminated(name=waiting2terminated, kind=external)|    Not_Covered
+             Transition waiting2terminated::Trigger threadTerminatedTrigger(name=threadTerminatedTrigger)|    Not_Covered
+                                                     Trigger threadTerminatedTrigger::Signal Event Type()|    Not_Covered
+                       Region mainRegion::Transition waiting2blocked(name=waiting2blocked, kind=external)|        Covered
+                          Transition waiting2blocked::Trigger o.notifyAllTrigger(name=o.notifyAllTrigger)|        Covered
+                                                          Trigger o.notifyAllTrigger::Signal Event Type()|        Covered
+                       Region mainRegion::Transition waiting2blocked(name=waiting2blocked, kind=external)|    Not_Covered
+                                Transition waiting2blocked::Trigger o.notifyTrigger(name=o.notifyTrigger)|    Not_Covered
+                                                             Trigger o.notifyTrigger::Signal Event Type()|    Not_Covered
+                     Region mainRegion::Transition blocked2runnable(name=blocked2runnable, kind=external)|        Covered
+                         Transition blocked2runnable::Trigger monitorLockTrigger(name=monitorLockTrigger)|        Covered
+                                                          Trigger monitorLockTrigger::Signal Event Type()|        Covered
+                 Region mainRegion::Transition blocked2terminated(name=blocked2terminated, kind=external)|        Covered
+             Transition blocked2terminated::Trigger threadTerminatedTrigger(name=threadTerminatedTrigger)|        Covered
+                                                     Trigger threadTerminatedTrigger::Signal Event Type()|        Covered
+                     Region mainRegion::Transition terminated2final(name=terminated2final, kind=external)|        Covered
+                                                              Custom System::Signal t.start(name=t.start)|        Covered
+                                        Custom System::Signal threadSelected2Run(name=threadSelected2Run)|        Covered
+                                                Custom System::Signal finishRunnable(name=finishRunnable)|        Covered
+                                                    Custom System::Signal Thread.yield(name=Thread.yield)|    Not_Covered
+                                              Custom System::Signal threadSuspended(name=threadSuspended)|    Not_Covered
+                              Custom System::Signal LockSupport.parkNanos()(name=LockSupport.parkNanos())|        Covered
+                              Custom System::Signal LockSupport.parkUntil()(name=LockSupport.parkUntil())|    Not_Covered
+                                                                Custom System::Signal o.wait(name=o.wait)|        Covered
+                                                                Custom System::Signal t.join(name=t.join)|    Not_Covered
+                                            Custom System::Signal LockSupport.park(name=LockSupport.park)|    Not_Covered
+                Custom System::Signal waitForLockToEnterSynchroBlock(name=waitForLockToEnterSynchroBlock)|    Not_Covered
+            Custom System::Signal waitForLockToReenterSynchroBlock(name=waitForLockToReenterSynchroBlock)|        Covered
+                                            Custom System::Signal sleepTimeElapsed(name=sleepTimeElapsed)|        Covered
+                                            Custom System::Signal ThreadTerminated(name=ThreadTerminated)|        Covered
+                                                      Custom System::Signal o.notifyAll(name=o.notifyAll)|        Covered
+                                                            Custom System::Signal o.notify(name=o.notify)|        Covered
+                                      Custom System::Signal monitorLockAcquired(name=monitorLockAcquired)|        Covered
+                                             Custom System::Operation Thread.sleep()(name=Thread.sleep())|        Covered
+                                                         Custom System::Operation o.wait()(name=o.wait())|        Covered
+                                                         Custom System::Operation t.join()(name=t.join())|        Covered
+--------------------------------------------------
+Number of test cases improving coverage score: 5
+iteration 1: 4 generated test cases
+Amplified Test Case: test6_4_EventModification_each
+New covered model element 1: Region mainRegion::Transition runnable2waiting(name=runnable2waiting, kind=external)
+New covered model element 2: Transition runnable2waiting::Trigger lockSupport.parkTrigger(name=lockSupport.parkTrigger)
+New covered model element 3: Trigger lockSupport.parkTrigger::Signal Event Type()
+New covered model element 4: Region mainRegion::Transition waiting2terminated(name=waiting2terminated, kind=external)
+New covered model element 5: Transition waiting2terminated::Trigger threadTerminatedTrigger(name=threadTerminatedTrigger)
+New covered model element 6: Trigger threadTerminatedTrigger::Signal Event Type()
+New covered model element 7: Custom System::Signal LockSupport.park(name=LockSupport.park)
+
+Amplified Test Case: test7_28_EventModification_each
+New covered model element 1: Region mainRegion::Transition runnable2timedWaiting(name=runnable2timedWaiting, kind=external)
+New covered model element 2: Transition runnable2timedWaiting::Trigger lockSupport.parkUntilTrigger(name=lockSupport.parkUntilTrigger)
+New covered model element 3: Trigger lockSupport.parkUntilTrigger::Signal Event Type()
+New covered model element 4: Custom System::Signal LockSupport.parkUntil()(name=LockSupport.parkUntil())
+
+Amplified Test Case: test38_4_EventModification_each
+New covered model element 1: Region mainRegion::Transition runnable2blocked(name=runnable2blocked, kind=external)
+New covered model element 2: Transition runnable2blocked::Trigger wait4lock2enterTrigger(name=wait4lock2enterTrigger)
+New covered model element 3: Trigger wait4lock2enterTrigger::Signal Event Type()
+New covered model element 4: Custom System::Signal waitForLockToEnterSynchroBlock(name=waitForLockToEnterSynchroBlock)
+
+Amplified Test Case: test52_27_EventModification_each
+New covered model element 1: Region runnableRegion::Transition running2ready(name=running2ready, kind=external)
+New covered model element 2: Transition running2ready::Trigger thread.yieldTrigger(name=thread.yieldTrigger)
+New covered model element 3: Trigger thread.yieldTrigger::Signal Event Type()
+New covered model element 4: Custom System::Signal Thread.yield(name=Thread.yield)
+
+iteration 2: 1 generated test cases
+Amplified Test Case: test6_4_EventModification_each_4_EventModification_each
+New covered model element 1: Region runnableRegion::Transition running2ready(name=running2ready, kind=external)
+New covered model element 2: Transition running2ready::Trigger threadSuspendedTrigger(name=threadSuspendedTrigger)
+New covered model element 3: Trigger threadSuspendedTrigger::Signal Event Type()
+New covered model element 4: Custom System::Signal threadSuspended(name=threadSuspended)
+
+--------------------------------------------------
+Total number of test cases improving selection score: 5

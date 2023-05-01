@@ -1,0 +1,110 @@
+Execution time: 100196511400
+
+Total number of model elements: 61
+Total number of coverable model elements: 61
+- initial number of covered elements: 43
+- initial test suite coverage: 70.49%
+
+- number of covered elements by improved test cases: 14
+- total number of covered elements: 57
+- final test suite coverage: 93.44%
+=> improvement in the coverage percentage: 22.95%
+--------------------------------------------------
+Yet not-covered elements after amplification: 
+Not-covered element 1: Region mainRegion::Transition ENR2ER(name=ENR2ER, kind=external)
+Not-covered element 2: Transition ENR2ER::Trigger handleTrigger(name=handleTrigger)
+Not-covered element 3: Trigger handleTrigger::Signal Event Type()
+Not-covered element 4: Custom System::Signal handle.getEJBObject()(name=handle.getEJBObject())
+--------------------------------------------------
+Initial Coverage Matrix: 
+                                                                                          Model element name|Coverage status
+------------------------------------------------------------------------------------------------------------+---------------
+                                      platform:/resource/PSSM.JavaEJB_Mutants/JavaEJB.model::Custom System()|        Covered
+                                                          Custom System::State Machine JavaEJB(name=JavaEJB)|        Covered
+                                                   State Machine JavaEJB::Region mainRegion(name=mainRegion)|        Covered
+                                          Region mainRegion::Pseudostate initial(name=initial, kind=initial)|        Covered
+                            Region mainRegion::State NotExisted&NotReferenced(name=NotExisted&NotReferenced)|        Covered
+State NotExisted&NotReferenced::Behavior ObjectNotExisted&NotReferenced(name=ObjectNotExisted&NotReferenced)|        Covered
+                                          Region mainRegion::State Exists&Referenced(name=Exists&Referenced)|        Covered
+                     State Exists&Referenced::Behavior ObjectExists&Referenced(name=ObjectExists&Referenced)|        Covered
+                                  Region mainRegion::State NotExisted&Referenced(name=NotExisted&Referenced)|        Covered
+         State NotExisted&Referenced::Behavior ObjectNotExisted&Referenced(name=ObjectNotExisted&Referenced)|        Covered
+                                    Region mainRegion::State Exists&NotReferenced(name=Exists&NotReferenced)|    Not_Covered
+            State Exists&NotReferenced::Behavior ObjectExists&NotReferenced(name=ObjectExists&NotReferenced)|    Not_Covered
+                                Region mainRegion::Transition initial2NENR(name=initial2NENR, kind=external)|        Covered
+                                          Region mainRegion::Transition NENR2ER(name=NENR2ER, kind=external)|        Covered
+                                     Transition NENR2ER::Trigger home.createTrigger(name=home.createTrigger)|        Covered
+                                                             Trigger home.createTrigger::Signal Event Type()|        Covered
+                                              Region mainRegion::Transition ER2ER(name=ER2ER, kind=external)|    Not_Covered
+                                 Transition ER2ER::Trigger businessMethodTrigger(name=businessMethodTrigger)|    Not_Covered
+                                                          Trigger businessMethodTrigger::Signal Event Type()|    Not_Covered
+                                            Region mainRegion::Transition ER2NER(name=ER2NER, kind=external)|        Covered
+                                  Transition ER2NER::Trigger object.removeTrigger(name=object.removeTrigger)|        Covered
+                                                           Trigger object.removeTrigger::Signal Event Type()|        Covered
+                                            Region mainRegion::Transition ER2NER(name=ER2NER, kind=external)|        Covered
+                                      Transition ER2NER::Trigger home.removeTrigger(name=home.removeTrigger)|        Covered
+                                                             Trigger home.removeTrigger::Signal Event Type()|        Covered
+                                            Region mainRegion::Transition ER2NER(name=ER2NER, kind=external)|        Covered
+                                          Transition ER2NER::Trigger exceptionTrigger(name=exceptionTrigger)|        Covered
+                                                               Trigger exceptionTrigger::Signal Event Type()|        Covered
+                                            Region mainRegion::Transition ER2NER(name=ER2NER, kind=external)|        Covered
+                                              Transition ER2NER::Trigger timeoutTrigger(name=timeoutTrigger)|        Covered
+                                                                 Trigger timeoutTrigger::Signal Event Type()|        Covered
+                                            Region mainRegion::Transition ER2NER(name=ER2NER, kind=external)|        Covered
+                                                  Transition ER2NER::Trigger crashTrigger(name=crashTrigger)|        Covered
+                                                                   Trigger crashTrigger::Signal Event Type()|        Covered
+                                            Region mainRegion::Transition ER2ENR(name=ER2ENR, kind=external)|    Not_Covered
+                                              Transition ER2ENR::Trigger releaseTrigger(name=releaseTrigger)|    Not_Covered
+                                                                 Trigger releaseTrigger::Signal Event Type()|    Not_Covered
+                                            Region mainRegion::Transition ENR2ER(name=ENR2ER, kind=external)|    Not_Covered
+                                                Transition ENR2ER::Trigger handleTrigger(name=handleTrigger)|    Not_Covered
+                                                                  Trigger handleTrigger::Signal Event Type()|    Not_Covered
+                                        Region mainRegion::Transition ENR2NENR(name=ENR2NENR, kind=external)|    Not_Covered
+                                            Transition ENR2NENR::Trigger timeoutTrigger(name=timeoutTrigger)|    Not_Covered
+                                                                 Trigger timeoutTrigger::Signal Event Type()|    Not_Covered
+                                        Region mainRegion::Transition ENR2NENR(name=ENR2NENR, kind=external)|    Not_Covered
+                                                Transition ENR2NENR::Trigger crashTrigger(name=crashTrigger)|    Not_Covered
+                                                                   Trigger crashTrigger::Signal Event Type()|    Not_Covered
+                                          Region mainRegion::Transition NER2NER(name=NER2NER, kind=external)|        Covered
+                               Transition NER2NER::Trigger businessMethodTrigger(name=businessMethodTrigger)|        Covered
+                                                          Trigger businessMethodTrigger::Signal Event Type()|        Covered
+                                        Region mainRegion::Transition NER2NENR(name=NER2NENR, kind=external)|        Covered
+                                            Transition NER2NENR::Trigger releaseTrigger(name=releaseTrigger)|        Covered
+                                                                 Trigger releaseTrigger::Signal Event Type()|        Covered
+                                     Custom System::Signal home.create<method>()(name=home.create<method>())|        Covered
+                                               Custom System::Signal businessMethod()(name=businessMethod())|        Covered
+                                                 Custom System::Signal object.remove()(name=object.remove())|        Covered
+                                                     Custom System::Signal home.remove()(name=home.remove())|        Covered
+                                                 Custom System::Signal systemException(name=systemException)|        Covered
+                                                           Custom System::Signal beanTimout(name=beanTimout)|        Covered
+                                                   Custom System::Signal containerCrash(name=containerCrash)|        Covered
+                                               Custom System::Signal releaseReference(name=releaseReference)|        Covered
+                                     Custom System::Signal handle.getEJBObject()(name=handle.getEJBObject())|    Not_Covered
+--------------------------------------------------
+Number of test cases improving coverage score: 4
+iteration 1: 3 generated test cases
+Amplified Test Case: test9_0_EventModification_each
+New covered model element 1: Region mainRegion::Transition ER2ER(name=ER2ER, kind=external)
+New covered model element 2: Transition ER2ER::Trigger businessMethodTrigger(name=businessMethodTrigger)
+New covered model element 3: Trigger businessMethodTrigger::Signal Event Type()
+
+Amplified Test Case: test15_8_EventPermutation_each
+New covered model element 1: Region mainRegion::State Exists&NotReferenced(name=Exists&NotReferenced)
+New covered model element 2: State Exists&NotReferenced::Behavior ObjectExists&NotReferenced(name=ObjectExists&NotReferenced)
+New covered model element 3: Region mainRegion::Transition ER2ENR(name=ER2ENR, kind=external)
+New covered model element 4: Transition ER2ENR::Trigger releaseTrigger(name=releaseTrigger)
+New covered model element 5: Trigger releaseTrigger::Signal Event Type()
+
+Amplified Test Case: test18_8_EventPermutation_each
+New covered model element 1: Region mainRegion::Transition ENR2NENR(name=ENR2NENR, kind=external)
+New covered model element 2: Transition ENR2NENR::Trigger timeoutTrigger(name=timeoutTrigger)
+New covered model element 3: Trigger timeoutTrigger::Signal Event Type()
+
+iteration 2: 1 generated test cases
+Amplified Test Case: test15_8_EventPermutation_each_1_EventModification_each
+New covered model element 1: Region mainRegion::Transition ENR2NENR(name=ENR2NENR, kind=external)
+New covered model element 2: Transition ENR2NENR::Trigger crashTrigger(name=crashTrigger)
+New covered model element 3: Trigger crashTrigger::Signal Event Type()
+
+--------------------------------------------------
+Total number of test cases improving selection score: 4

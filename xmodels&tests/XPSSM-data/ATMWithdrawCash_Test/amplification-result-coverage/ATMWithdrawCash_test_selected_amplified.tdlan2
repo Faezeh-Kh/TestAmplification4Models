@@ -1,33 +1,31 @@
 Package ATMWithdrawCash_TestSuite {
-	Test Description test_wrongAmount uses configuration xPSSMConfiguration {
-		tester.reactiveGate sends _run (
-			state_machine = ATM
-		) to reactivepssm.reactiveGate ;
-		reactivepssm.reactiveGate sends behavior_executed (
-			behavior = insertCardMsg
-		) to tester.reactiveGate ;
+	Test Description test_wrongAmount uses configuration xPSSMConfiguration{
+		tester.reactiveGate sends _run (state_machine = ATM) to reactivepssm.reactiveGate;
+		reactivepssm.reactiveGate sends behavior_executed (behavior = insertCardMsg) to tester.reactiveGate;
 		tester.reactiveGate sends signal_received (
-			state_machine = ATM ,
-			signal_occurrence = signal_occurrence ( signal = Card , attributeValues = { cardPinValue ( value = "1234" ) , cardBalanceValue ( value = "1000" ) } )
-		) to reactivepssm.reactiveGate ;
-		reactivepssm.reactiveGate sends behavior_executed (
-			behavior = enterPinMsg
-		) to tester.reactiveGate ;
+			state_machine = ATM, 
+			signal_occurrence = signal_occurrence (
+				signal = Card,
+				attributeValues = {cardPinValue (value = "1234"), cardBalanceValue (value = "1000")})
+		) to reactivepssm.reactiveGate;
+		reactivepssm.reactiveGate sends behavior_executed (behavior = enterPinMsg) to tester.reactiveGate;
 		tester.reactiveGate sends signal_received (
-			state_machine = ATM ,
-			signal_occurrence = signal_occurrence ( signal = Pin , attributeValues = { enteredPinValue ( value = "1234" ) } )
-		) to reactivepssm.reactiveGate ;
-		reactivepssm.reactiveGate sends behavior_executed (
-			behavior = enterAmountMsg
-		) to tester.reactiveGate ;
+			state_machine = ATM, 
+			signal_occurrence = signal_occurrence (
+				signal = Pin,
+				attributeValues = {enteredPinValue (value = "1234")})
+		) to reactivepssm.reactiveGate;
+		reactivepssm.reactiveGate sends behavior_executed (behavior = enterAmountMsg) to tester.reactiveGate;
 		tester.reactiveGate sends signal_received (
-			state_machine = ATM ,
-			signal_occurrence = signal_occurrence ( signal = Amount , attributeValues = { enteredAmountValue ( value = "1500" ) } )
-		) to reactivepssm.reactiveGate ;
-		reactivepssm.reactiveGate sends behavior_executed (
-			behavior = notEnoughMoneyMsg
-		) to tester.reactiveGate ;
+			state_machine = ATM, 
+			signal_occurrence = signal_occurrence (
+				signal = Amount,
+				attributeValues = {enteredAmountValue (value = "1500")})
+		) to reactivepssm.reactiveGate;
+		reactivepssm.reactiveGate sends behavior_executed (behavior = notEnoughMoneyMsg) to tester.reactiveGate;
 	}
+	
+	//xPSSMTypes
 	Type CustomSystem ( statemachine of type StateMachine , signals of type Signal , operations of type Operation ) ;
 	Type Signal extends NamedElement ( attributes of type Attribute ) ;
 	Type Operation extends NamedElement ( inParameters of type Attribute , outParameters of type Attribute , return of type Attribute ) ;
@@ -164,24 +162,29 @@ Package ATMWithdrawCash_TestSuite {
 	Type EChar ;
 	Type EFloatObject ;
 	Type EResource ;
+	
+	//xPSSMEvents
 	Annotation AcceptedEvent ;
 	Annotation ExposedEvent ;
-	Type _run ( state_machine of type StateMachine ) with {
-		AcceptedEvent ;
-	} ;
+	Type _run ( state_machine of type StateMachine ) with {AcceptedEvent ;} ;
 	_run _run ( state_machine = ? ) ;
-	Type signal_received ( state_machine of type StateMachine , signal_occurrence of type SignalEventOccurrence ) with {
-		AcceptedEvent ;
-	} ;
+	
+	Type signal_received ( 
+		state_machine of type StateMachine , 
+		signal_occurrence of type SignalEventOccurrence
+	) with {AcceptedEvent ;} ;
 	signal_received signal_received ( state_machine = ? , signal_occurrence = ? ) ;
-	Type callOperation_received ( state_machine of type StateMachine , call_occurrence of type CallEventOccurrence ) with {
-		AcceptedEvent ;
-	} ;
+	
+	Type callOperation_received ( 
+		state_machine of type StateMachine , 
+		call_occurrence of type CallEventOccurrence
+	) with {AcceptedEvent ;} ;
 	callOperation_received callOperation_received ( state_machine = ? , call_occurrence = ? ) ;
-	Type behavior_executed ( behavior of type Behavior ) with {
-		ExposedEvent ;
-	} ;
+	
+	Type behavior_executed ( behavior of type Behavior ) with {ExposedEvent ;} ;
 	behavior_executed behavior_executed ( behavior = ? ) ;
+	
+	//common
 	Type OCL ( query of type EString ) ;
 	OCL oclQuery ( query = ? ) ;
 	Type Verdict ;
@@ -194,6 +197,8 @@ Package ATMWithdrawCash_TestSuite {
 	modelExecutionCommand stopModelExecution ;
 	modelExecutionCommand resetModel ;
 	modelExecutionCommand getModelState ;
+	
+	//test configuration
 	Gate Type genericGateType accepts modelExecutionCommand ;
 	Gate Type reactiveGateType accepts _run , signal_received , callOperation_received , behavior_executed ;
 	Gate Type oclGateType accepts OCL ;
@@ -221,34 +226,45 @@ Package ATMWithdrawCash_TestSuite {
 	}
 	Test Configuration xPSSMConfiguration {
 		create Tester tester of type TestSystem ;
-		create SUT reactivepssm of type MUT with { MUTPath : '/ATMWithdrawCash/ATM.withdraw.model' ; DSLName : 'org.imt.pssm.reactive.ReactivePSSM' ; } ;
+		create SUT reactivepssm of type MUT with { 
+			MUTPath : '/ATMWithdrawCash/ATM.withdraw.model' ; 
+			DSLName : 'org.imt.pssm.reactive.ReactivePSSM' ;
+		} ;
 		connect tester.reactiveGate to reactivepssm.reactiveGate ;
 	}
-	StateMachine ATM ( _name = "withdrawCash" ) ;
-	State getPinState ( _name = "getPin" ) ;
-	FinalState finalState ( _name = "FinalState" ) ;
-	Signal Card ( _name = "Card" , attributes = { cardPin , cardBalance } ) ;
-	IntegerAttribute cardPin ( _name = "cardPin" ) ;
-	IntegerAttribute cardBalance ( _name = "cardBalance" ) ;
-	Signal Pin ( _name = "Pin" , attributes = enteredPin ) ;
-	IntegerAttribute enteredPin ( _name = "enteredPin" ) ;
-	Signal Amount ( _name = "Amount" , attributes = enteredAmount ) ;
-	IntegerAttribute enteredAmount ( _name = "enteredAmount" ) ;
-	SignalEventOccurrence signal_occurrence ( ) ;
-	SignalEventOccurrence card_occurrence ( ) ;
-	SignalEventOccurrence pin_occurrence ( ) ;
-	IntegerAttributeValue cardPinValue ( attribute = cardPin ) ;
-	IntegerAttributeValue cardBalanceValue ( attribute = cardBalance ) ;
-	IntegerAttributeValue enteredPinValue ( attribute = enteredPin ) ;
-	IntegerAttributeValue enteredAmountValue ( attribute = enteredAmount ) ;
-	Behavior insertCardMsg ( _name = "insertCardMsg" ) ;
-	Behavior enterPinMsg ( _name = "enterPinMsg" ) ;
-	Behavior wrongPinMsg ( _name = "wrongPinMsg" ) ;
-	Behavior enterAmountMsg ( _name = "enterAmountMsg" ) ;
-	Behavior updateCardBalance ( _name = "updateCardBalance" ) ;
-	Behavior notEnoughMoneyMsg ( _name = "notEnoughMoneyMsg" ) ;
-	Behavior deliverCash ( _name = "deliverCash" ) ;
-	Test Description test_wrongAmount_0_IntegerModification uses configuration xPSSMConfiguration {
+	
+	//test data
+	StateMachine ATM (_name = "withdrawCash");
+	State getPinState (_name = "getPin");
+	FinalState finalState (_name = "FinalState"); 
+	
+	Signal Card (_name = "Card", attributes = {cardPin, cardBalance});
+	IntegerAttribute cardPin (_name="cardPin");
+	IntegerAttribute cardBalance (_name="cardBalance");
+	
+	Signal Pin (_name = "Pin", attributes = enteredPin);
+	IntegerAttribute enteredPin (_name = "enteredPin");
+	
+	Signal Amount (_name = "Amount", attributes = enteredAmount);
+	IntegerAttribute enteredAmount (_name = "enteredAmount");
+	
+	SignalEventOccurrence signal_occurrence();
+	SignalEventOccurrence card_occurrence();
+	SignalEventOccurrence pin_occurrence();
+	IntegerAttributeValue cardPinValue (attribute = cardPin);
+	IntegerAttributeValue cardBalanceValue (attribute = cardBalance);
+	IntegerAttributeValue enteredPinValue (attribute = enteredPin);
+	IntegerAttributeValue enteredAmountValue (attribute = enteredAmount);
+	
+	Behavior insertCardMsg (_name = "insertCardMsg");
+	Behavior enterPinMsg (_name = "enterPinMsg");
+	Behavior wrongPinMsg (_name = "wrongPinMsg");
+	Behavior enterAmountMsg (_name = "enterAmountMsg");
+	Behavior updateCardBalance (_name = "updateCardBalance");
+	Behavior notEnoughMoneyMsg (_name = "notEnoughMoneyMsg");
+	Behavior deliverCash (_name = "deliverCash");
+	Test Description test_wrongAmount_0_IntegerModification_each
+		uses configuration xPSSMConfiguration {
 		tester.reactiveGate sends _run (
 			state_machine = ATM
 		) to reactivepssm.reactiveGate ;
@@ -274,13 +290,14 @@ Package ATMWithdrawCash_TestSuite {
 			behavior = wrongPinMsg
 		) to tester.reactiveGate ;
 	}
-	Test Description test_wrongAmount_4_IntegerModification uses configuration xPSSMConfiguration {
+	Test Description test_wrongAmount_0_IntegerModification_each
+		uses configuration xPSSMConfiguration {
 		tester.reactiveGate sends _run (
 			state_machine = ATM
 		) to reactivepssm.reactiveGate ;
 		tester.reactiveGate sends signal_received (
 			state_machine = ATM ,
-			signal_occurrence = signal_occurrence ( signal = Card , attributeValues = { cardPinValue ( value = "1235" ) , cardBalanceValue ( value = "1000" ) } )
+			signal_occurrence = signal_occurrence ( signal = Card , attributeValues = { cardPinValue ( value = "1234" ) , cardBalanceValue ( value = "1234" ) } )
 		) to reactivepssm.reactiveGate ;
 		tester.reactiveGate sends signal_received (
 			state_machine = ATM ,
@@ -288,33 +305,7 @@ Package ATMWithdrawCash_TestSuite {
 		) to reactivepssm.reactiveGate ;
 		tester.reactiveGate sends signal_received (
 			state_machine = ATM ,
-			signal_occurrence = signal_occurrence ( signal = Amount , attributeValues = { enteredAmountValue ( value = "1500" ) } )
-		) to reactivepssm.reactiveGate ;
-		reactivepssm.reactiveGate sends behavior_executed (
-			behavior = insertCardMsg
-		) to tester.reactiveGate ;
-		reactivepssm.reactiveGate sends behavior_executed (
-			behavior = enterPinMsg
-		) to tester.reactiveGate ;
-		reactivepssm.reactiveGate sends behavior_executed (
-			behavior = wrongPinMsg
-		) to tester.reactiveGate ;
-	}
-	Test Description test_wrongAmount_17_IntegerModification uses configuration xPSSMConfiguration {
-		tester.reactiveGate sends _run (
-			state_machine = ATM
-		) to reactivepssm.reactiveGate ;
-		tester.reactiveGate sends signal_received (
-			state_machine = ATM ,
-			signal_occurrence = signal_occurrence ( signal = Card , attributeValues = { cardPinValue ( value = "1234" ) , cardBalanceValue ( value = "2000" ) } )
-		) to reactivepssm.reactiveGate ;
-		tester.reactiveGate sends signal_received (
-			state_machine = ATM ,
-			signal_occurrence = signal_occurrence ( signal = Pin , attributeValues = { enteredPinValue ( value = "1234" ) } )
-		) to reactivepssm.reactiveGate ;
-		tester.reactiveGate sends signal_received (
-			state_machine = ATM ,
-			signal_occurrence = signal_occurrence ( signal = Amount , attributeValues = { enteredAmountValue ( value = "1500" ) } )
+			signal_occurrence = signal_occurrence ( signal = Amount , attributeValues = { enteredAmountValue ( value = "1" ) } )
 		) to reactivepssm.reactiveGate ;
 		reactivepssm.reactiveGate sends behavior_executed (
 			behavior = insertCardMsg
@@ -330,73 +321,6 @@ Package ATMWithdrawCash_TestSuite {
 		) to tester.reactiveGate ;
 		reactivepssm.reactiveGate sends behavior_executed (
 			behavior = deliverCash
-		) to tester.reactiveGate ;
-	}
-	Test Description test_wrongAmount_21_IntegerModification uses configuration xPSSMConfiguration {
-		tester.reactiveGate sends _run (
-			state_machine = ATM
-		) to reactivepssm.reactiveGate ;
-		tester.reactiveGate sends signal_received (
-			state_machine = ATM ,
-			signal_occurrence = signal_occurrence ( signal = Card , attributeValues = { cardPinValue ( value = "1234" ) , cardBalanceValue ( value = "1500" ) } )
-		) to reactivepssm.reactiveGate ;
-		tester.reactiveGate sends signal_received (
-			state_machine = ATM ,
-			signal_occurrence = signal_occurrence ( signal = Pin , attributeValues = { enteredPinValue ( value = "1234" ) } )
-		) to reactivepssm.reactiveGate ;
-		tester.reactiveGate sends signal_received (
-			state_machine = ATM ,
-			signal_occurrence = signal_occurrence ( signal = Amount , attributeValues = { enteredAmountValue ( value = "1500" ) } )
-		) to reactivepssm.reactiveGate ;
-		reactivepssm.reactiveGate sends behavior_executed (
-			behavior = insertCardMsg
-		) to tester.reactiveGate ;
-		reactivepssm.reactiveGate sends behavior_executed (
-			behavior = enterPinMsg
-		) to tester.reactiveGate ;
-		reactivepssm.reactiveGate sends behavior_executed (
-			behavior = enterAmountMsg
-		) to tester.reactiveGate ;
-		reactivepssm.reactiveGate sends behavior_executed (
-			behavior = updateCardBalance
-		) to tester.reactiveGate ;
-		reactivepssm.reactiveGate sends behavior_executed (
-			behavior = deliverCash
-		) to tester.reactiveGate ;
-	}
-	Test Description test_wrongAmount_44_EventDuplication uses configuration xPSSMConfiguration {
-		tester.reactiveGate sends _run (
-			state_machine = ATM
-		) to reactivepssm.reactiveGate ;
-		tester.reactiveGate sends signal_received (
-			state_machine = ATM ,
-			signal_occurrence = signal_occurrence ( signal = Card , attributeValues = { cardPinValue ( value = "1234" ) , cardBalanceValue ( value = "1000" ) } )
-		) to reactivepssm.reactiveGate ;
-		tester.reactiveGate sends signal_received (
-			state_machine = ATM ,
-			signal_occurrence = signal_occurrence ( signal = Pin , attributeValues = { enteredPinValue ( value = "1234" ) } )
-		) to reactivepssm.reactiveGate ;
-		tester.reactiveGate sends signal_received (
-			state_machine = ATM ,
-			signal_occurrence = signal_occurrence ( signal = Amount , attributeValues = { enteredAmountValue ( value = "1500" ) } )
-		) to reactivepssm.reactiveGate ;
-		tester.reactiveGate sends _run (
-			state_machine = ATM
-		) to reactivepssm.reactiveGate ;
-		reactivepssm.reactiveGate sends behavior_executed (
-			behavior = insertCardMsg
-		) to tester.reactiveGate ;
-		reactivepssm.reactiveGate sends behavior_executed (
-			behavior = enterPinMsg
-		) to tester.reactiveGate ;
-		reactivepssm.reactiveGate sends behavior_executed (
-			behavior = enterAmountMsg
-		) to tester.reactiveGate ;
-		reactivepssm.reactiveGate sends behavior_executed (
-			behavior = notEnoughMoneyMsg
-		) to tester.reactiveGate ;
-		reactivepssm.reactiveGate sends behavior_executed (
-			behavior = insertCardMsg
 		) to tester.reactiveGate ;
 	}
 }

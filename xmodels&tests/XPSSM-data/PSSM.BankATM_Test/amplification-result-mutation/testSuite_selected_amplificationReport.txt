@@ -1,3 +1,5 @@
+Execution time: more than 10 hours
+
 Total number of mutants: 2242
 - initial number of killed mutants: 1866
 - initial mutation score : 83.27%
