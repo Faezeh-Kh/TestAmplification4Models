@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -99,13 +100,15 @@ public class IterativeAmplifier extends AbstractAmplifier{
 			}
 			generateAmplificationReport(testSelector);
 		}
-		saveAmplificationReport(tdlTestSuite);
+		
+		long stopTime = System.nanoTime();
+		long duration = TimeUnit.MILLISECONDS.convert((stopTime - startTime), TimeUnit.NANOSECONDS);
+		saveAmplificationReport(tdlTestSuite, duration);
+		
 		if (totalNumNewTests > 0) {
 			System.out.println("\nPhase (4): Saving new test cases");
 			super.saveAmplifiedTestCases(tdlTestSuite);
 		}
-		long stopTime = System.nanoTime();
-		System.out.println("Execution time: " + (stopTime - startTime));
 	}
 	
 	private void amplifyTestCases(List<TestDescription> tdlTestCases, ITestSelector testSelector, double maxSelectionScore) {
@@ -192,8 +195,11 @@ public class IterativeAmplifier extends AbstractAmplifier{
 		reportStringBuilder.append("--------------------------------------------------\n");
 	}
 	
-	private void saveAmplificationReport(Package tdlTestSuite) {
+	private void saveAmplificationReport(Package tdlTestSuite, long duration) {
 		reportStringBuilder.append("Total number of test cases improving selection score: " + totalNumNewTests + "\n");
+		System.out.println("Execution time: " + duration + " ms");
+		reportStringBuilder.append("Execution time: " + duration + " ms");
+		
 		PathHelper pathHelper = new PathHelper(tdlTestSuite);
 		pathHelper.findModelAndDSLPathOfTestSuite();
 		String folderName = "";
