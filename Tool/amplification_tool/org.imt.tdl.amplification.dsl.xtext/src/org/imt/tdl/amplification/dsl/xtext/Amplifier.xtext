@@ -93,22 +93,22 @@ ElementCoverage returns ElementCoverage:
 MutationAnalysis returns MutationAnalysis:
 	{MutationAnalysis} 'mutation' 'score:' 'stop' 'at' mutationScoreThreshold=EDouble
 	('{' 
-		mutationOperators=MutationOperator
+		mutationOperatorSet=MutationOperatorSet
 	 '}'
 	)?
 ;
 
 
-MutationOperator: UserDefinedOperator | GeneratedOperator;
+MutationOperatorSet: UserDefinedOperators | GeneratedOperators;
 
-UserDefinedOperator: 'generate' 'mutants' 'using' 'mutation' 'operators'
+UserDefinedOperators: 'generate' 'mutants' 'using' 'mutation' 'operators'
 	(pathToMutationOperators=STRING)
 ;
 
-GeneratedOperator: 'generate' (mode=ApplicationMode)? 'mutants' 'using' 'mutation' 'operators'
+GeneratedOperators: 'generate' (mode=ApplicationMode)? 'mutants' 'using' 'mutation' 'operators'
 	(pathToMutationOperators=STRING)
 	'{'
-		operatorsTypes+=MutationOperatorType (',' operatorsTypes+=MutationOperatorType)*
+		targetOperators+=MutationOperatorType (',' targetOperators+=MutationOperatorType)*
 	'}'
 ;
 
@@ -121,20 +121,18 @@ MutationOperatorType:
 	CreationOperator | CloningOperator | RemovalOperator | ModificationOperator | RetypingOperator
 ;
 
-enum OperatorCoverage:
-	FULL = "full" | PARTIAL = "partial" 
-;
-
 CreationOperator: 
 	{CreationOperator} 'creation' 'operators' 
 	'for' '[' scopeSelection = ScopeSelectionStrategy ']'
-	('with' coverage=OperatorCoverage 'coverage')?
+	('{'
+		'create' 
+		(strategy += FeatureSelectionStrategy (',' strategy += FeatureSelectionStrategy)*)?
+	'}')?
 ;
 
 CloningOperator: 
 	{CloningOperator} type=CloningType 'cloning' 'operators' 
 	'for' '[' scopeSelection = ScopeSelectionStrategy ']'
-	('with' coverage=OperatorCoverage 'coverage')?
 ;
 
 enum CloningType: DEEP = "deep" | SHALLOW = "shallow";
@@ -142,39 +140,43 @@ enum CloningType: DEEP = "deep" | SHALLOW = "shallow";
 RemovalOperator: 
 	{RemovalOperator} 'removal' 'operators' 
 	'for' '[' scopeSelection = ScopeSelectionStrategy ']'
-	('with' coverage=OperatorCoverage 'coverage')?
 ;
 
 ModificationOperator: 
 	{ModificationOperator} 'modification' 'operators' 
 	'for' '[' scopeSelection = ScopeSelectionStrategy ']'
-	('with' coverage=OperatorCoverage 'coverage')?
 	('{'
-		'mutate' strategy= AttributeMutation 
+		'modify' 
+		(strategy += FeatureSelectionStrategy (',' strategy += FeatureSelectionStrategy)*)?
 	'}')?
 ;
 
-AttributeMutation: 
-	mode += AttributeSelectionMode 'attributes' 
-	('with' 'random' 'values' 'between' intMin=EInt 'and' intMax=EInt)?
-	('with' 'random' 'values' 'between' doubleMin=EDouble 'and' doubleMax=EDouble)?
-	('with' 'random' 'strings' 'of' stringMin=EInt 'to' stringMax=EInt 'characters')?
-	("," mode+=AttributeSelectionMode
-		('with' 'random' 'values' 'between' intMin=EInt 'and' intMax=EInt)?
-		('with' 'random' 'values' 'between' doubleMin=EDouble 'and' doubleMax=EDouble)?
-		('with' 'random' 'strings' 'of' stringMin=EInt 'to' stringMax=EInt 'characters')?
+FeatureSelectionStrategy: ExplicitFeatureSelection | ImplicitFeatureSelection;
+
+ExplicitFeatureSelection: 
+	targetFeature+=[ecore::EStructuralFeature] (',' targetFeature+=[ecore::EStructuralFeature])*
+;
+
+ImplicitFeatureSelection: 
+	mode += FeatureSelectionMode 
+	('with' 'values' 'between' intMin=EInt 'and' intMax=EInt)?
+	('with' 'values' 'between' doubleMin=EDouble 'and' doubleMax=EDouble)?
+	('with' 'strings' 'of' stringMin=EInt 'to' stringMax=EInt 'characters')?
+	("," mode+=FeatureSelectionMode
+		('with' 'values' 'between' intMin=EInt 'and' intMax=EInt)?
+		('with' 'values' 'between' doubleMin=EDouble 'and' doubleMax=EDouble)?
+		('with' 'strings' 'of' stringMin=EInt 'to' stringMax=EInt 'characters')?
 	)*
 ;
 
-enum AttributeSelectionMode: 
-	ALL = "all" | RANDOM = "random" | BOOLEAN = "boolean" | INTEGER = "integer" | DOUBLE = "double" | STRING = "string"
+enum FeatureSelectionMode: 
+	ALL = "all" | RANDOM = "randomly" | REFERENCE = "references" | ATTRIBUTE = "attributes"| BOOLEAN = "booleans" | INTEGER = "integers" | DOUBLE = "doubles" | STRING = "strings"
 ;
 
 
 RetypingOperator: 
 	{RetypingOperator} 'retyping' 'operators' 
 	'for' '[' scopeSelection = ScopeSelectionStrategy ']'
-	('with' coverage=OperatorCoverage 'coverage')?
 ;
 
 ScopeSelectionStrategy: ExplicitScopeSelection | ImplicitScopeSelection;

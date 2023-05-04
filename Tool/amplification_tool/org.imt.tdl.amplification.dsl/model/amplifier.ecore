@@ -52,16 +52,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="MutationAnalysis" eSuperTypes="#//TestSelectionCriterion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mutationScoreThreshold"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mutationOperators" eType="#//MutationOperator"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mutationOperatorSet" eType="#//MutationOperatorSet"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MutationOperator" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="MutationOperatorSet" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pathToMutationOperators"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UserDefinedOperator" eSuperTypes="#//MutationOperator"/>
-  <eClassifiers xsi:type="ecore:EClass" name="GeneratedOperator" eSuperTypes="#//MutationOperator">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="operatorsTypes" lowerBound="1"
+  <eClassifiers xsi:type="ecore:EClass" name="UserDefinedOperators" eSuperTypes="#//MutationOperatorSet"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratedOperators" eSuperTypes="#//MutationOperatorSet">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetOperators" lowerBound="1"
         upperBound="-1" eType="#//MutationOperatorType" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mode" eType="#//ApplicationMode"
         defaultValueLiteral="RANDOM"/>
@@ -69,17 +69,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="MutationOperatorType" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="scopeSelection" lowerBound="1"
         eType="#//ScopeSelectionStrategy" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="coverage" eType="#//OperatorCoverage"
-        defaultValueLiteral="FULL"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CreationOperator" eSuperTypes="#//MutationOperatorType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CreationOperator" eSuperTypes="#//MutationOperatorType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="strategy" upperBound="-1"
+        eType="#//FeatureSelectionStrategy" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CloningOperator" eSuperTypes="#//MutationOperatorType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//CloningType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RemovalOperator" eSuperTypes="#//MutationOperatorType"/>
   <eClassifiers xsi:type="ecore:EClass" name="ModificationOperator" eSuperTypes="#//MutationOperatorType">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="strategy" eType="#//AttributeMutation"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="strategy" upperBound="-1"
+        eType="#//FeatureSelectionStrategy" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RetypingOperator" eSuperTypes="#//MutationOperatorType"/>
   <eClassifiers xsi:type="ecore:EClass" name="ScopeSelectionStrategy" abstract="true"/>
@@ -90,23 +91,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="ImplicitScopeSelection" eSuperTypes="#//ScopeSelectionStrategy">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mode" lowerBound="1" eType="#//ClassSelectionMode"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="ClassSelectionMode">
-    <eLiterals name="ALL"/>
-    <eLiterals name="RANDOM" value="1"/>
-    <eLiterals name="CONCRETE" value="2"/>
-    <eLiterals name="ABSTRACT" value="3"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FeatureSelectionStrategy"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExplicitFeatureSelection" eSuperTypes="#//FeatureSelectionStrategy">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetFeature" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStructuralFeature"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="OperatorCoverage">
-    <eLiterals name="FULL"/>
-    <eLiterals name="PARTIAL" value="1"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="CloningType">
-    <eLiterals name="DEEP"/>
-    <eLiterals name="SHALLOW" value="1"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AttributeMutation">
+  <eClassifiers xsi:type="ecore:EClass" name="ImplicitFeatureSelection" eSuperTypes="#//FeatureSelectionStrategy">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mode" lowerBound="1" upperBound="-1"
-        eType="#//AttributeSelectionMode"/>
+        eType="#//FeatureSelectionMode"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="intMin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="intMax" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="doubleMin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -114,9 +106,21 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stringMin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stringMax" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="AttributeSelectionMode">
+  <eClassifiers xsi:type="ecore:EEnum" name="ClassSelectionMode">
     <eLiterals name="ALL"/>
     <eLiterals name="RANDOM" value="1"/>
+    <eLiterals name="CONCRETE" value="2"/>
+    <eLiterals name="ABSTRACT" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CloningType">
+    <eLiterals name="DEEP"/>
+    <eLiterals name="SHALLOW" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="FeatureSelectionMode">
+    <eLiterals name="ALL"/>
+    <eLiterals name="RANDOM" value="1"/>
+    <eLiterals name="REFERENCE" value="2"/>
+    <eLiterals name="ATTRIBUTE" value="3"/>
     <eLiterals name="INTEGER" value="4"/>
     <eLiterals name="DOUBLE" value="5"/>
     <eLiterals name="BOOLEAN" value="6"/>
