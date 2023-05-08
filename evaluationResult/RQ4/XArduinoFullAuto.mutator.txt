@@ -1,0 +1,715 @@
+generate exhaustive mutants 
+in "data/out/" 
+from "data/model/" 
+metamodel "/XArduinoAuto/data/model/arduino.ecore" 
+
+with blocks {
+	b0  {
+		create DigitalPin
+	}
+	b1  {
+		create AnalogPin
+	}
+	b2  {
+		create Sketch
+	}
+	b3  {
+		create Project
+	}
+	b4  {
+		create Delay
+	}
+	b5  {
+		create ModuleAssignment
+	}
+	b6  {
+		create Repeat
+	}
+	b7  {
+		create If
+	}
+	b8  {
+		create While
+	}
+	b9  {
+		create VariableAssignment
+	}
+	b10  {
+		create BinaryIntegerExpression
+	}
+	b11  {
+		create BinaryBooleanExpression
+	}
+	b12  {
+		create IntegerConstant
+	}
+	b13  {
+		create BooleanConstant
+	}
+	b14  {
+		create IntegerVariable
+	}
+	b15  {
+		create BooleanVariable
+	}
+	b16  {
+		create BooleanModuleGet
+	}
+	b17  {
+		create IntegerModuleGet
+	}
+	b18  {
+		create UnaryBooleanExpression
+	}
+	b19  {
+		create UnaryIntegerExpression
+	}
+	b20  {
+		create VariableDeclaration
+	}
+	b21  {
+		create IntegerVariableRef
+	}
+	b22  {
+		create LED
+	}
+	b23  {
+		create PushButton
+	}
+	b24  {
+		create Buzzer
+	}
+	b25  {
+		create MicroServo
+	}
+	b26  {
+		create InfraRedSensor
+	}
+	b27  {
+		create Fan
+	}
+	b28  {
+		create RotationSensor
+	}
+	b29  {
+		create AmbientLightSensor
+	}
+	b30  {
+		create SoundSensor
+	}
+	b31  {
+		create MusicPlayer
+	}
+	b32  {
+		create BluetoothTransceiver
+	}
+	b33  {
+		create WaitFor
+	}
+	b34  {
+		create Block
+	}
+	b35  {
+		create ArduinoBoard
+	}
+	b36  {
+		create BooleanVariableRef
+	}
+	b37  {
+		p = modify one DigitalPin with { name = random-string ( 0 , 10 ) }
+	}
+	b38  {
+		p = modify one DigitalPin with { level = random-int ( 0 , 10 ) }
+	}
+	b39  {
+		s = select one ArduinoDigitalModule
+		p = modify one DigitalPin where { module <> s } with { module = s }
+	}
+	b40  {
+		p = modify one AnalogPin with { name = random-string ( 0 , 10 ) }
+	}
+	b41  {
+		p = modify one AnalogPin with { level = random-int ( 0 , 10 ) }
+	}
+	b42  {
+		s = select one ArduinoAnalogModule
+		p = modify one AnalogPin where { module <> s } with { module = s }
+	}
+	b43  {
+		p = modify one Sketch with { name = random-string ( 0 , 10 ) }
+	}
+	b44  {
+		s = select one Block
+		p = modify one Sketch where { block <> s } with { block = s }
+	}
+	b45  {
+		s = select one Board
+		p = modify one Sketch where { board <> s } with { board = s }
+	}
+	b46  {
+		p = modify one Delay where { unit in [ 'MicroSecond' ]  } with { unit = 'MilliSecond' }
+	}
+	b47  {
+		p = modify one Delay where { unit in [ 'MilliSecond' ]  } with { unit = 'MicroSecond' }
+	}
+	b48  {
+		p = modify one Delay with { value = random-int ( 0 , 10 ) }
+	}
+	b49  {
+		s = select one Module
+		p = modify one ModuleAssignment where { module <> s } with { module = s }
+	}
+	b50  {
+		s = select one Expression
+		p = modify one ModuleAssignment where { operand <> s } with { operand = s }
+	}
+	b51  {
+		s = select one Block
+		p = modify one Repeat where { block <> s } with { block = s }
+	}
+	b52  {
+		p = modify one Repeat with { iteration = random-int ( 0 , 10 ) }
+	}
+	b53  {
+		s = select one Block
+		p = modify one If where { block <> s } with { block = s }
+	}
+	b54  {
+		s = select one BooleanExpression
+		p = modify one If where { condition <> s } with { condition = s }
+	}
+	b55  {
+		s = select one Block
+		p = modify one If where { elseBlock <> s } with { elseBlock = s }
+	}
+	b56  {
+		s = select one Block
+		p = modify one While where { block <> s } with { block = s }
+	}
+	b57  {
+		s = select one BooleanExpression
+		p = modify one While where { condition <> s } with { condition = s }
+	}
+	b58  {
+		s = select one Expression
+		p = modify one VariableAssignment where { operand <> s } with { operand = s }
+	}
+	b59  {
+		s = select one Variable
+		p = modify one VariableAssignment where { variable <> s } with { variable = s }
+	}
+	b60  {
+		s = select one Expression
+		p = modify one BinaryIntegerExpression where { left <> s } with { left = s }
+	}
+	b61  {
+		s = select one Expression
+		p = modify one BinaryIntegerExpression where { right <> s } with { right = s }
+	}
+	b62  {
+		p = modify one BinaryIntegerExpression where { operator in [ 'plus', 'mul', 'div', 'min', 'max', 'pourcent' ]  } with { operator = 'minus' }
+	}
+	b63  {
+		p = modify one BinaryIntegerExpression where { operator in [ 'minus', 'mul', 'div', 'min', 'max', 'pourcent' ]  } with { operator = 'plus' }
+	}
+	b64  {
+		p = modify one BinaryIntegerExpression where { operator in [ 'minus', 'plus', 'div', 'min', 'max', 'pourcent' ]  } with { operator = 'mul' }
+	}
+	b65  {
+		p = modify one BinaryIntegerExpression where { operator in [ 'minus', 'plus', 'mul', 'min', 'max', 'pourcent' ]  } with { operator = 'div' }
+	}
+	b66  {
+		p = modify one BinaryIntegerExpression where { operator in [ 'minus', 'plus', 'mul', 'div', 'max', 'pourcent' ]  } with { operator = 'min' }
+	}
+	b67  {
+		p = modify one BinaryIntegerExpression where { operator in [ 'minus', 'plus', 'mul', 'div', 'min', 'pourcent' ]  } with { operator = 'max' }
+	}
+	b68  {
+		p = modify one BinaryIntegerExpression where { operator in [ 'minus', 'plus', 'mul', 'div', 'min', 'max' ]  } with { operator = 'pourcent' }
+	}
+	b69  {
+		s = select one Expression
+		p = modify one BinaryBooleanExpression where { left <> s } with { left = s }
+	}
+	b70  {
+		s = select one Expression
+		p = modify one BinaryBooleanExpression where { right <> s } with { right = s }
+	}
+	b71  {
+		p = modify one BinaryBooleanExpression where { operator in [ 'sup', 'infOrEqual', 'supOrEqual', 'equal', 'AND', 'OR', 'Different' ]  } with { operator = 'inf' }
+	}
+	b72  {
+		p = modify one BinaryBooleanExpression where { operator in [ 'inf', 'infOrEqual', 'supOrEqual', 'equal', 'AND', 'OR', 'Different' ]  } with { operator = 'sup' }
+	}
+	b73  {
+		p = modify one BinaryBooleanExpression where { operator in [ 'inf', 'sup', 'supOrEqual', 'equal', 'AND', 'OR', 'Different' ]  } with { operator = 'infOrEqual' }
+	}
+	b74  {
+		p = modify one BinaryBooleanExpression where { operator in [ 'inf', 'sup', 'infOrEqual', 'equal', 'AND', 'OR', 'Different' ]  } with { operator = 'supOrEqual' }
+	}
+	b75  {
+		p = modify one BinaryBooleanExpression where { operator in [ 'inf', 'sup', 'infOrEqual', 'supOrEqual', 'AND', 'OR', 'Different' ]  } with { operator = 'equal' }
+	}
+	b76  {
+		p = modify one BinaryBooleanExpression where { operator in [ 'inf', 'sup', 'infOrEqual', 'supOrEqual', 'equal', 'OR', 'Different' ]  } with { operator = 'AND' }
+	}
+	b77  {
+		p = modify one BinaryBooleanExpression where { operator in [ 'inf', 'sup', 'infOrEqual', 'supOrEqual', 'equal', 'AND', 'Different' ]  } with { operator = 'OR' }
+	}
+	b78  {
+		p = modify one BinaryBooleanExpression where { operator in [ 'inf', 'sup', 'infOrEqual', 'supOrEqual', 'equal', 'AND', 'OR' ]  } with { operator = 'Different' }
+	}
+	b79  {
+		p = modify one IntegerConstant with { value = random-int ( 0 , 10 ) }
+	}
+	b80  {
+		p = modify one BooleanConstant with { value = random-boolean }
+	}
+	b81  {
+		p = modify one IntegerVariable with { name = random-string ( 0 , 10 ) }
+	}
+	b82  {
+		p = modify one IntegerVariable with { initialValue = random-int ( 0 , 10 ) }
+	}
+	b83  {
+		p = modify one BooleanVariable with { name = random-string ( 0 , 10 ) }
+	}
+	b84  {
+		p = modify one BooleanVariable with { initialValue = random-boolean }
+	}
+	b85  {
+		s = select one Module
+		p = modify one BooleanModuleGet where { module <> s } with { module = s }
+	}
+	b86  {
+		s = select one Module
+		p = modify one IntegerModuleGet where { module <> s } with { module = s }
+	}
+	b87  {
+		s = select one Expression
+		p = modify one UnaryBooleanExpression where { operand <> s } with { operand = s }
+	}
+	b88  {
+		p = modify one UnaryBooleanExpression with { operator = 'NOT' }
+	}
+	b89  {
+		s = select one Expression
+		p = modify one UnaryIntegerExpression where { operand <> s } with { operand = s }
+	}
+	b90  {
+		p = modify one UnaryIntegerExpression where { operator in [ 'squareRoot' ]  } with { operator = 'minus' }
+	}
+	b91  {
+		p = modify one UnaryIntegerExpression where { operator in [ 'minus' ]  } with { operator = 'squareRoot' }
+	}
+	b92  {
+		s = select one Variable
+		p = modify one VariableDeclaration where { variable <> s } with { variable = s }
+	}
+	b93  {
+		s = select one IntegerVariable
+		p = modify one IntegerVariableRef where { variable <> s } with { variable = s }
+	}
+	b94  {
+		p = modify one LED with { name = random-string ( 0 , 10 ) }
+	}
+	b95  {
+		p = modify one LED where { color in [ 'red', 'white' ]  } with { color = 'blue' }
+	}
+	b96  {
+		p = modify one LED where { color in [ 'blue', 'white' ]  } with { color = 'red' }
+	}
+	b97  {
+		p = modify one LED where { color in [ 'blue', 'red' ]  } with { color = 'white' }
+	}
+	b98  {
+		p = modify one PushButton with { name = random-string ( 0 , 10 ) }
+	}
+	b99  {
+		p = modify one Buzzer with { name = random-string ( 0 , 10 ) }
+	}
+	b100  {
+		p = modify one MicroServo with { name = random-string ( 0 , 10 ) }
+	}
+	b101  {
+		p = modify one InfraRedSensor with { name = random-string ( 0 , 10 ) }
+	}
+	b102  {
+		p = modify one Fan with { name = random-string ( 0 , 10 ) }
+	}
+	b103  {
+		p = modify one RotationSensor with { name = random-string ( 0 , 10 ) }
+	}
+	b104  {
+		p = modify one AmbientLightSensor with { name = random-string ( 0 , 10 ) }
+	}
+	b105  {
+		p = modify one SoundSensor with { name = random-string ( 0 , 10 ) }
+	}
+	b106  {
+		p = modify one MusicPlayer with { name = random-string ( 0 , 10 ) }
+	}
+	b107  {
+		p = modify one BluetoothTransceiver with { name = random-string ( 0 , 10 ) }
+	}
+	b108  {
+		s = select one BluetoothTransceiver
+		p = modify one BluetoothTransceiver where { connectedTransceiver <> s } with { connectedTransceiver = s }
+	}
+	b109  {
+		s = select one Pin
+		p = modify one WaitFor where { pin <> s } with { pin = s }
+	}
+	b110  {
+		p = modify one WaitFor where { mode in [ 'FALLING', 'CHANGE' ]  } with { mode = 'RISING' }
+	}
+	b111  {
+		p = modify one WaitFor where { mode in [ 'RISING', 'CHANGE' ]  } with { mode = 'FALLING' }
+	}
+	b112  {
+		p = modify one WaitFor where { mode in [ 'RISING', 'FALLING' ]  } with { mode = 'CHANGE' }
+	}
+	b113  {
+		s = select one Instruction
+		p = modify one Block where { instructions <> s } with { instructions = s }
+	}
+	b114  {
+		p = modify one ArduinoBoard with { name = random-string ( 0 , 10 ) }
+	}
+	b115  {
+		s = select one DigitalPin
+		p = modify one ArduinoBoard where { digitalPins <> s } with { digitalPins = s }
+	}
+	b116  {
+		s = select one AnalogPin
+		p = modify one ArduinoBoard where { analogPins <> s } with { analogPins = s }
+	}
+	b117  {
+		s = select one BooleanVariable
+		p = modify one BooleanVariableRef where { variable <> s } with { variable = s }
+	}
+	b118  {
+		p = deep clone one DigitalPin
+	}
+	b119  {
+		p = deep clone one AnalogPin
+	}
+	b120  {
+		p = deep clone one Sketch
+	}
+	b121  {
+		p = deep clone one Project
+	}
+	b122  {
+		p = deep clone one Delay
+	}
+	b123  {
+		p = deep clone one ModuleAssignment
+	}
+	b124  {
+		p = deep clone one Repeat
+	}
+	b125  {
+		p = deep clone one If
+	}
+	b126  {
+		p = deep clone one While
+	}
+	b127  {
+		p = deep clone one VariableAssignment
+	}
+	b128  {
+		p = deep clone one BinaryIntegerExpression
+	}
+	b129  {
+		p = deep clone one BinaryBooleanExpression
+	}
+	b130  {
+		p = deep clone one IntegerConstant
+	}
+	b131  {
+		p = deep clone one BooleanConstant
+	}
+	b132  {
+		p = deep clone one IntegerVariable
+	}
+	b133  {
+		p = deep clone one BooleanVariable
+	}
+	b134  {
+		p = deep clone one BooleanModuleGet
+	}
+	b135  {
+		p = deep clone one IntegerModuleGet
+	}
+	b136  {
+		p = deep clone one UnaryBooleanExpression
+	}
+	b137  {
+		p = deep clone one UnaryIntegerExpression
+	}
+	b138  {
+		p = deep clone one VariableDeclaration
+	}
+	b139  {
+		p = deep clone one IntegerVariableRef
+	}
+	b140  {
+		p = deep clone one LED
+	}
+	b141  {
+		p = deep clone one PushButton
+	}
+	b142  {
+		p = deep clone one Buzzer
+	}
+	b143  {
+		p = deep clone one MicroServo
+	}
+	b144  {
+		p = deep clone one InfraRedSensor
+	}
+	b145  {
+		p = deep clone one Fan
+	}
+	b146  {
+		p = deep clone one RotationSensor
+	}
+	b147  {
+		p = deep clone one AmbientLightSensor
+	}
+	b148  {
+		p = deep clone one SoundSensor
+	}
+	b149  {
+		p = deep clone one MusicPlayer
+	}
+	b150  {
+		p = deep clone one BluetoothTransceiver
+	}
+	b151  {
+		p = deep clone one WaitFor
+	}
+	b152  {
+		p = deep clone one Block
+	}
+	b153  {
+		p = deep clone one ArduinoBoard
+	}
+	b154  {
+		p = deep clone one BooleanVariableRef
+	}
+	b155  {
+		remove one DigitalPin
+	}
+	b156  {
+		remove one AnalogPin
+	}
+	b157  {
+		remove one Sketch
+	}
+	b158  {
+		remove one Project
+	}
+	b159  {
+		remove one Delay
+	}
+	b160  {
+		remove one ModuleAssignment
+	}
+	b161  {
+		remove one Repeat
+	}
+	b162  {
+		remove one If
+	}
+	b163  {
+		remove one While
+	}
+	b164  {
+		remove one VariableAssignment
+	}
+	b165  {
+		remove one BinaryIntegerExpression
+	}
+	b166  {
+		remove one BinaryBooleanExpression
+	}
+	b167  {
+		remove one IntegerConstant
+	}
+	b168  {
+		remove one BooleanConstant
+	}
+	b169  {
+		remove one IntegerVariable
+	}
+	b170  {
+		remove one BooleanVariable
+	}
+	b171  {
+		remove one BooleanModuleGet
+	}
+	b172  {
+		remove one IntegerModuleGet
+	}
+	b173  {
+		remove one UnaryBooleanExpression
+	}
+	b174  {
+		remove one UnaryIntegerExpression
+	}
+	b175  {
+		remove one VariableDeclaration
+	}
+	b176  {
+		remove one IntegerVariableRef
+	}
+	b177  {
+		remove one LED
+	}
+	b178  {
+		remove one PushButton
+	}
+	b179  {
+		remove one Buzzer
+	}
+	b180  {
+		remove one MicroServo
+	}
+	b181  {
+		remove one InfraRedSensor
+	}
+	b182  {
+		remove one Fan
+	}
+	b183  {
+		remove one RotationSensor
+	}
+	b184  {
+		remove one AmbientLightSensor
+	}
+	b185  {
+		remove one SoundSensor
+	}
+	b186  {
+		remove one MusicPlayer
+	}
+	b187  {
+		remove one BluetoothTransceiver
+	}
+	b188  {
+		remove one WaitFor
+	}
+	b189  {
+		remove one Block
+	}
+	b190  {
+		remove one ArduinoBoard
+	}
+	b191  {
+		remove one BooleanVariableRef
+	}
+	b192  {
+		p = retype one DigitalPin as [ AnalogPin ]
+	}
+	b193  {
+		p = retype one AnalogPin as [ DigitalPin ]
+	}
+	b194  {
+		p = retype one Sketch as [ ArduinoBoard , LED , PushButton , Buzzer , MicroServo , InfraRedSensor , Fan , RotationSensor , AmbientLightSensor , SoundSensor , MusicPlayer , BluetoothTransceiver , DigitalPin , AnalogPin , IntegerVariable , BooleanVariable ]
+	}
+	b195  {
+		p = retype one Delay as [ WaitFor ]
+	}
+	b196  {
+		p = retype one ModuleAssignment as [ VariableAssignment ]
+	}
+	b197  {
+		p = retype one Repeat as [ If , While ]
+	}
+	b198  {
+		p = retype one If as [ Repeat , While ]
+	}
+	b199  {
+		p = retype one While as [ Repeat , If ]
+	}
+	b200  {
+		p = retype one VariableAssignment as [ ModuleAssignment , Repeat , If , While , Delay , WaitFor , VariableDeclaration ]
+	}
+	b201  {
+		p = retype one BinaryIntegerExpression as [ BinaryBooleanExpression , IntegerConstant , IntegerModuleGet , UnaryIntegerExpression , IntegerVariableRef ]
+	}
+	b202  {
+		p = retype one BinaryBooleanExpression as [ BinaryIntegerExpression , BooleanConstant , BooleanModuleGet , UnaryBooleanExpression , BooleanVariableRef ]
+	}
+	b203  {
+		p = retype one IntegerConstant as [ BooleanConstant , BinaryIntegerExpression , IntegerModuleGet , UnaryIntegerExpression , IntegerVariableRef ]
+	}
+	b204  {
+		p = retype one BooleanConstant as [ IntegerConstant , BinaryBooleanExpression , BooleanModuleGet , UnaryBooleanExpression , BooleanVariableRef ]
+	}
+	b205  {
+		p = retype one IntegerVariable as [ BooleanVariable ]
+	}
+	b206  {
+		p = retype one BooleanVariable as [ IntegerVariable ]
+	}
+	b207  {
+		p = retype one BooleanModuleGet as [ IntegerModuleGet , BinaryBooleanExpression , BooleanConstant , UnaryBooleanExpression , BooleanVariableRef ]
+	}
+	b208  {
+		p = retype one IntegerModuleGet as [ BooleanModuleGet , BinaryIntegerExpression , IntegerConstant , UnaryIntegerExpression , IntegerVariableRef ]
+	}
+	b209  {
+		p = retype one UnaryBooleanExpression as [ UnaryIntegerExpression , BinaryBooleanExpression , BooleanConstant , BooleanModuleGet , BooleanVariableRef ]
+	}
+	b210  {
+		p = retype one UnaryIntegerExpression as [ UnaryBooleanExpression , BinaryIntegerExpression , IntegerConstant , IntegerModuleGet , IntegerVariableRef ]
+	}
+	b211  {
+		p = retype one VariableDeclaration as [ ModuleAssignment , Repeat , If , While , Delay , WaitFor , VariableAssignment ]
+	}
+	b212  {
+		p = retype one IntegerVariableRef as [ BooleanVariableRef , BinaryIntegerExpression , IntegerConstant , IntegerModuleGet , UnaryIntegerExpression ]
+	}
+	b213  {
+		p = retype one LED as [ PushButton , Buzzer , MicroServo , InfraRedSensor , Fan ]
+	}
+	b214  {
+		p = retype one PushButton as [ LED , Buzzer , MicroServo , InfraRedSensor , Fan ]
+	}
+	b215  {
+		p = retype one Buzzer as [ LED , PushButton , MicroServo , InfraRedSensor , Fan ]
+	}
+	b216  {
+		p = retype one MicroServo as [ LED , PushButton , Buzzer , InfraRedSensor , Fan ]
+	}
+	b217  {
+		p = retype one InfraRedSensor as [ LED , PushButton , Buzzer , MicroServo , Fan ]
+	}
+	b218  {
+		p = retype one Fan as [ LED , PushButton , Buzzer , MicroServo , InfraRedSensor ]
+	}
+	b219  {
+		p = retype one RotationSensor as [ AmbientLightSensor , SoundSensor , MusicPlayer , BluetoothTransceiver ]
+	}
+	b220  {
+		p = retype one AmbientLightSensor as [ RotationSensor , SoundSensor , MusicPlayer , BluetoothTransceiver ]
+	}
+	b221  {
+		p = retype one SoundSensor as [ RotationSensor , AmbientLightSensor , MusicPlayer , BluetoothTransceiver ]
+	}
+	b222  {
+		p = retype one MusicPlayer as [ RotationSensor , AmbientLightSensor , SoundSensor , BluetoothTransceiver ]
+	}
+	b223  {
+		p = retype one BluetoothTransceiver as [ RotationSensor , AmbientLightSensor , SoundSensor , MusicPlayer ]
+	}
+	b224  {
+		p = retype one WaitFor as [ Delay ]
+	}
+	b225  {
+		p = retype one BooleanVariableRef as [ IntegerVariableRef , BinaryBooleanExpression , BooleanConstant , BooleanModuleGet , UnaryBooleanExpression ]
+	}
+}

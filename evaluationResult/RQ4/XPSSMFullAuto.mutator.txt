@@ -1,0 +1,610 @@
+generate 20 mutants 
+in "data/out/" 
+from "data/model/" 
+metamodel "/XPSSMAuto/data/model/statemachines.ecore" 
+
+with blocks {
+	b0  {
+		p = deep clone one Signal
+	}
+	b1  {
+		p = deep clone one Operation
+	}
+	b2  {
+		p = deep clone one SignalEventType
+	}
+	b3  {
+		p = deep clone one CallEventType
+	}
+	b4  {
+		p = deep clone one BooleanAttribute
+	}
+	b5  {
+		p = deep clone one IntegerAttribute
+	}
+	b6  {
+		p = deep clone one StringAttribute
+	}
+	b7  {
+		p = deep clone one BooleanConstraint
+	}
+	b8  {
+		p = deep clone one IntegerConstraint
+	}
+	b9  {
+		p = deep clone one StringConstraint
+	}
+	b10  {
+		p = deep clone one StateMachine
+	}
+	b11  {
+		p = deep clone one Region
+	}
+	b12  {
+		p = deep clone one Pseudostate
+	}
+	b13  {
+		p = deep clone one State
+	}
+	b14  {
+		p = deep clone one FinalState
+	}
+	b15  {
+		p = deep clone one Transition
+	}
+	b16  {
+		p = deep clone one Trigger
+	}
+	b17  {
+		p = deep clone one Behavior
+	}
+	b18  {
+		p = deep clone one OperationBehavior
+	}
+	b19  {
+		p = deep clone one BooleanAttributeValue
+	}
+	b20  {
+		p = deep clone one IntegerAttributeValue
+	}
+	b21  {
+		p = deep clone one StringAttributeValue
+	}
+	b22  {
+		p = deep clone one IntegerComparisonExpression
+	}
+	b23  {
+		p = deep clone one StringComparisonExpression
+	}
+	b24  {
+		p = deep clone one BooleanBinaryExpression
+	}
+	b25  {
+		p = deep clone one BooleanUnaryExpression
+	}
+	b26  {
+		p = deep clone one CompletionEventOccurrence
+	}
+	b27  {
+		p = deep clone one SignalEventOccurrence
+	}
+	b28  {
+		p = deep clone one CallEventOccurrence
+	}
+	b29  {
+		create Signal
+	}
+	b30  {
+		create Operation
+	}
+	b31  {
+		create SignalEventType
+	}
+	b32  {
+		create CallEventType
+	}
+	b33  {
+		create BooleanAttribute
+	}
+	b34  {
+		create IntegerAttribute
+	}
+	b35  {
+		create StringAttribute
+	}
+	b36  {
+		create BooleanConstraint
+	}
+	b37  {
+		create IntegerConstraint
+	}
+	b38  {
+		create StringConstraint
+	}
+	b39  {
+		create StateMachine
+	}
+	b40  {
+		create Region
+	}
+	b41  {
+		create Pseudostate
+	}
+	b42  {
+		create State
+	}
+	b43  {
+		create FinalState
+	}
+	b44  {
+		create Transition
+	}
+	b45  {
+		create Trigger
+	}
+	b46  {
+		create Behavior
+	}
+	b47  {
+		create OperationBehavior
+	}
+	b48  {
+		create BooleanAttributeValue
+	}
+	b49  {
+		create IntegerAttributeValue
+	}
+	b50  {
+		create StringAttributeValue
+	}
+	b51  {
+		create IntegerComparisonExpression
+	}
+	b52  {
+		create StringComparisonExpression
+	}
+	b53  {
+		create BooleanBinaryExpression
+	}
+	b54  {
+		create BooleanUnaryExpression
+	}
+	b55  {
+		create CompletionEventOccurrence
+	}
+	b56  {
+		create SignalEventOccurrence
+	}
+	b57  {
+		create CallEventOccurrence
+	}
+	b58  {
+		p = modify one Signal with { name = random-string ( 0 , 10 ) }
+	}
+	b59  {
+		s = select one Attribute
+		p = modify one Signal where { attributes <> s } with { attributes = s }
+	}
+	b60  {
+		p = modify one Operation with { name = random-string ( 0 , 10 ) }
+	}
+	b61  {
+		s = select one Attribute
+		p = modify one Operation where { inParameters <> s } with { inParameters = s }
+	}
+	b62  {
+		s = select one Attribute
+		p = modify one Operation where { outParameters <> s } with { outParameters = s }
+	}
+	b63  {
+		s = select one Attribute
+		p = modify one Operation where { return <> s } with { return = s }
+	}
+	b64  {
+		s = select one Signal
+		p = modify one SignalEventType where { signal <> s } with { signal = s }
+	}
+	b65  {
+		s = select one Operation
+		p = modify one CallEventType where { operation <> s } with { operation = s }
+	}
+	b66  {
+		p = modify one BooleanAttribute with { name = random-string ( 0 , 10 ) }
+	}
+	b67  {
+		p = modify one IntegerAttribute with { name = random-string ( 0 , 10 ) }
+	}
+	b68  {
+		p = modify one StringAttribute with { name = random-string ( 0 , 10 ) }
+	}
+	b69  {
+		s = select one BooleanExpression
+		p = modify one BooleanConstraint where { expression <> s } with { expression = s }
+	}
+	b70  {
+		s = select one IntegerComparisonExpression
+		p = modify one IntegerConstraint where { expression <> s } with { expression = s }
+	}
+	b71  {
+		s = select one StringComparisonExpression
+		p = modify one StringConstraint where { expression <> s } with { expression = s }
+	}
+	b72  {
+		p = modify one StateMachine with { name = random-string ( 0 , 10 ) }
+	}
+	b73  {
+		p = modify one Region with { name = random-string ( 0 , 10 ) }
+	}
+	b74  {
+		s = select one Vertex
+		p = modify one Region where { currentVertex <> s } with { currentVertex = s }
+	}
+	b75  {
+		p = modify one Pseudostate with { name = random-string ( 0 , 10 ) }
+	}
+	b76  {
+		p = modify one Pseudostate where { kind in [ 'join', 'fork', 'terminate', 'entrypoint', 'exitpoint' ]  } with { kind = 'initial' }
+	}
+	b77  {
+		p = modify one Pseudostate where { kind in [ 'initial', 'fork', 'terminate', 'entrypoint', 'exitpoint' ]  } with { kind = 'join' }
+	}
+	b78  {
+		p = modify one Pseudostate where { kind in [ 'initial', 'join', 'terminate', 'entrypoint', 'exitpoint' ]  } with { kind = 'fork' }
+	}
+	b79  {
+		p = modify one Pseudostate where { kind in [ 'initial', 'join', 'fork', 'entrypoint', 'exitpoint' ]  } with { kind = 'terminate' }
+	}
+	b80  {
+		p = modify one Pseudostate where { kind in [ 'initial', 'join', 'fork', 'terminate', 'exitpoint' ]  } with { kind = 'entrypoint' }
+	}
+	b81  {
+		p = modify one Pseudostate where { kind in [ 'initial', 'join', 'fork', 'terminate', 'entrypoint' ]  } with { kind = 'exitpoint' }
+	}
+	b82  {
+		p = modify one State with { name = random-string ( 0 , 10 ) }
+	}
+	b83  {
+		s = select one Behavior
+		p = modify one State where { entry <> s } with { entry = s }
+	}
+	b84  {
+		s = select one Behavior
+		p = modify one State where { doActivity <> s } with { doActivity = s }
+	}
+	b85  {
+		s = select one Behavior
+		p = modify one State where { exit <> s } with { exit = s }
+	}
+	b86  {
+		s = select one Trigger
+		p = modify one State where { deferrableTriggers <> s } with { deferrableTriggers = s }
+	}
+	b87  {
+		p = modify one FinalState with { name = random-string ( 0 , 10 ) }
+	}
+	b88  {
+		s = select one Behavior
+		p = modify one FinalState where { entry <> s } with { entry = s }
+	}
+	b89  {
+		s = select one Behavior
+		p = modify one FinalState where { doActivity <> s } with { doActivity = s }
+	}
+	b90  {
+		s = select one Behavior
+		p = modify one FinalState where { exit <> s } with { exit = s }
+	}
+	b91  {
+		s = select one Trigger
+		p = modify one FinalState where { deferrableTriggers <> s } with { deferrableTriggers = s }
+	}
+	b92  {
+		p = modify one Transition with { name = random-string ( 0 , 10 ) }
+	}
+	b93  {
+		s = select one Trigger
+		p = modify one Transition where { triggers <> s } with { triggers = s }
+	}
+	b94  {
+		p = modify one Transition where { kind in [ 'local', 'external' ]  } with { kind = 'internal' }
+	}
+	b95  {
+		p = modify one Transition where { kind in [ 'internal', 'external' ]  } with { kind = 'local' }
+	}
+	b96  {
+		p = modify one Transition where { kind in [ 'internal', 'local' ]  } with { kind = 'external' }
+	}
+	b97  {
+		s = select one Behavior
+		p = modify one Transition where { effect <> s } with { effect = s }
+	}
+	b98  {
+		s = select one Constraint
+		p = modify one Transition where { constraint <> s } with { constraint = s }
+	}
+	b99  {
+		p = modify one Trigger with { name = random-string ( 0 , 10 ) }
+	}
+	b100  {
+		s = select one EventType
+		p = modify one Trigger where { eventType <> s } with { eventType = s }
+	}
+	b101  {
+		p = modify one Behavior with { name = random-string ( 0 , 10 ) }
+	}
+	b102  {
+		s = select one SignalEventOccurrence
+		p = modify one Behavior where { emittedSignals <> s } with { emittedSignals = s }
+	}
+	b103  {
+		p = modify one OperationBehavior with { name = random-string ( 0 , 10 ) }
+	}
+	b104  {
+		s = select one SignalEventOccurrence
+		p = modify one OperationBehavior where { emittedSignals <> s } with { emittedSignals = s }
+	}
+	b105  {
+		s = select one AttributeValue
+		p = modify one OperationBehavior where { attributeValues <> s } with { attributeValues = s }
+	}
+	b106  {
+		s = select one BooleanAttribute
+		p = modify one BooleanAttributeValue where { attribute <> s } with { attribute = s }
+	}
+	b107  {
+		p = modify one BooleanAttributeValue
+	}
+	b108  {
+		s = select one IntegerAttribute
+		p = modify one IntegerAttributeValue where { attribute <> s } with { attribute = s }
+	}
+	b109  {
+		p = modify one IntegerAttributeValue
+	}
+	b110  {
+		s = select one StringAttribute
+		p = modify one StringAttributeValue where { attribute <> s } with { attribute = s }
+	}
+	b111  {
+		p = modify one StringAttributeValue with { value = random-string ( 0 , 10 ) }
+	}
+	b112  {
+		p = modify one IntegerComparisonExpression where { operator in [ '<=', '==', '!=', '>=', '>' ]  } with { operator = '<' }
+	}
+	b113  {
+		p = modify one IntegerComparisonExpression where { operator in [ '<', '==', '!=', '>=', '>' ]  } with { operator = '<=' }
+	}
+	b114  {
+		p = modify one IntegerComparisonExpression where { operator in [ '<', '<=', '!=', '>=', '>' ]  } with { operator = '==' }
+	}
+	b115  {
+		p = modify one IntegerComparisonExpression where { operator in [ '<', '<=', '==', '>=', '>' ]  } with { operator = '!=' }
+	}
+	b116  {
+		p = modify one IntegerComparisonExpression where { operator in [ '<', '<=', '==', '!=', '>' ]  } with { operator = '>=' }
+	}
+	b117  {
+		p = modify one IntegerComparisonExpression where { operator in [ '<', '<=', '==', '!=', '>=' ]  } with { operator = '>' }
+	}
+	b118  {
+		s = select one IntegerAttribute
+		p = modify one IntegerComparisonExpression where { operand1 <> s } with { operand1 = s }
+	}
+	b119  {
+		s = select one IntegerAttribute
+		p = modify one IntegerComparisonExpression where { operand2 <> s } with { operand2 = s }
+	}
+	b120  {
+		p = modify one StringComparisonExpression where { operator in [ '!=' ]  } with { operator = '==' }
+	}
+	b121  {
+		p = modify one StringComparisonExpression where { operator in [ '==' ]  } with { operator = '!=' }
+	}
+	b122  {
+		s = select one StringAttribute
+		p = modify one StringComparisonExpression where { operand1 <> s } with { operand1 = s }
+	}
+	b123  {
+		s = select one StringAttribute
+		p = modify one StringComparisonExpression where { operand2 <> s } with { operand2 = s }
+	}
+	b124  {
+		p = modify one BooleanBinaryExpression where { operator in [ '||' ]  } with { operator = '&&' }
+	}
+	b125  {
+		p = modify one BooleanBinaryExpression where { operator in [ '&&' ]  } with { operator = '||' }
+	}
+	b126  {
+		s = select one BooleanAttribute
+		p = modify one BooleanBinaryExpression where { operand1 <> s } with { operand1 = s }
+	}
+	b127  {
+		s = select one BooleanAttribute
+		p = modify one BooleanBinaryExpression where { operand2 <> s } with { operand2 = s }
+	}
+	b128  {
+		p = modify one BooleanUnaryExpression where { operator in [ 'False' ]  } with { operator = 'True' }
+	}
+	b129  {
+		p = modify one BooleanUnaryExpression where { operator in [ 'True' ]  } with { operator = 'False' }
+	}
+	b130  {
+		s = select one BooleanAttribute
+		p = modify one BooleanUnaryExpression where { operand <> s } with { operand = s }
+	}
+	b131  {
+		s = select one State
+		p = modify one CompletionEventOccurrence where { state <> s } with { state = s }
+	}
+	b132  {
+		s = select one Signal
+		p = modify one SignalEventOccurrence where { signal <> s } with { signal = s }
+	}
+	b133  {
+		s = select one AttributeValue
+		p = modify one SignalEventOccurrence where { attributeValues <> s } with { attributeValues = s }
+	}
+	b134  {
+		s = select one Operation
+		p = modify one CallEventOccurrence where { operation <> s } with { operation = s }
+	}
+	b135  {
+		s = select one AttributeValue
+		p = modify one CallEventOccurrence where { inParameterValues <> s } with { inParameterValues = s }
+	}
+	b136  {
+		s = select one AttributeValue
+		p = modify one CallEventOccurrence where { outParameterValues <> s } with { outParameterValues = s }
+	}
+	b137  {
+		s = select one AttributeValue
+		p = modify one CallEventOccurrence where { returnValue <> s } with { returnValue = s }
+	}
+	b138  {
+		remove one Signal
+	}
+	b139  {
+		remove one Operation
+	}
+	b140  {
+		remove one SignalEventType
+	}
+	b141  {
+		remove one CallEventType
+	}
+	b142  {
+		remove one BooleanAttribute
+	}
+	b143  {
+		remove one IntegerAttribute
+	}
+	b144  {
+		remove one StringAttribute
+	}
+	b145  {
+		remove one BooleanConstraint
+	}
+	b146  {
+		remove one IntegerConstraint
+	}
+	b147  {
+		remove one StringConstraint
+	}
+	b148  {
+		remove one StateMachine
+	}
+	b149  {
+		remove one Region
+	}
+	b150  {
+		remove one Pseudostate
+	}
+	b151  {
+		remove one State
+	}
+	b152  {
+		remove one FinalState
+	}
+	b153  {
+		remove one Transition
+	}
+	b154  {
+		remove one Trigger
+	}
+	b155  {
+		remove one Behavior
+	}
+	b156  {
+		remove one OperationBehavior
+	}
+	b157  {
+		remove one BooleanAttributeValue
+	}
+	b158  {
+		remove one IntegerAttributeValue
+	}
+	b159  {
+		remove one StringAttributeValue
+	}
+	b160  {
+		remove one IntegerComparisonExpression
+	}
+	b161  {
+		remove one StringComparisonExpression
+	}
+	b162  {
+		remove one BooleanBinaryExpression
+	}
+	b163  {
+		remove one BooleanUnaryExpression
+	}
+	b164  {
+		remove one CompletionEventOccurrence
+	}
+	b165  {
+		remove one SignalEventOccurrence
+	}
+	b166  {
+		remove one CallEventOccurrence
+	}
+	b167  {
+		p = retype one SignalEventType as [ CallEventType ]
+	}
+	b168  {
+		p = retype one CallEventType as [ SignalEventType ]
+	}
+	b169  {
+		p = retype one BooleanAttribute as [ IntegerAttribute , StringAttribute ]
+	}
+	b170  {
+		p = retype one IntegerAttribute as [ BooleanAttribute , StringAttribute ]
+	}
+	b171  {
+		p = retype one StringAttribute as [ BooleanAttribute , IntegerAttribute ]
+	}
+	b172  {
+		p = retype one BooleanConstraint as [ IntegerConstraint , StringConstraint ]
+	}
+	b173  {
+		p = retype one IntegerConstraint as [ BooleanConstraint , StringConstraint ]
+	}
+	b174  {
+		p = retype one StringConstraint as [ BooleanConstraint , IntegerConstraint ]
+	}
+	b175  {
+		p = retype one Pseudostate as [ State , FinalState ]
+	}
+	b176  {
+		p = retype one State as [ FinalState , Pseudostate ]
+	}
+	b177  {
+		p = retype one Behavior as [ OperationBehavior ]
+	}
+	b178  {
+		p = retype one BooleanAttributeValue as [ IntegerAttributeValue , StringAttributeValue ]
+	}
+	b179  {
+		p = retype one IntegerAttributeValue as [ BooleanAttributeValue , StringAttributeValue ]
+	}
+	b180  {
+		p = retype one StringAttributeValue as [ BooleanAttributeValue , IntegerAttributeValue ]
+	}
+	b181  {
+		p = retype one IntegerComparisonExpression as [ StringComparisonExpression , BooleanBinaryExpression , BooleanUnaryExpression ]
+	}
+	b182  {
+		p = retype one StringComparisonExpression as [ IntegerComparisonExpression , BooleanBinaryExpression , BooleanUnaryExpression ]
+	}
+	b183  {
+		p = retype one BooleanBinaryExpression as [ BooleanUnaryExpression ]
+	}
+	b184  {
+		p = retype one BooleanUnaryExpression as [ BooleanBinaryExpression ]
+	}
+	b185  {
+		p = retype one SignalEventOccurrence as [ CallEventOccurrence ]
+	}
+	b186  {
+		p = retype one CallEventOccurrence as [ SignalEventOccurrence ]
+	}	
+}
