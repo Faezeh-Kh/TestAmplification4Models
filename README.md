@@ -1,9 +1,7 @@
 # TAMO: Automatic Test Amplification for Executable Models
 This repository contains the tool and the evaluation data of the following paper:
 
-Faezeh Khorram, Erwan Bousse, Jean-Marie Mottu, Gerson Sunyé, Pablo Gómez-Abajo, Pablo C.Cañizares, Esther Guerra, and Juan de Lara. 2022. Automatic Test Amplification for Executable Models. In *ACM/IEEE 25th International Conference on Model Driven Engineering Languages and Systems*, October 23–28, 2022, Montreal, Canada.
-
-The paper is recently accepted and you can find its preprint from [this link](https://hal.archives-ouvertes.fr/hal-03745034).
+Faezeh Khorram, Erwan Bousse, Jean-Marie Mottu, Gerson Sunyé, Djamel Eddine Khelladi, Pablo Gómez-Abajo, Pablo C.Cañizares, Esther Guerra, and Juan de Lara. 2023. A Language-Parametric Test Amplification Framework for Executable Domain-Specific Languages. Submitted to the International Journal on Software and Systems Modeling (SoSyM) as an extension of our MODELS'22 paper ([link to the paper](https://dl.acm.org/doi/10.1145/3550355.3552451)).
 
 ## Introduction
 Behavioral models are important assets that must be thoroughly verified early in the design process. This can be achieved with manually-written test cases that embed carefully hand-picked domain-specific input data. 
@@ -15,7 +13,7 @@ There are ad-hoc test amplification solutions for a few programming languages, s
 In this work, we propose an automated and generic approach for amplifying the test cases of behavioral models. Given an executable DSL, a conforming behavioral model, and an existing test suite, the proposed approach generates new regression test cases in three steps: 
 (i) generating new test inputs by applying a set of generic modifiers on the existing test inputs; 
 (ii) running the model under test with new inputs and generating assertions from the execution traces; and 
-(iii) selecting the new test cases that increase the mutation score. 
+(iii) selecting the new test cases that increase the initial test quality in terms of both mutation score and coverage. 
 
 <p align="center">
     <img src="Screenshots/Overview.jpg"  width="40%" height="40%">
