@@ -1,0 +1,206 @@
+Package testSuite {
+	Test Configuration configuration4Transition001_Test {
+		create Tester tester of type TestSystem ;
+		create SUT PSSM of type MUT with { MUTPath : '/PSSM.Transition001/Transition001_Test$behavior$1.model' ; DSLName : 'org.imt.pssm.reactive.ReactivePSSM' ; } ;
+		connect tester.reactiveGate to PSSM.reactiveGate ;
+	}
+	StateMachine Transition001_Test ( _name = 'Transition001_Test$behavior$1' ) ;
+	Signal Start ( _name = 'Start' ) ;
+	Behavior T2_effect ( _name = 'T2(effect)' ) ;
+	Behavior T3_testEnd ( _name = 'T3(testEnd)' ) ;
+	SignalEventOccurrence start_occurrence ( signal = Start ) ;
+	Test Description Transition001_Test uses configuration configuration4Transition001_Test {
+		tester.reactiveGate sends _run (
+			state_machine = Transition001_Test
+		) to PSSM.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = Transition001_Test ,
+			signal_occurrence = start_occurrence
+		) to PSSM.reactiveGate ;
+		PSSM.reactiveGate sends behavior_executed (
+			behavior = T2_effect
+		) to tester.reactiveGate ;
+		PSSM.reactiveGate sends behavior_executed (
+			behavior = T3_testEnd
+		) to tester.reactiveGate ;
+	}
+	Type CustomSystem ( statemachine of type StateMachine , signals of type Signal , operations of type Operation ) ;
+	Type Signal extends NamedElement ( attributes of type Attribute ) ;
+	Type Operation extends NamedElement ( inParameters of type Attribute , outParameters of type Attribute , return of type Attribute ) ;
+	Type EventType with {
+		abstract ;
+	} ;
+	Type SignalEventType extends EventType ( signal of type Signal ) ;
+	Type CallEventType extends EventType ( operation of type Operation ) ;
+	Type Attribute extends NamedElement ( ) with {
+		abstract ;
+	} ;
+	Type BooleanAttribute extends Attribute ( ) ;
+	Type IntegerAttribute extends Attribute ( ) ;
+	Type StringAttribute extends Attribute ( ) ;
+	Type _Constraint with {
+		abstract ;
+	} ;
+	Type BooleanConstraint extends _Constraint ( attribute of type BooleanAttribute , value of type EBooleanObject ) ;
+	Type IntegerConstraint extends _Constraint ( attribute of type IntegerAttribute , value of type EIntegerObject ) ;
+	Type StringConstraint extends _Constraint ( attribute of type StringAttribute , value of type EString ) ;
+	Type NamedElement ( _name of type EString ) with {
+		abstract ;
+	} ;
+	Type StateMachine extends NamedElement ( regions of type Region ) ;
+	Type Region extends NamedElement ( vertice of type Vertex , transitions of type Transition , stateMachine of type StateMachine , state of type State , currentVertex of type Vertex with { dynamic ;
+	} ) ;
+	Type Vertex extends NamedElement ( container of type Region , outgoingTransitions of type Transition , incomingTransitions of type Transition ) with {
+		abstract ;
+	} ;
+	Type Pseudostate extends Vertex ( kind of type PseudostateKind , state of type State ) ;
+	Type State extends Vertex ( regions of type Region , entry of type Behavior , doActivity of type Behavior , exit of type Behavior , deferrableTriggers of type Trigger , connectionPoint of type Pseudostate , isEntryCompleted of type EBoolean with { dynamic ;
+	} , isDoActivityCompleted of type EBoolean with { dynamic ; } , isExitCompleted of type EBoolean with { dynamic ; } ) ;
+	Type FinalState extends State ( ) ;
+	Type Transition extends NamedElement ( source of type Vertex , target of type Vertex , _triggers of type Trigger , container of type Region , kind of type TransitionKind , effect of type Behavior , constraint of type _Constraint ) ;
+	Type Trigger extends NamedElement ( eventType of type EventType ) ;
+	Type Behavior extends NamedElement ( emittedSignals of type SignalEventOccurrence ) ;
+	Type OperationBehavior extends Behavior ( attributeValues of type AttributeValue ) ;
+	Type AttributeValue with {
+		abstract ;
+	} ;
+	Type BooleanAttributeValue extends AttributeValue ( attribute of type BooleanAttribute , value of type EBooleanObject ) ;
+	Type IntegerAttributeValue extends AttributeValue ( attribute of type IntegerAttribute , value of type EIntegerObject ) ;
+	Type StringAttributeValue extends AttributeValue ( attribute of type StringAttribute , value of type EString ) ;
+	Type EventOccurrence ( ) with {
+		abstract ;
+	} ;
+	Type CompletionEventOccurrence ( state of type State ) ;
+	Type SignalEventOccurrence extends EventOccurrence ( signal of type Signal , attributeValues of type AttributeValue with { dynamic ;
+	} ) ;
+	Type CallEventOccurrence extends EventOccurrence ( operation of type Operation , inParameterValues of type AttributeValue with { dynamic ;
+	} , outParameterValues of type AttributeValue with { dynamic ; } , returnValue of type AttributeValue with { dynamic ; } ) ;
+	Type PseudostateKind ;
+	Type TransitionKind ;
+	PseudostateKind initial ;
+	PseudostateKind join ;
+	PseudostateKind fork ;
+	PseudostateKind _terminate ;
+	PseudostateKind entrypoint ;
+	PseudostateKind exitpoint ;
+	TransitionKind internal ;
+	TransitionKind local ;
+	TransitionKind external ;
+	Annotation dynamic ;
+	Annotation abstract ;
+	Type EResource ;
+	Type ELongObject ;
+	Type EMap ;
+	Type EDate ;
+	Type EDoubleObject ;
+	Type EShortObject ;
+	Type EChar ;
+	Type EInt ;
+	Type EFeatureMap ;
+	Type EBoolean ;
+	Type EResourceSet ;
+	Type EByte ;
+	Type EByteObject ;
+	Type ECharacterObject ;
+	Type EDouble ;
+	Type ETreeIterator ;
+	Type EFloat ;
+	Type EEList ;
+	Type EShort ;
+	Type EJavaObject ;
+	Type EBooleanObject ;
+	Type EString ;
+	Type EEnumerator ;
+	Type EInvocationTargetException ;
+	Type EIntegerObject ;
+	Type EBigInteger ;
+	Type EDiagnosticChain ;
+	Type EFloatObject ;
+	Type EBigDecimal ;
+	Type EByteArray ;
+	Type EFeatureMapEntry ;
+	Type ELong ;
+	Type EJavaClass ;
+	Type OCL ( query of type EString ) ;
+	OCL oclQuery ( query = ? ) ;
+	Type Verdict ;
+	Verdict PASS ;
+	Verdict FAIL ;
+	Verdict INCONCLUSINVE ;
+	Type modelExecutionCommand ;
+	modelExecutionCommand runModel ;
+	modelExecutionCommand runModelAsynchronous ;
+	modelExecutionCommand stopModelExecution ;
+	modelExecutionCommand resetModel ;
+	modelExecutionCommand getModelState ;
+	Annotation AcceptedEvent ;
+	Annotation ExposedEvent ;
+	Type _run ( state_machine of type StateMachine ) with {
+		AcceptedEvent ;
+	} ;
+	_run _run ( state_machine = ? ) ;
+	Type signal_received ( state_machine of type StateMachine , signal_occurrence of type SignalEventOccurrence ) with {
+		AcceptedEvent ;
+	} ;
+	signal_received signal_received ( state_machine = ? , signal_occurrence = ? ) ;
+	Type callOperation_received ( state_machine of type StateMachine , call_occurrence of type CallEventOccurrence ) with {
+		AcceptedEvent ;
+	} ;
+	callOperation_received callOperation_received ( state_machine = ? , call_occurrence = ? ) ;
+	Type behavior_executed ( behavior of type Behavior ) with {
+		ExposedEvent ;
+	} ;
+	behavior_executed behavior_executed ( behavior = ? ) ;
+	Gate Type genericGateType accepts modelExecutionCommand ;
+	Gate Type reactiveGateType accepts _run , signal_received , callOperation_received , behavior_executed ;
+	Gate Type oclGateType accepts OCL ;
+	Component Type TestSystem having {
+		gate reactiveGate of type reactiveGateType ;
+		gate oclGate of type oclGateType ;
+	}
+	Component Type MUT having {
+		gate reactiveGate of type reactiveGateType ;
+		gate oclGate of type oclGateType ;
+	}
+	Annotation MUTPath ;
+	Annotation DSLName ;
+	Region Region1 ( _name = "Region1" ) ;
+	StateMachine Event019_Test_B ( _name = "Event019_Test_B$behavior$1" , regions = { Region1 } ) ;
+	Test Description Transition001_Test_0_EventDuplication uses configuration configuration4Transition001_Test {
+		tester.reactiveGate sends _run (
+			state_machine = Transition001_Test
+		) to PSSM.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = Transition001_Test ,
+			signal_occurrence = start_occurrence
+		) to PSSM.reactiveGate ;
+		tester.reactiveGate sends _run (
+			state_machine = Transition001_Test
+		) to PSSM.reactiveGate ;
+		PSSM.reactiveGate sends behavior_executed (
+			behavior = T2_effect
+		) to tester.reactiveGate ;
+		PSSM.reactiveGate sends behavior_executed (
+			behavior = T3_testEnd
+		) to tester.reactiveGate ;
+	}
+	Test Description Transition001_Test_1_EventDuplication uses configuration configuration4Transition001_Test {
+		tester.reactiveGate sends _run (
+			state_machine = Transition001_Test
+		) to PSSM.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = Transition001_Test ,
+			signal_occurrence = start_occurrence
+		) to PSSM.reactiveGate ;
+		tester.reactiveGate sends signal_received (
+			state_machine = Transition001_Test ,
+			signal_occurrence = start_occurrence
+		) to PSSM.reactiveGate ;
+		PSSM.reactiveGate sends behavior_executed (
+			behavior = T2_effect
+		) to tester.reactiveGate ;
+		PSSM.reactiveGate sends behavior_executed (
+			behavior = T3_testEnd
+		) to tester.reactiveGate ;
+	}
+}

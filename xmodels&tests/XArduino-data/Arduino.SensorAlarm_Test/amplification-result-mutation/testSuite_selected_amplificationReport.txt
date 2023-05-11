@@ -1,0 +1,65 @@
+Execution time: 263283676500
+
+Total number of mutants: 45
+- initial number of killed mutants: 26
+- initial mutation score : 57.77777777777777%
+
+- number of mutants killed by improved test cases: 19
+- total number of killed mutants: 45
+- final mutation score : 100.0%
+=> improvement in the mutation score : 42.22222222222223%
+--------------------------------------------------
+--------------------------------------------------
+Original test case: test1
+Killed mutant 1: \Arduino.SensorAlarm\mutants\cmir\Output63.model
+Killed mutant 2: \Arduino.SensorAlarm\mutants\cbbo_different\Output3.model
+Killed mutant 3: \Arduino.SensorAlarm\mutants\cmar\Output57.model
+Killed mutant 4: \Arduino.SensorAlarm\mutants\cimgr\Output7.model
+Killed mutant 5: \Arduino.SensorAlarm\mutants\cmir\Output53.model
+Killed mutant 6: \Arduino.SensorAlarm\mutants\cmir\Output58.model
+Killed mutant 7: \Arduino.SensorAlarm\mutants\cbbo_or\Output2.model
+Killed mutant 8: \Arduino.SensorAlarm\mutants\cmar\Output53.model
+Killed mutant 9: \Arduino.SensorAlarm\mutants\cmir\Output61.model
+Killed mutant 10: \Arduino.SensorAlarm\mutants\cic\Output15.model
+Killed mutant 11: \Arduino.SensorAlarm\mutants\cbbo_inf\Output2.model
+Killed mutant 12: \Arduino.SensorAlarm\mutants\cic\Output13.model
+Killed mutant 13: \Arduino.SensorAlarm\mutants\cmir\Output54.model
+Killed mutant 14: \Arduino.SensorAlarm\mutants\cimgr\Output12.model
+Killed mutant 15: \Arduino.SensorAlarm\mutants\cmar\Output56.model
+Killed mutant 16: \Arduino.SensorAlarm\mutants\cbbo_sup\Output1.model
+Killed mutant 17: \Arduino.SensorAlarm\mutants\cbbo_and\Output3.model
+Killed mutant 18: \Arduino.SensorAlarm\mutants\cic\Output14.model
+Killed mutant 19: \Arduino.SensorAlarm\mutants\cmir\Output57.model
+Killed mutant 20: \Arduino.SensorAlarm\mutants\cmar\Output54.model
+Killed mutant 21: \Arduino.SensorAlarm\mutants\cimgr\Output10.model
+Killed mutant 22: \Arduino.SensorAlarm\mutants\cmar\Output61.model
+Killed mutant 23: \Arduino.SensorAlarm\mutants\cmar\Output64.model
+Killed mutant 24: \Arduino.SensorAlarm\mutants\cbbo_inf\Output3.model
+Killed mutant 25: \Arduino.SensorAlarm\mutants\cbbo_infe\Output2.model
+Killed mutant 26: \Arduino.SensorAlarm\mutants\cimgr\Output9.model
+--------------------------------------------------
+Total number of test cases improving selection score: 2
+iteration 1: 2 generated test cases
+Amplified Test Case: test1_1_EventCreation_each
+Killed mutant 1: \Arduino.SensorAlarm\mutants\cbbo_infe\Output3.model
+
+Amplified Test Case: test1_2_EventCreation_each
+Killed mutant 1: \Arduino.SensorAlarm\mutants\cimgr\Output11.model
+Killed mutant 2: \Arduino.SensorAlarm\mutants\cmir\Output64.model
+Killed mutant 3: \Arduino.SensorAlarm\mutants\cmir\Output55.model
+Killed mutant 4: \Arduino.SensorAlarm\mutants\cimgr\Output8.model
+Killed mutant 5: \Arduino.SensorAlarm\mutants\cmir\Output59.model
+Killed mutant 6: \Arduino.SensorAlarm\mutants\cmar\Output63.model
+Killed mutant 7: \Arduino.SensorAlarm\mutants\cmar\Output62.model
+Killed mutant 8: \Arduino.SensorAlarm\mutants\cbbo_or\Output3.model
+Killed mutant 9: \Arduino.SensorAlarm\mutants\cmir\Output60.model
+Killed mutant 10: \Arduino.SensorAlarm\mutants\cbbo_and\Output2.model
+Killed mutant 11: \Arduino.SensorAlarm\mutants\cmar\Output58.model
+Killed mutant 12: \Arduino.SensorAlarm\mutants\cbbo_sup\Output2.model
+Killed mutant 13: \Arduino.SensorAlarm\mutants\cmir\Output62.model
+Killed mutant 14: \Arduino.SensorAlarm\mutants\cmar\Output55.model
+Killed mutant 15: \Arduino.SensorAlarm\mutants\cmar\Output60.model
+Killed mutant 16: \Arduino.SensorAlarm\mutants\cmar\Output59.model
+Killed mutant 17: \Arduino.SensorAlarm\mutants\cbbo_different\Output2.model
+Killed mutant 18: \Arduino.SensorAlarm\mutants\cmir\Output56.model
+

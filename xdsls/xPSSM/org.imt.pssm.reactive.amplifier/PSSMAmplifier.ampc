@@ -1,0 +1,15 @@
+config amplifier PSSMAmplifier{
+	
+	iterative technique
+		stop after 3 iterations
+
+	test modifiers{
+		all primitive modifiers on each literals,
+		all event modifiers on each events
+	}
+	
+	filterby{ 
+		element coverage: stop at 100.0
+		//mutation score: stop at 100.0
+	}
+}

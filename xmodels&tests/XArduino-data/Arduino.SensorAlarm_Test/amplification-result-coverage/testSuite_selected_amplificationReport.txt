@@ -1,0 +1,38 @@
+Execution time: 2959101600
+
+Total number of model elements: 30
+Total number of coverable model elements: 13
+- initial number of covered elements: 10
+- initial test suite coverage: 76.92%
+
+- number of covered elements by improved test cases: 3
+- total number of covered elements: 13
+- final test suite coverage: 100.0%
+=> improvement in the coverage percentage: 23.08%
+--------------------------------------------------
+Yet not-covered elements after amplification: 
+--------------------------------------------------
+Initial Coverage Matrix: 
+                                                 Model element name|Coverage status
+-------------------------------------------------------------------+---------------
+platform:/resource/Arduino.SensorAlarm/sensorAlarm.model::Project()|        Covered
+                                Project::Sketch sketch(name=sketch)|        Covered
+                                             Sketch sketch::Block()|        Covered
+                                                        Block::If()|        Covered
+                                                        If::Block()|        Covered
+                                         Block::Module Assignment()|        Covered
+                                         Block::Module Assignment()|        Covered
+              Binary Boolean Expression equal::Integer Module Get()|        Covered
+                                                        Block::If()|        Covered
+                                                        If::Block()|    Not_Covered
+                                         Block::Module Assignment()|    Not_Covered
+                                         Block::Module Assignment()|    Not_Covered
+              Binary Boolean Expression equal::Integer Module Get()|        Covered
+--------------------------------------------------
+Total number of test cases improving selection score: 1
+iteration 1: 1 generated test cases
+Amplified Test Case: test1_2_EventCreation_each
+New covered model element 1: If::Block()
+New covered model element 2: Block::Module Assignment()
+New covered model element 3: Block::Module Assignment()
+

@@ -1,0 +1,50 @@
+DomainSpecificCoverage ArduinoCoverage{
+	Import metamodel arduino
+	Context Project{
+		//a Project is covered if at least one of its Sketches are covered
+		CoverageByContent{
+			containmentReference sketches
+			multiplicity ONE
+		}
+	},
+	Context Sketch{
+		//a Sketch is covered if at least one of its Blocks is covered
+		CoverageByContent{
+			containmentReference block
+			multiplicity ONE
+		}
+	},
+	Context Block{
+		//a Block is covered if at least one of its instructions is covered
+		CoverageByContent{
+			containmentReference instructions
+			multiplicity ONE
+		}
+	},
+//	Context If{
+//		CoverageOfReferenced{
+//			reference ^condition
+//		}
+//	},
+//	Context While{
+//		CoverageOfReferenced{
+//			reference ^condition
+//		}
+//	},
+	//ignore physical-related elements from coverage computation
+	Context Board{
+		Ignore{
+			ignoreSubtypes true
+		}
+	},
+	Context Pin{
+		Ignore{
+			ignoreSubtypes true
+		}
+	},
+	Context Module{
+		Ignore{
+			ignoreSubtypes true
+		}
+	}
+}

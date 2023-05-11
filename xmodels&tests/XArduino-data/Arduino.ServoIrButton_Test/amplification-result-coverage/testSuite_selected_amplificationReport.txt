@@ -1,0 +1,42 @@
+Execution time: 2861976000
+
+Total number of model elements: 38
+Total number of coverable model elements: 17
+- initial number of covered elements: 14
+- initial test suite coverage: 82.35%
+
+- number of covered elements by improved test cases: 3
+- total number of covered elements: 17
+- final test suite coverage: 100.0%
+=> improvement in the coverage percentage: 17.65%
+--------------------------------------------------
+Yet not-covered elements after amplification: 
+--------------------------------------------------
+Initial Coverage Matrix: 
+                                                     Model element name|Coverage status
+-----------------------------------------------------------------------+---------------
+platform:/resource/Arduino.ServoIrbutton/servoIrbutton.model::Project()|        Covered
+                                    Project::Sketch sketch(name=sketch)|        Covered
+                                                 Sketch sketch::Block()|        Covered
+                                          Block::Variable Declaration()|        Covered
+                                                            Block::If()|        Covered
+                                                            If::Block()|        Covered
+                                                         Block::While()|        Covered
+                                                         While::Block()|    Not_Covered
+                                             Block::Module Assignment()|    Not_Covered
+                                           Block::Variable Assignment()|    Not_Covered
+                    Binary Boolean Expression AND::Boolean Module Get()|        Covered
+                                                            Block::If()|        Covered
+                                                            If::Block()|        Covered
+                                             Block::Module Assignment()|        Covered
+                                             Block::Module Assignment()|        Covered
+                     Unary Boolean Expression NOT::Boolean Module Get()|        Covered
+                                               If::Boolean Module Get()|        Covered
+--------------------------------------------------
+Total number of test cases improving selection score: 1
+iteration 1: 1 generated test cases
+Amplified Test Case: test1_2_EventCreation_each
+New covered model element 1: While::Block()
+New covered model element 2: Block::Module Assignment()
+New covered model element 3: Block::Variable Assignment()
+

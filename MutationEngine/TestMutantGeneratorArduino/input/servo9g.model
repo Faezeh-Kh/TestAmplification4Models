@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<arduino:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduino="http://www.obeo.fr/arduino" xmi:id="_B80B4LvqEey6kqvve9HPhQ">
+  <boards xsi:type="arduino:ArduinoBoard" xmi:id="_B80B4bvqEey6kqvve9HPhQ" name="board">
+    <digitalPins xmi:id="_B80B4rvqEey6kqvve9HPhQ" name="servo">
+      <module xsi:type="arduino:MicroServo" xmi:id="_B80o8LvqEey6kqvve9HPhQ" name="servo"/>
+    </digitalPins>
+    <digitalPins xmi:id="_OYCMcLvqEey6kqvve9HPhQ" name="button_pin">
+      <module xsi:type="arduino:PushButton" xmi:id="_PsA80LvqEey6kqvve9HPhQ" name="turnOffButton"/>
+    </digitalPins>
+  </boards>
+  <sketches xmi:id="_B80o8bvqEey6kqvve9HPhQ" name="mainSketch">
+    <block xmi:id="_B80o8rvqEey6kqvve9HPhQ">
+      <instructions xsi:type="arduino:If" xmi:id="_aa13ALvqEey6kqvve9HPhQ">
+        <block xmi:id="_cixM0LvqEey6kqvve9HPhQ">
+          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_B80o-bvqEey6kqvve9HPhQ" module="_B80o8LvqEey6kqvve9HPhQ">
+            <operand xsi:type="arduino:IntegerConstant" xmi:id="_B80o-rvqEey6kqvve9HPhQ"/>
+          </instructions>
+        </block>
+        <condition xsi:type="arduino:BooleanModuleGet" xmi:id="_bzfE8LvqEey6kqvve9HPhQ" module="_PsA80LvqEey6kqvve9HPhQ"/>
+        <elseBlock xmi:id="_D223QLvrEey6kqvve9HPhQ">
+          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_B80o87vqEey6kqvve9HPhQ" module="_B80o8LvqEey6kqvve9HPhQ">
+            <operand xsi:type="arduino:IntegerConstant" xmi:id="_B80o9LvqEey6kqvve9HPhQ" value="90"/>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_B80o9rvqEey6kqvve9HPhQ" module="_B80o8LvqEey6kqvve9HPhQ">
+            <operand xsi:type="arduino:IntegerConstant" xmi:id="_B80o97vqEey6kqvve9HPhQ" value="180"/>
+          </instructions>
+        </elseBlock>
+      </instructions>
+    </block>
+  </sketches>
+</arduino:Project>

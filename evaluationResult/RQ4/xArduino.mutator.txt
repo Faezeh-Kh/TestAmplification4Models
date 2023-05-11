@@ -1,0 +1,152 @@
+generate exhaustive mutants
+in "data/out/"
+from "data/model/"
+metamodel "/XArduino/data/model/arduino.ecore"
+
+with blocks {
+	cdt "Changes delay time from mili to micro" {
+		modify one Delay where {unit = 'MilliSecond'} with {unit = 'MicroSecond'}
+	}
+	cdt2 "Changes delay time from micro to mili" {
+		modify one Delay where {unit = 'MicroSecond'} with {unit = 'MilliSecond'}
+	}
+	cbmgr "Changes BooleanModuleGet reference to another module" {
+		m = select one Module
+		modify one BooleanModuleGet where {module <> m} with {module = m}
+	}
+	cimgr "Changes IntegerModuleGet reference to another module" {
+		m = select one Module
+		modify one IntegerModuleGet where {module <> m} with {module = m}
+	}
+	cmir "Changes ModuleInstruction reference to another module" {
+		m = select one Module
+		modify one ModuleInstruction where {module <> m} with {module = m}
+	}
+	cmar "Changes ModuleAssignment reference to another module" {
+		m = select one Module
+		modify one ModuleAssignment where {module <> m} with {module = m}
+	}
+	cvar "Changes VariableAssignment reference to another variable" {
+		v = select one Variable
+		modify one VariableAssignment where {variable <> v} with {variable = v}
+	}
+	civr "Changes IntegerVariableRef reference to another integer variable" {
+		v = select one IntegerVariable
+		modify one IntegerVariableRef where {variable <> v} with {variable = v}
+	}
+	cbvr "Changes BooleanVariableRef reference to another boolean variable" {
+		v = select one BooleanVariable
+		modify one BooleanVariableRef where {variable <> v} with {variable = v}
+	}
+	cri "Changes Repeat iteration number with a random number"{
+		modify one Repeat with {iteration = random-int}
+	}
+	cbio_minus "Changes Binary integer expression operator: minus" {
+		modify one BinaryIntegerExpression where {
+			operator in ['plus', 'mul', 'div', 'min', 'max', 'pourcent']
+		} with {operator = 'minus'}
+	}
+	cbio_plus "Changes Binary integer expression operator: plus" {
+		modify one BinaryIntegerExpression where {
+			operator in ['minus', 'mul', 'div', 'min', 'max', 'pourcent']
+		} with {operator = 'plus'}
+	}
+	cbio_mul "Changes Binary integer expression operator: mul" {
+		modify one BinaryIntegerExpression where {
+			operator in ['minus', 'plus', 'div', 'min', 'max', 'pourcent']
+		} with {operator = 'mul'}
+	}
+	cbio_div "Changes Binary integer expression operator: div" {
+		modify one BinaryIntegerExpression where {
+			operator in ['minus', 'plus', 'mul', 'min', 'max', 'pourcent']
+		} with {operator = 'div'}
+	}
+	cbio_min "Changes Binary integer expression operator: min" {
+		modify one BinaryIntegerExpression where {
+			operator in ['minus', 'plus', 'mul', 'div', 'max', 'pourcent']
+		} with {operator = 'min'}
+	}
+	cbio_max "Changes Binary integer expression operator: max" {
+		modify one BinaryIntegerExpression where {
+			operator in ['minus', 'plus', 'mul', 'div', 'min', 'pourcent']
+		} with {operator = 'max'}
+	}
+	cbio_pourcent "Changes Binary integer expression operator: pourcent" {
+		modify one BinaryIntegerExpression where {
+			operator in ['minus', 'plus', 'mul', 'div', 'min', 'max']
+		} with {operator = 'pourcent'}
+	}
+	cbbo_inf "Changes Binary boolean expression operator: inf" {
+		modify one BinaryBooleanExpression where {
+			operator in ['sup', 'infOrEqual', 'supOrEqual', 'equal', 'AND', 'OR', 'Different']
+		} with {operator = 'inf'}
+	}
+	cbbo_sup "Changes Binary boolean expression operator: sup" {
+		modify one BinaryBooleanExpression where {
+			operator in ['inf', 'infOrEqual', 'supOrEqual', 'equal', 'AND', 'OR', 'Different']
+		} with {operator = 'sup'}
+	}
+	cbbo_infe "Changes Binary boolean expression operator: infOrEqual" {
+		modify one BinaryBooleanExpression where {
+			operator in ['sup', 'inf', 'supOrEqual', 'equal', 'AND', 'OR', 'Different']
+		} with {operator = 'infOrEqual'}
+	}
+	cbbo_supe "Changes Binary boolean expression operator: supOrEqual" {
+		modify one BinaryBooleanExpression where {
+			operator in ['sup', 'inf', 'infOrEqual', 'equal', 'AND', 'OR', 'Different']
+		} with {operator = 'supOrEqual'}
+	}
+	cbbo_equal "Changes Binary boolean expression operator: equal" {
+		modify one BinaryBooleanExpression where {
+			operator in ['sup', 'inf', 'infOrEqual', 'supOrEqual', 'AND', 'OR', 'Different']
+		} with {operator = 'equal'}
+	}
+	cbbo_and "Changes Binary boolean expression operator: AND" {
+		modify one BinaryBooleanExpression where {
+			operator in ['sup', 'inf', 'infOrEqual', 'supOrEqual', 'equal', 'OR', 'Different']
+		} with {operator = 'AND'}
+	}
+	cbbo_or "Changes Binary boolean expression operator: OR" {
+		modify one BinaryBooleanExpression where {
+			operator in ['sup', 'inf', 'infOrEqual', 'supOrEqual', 'equal', 'AND', 'Different']
+		} with {operator = 'OR'}
+	}
+	cbbo_different "Changes Binary boolean expression operator: Different" {
+		modify one BinaryBooleanExpression where {
+			operator in ['sup', 'inf', 'infOrEqual', 'supOrEqual', 'equal', 'AND', 'OR']
+		} with {operator = 'Different'}
+	}
+	cuio_minus "Changes Unary integer expression operator: minus" {
+		modify one UnaryIntegerExpression where {operator = 'squareRoot'} with {operator = 'minus'}
+	}
+	cuio_squareRoot "Changes Unary integer expression operator: squareRoot" {
+		modify one UnaryIntegerExpression where {operator = 'minus'} with {operator = 'squareRoot'}
+	}
+	cwm_rise "Changes WaitFor mode: RISING" {
+		modify one WaitFor where {mode in ['FALLING', 'CHANGE']} with {mode = 'RISING'}
+	}
+	cwm_fall "Changes WaitFor mode: FALLING" {
+		modify one WaitFor where {mode in ['RISING', 'CHANGE']} with {mode = 'FALLING'}
+	}
+	cwm_change "Changes WaitFor mode: CHANGE" {
+		modify one WaitFor where {mode in ['RISING', 'FALLING']} with {mode = 'CHANGE'}
+	}
+	cbct "Changes the value of boolean constant: true"{
+		modify one BooleanConstant where {value = false} with {value = true}
+	}
+	cbcf "Changes the value of boolean constant: false"{
+		modify one BooleanConstant where {value = true} with {value = false}
+	}
+	cbvt "Changes the value of boolean variable: true"{
+		modify one BooleanVariable where {initialValue = false} with {initialValue = true}
+	}
+	cbvf "Changes the value of boolean variable: false"{
+		modify one BooleanVariable where {initialValue = true} with {initialValue = false}
+	}
+	cic "Changes the value of integer constant"{
+		modify one IntegerConstant with {value = random-int(2,4)}
+	}
+	civ "Changes the value of integer variable"{
+		modify one IntegerVariable with {initialValue = random-int(2,4)}
+	}
+}

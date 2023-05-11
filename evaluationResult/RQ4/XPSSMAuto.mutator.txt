@@ -1,0 +1,164 @@
+generate exhaustive mutants 
+in "data/out/" 
+from "data/model/" 
+metamodel "/XPSSMAuto/data/model/statemachines.ecore" 
+
+with blocks {
+	b0  {
+		p = deep clone one Transition
+	}
+	b1  {
+		create SignalEventType
+	}
+	b2  {
+		create CallEventType
+	}
+	b3  {
+		create Trigger
+	}
+	b4  {
+		create Behavior
+	}
+	b5  {
+		p = modify one State with { name = random-string ( 2 , 4 ) }
+	}
+	b6  {
+		s = select one Transition
+		p = modify one State where { outgoingTransitions <> s } with { outgoingTransitions = s }
+	}
+	b7  {
+		s = select one Transition
+		p = modify one State where { incomingTransitions <> s } with { incomingTransitions = s }
+	}
+	b8  {
+		s = select one Behavior
+		p = modify one State where { entry <> s } with { entry = s }
+	}
+	b9  {
+		s = select one Behavior
+		p = modify one State where { doActivity <> s } with { doActivity = s }
+	}
+	b10  {
+		s = select one Behavior
+		p = modify one State where { exit <> s } with { exit = s }
+	}
+	b11  {
+		s = select one Trigger
+		p = modify one State where { deferrableTriggers <> s } with { deferrableTriggers = s }
+	}
+	b12  {
+		s = select one Pseudostate
+		p = modify one State where { connectionPoint <> s } with { connectionPoint = s }
+	}
+	b13  {
+		p = modify one Transition with { name = random-string ( 2 , 4 ) }
+	}
+	b14  {
+		s = select one Vertex
+		p = modify one Transition where { ^source <> s } with { ^source = s }
+	}
+	b15  {
+		s = select one Vertex
+		p = modify one Transition where { ^target <> s } with { ^target = s }
+	}
+	b16  {
+		s = select one Trigger
+		p = modify one Transition where { triggers <> s } with { triggers = s }
+	}
+	b17  {
+		p = modify one Transition where { kind in [ 'local', 'external' ]  } with { kind = 'internal' }
+	}
+	b18  {
+		p = modify one Transition where { kind in [ 'internal', 'external' ]  } with { kind = 'local' }
+	}
+	b19  {
+		p = modify one Transition where { kind in [ 'internal', 'local' ]  } with { kind = 'external' }
+	}
+	b20  {
+		s = select one Behavior
+		p = modify one Transition where { effect <> s } with { effect = s }
+	}
+	b21  {
+		s = select one Constraint
+		p = modify one Transition where { constraint <> s } with { constraint = s }
+	}
+	b22  {
+		p = modify one IntegerComparisonExpression where { operator in [ '<=', '==', '!=', '>=', '>' ]  } with { operator = '<' }
+	}
+	b23  {
+		p = modify one IntegerComparisonExpression where { operator in [ '<', '==', '!=', '>=', '>' ]  } with { operator = '<=' }
+	}
+	b24  {
+		p = modify one IntegerComparisonExpression where { operator in [ '<', '<=', '!=', '>=', '>' ]  } with { operator = '==' }
+	}
+	b25  {
+		p = modify one IntegerComparisonExpression where { operator in [ '<', '<=', '==', '>=', '>' ]  } with { operator = '!=' }
+	}
+	b26  {
+		p = modify one IntegerComparisonExpression where { operator in [ '<', '<=', '==', '!=', '>' ]  } with { operator = '>=' }
+	}
+	b27  {
+		p = modify one IntegerComparisonExpression where { operator in [ '<', '<=', '==', '!=', '>=' ]  } with { operator = '>' }
+	}
+	b28  {
+		s = select one IntegerAttribute
+		p = modify one IntegerComparisonExpression where { operand1 <> s } with { operand1 = s }
+	}
+	b29  {
+		s = select one IntegerAttribute
+		p = modify one IntegerComparisonExpression where { operand2 <> s } with { operand2 = s }
+	}
+	b30  {
+		p = modify one StringComparisonExpression where { operator in [ '!=' ]  } with { operator = '==' }
+	}
+	b31  {
+		p = modify one StringComparisonExpression where { operator in [ '==' ]  } with { operator = '!=' }
+	}
+	b32  {
+		s = select one StringAttribute
+		p = modify one StringComparisonExpression where { operand1 <> s } with { operand1 = s }
+	}
+	b33  {
+		s = select one StringAttribute
+		p = modify one StringComparisonExpression where { operand2 <> s } with { operand2 = s }
+	}
+	b34  {
+		p = modify one BooleanBinaryExpression where { operator in [ '||' ]  } with { operator = '&&' }
+	}
+	b35  {
+		p = modify one BooleanBinaryExpression where { operator in [ '&&' ]  } with { operator = '||' }
+	}
+	b36  {
+		s = select one BooleanAttribute
+		p = modify one BooleanBinaryExpression where { operand1 <> s } with { operand1 = s }
+	}
+	b37  {
+		s = select one BooleanAttribute
+		p = modify one BooleanBinaryExpression where { operand2 <> s } with { operand2 = s }
+	}
+	b38  {
+		p = modify one BooleanUnaryExpression where { operator in [ 'False' ]  } with { operator = 'True' }
+	}
+	b39  {
+		p = modify one BooleanUnaryExpression where { operator in [ 'True' ]  } with { operator = 'False' }
+	}
+	b40  {
+		s = select one BooleanAttribute
+		p = modify one BooleanUnaryExpression where { operand <> s } with { operand = s }
+	}
+	b41  {
+		remove one Constraint
+	}
+	b42  {
+		remove one Vertex
+	}
+	b43  {
+		remove one Transition
+	}
+	b44  {
+		remove one Trigger
+	}
+	b45  {
+		remove one Behavior
+	}
+}

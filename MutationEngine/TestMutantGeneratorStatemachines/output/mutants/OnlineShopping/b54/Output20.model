@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ASCII"?>
+<statemachines:CustomSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
+  <statemachine name="UserAccount"/>
+  <operations name="isUniqueId()">
+    <return xsi:type="statemachines:BooleanAttribute" name="isUniqueId"/>
+  </operations>
+  <operations name="isAccountDormant()">
+    <return xsi:type="statemachines:BooleanAttribute" name="isAccountDormant"/>
+  </operations>
+  <operations name="isVerified()">
+    <return xsi:type="statemachines:BooleanAttribute" name="isVerified"/>
+  </operations>
+  <operations name="isCancelRequested()">
+    <return xsi:type="statemachines:BooleanAttribute" name="isCancelRequested"/>
+  </operations>
+  <operations name="isPolicyVoilated()">
+    <return xsi:type="statemachines:BooleanAttribute" name="isPolicyVoilated"/>
+  </operations>
+  <operations name="isSuspendRequested()">
+    <return xsi:type="statemachines:BooleanAttribute" name="isSuspendRequested"/>
+  </operations>
+  <operations name="isPasswordAlert()">
+    <return xsi:type="statemachines:BooleanAttribute" name="isPasswordAlert"/>
+  </operations>
+  <operations name="isResumeRequested()">
+    <return xsi:type="statemachines:BooleanAttribute" name="isResumeRequested"/>
+  </operations>
+  <operations name="isLockExpired()">
+    <return xsi:type="statemachines:BooleanAttribute" name="isLockExpired"/>
+  </operations>
+</statemachines:CustomSystem>

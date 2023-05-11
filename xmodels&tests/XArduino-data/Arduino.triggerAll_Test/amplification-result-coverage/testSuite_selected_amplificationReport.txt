@@ -1,0 +1,57 @@
+Execution time: 2630554400
+
+Total number of model elements: 59
+Total number of coverable model elements: 26
+- initial number of covered elements: 17
+- initial test suite coverage: 65.38%
+
+- number of covered elements by improved test cases: 9
+- total number of covered elements: 26
+- final test suite coverage: 100.0%
+=> improvement in the coverage percentage: 34.62%
+--------------------------------------------------
+Yet not-covered elements after amplification: 
+--------------------------------------------------
+Initial Coverage Matrix: 
+                                               Model element name|Coverage status
+-----------------------------------------------------------------+---------------
+platform:/resource/Arduino.triggerAll/triggerAll.model::Project()|        Covered
+                              Project::Sketch sketch(name=sketch)|        Covered
+                                           Sketch sketch::Block()|        Covered
+                                                      Block::If()|        Covered
+                                                      If::Block()|    Not_Covered
+                                     Block::Repeat 2(iteration=2)|    Not_Covered
+                                                Repeat 2::Block()|    Not_Covered
+                                       Block::Module Assignment()|    Not_Covered
+                                       Block::Module Assignment()|    Not_Covered
+                                       Block::Module Assignment()|    Not_Covered
+                                       Block::Module Assignment()|    Not_Covered
+                                       Block::Module Assignment()|    Not_Covered
+                                       Block::Module Assignment()|    Not_Covered
+                                         If::Boolean Module Get()|        Covered
+                                                      Block::If()|        Covered
+                                                      If::Block()|        Covered
+                                       Block::Module Assignment()|        Covered
+                                       Block::Module Assignment()|        Covered
+                                         If::Boolean Module Get()|        Covered
+                                                      Block::If()|        Covered
+                                                      If::Block()|        Covered
+                                       Block::Module Assignment()|        Covered
+                                       Block::Module Assignment()|        Covered
+                                       Block::Module Assignment()|        Covered
+                                       Block::Module Assignment()|        Covered
+              Binary Boolean Expression sup::Integer Module Get()|        Covered
+--------------------------------------------------
+Total number of test cases improving selection score: 1
+iteration 1: 1 generated test cases
+Amplified Test Case: test2_1_EventCreation_each
+New covered model element 1: If::Block()
+New covered model element 2: Block::Repeat 2(iteration=2)
+New covered model element 3: Repeat 2::Block()
+New covered model element 4: Block::Module Assignment()
+New covered model element 5: Block::Module Assignment()
+New covered model element 6: Block::Module Assignment()
+New covered model element 7: Block::Module Assignment()
+New covered model element 8: Block::Module Assignment()
+New covered model element 9: Block::Module Assignment()
+

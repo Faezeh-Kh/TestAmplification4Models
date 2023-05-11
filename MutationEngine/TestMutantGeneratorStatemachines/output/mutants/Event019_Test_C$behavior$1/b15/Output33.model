@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
+  <statemachines:CustomSystem xmi:id="_i33GsLsmEeyrPdT0pCfx6w">
+    <statemachine xmi:id="_i33GsbsmEeyrPdT0pCfx6w" name="Event019_Test_C$behavior$1">
+      <regions xmi:id="_i33GsrsmEeyrPdT0pCfx6w" name="Region1">
+        <vertice xsi:type="statemachines:Pseudostate" xmi:id="_i33Gs7smEeyrPdT0pCfx6w" name="Initial1" outgoingTransitions="_i33ty7smEeyrPdT0pCfx6w"/>
+        <vertice xsi:type="statemachines:State" xmi:id="_i33GtLsmEeyrPdT0pCfx6w" name="wait" outgoingTransitions="_i33tzLsmEeyrPdT0pCfx6w" incomingTransitions="_i33ty7smEeyrPdT0pCfx6w"/>
+        <vertice xsi:type="statemachines:State" xmi:id="_i33GtbsmEeyrPdT0pCfx6w" name="S1" outgoingTransitions="_i33tz7smEeyrPdT0pCfx6w" incomingTransitions="_i33tzLsmEeyrPdT0pCfx6w">
+          <regions xmi:id="_i33GtrsmEeyrPdT0pCfx6w" name="Region1">
+            <vertice xsi:type="statemachines:Pseudostate" xmi:id="_i33Gt7smEeyrPdT0pCfx6w" name="Initial1" outgoingTransitions="_i33tx7smEeyrPdT0pCfx6w"/>
+            <vertice xsi:type="statemachines:State" xmi:id="_i33GuLsmEeyrPdT0pCfx6w" name="S1.1" outgoingTransitions="_i33tyLsmEeyrPdT0pCfx6w" incomingTransitions="_i33tx7smEeyrPdT0pCfx6w">
+              <regions xmi:id="_i33GubsmEeyrPdT0pCfx6w" name="Region1">
+                <vertice xsi:type="statemachines:Pseudostate" xmi:id="_i33GursmEeyrPdT0pCfx6w" name="Initial1" outgoingTransitions="_i33twLsmEeyrPdT0pCfx6w"/>
+                <vertice xsi:type="statemachines:State" xmi:id="_i33Gu7smEeyrPdT0pCfx6w" name="S1.1.1" outgoingTransitions="_i33twbsmEeyrPdT0pCfx6w" incomingTransitions="_i33twLsmEeyrPdT0pCfx6w">
+                  <entry xmi:id="_i33GvLsmEeyrPdT0pCfx6w" name="S1.1.1(entry)"/>
+                  <exit xmi:id="_i33GvbsmEeyrPdT0pCfx6w" name="S1.1.1(exit)"/>
+                </vertice>
+                <vertice xsi:type="statemachines:FinalState" xmi:id="_i33GvrsmEeyrPdT0pCfx6w" name="FinalState1" incomingTransitions="_i33twbsmEeyrPdT0pCfx6w"/>
+                <transitions xmi:id="_i33twLsmEeyrPdT0pCfx6w" name="T1.1.1" source="_i33GursmEeyrPdT0pCfx6w" target="_i33Gu7smEeyrPdT0pCfx6w" kind="external"/>
+                <transitions xmi:id="_i33twbsmEeyrPdT0pCfx6w" name="T1.1.2" source="_i33Gu7smEeyrPdT0pCfx6w" target="_i33GvrsmEeyrPdT0pCfx6w" kind="external">
+                  <triggers xmi:id="_i33twrsmEeyrPdT0pCfx6w" name="CallEventOp2trigger">
+                    <eventType xsi:type="statemachines:CallEventType" xmi:id="_i33tw7smEeyrPdT0pCfx6w" operation="_i33t1LsmEeyrPdT0pCfx6w"/>
+                  </triggers>
+                  <effect xmi:id="_i33txLsmEeyrPdT0pCfx6w" name="T1.1.2(effect)"/>
+                  <constraint xsi:type="statemachines:BooleanConstraint" xmi:id="_s0qHALsmEeyrPdT0pCfx6w">
+                    <expression xsi:type="statemachines:BooleanUnaryExpression" xmi:id="_tSfSgLsmEeyrPdT0pCfx6w" operand="_i33t1bsmEeyrPdT0pCfx6w"/>
+                  </constraint>
+                </transitions>
+              </regions>
+              <entry xmi:id="_i33txbsmEeyrPdT0pCfx6w" name="S1.1(entry)"/>
+            </vertice>
+            <vertice xsi:type="statemachines:FinalState" xmi:id="_i33txrsmEeyrPdT0pCfx6w" name="FinalState1" incomingTransitions="_i33tyLsmEeyrPdT0pCfx6w"/>
+            <transitions xmi:id="_i33tx7smEeyrPdT0pCfx6w" name="T1.1" source="_i33Gt7smEeyrPdT0pCfx6w" target="_i33GuLsmEeyrPdT0pCfx6w" kind="external"/>
+            <transitions xmi:id="_i33tyLsmEeyrPdT0pCfx6w" name="T1.2" source="_i33GuLsmEeyrPdT0pCfx6w" target="_i33txrsmEeyrPdT0pCfx6w" kind="external"/>
+          </regions>
+          <entry xmi:id="_i33tybsmEeyrPdT0pCfx6w" name="S1(entry)"/>
+        </vertice>
+        <vertice xsi:type="statemachines:FinalState" xmi:id="_i33tyrsmEeyrPdT0pCfx6w" name="FinalState1" incomingTransitions="_i33tz7smEeyrPdT0pCfx6w"/>
+        <transitions xmi:id="_i33ty7smEeyrPdT0pCfx6w" name="T1" source="_i33Gs7smEeyrPdT0pCfx6w" target="_i33GtLsmEeyrPdT0pCfx6w" kind="external"/>
+        <transitions xmi:id="_i33tzLsmEeyrPdT0pCfx6w" name="T2" source="_i33GtLsmEeyrPdT0pCfx6w" target="_i33GtbsmEeyrPdT0pCfx6w" kind="external">
+          <triggers xmi:id="_i33tzbsmEeyrPdT0pCfx6w" name="CallEventOpTrigger">
+            <eventType xsi:type="statemachines:CallEventType" xmi:id="_i33tzrsmEeyrPdT0pCfx6w" operation="_i33t0bsmEeyrPdT0pCfx6w"/>
+          </triggers>
+          <constraint xsi:type="statemachines:BooleanConstraint" xmi:id="_m3dv0LsmEeyrPdT0pCfx6w">
+            <expression xsi:type="statemachines:BooleanUnaryExpression" xmi:id="_nXnPgLsmEeyrPdT0pCfx6w" operand="_i33t07smEeyrPdT0pCfx6w"/>
+          </constraint>
+        </transitions>
+        <transitions xmi:id="_i33tz7smEeyrPdT0pCfx6w" name="T3" source="_i33GtbsmEeyrPdT0pCfx6w" target="_i33tyrsmEeyrPdT0pCfx6w" kind="external">
+          <effect xmi:id="_i33t0LsmEeyrPdT0pCfx6w" name="T3(testEnd)"/>
+        </transitions>
+      </regions>
+    </statemachine>
+    <operations xmi:id="_i33t0bsmEeyrPdT0pCfx6w" name="op1">
+      <inParameters xsi:type="statemachines:IntegerAttribute" xmi:id="_i33t0rsmEeyrPdT0pCfx6w" name="p1.1"/>
+      <inParameters xsi:type="statemachines:BooleanAttribute" xmi:id="_i33t07smEeyrPdT0pCfx6w" name="p1.2"/>
+    </operations>
+    <operations xmi:id="_i33t1LsmEeyrPdT0pCfx6w" name="op2">
+      <inParameters xsi:type="statemachines:BooleanAttribute" xmi:id="_i33t1bsmEeyrPdT0pCfx6w" name="p2.1"/>
+    </operations>
+  </statemachines:CustomSystem>
+  <statemachines:CallEventType operation="_i33t1LsmEeyrPdT0pCfx6w"/>
+</xmi:XMI>

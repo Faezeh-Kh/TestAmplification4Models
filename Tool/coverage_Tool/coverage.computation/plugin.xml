@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point 
+   		id="coverage.extensionpoint.DSLSpecificCoverage" 
+   		name="DSLSpecificCoverage" 
+   		schema="schema/coverage.extensionpoint.DSLSpecificCoverage.exsd"/>
+	<extension
+         point="org.eclipse.ui.views">  
+      <category
+            id="tdl.views"
+            name="TDL">
+      </category>    
+      <view
+            category="tdl.views"
+            class="coverage.ui.TDLCoverageView"
+            icon="icons/coverage.png"
+            id="rt.ui.coverageView"
+            name="Coverage"
+            restorable="true">
+      </view>
+   </extension>
+ <extension
+       point="org.eclipse.gemoc.gemoc_language_workbench.engine_addon">
+    <addon
+          class="coverage.persistence.TestCoveragePersistence"
+          id="coverage.reportAddon"
+          name="TDL Test Coverage"
+          shortDescription="Save the result of test coverage">
+    </addon>
+ </extension>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated DSLSpecificCoverage -->
+      <package
+            uri="https://coverage/DSLSpecificCoverage"
+            class="DSLSpecificCoverage.DSLSpecificCoveragePackage"
+            genModel="model/DSLSpecificCoverage.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated TestCoverage -->
+      <package
+            uri="http://coverage.metamodel/TestCoverage"
+            class="TestCoverage.TestCoveragePackage"
+            genModel="model/TestCoverage.genmodel"/>
+   </extension>
+
+</plugin>

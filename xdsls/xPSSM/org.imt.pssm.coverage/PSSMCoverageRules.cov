@@ -1,0 +1,75 @@
+DomainSpecificCoverage PSSMCoverage{
+	Import metamodel statemachines
+	Context CustomSystem{
+		//a customSystem is covered when its inner stateMachine is covered
+		CoverageByContent{
+			containmentReference statemachine
+			multiplicity ONE
+		}
+	},
+	Context StateMachine{
+		//a stateMachine is covered when one of its inner regions are covered
+		CoverageByContent{
+			containmentReference regions
+			multiplicity ONE
+		}
+	},
+	Context Region{
+		//a region is covered if at least one of its transitions is covered
+		CoverageByContent{
+			containmentReference transitions
+			multiplicity ONE
+		}
+	},
+	Context Transition{
+		//if a transition is covered, its source state, target state, constraint, and triggers are also covered
+		CoverageOfReferenced{
+			reference source
+		},
+		CoverageOfReferenced{
+			reference target
+		},
+		CoverageOfReferenced{
+			reference constraint
+		},
+		CoverageOfReferenced{
+			reference triggers
+		}
+	},
+	Context BooleanConstraint{
+		//if a constraint is covered, its expression is also covered
+		CoverageOfReferenced {
+			reference expression
+		}
+	},
+	Context IntegerConstraint{
+		//if a constraint is covered, its expression is also covered
+		CoverageOfReferenced {
+			reference expression
+		}
+	},
+	Context StringConstraint{
+		//if a constraint is covered, its expression is also covered
+		CoverageOfReferenced {
+			reference expression
+		}
+	},
+	Context Trigger{
+		//if a trigger is covered, its EventType is also covered
+		CoverageOfReferenced {
+			reference eventType
+		}
+	},
+	Context SignalEventType{
+		//if a SignalEventType is covered, its Signal is also covered
+		CoverageOfReferenced {
+			reference signal
+		}
+	},
+	Context CallEventType{
+		//if a CallEventType is covered, its Operation is also covered
+		CoverageOfReferenced {
+			reference operation
+		}
+	}
+}

@@ -1,0 +1,84 @@
+Execution time: 3145021499
+
+Total number of model elements: 48
+Total number of coverable model elements: 44
+- initial number of covered elements: 33
+- initial test suite coverage: 75.0%
+
+- number of covered elements by improved test cases: 11
+- total number of covered elements: 44
+- final test suite coverage: 100.0%
+=> improvement in the coverage percentage: 25.0%
+--------------------------------------------------
+Yet not-covered elements after amplification: 
+--------------------------------------------------
+Initial Coverage Matrix: 
+                                                                          Model element name|Coverage status
+--------------------------------------------------------------------------------------------+---------------
+                      platform:/resource/ATMWithdrawCash/ATM.withdraw.model::Custom System()|        Covered
+                                Custom System::State Machine withdrawCash(name=withdrawCash)|        Covered
+                                      State Machine withdrawCash::Region region(name=region)|        Covered
+                              Region region::Pseudostate Initial(name=Initial, kind=initial)|        Covered
+                                                        Region region::State wait(name=wait)|        Covered
+                                      State wait::Behavior insertCardMsg(name=insertCardMsg)|        Covered
+                                                    Region region::State getPin(name=getPin)|        Covered
+                                        State getPin::Behavior enterPinMsg(name=enterPinMsg)|        Covered
+                                          Region region::State validatePin(name=validatePin)|        Covered
+                                              Region region::State getAmount(name=getAmount)|        Covered
+                               State getAmount::Behavior enterAmountMsg(name=enterAmountMsg)|        Covered
+                                        Region region::State checkBalance(name=checkBalance)|        Covered
+                                    Region region::State makeWithdrawal(name=makeWithdrawal)|    Not_Covered
+                    State makeWithdrawal::Behavior updateCardBalance(name=updateCardBalance)|    Not_Covered
+                                      Region region::Final State FinalState(name=FinalState)|        Covered
+                    Region region::Transition initial_wait(name=initial_wait, kind=external)|        Covered
+                      Region region::Transition wait_getPin(name=wait_getPin, kind=external)|        Covered
+                             Transition wait_getPin::Trigger cardInserted(name=cardInserted)|        Covered
+                                                   Trigger cardInserted::Signal Event Type()|        Covered
+        Region region::Transition getPin_validatePin(name=getPin_validatePin, kind=external)|        Covered
+                          Transition getPin_validatePin::Trigger pinEntered(name=pinEntered)|        Covered
+                                                     Trigger pinEntered::Signal Event Type()|        Covered
+  Region region::Transition validatePin_getAmount(name=validatePin_getAmount, kind=external)|        Covered
+                                      Transition validatePin_getAmount::Integer Constraint()|        Covered
+                           Integer Constraint::Integer Comparison Expression ==(operator===)|        Covered
+          Region region::Transition validatePin_final(name=validatePin_final, kind=external)|    Not_Covered
+                        Transition validatePin_final::Behavior wrongPinMsg(name=wrongPinMsg)|    Not_Covered
+                                          Transition validatePin_final::Integer Constraint()|    Not_Covered
+                           Integer Constraint::Integer Comparison Expression !=(operator=!=)|    Not_Covered
+Region region::Transition getAmount_checkBalance(name=getAmount_checkBalance, kind=external)|        Covered
+                Transition getAmount_checkBalance::Trigger amountEntered(name=amountEntered)|        Covered
+                                                  Trigger amountEntered::Signal Event Type()|        Covered
+  Region region::Transition checkBalance_withdraw(name=checkBalance_withdraw, kind=external)|    Not_Covered
+                                      Transition checkBalance_withdraw::Integer Constraint()|    Not_Covered
+                           Integer Constraint::Integer Comparison Expression <=(operator=<=)|    Not_Covered
+        Region region::Transition checkBalance_final(name=checkBalance_final, kind=external)|        Covered
+           Transition checkBalance_final::Behavior notEnoughMoneyMsg(name=notEnoughMoneyMsg)|        Covered
+                                         Transition checkBalance_final::Integer Constraint()|        Covered
+                             Integer Constraint::Integer Comparison Expression >(operator=>)|        Covered
+                Region region::Transition withdraw_final(name=withdraw_final, kind=external)|    Not_Covered
+                           Transition withdraw_final::Behavior deliverCash(name=deliverCash)|    Not_Covered
+                                                       Custom System::Signal Card(name=Card)|        Covered
+                                                         Custom System::Signal Pin(name=Pin)|        Covered
+                                                   Custom System::Signal Amount(name=Amount)|        Covered
+--------------------------------------------------
+Number of test cases improving coverage score: 2
+iteration 1: 2 generated test cases
+Amplified Test Case: test_wrongAmount_0_IntegerModification_each
+New covered model element 1: Region region::State makeWithdrawal(name=makeWithdrawal)
+New covered model element 2: State makeWithdrawal::Behavior updateCardBalance(name=updateCardBalance)
+New covered model element 3: Region region::Transition checkBalance_withdraw(name=checkBalance_withdraw, kind=external)
+New covered model element 4: Transition checkBalance_withdraw::Integer Constraint()
+New covered model element 5: Integer Constraint::Integer Comparison Expression <=(operator=<=)
+New covered model element 6: Region region::Transition withdraw_final(name=withdraw_final, kind=external)
+New covered model element 7: Transition withdraw_final::Behavior deliverCash(name=deliverCash)
+
+Amplified Test Case: test_wrongAmount_0_IntegerModification_each
+New covered model element 1: Region region::State makeWithdrawal(name=makeWithdrawal)
+New covered model element 2: State makeWithdrawal::Behavior updateCardBalance(name=updateCardBalance)
+New covered model element 3: Region region::Transition checkBalance_withdraw(name=checkBalance_withdraw, kind=external)
+New covered model element 4: Transition checkBalance_withdraw::Integer Constraint()
+New covered model element 5: Integer Constraint::Integer Comparison Expression <=(operator=<=)
+New covered model element 6: Region region::Transition withdraw_final(name=withdraw_final, kind=external)
+New covered model element 7: Transition withdraw_final::Behavior deliverCash(name=deliverCash)
+
+--------------------------------------------------
+Total number of test cases improving selection score: 2

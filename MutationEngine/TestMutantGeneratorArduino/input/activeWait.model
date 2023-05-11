@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<arduino:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduino="http://www.obeo.fr/arduino" xmi:id="_TeGOsLvnEey7OoLBzoKkPA">
+  <boards xsi:type="arduino:ArduinoBoard" xmi:id="_TeGOsbvnEey7OoLBzoKkPA" name="board">
+    <digitalPins xmi:id="_TeGOsrvnEey7OoLBzoKkPA" name="blueLed">
+      <module xsi:type="arduino:LED" xmi:id="_TeGOs7vnEey7OoLBzoKkPA" name="blueLed"/>
+    </digitalPins>
+    <digitalPins xmi:id="_TeGOtLvnEey7OoLBzoKkPA" name="IR_sensor">
+      <module xsi:type="arduino:InfraRedSensor" xmi:id="_TeGOtbvnEey7OoLBzoKkPA" name="IR_sensor"/>
+    </digitalPins>
+  </boards>
+  <sketches xmi:id="_TeGOtrvnEey7OoLBzoKkPA" name="sketch" board="_TeGOsbvnEey7OoLBzoKkPA">
+    <block xmi:id="_TeGOt7vnEey7OoLBzoKkPA">
+      <instructions xsi:type="arduino:If" xmi:id="_TeGOuLvnEey7OoLBzoKkPA">
+        <block xmi:id="_TeGOubvnEey7OoLBzoKkPA">
+          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_TeGOurvnEey7OoLBzoKkPA" module="_TeGOs7vnEey7OoLBzoKkPA">
+            <operand xsi:type="arduino:IntegerConstant" xmi:id="_TeGOu7vnEey7OoLBzoKkPA" value="1"/>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_TeGOvbvnEey7OoLBzoKkPA" module="_TeGOs7vnEey7OoLBzoKkPA">
+            <operand xsi:type="arduino:IntegerConstant" xmi:id="_TeGOvrvnEey7OoLBzoKkPA"/>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_vWSdkLvnEey7OoLBzoKkPA" module="_TeGOs7vnEey7OoLBzoKkPA">
+            <operand xsi:type="arduino:IntegerConstant" xmi:id="_vWSdkbvnEey7OoLBzoKkPA" value="1"/>
+          </instructions>
+          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_vWSdkrvnEey7OoLBzoKkPA" module="_TeGOs7vnEey7OoLBzoKkPA">
+            <operand xsi:type="arduino:IntegerConstant" xmi:id="_vWSdk7vnEey7OoLBzoKkPA"/>
+          </instructions>
+        </block>
+        <condition xsi:type="arduino:BinaryBooleanExpression" xmi:id="_TeGOwLvnEey7OoLBzoKkPA" operator="equal">
+          <left xsi:type="arduino:IntegerModuleGet" xmi:id="_ubWisM-YEeyj4OK2t3h2Ug" module="_TeGOtbvnEey7OoLBzoKkPA"/>
+          <right xsi:type="arduino:IntegerConstant" xmi:id="_wA6LQM-YEeyj4OK2t3h2Ug"/>
+        </condition>
+        <elseBlock xmi:id="_TeGOw7vnEey7OoLBzoKkPA">
+          <instructions xsi:type="arduino:ModuleAssignment" xmi:id="_TeGOxLvnEey7OoLBzoKkPA" module="_TeGOs7vnEey7OoLBzoKkPA">
+            <operand xsi:type="arduino:IntegerConstant" xmi:id="_TeGOxbvnEey7OoLBzoKkPA" value="1"/>
+          </instructions>
+        </elseBlock>
+      </instructions>
+    </block>
+  </sketches>
+</arduino:Project>

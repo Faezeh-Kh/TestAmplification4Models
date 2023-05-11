@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
+  <statemachines:CustomSystem>
+    <statemachine name="JaveThreadStates">
+      <regions name="mainRegion">
+        <vertice xsi:type="statemachines:Pseudostate" name="initial1" outgoingTransitions="/0/@statemachine/@regions.0/@transitions.0"/>
+        <vertice xsi:type="statemachines:State" name="New" outgoingTransitions="/0/@statemachine/@regions.0/@transitions.1" incomingTransitions="/0/@statemachine/@regions.0/@transitions.0">
+          <entry name="newThreadCreated"/>
+        </vertice>
+        <vertice xsi:type="statemachines:State" name="Runnable" outgoingTransitions="/0/@statemachine/@regions.0/@transitions.2 /0/@statemachine/@regions.0/@transitions.5 /0/@statemachine/@regions.0/@transitions.6 /0/@statemachine/@regions.0/@transitions.7 /0/@statemachine/@regions.0/@transitions.8 /0/@statemachine/@regions.0/@transitions.9 /0/@statemachine/@regions.0/@transitions.10 /0/@statemachine/@regions.0/@transitions.11 /0/@statemachine/@regions.0/@transitions.12 /0/@statemachine/@regions.0/@transitions.3 /0/@statemachine/@regions.0/@transitions.4" incomingTransitions="/0/@statemachine/@regions.0/@transitions.1 /0/@statemachine/@regions.0/@transitions.13 /0/@statemachine/@regions.0/@transitions.20">
+          <regions name="runnableRegion">
+            <vertice xsi:type="statemachines:Pseudostate" name="initial2" outgoingTransitions="/0/@statemachine/@regions.0/@vertice.2/@regions.0/@transitions.0"/>
+            <vertice xsi:type="statemachines:State" name="Ready" outgoingTransitions="/0/@statemachine/@regions.0/@vertice.2/@regions.0/@transitions.1" incomingTransitions="/0/@statemachine/@regions.0/@vertice.2/@regions.0/@transitions.0 /0/@statemachine/@regions.0/@vertice.2/@regions.0/@transitions.2 /0/@statemachine/@regions.0/@vertice.2/@regions.0/@transitions.3">
+              <entry name="ThreadIsReady"/>
+            </vertice>
+            <vertice xsi:type="statemachines:State" name="Running" outgoingTransitions="/0/@statemachine/@regions.0/@vertice.2/@regions.0/@transitions.2 /0/@statemachine/@regions.0/@vertice.2/@regions.0/@transitions.3 /0/@statemachine/@regions.0/@vertice.2/@regions.0/@transitions.4" incomingTransitions="/0/@statemachine/@regions.0/@vertice.2/@regions.0/@transitions.1">
+              <entry name="ThreadIsRunning"/>
+            </vertice>
+            <vertice xsi:type="statemachines:FinalState" name="final2" incomingTransitions="/0/@statemachine/@regions.0/@vertice.2/@regions.0/@transitions.4"/>
+            <transitions name="initial2_2_ready" source="/0/@statemachine/@regions.0/@vertice.2/@regions.0/@vertice.0" target="/0/@statemachine/@regions.0/@vertice.2/@regions.0/@vertice.1" kind="external"/>
+            <transitions name="ready2running" source="/0/@statemachine/@regions.0/@vertice.2/@regions.0/@vertice.1" target="/0/@statemachine/@regions.0/@vertice.2/@regions.0/@vertice.2" kind="external">
+              <triggers name="threadSelectedTrigger">
+                <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.1"/>
+              </triggers>
+            </transitions>
+            <transitions name="running2ready" source="/0/@statemachine/@regions.0/@vertice.2/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.2/@regions.0/@vertice.1" kind="external">
+              <triggers name="thread.yieldTrigger">
+                <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.3"/>
+              </triggers>
+            </transitions>
+            <transitions name="running2ready" source="/0/@statemachine/@regions.0/@vertice.2/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.2/@regions.0/@vertice.1" kind="external">
+              <triggers name="threadSuspendedTrigger">
+                <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.4"/>
+              </triggers>
+            </transitions>
+            <transitions name="running2final2" source="/0/@statemachine/@regions.0/@vertice.2/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.2/@regions.0/@vertice.3" kind="external">
+              <triggers name="finishTrigger">
+                <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.2"/>
+              </triggers>
+            </transitions>
+          </regions>
+          <entry name="ThreadIsRunnable"/>
+        </vertice>
+        <vertice xsi:type="statemachines:State" name="TimedWaiting" outgoingTransitions="/0/@statemachine/@regions.0/@transitions.13 /0/@statemachine/@regions.0/@transitions.14 /0/@statemachine/@regions.0/@transitions.15 /0/@statemachine/@regions.0/@transitions.16" incomingTransitions="/0/@statemachine/@regions.0/@transitions.2 /0/@statemachine/@regions.0/@transitions.5 /0/@statemachine/@regions.0/@transitions.6 /0/@statemachine/@regions.0/@transitions.3 /0/@statemachine/@regions.0/@transitions.4">
+          <entry name="ThreadIsWaitingByTime"/>
+        </vertice>
+        <vertice xsi:type="statemachines:State" name="Waiting" outgoingTransitions="/0/@statemachine/@regions.0/@transitions.17 /0/@statemachine/@regions.0/@transitions.18 /0/@statemachine/@regions.0/@transitions.19" incomingTransitions="/0/@statemachine/@regions.0/@transitions.7 /0/@statemachine/@regions.0/@transitions.8 /0/@statemachine/@regions.0/@transitions.9">
+          <entry name="ThreadIsWaiting"/>
+        </vertice>
+        <vertice xsi:type="statemachines:State" name="Blocked" outgoingTransitions="/0/@statemachine/@regions.0/@transitions.21 /0/@statemachine/@regions.0/@transitions.20" incomingTransitions="/0/@statemachine/@regions.0/@transitions.10 /0/@statemachine/@regions.0/@transitions.11 /0/@statemachine/@regions.0/@transitions.15 /0/@statemachine/@regions.0/@transitions.16 /0/@statemachine/@regions.0/@transitions.18 /0/@statemachine/@regions.0/@transitions.19">
+          <entry name="ThreadIsBlocked"/>
+        </vertice>
+        <vertice xsi:type="statemachines:State" name="Terminated" outgoingTransitions="/0/@statemachine/@regions.0/@transitions.22" incomingTransitions="/0/@statemachine/@regions.0/@transitions.12 /0/@statemachine/@regions.0/@transitions.14 /0/@statemachine/@regions.0/@transitions.17 /0/@statemachine/@regions.0/@transitions.21">
+          <entry name="ThreadIsTerminated"/>
+        </vertice>
+        <vertice xsi:type="statemachines:FinalState" name="final1" incomingTransitions="/0/@statemachine/@regions.0/@transitions.22"/>
+        <transitions name="initial1_2_new" source="/0/@statemachine/@regions.0/@vertice.0" target="/0/@statemachine/@regions.0/@vertice.1" kind="external"/>
+        <transitions name="new2runnable" source="/0/@statemachine/@regions.0/@vertice.1" target="/0/@statemachine/@regions.0/@vertice.2" kind="external">
+          <triggers name="t.startTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.0"/>
+          </triggers>
+        </transitions>
+        <transitions name="runnable2timedWaiting" source="/0/@statemachine/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.3" kind="external">
+          <triggers name="threadSleep()Trigger">
+            <eventType xsi:type="statemachines:CallEventType" operation="/0/@operations.0"/>
+          </triggers>
+        </transitions>
+        <transitions name="runnable2timedWaiting" source="/0/@statemachine/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.3" kind="external">
+          <triggers name="o.wait()Trigger">
+            <eventType xsi:type="statemachines:CallEventType" operation="/0/@operations.1"/>
+          </triggers>
+        </transitions>
+        <transitions name="runnable2timedWaiting" source="/0/@statemachine/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.3" kind="external">
+          <triggers name="t.join()Trigger">
+            <eventType xsi:type="statemachines:CallEventType" operation="/0/@operations.2"/>
+          </triggers>
+        </transitions>
+        <transitions name="runnable2timedWaiting" source="/0/@statemachine/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.3" kind="external">
+          <triggers name="lockSupport.parkNanosTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.5"/>
+          </triggers>
+        </transitions>
+        <transitions name="runnable2timedWaiting" source="/0/@statemachine/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.3" kind="external">
+          <triggers name="lockSupport.parkUntilTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.6"/>
+          </triggers>
+        </transitions>
+        <transitions name="runnable2waiting" source="/0/@statemachine/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.4" kind="external">
+          <triggers name="o.waitTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.7"/>
+          </triggers>
+        </transitions>
+        <transitions name="runnable2waiting" source="/0/@statemachine/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.4" kind="external">
+          <triggers name="t.joinTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.8"/>
+          </triggers>
+        </transitions>
+        <transitions name="runnable2waiting" source="/0/@statemachine/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.4" kind="external">
+          <triggers name="lockSupport.parkTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.9"/>
+          </triggers>
+        </transitions>
+        <transitions name="runnable2blocked" source="/0/@statemachine/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.5" kind="external">
+          <triggers name="wait4lock2enterTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.10"/>
+          </triggers>
+        </transitions>
+        <transitions name="runnable2blocked" source="/0/@statemachine/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.5" kind="external">
+          <triggers name="wait4lock2reenterTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.11"/>
+          </triggers>
+        </transitions>
+        <transitions name="runnable2terminated" source="/0/@statemachine/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.6" kind="external">
+          <triggers name="threadTerminatedTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.13"/>
+          </triggers>
+        </transitions>
+        <transitions name="timedWaiting2runnable" source="/0/@statemachine/@regions.0/@vertice.3" target="/0/@statemachine/@regions.0/@vertice.2" kind="external">
+          <triggers name="sleepTimeElapsedTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.12"/>
+          </triggers>
+        </transitions>
+        <transitions name="timedWaiting2terminated" source="/0/@statemachine/@regions.0/@vertice.3" target="/0/@statemachine/@regions.0/@vertice.6" kind="external">
+          <triggers name="threadTerminatedTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.13"/>
+          </triggers>
+        </transitions>
+        <transitions name="timedWaiting2blocked" source="/0/@statemachine/@regions.0/@vertice.3" target="/0/@statemachine/@regions.0/@vertice.5" kind="external">
+          <triggers name="o.notifyAllTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.14"/>
+          </triggers>
+        </transitions>
+        <transitions name="timedWaiting2blocked" source="/0/@statemachine/@regions.0/@vertice.3" target="/0/@statemachine/@regions.0/@vertice.5" kind="external">
+          <triggers name="o.notifyTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.15"/>
+          </triggers>
+        </transitions>
+        <transitions name="waiting2terminated" source="/0/@statemachine/@regions.0/@vertice.4" target="/0/@statemachine/@regions.0/@vertice.6" kind="external">
+          <triggers name="threadTerminatedTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.13"/>
+          </triggers>
+        </transitions>
+        <transitions name="waiting2blocked" source="/0/@statemachine/@regions.0/@vertice.4" target="/0/@statemachine/@regions.0/@vertice.5" kind="external">
+          <triggers name="o.notifyAllTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.14"/>
+          </triggers>
+        </transitions>
+        <transitions name="waiting2blocked" source="/0/@statemachine/@regions.0/@vertice.4" target="/0/@statemachine/@regions.0/@vertice.5" kind="external">
+          <triggers name="o.notifyTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.15"/>
+          </triggers>
+        </transitions>
+        <transitions name="blocked2runnable" source="/0/@statemachine/@regions.0/@vertice.5" target="/0/@statemachine/@regions.0/@vertice.2" kind="external">
+          <triggers name="monitorLockTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.16"/>
+          </triggers>
+        </transitions>
+        <transitions name="blocked2terminated" source="/0/@statemachine/@regions.0/@vertice.5" target="/0/@statemachine/@regions.0/@vertice.6" kind="external">
+          <triggers name="threadTerminatedTrigger">
+            <eventType xsi:type="statemachines:SignalEventType" signal="/0/@signals.13"/>
+          </triggers>
+        </transitions>
+        <transitions name="terminated2final" source="/0/@statemachine/@regions.0/@vertice.6" target="/0/@statemachine/@regions.0/@vertice.7" kind="external"/>
+      </regions>
+    </statemachine>
+    <signals name="t.start"/>
+    <signals name="threadSelected2Run"/>
+    <signals name="finishRunnable"/>
+    <signals name="Thread.yield"/>
+    <signals name="threadSuspended"/>
+    <signals name="LockSupport.parkNanos()"/>
+    <signals name="LockSupport.parkUntil()"/>
+    <signals name="o.wait"/>
+    <signals name="t.join"/>
+    <signals name="LockSupport.park"/>
+    <signals name="waitForLockToEnterSynchroBlock"/>
+    <signals name="waitForLockToReenterSynchroBlock"/>
+    <signals name="sleepTimeElapsed"/>
+    <signals name="ThreadTerminated"/>
+    <signals name="o.notifyAll"/>
+    <signals name="o.notify"/>
+    <signals name="monitorLockAcquired"/>
+    <operations name="Thread.sleep()">
+      <inParameters xsi:type="statemachines:IntegerAttribute" name="sleeptime"/>
+    </operations>
+    <operations name="o.wait()">
+      <inParameters xsi:type="statemachines:IntegerAttribute" name="waitTimeout"/>
+    </operations>
+    <operations name="t.join()">
+      <inParameters xsi:type="statemachines:IntegerAttribute" name="joinTimeout"/>
+    </operations>
+  </statemachines:CustomSystem>
+  <statemachines:CallEventType operation="/0/@operations.1"/>
+</xmi:XMI>

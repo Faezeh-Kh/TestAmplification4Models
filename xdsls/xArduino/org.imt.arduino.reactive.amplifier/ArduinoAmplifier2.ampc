@@ -1,0 +1,26 @@
+config amplifier ArduinoAmplifier{
+	import metamodel arduino
+	import behavioral interface "Arduino.bi"
+	iterative technique
+
+	test modifiers{
+		//primitive modifiers
+		modify each numeric values,
+		//event modifiers
+		create all missed events,
+		modify each ["button_pressed"] events
+	}
+	filterby{
+		element coverage: stop at 100.00,
+		mutation score: stop at 85.00 {
+			generate exhaustive mutants using mutation operators "pathToMutationOperatorsFile" {
+				creation operators for [concrete classes]
+					with partial coverage,
+				deep cloning operators for [ModuleAssignment],
+				modification operators for [all classes] {
+					mutate integer attributes with random values between 0 and 10
+				}
+			}
+		}
+	} 
+}

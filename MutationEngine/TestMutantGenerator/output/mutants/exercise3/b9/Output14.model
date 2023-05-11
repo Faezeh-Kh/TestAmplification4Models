@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<DFAAutomaton:Automaton xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DFAAutomaton="http://dfaAutomaton/1.0" xsi:schemaLocation="http://dfaAutomaton/1.0 ../../../model/DFAAutomaton.ecore" name="Exercise 3">
+  <states name="q0" isInitial="true"/>
+  <states name="q1"/>
+  <states name="q2"/>
+  <states name="q3" isFinal="true"/>
+  <states name="q4" isFinal="true"/>
+  <states name="q5"/>
+  <transitions src="//@states.0" tar="//@states.1" symbol="//@alphabet.0"/>
+  <transitions src="//@states.1" tar="//@states.2" symbol="//@alphabet.0"/>
+  <transitions src="//@states.1" tar="//@states.4" symbol="//@alphabet.1"/>
+  <transitions src="//@states.2" tar="//@states.3" symbol="//@alphabet.0"/>
+  <transitions src="//@states.2" tar="//@states.4" symbol="//@alphabet.1"/>
+  <transitions src="//@states.3" tar="//@states.3" symbol="//@alphabet.0"/>
+  <transitions src="//@states.3" tar="//@states.4" symbol="//@alphabet.1"/>
+  <transitions src="//@states.4" tar="//@states.4" symbol="//@alphabet.1"/>
+  <transitions src="//@states.0" tar="//@states.5" symbol="//@alphabet.1"/>
+  <transitions src="//@states.4" tar="//@states.5" symbol="//@alphabet.0"/>
+  <transitions src="//@states.5" tar="//@states.5" symbol="//@alphabet.0"/>
+  <transitions src="//@states.5" tar="//@states.5" symbol="//@alphabet.1"/>
+  <transitions>
+    <src href="../../../model/exercise3.model#_s1YroBg-EeuUd5wpkgojdw"/>
+    <tar href="../../../model/exercise3.model#_s1YroBg-EeuUd5wpkgojdw"/>
+    <symbol href="../../../model/exercise3.model#_VYhLMETQEeWBqqmJ86vvWA"/>
+  </transitions>
+  <alphabet symbol="a"/>
+  <alphabet symbol="b"/>
+</DFAAutomaton:Automaton>

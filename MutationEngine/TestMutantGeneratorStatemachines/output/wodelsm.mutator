@@ -1,0 +1,434 @@
+generate exhaustive mutants 
+in "data/out/" 
+from "data/model/" 
+metamodel "c:/GemocStudio/workspace2/wodelsm/data/model/statemachines.ecore" 
+
+with blocks {
+	b0  {
+		create Signal with { attributes = one Attribute }
+	}
+	b1  {
+		p = deep clone one Signal where { attributes = one Attribute } with { name = random-string ( 2 , 4 ) , attributes = one Attribute }
+	}
+	b2  {
+		p = modify one Signal where { attributes = one Attribute } with { name = random-string ( 2 , 4 ) , attributes = one Attribute }
+	}
+	b3  {
+		remove one Signal where { attributes = one Attribute }
+	}
+	b4  {
+		p = retype one Signal as [ Operation , BooleanAttribute , IntegerAttribute , StringAttribute , StateMachine , Region , Pseudostate , State , FinalState , Transition , Trigger , Behavior , OperationBehavior ] with { name = random-string ( 2 , 4 ) }
+	}
+	b5  {
+		create Operation with { inParameters = one Attribute , outParameters = one Attribute , return = one Attribute }
+	}
+	b6  {
+		p = deep clone one Operation where { inParameters = one Attribute or outParameters = one Attribute or return = one Attribute } with { name = random-string ( 2 , 4 ) , inParameters = one Attribute , outParameters = one Attribute , return = one Attribute }
+	}
+	b7  {
+		p = modify one Operation where { inParameters = one Attribute or outParameters = one Attribute or return = one Attribute } with { name = random-string ( 2 , 4 ) , inParameters = one Attribute , outParameters = one Attribute , return = one Attribute }
+	}
+	b8  {
+		remove one Operation where { inParameters = one Attribute or outParameters = one Attribute or return = one Attribute }
+	}
+	b9  {
+		p = retype one Operation as [ Signal , BooleanAttribute , IntegerAttribute , StringAttribute , StateMachine , Region , Pseudostate , State , FinalState , Transition , Trigger , Behavior , OperationBehavior ] with { name = random-string ( 2 , 4 ) }
+	}
+	b10  {
+		create SignalEventType with { signal = one Signal }
+	}
+	b11  {
+		p = deep clone one SignalEventType where { signal = one Signal } with { signal = one Signal }
+	}
+	b12  {
+		p = modify one SignalEventType where { signal = one Signal } with { signal = one Signal }
+	}
+	b13  {
+		remove one SignalEventType where { signal = one Signal }
+	}
+	b14  {
+		p = retype one SignalEventType as [ CallEventType ]
+	}
+	b15  {
+		create CallEventType with { operation = one Operation }
+	}
+	b16  {
+		p = deep clone one CallEventType where { operation = one Operation } with { operation = one Operation }
+	}
+	b17  {
+		p = modify one CallEventType where { operation = one Operation } with { operation = one Operation }
+	}
+	b18  {
+		remove one CallEventType where { operation = one Operation }
+	}
+	b19  {
+		p = retype one CallEventType as [ SignalEventType ]
+	}
+	b20  {
+		create BooleanAttribute
+	}
+	b21  {
+		p = deep clone one BooleanAttribute with { name = random-string ( 2 , 4 ) }
+	}
+	b22  {
+		p = modify one BooleanAttribute with { name = random-string ( 2 , 4 ) }
+	}
+	b23  {
+		remove one BooleanAttribute
+	}
+	b24  {
+		p = retype one BooleanAttribute as [ IntegerAttribute , StringAttribute ] with { name = random-string ( 2 , 4 ) }
+	}
+	b25  {
+		create IntegerAttribute
+	}
+	b26  {
+		p = deep clone one IntegerAttribute with { name = random-string ( 2 , 4 ) }
+	}
+	b27  {
+		p = modify one IntegerAttribute with { name = random-string ( 2 , 4 ) }
+	}
+	b28  {
+		remove one IntegerAttribute
+	}
+	b29  {
+		p = retype one IntegerAttribute as [ BooleanAttribute , StringAttribute ] with { name = random-string ( 2 , 4 ) }
+	}
+	b30  {
+		create StringAttribute
+	}
+	b31  {
+		p = deep clone one StringAttribute with { name = random-string ( 2 , 4 ) }
+	}
+	b32  {
+		p = modify one StringAttribute with { name = random-string ( 2 , 4 ) }
+	}
+	b33  {
+		remove one StringAttribute
+	}
+	b34  {
+		p = retype one StringAttribute as [ BooleanAttribute , IntegerAttribute ] with { name = random-string ( 2 , 4 ) }
+	}
+	b35  {
+		create BooleanConstraint with { expression = one BooleanExpression }
+	}
+	b36  {
+		p = deep clone one BooleanConstraint where { expression = one BooleanExpression } with { expression = one BooleanExpression }
+	}
+	b37  {
+		p = modify one BooleanConstraint where { expression = one BooleanExpression } with { expression = one BooleanExpression }
+	}
+	b38  {
+		remove one BooleanConstraint where { expression = one BooleanExpression }
+	}
+	b39  {
+		p = retype one BooleanConstraint as [ IntegerConstraint , StringConstraint ]
+	}
+	b40  {
+		create IntegerConstraint with { expression = one IntegerComparisonExpression }
+	}
+	b41  {
+		p = deep clone one IntegerConstraint where { expression = one IntegerComparisonExpression } with { expression = one IntegerComparisonExpression }
+	}
+	b42  {
+		p = modify one IntegerConstraint where { expression = one IntegerComparisonExpression } with { expression = one IntegerComparisonExpression }
+	}
+	b43  {
+		remove one IntegerConstraint where { expression = one IntegerComparisonExpression }
+	}
+	b44  {
+		p = retype one IntegerConstraint as [ BooleanConstraint , StringConstraint ]
+	}
+	b45  {
+		create StringConstraint with { expression = one StringComparisonExpression }
+	}
+	b46  {
+		p = deep clone one StringConstraint where { expression = one StringComparisonExpression } with { expression = one StringComparisonExpression }
+	}
+	b47  {
+		p = modify one StringConstraint where { expression = one StringComparisonExpression } with { expression = one StringComparisonExpression }
+	}
+	b48  {
+		remove one StringConstraint where { expression = one StringComparisonExpression }
+	}
+	b49  {
+		p = retype one StringConstraint as [ BooleanConstraint , IntegerConstraint ]
+	}
+	b50  {
+		create StateMachine with { regions = one Region }
+	}
+	b51  {
+		p = deep clone one StateMachine where { regions = one Region } with { name = random-string ( 2 , 4 ) , regions = one Region }
+	}
+	b52  {
+		p = modify one StateMachine where { regions = one Region } with { name = random-string ( 2 , 4 ) , regions = one Region }
+	}
+	b53  {
+		remove one StateMachine where { regions = one Region }
+	}
+	b54  {
+		p = retype one StateMachine as [ Signal , Operation , BooleanAttribute , IntegerAttribute , StringAttribute , Region , Pseudostate , State , FinalState , Transition , Trigger , Behavior , OperationBehavior ] with { name = random-string ( 2 , 4 ) }
+	}
+	b55  {
+		create Region with { vertice = one Vertex , transitions = one Transition , stateMachine = one StateMachine , state = one State , currentVertex = one Vertex }
+	}
+	b56  {
+		p = deep clone one Region where { vertice = one Vertex or transitions = one Transition or stateMachine = one StateMachine or state = one State or currentVertex = one Vertex } with { name = random-string ( 2 , 4 ) , vertice = one Vertex , transitions = one Transition , stateMachine = one StateMachine , state = one State , currentVertex = one Vertex }
+	}
+	b57  {
+		p = modify one Region where { vertice = one Vertex or transitions = one Transition or stateMachine = one StateMachine or state = one State or currentVertex = one Vertex } with { name = random-string ( 2 , 4 ) , vertice = one Vertex , transitions = one Transition , stateMachine = one StateMachine , state = one State , currentVertex = one Vertex }
+	}
+	b58  {
+		remove one Region where { vertice = one Vertex or transitions = one Transition or stateMachine = one StateMachine or state = one State or currentVertex = one Vertex }
+	}
+	b59  {
+		p = retype one Region as [ Signal , Operation , BooleanAttribute , IntegerAttribute , StringAttribute , StateMachine , Pseudostate , State , FinalState , Transition , Trigger , Behavior , OperationBehavior ] with { name = random-string ( 2 , 4 ) }
+	}
+	b60  {
+		create Pseudostate with { ^container = one Region , outgoingTransitions = one Transition , incomingTransitions = one Transition , state = one State }
+	}
+	b61  {
+		p = deep clone one Pseudostate where { ^container = one Region or outgoingTransitions = one Transition or incomingTransitions = one Transition or state = one State } with { name = random-string ( 2 , 4 ) , ^container = one Region , outgoingTransitions = one Transition , incomingTransitions = one Transition , state = one State }
+	}
+	b62  {
+		p = modify one Pseudostate where { ^container = one Region or outgoingTransitions = one Transition or incomingTransitions = one Transition or state = one State } with { name = random-string ( 2 , 4 ) , ^container = one Region , outgoingTransitions = one Transition , incomingTransitions = one Transition , state = one State }
+	}
+	b63  {
+		remove one Pseudostate where { ^container = one Region or outgoingTransitions = one Transition or incomingTransitions = one Transition or state = one State }
+	}
+	b64  {
+		p = retype one Pseudostate where { ^container = one Region or outgoingTransitions = one Transition or incomingTransitions = one Transition } as [ State , FinalState ] with { name = random-string ( 2 , 4 ) , ^container = one Region , outgoingTransitions = one Transition , incomingTransitions = one Transition }
+	}
+	b65  {
+		create State with { ^container = one Region , outgoingTransitions = one Transition , incomingTransitions = one Transition , regions = one Region , entry = one Behavior , doActivity = one Behavior , exit = one Behavior , deferrableTriggers = one Trigger , connectionPoint = one Pseudostate }
+	}
+	b66  {
+		p = deep clone one State where { ^container = one Region or outgoingTransitions = one Transition or incomingTransitions = one Transition or regions = one Region or entry = one Behavior or doActivity = one Behavior or exit = one Behavior or deferrableTriggers = one Trigger or connectionPoint = one Pseudostate } with { name = random-string ( 2 , 4 ) , ^container = one Region , outgoingTransitions = one Transition , incomingTransitions = one Transition , regions = one Region , entry = one Behavior , doActivity = one Behavior , exit = one Behavior , deferrableTriggers = one Trigger , connectionPoint = one Pseudostate }
+	}
+	b67  {
+		p = modify one State where { ^container = one Region or outgoingTransitions = one Transition or incomingTransitions = one Transition or regions = one Region or entry = one Behavior or doActivity = one Behavior or exit = one Behavior or deferrableTriggers = one Trigger or connectionPoint = one Pseudostate } with { name = random-string ( 2 , 4 ) , ^container = one Region , outgoingTransitions = one Transition , incomingTransitions = one Transition , regions = one Region , entry = one Behavior , doActivity = one Behavior , exit = one Behavior , deferrableTriggers = one Trigger , connectionPoint = one Pseudostate }
+	}
+	b68  {
+		remove one State where { ^container = one Region or outgoingTransitions = one Transition or incomingTransitions = one Transition or regions = one Region or entry = one Behavior or doActivity = one Behavior or exit = one Behavior or deferrableTriggers = one Trigger or connectionPoint = one Pseudostate }
+	}
+	b69  {
+		p = retype one State where { ^container = one Region or outgoingTransitions = one Transition or incomingTransitions = one Transition } as [ FinalState , Pseudostate ] with { name = random-string ( 2 , 4 ) , ^container = one Region , outgoingTransitions = one Transition , incomingTransitions = one Transition }
+	}
+	b70  {
+		create FinalState with { ^container = one Region , outgoingTransitions = one Transition , incomingTransitions = one Transition , regions = one Region , entry = one Behavior , doActivity = one Behavior , exit = one Behavior , deferrableTriggers = one Trigger , connectionPoint = one Pseudostate }
+	}
+	b71  {
+		p = deep clone one FinalState where { ^container = one Region or outgoingTransitions = one Transition or incomingTransitions = one Transition or regions = one Region or entry = one Behavior or doActivity = one Behavior or exit = one Behavior or deferrableTriggers = one Trigger or connectionPoint = one Pseudostate } with { name = random-string ( 2 , 4 ) , ^container = one Region , outgoingTransitions = one Transition , incomingTransitions = one Transition , regions = one Region , entry = one Behavior , doActivity = one Behavior , exit = one Behavior , deferrableTriggers = one Trigger , connectionPoint = one Pseudostate }
+	}
+	b72  {
+		p = modify one FinalState where { ^container = one Region or outgoingTransitions = one Transition or incomingTransitions = one Transition or regions = one Region or entry = one Behavior or doActivity = one Behavior or exit = one Behavior or deferrableTriggers = one Trigger or connectionPoint = one Pseudostate } with { name = random-string ( 2 , 4 ) , ^container = one Region , outgoingTransitions = one Transition , incomingTransitions = one Transition , regions = one Region , entry = one Behavior , doActivity = one Behavior , exit = one Behavior , deferrableTriggers = one Trigger , connectionPoint = one Pseudostate }
+	}
+	b73  {
+		remove one FinalState where { ^container = one Region or outgoingTransitions = one Transition or incomingTransitions = one Transition or regions = one Region or entry = one Behavior or doActivity = one Behavior or exit = one Behavior or deferrableTriggers = one Trigger or connectionPoint = one Pseudostate }
+	}
+	b74  {
+		create Transition with { ^source = one Vertex , ^target = one Vertex , triggers = one Trigger , ^container = one Region , effect = one Behavior , constraint = one Constraint }
+	}
+	b75  {
+		p = deep clone one Transition where { ^source = one Vertex or ^target = one Vertex or triggers = one Trigger or ^container = one Region or effect = one Behavior or constraint = one Constraint } with { name = random-string ( 2 , 4 ) , ^source = one Vertex , ^target = one Vertex , triggers = one Trigger , ^container = one Region , effect = one Behavior , constraint = one Constraint }
+	}
+	b76  {
+		p = modify one Transition where { ^source = one Vertex or ^target = one Vertex or triggers = one Trigger or ^container = one Region or effect = one Behavior or constraint = one Constraint } with { name = random-string ( 2 , 4 ) , ^source = one Vertex , ^target = one Vertex , triggers = one Trigger , ^container = one Region , effect = one Behavior , constraint = one Constraint }
+	}
+	b77  {
+		remove one Transition where { ^source = one Vertex or ^target = one Vertex or triggers = one Trigger or ^container = one Region or effect = one Behavior or constraint = one Constraint }
+	}
+	b78  {
+		p = retype one Transition as [ Signal , Operation , BooleanAttribute , IntegerAttribute , StringAttribute , StateMachine , Region , Pseudostate , State , FinalState , Trigger , Behavior , OperationBehavior ] with { name = random-string ( 2 , 4 ) }
+	}
+	b79  {
+		create Trigger with { eventType = one EventType }
+	}
+	b80  {
+		p = deep clone one Trigger where { eventType = one EventType } with { name = random-string ( 2 , 4 ) , eventType = one EventType }
+	}
+	b81  {
+		p = modify one Trigger where { eventType = one EventType } with { name = random-string ( 2 , 4 ) , eventType = one EventType }
+	}
+	b82  {
+		remove one Trigger where { eventType = one EventType }
+	}
+	b83  {
+		p = retype one Trigger as [ Signal , Operation , BooleanAttribute , IntegerAttribute , StringAttribute , StateMachine , Region , Pseudostate , State , FinalState , Transition , Behavior , OperationBehavior ] with { name = random-string ( 2 , 4 ) }
+	}
+	b84  {
+		create Behavior with { emittedSignals = one SignalEventOccurrence }
+	}
+	b85  {
+		p = deep clone one Behavior where { emittedSignals = one SignalEventOccurrence } with { name = random-string ( 2 , 4 ) , emittedSignals = one SignalEventOccurrence }
+	}
+	b86  {
+		p = modify one Behavior where { emittedSignals = one SignalEventOccurrence } with { name = random-string ( 2 , 4 ) , emittedSignals = one SignalEventOccurrence }
+	}
+	b87  {
+		remove one Behavior where { emittedSignals = one SignalEventOccurrence }
+	}
+	b88  {
+		p = retype one Behavior as [ OperationBehavior , Signal , Operation , BooleanAttribute , IntegerAttribute , StringAttribute , StateMachine , Region , Pseudostate , State , FinalState , Transition , Trigger ] with { name = random-string ( 2 , 4 ) }
+	}
+	b89  {
+		create OperationBehavior with { emittedSignals = one SignalEventOccurrence , attributeValues = one AttributeValue }
+	}
+	b90  {
+		p = deep clone one OperationBehavior where { emittedSignals = one SignalEventOccurrence or attributeValues = one AttributeValue } with { name = random-string ( 2 , 4 ) , emittedSignals = one SignalEventOccurrence , attributeValues = one AttributeValue }
+	}
+	b91  {
+		p = modify one OperationBehavior where { emittedSignals = one SignalEventOccurrence or attributeValues = one AttributeValue } with { name = random-string ( 2 , 4 ) , emittedSignals = one SignalEventOccurrence , attributeValues = one AttributeValue }
+	}
+	b92  {
+		remove one OperationBehavior where { emittedSignals = one SignalEventOccurrence or attributeValues = one AttributeValue }
+	}
+	b93  {
+		create BooleanAttributeValue with { attribute = one BooleanAttribute }
+	}
+	b94  {
+		p = deep clone one BooleanAttributeValue where { attribute = one BooleanAttribute } with { attribute = one BooleanAttribute }
+	}
+	b95  {
+		p = modify one BooleanAttributeValue where { attribute = one BooleanAttribute } with { attribute = one BooleanAttribute }
+	}
+	b96  {
+		remove one BooleanAttributeValue where { attribute = one BooleanAttribute }
+	}
+	b97  {
+		p = retype one BooleanAttributeValue as [ IntegerAttributeValue , StringAttributeValue ]
+	}
+	b98  {
+		create IntegerAttributeValue with { attribute = one IntegerAttribute }
+	}
+	b99  {
+		p = deep clone one IntegerAttributeValue where { attribute = one IntegerAttribute } with { attribute = one IntegerAttribute }
+	}
+	b100  {
+		p = modify one IntegerAttributeValue where { attribute = one IntegerAttribute } with { attribute = one IntegerAttribute }
+	}
+	b101  {
+		remove one IntegerAttributeValue where { attribute = one IntegerAttribute }
+	}
+	b102  {
+		p = retype one IntegerAttributeValue as [ BooleanAttributeValue , StringAttributeValue ]
+	}
+	b103  {
+		create StringAttributeValue with { attribute = one StringAttribute }
+	}
+	b104  {
+		p = deep clone one StringAttributeValue where { attribute = one StringAttribute } with { value = random-string ( 2 , 4 ) , attribute = one StringAttribute }
+	}
+	b105  {
+		p = modify one StringAttributeValue where { attribute = one StringAttribute } with { value = random-string ( 2 , 4 ) , attribute = one StringAttribute }
+	}
+	b106  {
+		remove one StringAttributeValue where { attribute = one StringAttribute }
+	}
+	b107  {
+		p = retype one StringAttributeValue as [ BooleanAttributeValue , IntegerAttributeValue ]
+	}
+	b108  {
+		create IntegerComparisonExpression with { operand1 = one IntegerAttribute , operand2 = one IntegerAttribute }
+	}
+	b109  {
+		p = deep clone one IntegerComparisonExpression where { operand1 = one IntegerAttribute or operand2 = one IntegerAttribute } with { operand1 = one IntegerAttribute , operand2 = one IntegerAttribute }
+	}
+	b110  {
+		p = modify one IntegerComparisonExpression where { operand1 = one IntegerAttribute or operand2 = one IntegerAttribute } with { operand1 = one IntegerAttribute , operand2 = one IntegerAttribute }
+	}
+	b111  {
+		remove one IntegerComparisonExpression where { operand1 = one IntegerAttribute or operand2 = one IntegerAttribute }
+	}
+	b112  {
+		p = retype one IntegerComparisonExpression as [ StringComparisonExpression , BooleanBinaryExpression , BooleanUnaryExpression ]
+	}
+	b113  {
+		create StringComparisonExpression with { operand1 = one StringAttribute , operand2 = one StringAttribute }
+	}
+	b114  {
+		p = deep clone one StringComparisonExpression where { operand1 = one StringAttribute or operand2 = one StringAttribute } with { operand1 = one StringAttribute , operand2 = one StringAttribute }
+	}
+	b115  {
+		p = modify one StringComparisonExpression where { operand1 = one StringAttribute or operand2 = one StringAttribute } with { operand1 = one StringAttribute , operand2 = one StringAttribute }
+	}
+	b116  {
+		remove one StringComparisonExpression where { operand1 = one StringAttribute or operand2 = one StringAttribute }
+	}
+	b117  {
+		p = retype one StringComparisonExpression as [ IntegerComparisonExpression , BooleanBinaryExpression , BooleanUnaryExpression ]
+	}
+	b118  {
+		create BooleanBinaryExpression with { operand1 = one BooleanAttribute , operand2 = one BooleanAttribute }
+	}
+	b119  {
+		p = deep clone one BooleanBinaryExpression where { operand1 = one BooleanAttribute or operand2 = one BooleanAttribute } with { operand1 = one BooleanAttribute , operand2 = one BooleanAttribute }
+	}
+	b120  {
+		p = modify one BooleanBinaryExpression where { operand1 = one BooleanAttribute or operand2 = one BooleanAttribute } with { operand1 = one BooleanAttribute , operand2 = one BooleanAttribute }
+	}
+	b121  {
+		remove one BooleanBinaryExpression where { operand1 = one BooleanAttribute or operand2 = one BooleanAttribute }
+	}
+	b122  {
+		p = retype one BooleanBinaryExpression as [ BooleanUnaryExpression ]
+	}
+	b123  {
+		create BooleanUnaryExpression with { operand = one BooleanAttribute }
+	}
+	b124  {
+		p = deep clone one BooleanUnaryExpression where { operand = one BooleanAttribute } with { operand = one BooleanAttribute }
+	}
+	b125  {
+		p = modify one BooleanUnaryExpression where { operand = one BooleanAttribute } with { operand = one BooleanAttribute }
+	}
+	b126  {
+		remove one BooleanUnaryExpression where { operand = one BooleanAttribute }
+	}
+	b127  {
+		p = retype one BooleanUnaryExpression as [ BooleanBinaryExpression ]
+	}
+	b128  {
+		create CompletionEventOccurrence with { state = one State }
+	}
+	b129  {
+		p = deep clone one CompletionEventOccurrence where { state = one State } with { state = one State }
+	}
+	b130  {
+		p = modify one CompletionEventOccurrence where { state = one State } with { state = one State }
+	}
+	b131  {
+		remove one CompletionEventOccurrence where { state = one State }
+	}
+	b132  {
+		create SignalEventOccurrence with { signal = one Signal , attributeValues = one AttributeValue }
+	}
+	b133  {
+		p = deep clone one SignalEventOccurrence where { signal = one Signal or attributeValues = one AttributeValue } with { signal = one Signal , attributeValues = one AttributeValue }
+	}
+	b134  {
+		p = modify one SignalEventOccurrence where { signal = one Signal or attributeValues = one AttributeValue } with { signal = one Signal , attributeValues = one AttributeValue }
+	}
+	b135  {
+		remove one SignalEventOccurrence where { signal = one Signal or attributeValues = one AttributeValue }
+	}
+	b136  {
+		p = retype one SignalEventOccurrence as [ CallEventOccurrence ]
+	}
+	b137  {
+		create CallEventOccurrence with { operation = one Operation , inParameterValues = one AttributeValue , outParameterValues = one AttributeValue , returnValue = one AttributeValue }
+	}
+	b138  {
+		p = deep clone one CallEventOccurrence where { operation = one Operation or inParameterValues = one AttributeValue or outParameterValues = one AttributeValue or returnValue = one AttributeValue } with { operation = one Operation , inParameterValues = one AttributeValue , outParameterValues = one AttributeValue , returnValue = one AttributeValue }
+	}
+	b139  {
+		p = modify one CallEventOccurrence where { operation = one Operation or inParameterValues = one AttributeValue or outParameterValues = one AttributeValue or returnValue = one AttributeValue } with { operation = one Operation , inParameterValues = one AttributeValue , outParameterValues = one AttributeValue , returnValue = one AttributeValue }
+	}
+	b140  {
+		remove one CallEventOccurrence where { operation = one Operation or inParameterValues = one AttributeValue or outParameterValues = one AttributeValue or returnValue = one AttributeValue }
+	}
+	b141  {
+		p = retype one CallEventOccurrence as [ SignalEventOccurrence ]
+	}
+	
+}

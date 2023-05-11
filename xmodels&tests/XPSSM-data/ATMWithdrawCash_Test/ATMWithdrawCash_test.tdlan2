@@ -87,12 +87,12 @@ Package ATMWithdrawCash_TestSuite {
 	Type BooleanAttribute extends Attribute ( ) ;
 	Type IntegerAttribute extends Attribute ( ) ;
 	Type StringAttribute extends Attribute ( ) ;
-	Type Constraint ( ) with {
+	Type _Constraint ( ) with {
 		abstract ;
 	} ;
-	Type BooleanConstraint extends Constraint ( expression of type BooleanExpression ) ;
-	Type IntegerConstraint extends Constraint ( expression of type IntegerComparisonExpression ) ;
-	Type StringConstraint extends Constraint ( expression of type StringComparisonExpression ) ;
+	Type BooleanConstraint extends _Constraint ( expression of type BooleanExpression ) ;
+	Type IntegerConstraint extends _Constraint ( expression of type IntegerComparisonExpression ) ;
+	Type StringConstraint extends _Constraint ( expression of type StringComparisonExpression ) ;
 	Type NamedElement ( _name of type EString ) with {
 		abstract ;
 	} ;
@@ -105,7 +105,7 @@ Package ATMWithdrawCash_TestSuite {
 	Type Pseudostate extends Vertex ( kind of type PseudostateKind , state of type State ) ;
 	Type State extends Vertex ( regions of type Region , entry of type Behavior , doActivity of type Behavior , exit of type Behavior , deferrableTriggers of type Trigger , connectionPoint of type Pseudostate ) ;
 	Type FinalState extends State ( ) ;
-	Type Transition extends NamedElement ( source of type Vertex , target of type Vertex , _triggers of type Trigger , container of type Region , kind of type TransitionKind , effect of type Behavior , constraint of type Constraint ) ;
+	Type Transition extends NamedElement ( source of type Vertex , target of type Vertex , _triggers of type Trigger , container of type Region , kind of type TransitionKind , effect of type Behavior , constraint of type _Constraint ) ;
 	Type Trigger extends NamedElement ( eventType of type EventType ) ;
 	Type Behavior extends NamedElement ( emittedSignals of type SignalEventOccurrence ) ;
 	Type OperationBehavior extends Behavior ( attributeValues of type AttributeValue ) ;

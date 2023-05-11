@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<statemachines:CustomSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
+  <statemachine name="withdrawCash"/>
+  <signals name="Card">
+    <attributes xsi:type="statemachines:IntegerAttribute" name="cardPin"/>
+    <attributes xsi:type="statemachines:IntegerAttribute" name="cardBalance"/>
+  </signals>
+  <signals name="Pin">
+    <attributes xsi:type="statemachines:IntegerAttribute" name="enteredPin"/>
+  </signals>
+  <signals name="Amount">
+    <attributes xsi:type="statemachines:IntegerAttribute" name="enteredAmount"/>
+  </signals>
+</statemachines:CustomSystem>

@@ -1,0 +1,161 @@
+generate exhaustive mutants 
+in "data/out/" 
+from "data/model/" 
+metamodel "/XArduinoAuto/data/model/arduino.ecore" 
+
+with blocks {
+	b0  {
+		s = select one Module
+		p = modify one ModuleInstruction where { module <> s } with { module = s }
+	}
+	b1  {
+		p = modify one Delay where { unit in [ 'MicroSecond' ]  } with { unit = 'MilliSecond' }
+	}
+	b2  {
+		p = modify one Delay where { unit in [ 'MilliSecond' ]  } with { unit = 'MicroSecond' }
+	}
+	b3  {
+		p = modify one Delay with { value = random-int ( 2 , 10 ) }
+	}
+	b4  {
+		s = select one Module
+		p = modify one ModuleAssignment where { module <> s } with { module = s }
+	}
+	b5  {
+		s = select one Expression
+		p = modify one ModuleAssignment where { operand <> s } with { operand = s }
+	}
+	b6  {
+		s = select one Block
+		p = modify one Repeat where { block <> s } with { block = s }
+	}
+	b7  {
+		p = modify one Repeat with { iteration = random-int ( 2 , 10 ) }
+	}
+	b8  {
+		s = select one Expression
+		p = modify one VariableAssignment where { operand <> s } with { operand = s }
+	}
+	b9  {
+		s = select one Variable
+		p = modify one VariableAssignment where { variable <> s } with { variable = s }
+	}
+	b10  {
+		s = select one Expression
+		p = modify one BinaryIntegerExpression where { left <> s } with { left = s }
+	}
+	b11  {
+		s = select one Expression
+		p = modify one BinaryIntegerExpression where { right <> s } with { right = s }
+	}
+	b12  {
+		p = modify one BinaryIntegerExpression where { operator in [ 'plus', 'mul', 'div', 'min', 'max', 'pourcent' ]  } with { operator = 'minus' }
+	}
+	b13  {
+		p = modify one BinaryIntegerExpression where { operator in [ 'minus', 'mul', 'div', 'min', 'max', 'pourcent' ]  } with { operator = 'plus' }
+	}
+	b14  {
+		p = modify one BinaryIntegerExpression where { operator in [ 'minus', 'plus', 'div', 'min', 'max', 'pourcent' ]  } with { operator = 'mul' }
+	}
+	b15  {
+		p = modify one BinaryIntegerExpression where { operator in [ 'minus', 'plus', 'mul', 'min', 'max', 'pourcent' ]  } with { operator = 'div' }
+	}
+	b16  {
+		p = modify one BinaryIntegerExpression where { operator in [ 'minus', 'plus', 'mul', 'div', 'max', 'pourcent' ]  } with { operator = 'min' }
+	}
+	b17  {
+		p = modify one BinaryIntegerExpression where { operator in [ 'minus', 'plus', 'mul', 'div', 'min', 'pourcent' ]  } with { operator = 'max' }
+	}
+	b18  {
+		p = modify one BinaryIntegerExpression where { operator in [ 'minus', 'plus', 'mul', 'div', 'min', 'max' ]  } with { operator = 'pourcent' }
+	}
+	b19  {
+		s = select one Expression
+		p = modify one BinaryBooleanExpression where { left <> s } with { left = s }
+	}
+	b20  {
+		s = select one Expression
+		p = modify one BinaryBooleanExpression where { right <> s } with { right = s }
+	}
+	b21  {
+		p = modify one BinaryBooleanExpression where { operator in [ 'sup', 'infOrEqual', 'supOrEqual', 'equal', 'AND', 'OR', 'Different' ]  } with { operator = 'inf' }
+	}
+	b22  {
+		p = modify one BinaryBooleanExpression where { operator in [ 'inf', 'infOrEqual', 'supOrEqual', 'equal', 'AND', 'OR', 'Different' ]  } with { operator = 'sup' }
+	}
+	b23  {
+		p = modify one BinaryBooleanExpression where { operator in [ 'inf', 'sup', 'supOrEqual', 'equal', 'AND', 'OR', 'Different' ]  } with { operator = 'infOrEqual' }
+	}
+	b24  {
+		p = modify one BinaryBooleanExpression where { operator in [ 'inf', 'sup', 'infOrEqual', 'equal', 'AND', 'OR', 'Different' ]  } with { operator = 'supOrEqual' }
+	}
+	b25  {
+		p = modify one BinaryBooleanExpression where { operator in [ 'inf', 'sup', 'infOrEqual', 'supOrEqual', 'AND', 'OR', 'Different' ]  } with { operator = 'equal' }
+	}
+	b26  {
+		p = modify one BinaryBooleanExpression where { operator in [ 'inf', 'sup', 'infOrEqual', 'supOrEqual', 'equal', 'OR', 'Different' ]  } with { operator = 'AND' }
+	}
+	b27  {
+		p = modify one BinaryBooleanExpression where { operator in [ 'inf', 'sup', 'infOrEqual', 'supOrEqual', 'equal', 'AND', 'Different' ]  } with { operator = 'OR' }
+	}
+	b28  {
+		p = modify one BinaryBooleanExpression where { operator in [ 'inf', 'sup', 'infOrEqual', 'supOrEqual', 'equal', 'AND', 'OR' ]  } with { operator = 'Different' }
+	}
+	b29  {
+		p = modify one IntegerConstant with { value = random-int ( 2 , 10 ) }
+	}
+	b30  {
+		p = modify one BooleanConstant with { value = random-boolean }
+	}
+	b31  {
+		p = modify one IntegerVariable with { name = random-string ( 2 , 4 ) }
+	}
+	b32  {
+		p = modify one IntegerVariable with { initialValue = random-int ( 2 , 10 ) }
+	}
+	b33  {
+		p = modify one BooleanVariable with { name = random-string ( 2 , 4 ) }
+	}
+	b34  {
+		p = modify one BooleanVariable with { initialValue = random-boolean }
+	}
+	b35  {
+		s = select one Module
+		p = modify one BooleanModuleGet where { module <> s } with { module = s }
+	}
+	b36  {
+		s = select one Module
+		p = modify one IntegerModuleGet where { module <> s } with { module = s }
+	}
+	b37  {
+		s = select one Expression
+		p = modify one UnaryIntegerExpression where { operand <> s } with { operand = s }
+	}
+	b38  {
+		p = modify one UnaryIntegerExpression where { operator in [ 'squareRoot' ]  } with { operator = 'minus' }
+	}
+	b39  {
+		p = modify one UnaryIntegerExpression where { operator in [ 'minus' ]  } with { operator = 'squareRoot' }
+	}
+	b40  {
+		s = select one IntegerVariable
+		p = modify one IntegerVariableRef where { variable <> s } with { variable = s }
+	}
+	b41  {
+		s = select one Pin
+		p = modify one WaitFor where { pin <> s } with { pin = s }
+	}
+	b42  {
+		p = modify one WaitFor where { mode in [ 'FALLING', 'CHANGE' ]  } with { mode = 'RISING' }
+	}
+	b43  {
+		p = modify one WaitFor where { mode in [ 'RISING', 'CHANGE' ]  } with { mode = 'FALLING' }
+	}
+	b44  {
+		p = modify one WaitFor where { mode in [ 'RISING', 'FALLING' ]  } with { mode = 'CHANGE' }
+	}
+	b45  {
+		s = select one BooleanVariable
+		p = modify one BooleanVariableRef where { variable <> s } with { variable = s }
+	}
+}

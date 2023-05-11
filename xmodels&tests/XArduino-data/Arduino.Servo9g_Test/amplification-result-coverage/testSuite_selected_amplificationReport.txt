@@ -1,0 +1,34 @@
+Execution time: 1709877900
+
+Total number of model elements: 18
+Total number of coverable model elements: 10
+- initial number of covered elements: 8
+- initial test suite coverage: 80.0%
+
+- number of covered elements by improved test cases: 2
+- total number of covered elements: 10
+- final test suite coverage: 100.0%
+=> improvement in the coverage percentage: 20.0%
+--------------------------------------------------
+Yet not-covered elements after amplification: 
+--------------------------------------------------
+Initial Coverage Matrix: 
+                                         Model element name|Coverage status
+-----------------------------------------------------------+---------------
+platform:/resource/Arduino.Servo9g/servo9g.model::Project()|        Covered
+                Project::Sketch mainSketch(name=mainSketch)|        Covered
+                                 Sketch mainSketch::Block()|        Covered
+                                                Block::If()|        Covered
+                                                If::Block()|    Not_Covered
+                                 Block::Module Assignment()|    Not_Covered
+                                   If::Boolean Module Get()|        Covered
+                                                If::Block()|        Covered
+                                 Block::Module Assignment()|        Covered
+                                 Block::Module Assignment()|        Covered
+--------------------------------------------------
+Total number of test cases improving selection score: 1
+iteration 1: 1 generated test cases
+Amplified Test Case: test1_0_EventCreation_each
+New covered model element 1: If::Block()
+New covered model element 2: Block::Module Assignment()
+

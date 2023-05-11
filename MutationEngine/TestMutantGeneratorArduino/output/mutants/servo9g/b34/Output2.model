@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<arduino:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduino="http://www.obeo.fr/arduino" xsi:schemaLocation="http://www.obeo.fr/arduino ../../../model/arduino.ecore" xmi:id="_B80B4LvqEey6kqvve9HPhQ">
+  <boards xsi:type="arduino:ArduinoBoard" xmi:id="_B80B4bvqEey6kqvve9HPhQ" name="board">
+    <digitalPins xmi:id="_B80B4rvqEey6kqvve9HPhQ" name="servo">
+      <module xsi:type="arduino:MicroServo" xmi:id="_B80o8LvqEey6kqvve9HPhQ" name="servo"/>
+    </digitalPins>
+    <digitalPins xmi:id="_OYCMcLvqEey6kqvve9HPhQ" name="button_pin">
+      <module xsi:type="arduino:PushButton" xmi:id="_PsA80LvqEey6kqvve9HPhQ" name="turnOffButton"/>
+    </digitalPins>
+  </boards>
+  <sketches xmi:id="_B80o8bvqEey6kqvve9HPhQ" name="mainSketch"/>
+</arduino:Project>

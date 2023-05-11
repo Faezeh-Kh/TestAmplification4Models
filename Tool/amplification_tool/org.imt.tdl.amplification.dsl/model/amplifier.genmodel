@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/org.imt.tdl.amplification.dsl/src-gen" creationIcons="false"
+    editDirectory="/org.imt.tdl.amplification.dsl.edit/src-gen" editorDirectory="/org.imt.tdl.amplification.dsl.editor/src-gen"
+    modelPluginID="org.imt.tdl.amplification.dsl" modelName="Amplifier" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>amplifier.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Amplifier" basePackage="org.imt.tdl.amplification.dsl" disposableProviderFactory="true"
+      ecorePackage="amplifier.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="amplifier.ecore#//ApplicationPolicy">
+      <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//ApplicationPolicy/all"/>
+      <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//ApplicationPolicy/one"/>
+      <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//ApplicationPolicy/each"/>
+      <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//ApplicationPolicy/first"/>
+      <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//ApplicationPolicy/last"/>
+      <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//ApplicationPolicy/fixed"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="amplifier.ecore#//ClassSelectionMode">
+      <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//ClassSelectionMode/ALL"/>
+      <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//ClassSelectionMode/RANDOM"/>
+      <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//ClassSelectionMode/CONCRETE"/>
+      <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//ClassSelectionMode/ABSTRACT"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="amplifier.ecore#//CloningType">
+      <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//CloningType/DEEP"/>
+      <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//CloningType/SHALLOW"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="amplifier.ecore#//FeatureSelectionMode">
+      <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//FeatureSelectionMode/ALL"/>
+      <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//FeatureSelectionMode/RANDOM"/>
+      <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//FeatureSelectionMode/REFERENCE"/>
+      <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//FeatureSelectionMode/ATTRIBUTE"/>
+      <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//FeatureSelectionMode/INTEGER"/>
+      <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//FeatureSelectionMode/DOUBLE"/>
+      <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//FeatureSelectionMode/BOOLEAN"/>
+      <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//FeatureSelectionMode/STRING"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="amplifier.ecore#//ApplicationMode">
+      <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//ApplicationMode/RANDOM"/>
+      <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//ApplicationMode/EXHAUSTIVE"/>
+    </genEnums>
+    <genClasses ecoreClass="amplifier.ecore#//Configuration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute amplifier.ecore#//Configuration/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference amplifier.ecore#//Configuration/metamodel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute amplifier.ecore#//Configuration/behavioralInterface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference amplifier.ecore#//Configuration/approach"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference amplifier.ecore#//Configuration/operators"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference amplifier.ecore#//Configuration/filtering"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="amplifier.ecore#//AmplificationApproach"/>
+    <genClasses ecoreClass="amplifier.ecore#//Iterative">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute amplifier.ecore#//Iterative/numOfIterations"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="amplifier.ecore#//TestModificationOperator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute amplifier.ecore#//TestModificationOperator/policy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute amplifier.ecore#//TestModificationOperator/maxOccurrence"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="amplifier.ecore#//PrimitiveDataModifier"/>
+    <genClasses ecoreClass="amplifier.ecore#//NumericValueModifier"/>
+    <genClasses ecoreClass="amplifier.ecore#//StringValueModifier"/>
+    <genClasses ecoreClass="amplifier.ecore#//BooleanValueModifier"/>
+    <genClasses image="false" ecoreClass="amplifier.ecore#//EventSequenceModifier">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EAttribute amplifier.ecore#//EventSequenceModifier/scope"/>
+    </genClasses>
+    <genClasses ecoreClass="amplifier.ecore#//EventDuplication"/>
+    <genClasses ecoreClass="amplifier.ecore#//EventDeletion"/>
+    <genClasses ecoreClass="amplifier.ecore#//EventPermutation"/>
+    <genClasses ecoreClass="amplifier.ecore#//EventCreation"/>
+    <genClasses ecoreClass="amplifier.ecore#//EventModification"/>
+    <genClasses image="false" ecoreClass="amplifier.ecore#//TestSelectionCriterion"/>
+    <genClasses ecoreClass="amplifier.ecore#//ElementCoverage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute amplifier.ecore#//ElementCoverage/coveragePercentageThreshold"/>
+    </genClasses>
+    <genClasses ecoreClass="amplifier.ecore#//MutationAnalysis">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute amplifier.ecore#//MutationAnalysis/mutationScoreThreshold"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference amplifier.ecore#//MutationAnalysis/mutationOperatorSet"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="amplifier.ecore#//MutationOperatorSet">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute amplifier.ecore#//MutationOperatorSet/pathToMutationOperators"/>
+    </genClasses>
+    <genClasses ecoreClass="amplifier.ecore#//UserDefinedOperators"/>
+    <genClasses ecoreClass="amplifier.ecore#//GeneratedOperators">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference amplifier.ecore#//GeneratedOperators/targetOperators"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute amplifier.ecore#//GeneratedOperators/mode"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="amplifier.ecore#//MutationOperatorType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference amplifier.ecore#//MutationOperatorType/scopeSelection"/>
+    </genClasses>
+    <genClasses ecoreClass="amplifier.ecore#//CreationOperator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference amplifier.ecore#//CreationOperator/strategy"/>
+    </genClasses>
+    <genClasses ecoreClass="amplifier.ecore#//CloningOperator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute amplifier.ecore#//CloningOperator/type"/>
+    </genClasses>
+    <genClasses ecoreClass="amplifier.ecore#//RemovalOperator"/>
+    <genClasses ecoreClass="amplifier.ecore#//ModificationOperator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference amplifier.ecore#//ModificationOperator/strategy"/>
+    </genClasses>
+    <genClasses ecoreClass="amplifier.ecore#//RetypingOperator"/>
+    <genClasses image="false" ecoreClass="amplifier.ecore#//ScopeSelectionStrategy"/>
+    <genClasses ecoreClass="amplifier.ecore#//ExplicitScopeSelection">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference amplifier.ecore#//ExplicitScopeSelection/scope"/>
+    </genClasses>
+    <genClasses ecoreClass="amplifier.ecore#//ImplicitScopeSelection">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute amplifier.ecore#//ImplicitScopeSelection/mode"/>
+    </genClasses>
+    <genClasses ecoreClass="amplifier.ecore#//FeatureSelectionStrategy"/>
+    <genClasses ecoreClass="amplifier.ecore#//ExplicitFeatureSelection">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference amplifier.ecore#//ExplicitFeatureSelection/targetFeature"/>
+    </genClasses>
+    <genClasses ecoreClass="amplifier.ecore#//ImplicitFeatureSelection">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute amplifier.ecore#//ImplicitFeatureSelection/mode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute amplifier.ecore#//ImplicitFeatureSelection/intMin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute amplifier.ecore#//ImplicitFeatureSelection/intMax"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute amplifier.ecore#//ImplicitFeatureSelection/doubleMin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute amplifier.ecore#//ImplicitFeatureSelection/doubleMax"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute amplifier.ecore#//ImplicitFeatureSelection/stringMin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute amplifier.ecore#//ImplicitFeatureSelection/stringMax"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

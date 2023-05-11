@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<statemachines:CustomSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
+  <statemachine name="Event019_Test_C$behavior$1"/>
+  <operations name="op1">
+    <inParameters xsi:type="statemachines:IntegerAttribute" name="p1.1"/>
+    <inParameters xsi:type="statemachines:BooleanAttribute" name="p1.2"/>
+  </operations>
+  <operations name="op2">
+    <inParameters xsi:type="statemachines:BooleanAttribute" name="p2.1"/>
+  </operations>
+</statemachines:CustomSystem>

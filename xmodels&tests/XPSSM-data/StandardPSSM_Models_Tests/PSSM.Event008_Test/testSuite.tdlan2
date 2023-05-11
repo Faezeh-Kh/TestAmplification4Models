@@ -69,16 +69,16 @@ Package testSuite {
 	Type BooleanAttribute extends Attribute ( ) ;
 	Type IntegerAttribute extends Attribute ( ) ;
 	Type StringAttribute extends Attribute ( ) ;
-	Type Constraint with {abstract ;} ;
-	Type BooleanConstraint extends Constraint ( 
+	Type _Constraint with {abstract ;} ;
+	Type BooleanConstraint extends _Constraint ( 
 		attribute of type BooleanAttribute , 
 		value of type EBooleanObject
 	) ;
-	Type IntegerConstraint extends Constraint ( 
+	Type IntegerConstraint extends _Constraint ( 
 		attribute of type IntegerAttribute , 
 		value of type EIntegerObject
 	) ;
-	Type StringConstraint extends Constraint ( 
+	Type StringConstraint extends _Constraint ( 
 		attribute of type StringAttribute , 
 		value of type EString
 	) ;
@@ -122,7 +122,7 @@ Package testSuite {
 		container of type Region , 
 		kind of type TransitionKind , 
 		effect of type Behavior , 
-		constraint of type Constraint
+		constraint of type _Constraint
 	) ;
 	Type Trigger extends NamedElement ( 
 		eventType of type EventType

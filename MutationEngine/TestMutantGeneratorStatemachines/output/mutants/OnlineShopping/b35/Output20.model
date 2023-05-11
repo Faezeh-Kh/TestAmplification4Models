@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statemachines="http://org.imt.pssm.reactive/statemachines/" xsi:schemaLocation="http://org.imt.pssm.reactive/statemachines/ ../../../model/statemachines.ecore">
+  <statemachines:CustomSystem>
+    <statemachine name="UserAccount">
+      <regions name="mainRegion">
+        <vertice xsi:type="statemachines:Pseudostate" name="initial" outgoingTransitions="/0/@statemachine/@regions.0/@transitions.0"/>
+        <vertice xsi:type="statemachines:State" name="New" outgoingTransitions="/0/@statemachine/@regions.0/@transitions.1 /0/@statemachine/@regions.0/@transitions.2 /0/@statemachine/@regions.0/@transitions.3" incomingTransitions="/0/@statemachine/@regions.0/@transitions.0"/>
+        <vertice xsi:type="statemachines:State" name="Active" outgoingTransitions="/0/@statemachine/@regions.0/@transitions.4 /0/@statemachine/@regions.0/@transitions.5 /0/@statemachine/@regions.0/@transitions.6 /0/@statemachine/@regions.0/@transitions.7 /0/@statemachine/@regions.0/@transitions.8" incomingTransitions="/0/@statemachine/@regions.0/@transitions.2 /0/@statemachine/@regions.0/@transitions.11 /0/@statemachine/@regions.0/@transitions.12"/>
+        <vertice xsi:type="statemachines:State" name="Suspended" outgoingTransitions="/0/@statemachine/@regions.0/@transitions.9 /0/@statemachine/@regions.0/@transitions.10 /0/@statemachine/@regions.0/@transitions.11 /0/@statemachine/@regions.0/@transitions.12" incomingTransitions="/0/@statemachine/@regions.0/@transitions.3 /0/@statemachine/@regions.0/@transitions.6 /0/@statemachine/@regions.0/@transitions.7 /0/@statemachine/@regions.0/@transitions.8"/>
+        <vertice xsi:type="statemachines:State" name="Closed" outgoingTransitions="/0/@statemachine/@regions.0/@transitions.13" incomingTransitions="/0/@statemachine/@regions.0/@transitions.1 /0/@statemachine/@regions.0/@transitions.4 /0/@statemachine/@regions.0/@transitions.5 /0/@statemachine/@regions.0/@transitions.9 /0/@statemachine/@regions.0/@transitions.10"/>
+        <vertice xsi:type="statemachines:FinalState" name="final" incomingTransitions="/0/@statemachine/@regions.0/@transitions.13"/>
+        <transitions name="initial2new" source="/0/@statemachine/@regions.0/@vertice.0" target="/0/@statemachine/@regions.0/@vertice.1" kind="external">
+          <triggers name="isUniqueIdTrigger">
+            <eventType xsi:type="statemachines:CallEventType" operation="/0/@operations.0"/>
+          </triggers>
+          <effect name="create"/>
+          <constraint xsi:type="statemachines:BooleanConstraint">
+            <expression xsi:type="statemachines:BooleanUnaryExpression" operand="/0/@operations.0/@return"/>
+          </constraint>
+        </transitions>
+        <transitions name="new2closed" source="/0/@statemachine/@regions.0/@vertice.1" target="/0/@statemachine/@regions.0/@vertice.4" kind="external">
+          <triggers name="isCancelRequestedTrigger">
+            <eventType xsi:type="statemachines:CallEventType" operation="/0/@operations.3"/>
+          </triggers>
+          <effect name="cancel"/>
+          <constraint xsi:type="statemachines:BooleanConstraint">
+            <expression xsi:type="statemachines:BooleanUnaryExpression" operand="/0/@operations.3/@return"/>
+          </constraint>
+        </transitions>
+        <transitions name="new2active" source="/0/@statemachine/@regions.0/@vertice.1" target="/0/@statemachine/@regions.0/@vertice.2" kind="external">
+          <triggers name="isVerifiedTrigger">
+            <eventType xsi:type="statemachines:CallEventType" operation="/0/@operations.2"/>
+          </triggers>
+          <effect name="activate"/>
+          <constraint xsi:type="statemachines:BooleanConstraint">
+            <expression xsi:type="statemachines:BooleanUnaryExpression" operand="/0/@operations.2/@return"/>
+          </constraint>
+        </transitions>
+        <transitions name="new2suspended" source="/0/@statemachine/@regions.0/@vertice.1" target="/0/@statemachine/@regions.0/@vertice.3" kind="external">
+          <triggers name="isAccountDormantTrigger">
+            <eventType xsi:type="statemachines:CallEventType" operation="/0/@operations.1"/>
+          </triggers>
+          <effect name="suspend"/>
+          <constraint xsi:type="statemachines:BooleanConstraint">
+            <expression xsi:type="statemachines:BooleanUnaryExpression" operand="/0/@operations.1/@return"/>
+          </constraint>
+        </transitions>
+        <transitions name="active2closed" source="/0/@statemachine/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.4" kind="external">
+          <triggers name="isCancelRequestedTrigger">
+            <eventType xsi:type="statemachines:CallEventType" operation="/0/@operations.3"/>
+          </triggers>
+          <effect name="cancel"/>
+          <constraint xsi:type="statemachines:BooleanConstraint">
+            <expression xsi:type="statemachines:BooleanUnaryExpression" operand="/0/@operations.3/@return"/>
+          </constraint>
+        </transitions>
+        <transitions name="active2closed" source="/0/@statemachine/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.4" kind="external">
+          <triggers name="isPolicyVoilatedTrigger">
+            <eventType xsi:type="statemachines:CallEventType" operation="/0/@operations.4"/>
+          </triggers>
+          <effect name="cancel"/>
+          <constraint xsi:type="statemachines:BooleanConstraint">
+            <expression xsi:type="statemachines:BooleanUnaryExpression" operand="/0/@operations.4/@return"/>
+          </constraint>
+        </transitions>
+        <transitions name="active2suspended" source="/0/@statemachine/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.3" kind="external">
+          <triggers name="isSuspendRequestedTrigger">
+            <eventType xsi:type="statemachines:CallEventType" operation="/0/@operations.5"/>
+          </triggers>
+          <effect name="suspend"/>
+          <constraint xsi:type="statemachines:BooleanConstraint">
+            <expression xsi:type="statemachines:BooleanUnaryExpression" operand="/0/@operations.5/@return"/>
+          </constraint>
+        </transitions>
+        <transitions name="active2suspended" source="/0/@statemachine/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.3" kind="external">
+          <triggers name="isPasswordAlertTrigger">
+            <eventType xsi:type="statemachines:CallEventType" operation="/0/@operations.6"/>
+          </triggers>
+          <effect name="lock"/>
+          <constraint xsi:type="statemachines:BooleanConstraint">
+            <expression xsi:type="statemachines:BooleanUnaryExpression" operand="/0/@operations.6/@return"/>
+          </constraint>
+        </transitions>
+        <transitions name="active2suspended" source="/0/@statemachine/@regions.0/@vertice.2" target="/0/@statemachine/@regions.0/@vertice.3" kind="external">
+          <triggers name="isAccountDormantTrigger">
+            <eventType xsi:type="statemachines:CallEventType" operation="/0/@operations.1"/>
+          </triggers>
+          <effect name="suspend"/>
+          <constraint xsi:type="statemachines:BooleanConstraint">
+            <expression xsi:type="statemachines:BooleanUnaryExpression" operand="/0/@operations.1/@return"/>
+          </constraint>
+        </transitions>
+        <transitions name="suspended2closed" source="/0/@statemachine/@regions.0/@vertice.3" target="/0/@statemachine/@regions.0/@vertice.4" kind="external">
+          <triggers name="isCancelRequestedTrigger">
+            <eventType xsi:type="statemachines:CallEventType" operation="/0/@operations.3"/>
+          </triggers>
+          <effect name="cancel"/>
+          <constraint xsi:type="statemachines:BooleanConstraint">
+            <expression xsi:type="statemachines:BooleanUnaryExpression" operand="/0/@operations.3/@return"/>
+          </constraint>
+        </transitions>
+        <transitions name="suspended2closed" source="/0/@statemachine/@regions.0/@vertice.3" target="/0/@statemachine/@regions.0/@vertice.4" kind="external">
+          <triggers name="isPolicyVoilatedTrigger">
+            <eventType xsi:type="statemachines:CallEventType" operation="/0/@operations.4"/>
+          </triggers>
+          <effect name="cancel"/>
+          <constraint xsi:type="statemachines:BooleanConstraint">
+            <expression xsi:type="statemachines:BooleanUnaryExpression" operand="/0/@operations.4/@return"/>
+          </constraint>
+        </transitions>
+        <transitions name="suspended2active" source="/0/@statemachine/@regions.0/@vertice.3" target="/0/@statemachine/@regions.0/@vertice.2" kind="external">
+          <triggers name="isResumeRequestedTrigger">
+            <eventType xsi:type="statemachines:CallEventType" operation="/0/@operations.7"/>
+          </triggers>
+          <effect name="resume"/>
+          <constraint xsi:type="statemachines:BooleanConstraint"/>
+        </transitions>
+        <transitions name="suspended2active" source="/0/@statemachine/@regions.0/@vertice.3" target="/0/@statemachine/@regions.0/@vertice.2" kind="external">
+          <triggers name="isLockExpiredTrigger">
+            <eventType xsi:type="statemachines:CallEventType" operation="/0/@operations.8"/>
+          </triggers>
+          <effect name="unlock"/>
+          <constraint xsi:type="statemachines:BooleanConstraint">
+            <expression xsi:type="statemachines:BooleanUnaryExpression" operand="/0/@operations.8/@return"/>
+          </constraint>
+        </transitions>
+        <transitions name="closed2final" source="/0/@statemachine/@regions.0/@vertice.4" target="/0/@statemachine/@regions.0/@vertice.5" kind="external"/>
+      </regions>
+    </statemachine>
+    <operations name="isUniqueId()">
+      <return xsi:type="statemachines:BooleanAttribute" name="isUniqueId"/>
+    </operations>
+    <operations name="isAccountDormant()">
+      <return xsi:type="statemachines:BooleanAttribute" name="isAccountDormant"/>
+    </operations>
+    <operations name="isVerified()">
+      <return xsi:type="statemachines:BooleanAttribute" name="isVerified"/>
+    </operations>
+    <operations name="isCancelRequested()">
+      <return xsi:type="statemachines:BooleanAttribute" name="isCancelRequested"/>
+    </operations>
+    <operations name="isPolicyVoilated()">
+      <return xsi:type="statemachines:BooleanAttribute" name="isPolicyVoilated"/>
+    </operations>
+    <operations name="isSuspendRequested()">
+      <return xsi:type="statemachines:BooleanAttribute" name="isSuspendRequested"/>
+    </operations>
+    <operations name="isPasswordAlert()">
+      <return xsi:type="statemachines:BooleanAttribute" name="isPasswordAlert"/>
+    </operations>
+    <operations name="isResumeRequested()">
+      <return xsi:type="statemachines:BooleanAttribute" name="isResumeRequested"/>
+    </operations>
+    <operations name="isLockExpired()">
+      <return xsi:type="statemachines:BooleanAttribute" name="isLockExpired"/>
+    </operations>
+  </statemachines:CustomSystem>
+  <statemachines:BooleanConstraint>
+    <expression xsi:type="statemachines:BooleanUnaryExpression" operand="/0/@operations.7/@return"/>
+  </statemachines:BooleanConstraint>
+</xmi:XMI>
