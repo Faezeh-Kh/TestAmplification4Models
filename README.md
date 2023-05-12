@@ -17,8 +17,14 @@ In this work, we propose an automated and generic process for amplifying the tes
 We also propose a textual DSL to control and configure the test amplification process.
 Moreover, to facilitate the application of mutation analysis, we propose an automatic approach for the generation of mutation operators for a given xDSL.
 
+The proposed test amplification framework for xDSLs:
 <p align="center">
-    <img src="Screenshots/Overview.jpg"  width="40%" height="40%">
+    <img src="Screenshots/Overview.jpg"  width="45%" height="45%">
+</p>
+
+The proposed test amplification process:
+<p align="center">
+    <img src="Screenshots/Process.png"  width="40%" height="40%">
 </p>
 
 This repository contains our test amplification tool built atop the Eclipse GEMOC Studio.
