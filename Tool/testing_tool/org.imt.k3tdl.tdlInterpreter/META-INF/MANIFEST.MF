@@ -17,7 +17,7 @@ Require-Bundle: fr.inria.diverse.k3.al.annotationprocessor.plugin;bundle-version
  org.eclipse.gemoc.executionframework.engine;bundle-version="4.0.0",
  org.eclipse.gemoc.dsl;bundle-version="3.3.0",
  org.eclipse.gemoc.executionframework.behavioralinterface;bundle-version="1.0.0",
- org.etsi.mts.tdl.model;bundle-version="1.4.0",
+ org.etsi.mts.tdl.model,
  org.imt.tdl.testResult;bundle-version="1.0.0",
  org.imt.tdl.configuration;bundle-version="1.0.0",
  org.imt.tdl.utilities;bundle-version="1.0.0",

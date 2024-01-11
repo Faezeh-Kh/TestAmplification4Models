@@ -8,7 +8,7 @@ Automatic-Module-Name: org.imt.tdl.utilities
 Export-Package: org.imt.tdl.utilities
 Require-Bundle: org.eclipse.core.resources;bundle-version="3.17.0",
  org.eclipse.core.runtime;bundle-version="3.25.0",
- org.etsi.mts.tdl.model;bundle-version="1.4.0",
+ org.etsi.mts.tdl.model,
  org.eclipse.gemoc.dsl.model,
  fr.inria.diverse.k3.al.annotationprocessor.plugin,
  org.eclipse.emf.ecoretools.ale.core

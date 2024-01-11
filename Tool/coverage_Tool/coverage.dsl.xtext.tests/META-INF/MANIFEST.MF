@@ -8,7 +8,7 @@ Bundle-SymbolicName: coverage.dsl.xtext.tests; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: coverage.dsl.xtext,
  coverage.computation,
- org.junit.jupiter.api;bundle-version="[5.1.0,6.0.0)",
+ junit-jupiter-api,
  org.eclipse.xtext.testing,
  org.eclipse.xtext.xbase.testing,
  org.eclipse.xtext.xbase.lib;bundle-version="2.14.0"

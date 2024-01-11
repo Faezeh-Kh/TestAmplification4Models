@@ -6,7 +6,7 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Automatic-Module-Name: org.imt.tdl.dataMutation
 Require-Bundle: org.eclipse.xtend.lib;bundle-version="2.25.0",
- org.etsi.mts.tdl.model;bundle-version="1.4.0",
+ org.etsi.mts.tdl.model,
  org.imt.k3tdl.tdlInterpreter;bundle-version="1.0.0",
  org.imt.tdl.testResult,
  org.imt.tdl.configuration,

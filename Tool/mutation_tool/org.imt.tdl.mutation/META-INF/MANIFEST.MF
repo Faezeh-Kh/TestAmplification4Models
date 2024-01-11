@@ -6,7 +6,7 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Automatic-Module-Name: org.imt.tdl.mutation
 Export-Package: org.imt.tdl.mutation
-Require-Bundle: org.etsi.mts.tdl.model;bundle-version="1.4.0",
+Require-Bundle: org.etsi.mts.tdl.model,
  org.imt.tdl.testResult;bundle-version="1.0.0",
  org.eclipse.core.resources,
  com.google.inject;bundle-version="3.0.0",

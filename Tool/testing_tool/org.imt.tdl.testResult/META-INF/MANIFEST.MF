@@ -6,7 +6,7 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Automatic-Module-Name: org.imt.tdl.testResult
 Export-Package: org.imt.tdl.testResult,
  org.imt.tdl.TDLTestReport,
@@ -14,7 +14,7 @@ Export-Package: org.imt.tdl.testResult,
  org.imt.tdl.TDLTestReport.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.etsi.mts.tdl.model;bundle-version="1.4.0";visibility:=reexport,
+ org.etsi.mts.tdl.model;visibility:=reexport,
  org.eclipse.emf.edit,
  org.eclipse.emf.ecore.edit,
  org.eclipse.emf.common,

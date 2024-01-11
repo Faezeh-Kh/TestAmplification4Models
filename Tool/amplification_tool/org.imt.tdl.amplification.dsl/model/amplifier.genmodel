@@ -18,6 +18,7 @@
       <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//ApplicationPolicy/last"/>
       <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//ApplicationPolicy/fixed"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="amplifier.ecore#//OperatorCoverage"/>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="amplifier.ecore#//ClassSelectionMode">
       <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//ClassSelectionMode/ALL"/>
       <genEnumLiterals ecoreEnumLiteral="amplifier.ecore#//ClassSelectionMode/RANDOM"/>

@@ -8,12 +8,13 @@ Bundle-SymbolicName: coverage.dsl.xtext.ui.tests; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: coverage.dsl.xtext.ui,
  coverage.computation,
- org.junit.jupiter.api;bundle-version="[5.1.0,6.0.0)",
+ junit-jupiter-api,
  org.eclipse.xtext.testing,
  org.eclipse.xtext.xbase.testing,
  org.eclipse.xtext.xbase.junit,
  org.eclipse.core.runtime,
  org.eclipse.xtext.ui.testing,
- org.eclipse.ui.workbench;resolution:=optional
+ org.eclipse.ui.workbench;resolution:=optional,
+ org.eclipse.xtext.xbase.ui.testing
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: coverage.dsl.xtext.ui.tests;x-internal=true
